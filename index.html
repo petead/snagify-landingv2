@@ -1186,6 +1186,187 @@ footer { background: var(--ink); padding: 80px 48px 40px; color: rgba(255,255,25
   .private-card-stack { height: auto; }
   .priv-float-badge { position: relative; bottom: auto; right: auto; margin-top: 16px; }
 }
+
+/* ══ SAMPLE REPORT ══ */
+.sample-section {
+  padding: 120px 0;
+  background: var(--cream);
+}
+.sample-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.sample-checklist {
+  display: flex; flex-direction: column;
+  gap: 10px; margin: 28px 0;
+}
+.sample-check-item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 14px; font-weight: 500; color: var(--ink);
+}
+.sample-check-item svg {
+  width: 16px; height: 16px;
+  color: #4A8A00; flex-shrink: 0;
+}
+.sample-cta {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+.sample-cta-note {
+  font-size: 13px; color: var(--ink-60);
+}
+
+/* PDF Mockup */
+.pdf-mockup {
+  background: var(--white);
+  border: 1px solid var(--ink-25);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(14,14,16,.12);
+  position: relative;
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+.pdf-mockup:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 48px 100px rgba(14,14,16,.16);
+}
+.pdf-topbar {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 16px;
+  background: var(--cream-2);
+  border-bottom: 1px solid var(--ink-25);
+}
+.pdf-topbar-dots {
+  display: flex; gap: 5px;
+}
+.pdf-topbar-dots span {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--ink-25);
+}
+.pdf-topbar-dots span:first-child { background: #FF5F56; }
+.pdf-topbar-dots span:nth-child(2) { background: #FFBD2E; }
+.pdf-topbar-dots span:last-child { background: #27C93F; }
+.pdf-topbar-title {
+  flex: 1; font-size: 11px; color: var(--ink-60);
+  text-align: center; font-weight: 500;
+}
+.pdf-topbar-action {
+  color: var(--ink-60); cursor: pointer;
+}
+.pdf-body { padding: 20px; }
+.pdf-header {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--purple);
+}
+.pdf-logo-area { display: flex; align-items: center; gap: 10px; }
+.pdf-logo-box {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: var(--purple-bg);
+}
+.pdf-report-type {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800; font-size: 11px;
+  letter-spacing: 2px; color: var(--purple);
+}
+.pdf-line {
+  height: 6px; background: var(--ink-25); border-radius: 4px;
+}
+.w100 { width: 100%; }
+.w90  { width: 90%; }
+.w75  { width: 75%; }
+.w60  { width: 60%; }
+.w40  { width: 40%; }
+.pdf-prop-block {
+  display: flex; flex-direction: column; gap: 6px;
+  padding: 12px;
+  background: var(--cream);
+  border-radius: 10px;
+  margin-bottom: 14px;
+}
+.pdf-prop-row {
+  display: flex; gap: 8px; font-size: 11px;
+}
+.pdf-prop-label {
+  color: var(--ink-60); font-weight: 600;
+  text-transform: uppercase; letter-spacing: 1px;
+  width: 56px; flex-shrink: 0;
+}
+.pdf-prop-val { color: var(--ink); font-weight: 500; }
+.pdf-ai-block {
+  padding: 12px;
+  background: var(--purple-bg);
+  border-radius: 10px;
+  margin-bottom: 14px;
+}
+.pdf-ai-label {
+  font-size: 9px; text-transform: uppercase;
+  letter-spacing: 2px; color: var(--purple);
+  font-weight: 700; margin-bottom: 8px;
+}
+.pdf-rooms {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 8px; margin-bottom: 16px;
+}
+.pdf-room-item {
+  border: 1px solid var(--ink-25); border-radius: 8px; overflow: hidden;
+}
+.pdf-room-thumb { height: 44px; }
+.pdf-room-info { padding: 6px 8px; }
+.pdf-room-name { font-size: 10px; font-weight: 600; margin-bottom: 4px; }
+.pdf-room-badge {
+  font-size: 9px; font-weight: 700;
+  padding: 2px 6px; border-radius: 999px;
+  display: inline-block;
+}
+.pdf-sig-row {
+  display: flex; gap: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--ink-25);
+}
+.pdf-sig { flex: 1; }
+.pdf-sig-line {
+  height: 1px; background: var(--ink-25);
+  margin-bottom: 6px;
+  position: relative;
+}
+.pdf-sig-line::before {
+  content: '';
+  position: absolute;
+  left: 0; top: -8px;
+  width: 60%;
+  height: 8px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16'%3E%3Cpath d='M2 12 C20 4, 36 14, 54 8 C68 3, 78 13, 96 7 C110 3, 116 10, 120 6' stroke='%239A88FD' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat left center;
+  background-size: contain;
+}
+.pdf-sig-label {
+  font-size: 9px; text-transform: uppercase;
+  letter-spacing: 1.5px; color: var(--ink-60); font-weight: 600;
+}
+
+/* Hover overlay */
+.pdf-hover-overlay {
+  position: absolute; inset: 0;
+  background: rgba(14,14,16,.6);
+  backdrop-filter: blur(4px);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 10px;
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700; font-size: 15px;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.pdf-mockup:hover .pdf-hover-overlay { opacity: 1; }
+
+@media(max-width: 1100px) {
+  .sample-grid { grid-template-columns: 1fr; gap: 60px; }
+}
 </style>
 </head>
 <body>
@@ -1673,6 +1854,160 @@ footer { background: var(--ink); padding: 80px 48px 40px; color: rgba(255,255,25
         </div>
 
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══ SAMPLE REPORT ══╗ -->
+<section class="sample-section" id="sample-report">
+  <div class="section-wrap">
+
+    <div class="sample-grid">
+
+      <!-- ── Left: content ── -->
+      <div class="sample-left">
+        <div class="section-eyebrow reveal">Sample Report</div>
+        <h2 class="section-title reveal reveal-delay-1">See exactly what<br>your clients receive.</h2>
+        <p class="section-sub reveal reveal-delay-2">A professional, branded PDF — timestamped, photo-documented, and signed by both parties. Ready to submit to any agency, landlord, or the RDC.</p>
+
+        <div class="sample-checklist reveal reveal-delay-2">
+          <div class="sample-check-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Property details & inspection date
+          </div>
+          <div class="sample-check-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Room-by-room condition with photos
+          </div>
+          <div class="sample-check-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            AI-generated executive summary
+          </div>
+          <div class="sample-check-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Damage tags with descriptions
+          </div>
+          <div class="sample-check-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Key handover record
+          </div>
+          <div class="sample-check-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Digital signatures — landlord & tenant
+          </div>
+        </div>
+
+        <div class="sample-cta reveal reveal-delay-3">
+          <a href="/sample-report.pdf" target="_blank" class="btn-ink">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+            Download Sample Report
+          </a>
+          <span class="sample-cta-note">PDF · Free · No sign-up required</span>
+        </div>
+      </div>
+
+      <!-- ── Right: PDF mockup ── -->
+      <div class="sample-right reveal reveal-delay-2">
+        <div class="pdf-mockup">
+
+          <!-- PDF top bar -->
+          <div class="pdf-topbar">
+            <div class="pdf-topbar-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="pdf-topbar-title">Inspection_Report_Marina_1204.pdf</div>
+            <div class="pdf-topbar-action">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </div>
+          </div>
+
+          <!-- PDF content preview -->
+          <div class="pdf-body">
+
+            <!-- Header -->
+            <div class="pdf-header">
+              <div class="pdf-logo-area">
+                <div class="pdf-logo-box"></div>
+                <div>
+                  <div class="pdf-line w60"></div>
+                  <div class="pdf-line w40" style="margin-top:4px"></div>
+                </div>
+              </div>
+              <div class="pdf-report-type">INSPECTION REPORT</div>
+            </div>
+
+            <!-- Property info -->
+            <div class="pdf-prop-block">
+              <div class="pdf-prop-row">
+                <span class="pdf-prop-label">Property</span>
+                <span class="pdf-prop-val">Marina Heights, Unit 1204 — JBR, Dubai</span>
+              </div>
+              <div class="pdf-prop-row">
+                <span class="pdf-prop-label">Type</span>
+                <span class="pdf-prop-val">Move-In Inspection</span>
+              </div>
+              <div class="pdf-prop-row">
+                <span class="pdf-prop-label">Date</span>
+                <span class="pdf-prop-val">March 25, 2025 · 10:42 AM</span>
+              </div>
+            </div>
+
+            <!-- AI Summary block -->
+            <div class="pdf-ai-block">
+              <div class="pdf-ai-label">AI Executive Summary</div>
+              <div class="pdf-line w100"></div>
+              <div class="pdf-line w90" style="margin-top:5px"></div>
+              <div class="pdf-line w75" style="margin-top:5px"></div>
+            </div>
+
+            <!-- Room grid -->
+            <div class="pdf-rooms">
+              <div class="pdf-room-item">
+                <div class="pdf-room-thumb" style="background:linear-gradient(135deg,var(--purple-bg),var(--cream))"></div>
+                <div class="pdf-room-info">
+                  <div class="pdf-room-name">Living Room</div>
+                  <div class="pdf-room-badge" style="background:var(--green-bg);color:#4A8A00">Good</div>
+                </div>
+              </div>
+              <div class="pdf-room-item">
+                <div class="pdf-room-thumb" style="background:linear-gradient(135deg,var(--jasmine-bg),var(--cream))"></div>
+                <div class="pdf-room-info">
+                  <div class="pdf-room-name">Kitchen</div>
+                  <div class="pdf-room-badge" style="background:var(--jasmine-bg);color:#8A6000">Fair</div>
+                </div>
+              </div>
+              <div class="pdf-room-item">
+                <div class="pdf-room-thumb" style="background:linear-gradient(135deg,var(--green-bg),var(--cream))"></div>
+                <div class="pdf-room-info">
+                  <div class="pdf-room-name">Bedroom</div>
+                  <div class="pdf-room-badge" style="background:var(--green-bg);color:#4A8A00">Good</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Signature row -->
+            <div class="pdf-sig-row">
+              <div class="pdf-sig">
+                <div class="pdf-sig-line"></div>
+                <div class="pdf-sig-label">Landlord</div>
+              </div>
+              <div class="pdf-sig">
+                <div class="pdf-sig-line"></div>
+                <div class="pdf-sig-label">Tenant</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Download overlay on hover -->
+          <a href="/sample-report.pdf" target="_blank" class="pdf-hover-overlay">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Open Sample Report
+          </a>
+
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
