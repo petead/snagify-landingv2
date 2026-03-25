@@ -2325,13 +2325,14 @@ footer {
 }
 .private-deposit-hero {
   position: relative;
-  padding: 48px 40px;
+  padding: 48px 40px 40px;
   background: var(--white);
   border-radius: 32px;
   border: 1px solid var(--ink-25);
   box-shadow: 0 24px 60px rgba(14,14,16,.07);
-  overflow: hidden;
+  overflow: visible;
   text-align: center;
+  margin-top: 20px;
 }
 /* Grand AED watermark en fond */
 .private-deposit-hero::before {
@@ -2413,9 +2414,10 @@ footer {
 /* Free badge flotant sur la card */
 .private-free-float {
   position: absolute;
-  top: -14px; right: 24px;
+  top: -16px; left: 50%;
+  transform: translateX(-50%);
   display: inline-flex; align-items: center; gap: 6px;
-  padding: 7px 16px;
+  padding: 7px 18px;
   background: var(--green);
   border-radius: 999px;
   font-family: 'Poppins', sans-serif;
@@ -2423,6 +2425,8 @@ footer {
   letter-spacing: 1.5px; text-transform: uppercase;
   color: var(--ink);
   box-shadow: 0 8px 20px rgba(202,254,135,.35);
+  white-space: nowrap;
+  z-index: 10;
 }
 
 /* Features list privé : icônes check vert, plus aérées */
@@ -3087,7 +3091,7 @@ footer {
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
             Check-in free
           </div>
-          <div class="private-deposit-amount">AED 8,500</div>
+          <div class="private-deposit-amount">AED 12,000</div>
           <div class="private-deposit-label">average deposit secured per inspection</div>
           <div class="private-protected-badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -3095,7 +3099,7 @@ footer {
           </div>
           <div class="private-card-strip">
             <div class="private-strip-stat">
-              <span class="private-strip-num">18 min</span>
+              <span class="private-strip-num">20 min</span>
               <span class="private-strip-lbl">avg. check-in</span>
             </div>
             <div class="private-strip-sep"></div>
@@ -3142,7 +3146,7 @@ footer {
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
             <div>
-              <h4>Legally binding reports</h4>
+              <h4>Court-accepted reports</h4>
               <p>If a dispute reaches court, your Snagify report stands as admissible evidence.</p>
             </div>
           </div>
@@ -3152,17 +3156,17 @@ footer {
             </div>
             <div>
               <h4>Done from your phone</h4>
-              <p>No training needed. Walk through each room, snap photos, sign — done.</p>
+              <p>No training needed. Walk through each room, snap photos, sign and done.</p>
             </div>
           </div>
         </div>
 
         <div class="private-cta reveal reveal-delay-3">
-          <a href="#pricing" class="btn-ink">
+          <a href="#pricing" class="btn-ink" onclick="if(typeof switchPricing==='function'){switchPricing('private')}">
             See Credit Packs
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <span class="private-cta-note">First check-in free — no credit card</span>
+          <span class="private-cta-note">Sign up for free — no credit card</span>
         </div>
 
       </div>
