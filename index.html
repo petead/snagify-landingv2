@@ -451,6 +451,131 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
 .fix-icon svg { width: 15px; height: 15px; color: var(--green); }
 .prob-big-num { position: absolute; bottom: -20px; right: 20px; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 200px; line-height: 1; letter-spacing: -12px; opacity: .04; pointer-events: none; }
 
+/* ── Pain item X marker ── */
+.pain-item {
+  position: relative;
+}
+.pain-x {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,82,82,.35);
+  flex-shrink: 0;
+}
+
+/* ── Pain counter ── */
+.pain-counter {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 14px 16px;
+  background: rgba(255,82,82,.06);
+  border: 1px solid rgba(255,82,82,.12);
+  border-radius: 12px;
+}
+.pain-counter-num {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -1px;
+  color: var(--red);
+}
+.pain-counter-lbl {
+  font-size: 13px;
+  color: var(--ink-60);
+}
+
+/* ── VS divider ── */
+.prob-vs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  width: 48px;
+  flex-shrink: 0;
+}
+.prob-vs-line {
+  flex: 1;
+  width: 1px;
+  background: var(--ink-25);
+  min-height: 60px;
+}
+.prob-vs-badge {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--ink-60);
+  border: 1.5px solid var(--ink-25);
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: var(--cream);
+  white-space: nowrap;
+}
+
+/* ── Social proof inside right col ── */
+.fix-proof {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 14px 16px;
+  background: rgba(202,254,135,.08);
+  border: 1px solid rgba(202,254,135,.2);
+  border-radius: 12px;
+  font-size: 13px;
+  color: rgba(255,255,255,.65);
+}
+.fix-proof strong { color: var(--green); }
+.fix-proof-avatars {
+  display: flex;
+  flex-shrink: 0;
+}
+.fpa {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  font-weight: 700; font-size: 11px;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid var(--ink);
+  margin-left: -6px;
+}
+.fpa:first-child { margin-left: 0; }
+
+/* ── Bottom CTA ── */
+.problem-cta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 56px;
+  padding-top: 48px;
+  border-top: 1px solid var(--ink-25);
+}
+.problem-cta-sub {
+  font-size: 13px;
+  color: var(--ink-60);
+}
+
+/* ── Rework problem-grid to include VS column ── */
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 48px 1fr;
+  gap: 0 16px;
+  align-items: stretch;
+}
+
+/* ── Responsive: hide VS on mobile ── */
+@media(max-width: 768px) {
+  .problem-grid {
+    grid-template-columns: 1fr;
+  }
+  .prob-vs { display: none; }
+  .problem-cta { flex-direction: column; text-align: center; }
+}
+
+
 /* ══════════════════════════════════
    FEATURES BENTO
 ══════════════════════════════════ */
@@ -846,46 +971,73 @@ footer { background: var(--ink); padding: 80px 48px 40px; color: rgba(255,255,25
 <!-- ╔══ PROBLEM ══╗ -->
 <section class="problem">
   <div class="section-wrap">
+
     <div class="section-header reveal">
       <div class="section-eyebrow">The Problem</div>
       <h2 class="section-title">Inspections are stuck<br><em>in 2010.</em></h2>
     </div>
+
     <div class="problem-grid">
+
+      <!-- ── LEFT: pain ── -->
       <div class="prob-col prob-before reveal">
-        <div class="prob-col-label lbl-before"><span class="lbl-dot"></span>Without Snagify</div>
+        <div class="prob-col-label lbl-before">
+          <span class="lbl-dot"></span>Without Snagify
+        </div>
         <div class="pain-list">
           <div class="pain-item">
             <div class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
             Paper checklists no one can read
+            <span class="pain-x">✕</span>
           </div>
           <div class="pain-item">
             <div class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
             Photos lost in WhatsApp threads
+            <span class="pain-x">✕</span>
           </div>
           <div class="pain-item">
             <div class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
             Endless back-and-forth over damage
+            <span class="pain-x">✕</span>
           </div>
           <div class="pain-item">
             <div class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div>
             Disputes with no evidence trail
+            <span class="pain-x">✕</span>
           </div>
           <div class="pain-item">
             <div class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
             2+ hours per inspection, every time
+            <span class="pain-x">✕</span>
           </div>
           <div class="pain-item">
             <div class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
             Stacks of paperwork, zero compliance
+            <span class="pain-x">✕</span>
           </div>
         </div>
-        <div class="prob-big-num">✗</div>
+        <!-- Time wasted counter -->
+        <div class="pain-counter">
+          <span class="pain-counter-num">~120 min</span>
+          <span class="pain-counter-lbl">wasted per inspection on average</span>
+        </div>
       </div>
+
+      <!-- ── VS divider ── -->
+      <div class="prob-vs">
+        <div class="prob-vs-line"></div>
+        <div class="prob-vs-badge">VS</div>
+        <div class="prob-vs-line"></div>
+      </div>
+
+      <!-- ── RIGHT: fix ── -->
       <div class="prob-col prob-after reveal reveal-delay-2">
-        <div class="prob-col-label lbl-after"><span class="lbl-dot"></span>With Snagify</div>
+        <div class="prob-col-label lbl-after">
+          <span class="lbl-dot"></span>With Snagify
+        </div>
         <div class="fix-list">
           <div class="fix-item">
-            <div class="fix-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+            <div class="fix-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
             Fully digital, room-by-room flow
           </div>
           <div class="fix-item">
@@ -906,12 +1058,31 @@ footer { background: var(--ink); padding: 80px 48px 40px; color: rgba(255,255,25
           </div>
           <div class="fix-item">
             <div class="fix-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-            RERA & DLD compliant out of the box
+            RERA &amp; DLD compliant out of the box
           </div>
         </div>
-        <div class="prob-big-num" style="color:var(--green)">✓</div>
+        <!-- Social proof badge -->
+        <div class="fix-proof">
+          <div class="fix-proof-avatars">
+            <div class="fpa" style="background:var(--purple-bg);color:var(--purple)">S</div>
+            <div class="fpa" style="background:var(--jasmine-bg);color:#8A6000">A</div>
+            <div class="fpa" style="background:var(--green-bg);color:#4A8A00">L</div>
+          </div>
+          <span>Trusted by <strong>2,400+</strong> property professionals in Dubai</span>
+        </div>
       </div>
+
+    </div><!-- /.problem-grid -->
+
+    <!-- ── Bottom CTA ── -->
+    <div class="problem-cta reveal">
+      <a href="#" class="btn-ink">
+        Start free — no credit card needed
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <span class="problem-cta-sub">Takes 2 minutes to set up</span>
     </div>
+
   </div>
 </section>
 
