@@ -1152,95 +1152,162 @@ footer {
 
 /* ══ PAIN FINANCIÈRE ══ */
 .pain-section {
-  padding: 100px 0;
+  padding: 140px 0 160px;
   background: var(--ink);
   position: relative;
   overflow: hidden;
 }
+
+/* Fond dramatique : rouge glow + grain */
+.pain-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 50%, rgba(255,82,82,.07) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 75% 40%, rgba(154,136,253,.06) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 30% at 50% 100%, rgba(255,82,82,.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Ligne décorative horizontale centrale */
 .pain-section::after {
   content: '';
   position: absolute;
-  bottom: -1px; left: 0; right: 0;
-  height: 80px;
-  background: linear-gradient(to bottom, transparent, var(--cream));
+  left: 0; right: 0;
+  top: 50%;
+  height: 1px;
+  z-index: 1;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,82,82,.08) 20%, rgba(255,82,82,.15) 50%, rgba(255,82,82,.08) 80%, transparent 100%);
   pointer-events: none;
-  z-index: 3;
 }
-.pain-section::before {
-  content: '';
+
+/* Watermark AED géant en fond */
+.pain-watermark {
   position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 15% 50%, rgba(154,136,253,.08), transparent 50%),
-    radial-gradient(circle at 85% 50%, rgba(202,254,135,.05), transparent 50%);
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: clamp(160px, 20vw, 280px);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,82,82,.06);
+  letter-spacing: -8px;
   pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 0;
 }
-.pain-grid {
-  display: grid;
-  grid-template-columns: 1fr 1px 1fr;
-  gap: 0 64px;
-  align-items: center;
+
+.pain-inner {
   position: relative;
   z-index: 2;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 48px;
 }
-.pain-divider {
-  width: 1px;
-  height: 180px;
-  background: rgba(255,255,255,.08);
-  justify-self: center;
+
+/* Top : chiffre centré seul — il respire */
+.pain-top {
+  text-align: center;
+  padding-bottom: 80px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  margin-bottom: 80px;
 }
-.pain-big {
-  text-align: right;
-  padding-right: 16px;
-}
+
 .pain-big-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 3px;
-  color: rgba(255,255,255,.35);
+  letter-spacing: 3.5px;
+  color: rgba(255,255,255,.3);
   font-weight: 500;
-  margin-bottom: 12px;
+  margin-bottom: 24px;
 }
+.pain-big-label::before,
+.pain-big-label::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: rgba(255,255,255,.15);
+}
+
+/* Le chiffre — le vrai star */
 .pain-big-num {
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
-  font-size: clamp(48px, 5.5vw, 76px);
-  letter-spacing: -4px;
-  line-height: 1;
+  font-size: clamp(72px, 10vw, 140px);
+  letter-spacing: -6px;
+  line-height: .9;
   color: var(--white);
-  margin-bottom: 10px;
-  text-shadow: 0 0 80px rgba(255,82,82,.2), 0 0 160px rgba(255,82,82,.08);
+  margin-bottom: 20px;
+  text-shadow:
+    0 0 60px rgba(255,82,82,.25),
+    0 0 120px rgba(255,82,82,.12),
+    0 0 200px rgba(255,82,82,.06);
+  position: relative;
+  display: inline-block;
 }
+
+/* Soulignement rouge sous le chiffre */
+.pain-big-num::after {
+  content: '';
+  position: absolute;
+  bottom: -8px; left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+  border-radius: 2px;
+  opacity: .5;
+}
+
 .pain-big-sub {
-  font-size: 15px;
-  color: rgba(255,255,255,.45);
+  font-size: 18px;
+  color: rgba(255,255,255,.4);
   line-height: 1.5;
-  max-width: 280px;
-  margin-left: auto;
+  max-width: 400px;
+  margin: 24px auto 0;
   font-style: italic;
 }
-.pain-text {
-  padding-left: 16px;
+
+/* Bottom : texte en deux colonnes */
+.pain-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
 }
+
 .pain-headline {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  font-size: clamp(18px, 2vw, 22px);
-  line-height: 1.4;
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.35;
   letter-spacing: -.5px;
   color: var(--white);
   margin-bottom: 16px;
 }
-.pain-headline strong {
-  color: var(--red);
-}
+.pain-headline strong { color: var(--red); }
+
 .pain-body {
   font-size: 15px;
-  color: rgba(255,255,255,.55);
-  line-height: 1.75;
-  margin-bottom: 24px;
-  max-width: 440px;
+  color: rgba(255,255,255,.5);
+  line-height: 1.8;
+  margin-bottom: 0;
 }
+
+/* Colonne droite : pills + stat mini */
+.pain-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .pain-pills {
   display: flex;
   flex-wrap: wrap;
@@ -1250,24 +1317,52 @@ footer {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 12px;
-  background: rgba(202,254,135,.08);
-  border: 1px solid rgba(202,254,135,.15);
+  padding: 7px 14px;
+  background: rgba(202,254,135,.07);
+  border: 1px solid rgba(202,254,135,.14);
   border-radius: 999px;
   font-size: 12px;
   font-weight: 600;
   color: var(--green);
+  transition: background .25s, border-color .25s;
+}
+.pain-pill:hover {
+  background: rgba(202,254,135,.12);
+  border-color: rgba(202,254,135,.25);
 }
 .pain-pill svg { flex-shrink: 0; }
 
+/* Stat mini : ~120min wasted */
+.pain-stat-mini {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: rgba(255,82,82,.05);
+  border: 1px solid rgba(255,82,82,.1);
+  border-radius: 16px;
+}
+.pain-stat-num {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: -1.5px;
+  color: var(--red);
+  flex-shrink: 0;
+  line-height: 1;
+}
+.pain-stat-lbl {
+  font-size: 13px;
+  color: rgba(255,255,255,.4);
+  line-height: 1.4;
+}
+
 @media(max-width: 768px) {
-  .pain-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .pain-divider { display: none; }
-  .pain-big { text-align: left; padding-right: 0; }
-  .pain-big-sub { margin-left: 0; }
+  .pain-section { padding: 100px 0 120px; }
+  .pain-inner { padding: 0 20px; }
+  .pain-top { padding-bottom: 56px; margin-bottom: 56px; }
+  .pain-grid { grid-template-columns: 1fr; gap: 40px; }
+  .pain-watermark { display: none; }
 }
 
 /* ══ FOR PROS ══ */
@@ -2066,24 +2161,30 @@ footer {
 
 <!-- ╔══ PAIN FINANCIÈRE ══╗ -->
 <section class="pain-section">
-  <div class="section-wrap">
 
+  <!-- Watermark fond -->
+  <div class="pain-watermark">AED</div>
+
+  <div class="pain-inner">
+
+    <!-- ── Chiffre — centré, il respire ── -->
+    <div class="pain-top reveal">
+      <div class="pain-big-label">
+        Average deposit in Dubai
+      </div>
+      <div class="pain-big-num">AED 12,000</div>
+      <p class="pain-big-sub">gone — because there was no signed inspection report.</p>
+    </div>
+
+    <!-- ── Deux colonnes d'explication ── -->
     <div class="pain-grid">
 
-      <!-- ── Chiffre choc ── -->
-      <div class="pain-big reveal">
-        <div class="pain-big-label">Average deposit in Dubai</div>
-        <div class="pain-big-num">AED 12,000</div>
-        <div class="pain-big-sub">gone — because there was no inspection report.</div>
+      <div class="reveal">
+        <p class="pain-headline">Without a signed, timestamped inspection report, the <strong>RDC rules against you.</strong> Every time.</p>
+        <p class="pain-body">Dubai's Rental Dispute Center requires documented proof of property condition at both move-in and move-out. A WhatsApp photo and a handwritten checklist won't hold up. A Snagify report will.</p>
       </div>
 
-      <!-- ── Divider ── -->
-      <div class="pain-divider"></div>
-
-      <!-- ── Explication ── -->
-      <div class="pain-text reveal reveal-delay-1">
-        <p class="pain-headline">Without a signed, timestamped inspection report, the <strong>RDC rules against you.</strong> Every time.</p>
-        <p class="pain-body">Dubai's Rental Dispute Center requires documented proof of property condition at both move-in and move-out. A WhatsApp photo and a paper checklist won't hold up. A Snagify report will.</p>
+      <div class="pain-right reveal reveal-delay-1">
         <div class="pain-pills">
           <span class="pain-pill">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -2101,6 +2202,15 @@ footer {
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
             Photo evidence included
           </span>
+          <span class="pain-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            SHA-256 verified
+          </span>
+        </div>
+
+        <div class="pain-stat-mini">
+          <span class="pain-stat-num">~2h</span>
+          <span class="pain-stat-lbl">wasted per manual inspection on average — time that compounds across every property you manage.</span>
         </div>
       </div>
 
