@@ -1433,12 +1433,6 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
 }
 .billing-save-badge.hidden { opacity: 0; pointer-events: none; }
 
-/* Prix dynamiques */
-.price-num .price-monthly { display: inline; }
-.price-num .price-annual  { display: none; }
-.billing-annual .price-num .price-monthly { display: none; }
-.billing-annual .price-num .price-annual  { display: inline; }
-
 /* Extra info annuel sous le prix */
 .price-annual-sub {
   font-size: 12px; color: var(--ink-60);
@@ -1496,10 +1490,15 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
 .price-card.featured .price-plan { color: rgba(255,255,255,.5); }
 .price-num {
   font-family: 'Poppins', sans-serif; font-weight: 800;
-  font-size: 48px; letter-spacing: -3px; margin-bottom: 4px;
+  font-size: 48px; letter-spacing: -3px;
+  line-height: 1; margin-bottom: 4px;
 }
-.price-num span { font-size: 15px; font-weight: 400; letter-spacing: 0; color: var(--ink-60); }
-.price-card.featured .price-num span { color: rgba(255,255,255,.45); }
+.price-num .price-suffix { font-size: 15px; font-weight: 400; letter-spacing: 0; color: var(--ink-60); }
+.price-card.featured .price-num .price-suffix { color: rgba(255,255,255,.45); }
+.price-num .price-monthly { display: inline; }
+.price-num .price-annual  { display: none; }
+.billing-annual .price-num .price-monthly { display: none; }
+.billing-annual .price-num .price-annual  { display: inline; }
 .price-desc { font-size: 14px; color: var(--ink-60); margin-bottom: 16px; line-height: 1.5; }
 .price-card.featured .price-desc { color: rgba(255,255,255,.6); }
 
@@ -3930,28 +3929,21 @@ footer {
         <div class="price-card reveal">
           <div class="price-plan">Starter</div>
           <div class="price-num">
-            <span class="price-monthly">163<span style="font-size:15px;font-weight:400;letter-spacing:0;color:var(--ink-60)"> AED/mo</span></span>
-            <span class="price-annual">149<span style="font-size:15px;font-weight:400;letter-spacing:0;color:var(--ink-60)"> AED/mo</span></span>
+            <span class="price-monthly">163 <span class="price-suffix">AED/mo</span></span>
+            <span class="price-annual">149 <span class="price-suffix">AED/mo</span></span>
           </div>
-          <div class="price-annual-sub">1,788 AED / year · <strong style="color:#3A7A00">Save 9%</strong></div>
+          <div class="price-annual-sub">1,788 AED billed annually · <strong style="color:#3A7A00">Save 9%</strong></div>
           <p class="price-desc">For independent agents doing a handful of inspections each month.</p>
           <div class="price-credits-info">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            10 credits / month · 2 inspectors included
-          </div>
-          <div class="price-extra-credit">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/></svg>
-            <span>Extra credit: <strong>
-              <span class="price-monthly">18 AED</span>
-              <span class="price-annual">14.9 AED</span>
-            </strong></span>
+            10 credits / month · 2 users · Extra: <strong><span class="price-monthly">25 AED</span><span class="price-annual">20 AED</span></strong>
           </div>
           <ul class="price-feats">
-            <li>10 inspections / month</li>
             <li>AI photo analysis</li>
-            <li>PDF report generation</li>
-            <li>Digital signatures</li>
             <li>White-label branding</li>
+            <li>Digital signatures</li>
+            <li>PDF report generation</li>
+            <li>Priority support</li>
           </ul>
           <a href="#" class="price-btn price-btn-outline">Get Started</a>
         </div>
@@ -3960,28 +3952,20 @@ footer {
         <div class="price-card featured reveal reveal-delay-1" id="pricing-pro">
           <div class="price-plan">Growth</div>
           <div class="price-num">
-            <span class="price-monthly">272<span style="font-size:15px;font-weight:400;letter-spacing:0;color:rgba(255,255,255,.45)"> AED/mo</span></span>
-            <span class="price-annual">249<span style="font-size:15px;font-weight:400;letter-spacing:0;color:rgba(255,255,255,.45)"> AED/mo</span></span>
+            <span class="price-monthly">272 <span class="price-suffix">AED/mo</span></span>
+            <span class="price-annual">249 <span class="price-suffix">AED/mo</span></span>
           </div>
-          <div class="price-annual-sub">2,988 AED / year · <strong style="color:var(--green)">Save 8%</strong></div>
+          <div class="price-annual-sub">2,988 AED billed annually · <strong style="color:var(--green)">Save 8%</strong></div>
           <p class="price-desc">For active agents and small agencies managing multiple properties.</p>
           <div class="price-credits-info" style="border-color:rgba(154,136,253,.2);background:rgba(154,136,253,.08);color:var(--purple-l)">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            20 credits / month · 5 inspectors included
-          </div>
-          <div class="price-extra-credit">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/></svg>
-            <span>Extra credit: <strong>
-              <span class="price-monthly">15 AED</span>
-              <span class="price-annual">12.5 AED</span>
-            </strong></span>
+            20 credits / month · 5 users · Extra: <strong><span class="price-monthly">20 AED</span><span class="price-annual">16 AED</span></strong>
           </div>
           <ul class="price-feats">
-            <li>20 inspections / month</li>
             <li>AI photo analysis</li>
-            <li>PDF report generation</li>
-            <li>Digital signatures</li>
             <li>White-label branding</li>
+            <li>Digital signatures</li>
+            <li>PDF report generation</li>
             <li>Priority support</li>
           </ul>
           <a href="#" class="price-btn price-btn-purple">Start Free Trial</a>
@@ -3991,29 +3975,20 @@ footer {
         <div class="price-card reveal reveal-delay-2">
           <div class="price-plan">Agency</div>
           <div class="price-num">
-            <span class="price-monthly">381<span style="font-size:15px;font-weight:400;letter-spacing:0;color:var(--ink-60)"> AED/mo</span></span>
-            <span class="price-annual">349<span style="font-size:15px;font-weight:400;letter-spacing:0;color:var(--ink-60)"> AED/mo</span></span>
+            <span class="price-monthly">381 <span class="price-suffix">AED/mo</span></span>
+            <span class="price-annual">349 <span class="price-suffix">AED/mo</span></span>
           </div>
-          <div class="price-annual-sub">4,188 AED / year · <strong style="color:#3A7A00">Save 8%</strong></div>
+          <div class="price-annual-sub">4,188 AED billed annually · <strong style="color:#3A7A00">Save 8%</strong></div>
           <p class="price-desc">For property management firms running high inspection volumes.</p>
           <div class="price-credits-info">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            30 credits / month · 15 inspectors included
-          </div>
-          <div class="price-extra-credit">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/></svg>
-            <span>Extra credit: <strong>
-              <span class="price-monthly">13 AED</span>
-              <span class="price-annual">11.6 AED</span>
-            </strong></span>
+            30 credits / month · 15 users · Extra: <strong><span class="price-monthly">15 AED</span><span class="price-annual">12 AED</span></strong>
           </div>
           <ul class="price-feats">
-            <li>30 inspections / month</li>
             <li>AI photo analysis</li>
-            <li>PDF report generation</li>
-            <li>Digital signatures</li>
             <li>White-label branding</li>
-            <li>Team management</li>
+            <li>Digital signatures</li>
+            <li>PDF report generation</li>
             <li>Priority support</li>
           </ul>
           <a href="#" class="price-btn price-btn-outline">Get Started</a>
