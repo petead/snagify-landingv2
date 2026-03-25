@@ -56,16 +56,6 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-@keyframes reveal-up {
-  from { opacity: 0; transform: translateY(60px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes reveal-scale {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
-}
-
 @keyframes slide-in-left {
   from { opacity: 0; transform: translateX(-80px); }
   to { opacity: 1; transform: translateX(0); }
@@ -100,12 +90,11 @@ body {
   to { transform: translateX(-50%); }
 }
 
-.reveal { opacity: 0; transform: translateY(50px); transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
+@keyframes phone-float {
+  0%, 100% { transform: rotateY(-6deg) rotateX(3deg) translateY(0px); }
+  50% { transform: rotateY(-6deg) rotateX(3deg) translateY(-14px); }
+}
+
 
 /* ═══════════════════════════════════════════ */
 /*  NAVIGATION                                 */
@@ -184,19 +173,19 @@ nav.scrolled {
 .nav-links a:hover::after { width: 100%; }
 
 .nav-cta {
-  padding: 10px 24px;
-  background: var(--purple);
+  padding: 10px 22px;
+  background: #ffffff;
   color: var(--dark) !important;
-  border-radius: 10px;
+  border-radius: 999px;
   font-weight: 700 !important;
-  font-size: 14px;
+  font-size: 13px;
   transition: all 0.3s ease !important;
   border: none;
   cursor: pointer;
 }
 
 .nav-cta::after { display: none !important; }
-.nav-cta:hover { background: var(--purple-deep); transform: translateY(-2px); box-shadow: 0 8px 30px var(--purple-glow); }
+.nav-cta:hover { background: #f4f4f7; transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.25); }
 
 /* ═══════════════════════════════════════════ */
 /*  HERO SECTION                               */
@@ -273,48 +262,36 @@ nav.scrolled {
 }
 
 .hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 20px;
-  background: rgba(154, 136, 253, 0.1);
-  border: 1px solid rgba(154, 136, 253, 0.2);
-  border-radius: 100px;
-  font-size: 13px;
-  font-weight: 500;
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
   color: var(--purple);
-  margin-bottom: 32px;
-  animation: reveal-up 0.8s ease both;
-  animation-delay: 0.2s;
-}
-
-.hero-badge .dot {
-  width: 6px;
-  height: 6px;
-  background: var(--green);
-  border-radius: 50%;
-  animation: pulse-glow 2s infinite;
-  box-shadow: 0 0 8px var(--green);
+  margin-bottom: 26px;
 }
 
 .hero h1 {
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
-  font-size: clamp(42px, 7vw, 84px);
-  line-height: 1.05;
-  letter-spacing: -2px;
+  font-size: clamp(56px, 9vw, 120px);
+  line-height: 0.92;
+  letter-spacing: -3px;
   margin-bottom: 24px;
-  animation: reveal-up 0.8s ease both;
-  animation-delay: 0.4s;
 }
 
-.hero h1 .highlight {
-  background: linear-gradient(135deg, var(--purple), var(--jasmine), var(--green), var(--purple));
-  background-size: 300% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradient-shift 6s ease infinite;
+.hero h1 > div {
+  overflow: hidden;
+}
+
+.hero h1 .stroke-line {
+  -webkit-text-stroke: 2px #9A88FD;
+  color: transparent;
+  transition: color 0.45s ease;
+}
+
+.hero h1:hover .stroke-line {
+  color: #9A88FD;
 }
 
 .hero p {
@@ -323,8 +300,6 @@ nav.scrolled {
   max-width: 560px;
   margin: 0 auto 40px;
   line-height: 1.7;
-  animation: reveal-up 0.8s ease both;
-  animation-delay: 0.6s;
 }
 
 .hero-actions {
@@ -332,8 +307,6 @@ nav.scrolled {
   align-items: center;
   justify-content: center;
   gap: 16px;
-  animation: reveal-up 0.8s ease both;
-  animation-delay: 0.8s;
 }
 
 .btn-primary {
@@ -347,7 +320,7 @@ nav.scrolled {
   font-weight: 700;
   font-size: 16px;
   border: none;
-  border-radius: 14px;
+  border-radius: 100px;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
@@ -358,13 +331,16 @@ nav.scrolled {
 .btn-primary::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, transparent, rgba(255,255,255,0.2), transparent);
-  transform: translateX(-100%);
-  transition: transform 0.6s ease;
+  top: 0;
+  bottom: 0;
+  left: -140%;
+  width: 50%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.65s ease;
 }
 
-.btn-primary:hover::before { transform: translateX(100%); }
+.btn-primary:hover::before { left: 140%; }
 .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px var(--purple-glow); }
 
 .btn-secondary {
@@ -378,7 +354,7 @@ nav.scrolled {
   font-weight: 600;
   font-size: 16px;
   border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 14px;
+  border-radius: 100px;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
@@ -392,13 +368,12 @@ nav.scrolled {
   position: relative;
   display: flex;
   justify-content: center;
-  animation: reveal-scale 1s ease both;
-  animation-delay: 1s;
+  perspective: 1200px;
 }
 
 .phone-mockup {
   width: 280px;
-  height: 580px;
+  height: 460px;
   background: var(--dark-card);
   border-radius: 40px;
   border: 3px solid rgba(154, 136, 253, 0.15);
@@ -408,7 +383,9 @@ nav.scrolled {
     0 40px 100px rgba(0,0,0,0.5),
     0 0 0 1px rgba(255,255,255,0.05),
     inset 0 1px 0 rgba(255,255,255,0.05);
-  animation: float 6s ease-in-out infinite;
+  transform: rotateY(-6deg) rotateX(3deg);
+  transform-style: preserve-3d;
+  animation: phone-float 6s ease-in-out infinite;
 }
 
 .phone-notch {
@@ -614,6 +591,7 @@ nav.scrolled {
   padding: 140px 40px;
   max-width: 1200px;
   margin: 0 auto;
+  background: radial-gradient(circle at 50% 0%, rgba(154,136,253,0.12), transparent 48%);
 }
 
 .section-label {
@@ -867,6 +845,8 @@ nav.scrolled {
 /* ═══════════════════════════════════════════ */
 
 .ai-section {
+  background: radial-gradient(circle at 8% 92%, rgba(202,254,135,0.11), transparent 44%), var(--dark);
+
   padding: 140px 40px;
   max-width: 1200px;
   margin: 0 auto;
@@ -1221,6 +1201,8 @@ nav.scrolled {
 /* ═══════════════════════════════════════════ */
 
 .cta-section {
+  background: radial-gradient(circle at center, rgba(154,136,253,0.2), rgba(13,13,18,0.95) 58%);
+
   padding: 140px 40px;
   text-align: center;
   position: relative;
@@ -1353,6 +1335,166 @@ footer {
 /*  RESPONSIVE                                 */
 /* ═══════════════════════════════════════════ */
 
+
+
+.hero-scroll-indicator {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 3;
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(to bottom, #9A88FD, transparent);
+  animation: pulse-scroll 1.8s ease-in-out infinite;
+}
+
+.hero-scroll-text {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: rgba(205,205,214,0.55);
+}
+
+@keyframes pulse-scroll {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+.phone-ai-summary {
+  margin-top: 10px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.phone-ai-summary .label {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 8px;
+}
+
+.phone-ai-summary .line {
+  height: 2px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 999px;
+  margin-bottom: 6px;
+}
+
+.before-after-wrap {
+  height: 250vh;
+  position: relative;
+}
+
+.before-after-sticky {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 100px 40px;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 0%, rgba(154,136,253,0.08), transparent 50%);
+}
+
+.before-after-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.before-after-head { margin-bottom: 40px; }
+.before-after-head .title-italic { color: rgba(205,205,214,0.6); font-style: italic; }
+
+.before-after-split {
+  display: flex;
+  gap: 2px;
+  height: 70vh;
+  max-height: 580px;
+}
+
+.before-col {
+  flex: 1;
+  border-radius: 26px;
+  padding: 26px;
+  overflow: hidden;
+  position: relative;
+}
+
+.before-col-left { background: #09090E; border: 1px solid rgba(239,68,68,0.12); }
+.before-col-right { background: #111118; border: 1px solid rgba(154,136,253,0.14); }
+
+.col-label {
+  font-size: 9px;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  margin-bottom: 16px;
+}
+
+.chaos { position: absolute; }
+.chaos-drift { animation: drift 5.2s ease-in-out infinite; }
+@keyframes drift { 0%,100%{transform:translate(0,0)} 50%{transform:translate(2px,-2px)} }
+
+.paper-form { top: 56px; left: 28px; width: 200px; padding: 14px; border-radius: 14px; background: rgba(255,255,255,0.03); transform: rotate(-3deg); border: 1px solid rgba(255,255,255,0.08); }
+.form-title { font-size: 10px; color: rgba(255,255,255,0.25); margin-bottom: 8px; }
+.fake-line { height: 2px; background: rgba(255,255,255,0.16); border-radius: 9px; margin-bottom: 7px; }
+
+.chat { top: 62px; right: 24px; width: 220px; transform: rotate(2deg); }
+.bubble { font-size: 11px; padding: 8px 10px; border-radius: 10px; margin-bottom: 7px; width: fit-content; max-width: 170px; }
+.bubble.g { background: rgba(34,197,94,0.14); color: rgba(202,254,135,0.85); margin-left: auto; }
+.bubble.x { background: rgba(255,255,255,0.08); color: rgba(205,205,214,0.8); }
+
+.photo-stack { left: 56px; bottom: 112px; width: 220px; height: 120px; }
+.photo-stack .ph { position: absolute; width: 130px; height: 84px; border-radius: 12px; background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02)); filter: blur(0.2px); }
+.photo-stack .ph:nth-child(1){ left:0; top:24px; transform:rotate(-8deg); }
+.photo-stack .ph:nth-child(2){ left:46px; top:14px; transform:rotate(-3deg); }
+.photo-stack .ph:nth-child(3){ left:90px; top:2px; transform:rotate(4deg); }
+
+.stamp { right: 48px; bottom: 110px; transform: rotate(-12deg); font-size: 24px; font-weight: 700; letter-spacing: 4px; color: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.2); padding: 8px 14px; }
+.pain-points { position: absolute; left: 28px; bottom: 24px; color: rgba(239,68,68,0.4); font-size: 13px; line-height: 1.8; }
+
+.clean-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 16px; margin-bottom: 12px; }
+.progress100 { height: 6px; border-radius: 20px; background: rgba(34,197,94,0.2); overflow: hidden; margin-top: 10px; }
+.progress100 span { display:block; width:100%; height:100%; background:#22c55e; }
+.tags { display:flex; gap:8px; margin: 14px 0; }
+.tag { border-radius: 999px; padding: 6px 10px; font-size: 11px; }
+.tag-ok { background: rgba(34,197,94,0.15); color: rgba(202,254,135,0.9); }
+.tag-warn { background: rgba(234,179,8,0.18); color: rgba(254,222,128,0.95); }
+.pdf-line { height: 2px; background: var(--purple); margin-bottom: 10px; }
+.signed { font-size: 11px; color: rgba(202,254,135,0.8); }
+
+.sig path {
+  stroke-dasharray: 240;
+  stroke-dashoffset: 240;
+  animation: sign-draw 3s ease forwards infinite alternate;
+}
+@keyframes sign-draw { to { stroke-dashoffset: 0; } }
+
+.benefits { margin-top: 14px; color: rgba(202,254,135,0.6); font-size: 13px; line-height: 1.8; }
+
+@media(max-width:768px) {
+  #cur, #curd { display:none; }
+  body { cursor: auto; }
+  .before-after-wrap { height: auto; }
+  .before-after-sticky { position: relative; padding: 70px 20px; min-height: auto; }
+  .before-after-split { flex-direction: column; height: auto; max-height: none; }
+  .before-col { min-height: 430px; }
+}
+
+body { cursor: none; }
+@media(max-width:768px) { body { cursor: auto; } }
+
 @media (max-width: 1024px) {
   .features-grid { grid-template-columns: 1fr 1fr; }
   .feature-card.large { grid-column: span 2; }
@@ -1374,37 +1516,51 @@ footer {
   .how-it-works { padding: 80px 20px; }
   .steps { grid-template-columns: 1fr; }
   .stats-inner { grid-template-columns: repeat(2, 1fr); }
-  .ai-section { padding: 80px 20px; }
+  .ai-section {
+  background: radial-gradient(circle at 8% 92%, rgba(202,254,135,0.11), transparent 44%), var(--dark);
+ padding: 80px 20px; }
   .testimonials { padding: 80px 20px; }
   .testimonials-grid { grid-template-columns: 1fr; }
   .pricing { padding: 80px 20px; }
   .pricing-grid { grid-template-columns: 1fr; }
-  .cta-section { padding: 80px 20px; }
+  .cta-section {
+  background: radial-gradient(circle at center, rgba(154,136,253,0.2), rgba(13,13,18,0.95) 58%);
+ padding: 80px 20px; }
   .footer-top { grid-template-columns: 1fr; gap: 40px; }
   .float-element { display: none; }
-  .phone-mockup { width: 240px; height: 500px; }
+  .phone-mockup { width: 240px; height: 420px; }
 }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 </head>
 <body>
+<!-- Grain overlay -->
+<div id="grain" style="position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:0.03;background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E');background-size:128px;background-repeat:repeat"></div>
+
+<!-- Custom cursor -->
+<div id="cur" style="width:18px;height:18px;border:1.5px solid #9A88FD;border-radius:50%;position:fixed;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .3s,height .3s,background .3s,border-color .3s"></div>
+<div id="curd" style="width:4px;height:4px;background:#9A88FD;border-radius:50%;position:fixed;pointer-events:none;z-index:99999;transform:translate(-50%,-50%)"></div>
+
+<!-- Scroll progress bar -->
+<div style="position:fixed;top:0;left:0;right:0;height:2px;z-index:9999"><div id="scroll-prog" style="height:100%;width:100%;background:#9A88FD;transform-origin:left;transform:scaleX(0)"></div></div>
+
 
 <!-- NAVIGATION -->
 <nav id="navbar">
   <a href="#" class="nav-logo">
-    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M20 4L28 10V18L20 24L12 18V10L20 4Z" stroke="#9A88FD" stroke-width="2.5" fill="none"/>
-      <path d="M20 14L24 17V23L20 26L16 23V17L20 14Z" fill="#9A88FD"/>
-      <path d="M16 10L20 7L24 10" stroke="#9A88FD" stroke-width="2" stroke-linecap="round"/>
-      <path d="M24 30L20 33L16 30" stroke="#9A88FD" stroke-width="2" stroke-linecap="round"/>
-    </svg>
+    <svg viewBox="0 0 700 700" fill="currentColor" style="color:#9A88FD" xmlns="http://www.w3.org/2000/svg">
+  <path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z"/>
+  <path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z"/>
+</svg>
     <span>Snagify</span>
   </a>
   <ul class="nav-links">
     <li><a href="#features">Features</a></li>
-    <li><a href="#how-it-works">How It Works</a></li>
-    <li><a href="#ai">AI Engine</a></li>
+    <li><a href="#how-it-works">Process</a></li>
     <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#cta" class="nav-cta">Get Started Free</a></li>
+    <li><a href="#cta" class="nav-cta">Get Started</a></li>
   </ul>
 </nav>
 
@@ -1417,15 +1573,15 @@ footer {
     <div class="hero-grid"></div>
   </div>
   <div class="hero-content">
-    <div class="hero-badge">
-      <span class="dot"></span>
-      Now in Dubai — RERA Compliant
-    </div>
-    <h1>Property Inspections,<br><span class="highlight">Reimagined by AI</span></h1>
+    <div class="hero-badge">NOW LIVE IN DUBAI · RERA COMPLIANT</div>
+    <h1>
+      <div>The clipboard</div>
+      <div class="stroke-line">era is over.</div>
+    </h1>
     <p>Generate professional check-in & check-out reports in minutes. AI-powered photo analysis, damage detection, and PDF reports that protect landlords & tenants.</p>
     <div class="hero-actions">
       <a href="#" class="btn-primary">
-        Start Your First Inspection
+        Create Free Account
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
       <a href="#how-it-works" class="btn-secondary">
@@ -1482,10 +1638,20 @@ footer {
               <div class="phone-room-name">Bathroom</div>
               <span class="phone-room-badge badge-fair">Fair</span>
             </div>
+                    </div>
+          <div class="phone-ai-summary">
+            <div class="label">AI SUMMARY</div>
+            <div class="line" style="width:100%"></div>
+            <div class="line" style="width:80%"></div>
+            <div class="line" style="width:60%;margin-bottom:0"></div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div class="hero-scroll-indicator">
+    <div class="hero-scroll-line"></div>
+    <div class="hero-scroll-text">SCROLL</div>
   </div>
 </section>
 
@@ -1512,16 +1678,81 @@ footer {
   </div>
 </section>
 
+<!-- BEFORE / AFTER -->
+<section class="before-after-wrap" id="problem">
+  <div class="before-after-sticky">
+    <div class="before-after-inner">
+      <div class="before-after-head">
+        <div class="section-label">THE PROBLEM</div>
+        <h2 class="section-title">Inspections are stuck<br><span class="title-italic">in 2010.</span></h2>
+      </div>
+      <div class="before-after-split">
+        <div class="before-col before-col-left" id="without-col">
+          <div class="col-label" style="color:rgba(239,68,68,0.4)">WITHOUT SNAGIFY</div>
+          <div class="chaos paper-form chaos-drift" style="animation-delay:-0.6s">
+            <div class="form-title">Inspection Form</div>
+            <div class="fake-line" style="width:88%"></div>
+            <div class="fake-line" style="width:100%"></div>
+            <div class="fake-line" style="width:76%"></div>
+            <div class="fake-line" style="width:66%;margin-bottom:0"></div>
+          </div>
+          <div class="chaos chat chaos-drift" style="animation-delay:-2.2s">
+            <div class="bubble g">Can you send the photos??</div>
+            <div class="bubble x">Which ones? I took 50...</div>
+            <div class="bubble g">All of them</div>
+            <div class="bubble x">My storage is full</div>
+          </div>
+          <div class="chaos photo-stack chaos-drift" style="animation-delay:-1.4s">
+            <div class="ph"></div><div class="ph"></div><div class="ph"></div>
+          </div>
+          <div class="chaos stamp chaos-drift" style="animation-delay:-0.9s">DISPUTED</div>
+          <div class="pain-points">
+            ✗ Paper checklists<br>
+            ✗ Lost photos<br>
+            ✗ Endless back-and-forth<br>
+            ✗ Tenant disputes
+          </div>
+        </div>
+        <div class="before-col before-col-right" id="with-col">
+          <div class="col-label" style="color:#9A88FD">WITH SNAGIFY</div>
+          <div class="clean-card">
+            <div style="font-size:12px;color:rgba(255,255,255,0.75)">Completed inspection</div>
+            <div class="progress100"><span></span></div>
+          </div>
+          <div class="tags">
+            <span class="tag tag-ok">Wall OK</span>
+            <span class="tag tag-warn">Minor scratch</span>
+          </div>
+          <div class="clean-card">
+            <div class="pdf-line"></div>
+            <div style="font-size:12px;color:rgba(205,205,214,0.85)">PDF inspection preview</div>
+            <div class="signed">✓ Signed</div>
+            <svg class="sig" width="180" height="42" viewBox="0 0 180 42" fill="none" style="margin-top:6px">
+              <path d="M4 30 C20 8, 36 36, 54 18 C68 7, 78 36, 96 24 C112 14, 120 30, 138 20 C150 13, 162 24, 176 12" stroke="#9A88FD" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="benefits">
+            ✓ Fully digital flow<br>
+            ✓ AI-assisted tagging<br>
+            ✓ One-click reports<br>
+            ✓ Signed and synced
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FEATURES -->
 <section class="features" id="features">
-  <div class="reveal">
+  <div >
     <div class="section-label">Features</div>
     <h2 class="section-title">Everything you need<br>to inspect smarter</h2>
     <p class="section-subtitle">From photo capture to PDF delivery — a complete digital inspection toolkit built for Dubai's rental market.</p>
   </div>
 
   <div class="features-grid">
-    <div class="feature-card large reveal">
+    <div class="feature-card large">
       <div>
         <div class="feature-icon" style="background: rgba(154, 136, 253, 0.1);">🤖</div>
         <h3>AI Photo Analysis</h3>
@@ -1534,27 +1765,27 @@ footer {
         </div>
       </div>
     </div>
-    <div class="feature-card reveal reveal-delay-1">
+    <div class="feature-card">
       <div class="feature-icon" style="background: rgba(202, 254, 135, 0.1);">📄</div>
       <h3>Professional PDF Reports</h3>
       <p>One-click generation of branded, legally-sound inspection reports ready for tenants, landlords, and courts.</p>
     </div>
-    <div class="feature-card reveal reveal-delay-2">
+    <div class="feature-card">
       <div class="feature-icon" style="background: rgba(254, 222, 128, 0.1);">🏠</div>
       <h3>Room-by-Room Flow</h3>
       <p>Structured inspection process with per-room condition tracking, ensuring nothing gets missed.</p>
     </div>
-    <div class="feature-card reveal reveal-delay-3">
+    <div class="feature-card">
       <div class="feature-icon" style="background: rgba(154, 136, 253, 0.1);">✍️</div>
       <h3>Digital Signatures</h3>
       <p>Capture tenant and landlord signatures on-device for legally binding documentation.</p>
     </div>
-    <div class="feature-card reveal reveal-delay-1">
+    <div class="feature-card">
       <div class="feature-icon" style="background: rgba(202, 254, 135, 0.1);">🔑</div>
       <h3>Key Handover Tracking</h3>
       <p>Track keys, access cards, parking cards, and remotes — every item accounted for at move-in and move-out.</p>
     </div>
-    <div class="feature-card reveal reveal-delay-2">
+    <div class="feature-card">
       <div class="feature-icon" style="background: rgba(254, 222, 128, 0.1);">🏢</div>
       <h3>White-Label Branding</h3>
       <p>Add your company logo, colors, and details. Every report looks like it came from your agency.</p>
@@ -1565,29 +1796,29 @@ footer {
 <!-- HOW IT WORKS -->
 <section class="how-it-works" id="how-it-works">
   <div class="how-inner">
-    <div class="reveal">
+    <div>
       <div class="section-label">Process</div>
       <h2 class="section-title">Four steps to a<br>perfect inspection</h2>
       <p class="section-subtitle">From property setup to signed report — it's never been this fast.</p>
     </div>
 
     <div class="steps">
-      <div class="step reveal">
+      <div class="step">
         <div class="step-number">1</div>
         <h3>Add Property</h3>
         <p>Enter the unit details — address, rooms, type. Takes 30 seconds.</p>
       </div>
-      <div class="step reveal reveal-delay-1">
+      <div class="step">
         <div class="step-number">2</div>
         <h3>Capture & Tag</h3>
         <p>Walk through each room. Take photos, AI tags damage automatically.</p>
       </div>
-      <div class="step reveal reveal-delay-2">
+      <div class="step">
         <div class="step-number">3</div>
         <h3>Review & Sign</h3>
         <p>AI generates an executive summary. Both parties sign digitally.</p>
       </div>
-      <div class="step reveal reveal-delay-3">
+      <div class="step">
         <div class="step-number">4</div>
         <h3>Generate Report</h3>
         <p>One tap — branded PDF ready to download, email, or share.</p>
@@ -1599,19 +1830,19 @@ footer {
 <!-- STATS -->
 <section class="stats-banner">
   <div class="stats-inner">
-    <div class="stat reveal">
+    <div class="stat">
       <div class="stat-number">10x</div>
       <div class="stat-label">Faster Than Manual</div>
     </div>
-    <div class="stat reveal reveal-delay-1">
+    <div class="stat">
       <div class="stat-number">100%</div>
       <div class="stat-label">RERA Compliant</div>
     </div>
-    <div class="stat reveal reveal-delay-2">
+    <div class="stat">
       <div class="stat-number">0</div>
       <div class="stat-label">Paper Forms Needed</div>
     </div>
-    <div class="stat reveal reveal-delay-3">
+    <div class="stat">
       <div class="stat-number">24/7</div>
       <div class="stat-label">Available Anywhere</div>
     </div>
@@ -1621,7 +1852,7 @@ footer {
 <!-- AI SECTION -->
 <section class="ai-section" id="ai">
   <div class="ai-grid">
-    <div class="ai-visual reveal">
+    <div class="ai-visual">
       <div class="ai-ring">
         <div class="ai-center">🧠</div>
         <div class="ai-orbit-item"><div class="ai-orbit-dot">📷</div></div>
@@ -1631,27 +1862,27 @@ footer {
       </div>
     </div>
     <div class="ai-content">
-      <div class="reveal">
+      <div>
         <div class="section-label">AI Engine</div>
         <h2>Powered by<br><span class="accent">Claude AI</span></h2>
         <p>Snagify uses Anthropic's Claude to analyze property photos with human-level accuracy and generate comprehensive inspection summaries.</p>
       </div>
       <div class="ai-features">
-        <div class="ai-feature-item reveal">
+        <div class="ai-feature-item">
           <div class="ai-feature-check">✓</div>
           <div class="ai-feature-text">
             <h4>Smart Damage Detection</h4>
             <p>Identifies scratches, stains, cracks, mold, and wear from photos automatically.</p>
           </div>
         </div>
-        <div class="ai-feature-item reveal reveal-delay-1">
+        <div class="ai-feature-item">
           <div class="ai-feature-check">✓</div>
           <div class="ai-feature-text">
             <h4>Executive Summary Generation</h4>
             <p>AI writes a professional overview of the property's condition for each inspection.</p>
           </div>
         </div>
-        <div class="ai-feature-item reveal reveal-delay-2">
+        <div class="ai-feature-item">
           <div class="ai-feature-check">✓</div>
           <div class="ai-feature-text">
             <h4>Per-Room Condition Scoring</h4>
@@ -1666,12 +1897,12 @@ footer {
 <!-- TESTIMONIALS -->
 <section class="testimonials">
   <div class="testimonials-inner">
-    <div class="reveal">
+    <div>
       <div class="section-label">Testimonials</div>
       <h2 class="section-title">Loved by property<br>professionals</h2>
     </div>
     <div class="testimonials-grid">
-      <div class="testimonial-card reveal">
+      <div class="testimonial-card">
         <div class="testimonial-stars">★ ★ ★ ★ ★</div>
         <p class="testimonial-text">"Snagify cut our inspection time from 2 hours to 20 minutes. The AI photo analysis is incredibly accurate — catches things we used to miss."</p>
         <div class="testimonial-author">
@@ -1682,7 +1913,7 @@ footer {
           </div>
         </div>
       </div>
-      <div class="testimonial-card reveal reveal-delay-1">
+      <div class="testimonial-card">
         <div class="testimonial-stars">★ ★ ★ ★ ★</div>
         <p class="testimonial-text">"The PDF reports look so professional. My clients think I hired a full team. It's just me and Snagify now."</p>
         <div class="testimonial-author">
@@ -1693,7 +1924,7 @@ footer {
           </div>
         </div>
       </div>
-      <div class="testimonial-card reveal reveal-delay-2">
+      <div class="testimonial-card">
         <div class="testimonial-stars">★ ★ ★ ★ ★</div>
         <p class="testimonial-text">"Finally a tool built for the UAE market. RERA compliance out of the box, digital signatures — everything we needed."</p>
         <div class="testimonial-author">
@@ -1710,13 +1941,13 @@ footer {
 
 <!-- PRICING -->
 <section class="pricing" id="pricing">
-  <div class="reveal" style="text-align: center;">
+  <div style="text-align: center;">
     <div class="section-label" style="justify-content: center;">Pricing</div>
     <h2 class="section-title">Simple, transparent pricing</h2>
     <p class="section-subtitle" style="margin: 20px auto 0;">Start free. Scale when you're ready.</p>
   </div>
   <div class="pricing-grid">
-    <div class="pricing-card reveal">
+    <div class="pricing-card">
       <div class="pricing-plan">Starter</div>
       <div class="pricing-price">Free<span></span></div>
       <p class="pricing-desc">Perfect for individual landlords getting started.</p>
@@ -1728,7 +1959,7 @@ footer {
       </ul>
       <a href="#" class="pricing-btn pricing-btn-outline">Get Started</a>
     </div>
-    <div class="pricing-card popular reveal reveal-delay-1">
+    <div class="pricing-card popular-delay-1">
       <div class="pricing-plan">Professional</div>
       <div class="pricing-price">$29<span>/month</span></div>
       <p class="pricing-desc">For agents and managers with growing portfolios.</p>
@@ -1742,7 +1973,7 @@ footer {
       </ul>
       <a href="#" class="pricing-btn pricing-btn-filled">Start Free Trial</a>
     </div>
-    <div class="pricing-card reveal reveal-delay-2">
+    <div class="pricing-card">
       <div class="pricing-plan">Enterprise</div>
       <div class="pricing-price">Custom<span></span></div>
       <p class="pricing-desc">For large agencies and property management firms.</p>
@@ -1760,7 +1991,7 @@ footer {
 
 <!-- CTA -->
 <section class="cta-section" id="cta">
-  <div class="cta-inner reveal">
+  <div class="cta-inner">
     <h2>Ready to ditch<br>the clipboard?</h2>
     <p>Join hundreds of property professionals across Dubai who've already made the switch to digital inspections.</p>
     <a href="#" class="btn-primary" style="display: inline-flex;">
@@ -1776,12 +2007,10 @@ footer {
     <div class="footer-top">
       <div class="footer-brand">
         <a href="#" class="nav-logo">
-          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="34" height="34">
-            <path d="M20 4L28 10V18L20 24L12 18V10L20 4Z" stroke="#9A88FD" stroke-width="2.5" fill="none"/>
-            <path d="M20 14L24 17V23L20 26L16 23V17L20 14Z" fill="#9A88FD"/>
-            <path d="M16 10L20 7L24 10" stroke="#9A88FD" stroke-width="2" stroke-linecap="round"/>
-            <path d="M24 30L20 33L16 30" stroke="#9A88FD" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+          <svg viewBox="0 0 700 700" fill="currentColor" style="color:#9A88FD" xmlns="http://www.w3.org/2000/svg">
+  <path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z"/>
+  <path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z"/>
+</svg>
           <span style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 22px;">Snagify</span>
         </a>
         <p>Smart property inspections for Dubai's rental market. AI-powered, RERA compliant, and beautifully simple.</p>
@@ -1825,73 +2054,135 @@ footer {
 </footer>
 
 <script>
-// Scroll reveal
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-reveals.forEach(el => observer.observe(el));
+// ═══ LENIS SMOOTH SCROLL ═══
+const lenis = new Lenis({ duration: 1.2, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+function raf(t) { lenis.raf(t); requestAnimationFrame(raf); }
+requestAnimationFrame(raf);
+gsap.registerPlugin(ScrollTrigger);
+lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add(t => lenis.raf(t * 1000));
+gsap.ticker.lagSmoothing(0);
 
-// Nav scroll
+// ═══ CUSTOM CURSOR ═══
+const cur = document.getElementById('cur');
+const curd = document.getElementById('curd');
+let cx = window.innerWidth / 2;
+let cy = window.innerHeight / 2;
+let tx = cx;
+let ty = cy;
+window.addEventListener('mousemove', e => {
+  tx = e.clientX;
+  ty = e.clientY;
+  if (curd) curd.style.transform = `translate(${tx}px, ${ty}px)`;
+});
+function cursorLerp() {
+  cx += (tx - cx) * 0.12;
+  cy += (ty - cy) * 0.12;
+  if (cur) cur.style.transform = `translate(${cx}px, ${cy}px)`;
+  requestAnimationFrame(cursorLerp);
+}
+cursorLerp();
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    if (!cur) return;
+    cur.style.width = '52px';
+    cur.style.height = '52px';
+    cur.style.background = 'rgba(154, 136, 253, 0.15)';
+    cur.style.borderColor = '#9A88FD';
+  });
+  el.addEventListener('mouseleave', () => {
+    if (!cur) return;
+    cur.style.width = '18px';
+    cur.style.height = '18px';
+    cur.style.background = 'transparent';
+    cur.style.borderColor = '#9A88FD';
+  });
+});
+
+// ═══ NAV SCROLL STATE ═══
 const nav = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 50);
 });
 
-// Smooth anchor scroll
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+// ═══ SCROLL PROGRESS ═══
+gsap.to('#scroll-prog', {
+  scaleX: 1,
+  ease: 'none',
+  scrollTrigger: { trigger: document.body, start: 'top top', end: 'bottom bottom', scrub: 0.3 }
+});
+
+// ═══ HERO ANIMATIONS ═══
+gsap.timeline({ defaults: { ease: 'power4.out' } })
+  .from('.hero-badge', { yPercent: 100, opacity: 0, duration: 1, delay: 0.3 })
+  .from('.hero h1 > div', { yPercent: 110, duration: 1.2, stagger: 0.1 }, '-=0.6')
+  .from('.hero p', { opacity: 0, y: 24, duration: 0.8 }, '-=0.5')
+  .from('.hero-actions', { opacity: 0, y: 24, duration: 0.8 }, '-=0.4')
+  .from('.hero-visual', { opacity: 0, scale: 0.88, y: 50, duration: 1.4, ease: 'power3.out' }, '-=0.5')
+  .from('.float-element', { opacity: 0, scale: 0.7, duration: 0.6, stagger: 0.12, ease: 'back.out(1.4)' }, '-=0.5');
+
+gsap.to('.hero-content', {
+  yPercent: -25,
+  opacity: 0,
+  ease: 'none',
+  scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+});
+
+gsap.to('.phone-mockup', {
+  rotateY: 0,
+  rotateX: 0,
+  ease: 'none',
+  scrollTrigger: { trigger: '.hero', start: '30% top', end: '80% top', scrub: true }
+});
+
+// ═══ BEFORE/AFTER SCROLL ═══
+if (window.matchMedia('(min-width: 769px)').matches) {
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.before-after-wrap',
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: true
     }
+  });
+  tl.to('#without-col', { flex: 0, opacity: 0, duration: 1 }, 0)
+    .to('#with-col', { flex: 3, duration: 1 }, 0);
+}
+
+// ═══ SECTION REVEALS ═══
+gsap.utils.toArray('.section-label, .section-title, .section-subtitle').forEach(el => {
+  gsap.from(el, { opacity: 0, y: 30, duration: 0.7, scrollTrigger: { trigger: el, start: 'top 85%' } });
+});
+gsap.utils.toArray('.feature-card, .step, .testimonial-card, .pricing-card, .ai-feature-item, .stat, .ai-visual, .cta-inner').forEach((el, i) => {
+  gsap.from(el, { opacity: 0, y: 40, duration: 0.7, delay: (i % 4) * 0.08, scrollTrigger: { trigger: el, start: 'top 88%' } });
+});
+
+// ═══ STATS COUNTERS (GSAP) ═══
+gsap.utils.toArray('.stat-number').forEach(el => {
+  const original = el.textContent.trim();
+  if (original === '24/7' || original === '0') return;
+  let end = null;
+  let suffix = '';
+  if (original.endsWith('x')) { end = parseInt(original, 10); suffix = 'x'; }
+  if (original.endsWith('%')) { end = parseInt(original, 10); suffix = '%'; }
+  if (Number.isNaN(end) || end === null) return;
+  const obj = { val: 0 };
+  gsap.to(obj, {
+    val: end,
+    duration: 1.4,
+    ease: 'power2.out',
+    scrollTrigger: { trigger: el, start: 'top 85%' },
+    onUpdate: () => { el.textContent = Math.round(obj.val) + suffix; }
   });
 });
 
-// Animated counter
-function animateCounters() {
-  const counters = document.querySelectorAll('.stat-number');
-  counters.forEach(counter => {
-    const text = counter.textContent;
-    if (counter.dataset.animated) return;
-    
-    const counterObserver = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting && !counter.dataset.animated) {
-        counter.dataset.animated = 'true';
-        if (text.includes('x')) {
-          animateNumber(counter, 0, 10, 'x');
-        } else if (text.includes('%')) {
-          animateNumber(counter, 0, 100, '%');
-        } else if (text === '0') {
-          // already 0
-        } else if (text.includes('/')) {
-          counter.textContent = text; // keep as-is
-        }
-      }
-    }, { threshold: 0.5 });
-    counterObserver.observe(counter);
+// ═══ SMOOTH ANCHOR SCROLL ═══
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); lenis.scrollTo(t); }
   });
-}
-
-function animateNumber(el, start, end, suffix) {
-  const duration = 1500;
-  const startTime = performance.now();
-  function tick(now) {
-    const progress = Math.min((now - startTime) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const current = Math.round(start + (end - start) * eased);
-    el.textContent = current + suffix;
-    if (progress < 1) requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-}
-
-animateCounters();
+});
 </script>
 
 </body>
