@@ -1549,7 +1549,7 @@ footer {
   background: var(--white);
   border: 1px solid var(--ink-25);
   border-radius: 24px;
-  padding: 32px;
+  padding: 28px 28px 32px;
   position: relative;
   overflow: hidden;
   transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s;
@@ -1563,40 +1563,54 @@ footer {
   gap: 32px;
   align-items: center;
 }
-.feat-dark {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: var(--white);
-}
+.feat-dark { background: var(--ink); border-color: var(--ink); color: var(--white); }
 .feat-dark p { color: rgba(255,255,255,.6); }
-.feat-purple {
-  background: var(--purple);
-  border-color: var(--purple);
-}
+.feat-dark h3 { color: var(--white); }
+.feat-purple { background: var(--purple); border-color: var(--purple); }
 .feat-purple h3, .feat-purple p { color: var(--ink); }
 .feat-purple p { opacity: .7; }
-.feat-jasmine {
-  background: var(--jasmine);
-  border-color: var(--jasmine);
-}
+.feat-jasmine { background: var(--jasmine); border-color: var(--jasmine); }
 .feat-jasmine h3, .feat-jasmine p { color: var(--ink); }
 .feat-jasmine p { opacity: .7; }
 
+/* Tag & Pro badge row */
+.feat-top-row {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 14px;
+}
 .feat-tag {
   display: inline-flex;
   font-size: 9px; font-weight: 700;
   text-transform: uppercase; letter-spacing: 2px;
   padding: 4px 10px; border-radius: 999px;
   background: var(--cream-2); color: var(--ink-60);
-  margin-bottom: 14px;
+  margin-bottom: 0;
 }
 .feat-tag-light { background: rgba(255,255,255,.15); color: rgba(255,255,255,.6); }
 .feat-tag-purple { background: rgba(14,14,16,.12); color: var(--ink); }
+/* Standalone tag (no top-row) */
+.feat-card > .feat-tag { margin-bottom: 14px; }
+.feat-card-content > .feat-tag { margin-bottom: 14px; }
+
+/* Pro badge */
+.feat-pro-badge {
+  font-family: 'Poppins', sans-serif;
+  font-size: 9px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 2px;
+  padding: 3px 10px; border-radius: 999px;
+  background: var(--ink); color: var(--white);
+}
+.feat-pro-badge-dark {
+  background: rgba(154,136,253,.2); color: var(--purple-l);
+}
+.feat-jasmine .feat-pro-badge {
+  background: rgba(14,14,16,.12); color: var(--ink);
+}
 
 .feat-card h3 {
   font-family: 'Poppins', sans-serif;
-  font-weight: 700; font-size: 19px; letter-spacing: -.4px;
-  margin-bottom: 10px;
+  font-weight: 700; font-size: 18px; letter-spacing: -.4px;
+  margin-bottom: 8px;
 }
 .feat-card p { font-size: 13px; color: var(--ink-60); line-height: 1.7; }
 
@@ -1619,17 +1633,13 @@ footer {
   background: linear-gradient(180deg, transparent 30%, rgba(154,136,253,.08) 50%, transparent 70%);
   animation: aiScan 2.5s ease-in-out infinite;
 }
-@keyframes aiScan {
-  0%,100% { transform: translateY(-40%); }
-  50% { transform: translateY(40%); }
-}
+@keyframes aiScan { 0%,100%{transform:translateY(-40%)} 50%{transform:translateY(40%)} }
 @keyframes pinPop {
   from { opacity: 0; transform: scale(0.92); }
   to { opacity: 1; transform: scale(1); }
 }
 .fv-ai-pin {
-  position: absolute;
-  display: flex; align-items: center; gap: 6px;
+  position: absolute; display: flex; align-items: center; gap: 6px;
   opacity: 0; animation: pinPop .4s cubic-bezier(.34,1.56,.64,1) forwards;
 }
 .fv-pin-1 { left: 25%; top: 40%; animation-delay: .8s; }
@@ -1652,23 +1662,24 @@ footer {
   font-size: 10px; font-weight: 600; color: white;
 }
 
-/* Signature visual */
-.feat-visual-sig { margin-top: 20px; }
-.fv-sig-line {
-  padding: 12px 16px;
-  background: var(--cream);
-  border-radius: 12px;
-  margin-bottom: 8px;
+/* Compare visual */
+.feat-visual-compare { margin-top: 20px; }
+.fv-compare-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.fv-compare-col { flex: 1; }
+.fv-compare-label { font-size: 9px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--ink-60); font-weight: 600; margin-bottom: 6px; }
+.fv-compare-thumb { height: 52px; border-radius: 10px; position: relative; }
+.fv-compare-flag {
+  position: absolute; top: 6px; right: 6px;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--red); border: 2px solid white;
+  box-shadow: 0 2px 6px rgba(255,82,82,.4);
 }
-.fv-sig-path {
-  stroke-dasharray: 280;
-  stroke-dashoffset: 280;
-  animation: sigDraw 2s ease forwards 1s infinite alternate;
-}
-@keyframes sigDraw { to { stroke-dashoffset: 0; } }
-.fv-sig-meta {
+.fv-compare-arrow { color: var(--ink-60); flex-shrink: 0; }
+.fv-compare-alert {
   display: flex; align-items: center; gap: 6px;
-  font-size: 11px; font-weight: 600; color: #4A8A00;
+  font-size: 11px; font-weight: 600; color: var(--red);
+  padding: 6px 10px;
+  background: rgba(255,82,82,.06); border-radius: 8px;
 }
 
 /* PDF visual */
@@ -1683,107 +1694,111 @@ footer {
 .fv-pdf-dots span { width: 8px; height: 8px; border-radius: 50%; }
 .fv-pdf-name { font-size: 10px; color: var(--ink-60); font-weight: 500; }
 .fv-pdf-preview {
-  padding: 12px;
-  background: var(--white);
+  padding: 12px; background: var(--white);
   border: 1px solid var(--ink-25); border-radius: 0 0 8px 8px;
 }
 .fv-pdf-line { height: 5px; background: var(--ink-25); border-radius: 3px; }
-.fv-pdf-rooms { display: flex; gap: 6px; margin-top: 10px; }
-.fv-pdf-room { flex: 1; height: 28px; border-radius: 6px; }
 
-/* Room by room visual */
-.feat-visual-rooms { margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
-.fv-room-item {
-  display: flex; align-items: center; gap: 8px;
-  padding: 8px 12px; border-radius: 10px;
-  font-size: 13px; font-weight: 500;
+/* Signature visual */
+.fv-sig-line {
+  padding: 12px 16px;
+  background: rgba(255,255,255,.06);
+  border-radius: 12px; margin-bottom: 10px;
 }
-.fv-room-done { background: rgba(255,255,255,.06); color: rgba(255,255,255,.7); }
-.fv-room-done svg { color: var(--green); flex-shrink: 0; }
-.fv-room-active { background: rgba(154,136,253,.12); color: var(--white); }
-.fv-room-pending { background: rgba(255,255,255,.03); color: rgba(255,255,255,.3); }
-.fv-room-active-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--purple); flex-shrink: 0;
-  animation: eyePulse 1s infinite;
+.fv-sig-path {
+  stroke-dasharray: 280; stroke-dashoffset: 280;
+  animation: sigDraw 2s ease forwards 1s infinite alternate;
 }
-.fv-room-pending-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: rgba(255,255,255,.15); flex-shrink: 0;
-}
-.fv-room-badge {
-  margin-left: auto; font-size: 10px; font-weight: 700;
-  padding: 2px 8px; border-radius: 999px;
-}
+@keyframes sigDraw { to { stroke-dashoffset: 0; } }
+.fv-sig-reminders { display: flex; gap: 16px; }
+.fv-sig-rm { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; color: rgba(255,255,255,.7); }
+.fv-sig-rm-muted { color: rgba(255,255,255,.3); }
+.fv-sig-rm-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
 
-/* History visual */
-.feat-visual-history { margin-top: 20px; }
-.fv-hist-item {
+/* Portfolio visual */
+.feat-visual-portfolio { margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
+.fv-prop-item {
   display: flex; align-items: center; gap: 10px;
-  padding: 10px 12px;
-  background: var(--cream); border-radius: 10px;
-  font-size: 13px;
+  padding: 9px 12px; background: var(--cream); border-radius: 10px; font-size: 13px;
 }
-.fv-hist-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-.fv-hist-info { display: flex; flex-direction: column; flex: 1; }
-.fv-hist-type { font-weight: 600; font-size: 12px; }
-.fv-hist-date { font-size: 11px; color: var(--ink-60); }
-.fv-hist-badge {
-  font-size: 10px; font-weight: 700;
-  padding: 3px 8px; border-radius: 999px;
-}
-.fv-hist-badge.ok { background: var(--green-bg); color: #4A8A00; }
-.fv-hist-line {
-  width: 2px; height: 16px;
-  background: var(--ink-25); margin: 4px 0 4px 15px;
-}
-.fv-hist-compare {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 12px; font-weight: 600; color: var(--purple);
-  margin-top: 10px; padding-left: 4px;
-}
-
-/* Keys visual */
-.feat-visual-keys { margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
-.fv-key-item {
-  display: flex; align-items: center; gap: 10px;
-  padding: 9px 12px;
-  background: var(--cream); border-radius: 10px;
-  font-size: 13px; font-weight: 500;
-}
-.fv-key-icon {
+.fv-prop-icon {
   width: 28px; height: 28px; border-radius: 8px;
   background: var(--purple-bg); color: var(--purple);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
+.fv-prop-info { display: flex; flex-direction: column; flex: 1; }
+.fv-prop-name { font-weight: 600; font-size: 12px; }
+.fv-prop-status { font-size: 10px; }
+.fv-prop-badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 999px; flex-shrink: 0; }
 
-/* AI Summary visual */
-.feat-visual-summary { margin-top: 20px; }
-.fv-sum-label {
-  font-size: 9px; text-transform: uppercase; letter-spacing: 2px;
-  color: rgba(14,14,16,.4); font-weight: 700; margin-bottom: 10px;
+/* Notifications visual */
+.feat-visual-notifs { margin-top: 20px; display: flex; flex-direction: column; gap: 7px; }
+.fv-notif {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 11px; border-radius: 10px; font-size: 12px; font-weight: 500;
 }
-.fv-sum-line {
-  height: 6px;
-  background: rgba(14,14,16,.12);
-  border-radius: 3px;
+.fv-notif svg { flex-shrink: 0; }
+.fv-notif-purple { background: var(--purple-bg); color: var(--purple); }
+.fv-notif-yellow { background: var(--jasmine-bg); color: #8A6000; }
+.fv-notif-green { background: var(--green-bg); color: #4A8A00; }
+.fv-notif-time { margin-left: auto; font-size: 10px; opacity: .6; flex-shrink: 0; }
+
+/* PWA visual */
+.feat-visual-pwa { margin-top: 20px; }
+.fv-pwa-row { display: flex; gap: 8px; }
+.fv-pwa-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px; border-radius: 999px;
+  background: rgba(14,14,16,.1); color: var(--ink);
+  font-size: 11px; font-weight: 700;
 }
 
 /* White label visual */
 .feat-visual-wl { margin-top: 20px; }
 .fv-wl-card {
   display: flex; align-items: center; gap: 12px;
-  padding: 14px 16px;
-  background: rgba(14,14,16,.06);
-  border-radius: 12px;
+  padding: 12px 14px; background: rgba(14,14,16,.06); border-radius: 12px;
 }
 .fv-wl-logo {
-  width: 36px; height: 36px; border-radius: 8px;
+  width: 32px; height: 32px; border-radius: 8px;
   background: var(--ink); opacity: .15; flex-shrink: 0;
 }
 .fv-wl-lines { flex: 1; }
-.fv-wl-line { height: 5px; background: var(--ink); border-radius: 3px; }
+.fv-wl-line { height: 5px; border-radius: 3px; }
+
+/* Team visual */
+.feat-visual-team { margin-top: 20px; }
+.fv-team-row { display: flex; gap: 4px; margin-bottom: 14px; }
+.fv-team-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  font-size: 11px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid var(--ink);
+}
+.fv-team-more {
+  background: rgba(255,255,255,.08); color: rgba(255,255,255,.5);
+  font-size: 10px; border-color: rgba(255,255,255,.1);
+}
+.fv-team-credits { display: flex; align-items: center; gap: 8px; font-size: 11px; color: rgba(255,255,255,.5); }
+.fv-team-bar {
+  flex: 1; height: 4px; background: rgba(255,255,255,.1); border-radius: 9px; overflow: hidden;
+}
+.fv-team-fill { height: 100%; width: 70%; background: var(--purple); border-radius: 9px; }
+
+/* Lease visual */
+.feat-visual-lease { margin-top: 20px; }
+.fv-lease-timeline { display: flex; align-items: center; margin-bottom: 12px; }
+.fv-lease-node { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.fv-lease-dot { width: 10px; height: 10px; border-radius: 50%; }
+.fv-lease-node span { font-size: 9px; font-weight: 600; color: var(--ink-60); white-space: nowrap; }
+.fv-lease-track { flex: 1; height: 1px; background: var(--ink-25); margin: 0 4px; }
+.fv-lease-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+.fv-lease-action {
+  font-size: 11px; font-weight: 600;
+  padding: 4px 10px; border-radius: 999px;
+  background: var(--cream-2); color: var(--ink-60);
+  border: 1px solid var(--ink-25);
+}
 
 @media(max-width: 1100px) {
   .feat-bento { grid-template-columns: 1fr 1fr; }
@@ -2296,21 +2311,20 @@ footer {
 
     <div class="feat-bento">
 
-      <!-- ── GRANDE CARTE AI ── -->
+      <!-- ── AI INSPECTION (grande carte) ── -->
       <div class="feat-card feat-large reveal">
         <div class="feat-card-content">
           <div class="feat-tag">Core</div>
-          <h3>AI Photo Analysis</h3>
-          <p>Point your camera at any surface. Claude AI identifies scratches, stains, cracks, mold, and wear — tags them automatically with a description and severity level. No manual input, no missed details.</p>
+          <h3>AI-Powered Inspection</h3>
+          <p>Claude AI analyzes every photo — detects damage, rewrites notes in professional language, and generates a RERA-style executive summary automatically. No writing required.</p>
           <div class="feat-pills">
-            <span class="feat-pill">Scratches</span>
-            <span class="feat-pill">Stains</span>
-            <span class="feat-pill">Cracks</span>
-            <span class="feat-pill">Paint wear</span>
-            <span class="feat-pill">Mold</span>
+            <span class="feat-pill">Damage detection</span>
+            <span class="feat-pill">Auto-tags</span>
+            <span class="feat-pill">Note reformulation</span>
+            <span class="feat-pill">Executive summary</span>
           </div>
         </div>
-        <div class="feat-card-visual feat-visual-ai">
+        <div class="feat-visual-ai">
           <div class="fv-ai-photo">
             <div class="fv-ai-scan"></div>
             <div class="fv-ai-pin fv-pin-1">
@@ -2329,29 +2343,39 @@ footer {
         </div>
       </div>
 
-      <!-- ── SIGNATURE DIGITALE ── -->
+      <!-- ── CHECK-IN VS CHECK-OUT ── -->
       <div class="feat-card reveal reveal-delay-1">
-        <div class="feat-tag">Legal</div>
-        <h3>Digital Signatures</h3>
-        <p>Landlord and tenant both sign on-device at the end of the inspection. Timestamped, bound to the report, RDC-accepted.</p>
-        <div class="feat-visual-sig">
-          <div class="fv-sig-line">
-            <svg viewBox="0 0 180 36" fill="none">
-              <path d="M4 28 C24 6, 44 32, 64 18 C80 7, 92 30, 112 20 C128 12, 140 26, 176 10" stroke="var(--purple)" stroke-width="2" stroke-linecap="round" class="fv-sig-path"/>
-            </svg>
+        <div class="feat-tag">Comparison</div>
+        <h3>Check-In vs Check-Out</h3>
+        <p>Room-by-room photo comparison between move-in and move-out. New damages highlighted automatically — no manual cross-referencing.</p>
+        <div class="feat-visual-compare">
+          <div class="fv-compare-row">
+            <div class="fv-compare-col">
+              <div class="fv-compare-label">Check-In</div>
+              <div class="fv-compare-thumb" style="background:linear-gradient(135deg,var(--green-bg),var(--cream))"></div>
+            </div>
+            <div class="fv-compare-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+            <div class="fv-compare-col">
+              <div class="fv-compare-label">Check-Out</div>
+              <div class="fv-compare-thumb" style="background:linear-gradient(135deg,var(--jasmine-bg),var(--cream));position:relative;">
+                <div class="fv-compare-flag"></div>
+              </div>
+            </div>
           </div>
-          <div class="fv-sig-meta">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Signed · March 25, 2025 · 11:04 AM
+          <div class="fv-compare-alert">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            2 new damages detected
           </div>
         </div>
       </div>
 
-      <!-- ── PDF ONE-CLICK ── -->
+      <!-- ── PDF REPORT ── -->
       <div class="feat-card reveal reveal-delay-2">
         <div class="feat-tag">Output</div>
-        <h3>One-Click PDF Report</h3>
-        <p>Branded, professional, legally sound. Generated instantly at the end of every inspection — ready to email, download, or submit.</p>
+        <h3>Professional PDF Reports</h3>
+        <p>SHA-256 verified, QR code for public authenticity check, generated in one tap. Legally sound, ready to submit to any party or the RDC.</p>
         <div class="feat-visual-pdf">
           <div class="fv-pdf-bar">
             <div class="fv-pdf-dots">
@@ -2359,137 +2383,215 @@ footer {
               <span style="background:#FFBD2E"></span>
               <span style="background:#27C93F"></span>
             </div>
-            <span class="fv-pdf-name">Inspection_Report.pdf</span>
+            <span class="fv-pdf-name">Inspection_Report_Marina.pdf</span>
           </div>
           <div class="fv-pdf-preview">
-            <div class="fv-pdf-header-line" style="background:var(--purple);height:3px;margin-bottom:8px"></div>
+            <div style="background:var(--purple);height:3px;border-radius:2px;margin-bottom:8px"></div>
             <div class="fv-pdf-line" style="width:55%"></div>
             <div class="fv-pdf-line" style="width:80%;margin-top:5px"></div>
-            <div class="fv-pdf-line" style="width:65%;margin-top:5px"></div>
-            <div class="fv-pdf-rooms">
-              <div class="fv-pdf-room" style="background:var(--green-bg)"></div>
-              <div class="fv-pdf-room" style="background:var(--jasmine-bg)"></div>
-              <div class="fv-pdf-room" style="background:var(--purple-bg)"></div>
+            <div style="display:flex;gap:6px;margin-top:10px;align-items:center">
+              <div style="width:28px;height:28px;border-radius:4px;background:var(--purple-bg);display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 17h3v3"/><path d="M17 14h3"/></svg>
+              </div>
+              <div style="flex:1">
+                <div class="fv-pdf-line" style="width:100%"></div>
+                <div style="font-size:9px;color:var(--ink-60);margin-top:3px;font-weight:600">SHA-256 · Verified</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- ── ROOM BY ROOM ── -->
+      <!-- ── DIGITAL SIGNATURES (dark) ── -->
       <div class="feat-card feat-dark reveal">
-        <div class="feat-tag feat-tag-light">Process</div>
-        <h3>Room-by-Room Flow</h3>
-        <p>Structured walkthrough for every room. Nothing missed, nothing skipped. Each room gets its own condition score, photos, and notes.</p>
-        <div class="feat-visual-rooms">
-          <div class="fv-room-item fv-room-done">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Living Room
-            <span class="fv-room-badge" style="background:rgba(202,254,135,.15);color:var(--green)">Good</span>
+        <div class="feat-tag feat-tag-light">Legal</div>
+        <h3>Digital Signatures</h3>
+        <p>Remote by email or in-person. Auto-reminders at J+1 and J+3, expiry at J+7. Refusal is documented and timestamped — legally watertight either way.</p>
+        <div class="feat-visual-sig" style="margin-top:20px">
+          <div class="fv-sig-line">
+            <svg viewBox="0 0 180 36" fill="none" width="100%">
+              <path d="M4 28 C24 6, 44 32, 64 18 C80 7, 92 30, 112 20 C128 12, 140 26, 176 10" stroke="var(--purple)" stroke-width="2" stroke-linecap="round" class="fv-sig-path"/>
+            </svg>
           </div>
-          <div class="fv-room-item fv-room-done">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Kitchen
-            <span class="fv-room-badge" style="background:rgba(254,222,128,.15);color:var(--jasmine)">Fair</span>
-          </div>
-          <div class="fv-room-item fv-room-active">
-            <div class="fv-room-active-dot"></div>
-            Bedroom 1
-            <span class="fv-room-badge" style="background:rgba(154,136,253,.15);color:var(--purple)">In progress</span>
-          </div>
-          <div class="fv-room-item fv-room-pending">
-            <div class="fv-room-pending-dot"></div>
-            Bathroom
+          <div class="fv-sig-reminders">
+            <div class="fv-sig-rm">
+              <div class="fv-sig-rm-dot" style="background:var(--green)"></div>
+              <span>Signed · J+0</span>
+            </div>
+            <div class="fv-sig-rm fv-sig-rm-muted">
+              <div class="fv-sig-rm-dot" style="background:rgba(255,255,255,.2)"></div>
+              <span>Reminder · J+1</span>
+            </div>
+            <div class="fv-sig-rm fv-sig-rm-muted">
+              <div class="fv-sig-rm-dot" style="background:rgba(255,255,255,.2)"></div>
+              <span>Expiry · J+7</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- ── HISTORIQUE ── -->
+      <!-- ── PORTFOLIO ── -->
       <div class="feat-card reveal reveal-delay-1">
-        <div class="feat-tag">History</div>
-        <h3>Full Inspection History</h3>
-        <p>Every check-in and check-out stored and accessible forever. Compare move-in vs move-out side by side. Dispute-proof paper trail built automatically.</p>
-        <div class="feat-visual-history">
-          <div class="fv-hist-item">
-            <div class="fv-hist-dot" style="background:var(--green)"></div>
-            <div class="fv-hist-info">
-              <span class="fv-hist-type">Check-In</span>
-              <span class="fv-hist-date">Jan 15, 2024</span>
+        <div class="feat-tag">Portfolio</div>
+        <h3>Portfolio Management</h3>
+        <p>Properties, tenancy history, lease status, check-in and check-out linked automatically. Everything in one place, always up to date.</p>
+        <div class="feat-visual-portfolio">
+          <div class="fv-prop-item">
+            <div class="fv-prop-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
             </div>
-            <span class="fv-hist-badge ok">Signed</span>
-          </div>
-          <div class="fv-hist-line"></div>
-          <div class="fv-hist-item">
-            <div class="fv-hist-dot" style="background:var(--purple)"></div>
-            <div class="fv-hist-info">
-              <span class="fv-hist-type">Check-Out</span>
-              <span class="fv-hist-date">Jan 12, 2025</span>
+            <div class="fv-prop-info">
+              <span class="fv-prop-name">Marina Heights 1204</span>
+              <span class="fv-prop-status" style="color:#4A8A00">Active lease</span>
             </div>
-            <span class="fv-hist-badge ok">Signed</span>
+            <span class="fv-prop-badge" style="background:var(--green-bg);color:#4A8A00">Check-in ✓</span>
           </div>
-          <div class="fv-hist-compare">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
-            Compare reports →
+          <div class="fv-prop-item">
+            <div class="fv-prop-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            </div>
+            <div class="fv-prop-info">
+              <span class="fv-prop-name">JVC Villa 14B</span>
+              <span class="fv-prop-status" style="color:#8A6000">Lease expires soon</span>
+            </div>
+            <span class="fv-prop-badge" style="background:var(--jasmine-bg);color:#8A6000">90 days</span>
+          </div>
+          <div class="fv-prop-item">
+            <div class="fv-prop-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            </div>
+            <div class="fv-prop-info">
+              <span class="fv-prop-name">Downtown 802</span>
+              <span class="fv-prop-status" style="color:var(--ink-60)">Vacant</span>
+            </div>
+            <span class="fv-prop-badge" style="background:var(--purple-bg);color:var(--purple)">New</span>
           </div>
         </div>
       </div>
 
-      <!-- ── KEY HANDOVER ── -->
+      <!-- ── NOTIFICATIONS ── -->
       <div class="feat-card reveal reveal-delay-2">
-        <div class="feat-tag">Handover</div>
-        <h3>Key &amp; Access Tracking</h3>
-        <p>Keys, access cards, parking cards, remote controls — every item logged and signed for at handover. No more "I never received that key."</p>
-        <div class="feat-visual-keys">
-          <div class="fv-key-item">
-            <div class="fv-key-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
-            </div>
-            <span>Main key × 2</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="color:#4A8A00;margin-left:auto"><polyline points="20 6 9 17 4 12"/></svg>
+        <div class="feat-tag">Alerts</div>
+        <h3>Smart Notifications</h3>
+        <p>Signature updates, lease expiry alerts, in-app notification center. Nothing falls through the cracks.</p>
+        <div class="feat-visual-notifs">
+          <div class="fv-notif fv-notif-purple">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
+            <span>Sara M. signed the report</span>
+            <span class="fv-notif-time">now</span>
           </div>
-          <div class="fv-key-item">
-            <div class="fv-key-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
-            </div>
-            <span>Access card × 1</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="color:#4A8A00;margin-left:auto"><polyline points="20 6 9 17 4 12"/></svg>
+          <div class="fv-notif fv-notif-yellow">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>JVC Villa — lease in 90 days</span>
+            <span class="fv-notif-time">1h ago</span>
           </div>
-          <div class="fv-key-item">
-            <div class="fv-key-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg>
-            </div>
-            <span>Parking remote × 1</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="color:#4A8A00;margin-left:auto"><polyline points="20 6 9 17 4 12"/></svg>
+          <div class="fv-notif fv-notif-green">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>PDF generated · Downtown 802</span>
+            <span class="fv-notif-time">3h ago</span>
           </div>
         </div>
       </div>
 
-      <!-- ── AI EXECUTIVE SUMMARY ── -->
+      <!-- ── PWA MOBILE ── -->
       <div class="feat-card feat-purple reveal">
-        <div class="feat-tag feat-tag-purple">AI</div>
-        <h3>AI Executive Summary</h3>
-        <p>After the inspection, Claude AI writes a complete property condition overview — professional, objective, and ready to include in the report. No writing required.</p>
-        <div class="feat-visual-summary">
-          <div class="fv-sum-label">Generated summary</div>
-          <div class="fv-sum-line" style="width:100%"></div>
-          <div class="fv-sum-line" style="width:88%;margin-top:6px"></div>
-          <div class="fv-sum-line" style="width:72%;margin-top:6px"></div>
-          <div class="fv-sum-line" style="width:90%;margin-top:6px"></div>
-          <div class="fv-sum-line" style="width:60%;margin-top:6px"></div>
+        <div class="feat-tag feat-tag-purple">Mobile</div>
+        <h3>Mobile-First PWA</h3>
+        <p>Installable on iOS &amp; Android like a native app. Optimized for field use — fast, offline-capable, push notifications included. No App Store required.</p>
+        <div class="feat-visual-pwa">
+          <div class="fv-pwa-row">
+            <div class="fv-pwa-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+              iOS
+            </div>
+            <div class="fv-pwa-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+              Android
+            </div>
+            <div class="fv-pwa-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+              Offline
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- ── WHITE LABEL ── -->
+      <!-- ══ PRO FEATURES ══ -->
+
+      <!-- ── WHITE LABEL (pro) ── -->
       <div class="feat-card feat-jasmine reveal reveal-delay-1">
-        <div class="feat-tag">Branding</div>
-        <h3>White-Label Reports</h3>
-        <p>Your logo, colors, and contact details on every report. Clients see your agency — not Snagify.</p>
+        <div class="feat-top-row">
+          <div class="feat-tag">Branding</div>
+          <span class="feat-pro-badge">Pro</span>
+        </div>
+        <h3>Full White-Label</h3>
+        <p>Agency logo, colors, RERA number and inspector signature on all PDFs and emails. Clients see your firm — not Snagify.</p>
         <div class="feat-visual-wl">
           <div class="fv-wl-card">
             <div class="fv-wl-logo"></div>
             <div class="fv-wl-lines">
               <div class="fv-wl-line" style="width:60%;background:var(--ink);opacity:.2"></div>
-              <div class="fv-wl-line" style="width:40%;margin-top:4px"></div>
+              <div class="fv-wl-line" style="width:40%;margin-top:4px;background:var(--ink);opacity:.12"></div>
             </div>
+            <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:rgba(14,14,16,.35);margin-left:auto">RERA #12345</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── TEAM MANAGEMENT (pro) ── -->
+      <div class="feat-card feat-dark reveal reveal-delay-2">
+        <div class="feat-top-row">
+          <div class="feat-tag feat-tag-light">Team</div>
+          <span class="feat-pro-badge feat-pro-badge-dark">Pro</span>
+        </div>
+        <h3>Team Management</h3>
+        <p>Up to 15 inspectors, invitations, roles, and a shared credit pool. One dashboard, full control.</p>
+        <div class="feat-visual-team">
+          <div class="fv-team-row">
+            <div class="fv-team-avatar" style="background:var(--purple-bg);color:var(--purple)">KA</div>
+            <div class="fv-team-avatar" style="background:var(--jasmine-bg);color:#8A6000">SM</div>
+            <div class="fv-team-avatar" style="background:var(--green-bg);color:#4A8A00">RH</div>
+            <div class="fv-team-avatar fv-team-more">+12</div>
+          </div>
+          <div class="fv-team-credits">
+            <span>Shared credits</span>
+            <div class="fv-team-bar">
+              <div class="fv-team-fill"></div>
+            </div>
+            <span>14 / 20</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── LEASE RENEWAL (pro) ── -->
+      <div class="feat-card reveal reveal-delay-1">
+        <div class="feat-top-row">
+          <div class="feat-tag">Automation</div>
+          <span class="feat-pro-badge">Pro</span>
+        </div>
+        <h3>Lease Renewal Alerts</h3>
+        <p>Automatic reminder 100 days before lease end to contact tenant and owner — renew, revise rent, or release. Zero leases fall through.</p>
+        <div class="feat-visual-lease">
+          <div class="fv-lease-timeline">
+            <div class="fv-lease-node fv-lease-now">
+              <div class="fv-lease-dot" style="background:var(--purple)"></div>
+              <span>Today</span>
+            </div>
+            <div class="fv-lease-track"></div>
+            <div class="fv-lease-node fv-lease-alert">
+              <div class="fv-lease-dot" style="background:var(--jasmine)"></div>
+              <span>Alert · J-100</span>
+            </div>
+            <div class="fv-lease-track"></div>
+            <div class="fv-lease-node fv-lease-end">
+              <div class="fv-lease-dot" style="background:var(--red);opacity:.5"></div>
+              <span>Expiry</span>
+            </div>
+          </div>
+          <div class="fv-lease-actions">
+            <span class="fv-lease-action">Renew</span>
+            <span class="fv-lease-action">Revise rent</span>
+            <span class="fv-lease-action">Release</span>
           </div>
         </div>
       </div>
