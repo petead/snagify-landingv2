@@ -1027,37 +1027,23 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
   padding: 0 16px;
 }
 
-/* Giant step number watermark */
-.hiw-step-num {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800;
-  font-size: 120px;
-  line-height: 1;
-  letter-spacing: -8px;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255,255,255,.06);
-  position: absolute;
-  top: -20px; left: 8px;
-  pointer-events: none;
-  user-select: none;
-  z-index: 0;
-}
 
 /* Step content */
 .hiw-step-inner {
   position: relative; z-index: 1;
-  padding-top: 32px;
+  padding-top: 0;
 }
 
 /* Mini phone mockup per step */
 .hiw-phone {
   width: 100%;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.13);
   border-radius: 20px;
   overflow: hidden;
   margin-bottom: 24px;
   position: relative;
+  box-shadow: 0 8px 32px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.08);
 }
 .hiw-phone-notch {
   width: 60px; height: 14px;
@@ -1158,10 +1144,22 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
   font-weight: 600; margin-bottom: 6px;
 }
 .hiw-s3-sig-wave {
-  height: 14px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 14'%3E%3Cpath d='M2 10 C18 3,34 12,52 7 C66 2,78 11,98 5 C110 1,116 8,120 5' stroke='%239A88FD' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat left center;
-  background-size: contain;
-  opacity: .7;
+  height: 36px;
+  position: relative;
+  overflow: visible;
+}
+.hiw-s3-sig-svg {
+  width: 100%;
+  height: 36px;
+  overflow: visible;
+}
+.hiw-s3-sig-path {
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  animation: traceHiwSig 2.2s cubic-bezier(.4,0,.2,1) forwards 0.3s;
+}
+@keyframes traceHiwSig {
+  to { stroke-dashoffset: 0; }
 }
 .hiw-s3-pdf-btn {
   display: flex; align-items: center; justify-content: center;
@@ -2632,7 +2630,6 @@ footer {
   .hiw-grid         { grid-template-columns: 1fr; gap: 14px; }
   .hiw-connector    { display: none; }
   .hiw-step         { padding: 0; }
-  .hiw-step-num     { font-size: 72px; letter-spacing: -5px; }
 
   /* Bento */
   .bento            { grid-template-columns: 1fr; gap: 12px; }
@@ -3189,7 +3186,6 @@ footer {
 
       <!-- ── Step 1 ── -->
       <div class="hiw-step reveal">
-        <div class="hiw-step-num">01</div>
         <div class="hiw-step-inner">
 
           <!-- Mini phone mockup -->
@@ -3212,8 +3208,8 @@ footer {
             <div class="hiw-step-badge-dot"></div>
             Step 01
           </div>
-          <h3>Add the property</h3>
-          <p>Enter address, unit number, and select the rooms. Takes under 30 seconds, and you only do it once per property.</p>
+          <h3>Add property & contract details</h3>
+          <p>Enter the address and rooms. AI automatically extracts contract details for you. Takes under 30 seconds, once per property.</p>
           <div class="hiw-time-badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             ~30 sec
@@ -3228,7 +3224,6 @@ footer {
 
       <!-- ── Step 2 ── -->
       <div class="hiw-step reveal reveal-delay-1">
-        <div class="hiw-step-num">02</div>
         <div class="hiw-step-inner">
 
           <!-- Mini phone mockup -->
@@ -3259,7 +3254,7 @@ footer {
             Step 02
           </div>
           <h3>Walk, snap & tag</h3>
-          <p>Move through each room. Photograph everything. AI instantly detects and tags damage — scratches, stains, wear — as you go.</p>
+          <p>Move through each room. Photograph everything. AI instantly detects and tags damage: scratches, stains, wear, as you go.</p>
           <div class="hiw-time-badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             ~15 min
@@ -3274,7 +3269,6 @@ footer {
 
       <!-- ── Step 3 ── -->
       <div class="hiw-step reveal reveal-delay-2">
-        <div class="hiw-step-num">03</div>
         <div class="hiw-step-inner">
 
           <!-- Mini phone mockup -->
@@ -3283,7 +3277,32 @@ footer {
             <div class="hiw-phone-body">
               <div class="hiw-s3-sig">
                 <div class="hiw-s3-sig-label">Digital Signature</div>
-                <div class="hiw-s3-sig-wave"></div>
+                <div class="hiw-s3-sig-wave">
+                  <svg class="hiw-s3-sig-svg" viewBox="0 0 220 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path class="hiw-s3-sig-path"
+                      d="M4 24
+                         C8 20, 10 14, 14 16
+                         C18 18, 16 26, 20 22
+                         C24 18, 26 10, 32 12
+                         C38 14, 36 24, 40 20
+                         C46 14, 52 8, 60 10
+                         C68 12, 64 22, 70 20
+                         C76 18, 80 12, 88 14
+                         C96 16, 92 24, 98 22
+                         C106 18, 114 8, 124 10
+                         C132 12, 128 22, 136 20
+                         C144 18, 152 6, 164 8
+                         C174 10, 170 20, 178 18
+                         C186 16, 196 10, 210 12
+                         C216 13, 218 16, 220 15"
+                      stroke="var(--purple)"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      fill="none"
+                    />
+                  </svg>
+                </div>
               </div>
               <div class="hiw-s3-pdf-btn">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
@@ -3303,7 +3322,7 @@ footer {
             Step 03
           </div>
           <h3>Sign & get your PDF</h3>
-          <p>Both parties sign on-screen. AI writes the executive summary. One tap: a branded, timestamped, court-ready report lands in your inbox.</p>
+          <p>Both parties sign on-screen. AI writes the executive summary. One tap and a branded, timestamped, court-ready report lands in your inbox.</p>
           <div class="hiw-time-badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             ~3 min
