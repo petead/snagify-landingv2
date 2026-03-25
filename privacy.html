@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Snagify</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --cream: #F3F1EB; --cream-2: #EAE8E0; --white: #FCFCFC;
+  --ink: #0E0E10; --ink-60: rgba(14,14,16,0.6); --ink-25: rgba(14,14,16,0.1);
+  --purple: #9A88FD; --purple-bg: #EDE9FE; --green: #CAFE87; --green-bg: #EEFAD5;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 48px;
+  background: rgba(252,252,252,.92); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--ink-25);
+}
+.nav-logo { display:flex;align-items:center;gap:9px;text-decoration:none; }
+.nav-logo span { font-family:'Poppins',sans-serif;font-weight:800;font-size:20px;color:var(--ink); }
+.nav-back { display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--ink-60);text-decoration:none;transition:color .2s; }
+.nav-back:hover { color:var(--ink); }
+.nav-back:hover svg { transform:translateX(-3px); }
+.nav-back svg { transition:transform .2s; }
+
+.page-hero {
+  padding: 80px 48px 60px;
+  max-width: 800px; margin: 0 auto;
+  border-bottom: 1px solid var(--ink-25);
+}
+.page-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; text-transform: uppercase; letter-spacing: 3px;
+  font-weight: 600; color: var(--ink-60); margin-bottom: 20px;
+}
+.page-eyebrow::before { content:''; width:16px; height:1.5px; background:var(--ink-60); }
+.page-hero h1 { font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(36px,4vw,52px); letter-spacing:-2px; margin-bottom:12px; }
+.page-meta { font-size:14px; color:var(--ink-60); display:flex;align-items:center;gap:16px;flex-wrap:wrap; }
+.page-meta span { display:flex;align-items:center;gap:6px; }
+
+.layout { display:grid; grid-template-columns:220px 1fr; gap:60px; max-width:1000px; margin:0 auto; padding:60px 48px 100px; align-items:start; }
+
+/* TOC */
+.toc { position:sticky; top:88px; }
+.toc-title { font-size:10px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;color:var(--ink-60);margin-bottom:16px; }
+.toc-list { list-style:none;display:flex;flex-direction:column;gap:2px; }
+.toc-list a {
+  display:block; padding:8px 12px; border-radius:8px;
+  font-size:13px; font-weight:500; color:var(--ink-60);
+  text-decoration:none; transition:all .2s;
+}
+.toc-list a:hover, .toc-list a.active { background:var(--purple-bg); color:var(--purple); font-weight:600; }
+
+/* Content */
+.content { min-width: 0; }
+.content-section { margin-bottom: 56px; }
+.content-section:last-child { margin-bottom: 0; }
+.content-section h2 {
+  font-family:'Poppins',sans-serif; font-weight:800;
+  font-size:22px; letter-spacing:-.5px;
+  margin-bottom:16px; padding-bottom:12px;
+  border-bottom:2px solid var(--purple-bg);
+  scroll-margin-top:100px;
+}
+.content-section p { font-size:15px; color:var(--ink-60); line-height:1.8; margin-bottom:14px; }
+.content-section p:last-child { margin-bottom:0; }
+.content-section ul { padding-left:0; list-style:none; display:flex;flex-direction:column;gap:8px; margin-bottom:14px; }
+.content-section ul li {
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:15px;color:var(--ink-60);line-height:1.7;
+}
+.content-section ul li::before { content:'·'; color:var(--purple);font-weight:800;flex-shrink:0;margin-top:1px; }
+.content-section h3 { font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;margin:20px 0 10px; }
+
+.highlight-box {
+  padding:20px 24px;
+  background:var(--green-bg);
+  border:1px solid rgba(202,254,135,.4);
+  border-radius:14px;
+  font-size:14px;color:#3A7A00;line-height:1.7;
+  margin-bottom:14px;
+  display:flex;align-items:flex-start;gap:10px;
+}
+.highlight-box svg { flex-shrink:0;margin-top:2px; }
+
+.contact-box {
+  padding:24px; background:var(--cream); border-radius:16px;
+  border:1px solid var(--ink-25);
+}
+.contact-box h3 { font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;margin-bottom:8px; }
+.contact-box p { font-size:14px;color:var(--ink-60);margin-bottom:0; }
+.contact-box a { color:var(--purple);text-decoration:none;font-weight:600; }
+.contact-box a:hover { text-decoration:underline; }
+
+footer { background:var(--ink);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px; }
+.foot-copy { font-size:13px;color:rgba(255,255,255,.3); }
+.foot-links { display:flex;gap:20px; }
+.foot-links a { font-size:13px;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s; }
+.foot-links a:hover { color:#9A88FD; }
+
+@media(max-width:768px) {
+  nav { padding:14px 20px; }
+  .page-hero { padding:60px 20px 40px; }
+  .layout { grid-template-columns:1fr; padding:40px 20px 60px; gap:40px; }
+  .toc { position:static; }
+  footer { padding:32px 20px; flex-direction:column; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <svg width="32" height="32" viewBox="0 0 700 700" fill="#9A88FD"><path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z"/><path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z"/></svg>
+    <span>Snagify</span>
+  </a>
+  <a href="/" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to home
+  </a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-eyebrow">Legal</div>
+  <h1>Privacy Policy</h1>
+  <div class="page-meta">
+    <span>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Last updated: March 2025
+    </span>
+    <span>Applies to snagify.net and the Snagify mobile app</span>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="toc">
+    <div class="toc-title">On this page</div>
+    <ul class="toc-list">
+      <li><a href="#intro">Overview</a></li>
+      <li><a href="#collect">What we collect</a></li>
+      <li><a href="#use">How we use it</a></li>
+      <li><a href="#store">Storage & security</a></li>
+      <li><a href="#share">Who we share with</a></li>
+      <li><a href="#rights">Your rights</a></li>
+      <li><a href="#cookies">Cookies</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+
+    <section class="content-section" id="intro">
+      <h2>Overview</h2>
+      <div class="highlight-box">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Snagify does not sell your personal data. We do not run ads. We store only what is necessary to deliver the inspection service.
+      </div>
+      <p>Snagify is operated by Snagify (the "Company", "we", "us"). This Privacy Policy explains what personal information we collect when you use Snagify, how we use it, and the choices you have regarding your information.</p>
+      <p>By using Snagify, you agree to the practices described in this policy. If you do not agree, please do not use the service.</p>
+    </section>
+
+    <section class="content-section" id="collect">
+      <h2>What we collect</h2>
+      <h3>Account information</h3>
+      <ul>
+        <li>Name and email address when you create an account</li>
+        <li>Professional details you choose to add (company name, RERA number, job title)</li>
+        <li>Profile photo and digital signature image (optional)</li>
+      </ul>
+      <h3>Inspection data</h3>
+      <ul>
+        <li>Property details you enter (address, unit number, type)</li>
+        <li>Photos taken during inspections, stored in your account</li>
+        <li>Room condition assessments and tags</li>
+        <li>Signatures collected from you and other parties</li>
+        <li>Timestamps and GPS metadata attached to photos</li>
+      </ul>
+      <h3>Usage data</h3>
+      <ul>
+        <li>Device type, operating system, and browser version</li>
+        <li>Pages visited and actions taken in the app</li>
+        <li>Error logs for debugging purposes</li>
+      </ul>
+      <h3>Payment data</h3>
+      <p>Payments are processed by a third-party provider. We do not store credit card numbers or full payment details on our servers.</p>
+    </section>
+
+    <section class="content-section" id="use">
+      <h2>How we use it</h2>
+      <ul>
+        <li>To generate, store, and deliver your inspection reports</li>
+        <li>To power AI photo analysis via the Anthropic Claude API</li>
+        <li>To send you inspection-related notifications and reminders</li>
+        <li>To process payments and manage your subscription or credits</li>
+        <li>To improve the product and fix bugs</li>
+        <li>To comply with applicable UAE law and respond to legal requests</li>
+      </ul>
+      <p>We do not use your data for advertising or share it with marketing platforms.</p>
+    </section>
+
+    <section class="content-section" id="store">
+      <h2>Storage & security</h2>
+      <p>Your data is stored on Supabase infrastructure, hosted in secure data centers. Inspection reports are retained for as long as your account is active. Photos and PDFs are stored in isolated per-user buckets.</p>
+      <p>We use industry-standard encryption in transit (TLS) and at rest. Inspection PDFs are signed with a SHA-256 hash that makes any post-submission alteration detectable.</p>
+      <p>If you delete an inspection, associated photos and PDF files are permanently removed from storage. If you close your account, all personal data is deleted within 30 days.</p>
+    </section>
+
+    <section class="content-section" id="share">
+      <h2>Who we share with</h2>
+      <p>We share data only with the following categories of third parties, strictly to operate the service:</p>
+      <ul>
+        <li><strong>Supabase</strong> — database and file storage</li>
+        <li><strong>Anthropic</strong> — AI photo analysis (photos sent for analysis are not retained by Anthropic beyond the request)</li>
+        <li><strong>Resend</strong> — transactional email delivery</li>
+        <li><strong>Vercel</strong> — application hosting</li>
+        <li><strong>Payment processor</strong> — billing and subscription management</li>
+      </ul>
+      <p>We may disclose data if required by UAE law, a court order, or a valid government request.</p>
+    </section>
+
+    <section class="content-section" id="rights">
+      <h2>Your rights</h2>
+      <p>You have the right to:</p>
+      <ul>
+        <li>Access the personal data we hold about you</li>
+        <li>Correct inaccurate information in your profile</li>
+        <li>Delete your account and all associated data</li>
+        <li>Export your inspection reports at any time</li>
+        <li>Withdraw consent for optional data uses</li>
+      </ul>
+      <p>To exercise any of these rights, contact us at <a href="mailto:hello@snagify.net" style="color:var(--purple);font-weight:600">hello@snagify.net</a>. We will respond within 14 days.</p>
+    </section>
+
+    <section class="content-section" id="cookies">
+      <h2>Cookies</h2>
+      <p>Snagify uses a minimal number of cookies required for authentication and session management. We do not use tracking cookies, advertising cookies, or third-party analytics that profile your behavior.</p>
+      <p>You can disable cookies in your browser settings, but this will prevent you from staying logged in.</p>
+    </section>
+
+    <section class="content-section" id="contact">
+      <h2>Contact</h2>
+      <p>For any privacy-related questions or data requests:</p>
+      <div class="contact-box">
+        <h3>Snagify Privacy</h3>
+        <p>Email: <a href="mailto:hello@snagify.net">hello@snagify.net</a><br>
+        Subject line: "Privacy Request"<br>
+        We respond within 14 business days.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <span class="foot-copy">© 2025 Snagify. All rights reserved.</span>
+  <div class="foot-links">
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="/rera">RERA Compliance</a>
+    <a href="/contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+// Active TOC on scroll
+const sections = document.querySelectorAll('.content-section');
+const links = document.querySelectorAll('.toc-list a');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      links.forEach(l => l.classList.remove('active'));
+      const match = document.querySelector(`.toc-list a[href="#${e.target.id}"]`);
+      if (match) match.classList.add('active');
+    }
+  });
+}, { threshold: .4 });
+sections.forEach(s => io.observe(s));
+</script>
+</body>
+</html>
