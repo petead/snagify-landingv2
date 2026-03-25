@@ -674,21 +674,6 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
 .bento-stat { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 72px; letter-spacing: -4px; line-height: 1; margin: 12px 0 8px; }
 
 /* ══════════════════════════════════
-   HOW IT WORKS
-══════════════════════════════════ */
-.hiw { padding: 120px 0; background: var(--cream-2); }
-.hiw-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; margin-top: 64px; }
-.hiw-step { position: relative; padding: 32px; background: var(--white); border: 1px solid var(--ink-25); border-radius: 24px; transition: transform .4s ease; }
-.hiw-step:hover { transform: translateY(-4px); }
-.hiw-num { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 64px; letter-spacing: -4px; line-height: 1; color: var(--cream-2); margin-bottom: 16px; position: relative; }
-.hiw-num::after { content: attr(data-n); position: absolute; left: 0; top: 0; font-size: 64px; color: var(--purple); opacity: 0; transition: opacity .3s; }
-.hiw-step:hover .hiw-num::after { opacity: 1; }
-.hiw-step h3 { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 17px; letter-spacing: -.3px; margin-bottom: 8px; }
-.hiw-step p { font-size: 14px; color: var(--ink-60); line-height: 1.65; }
-.hiw-connector { position: absolute; top: 52px; right: -12px; z-index: 2; width: 24px; height: 2px; background: var(--ink-25); }
-.hiw-step:last-child .hiw-connector { display: none; }
-
-/* ══════════════════════════════════
    AI SECTION
 ══════════════════════════════════ */
 .ai-sec { padding: 120px 0; }
@@ -716,6 +701,299 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
 .ai-feat-check svg { width: 14px; height: 14px; color: #4A8A00; }
 .ai-feat h4 { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15px; margin-bottom: 2px; }
 .ai-feat p { font-size: 13px; color: var(--ink-60); line-height: 1.5; }
+
+/* ══ HOW IT WORKS ══ */
+.hiw {
+  padding: 120px 0;
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+/* Pont haut depuis jasmine/cream */
+.hiw-top-bridge {
+  position: absolute;
+  top: -56px; left: 0; right: 0; height: 56px;
+  background: linear-gradient(to bottom, transparent, var(--ink));
+  pointer-events: none; z-index: 4;
+}
+/* Atmosphère purple dans le dark */
+.hiw::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 50%, rgba(154,136,253,.07) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 40% at 5% 80%, rgba(202,254,135,.04) 0%, transparent 50%),
+    radial-gradient(ellipse 35% 35% at 95% 20%, rgba(254,222,128,.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+/* Pont bas vers cream-2 sample */
+.hiw::after {
+  content: '';
+  position: absolute;
+  bottom: -56px; left: 0; right: 0; height: 56px;
+  background: linear-gradient(to bottom, var(--ink), transparent);
+  pointer-events: none; z-index: 4;
+}
+
+.hiw-header {
+  text-align: center;
+  margin-bottom: 72px;
+  position: relative; z-index: 2;
+}
+.hiw-header .section-eyebrow { color: rgba(255,255,255,.45); }
+.hiw-header .section-eyebrow::before { background: rgba(255,255,255,.35); }
+.hiw-header .section-title { color: var(--white); }
+.hiw-header .section-title em { color: var(--purple); }
+.hiw-header .section-sub { color: rgba(255,255,255,.45); margin: 0 auto; }
+
+/* Steps grid */
+.hiw-grid {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr 40px 1fr;
+  gap: 0;
+  align-items: start;
+  position: relative; z-index: 2;
+}
+
+/* Connector arrow */
+.hiw-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px;
+  color: rgba(255,255,255,.15);
+}
+.hiw-arrow svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+/* Each step card */
+.hiw-step {
+  position: relative;
+  padding: 0 16px;
+}
+
+/* Giant step number watermark */
+.hiw-step-num {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 120px;
+  line-height: 1;
+  letter-spacing: -8px;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,.06);
+  position: absolute;
+  top: -20px; left: 8px;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* Step content */
+.hiw-step-inner {
+  position: relative; z-index: 1;
+  padding-top: 32px;
+}
+
+/* Mini phone mockup per step */
+.hiw-phone {
+  width: 100%;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  position: relative;
+}
+.hiw-phone-notch {
+  width: 60px; height: 14px;
+  background: rgba(255,255,255,.08);
+  border-radius: 0 0 8px 8px;
+  margin: 0 auto;
+}
+.hiw-phone-body {
+  padding: 12px 14px 16px;
+}
+
+/* Step 1: property form */
+.hiw-s1-field {
+  height: 28px;
+  background: rgba(255,255,255,.08);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  position: relative;
+  overflow: hidden;
+}
+.hiw-s1-field::before {
+  content: '';
+  position: absolute;
+  left: 10px; top: 50%; transform: translateY(-50%);
+  width: 60%; height: 6px;
+  background: rgba(255,255,255,.12);
+  border-radius: 4px;
+}
+.hiw-s1-field.short::before { width: 35%; }
+.hiw-s1-btn {
+  height: 28px;
+  background: var(--purple);
+  border-radius: 8px;
+  margin-top: 12px;
+  opacity: .8;
+}
+
+/* Step 2: room capture */
+.hiw-s2-photo {
+  height: 72px;
+  background: linear-gradient(135deg, rgba(154,136,253,.2), rgba(202,254,135,.1));
+  border-radius: 10px;
+  margin-bottom: 8px;
+  position: relative;
+  overflow: hidden;
+}
+.hiw-s2-photo::after {
+  content: '';
+  position: absolute;
+  bottom: 6px; left: 6px;
+  display: flex; align-items: center;
+  width: 56px; height: 16px;
+  background: rgba(14,14,16,.6);
+  border-radius: 5px;
+}
+.hiw-s2-ai-bar {
+  display: flex; align-items: center; gap: 5px;
+  position: absolute; top: 7px; left: 7px;
+  background: rgba(14,14,16,.65);
+  border-radius: 5px; padding: 3px 7px;
+  font-size: 9px; font-weight: 600; color: var(--green);
+}
+.hiw-s2-ai-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--green);
+  animation: eyePulse 1.2s infinite;
+}
+.hiw-s2-tag {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: rgba(255,82,82,.2);
+  border: 1px solid rgba(255,82,82,.3);
+  border-radius: 999px; padding: 3px 8px;
+  font-size: 9px; font-weight: 600; color: #FF8080;
+  margin-top: 2px;
+}
+.hiw-s2-rooms {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5px; margin-top: 7px;
+}
+.hiw-s2-room {
+  height: 24px;
+  background: rgba(255,255,255,.06);
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+/* Step 3: sign & PDF */
+.hiw-s3-sig {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+}
+.hiw-s3-sig-label {
+  font-size: 9px; text-transform: uppercase;
+  letter-spacing: 1.5px; color: rgba(255,255,255,.35);
+  font-weight: 600; margin-bottom: 6px;
+}
+.hiw-s3-sig-wave {
+  height: 14px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 14'%3E%3Cpath d='M2 10 C18 3,34 12,52 7 C66 2,78 11,98 5 C110 1,116 8,120 5' stroke='%239A88FD' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat left center;
+  background-size: contain;
+  opacity: .7;
+}
+.hiw-s3-pdf-btn {
+  display: flex; align-items: center; justify-content: center;
+  gap: 6px;
+  height: 30px;
+  background: var(--purple);
+  border-radius: 8px;
+  font-size: 10px; font-weight: 700;
+  color: var(--ink);
+  opacity: .85;
+}
+.hiw-s3-check {
+  display: flex; align-items: center; gap: 6px;
+  margin-top: 8px;
+  font-size: 9px; font-weight: 600; color: var(--green);
+}
+.hiw-s3-check-dot {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: rgba(202,254,135,.15);
+  border: 1px solid rgba(202,254,135,.3);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Step text */
+.hiw-step-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 2px;
+  color: var(--purple);
+  margin-bottom: 10px;
+}
+.hiw-step-badge-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--purple);
+}
+.hiw-step h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700; font-size: 20px;
+  letter-spacing: -.5px; line-height: 1.25;
+  color: var(--white); margin-bottom: 10px;
+}
+.hiw-step p {
+  font-size: 14px; color: rgba(255,255,255,.45);
+  line-height: 1.7;
+}
+
+/* Time badge */
+.hiw-time-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 14px;
+  padding: 5px 12px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 999px;
+  font-size: 11px; font-weight: 600;
+  color: rgba(255,255,255,.35);
+}
+.hiw-time-badge svg { width: 11px; height: 11px; opacity: .6; }
+
+/* Bottom CTA */
+.hiw-cta {
+  display: flex;
+  align-items: center; justify-content: center;
+  gap: 20px;
+  margin-top: 64px;
+  padding-top: 56px;
+  border-top: 1px solid rgba(255,255,255,.07);
+  position: relative; z-index: 2;
+}
+.hiw-cta-sub {
+  font-size: 13px; color: rgba(255,255,255,.35);
+}
+
+/* Responsive */
+@media(max-width: 1100px) {
+  .hiw-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .hiw-arrow { display: none; }
+  .hiw-step { padding: 0; }
+  .hiw-step-num { font-size: 80px; }
+  .hiw-phone { max-width: 320px; }
+}
+@media(max-width: 768px) {
+  .hiw-cta { flex-direction: column; gap: 16px; text-align: center; }
+}
 
 /* ══ TESTIMONIALS ══ */
 .testi {
@@ -2061,6 +2339,7 @@ footer {
   <ul class="nav-links">
     <li><a href="#for-pros">Professionals</a></li>
     <li><a href="#for-private">Landlords</a></li>
+    <li><a href="#process">How it works</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#cta" class="nav-pill">Get Started →</a></li>
   </ul>
@@ -2545,6 +2824,157 @@ footer {
 
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ╔══ HOW IT WORKS ══╗ -->
+<section class="hiw" id="process">
+  <div class="hiw-top-bridge"></div>
+
+  <div class="section-wrap">
+    <div class="hiw-header reveal">
+      <div class="section-eyebrow" style="justify-content:center">How It Works</div>
+      <h2 class="section-title" style="text-align:center">From front door to<br>signed report in <em>20 minutes.</em></h2>
+      <p class="section-sub" style="text-align:center">Three steps. From your phone. No training needed.</p>
+    </div>
+
+    <div class="hiw-grid">
+
+      <!-- ── Step 1 ── -->
+      <div class="hiw-step reveal">
+        <div class="hiw-step-num">01</div>
+        <div class="hiw-step-inner">
+
+          <!-- Mini phone mockup -->
+          <div class="hiw-phone">
+            <div class="hiw-phone-notch"></div>
+            <div class="hiw-phone-body">
+              <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px">Add Property</div>
+              <div class="hiw-s1-field"></div>
+              <div class="hiw-s1-field short"></div>
+              <div class="hiw-s1-field"></div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px">
+                <div class="hiw-s1-field" style="margin:0"></div>
+                <div class="hiw-s1-field" style="margin:0"></div>
+              </div>
+              <div class="hiw-s1-btn"></div>
+            </div>
+          </div>
+
+          <div class="hiw-step-badge">
+            <div class="hiw-step-badge-dot"></div>
+            Step 01
+          </div>
+          <h3>Add the property</h3>
+          <p>Enter address, unit number, and select the rooms. Takes under 30 seconds — and you only do it once per property.</p>
+          <div class="hiw-time-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ~30 sec
+          </div>
+        </div>
+      </div>
+
+      <!-- Arrow 1→2 -->
+      <div class="hiw-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+
+      <!-- ── Step 2 ── -->
+      <div class="hiw-step reveal reveal-delay-1">
+        <div class="hiw-step-num">02</div>
+        <div class="hiw-step-inner">
+
+          <!-- Mini phone mockup -->
+          <div class="hiw-phone">
+            <div class="hiw-phone-notch"></div>
+            <div class="hiw-phone-body">
+              <div class="hiw-s2-photo">
+                <div class="hiw-s2-ai-bar">
+                  <div class="hiw-s2-ai-dot"></div>
+                  AI Active
+                </div>
+              </div>
+              <div class="hiw-s2-tag">
+                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                Wall scratch detected
+              </div>
+              <div class="hiw-s2-rooms">
+                <div class="hiw-s2-room"></div>
+                <div class="hiw-s2-room"></div>
+                <div class="hiw-s2-room"></div>
+                <div class="hiw-s2-room"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hiw-step-badge">
+            <div class="hiw-step-badge-dot"></div>
+            Step 02
+          </div>
+          <h3>Walk, snap & tag</h3>
+          <p>Move through each room. Photograph everything. AI instantly detects and tags damage — scratches, stains, wear — as you go.</p>
+          <div class="hiw-time-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ~15 min
+          </div>
+        </div>
+      </div>
+
+      <!-- Arrow 2→3 -->
+      <div class="hiw-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+
+      <!-- ── Step 3 ── -->
+      <div class="hiw-step reveal reveal-delay-2">
+        <div class="hiw-step-num">03</div>
+        <div class="hiw-step-inner">
+
+          <!-- Mini phone mockup -->
+          <div class="hiw-phone">
+            <div class="hiw-phone-notch"></div>
+            <div class="hiw-phone-body">
+              <div class="hiw-s3-sig">
+                <div class="hiw-s3-sig-label">Digital Signature</div>
+                <div class="hiw-s3-sig-wave"></div>
+              </div>
+              <div class="hiw-s3-pdf-btn">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Generate PDF Report
+              </div>
+              <div class="hiw-s3-check">
+                <div class="hiw-s3-check-dot">
+                  <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                RDC-ready · Both parties signed
+              </div>
+            </div>
+          </div>
+
+          <div class="hiw-step-badge">
+            <div class="hiw-step-badge-dot"></div>
+            Step 03
+          </div>
+          <h3>Sign & get your PDF</h3>
+          <p>Both parties sign on-screen. AI writes the executive summary. One tap — a branded, timestamped, RDC-accepted report lands in your inbox.</p>
+          <div class="hiw-time-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ~3 min
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="hiw-cta reveal">
+      <a href="#" class="btn-ink" style="background:var(--purple);color:var(--ink)">
+        Start your first inspection
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <span class="hiw-cta-sub">Check-in free · No credit card · 2 min setup</span>
+    </div>
+
   </div>
 </section>
 
