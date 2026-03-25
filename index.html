@@ -787,6 +787,116 @@ footer { background: var(--ink); padding: 80px 48px 40px; color: rgba(255,255,25
   .insp-card { transform: rotate(0); }
   .insp-card-back { display: none; }
 }
+
+/* ══ PAIN FINANCIÈRE ══ */
+.pain-section {
+  padding: 100px 0;
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+.pain-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 50%, rgba(154,136,253,.08), transparent 50%),
+    radial-gradient(circle at 85% 50%, rgba(202,254,135,.05), transparent 50%);
+  pointer-events: none;
+}
+.pain-grid {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 0 64px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.pain-divider {
+  width: 1px;
+  height: 180px;
+  background: rgba(255,255,255,.08);
+  justify-self: center;
+}
+.pain-big {
+  text-align: right;
+  padding-right: 16px;
+}
+.pain-big-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,.35);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.pain-big-num {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: clamp(44px, 5vw, 68px);
+  letter-spacing: -3px;
+  line-height: 1;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.pain-big-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,.45);
+  line-height: 1.5;
+  max-width: 280px;
+  margin-left: auto;
+  font-style: italic;
+}
+.pain-text {
+  padding-left: 16px;
+}
+.pain-headline {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.4;
+  letter-spacing: -.5px;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.pain-headline strong {
+  color: var(--red);
+}
+.pain-body {
+  font-size: 15px;
+  color: rgba(255,255,255,.55);
+  line-height: 1.75;
+  margin-bottom: 24px;
+  max-width: 440px;
+}
+.pain-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pain-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(202,254,135,.08);
+  border: 1px solid rgba(202,254,135,.15);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--green);
+}
+.pain-pill svg { flex-shrink: 0; }
+
+@media(max-width: 768px) {
+  .pain-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .pain-divider { display: none; }
+  .pain-big { text-align: left; padding-right: 0; }
+  .pain-big-sub { margin-left: 0; }
+}
 </style>
 </head>
 <body>
@@ -991,6 +1101,51 @@ footer { background: var(--ink); padding: 80px 48px 40px; color: rgba(255,255,25
     <div class="marquee-item">White-Label <span class="marquee-sep"></span></div>
   </div>
 </div>
+
+<!-- ╔══ PAIN FINANCIÈRE ══╗ -->
+<section class="pain-section">
+  <div class="section-wrap">
+
+    <div class="pain-grid">
+
+      <!-- ── Chiffre choc ── -->
+      <div class="pain-big reveal">
+        <div class="pain-big-label">Average deposit in Dubai</div>
+        <div class="pain-big-num">AED 12,000</div>
+        <div class="pain-big-sub">gone — because there was no inspection report.</div>
+      </div>
+
+      <!-- ── Divider ── -->
+      <div class="pain-divider"></div>
+
+      <!-- ── Explication ── -->
+      <div class="pain-text reveal reveal-delay-1">
+        <p class="pain-headline">Without a signed, timestamped inspection report, the <strong>RDC rules against you.</strong> Every time.</p>
+        <p class="pain-body">Dubai's Rental Dispute Center requires documented proof of property condition at both move-in and move-out. A WhatsApp photo and a paper checklist won't hold up. A Snagify report will.</p>
+        <div class="pain-pills">
+          <span class="pain-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Timestamped
+          </span>
+          <span class="pain-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Digitally signed
+          </span>
+          <span class="pain-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            RDC-accepted
+          </span>
+          <span class="pain-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Photo evidence included
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
 <!-- ╔══ PROBLEM ══╗ -->
 <section class="problem">
