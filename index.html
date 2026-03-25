@@ -1361,6 +1361,7 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
 }
 .pricing .section-wrap { position: relative; z-index: 1; }
 
+/* ── Toggle audience Pro / Landlord ── */
 .pricing-toggle {
   display: flex; align-items: center; justify-content: center;
   gap: 4px;
@@ -1369,7 +1370,7 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
   border-radius: 999px;
   padding: 5px;
   width: fit-content;
-  margin: 0 auto 56px;
+  margin: 0 auto 48px;
 }
 .ptoggle-btn {
   display: inline-flex; align-items: center; gap: 7px;
@@ -1382,10 +1383,85 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
   transition: all .3s ease;
 }
 .ptoggle-btn svg { opacity: .5; transition: opacity .3s; }
-.ptoggle-btn.active {
-  background: var(--ink); color: var(--white);
-}
+.ptoggle-btn.active { background: var(--ink); color: var(--white); }
 .ptoggle-btn.active svg { opacity: 1; }
+
+/* ── Toggle billing Monthly / Annual ── */
+.billing-toggle-wrap {
+  display: flex; align-items: center; justify-content: center;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+.billing-toggle {
+  position: relative;
+  width: 48px; height: 26px;
+  background: var(--ink-25);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background .3s;
+  border: none;
+  flex-shrink: 0;
+}
+.billing-toggle.annual { background: var(--purple); }
+.billing-toggle-knob {
+  position: absolute;
+  top: 3px; left: 3px;
+  width: 20px; height: 20px;
+  background: white;
+  border-radius: 50%;
+  transition: transform .3s cubic-bezier(.16,1,.3,1);
+  box-shadow: 0 1px 4px rgba(14,14,16,.2);
+}
+.billing-toggle.annual .billing-toggle-knob { transform: translateX(22px); }
+.billing-lbl {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600; font-size: 14px;
+  color: var(--ink-60);
+  transition: color .25s;
+  cursor: pointer;
+}
+.billing-lbl.active { color: var(--ink); }
+.billing-save-badge {
+  display: inline-flex; align-items: center;
+  padding: 3px 10px;
+  background: var(--green-bg);
+  border: 1px solid rgba(202,254,135,.4);
+  border-radius: 999px;
+  font-size: 11px; font-weight: 700;
+  color: #3A7A00;
+  transition: opacity .3s;
+}
+.billing-save-badge.hidden { opacity: 0; pointer-events: none; }
+
+/* Prix dynamiques */
+.price-num .price-monthly { display: inline; }
+.price-num .price-annual  { display: none; }
+.billing-annual .price-num .price-monthly { display: none; }
+.billing-annual .price-num .price-annual  { display: inline; }
+
+/* Extra info annuel sous le prix */
+.price-annual-sub {
+  font-size: 12px; color: var(--ink-60);
+  margin-bottom: 4px;
+  display: none;
+}
+.billing-annual .price-annual-sub { display: block; }
+.price-card.featured .price-annual-sub { color: rgba(255,255,255,.45); }
+
+/* Extra credit row */
+.price-extra-credit {
+  font-size: 12px; color: var(--ink-60);
+  display: flex; align-items: center; gap: 6px;
+  margin-top: 6px;
+  padding: 6px 10px;
+  background: var(--cream);
+  border-radius: 7px;
+}
+.price-extra-credit span { opacity: .7; }
+.price-card.featured .price-extra-credit {
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.5);
+}
 
 .pricing-panel { display: block; }
 .pricing-panel.hidden { display: none; }
@@ -3834,17 +3910,41 @@ footer {
       </button>
     </div>
 
+    <!-- ── Billing toggle (visible uniquement sur panel-pro) ── -->
+    <div class="billing-toggle-wrap" id="billing-toggle-wrap">
+      <span class="billing-lbl active" id="lbl-monthly" onclick="setBilling('monthly')">Monthly</span>
+      <button type="button" class="billing-toggle" id="billing-switch" onclick="toggleBilling()">
+        <div class="billing-toggle-knob"></div>
+      </button>
+      <span class="billing-lbl" id="lbl-annual" onclick="setBilling('annual')">
+        Annual
+      </span>
+      <span class="billing-save-badge hidden" id="save-badge">Save up to 9%</span>
+    </div>
+
     <!-- ── PRO PLANS ── -->
     <div class="pricing-panel" id="panel-pro">
       <div class="pricing-grid">
 
+        <!-- STARTER -->
         <div class="price-card reveal">
           <div class="price-plan">Starter</div>
-          <div class="price-num">149<span> AED/mo</span></div>
+          <div class="price-num">
+            <span class="price-monthly">163<span style="font-size:15px;font-weight:400;letter-spacing:0;color:var(--ink-60)"> AED/mo</span></span>
+            <span class="price-annual">149<span style="font-size:15px;font-weight:400;letter-spacing:0;color:var(--ink-60)"> AED/mo</span></span>
+          </div>
+          <div class="price-annual-sub">1,788 AED / year · <strong style="color:#3A7A00">Save 9%</strong></div>
           <p class="price-desc">For independent agents doing a handful of inspections each month.</p>
           <div class="price-credits-info">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            10 credits / month · 1 credit per check-in or check-out
+            10 credits / month · 2 inspectors included
+          </div>
+          <div class="price-extra-credit">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/></svg>
+            <span>Extra credit: <strong>
+              <span class="price-monthly">18 AED</span>
+              <span class="price-annual">14.9 AED</span>
+            </strong></span>
           </div>
           <ul class="price-feats">
             <li>10 inspections / month</li>
@@ -3856,13 +3956,25 @@ footer {
           <a href="#" class="price-btn price-btn-outline">Get Started</a>
         </div>
 
+        <!-- GROWTH -->
         <div class="price-card featured reveal reveal-delay-1" id="pricing-pro">
           <div class="price-plan">Growth</div>
-          <div class="price-num">249<span> AED/mo</span></div>
+          <div class="price-num">
+            <span class="price-monthly">272<span style="font-size:15px;font-weight:400;letter-spacing:0;color:rgba(255,255,255,.45)"> AED/mo</span></span>
+            <span class="price-annual">249<span style="font-size:15px;font-weight:400;letter-spacing:0;color:rgba(255,255,255,.45)"> AED/mo</span></span>
+          </div>
+          <div class="price-annual-sub">2,988 AED / year · <strong style="color:var(--green)">Save 8%</strong></div>
           <p class="price-desc">For active agents and small agencies managing multiple properties.</p>
           <div class="price-credits-info" style="border-color:rgba(154,136,253,.2);background:rgba(154,136,253,.08);color:var(--purple-l)">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            20 credits / month · 1 credit per check-in or check-out
+            20 credits / month · 5 inspectors included
+          </div>
+          <div class="price-extra-credit">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/></svg>
+            <span>Extra credit: <strong>
+              <span class="price-monthly">15 AED</span>
+              <span class="price-annual">12.5 AED</span>
+            </strong></span>
           </div>
           <ul class="price-feats">
             <li>20 inspections / month</li>
@@ -3875,13 +3987,25 @@ footer {
           <a href="#" class="price-btn price-btn-purple">Start Free Trial</a>
         </div>
 
+        <!-- AGENCY -->
         <div class="price-card reveal reveal-delay-2">
           <div class="price-plan">Agency</div>
-          <div class="price-num">349<span> AED/mo</span></div>
+          <div class="price-num">
+            <span class="price-monthly">381<span style="font-size:15px;font-weight:400;letter-spacing:0;color:var(--ink-60)"> AED/mo</span></span>
+            <span class="price-annual">349<span style="font-size:15px;font-weight:400;letter-spacing:0;color:var(--ink-60)"> AED/mo</span></span>
+          </div>
+          <div class="price-annual-sub">4,188 AED / year · <strong style="color:#3A7A00">Save 8%</strong></div>
           <p class="price-desc">For property management firms running high inspection volumes.</p>
           <div class="price-credits-info">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            30 credits / month · 1 credit per check-in or check-out
+            30 credits / month · 15 inspectors included
+          </div>
+          <div class="price-extra-credit">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/></svg>
+            <span>Extra credit: <strong>
+              <span class="price-monthly">13 AED</span>
+              <span class="price-annual">11.6 AED</span>
+            </strong></span>
           </div>
           <ul class="price-feats">
             <li>30 inspections / month</li>
@@ -4219,12 +4343,45 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
+// ── BILLING TOGGLE ──
+let billingMode = 'monthly';
+function toggleBilling() {
+  setBilling(billingMode === 'monthly' ? 'annual' : 'monthly');
+}
+function setBilling(mode) {
+  billingMode = mode;
+  const sw = document.getElementById('billing-switch');
+  const badge = document.getElementById('save-badge');
+  const lblM = document.getElementById('lbl-monthly');
+  const lblA = document.getElementById('lbl-annual');
+  const panel = document.getElementById('panel-pro');
+  if (mode === 'annual') {
+    sw.classList.add('annual');
+    badge.classList.remove('hidden');
+    lblM.classList.remove('active');
+    lblA.classList.add('active');
+    panel.classList.add('billing-annual');
+  } else {
+    sw.classList.remove('annual');
+    badge.classList.add('hidden');
+    lblM.classList.add('active');
+    lblA.classList.remove('active');
+    panel.classList.remove('billing-annual');
+  }
+}
+// Cacher le billing toggle quand on switch vers landlord
+function showBillingToggle(show) {
+  const wrap = document.getElementById('billing-toggle-wrap');
+  if (wrap) wrap.style.display = show ? 'flex' : 'none';
+}
+
 // ── PRICING TOGGLE ──
 function switchPricing(type) {
   document.getElementById('panel-pro').classList.toggle('hidden', type !== 'pro');
   document.getElementById('panel-private').classList.toggle('hidden', type !== 'private');
   document.getElementById('toggle-pro').classList.toggle('active', type === 'pro');
   document.getElementById('toggle-private').classList.toggle('active', type === 'private');
+  showBillingToggle(type === 'pro');
 }
 // Auto-switch if anchor is #pricing-pro or #pricing-particulier
 const hash = window.location.hash;
