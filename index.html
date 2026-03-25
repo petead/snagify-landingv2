@@ -1415,8 +1415,7 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
 .billing-pill-btn .billing-pill-sub {
   font-size: 10px; font-weight: 600;
   color: #3A7A00;
-  opacity: 0;
-  transition: opacity .3s;
+  opacity: 1;
   font-family: 'DM Sans', sans-serif;
   letter-spacing: .3px;
 }
@@ -1425,7 +1424,10 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
 }
 .billing-pill-btn.active .billing-pill-sub {
   color: var(--green);
-  opacity: 1;
+}
+.billing-pill-btn:not(.active) .billing-pill-sub {
+  color: #3A7A00;
+  opacity: .55;
 }
 
 /* Extra info annuel sous le prix */
@@ -1480,6 +1482,15 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
   color: var(--ink-60);
 }
 .price-card.featured .price-stat-lbl { color: rgba(255,255,255,.4); }
+.price-stat-sub {
+  font-size: 11px; font-weight: 600;
+  color: var(--purple);
+  margin-top: 2px;
+}
+.price-stat-sub .price-monthly { display: inline; }
+.price-stat-sub .price-annual  { display: none; }
+.billing-annual .price-stat-sub .price-monthly { display: none; }
+.billing-annual .price-stat-sub .price-annual  { display: inline; }
 
 /* Ligne dépassement */
 .price-overage {
@@ -1550,7 +1561,7 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
 .price-num .price-annual  { display: none; }
 .billing-annual .price-num .price-monthly { display: none; }
 .billing-annual .price-num .price-annual  { display: inline; }
-.price-desc { font-size: 14px; color: var(--ink-60); margin-bottom: 16px; line-height: 1.5; }
+.price-desc { font-size: 14px; color: var(--ink-60); margin-top: 12px; margin-bottom: 16px; line-height: 1.5; }
 .price-card.featured .price-desc { color: rgba(255,255,255,.6); }
 
 .price-credits-info {
@@ -3989,7 +4000,8 @@ footer {
           <div class="price-stats">
             <div class="price-stat">
               <span class="price-stat-val">15</span>
-              <span class="price-stat-lbl">Inspections</span>
+              <span class="price-stat-lbl">Credits / mo</span>
+              <span class="price-stat-sub"><span class="price-monthly">11.9</span><span class="price-annual">9.9</span> AED / credit</span>
             </div>
             <div class="price-stat">
               <span class="price-stat-val">2</span>
@@ -4022,7 +4034,8 @@ footer {
           <div class="price-stats">
             <div class="price-stat">
               <span class="price-stat-val">30</span>
-              <span class="price-stat-lbl">Inspections</span>
+              <span class="price-stat-lbl">Credits / mo</span>
+              <span class="price-stat-sub"><span class="price-monthly">10.0</span><span class="price-annual">8.3</span> AED / credit</span>
             </div>
             <div class="price-stat">
               <span class="price-stat-val">5</span>
@@ -4055,7 +4068,8 @@ footer {
           <div class="price-stats">
             <div class="price-stat">
               <span class="price-stat-val">50</span>
-              <span class="price-stat-lbl">Inspections</span>
+              <span class="price-stat-lbl">Credits / mo</span>
+              <span class="price-stat-sub"><span class="price-monthly">9.0</span><span class="price-annual">7.5</span> AED / credit</span>
             </div>
             <div class="price-stat">
               <span class="price-stat-val">15</span>
@@ -4401,7 +4415,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 // ── BILLING TOGGLE ──
-let billingMode = 'monthly';
+let billingMode = 'annual';
 function toggleBilling() {
   setBilling(billingMode === 'monthly' ? 'annual' : 'monthly');
 }
@@ -4434,6 +4448,8 @@ function switchPricing(type) {
   document.getElementById('toggle-private').classList.toggle('active', type === 'private');
   showBillingToggle(type === 'pro');
 }
+// Billing annual par défaut
+setBilling('annual');
 // Auto-switch if anchor is #pricing-pro or #pricing-particulier
 const hash = window.location.hash;
 if (hash === '#pricing-particulier') switchPricing('private');
