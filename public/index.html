@@ -41,16 +41,17 @@ body {
 /* ══ CURSOR ══ */
 #cur {
   width: 10px; height: 10px;
-  background: var(--white);
+  background: var(--ink);
   border-radius: 50%;
   position: fixed; pointer-events: none; z-index: 9999;
   left: 0; top: 0;
   transform: translate(-50%, -50%);
-  transition: transform .2s;
+  transition: background .25s, transform .2s;
   will-change: left, top;
-  mix-blend-mode: difference;
 }
-#cur.big { transform: translate(-50%, -50%) scale(1.4); }
+#cur.big  { transform: translate(-50%, -50%) scale(1.4); }
+#cur.light { background: var(--white); }
+#cur.light.big { background: var(--purple-l); }
 
 /* ── SCROLL PROGRESS ── */
 #prog { position:fixed;top:0;left:0;height:3px;background:var(--purple);z-index:9999;width:0; }
@@ -4383,10 +4384,18 @@ footer {
 <script>
 // ── CURSOR ──
 const cur = document.getElementById('cur');
+const darkSections = ['.for-pros', '.pain-section', '.hiw', '.testi', '.cta-band'];
+
 window.addEventListener('mousemove', e => {
   cur.style.left = e.clientX + 'px';
   cur.style.top  = e.clientY + 'px';
+
+  // Détecte si le curseur est sur un fond sombre
+  const el = document.elementFromPoint(e.clientX, e.clientY);
+  const onDark = el && darkSections.some(sel => el.closest(sel));
+  cur.classList.toggle('light', !!onDark);
 }, { passive: true });
+
 document.querySelectorAll('a, button').forEach(el => {
   el.addEventListener('mouseenter', () => cur.classList.add('big'));
   el.addEventListener('mouseleave', () => cur.classList.remove('big'));
