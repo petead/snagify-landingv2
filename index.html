@@ -2098,6 +2098,23 @@ footer {
   .pain-watermark { display: none; }
 }
 
+/* Bouton primaire sur fond dark */
+.btn-pros-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 15px 30px;
+  background: var(--white);
+  color: var(--ink);
+  font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15px;
+  border-radius: 999px; text-decoration: none; border: none; cursor: pointer;
+  transition: background .3s, transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s;
+}
+.btn-pros-primary:hover {
+  background: var(--purple);
+  color: var(--ink);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(154,136,253,.4);
+}
+
 /* ══ FOR PROS ══ */
 .for-pros {
   padding: 0;
@@ -2149,20 +2166,24 @@ footer {
   flex-direction: column;
   gap: 0;
   margin: 32px 0;
-  border: 1px solid rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.1);
   border-radius: 16px;
   overflow: hidden;
+  background: rgba(255,255,255,.02);
 }
 .pros-feat {
   display: flex;
   gap: 16px;
   align-items: flex-start;
-  padding: 16px 20px;
-  border-bottom: 1px solid rgba(255,255,255,.06);
-  transition: background .25s;
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  transition: background .25s, border-color .25s;
 }
 .pros-feat:last-child { border-bottom: none; }
-.pros-feat:hover { background: rgba(255,255,255,.04); }
+.pros-feat:hover {
+  background: rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.12);
+}
 
 .pros-feat-icon {
   width: 36px; height: 36px;
@@ -2193,11 +2214,11 @@ footer {
 
 /* Dashboard card — version dark enhanced */
 .pros-card {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.14);
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 24px 60px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.08);
+  box-shadow: 0 32px 80px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.1);
 }
 .pros-card-header {
   display: flex; align-items: center; justify-content: space-between;
@@ -2228,10 +2249,10 @@ footer {
 .pros-metric { flex: 1; text-align: center; display: flex; flex-direction: column; gap: 4px; }
 .pros-metric-num {
   font-family: 'Poppins', sans-serif;
-  font-weight: 800; font-size: 30px; letter-spacing: -2px; line-height: 1;
+  font-weight: 800; font-size: 38px; letter-spacing: -2.5px; line-height: 1;
   color: var(--white);
 }
-.pros-metric-lbl { font-size: 10px; color: rgba(255,255,255,.35); text-transform: uppercase; letter-spacing: 1px; }
+.pros-metric-lbl { font-size: 10px; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
 .pros-metric-delta { font-size: 11px; font-weight: 600; }
 .pros-metric-delta.up { color: var(--green); }
 .pros-metric-divider { width: 1px; height: 44px; background: rgba(255,255,255,.08); flex-shrink: 0; }
@@ -2979,7 +3000,7 @@ footer {
         </div>
 
         <div class="pros-cta reveal reveal-delay-3">
-          <a href="#pricing" class="btn-ink">
+          <a href="#pricing" class="btn-pros-primary">
             See Pro Plans
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
