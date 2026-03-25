@@ -1655,111 +1655,282 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
 
 /* ══ CTA FINAL ══ */
 .cta-band {
-  background: var(--purple);
-  padding: 120px 48px;
-  text-align: center;
+  background: #0A0818;
+  padding: 0;
   position: relative;
   overflow: hidden;
+  min-height: 560px;
+  display: flex; align-items: stretch;
 }
-/* Bridge from white pricing above */
+
+/* Pont haut pricing→dark */
+.cta-band-top {
+  position: absolute;
+  top: -56px; left: 0; right: 0; height: 56px;
+  background: linear-gradient(to bottom, transparent, #0A0818);
+  pointer-events: none; z-index: 5;
+}
+
+/* Fond profond : layers de lumière */
 .cta-band::before {
   content: '';
   position: absolute; inset: 0;
   background:
-    radial-gradient(circle at 12% 45%, rgba(254,222,128,.32), transparent 42%),
-    radial-gradient(circle at 88% 55%, rgba(202,254,135,.26), transparent 42%),
-    radial-gradient(circle at 50% 100%, rgba(154,136,253,.15), transparent 50%);
+    radial-gradient(ellipse 70% 80% at -5% 50%, rgba(154,136,253,.22) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 60% at 105% 40%, rgba(202,254,135,.08) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 40% at 50% 110%, rgba(154,136,253,.12) 0%, transparent 50%),
+    radial-gradient(ellipse 30% 30% at 80% 10%, rgba(254,222,128,.06) 0%, transparent 45%);
   pointer-events: none;
-  z-index: 0;
 }
-/* Top bridge : white→purple */
+
+/* Grain texture overlay */
 .cta-band::after {
   content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 56px;
-  background: linear-gradient(to bottom, rgba(255,255,255,.1), transparent);
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  opacity: .6;
   pointer-events: none;
-  z-index: 0;
+  mix-blend-mode: overlay;
 }
+
+/* Ghost document en fond — rappel du produit */
+.cta-ghost-doc {
+  position: absolute;
+  right: -60px; top: 50%;
+  transform: translateY(-50%) rotate(8deg);
+  width: 320px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 24px;
+  padding: 24px;
+  pointer-events: none;
+  z-index: 1;
+}
+.cta-ghost-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 2px solid rgba(154,136,253,.2);
+  margin-bottom: 16px;
+}
+.cta-ghost-logo {
+  width: 28px; height: 28px; border-radius: 6px;
+  background: rgba(154,136,253,.15);
+}
+.cta-ghost-title {
+  font-size: 9px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 2px;
+  color: rgba(154,136,253,.4);
+}
+.cta-ghost-line {
+  height: 5px; background: rgba(255,255,255,.05);
+  border-radius: 3px; margin-bottom: 7px;
+}
+.cta-ghost-line.w70 { width: 70%; }
+.cta-ghost-line.w50 { width: 50%; }
+.cta-ghost-line.w85 { width: 85%; }
+.cta-ghost-rooms {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+  margin: 14px 0;
+}
+.cta-ghost-room {
+  height: 36px; border-radius: 8px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.06);
+}
+.cta-ghost-sig {
+  display: flex; gap: 10px; margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.cta-ghost-sig-block { flex: 1; }
+.cta-ghost-sig-line {
+  height: 1px; background: rgba(255,255,255,.08);
+  margin-bottom: 5px;
+}
+.cta-ghost-sig-lbl {
+  font-size: 7px; text-transform: uppercase;
+  letter-spacing: 1.5px; color: rgba(255,255,255,.15);
+}
+
+/* Layout asymétrique */
 .cta-inner {
-  position: relative; z-index: 2;
-  max-width: 720px; margin: 0 auto;
+  position: relative; z-index: 3;
+  width: 100%;
+  max-width: 1360px; margin: 0 auto;
+  padding: 100px 48px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 80px;
+  align-items: center;
 }
+
+/* Côté gauche : headline massive */
+.cta-left {}
+
 .cta-eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
-  font-size: 11px; text-transform: uppercase; letter-spacing: 3.5px;
-  font-weight: 600; color: rgba(14,14,16,.5);
-  margin-bottom: 24px;
+  font-size: 10px; text-transform: uppercase; letter-spacing: 3.5px;
+  font-weight: 600; color: rgba(255,255,255,.3);
+  margin-bottom: 28px;
 }
+.cta-eyebrow-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--green); animation: eyePulse 2s infinite;
+}
+
+/* Headline dramatique — full scale */
 .cta-inner h2 {
-  font-family: 'Poppins', sans-serif; font-weight: 800;
-  font-size: clamp(40px, 5vw, 72px);
-  line-height: 1.02; letter-spacing: -3px;
-  color: var(--ink); margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: clamp(48px, 5.5vw, 80px);
+  line-height: .95;
+  letter-spacing: -4px;
+  color: var(--white);
+  margin-bottom: 32px;
 }
-.cta-inner h2 em { font-style: italic; color: var(--white); }
-.cta-inner p {
-  font-size: 17px; color: rgba(14,14,16,.6);
-  margin-bottom: 48px; line-height: 1.75;
-  max-width: 560px; margin-left: auto; margin-right: auto;
+.cta-inner h2 em {
+  font-style: italic;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--purple-l);
 }
-.cta-actions {
-  display: flex; align-items: center;
-  justify-content: center; gap: 32px;
-  margin-bottom: 48px; flex-wrap: wrap;
+
+/* AED chiffre inline dans la headline */
+.cta-aed {
+  display: inline-block;
+  color: var(--jasmine);
+  -webkit-text-stroke: 0;
 }
-.cta-action-group {
-  display: flex; flex-direction: column;
-  align-items: center; gap: 10px;
+
+.cta-sub {
+  font-size: 16px;
+  color: rgba(255,255,255,.4);
+  line-height: 1.75;
+  max-width: 420px;
 }
-.cta-action-sub {
-  font-size: 12px; color: rgba(14,14,16,.5); font-weight: 500;
+
+/* Côté droit : CTA stack + sceau */
+.cta-right {
+  display: flex; flex-direction: column; gap: 16px;
 }
-.cta-divider-vert {
-  width: 1px; height: 56px;
-  background: rgba(14,14,16,.15);
+
+/* Primary CTA — avec halo pulsé */
+.cta-primary-wrap {
+  position: relative;
+  display: flex; justify-content: flex-start;
 }
-.btn-cta-white {
+.cta-pulse-ring {
+  position: absolute;
+  top: 50%; left: 0;
+  transform: translateY(-50%);
+  width: 100%; height: 100%;
+  border-radius: 999px;
+  border: 1.5px solid rgba(154,136,253,.4);
+  animation: ctaPulse 2.5s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes ctaPulse {
+  0%   { transform: translateY(-50%) scale(1);   opacity: .6; }
+  70%  { transform: translateY(-50%) scale(1.08); opacity: 0; }
+  100% { transform: translateY(-50%) scale(1.08); opacity: 0; }
+}
+.btn-cta-primary {
   display: inline-flex; align-items: center; gap: 10px;
-  padding: 15px 30px;
-  background: rgba(255,255,255,.3);
+  padding: 17px 32px;
+  background: var(--purple);
   color: var(--ink);
-  font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800; font-size: 15px;
   border-radius: 999px; text-decoration: none;
-  border: 1.5px solid rgba(14,14,16,.15);
-  transition: background .3s, transform .3s;
-  cursor: pointer;
+  border: none; cursor: pointer;
+  transition: background .3s, transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s;
+  position: relative; z-index: 1;
+  width: 100%; justify-content: center;
 }
-.btn-cta-white:hover {
-  background: rgba(255,255,255,.5);
+.btn-cta-primary:hover {
+  background: #B4A4FE;
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(154,136,253,.45);
+}
+
+.cta-divider-row {
+  display: flex; align-items: center; gap: 12px;
+}
+.cta-divider-row::before,
+.cta-divider-row::after {
+  content: '';
+  flex: 1; height: 1px;
+  background: rgba(255,255,255,.08);
+}
+.cta-divider-row span {
+  font-size: 11px; color: rgba(255,255,255,.2);
+  font-weight: 600; white-space: nowrap;
+}
+
+.btn-cta-ghost {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 15px 28px;
+  background: rgba(255,255,255,.05);
+  color: rgba(255,255,255,.7);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600; font-size: 14px;
+  border-radius: 999px; text-decoration: none;
+  border: 1.5px solid rgba(255,255,255,.1);
+  transition: background .3s, border-color .3s, transform .3s;
+  cursor: pointer;
+  justify-content: center;
+}
+.btn-cta-ghost:hover {
+  background: rgba(255,255,255,.1);
+  border-color: rgba(255,255,255,.2);
   transform: translateY(-3px);
 }
 
-/* Trust strip */
-.cta-trust {
-  display: flex; align-items: center;
-  justify-content: center; gap: 16px;
-  flex-wrap: wrap;
+/* Sceau de confiance */
+.cta-seal {
+  margin-top: 8px;
+  padding: 18px 20px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
-.cta-trust-item {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 12px; font-weight: 600;
-  color: rgba(14,14,16,.55);
+.cta-seal-item {
+  display: flex; align-items: center; gap: 9px;
 }
-.cta-trust-item svg { opacity: .6; flex-shrink: 0; }
-.cta-trust-sep {
-  width: 3px; height: 3px; border-radius: 50%;
-  background: rgba(14,14,16,.2);
+.cta-seal-icon {
+  width: 28px; height: 28px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.cta-seal-icon svg { width: 13px; height: 13px; }
+.si-green { background: rgba(202,254,135,.12); color: var(--green); }
+.si-purple { background: rgba(154,136,253,.12); color: var(--purple-l); }
+.si-jasmine { background: rgba(254,222,128,.1); color: var(--jasmine); }
+.si-white { background: rgba(255,255,255,.07); color: rgba(255,255,255,.5); }
+.cta-seal-text {}
+.cta-seal-title {
+  font-size: 12px; font-weight: 700;
+  color: rgba(255,255,255,.7); line-height: 1.2;
+}
+.cta-seal-sub {
+  font-size: 10px; color: rgba(255,255,255,.3);
 }
 
-@media(max-width: 768px) {
-  .cta-band { padding: 80px 20px; }
-  .cta-actions { flex-direction: column; gap: 24px; }
-  .cta-divider-vert { display: none; }
-  .cta-trust { gap: 12px; }
-  .cta-trust-sep { display: none; }
+@media(max-width: 1100px) {
+  .cta-inner {
+    grid-template-columns: 1fr;
+    gap: 48px; padding: 80px 48px;
+  }
+  .cta-ghost-doc { display: none; }
 }
+@media(max-width: 768px) {
+  .cta-inner { padding: 72px 20px; }
+  .cta-inner h2 { font-size: clamp(42px, 9vw, 64px); }
+}
+
 
 /* ══ FOOTER ══ */
 footer {
@@ -4013,63 +4184,118 @@ footer {
 
 <!-- ╔══ CTA FINAL ══╗ -->
 <section class="cta-band" id="cta">
+  <div class="cta-band-top"></div>
+
+  <!-- Ghost document flottant -->
+  <div class="cta-ghost-doc">
+    <div class="cta-ghost-header">
+      <div class="cta-ghost-logo"></div>
+      <div class="cta-ghost-title">Inspection Report</div>
+    </div>
+    <div class="cta-ghost-line w85"></div>
+    <div class="cta-ghost-line w70"></div>
+    <div class="cta-ghost-line w50"></div>
+    <div class="cta-ghost-rooms">
+      <div class="cta-ghost-room"></div>
+      <div class="cta-ghost-room"></div>
+      <div class="cta-ghost-room"></div>
+      <div class="cta-ghost-room"></div>
+    </div>
+    <div class="cta-ghost-sig">
+      <div class="cta-ghost-sig-block">
+        <div class="cta-ghost-sig-line"></div>
+        <div class="cta-ghost-sig-lbl">Landlord</div>
+      </div>
+      <div class="cta-ghost-sig-block">
+        <div class="cta-ghost-sig-line"></div>
+        <div class="cta-ghost-sig-lbl">Tenant</div>
+      </div>
+    </div>
+  </div>
+
   <div class="cta-inner">
 
-    <div class="cta-eyebrow reveal">
-      <span class="eyebrow-dot" style="background:var(--ink)"></span>
-      Your first check-in is free. Always.
+    <!-- ── Gauche : headline massive ── -->
+    <div class="cta-left reveal">
+      <div class="cta-eyebrow">
+        <span class="cta-eyebrow-dot"></span>
+        Your first check-in is free. Always.
+      </div>
+      <h2>
+        Your next<br>
+        move-in.<br>
+        Signed in<br>
+        <em>20 minutes.</em>
+      </h2>
+      <p class="cta-sub">From your phone. On-site. No paperwork, no back-and-forth. Just a report both parties trust — and you keep forever.</p>
     </div>
 
-    <h2 class="reveal reveal-delay-1">
-      Your next move-in.<br>Documented in<br><em>20 minutes.</em>
-    </h2>
+    <!-- ── Droite : CTA stack + sceau ── -->
+    <div class="cta-right reveal reveal-delay-2">
 
-    <p class="reveal reveal-delay-2">From your phone, on-site, the day of handover. No paperwork, no back-and-forth, no disputes. Just a signed report both parties trust — and you keep forever.</p>
-
-    <!-- Dual CTA -->
-    <div class="cta-actions reveal reveal-delay-3">
-      <div class="cta-action-group">
-        <a href="#" class="btn-ink">
-          I'm a Professional
+      <!-- Primary CTA avec pulse -->
+      <div class="cta-primary-wrap">
+        <div class="cta-pulse-ring"></div>
+        <a href="#" class="btn-cta-primary">
+          I'm a Professional — Start free
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <span class="cta-action-sub">Monthly plans from AED 149</span>
       </div>
-      <div class="cta-divider-vert"></div>
-      <div class="cta-action-group">
-        <a href="#" class="btn-cta-white">
-          I'm a Landlord / Tenant
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <span class="cta-action-sub">Check-in always free</span>
-      </div>
-    </div>
 
-    <!-- Trust strip -->
-    <div class="cta-trust reveal reveal-delay-3">
-      <div class="cta-trust-item">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        RDC-accepted reports
+      <div class="cta-divider-row">
+        <span>or</span>
       </div>
-      <span class="cta-trust-sep"></span>
-      <div class="cta-trust-item">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-        No credit card to start
-      </div>
-      <span class="cta-trust-sep"></span>
-      <div class="cta-trust-item">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Setup in 2 minutes
-      </div>
-      <span class="cta-trust-sep"></span>
-      <div class="cta-trust-item">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-        RERA compliant
-      </div>
-    </div>
 
+      <!-- Secondary -->
+      <a href="#" class="btn-cta-ghost">
+        I'm a Landlord / Tenant
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+
+      <!-- Sceau de confiance 2×2 -->
+      <div class="cta-seal">
+        <div class="cta-seal-item">
+          <div class="cta-seal-icon si-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="cta-seal-text">
+            <div class="cta-seal-title">RDC-accepted</div>
+            <div class="cta-seal-sub">Dubai legal standard</div>
+          </div>
+        </div>
+        <div class="cta-seal-item">
+          <div class="cta-seal-icon si-purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="cta-seal-text">
+            <div class="cta-seal-title">No credit card</div>
+            <div class="cta-seal-sub">Free to get started</div>
+          </div>
+        </div>
+        <div class="cta-seal-item">
+          <div class="cta-seal-icon si-jasmine">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="cta-seal-text">
+            <div class="cta-seal-title">2 min setup</div>
+            <div class="cta-seal-sub">From phone, on-site</div>
+          </div>
+        </div>
+        <div class="cta-seal-item">
+          <div class="cta-seal-icon si-white">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <div class="cta-seal-text">
+            <div class="cta-seal-title">RERA compliant</div>
+            <div class="cta-seal-sub">DLD &amp; RERA ready</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
+
 
 <!-- ╔══ FOOTER ══╗ -->
 <footer>
