@@ -89,36 +89,39 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
   position: relative; overflow: hidden;
 }
 
-/* Hero atmosphere */
+/* Hero atmosphere — dramatic depth */
 .hero::before {
   content: '';
   position: absolute; inset: 0; z-index: 0;
-  background-image: radial-gradient(circle, rgba(14,14,16,.08) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(14,14,16,.07) 1px, transparent 1px);
   background-size: 28px 28px;
-  mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 20%, transparent 80%);
+  mask-image: radial-gradient(ellipse 100% 100% at 50% 50%, black 0%, transparent 75%);
   pointer-events: none;
 }
 .hero::after {
   content: '';
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
   background:
-    radial-gradient(ellipse 55% 45% at 75% 55%, rgba(154,136,253,.13) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 35% at 20% 70%, rgba(202,254,135,.08) 0%, transparent 60%),
-    radial-gradient(ellipse 30% 25% at 60% 15%, rgba(254,222,128,.07) 0%, transparent 55%);
+    radial-gradient(ellipse 70% 65% at 78% 58%, rgba(154,136,253,.18) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 45% at 18% 72%, rgba(202,254,135,.1) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 55% 10%, rgba(254,222,128,.09) 0%, transparent 50%),
+    radial-gradient(ellipse 35% 30% at 90% 15%, rgba(154,136,253,.08) 0%, transparent 50%);
 }
 
-/* Decorative watermark number */
+/* Decorative watermark — plus présent, repositionné */
 .hero-watermark {
   position: absolute;
-  right: -60px; top: 50%;
-  transform: translateY(-50%);
+  right: -80px; top: 50%;
+  transform: translateY(-52%);
   font-family: 'Poppins', sans-serif; font-weight: 800;
-  font-size: 480px; line-height: 1;
+  font-size: 520px; line-height: 1;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(14,14,16,.045);
-  letter-spacing: -30px;
+  -webkit-text-stroke: 1.5px rgba(154,136,253,.08);
+  letter-spacing: -36px;
   pointer-events: none; z-index: 0;
   user-select: none;
+  /* Subtle gradient fade sur les bords */
+  mask-image: radial-gradient(ellipse 80% 80% at 60% 50%, black 30%, transparent 80%);
 }
 
 .hero-inner {
@@ -247,21 +250,34 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
 .hero-right {
   position: relative; display: flex; align-items: center; justify-content: flex-end;
   opacity: 0; animation: cardReveal 1s cubic-bezier(.16,1,.3,1) .35s forwards;
+  padding-right: 60px;
+  padding-left: 20px;
 }
-@keyframes cardReveal { from{opacity:0;transform:translateY(24px) rotate(-3deg)} to{opacity:1;transform:translateY(0) rotate(-1.5deg)} }
+@keyframes cardReveal { from{opacity:0;transform:translateY(24px) rotate(-3deg)} to{opacity:1;transform:translateY(0) rotate(-2deg)} }
 
-/* Back shadow card */
+/* Back shadow cards — two layers for depth */
 .insp-card-back {
   position: absolute;
   width: 380px;
   background: linear-gradient(145deg, #FEDE80, #FEC94A);
   border-radius: 28px;
   height: 520px;
-  transform: rotate(4deg) translateY(10px);
+  transform: rotate(5.5deg) translateY(14px) translateX(6px);
   z-index: 0;
   right: 0;
-  box-shadow: 0 24px 64px rgba(254,201,74,.25), 0 8px 20px rgba(14,14,16,.1);
-  border: 1px solid rgba(14,14,16,.06);
+  box-shadow: 0 32px 80px rgba(254,201,74,.3), 0 8px 20px rgba(14,14,16,.12);
+  border: 1px solid rgba(14,14,16,.05);
+}
+.insp-card-back::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 28px;
+  background: linear-gradient(145deg, #9A88FD, #C4B9FE);
+  transform: rotate(-8deg) translateY(8px) translateX(-12px);
+  z-index: -1;
+  opacity: .25;
+  box-shadow: 0 20px 60px rgba(154,136,253,.2);
 }
 
 /* Main inspection card */
@@ -269,18 +285,22 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
   width: 380px;
   background: var(--white);
   border-radius: 28px;
-  border: 1px solid rgba(154,136,253,.15);
+  border: 1px solid rgba(154,136,253,.2);
   box-shadow:
-    0 40px 80px rgba(14,14,16,.16),
-    0 8px 20px rgba(14,14,16,.08),
-    0 0 0 1px rgba(154,136,253,.06),
-    0 -2px 60px rgba(154,136,253,.08);
+    0 60px 120px rgba(14,14,16,.2),
+    0 24px 40px rgba(14,14,16,.1),
+    0 0 0 1px rgba(154,136,253,.08),
+    0 -4px 80px rgba(154,136,253,.12),
+    inset 0 1px 0 rgba(255,255,255,.9);
   overflow: hidden;
   position: relative; z-index: 2;
-  transform: rotate(-1.5deg);
+  transform: rotate(-2deg);
   animation: cardFloat 7s ease-in-out infinite .5s;
 }
-@keyframes cardFloat { 0%,100%{transform:rotate(-1.5deg) translateY(0)} 50%{transform:rotate(-1.5deg) translateY(-10px)} }
+@keyframes cardFloat {
+  0%,100% { transform: rotate(-2deg) translateY(0); }
+  50% { transform: rotate(-2deg) translateY(-14px); }
+}
 
 /* Card header */
 .ic-header {
@@ -414,14 +434,25 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
   padding: 9px 14px;
   display: flex; align-items: center; gap: 8px;
   font-size: 12px; font-weight: 600;
-  box-shadow: 0 8px 32px rgba(14,14,16,.1), 0 2px 8px rgba(14,14,16,.06);
+  box-shadow:
+    0 12px 40px rgba(14,14,16,.12),
+    0 2px 8px rgba(14,14,16,.06),
+    inset 0 1px 0 rgba(255,255,255,.9);
   border: 1px solid var(--ink-25); white-space: nowrap; z-index: 3;
-  opacity: 0; animation: fadeInTag .5s ease forwards;
+  opacity: 0; animation: fadeInTag .6s cubic-bezier(.16,1,.3,1) forwards;
 }
-.ht1 { top: 40px; left: -30px; animation-delay: 1.6s; }
-.ht2 { bottom: 100px; right: -40px; animation-delay: 1.9s; }
-.ht3 { bottom: 20px; left: 20px; animation-delay: 2.1s; }
-@keyframes fadeInTag { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+.ht1 { top: 30px; left: -50px; animation-delay: 1.6s; }
+.ht2 { top: 50%; right: -60px; animation-delay: 1.9s; transform: translateY(-50%); }
+.ht3 { bottom: 60px; left: -40px; animation-delay: 2.1s; }
+@keyframes fadeInTag {
+  from { opacity: 0; transform: translateY(12px) scale(.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.ht2 { animation-name: fadeInTagRight; }
+@keyframes fadeInTagRight {
+  from { opacity: 0; transform: translateY(-50%) translateX(12px) scale(.95); }
+  to   { opacity: 1; transform: translateY(-50%) translateX(0) scale(1); }
+}
 
 .htag-ico {
   width: 26px; height: 26px; border-radius: 7px;
@@ -1094,7 +1125,8 @@ footer {
 ══════════════════════════════════ */
 @media(max-width:1100px){
   .hero-inner { grid-template-columns: 1fr; gap: 60px; }
-  .hero-right { justify-content: center; }
+  .hero-right { justify-content: center; padding-right: 0; padding-left: 0; }
+  .hero-right::before { display: none; }
   .hero-watermark { display: none; }
   .bento { grid-template-columns: 1fr 1fr; }
   .b1,.b2,.b3,.b4,.b5,.b6,.b7 { grid-column: span 1; }
@@ -1807,6 +1839,24 @@ footer {
 @media(max-width: 768px) {
   .feat-bento { grid-template-columns: 1fr; }
   .feat-large { grid-column: span 1; grid-template-columns: 1fr; }
+}
+
+/* ── Hero ambient glow derrière la carte ── */
+.hero-right::before {
+  content: '';
+  position: absolute;
+  width: 460px; height: 460px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(154,136,253,.14) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+  animation: ambientPulse 5s ease-in-out infinite;
+}
+@keyframes ambientPulse {
+  0%,100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  50%      { opacity: .7; transform: translate(-50%, -50%) scale(1.08); }
 }
 
 </style>
