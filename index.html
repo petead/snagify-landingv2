@@ -1386,52 +1386,46 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
 .ptoggle-btn.active { background: var(--ink); color: var(--white); }
 .ptoggle-btn.active svg { opacity: 1; }
 
-/* ── Toggle billing Monthly / Annual ── */
+/* ── Toggle billing Monthly / Annual — style pill ── */
 .billing-toggle-wrap {
   display: flex; align-items: center; justify-content: center;
-  gap: 12px;
   margin-bottom: 48px;
 }
-.billing-toggle {
-  position: relative;
-  width: 48px; height: 26px;
-  background: var(--ink-25);
+.billing-pill-toggle {
+  display: flex; align-items: stretch;
+  gap: 4px;
+  background: var(--white);
+  border: 1px solid var(--ink-25);
   border-radius: 999px;
-  cursor: pointer;
-  transition: background .3s;
-  border: none;
-  flex-shrink: 0;
+  padding: 5px;
 }
-.billing-toggle.annual { background: var(--purple); }
-.billing-toggle-knob {
-  position: absolute;
-  top: 3px; left: 3px;
-  width: 20px; height: 20px;
-  background: white;
-  border-radius: 50%;
-  transition: transform .3s cubic-bezier(.16,1,.3,1);
-  box-shadow: 0 1px 4px rgba(14,14,16,.2);
-}
-.billing-toggle.annual .billing-toggle-knob { transform: translateX(22px); }
-.billing-lbl {
+.billing-pill-btn {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 10px 28px;
+  border-radius: 999px; border: none;
   font-family: 'Poppins', sans-serif;
-  font-weight: 600; font-size: 14px;
-  color: var(--ink-60);
-  transition: color .25s;
+  font-weight: 700; font-size: 13px;
   cursor: pointer;
+  background: transparent; color: var(--ink-60);
+  transition: all .3s ease;
+  gap: 2px;
+  line-height: 1.3;
 }
-.billing-lbl.active { color: var(--ink); }
-.billing-save-badge {
-  display: inline-flex; align-items: center;
-  padding: 3px 10px;
-  background: var(--green-bg);
-  border: 1px solid rgba(202,254,135,.4);
-  border-radius: 999px;
-  font-size: 11px; font-weight: 700;
+.billing-pill-btn .billing-pill-sub {
+  font-size: 10px; font-weight: 600;
   color: #3A7A00;
+  opacity: 0;
   transition: opacity .3s;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: .3px;
 }
-.billing-save-badge.hidden { opacity: 0; pointer-events: none; }
+.billing-pill-btn.active {
+  background: var(--ink); color: var(--white);
+}
+.billing-pill-btn.active .billing-pill-sub {
+  color: var(--green);
+  opacity: 1;
+}
 
 /* Extra info annuel sous le prix */
 .price-annual-sub {
@@ -1442,20 +1436,39 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
 .billing-annual .price-annual-sub { display: block; }
 .price-card.featured .price-annual-sub { color: rgba(255,255,255,.45); }
 
-/* Extra credit row */
-.price-extra-credit {
-  font-size: 12px; color: var(--ink-60);
-  display: flex; align-items: center; gap: 6px;
-  margin-top: 6px;
-  padding: 6px 10px;
+/* Tableau de specs */
+.price-specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+.price-spec {
+  display: flex; flex-direction: column; gap: 1px;
+  padding: 10px 12px;
   background: var(--cream);
-  border-radius: 7px;
+  border-radius: 10px;
 }
-.price-extra-credit span { opacity: .7; }
-.price-card.featured .price-extra-credit {
+.price-card.featured .price-spec {
   background: rgba(255,255,255,.08);
-  color: rgba(255,255,255,.5);
 }
+.price-spec-val {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800; font-size: 17px;
+  letter-spacing: -.5px;
+  color: var(--ink);
+  line-height: 1;
+}
+.price-card.featured .price-spec-val { color: var(--white); }
+.price-spec-val .price-monthly { display: inline; }
+.price-spec-val .price-annual  { display: none; }
+.billing-annual .price-spec-val .price-monthly { display: none; }
+.billing-annual .price-spec-val .price-annual  { display: inline; }
+.price-spec-lbl {
+  font-size: 10px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 1px; color: var(--ink-60); margin-top: 3px;
+}
+.price-card.featured .price-spec-lbl { color: rgba(255,255,255,.4); }
 
 .pricing-panel { display: block; }
 .pricing-panel.hidden { display: none; }
@@ -3909,16 +3922,17 @@ footer {
       </button>
     </div>
 
-    <!-- ── Billing toggle (visible uniquement sur panel-pro) ── -->
+    <!-- ── Billing toggle — style pill ── -->
     <div class="billing-toggle-wrap" id="billing-toggle-wrap">
-      <span class="billing-lbl active" id="lbl-monthly" onclick="setBilling('monthly')">Monthly</span>
-      <button type="button" class="billing-toggle" id="billing-switch" onclick="toggleBilling()">
-        <div class="billing-toggle-knob"></div>
-      </button>
-      <span class="billing-lbl" id="lbl-annual" onclick="setBilling('annual')">
-        Annual
-      </span>
-      <span class="billing-save-badge hidden" id="save-badge">Save up to 9%</span>
+      <div class="billing-pill-toggle">
+        <button type="button" class="billing-pill-btn active" id="btn-monthly" onclick="setBilling('monthly')">
+          Monthly
+        </button>
+        <button type="button" class="billing-pill-btn" id="btn-annual" onclick="setBilling('annual')">
+          Annual
+          <span class="billing-pill-sub">Save 1 month</span>
+        </button>
+      </div>
     </div>
 
     <!-- ── PRO PLANS ── -->
@@ -3934,9 +3948,23 @@ footer {
           </div>
           <div class="price-annual-sub">1,788 AED billed annually · <strong style="color:#3A7A00">Save 9%</strong></div>
           <p class="price-desc">For independent agents doing a handful of inspections each month.</p>
-          <div class="price-credits-info">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            10 credits / month · 2 users · Extra: <strong><span class="price-monthly">25 AED</span><span class="price-annual">20 AED</span></strong>
+          <div class="price-specs">
+            <div class="price-spec">
+              <span class="price-spec-val">10</span>
+              <span class="price-spec-lbl">Credits / mo</span>
+            </div>
+            <div class="price-spec">
+              <span class="price-spec-val">2</span>
+              <span class="price-spec-lbl">Users</span>
+            </div>
+            <div class="price-spec">
+              <span class="price-spec-val"><span class="price-monthly">16</span><span class="price-annual">15</span> <span style="font-size:11px;font-weight:600">AED</span></span>
+              <span class="price-spec-lbl">Per credit</span>
+            </div>
+            <div class="price-spec">
+              <span class="price-spec-val"><span class="price-monthly">25</span><span class="price-annual">20</span> <span style="font-size:11px;font-weight:600">AED</span></span>
+              <span class="price-spec-lbl">Extra credit</span>
+            </div>
           </div>
           <ul class="price-feats">
             <li>AI photo analysis</li>
@@ -3957,9 +3985,23 @@ footer {
           </div>
           <div class="price-annual-sub">2,988 AED billed annually · <strong style="color:var(--green)">Save 8%</strong></div>
           <p class="price-desc">For active agents and small agencies managing multiple properties.</p>
-          <div class="price-credits-info" style="border-color:rgba(154,136,253,.2);background:rgba(154,136,253,.08);color:var(--purple-l)">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            20 credits / month · 5 users · Extra: <strong><span class="price-monthly">20 AED</span><span class="price-annual">16 AED</span></strong>
+          <div class="price-specs">
+            <div class="price-spec">
+              <span class="price-spec-val">20</span>
+              <span class="price-spec-lbl">Credits / mo</span>
+            </div>
+            <div class="price-spec">
+              <span class="price-spec-val">5</span>
+              <span class="price-spec-lbl">Users</span>
+            </div>
+            <div class="price-spec">
+              <span class="price-spec-val"><span class="price-monthly">14</span><span class="price-annual">12</span> <span style="font-size:11px;font-weight:600">AED</span></span>
+              <span class="price-spec-lbl">Per credit</span>
+            </div>
+            <div class="price-spec">
+              <span class="price-spec-val"><span class="price-monthly">20</span><span class="price-annual">16</span> <span style="font-size:11px;font-weight:600">AED</span></span>
+              <span class="price-spec-lbl">Extra credit</span>
+            </div>
           </div>
           <ul class="price-feats">
             <li>AI photo analysis</li>
@@ -3980,9 +4022,23 @@ footer {
           </div>
           <div class="price-annual-sub">4,188 AED billed annually · <strong style="color:#3A7A00">Save 8%</strong></div>
           <p class="price-desc">For property management firms running high inspection volumes.</p>
-          <div class="price-credits-info">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            30 credits / month · 15 users · Extra: <strong><span class="price-monthly">15 AED</span><span class="price-annual">12 AED</span></strong>
+          <div class="price-specs">
+            <div class="price-spec">
+              <span class="price-spec-val">30</span>
+              <span class="price-spec-lbl">Credits / mo</span>
+            </div>
+            <div class="price-spec">
+              <span class="price-spec-val">15</span>
+              <span class="price-spec-lbl">Users</span>
+            </div>
+            <div class="price-spec">
+              <span class="price-spec-val"><span class="price-monthly">13</span><span class="price-annual">12</span> <span style="font-size:11px;font-weight:600">AED</span></span>
+              <span class="price-spec-lbl">Per credit</span>
+            </div>
+            <div class="price-spec">
+              <span class="price-spec-val"><span class="price-monthly">15</span><span class="price-annual">12</span> <span style="font-size:11px;font-weight:600">AED</span></span>
+              <span class="price-spec-lbl">Extra credit</span>
+            </div>
           </div>
           <ul class="price-feats">
             <li>AI photo analysis</li>
@@ -4325,22 +4381,16 @@ function toggleBilling() {
 }
 function setBilling(mode) {
   billingMode = mode;
-  const sw = document.getElementById('billing-switch');
-  const badge = document.getElementById('save-badge');
-  const lblM = document.getElementById('lbl-monthly');
-  const lblA = document.getElementById('lbl-annual');
+  const btnM  = document.getElementById('btn-monthly');
+  const btnA  = document.getElementById('btn-annual');
   const panel = document.getElementById('panel-pro');
   if (mode === 'annual') {
-    sw.classList.add('annual');
-    badge.classList.remove('hidden');
-    lblM.classList.remove('active');
-    lblA.classList.add('active');
+    btnM.classList.remove('active');
+    btnA.classList.add('active');
     panel.classList.add('billing-annual');
   } else {
-    sw.classList.remove('annual');
-    badge.classList.add('hidden');
-    lblM.classList.add('active');
-    lblA.classList.remove('active');
+    btnM.classList.add('active');
+    btnA.classList.remove('active');
     panel.classList.remove('billing-annual');
   }
 }
