@@ -719,9 +719,32 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
 
 /* ══ TESTIMONIALS ══ */
 .testi {
-  padding: 120px 0;
+  padding: 140px 0;
   background: var(--ink);
+  position: relative;
+  overflow: hidden;
 }
+/* Subtle purple glow top + jasmine glow bottom for depth */
+.testi::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 35% at 50% 0%, rgba(154,136,253,.07) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 30% at 15% 100%, rgba(254,222,128,.03) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+/* Bridge toward pricing below */
+.testi::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, rgba(252,252,252,.07));
+  pointer-events: none;
+  z-index: 0;
+}
+.testi .section-wrap { position: relative; z-index: 1; }
 .testi .section-title { color: var(--white); }
 .testi .section-eyebrow { color: rgba(255,255,255,.5); }
 .testi .section-eyebrow::before { background: rgba(255,255,255,.4); }
@@ -791,7 +814,20 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
 }
 
 /* ══ PRICING ══ */
-.pricing { padding: 120px 0; background: var(--cream); }
+.pricing {
+  padding: 120px 0;
+  background: var(--white);
+  position: relative;
+  border-top: 1px solid var(--ink-25);
+}
+.pricing::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 55% 45% at 50% 0%, rgba(154,136,253,.04) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+.pricing .section-wrap { position: relative; z-index: 1; }
 
 .pricing-toggle {
   display: flex; align-items: center; justify-content: center;
@@ -956,14 +992,26 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
   position: relative;
   overflow: hidden;
 }
+/* Bridge from white pricing above */
 .cta-band::before {
   content: '';
   position: absolute; inset: 0;
   background:
-    radial-gradient(circle at 12% 40%, rgba(254,222,128,.35), transparent 40%),
-    radial-gradient(circle at 88% 60%, rgba(202,254,135,.28), transparent 40%),
+    radial-gradient(circle at 12% 45%, rgba(254,222,128,.32), transparent 42%),
+    radial-gradient(circle at 88% 55%, rgba(202,254,135,.26), transparent 42%),
     radial-gradient(circle at 50% 100%, rgba(154,136,253,.15), transparent 50%);
   pointer-events: none;
+  z-index: 0;
+}
+/* Top bridge : white→purple */
+.cta-band::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 56px;
+  background: linear-gradient(to bottom, rgba(255,255,255,.1), transparent);
+  pointer-events: none;
+  z-index: 0;
 }
 .cta-inner {
   position: relative; z-index: 2;
@@ -1156,6 +1204,15 @@ footer {
   background: var(--ink);
   position: relative;
   overflow: hidden;
+}
+/* Top bridge : purple marquee → ink */
+.pain-section-bridge {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 60px;
+  background: linear-gradient(to bottom, rgba(154,136,253,.06), transparent);
+  pointer-events: none;
+  z-index: 2;
 }
 
 /* Fond dramatique : rouge glow + grain */
@@ -1368,18 +1425,20 @@ footer {
 /* ══ FOR PROS ══ */
 .for-pros {
   padding: 120px 0;
-  background: var(--cream);
+  background: var(--white);
   position: relative;
+  border-top: 1px solid var(--ink-25);
 }
 .for-pros::before {
   content: '';
-  position: absolute;
-  top: 0; left: 50%; transform: translateX(-50%);
-  width: 600px; height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(154,136,253,.06) 0%, transparent 70%);
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 65% 55% at 85% 50%, rgba(154,136,253,.05) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 8% 40%, rgba(202,254,135,.04) 0%, transparent 55%);
   pointer-events: none;
+  z-index: 0;
 }
+.for-pros .section-wrap { position: relative; z-index: 1; }
 .for-pros-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1507,8 +1566,22 @@ footer {
 /* ══ FOR PRIVATE ══ */
 .for-private {
   padding: 120px 0;
-  background: var(--cream-2);
+  background: #FEFAF0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(254,222,128,.25);
+  border-bottom: 1px solid rgba(254,222,128,.2);
 }
+.for-private::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 55% 60% at 15% 50%, rgba(254,222,128,.12) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 40% at 88% 65%, rgba(202,254,135,.07) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+.for-private .section-wrap { position: relative; z-index: 1; }
 .for-private-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1665,7 +1738,21 @@ footer {
 }
 
 /* ══ FEATURES SECTION ══ */
-.features-section { padding: 120px 0; background: var(--cream-2); }
+.features-section {
+  padding: 120px 0;
+  background: var(--cream-2);
+  position: relative;
+  border-top: 1px solid var(--ink-25);
+  border-bottom: 1px solid var(--ink-25);
+}
+.features-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 45% 65% at 92% 50%, rgba(154,136,253,.04) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+.features-section .section-wrap { position: relative; z-index: 1; }
 
 .feat-bento {
   display: grid;
@@ -2161,6 +2248,7 @@ footer {
 
 <!-- ╔══ PAIN FINANCIÈRE ══╗ -->
 <section class="pain-section">
+  <div class="pain-section-bridge"></div>
 
   <!-- Watermark fond -->
   <div class="pain-watermark">AED</div>
