@@ -1400,7 +1400,7 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
   padding: 5px;
 }
 .billing-pill-btn {
-  display: flex; flex-direction: column; align-items: center;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
   padding: 10px 28px;
   border-radius: 999px; border: none;
   font-family: 'Poppins', sans-serif;
@@ -1410,6 +1410,7 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
   transition: all .3s ease;
   gap: 2px;
   line-height: 1.3;
+  min-height: 48px;
 }
 .billing-pill-btn .billing-pill-sub {
   font-size: 10px; font-weight: 600;
@@ -1436,39 +1437,76 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
 .billing-annual .price-annual-sub { display: block; }
 .price-card.featured .price-annual-sub { color: rgba(255,255,255,.45); }
 
-/* Tableau de specs */
-.price-specs {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6px;
-  margin-bottom: 20px;
-}
-.price-spec {
-  display: flex; flex-direction: column; gap: 1px;
-  padding: 10px 12px;
+/* ── Bande de stats horizontale ── */
+.price-stats {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin-bottom: 16px;
   background: var(--cream);
-  border-radius: 10px;
+  border-radius: 14px;
+  overflow: hidden;
 }
-.price-card.featured .price-spec {
+.price-card.featured .price-stats {
   background: rgba(255,255,255,.08);
 }
-.price-spec-val {
+.price-stat {
+  flex: 1;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 14px 8px;
+  gap: 3px;
+  position: relative;
+}
+.price-stat + .price-stat::before {
+  content: '';
+  position: absolute; left: 0; top: 20%; bottom: 20%;
+  width: 1px;
+  background: var(--ink-25);
+}
+.price-card.featured .price-stat + .price-stat::before {
+  background: rgba(255,255,255,.1);
+}
+.price-stat-val {
   font-family: 'Poppins', sans-serif;
-  font-weight: 800; font-size: 17px;
-  letter-spacing: -.5px;
+  font-weight: 800; font-size: 22px;
+  letter-spacing: -1px; line-height: 1;
   color: var(--ink);
-  line-height: 1;
 }
-.price-card.featured .price-spec-val { color: var(--white); }
-.price-spec-val .price-monthly { display: inline; }
-.price-spec-val .price-annual  { display: none; }
-.billing-annual .price-spec-val .price-monthly { display: none; }
-.billing-annual .price-spec-val .price-annual  { display: inline; }
-.price-spec-lbl {
-  font-size: 10px; font-weight: 600; text-transform: uppercase;
-  letter-spacing: 1px; color: var(--ink-60); margin-top: 3px;
+.price-card.featured .price-stat-val { color: var(--white); }
+.price-stat-lbl {
+  font-size: 10px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: .8px;
+  color: var(--ink-60);
 }
-.price-card.featured .price-spec-lbl { color: rgba(255,255,255,.4); }
+.price-card.featured .price-stat-lbl { color: rgba(255,255,255,.4); }
+
+/* Ligne dépassement */
+.price-overage {
+  display: flex; align-items: center; gap: 8px;
+  padding: 9px 14px;
+  background: var(--cream);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  color: var(--ink-60);
+}
+.price-card.featured .price-overage {
+  background: rgba(255,255,255,.07);
+  color: rgba(255,255,255,.5);
+}
+.price-overage svg { flex-shrink: 0; opacity: .5; }
+.price-overage strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+.price-card.featured .price-overage strong {
+  color: var(--white);
+}
+.price-overage .price-monthly { display: inline; }
+.price-overage .price-annual  { display: none; }
+.billing-annual .price-overage .price-monthly { display: none; }
+.billing-annual .price-overage .price-annual  { display: inline; }
 
 .pricing-panel { display: block; }
 .pricing-panel.hidden { display: none; }
@@ -3930,7 +3968,7 @@ footer {
         </button>
         <button type="button" class="billing-pill-btn" id="btn-annual" onclick="setBilling('annual')">
           Annual
-          <span class="billing-pill-sub">Save 17%</span>
+          <span class="billing-pill-sub">2 months free</span>
         </button>
       </div>
     </div>
@@ -3948,23 +3986,19 @@ footer {
           </div>
           <div class="price-annual-sub">1,788 AED billed annually · <strong style="color:#3A7A00">Save 17% · 360 AED saved</strong></div>
           <p class="price-desc">For independent agents doing a handful of inspections each month.</p>
-          <div class="price-specs">
-            <div class="price-spec">
-              <span class="price-spec-val">15</span>
-              <span class="price-spec-lbl">Credits / mo</span>
+          <div class="price-stats">
+            <div class="price-stat">
+              <span class="price-stat-val">15</span>
+              <span class="price-stat-lbl">Inspections</span>
             </div>
-            <div class="price-spec">
-              <span class="price-spec-val">2</span>
-              <span class="price-spec-lbl">Users</span>
+            <div class="price-stat">
+              <span class="price-stat-val">2</span>
+              <span class="price-stat-lbl">Users</span>
             </div>
-            <div class="price-spec">
-              <span class="price-spec-val"><span class="price-monthly">11.9</span><span class="price-annual">9.9</span> <span style="font-size:11px;font-weight:600">AED</span></span>
-              <span class="price-spec-lbl">Per credit</span>
-            </div>
-            <div class="price-spec">
-              <span class="price-spec-val">28 <span style="font-size:11px;font-weight:600">AED</span></span>
-              <span class="price-spec-lbl">Extra credit</span>
-            </div>
+          </div>
+          <div class="price-overage">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Extra inspection: <strong>28 AED each</strong>
           </div>
           <ul class="price-feats">
             <li>AI photo analysis</li>
@@ -3985,23 +4019,19 @@ footer {
           </div>
           <div class="price-annual-sub">2,988 AED billed annually · <strong style="color:var(--green)">Save 17% · 600 AED saved</strong></div>
           <p class="price-desc">For active agents and small agencies managing multiple properties.</p>
-          <div class="price-specs">
-            <div class="price-spec">
-              <span class="price-spec-val">30</span>
-              <span class="price-spec-lbl">Credits / mo</span>
+          <div class="price-stats">
+            <div class="price-stat">
+              <span class="price-stat-val">30</span>
+              <span class="price-stat-lbl">Inspections</span>
             </div>
-            <div class="price-spec">
-              <span class="price-spec-val">5</span>
-              <span class="price-spec-lbl">Users</span>
+            <div class="price-stat">
+              <span class="price-stat-val">5</span>
+              <span class="price-stat-lbl">Users</span>
             </div>
-            <div class="price-spec">
-              <span class="price-spec-val"><span class="price-monthly">10.0</span><span class="price-annual">8.3</span> <span style="font-size:11px;font-weight:600">AED</span></span>
-              <span class="price-spec-lbl">Per credit</span>
-            </div>
-            <div class="price-spec">
-              <span class="price-spec-val">22 <span style="font-size:11px;font-weight:600">AED</span></span>
-              <span class="price-spec-lbl">Extra credit</span>
-            </div>
+          </div>
+          <div class="price-overage">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Extra inspection: <strong>22 AED each</strong>
           </div>
           <ul class="price-feats">
             <li>AI photo analysis</li>
@@ -4022,23 +4052,19 @@ footer {
           </div>
           <div class="price-annual-sub">4,488 AED billed annually · <strong style="color:#3A7A00">Save 17% · 900 AED saved</strong></div>
           <p class="price-desc">For property management firms running high inspection volumes.</p>
-          <div class="price-specs">
-            <div class="price-spec">
-              <span class="price-spec-val">50</span>
-              <span class="price-spec-lbl">Credits / mo</span>
+          <div class="price-stats">
+            <div class="price-stat">
+              <span class="price-stat-val">50</span>
+              <span class="price-stat-lbl">Inspections</span>
             </div>
-            <div class="price-spec">
-              <span class="price-spec-val">15</span>
-              <span class="price-spec-lbl">Users</span>
+            <div class="price-stat">
+              <span class="price-stat-val">15</span>
+              <span class="price-stat-lbl">Users</span>
             </div>
-            <div class="price-spec">
-              <span class="price-spec-val"><span class="price-monthly">9.0</span><span class="price-annual">7.5</span> <span style="font-size:11px;font-weight:600">AED</span></span>
-              <span class="price-spec-lbl">Per credit</span>
-            </div>
-            <div class="price-spec">
-              <span class="price-spec-val">16 <span style="font-size:11px;font-weight:600">AED</span></span>
-              <span class="price-spec-lbl">Extra credit</span>
-            </div>
+          </div>
+          <div class="price-overage">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Extra inspection: <strong>16 AED each</strong>
           </div>
           <ul class="price-feats">
             <li>AI photo analysis</li>
