@@ -167,10 +167,15 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
 
 /* Live counter strip */
 .hero-stats {
-  display: flex; align-items: center; gap: 28px;
-  padding: 16px 0; margin-bottom: 28px;
-  border-top: 1px solid var(--ink-25); border-bottom: 1px solid var(--ink-25);
-  opacity: 0; animation: fadeIn .6s ease .8s forwards;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 16px 0;
+  margin-top: 28px;
+  border-top: 1px solid var(--ink-25);
+  border-bottom: 1px solid var(--ink-25);
+  opacity: 0;
+  animation: fadeIn .6s ease .8s forwards;
 }
 .hstat { display: flex; flex-direction: column; gap: 2px; }
 .hstat-num {
@@ -186,9 +191,35 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
   opacity: 0; animation: fadeIn .7s ease .95s forwards;
 }
 
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
 .hero-actions {
-  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
-  opacity: 0; animation: fadeIn .7s ease 1.1s forwards;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+  opacity: 0;
+  animation: fadeIn .7s ease 1.1s forwards;
+}
+.hero-sample-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-60);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--ink-25);
+  padding-bottom: 2px;
+  transition: color .25s, border-color .25s;
+}
+.hero-sample-link:hover {
+  color: var(--purple);
+  border-color: var(--purple);
 }
 
 .btn-ink {
@@ -786,20 +817,41 @@ footer { background: var(--ink); padding: 80px 48px 40px; color: rgba(255,255,25
   <div class="hero-watermark">01</div>
 
   <div class="hero-inner section-wrap" style="padding:0 48px">
-    <!-- Left content -->
+
+    <!-- ── Left ── -->
     <div class="hero-left">
+
       <div class="hero-eyebrow">
         <span class="eyebrow-dot"></span>
-        Now Live in Dubai &nbsp;·&nbsp; RERA Compliant
+        Dubai · RERA · RDSC-Ready
       </div>
 
       <h1>
-        <div class="line-wrap"><span class="line-inner">The future of</span></div>
-        <div class="line-wrap"><span class="line-inner"><em>property</em></span></div>
-        <div class="line-wrap"><span class="line-inner">inspection.</span></div>
+        <div class="line-wrap"><span class="line-inner">Every inspection.</span></div>
+        <div class="line-wrap"><span class="line-inner">Documented.</span></div>
+        <div class="line-wrap"><span class="line-inner"><em>Defensible.</em></span></div>
       </h1>
 
-      <!-- Live stats strip -->
+      <p class="hero-desc">The inspection report Dubai agents, property managers and landlords use to win deposit disputes — before they start. RDSC-accepted, signed, done in 20 min.</p>
+
+      <!-- CTA bifurqué -->
+      <div class="hero-actions">
+        <div class="hero-cta-group">
+          <a href="#pricing-pro" class="btn-ink">
+            I'm a Professional
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#pricing-particulier" class="btn-ghost">
+            I'm a Landlord / Tenant
+          </a>
+        </div>
+        <a href="/sample-report.pdf" target="_blank" class="hero-sample-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+          See a sample report
+        </a>
+      </div>
+
+      <!-- Stats strip -->
       <div class="hero-stats">
         <div class="hstat">
           <span class="hstat-num" id="ctr">2,400+</span>
@@ -807,33 +859,23 @@ footer { background: var(--ink); padding: 80px 48px 40px; color: rgba(255,255,25
         </div>
         <div class="hstat-div"></div>
         <div class="hstat">
-          <span class="hstat-num">10×</span>
-          <span class="hstat-lbl">Faster than paper</span>
+          <span class="hstat-num">20 min</span>
+          <span class="hstat-lbl">Avg. inspection time</span>
         </div>
         <div class="hstat-div"></div>
         <div class="hstat">
-          <span class="hstat-num">100%</span>
-          <span class="hstat-lbl">RERA compliant</span>
+          <span class="hstat-num">Free</span>
+          <span class="hstat-lbl">First check-in</span>
         </div>
       </div>
 
-      <p class="hero-desc">Generate professional check-in & check-out reports in minutes. AI-powered photo analysis, damage detection, and PDF reports that protect everyone.</p>
-
-      <div class="hero-actions">
-        <a href="#" class="btn-ink">
-          Create Free Account
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="#process" class="btn-ghost">See How It Works</a>
-      </div>
     </div>
 
-    <!-- Right: Inspection card visual -->
+    <!-- ── Right: Inspection Card ── -->
     <div class="hero-right">
-      <!-- Float tags — SVG icons, no emojis -->
       <div class="hero-tag ht1">
         <div class="htag-ico" style="background:var(--purple-bg);color:var(--purple)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
         </div>
         PDF Generated
       </div>
@@ -841,7 +883,7 @@ footer { background: var(--ink); padding: 80px 48px 40px; color: rgba(255,255,25
         <div class="htag-ico" style="background:var(--green-bg);color:#4A8A00">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
-        Signed & Sealed
+        Signed & RDSC-Ready
       </div>
       <div class="hero-tag ht3">
         <div class="htag-ico" style="background:var(--jasmine-bg);color:#8A6000">
@@ -850,12 +892,9 @@ footer { background: var(--ink); padding: 80px 48px 40px; color: rgba(255,255,25
         AI Detected · 2 issues
       </div>
 
-      <!-- Back card -->
       <div class="insp-card-back"></div>
 
-      <!-- Main inspection card -->
       <div class="insp-card">
-        <!-- Header -->
         <div class="ic-header">
           <div>
             <div class="ic-prop-name">Marina Heights — Unit 1204</div>
@@ -871,14 +910,12 @@ footer { background: var(--ink); padding: 80px 48px 40px; color: rgba(255,255,25
           </div>
         </div>
 
-        <!-- Photo with AI overlay -->
         <div class="ic-photo">
           <div class="ic-photo-texture"></div>
           <div class="ic-ai-bar">
             <span class="ic-ai-blink"></span>
             AI Analysis Active
           </div>
-          <!-- Damage pins -->
           <div class="ic-pin ic-pin-1">
             <div class="ic-pin-dot"></div>
             <div class="ic-pin-label">Wall scratch</div>
@@ -889,48 +926,34 @@ footer { background: var(--ink); padding: 80px 48px 40px; color: rgba(255,255,25
           </div>
         </div>
 
-        <!-- Room rows -->
         <div class="ic-rooms">
           <div class="ic-rooms-title">Room Conditions</div>
-
           <div class="ic-room-row">
             <div class="ic-room-icon ri-purple">
-              <!-- Sofa icon -->
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M2 11a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/><path d="M4 16v2M20 16v2"/></svg>
             </div>
             <span class="ic-room-name">Living Room</span>
-            <div class="ic-room-bar-wrap">
-              <div class="ic-room-bar"><div class="ic-room-bar-fill bar-good"></div></div>
-            </div>
+            <div class="ic-room-bar-wrap"><div class="ic-room-bar"><div class="ic-room-bar-fill bar-good"></div></div></div>
             <span class="ic-room-badge bdg-good">Good</span>
           </div>
-
           <div class="ic-room-row">
             <div class="ic-room-icon ri-yellow">
-              <!-- Fork icon -->
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>
             </div>
             <span class="ic-room-name">Kitchen</span>
-            <div class="ic-room-bar-wrap">
-              <div class="ic-room-bar"><div class="ic-room-bar-fill bar-fair"></div></div>
-            </div>
+            <div class="ic-room-bar-wrap"><div class="ic-room-bar"><div class="ic-room-bar-fill bar-fair"></div></div></div>
             <span class="ic-room-badge bdg-fair">Fair</span>
           </div>
-
           <div class="ic-room-row">
             <div class="ic-room-icon ri-green">
-              <!-- Bed icon -->
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
             </div>
             <span class="ic-room-name">Bedroom</span>
-            <div class="ic-room-bar-wrap">
-              <div class="ic-room-bar"><div class="ic-room-bar-fill bar-good"></div></div>
-            </div>
+            <div class="ic-room-bar-wrap"><div class="ic-room-bar"><div class="ic-room-bar-fill bar-good"></div></div></div>
             <span class="ic-room-badge bdg-good">Good</span>
           </div>
         </div>
 
-        <!-- Footer -->
         <div class="ic-footer">
           <div class="ic-progress">
             <span class="ic-progress-text">5 / 7 rooms completed</span>
@@ -943,6 +966,7 @@ footer { background: var(--ink); padding: 80px 48px 40px; color: rgba(255,255,25
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -1295,7 +1319,7 @@ footer { background: var(--ink); padding: 80px 48px 40px; color: rgba(255,255,25
       <p class="section-sub" style="margin:0 auto">Start free. Scale when you're ready.</p>
     </div>
     <div class="pricing-grid">
-      <div class="price-card reveal">
+      <div class="price-card reveal" id="pricing-particulier">
         <div class="price-plan">Starter</div>
         <div class="price-num">Free</div>
         <p class="price-desc">For individual landlords getting started.</p>
@@ -1307,7 +1331,7 @@ footer { background: var(--ink); padding: 80px 48px 40px; color: rgba(255,255,25
         </ul>
         <a href="#" class="price-btn price-btn-outline">Get Started</a>
       </div>
-      <div class="price-card featured reveal reveal-delay-1">
+      <div class="price-card featured reveal reveal-delay-1" id="pricing-pro">
         <div class="price-plan">Professional</div>
         <div class="price-num">$29<span>/month</span></div>
         <p class="price-desc">For agents and managers with growing portfolios.</p>
