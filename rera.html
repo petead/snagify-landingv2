@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RERA Compliance — Snagify</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --cream:    #F3F1EB;
+  --cream-2:  #EAE8E0;
+  --white:    #FCFCFC;
+  --ink:      #0E0E10;
+  --ink-60:   rgba(14,14,16,0.6);
+  --ink-25:   rgba(14,14,16,0.1);
+  --purple:   #9A88FD;
+  --purple-l: #C4B9FE;
+  --purple-bg:#EDE9FE;
+  --jasmine:  #FEDE80;
+  --jasmine-bg:#FFF8DC;
+  --green:    #CAFE87;
+  --green-bg: #EEFAD5;
+  --red:      #FF5252;
+}
+
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ══ NAV ══ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 48px;
+  background: rgba(243,241,235,0.92);
+  backdrop-filter: blur(16px) saturate(1.2);
+  border-bottom: 1px solid var(--ink-25);
+}
+.nav-logo { display:flex;align-items:center;gap:9px;text-decoration:none; }
+.nav-logo span { font-family:'Poppins',sans-serif;font-weight:800;font-size:20px;color:var(--ink);letter-spacing:-0.5px; }
+.nav-back {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; color: var(--ink-60);
+  text-decoration: none;
+  transition: color .25s;
+}
+.nav-back:hover { color: var(--ink); }
+.nav-back svg { transition: transform .25s; }
+.nav-back:hover svg { transform: translateX(-3px); }
+.nav-pill {
+  padding:10px 22px;background:var(--ink);color:var(--white);
+  border-radius:999px;font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;
+  text-decoration:none; transition:background .3s;
+}
+.nav-pill:hover { background:var(--purple); color:var(--ink); }
+
+/* ══ HERO ══ */
+.hero {
+  padding: 160px 48px 100px;
+  max-width: 1360px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; text-transform: uppercase; letter-spacing: 3.5px;
+  font-weight: 600; color: var(--ink-60); margin-bottom: 24px;
+}
+.hero-eyebrow::before { content:''; width:20px; height:1.5px; background:var(--ink-60); }
+.hero h1 {
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: clamp(44px, 5vw, 72px);
+  line-height: .95; letter-spacing: -3px;
+  margin-bottom: 24px;
+}
+.hero h1 em { font-style: italic; color: var(--purple); }
+.hero-desc {
+  font-size: 17px; color: var(--ink-60); line-height: 1.75;
+  max-width: 480px; margin-bottom: 36px;
+}
+.hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+
+.btn-ink {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 28px; background: var(--ink); color: var(--white);
+  font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px;
+  border-radius: 999px; text-decoration: none;
+  transition: background .3s, transform .3s;
+}
+.btn-ink:hover { background: var(--purple); color: var(--ink); transform: translateY(-3px); }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; color: var(--ink-60);
+  text-decoration: none; border-bottom: 1px dashed var(--ink-25);
+  padding-bottom: 2px; transition: color .25s, border-color .25s;
+}
+.btn-ghost:hover { color: var(--purple); border-color: var(--purple); }
+
+/* Hero visual — certification card */
+.hero-visual {
+  display: flex; justify-content: flex-end;
+  position: relative;
+}
+.cert-card {
+  background: var(--white);
+  border: 1px solid var(--ink-25);
+  border-radius: 28px;
+  padding: 36px;
+  width: 380px;
+  box-shadow: 0 32px 80px rgba(14,14,16,.1);
+  position: relative;
+  animation: cardFloat 6s ease-in-out infinite;
+}
+@keyframes cardFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+
+.cert-header {
+  display: flex; align-items: center; gap: 12px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--ink-25);
+  margin-bottom: 20px;
+}
+.cert-logo {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--purple-bg);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.cert-logo svg { width: 22px; height: 22px; color: var(--purple); }
+.cert-title { font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; }
+.cert-sub { font-size:12px; color:var(--ink-60); }
+.cert-badge {
+  margin-left: auto;
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 5px 12px; border-radius: 999px;
+  background: var(--green-bg); color: #3A7A00;
+  font-size: 11px; font-weight: 700;
+  border: 1px solid rgba(202,254,135,.4);
+}
+.cert-badge-dot { width:6px;height:6px;border-radius:50%;background:#3A7A00;animation:pulse 1.5s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+.cert-checklist { display:flex;flex-direction:column;gap:10px;margin-bottom:20px; }
+.cert-check {
+  display:flex;align-items:center;gap:10px;
+  font-size:13px;font-weight:500;
+}
+.cert-check-icon {
+  width:22px;height:22px;border-radius:6px;
+  background:var(--green-bg);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.cert-check-icon svg { width:11px;height:11px;color:#3A7A00; }
+
+.cert-footer {
+  padding-top: 16px;
+  border-top: 1px solid var(--ink-25);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.cert-footer-label { font-size:11px;color:var(--ink-60);text-transform:uppercase;letter-spacing:1.5px;font-weight:600; }
+.cert-sha {
+  font-size:10px;font-family:monospace;
+  color:var(--ink-60);letter-spacing:.5px;
+}
+
+/* ══ SECTION BASE ══ */
+.section-wrap { max-width:1360px;margin:0 auto;padding:0 48px; }
+
+/* ══ WHAT IS RERA ══ */
+.what-section {
+  padding: 100px 0;
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+.what-section::before {
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 60% at 90% 50%, rgba(154,136,253,.1) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 10% 50%, rgba(202,254,135,.05) 0%, transparent 55%);
+  pointer-events:none;
+}
+.what-inner { position:relative;z-index:2;max-width:1360px;margin:0 auto;padding:0 48px; }
+.what-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:start;
+}
+.what-eyebrow {
+  font-size:11px;text-transform:uppercase;letter-spacing:3.5px;
+  font-weight:600;color:rgba(255,255,255,.4);
+  display:flex;align-items:center;gap:8px;
+  margin-bottom:20px;
+}
+.what-eyebrow::before { content:'';width:20px;height:1.5px;background:rgba(255,255,255,.3); }
+.what-title {
+  font-family:'Poppins',sans-serif;font-weight:800;
+  font-size:clamp(32px,3.5vw,48px);line-height:1.04;
+  letter-spacing:-2px;color:var(--white);margin-bottom:20px;
+}
+.what-body {
+  font-size:16px;color:rgba(255,255,255,.55);line-height:1.8;
+}
+.what-body + .what-body { margin-top:16px; }
+
+.what-facts { display:flex;flex-direction:column;gap:16px;padding-top:8px; }
+.what-fact {
+  padding:20px 24px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;
+  transition:background .25s;
+}
+.what-fact:hover { background:rgba(255,255,255,.07); }
+.what-fact-num {
+  font-family:'Poppins',sans-serif;font-weight:800;
+  font-size:28px;letter-spacing:-1.5px;
+  color:var(--purple);line-height:1;margin-bottom:4px;
+}
+.what-fact-lbl { font-size:14px;color:rgba(255,255,255,.55);line-height:1.5; }
+
+/* ══ REQUIREMENTS ══ */
+.req-section { padding:100px 0; background:var(--cream); }
+.req-header { text-align:center;margin-bottom:64px; }
+.req-eyebrow {
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;text-transform:uppercase;letter-spacing:3.5px;
+  font-weight:600;color:var(--ink-60);margin-bottom:16px;
+}
+.req-eyebrow::before { content:'';width:20px;height:1.5px;background:var(--ink-60); }
+.req-title {
+  font-family:'Poppins',sans-serif;font-weight:800;
+  font-size:clamp(32px,3.5vw,48px);line-height:1.04;
+  letter-spacing:-2px;margin-bottom:12px;
+}
+.req-sub { font-size:17px;color:var(--ink-60);max-width:560px;margin:0 auto;line-height:1.7; }
+
+.req-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.req-card {
+  background:var(--white);
+  border:1px solid var(--ink-25);
+  border-radius:24px;
+  padding:32px;
+  position:relative;
+  transition:transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s;
+}
+.req-card:hover { transform:translateY(-6px);box-shadow:0 20px 56px rgba(14,14,16,.09); }
+.req-icon {
+  width:48px;height:48px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;
+}
+.req-icon svg { width:22px;height:22px; }
+.ri-p { background:var(--purple-bg);color:var(--purple); }
+.ri-g { background:var(--green-bg);color:#3A7A00; }
+.ri-j { background:var(--jasmine-bg);color:#7A5A00; }
+.ri-r { background:#FEE2E2;color:var(--red); }
+
+.req-card h3 {
+  font-family:'Poppins',sans-serif;font-weight:700;
+  font-size:17px;letter-spacing:-.3px;margin-bottom:8px;
+}
+.req-card p { font-size:14px;color:var(--ink-60);line-height:1.7; }
+.req-card .req-snagify {
+  display:inline-flex;align-items:center;gap:6px;
+  margin-top:16px;
+  font-size:12px;font-weight:700;color:#3A7A00;
+}
+.req-snagify-dot {
+  width:6px;height:6px;border-radius:50%;background:#3A7A00;flex-shrink:0;
+}
+
+/* ══ HOW SNAGIFY COVERS IT ══ */
+.how-section {
+  padding:100px 0;
+  background:var(--cream-2);
+  border-top:1px solid var(--ink-25);
+  border-bottom:1px solid var(--ink-25);
+}
+.how-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+}
+.how-content {}
+.how-eyebrow {
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;text-transform:uppercase;letter-spacing:3.5px;
+  font-weight:600;color:var(--ink-60);margin-bottom:20px;
+}
+.how-eyebrow::before { content:'';width:20px;height:1.5px;background:var(--ink-60); }
+.how-title {
+  font-family:'Poppins',sans-serif;font-weight:800;
+  font-size:clamp(32px,3.5vw,48px);line-height:1.04;
+  letter-spacing:-2px;margin-bottom:20px;
+}
+.how-steps { display:flex;flex-direction:column;gap:0; }
+.how-step {
+  display:flex;gap:20px;
+  padding:20px 0;
+  border-bottom:1px solid var(--ink-25);
+}
+.how-step:last-child { border-bottom:none; }
+.how-step-num {
+  font-family:'Poppins',sans-serif;font-weight:800;
+  font-size:13px;letter-spacing:1px;
+  color:var(--purple);
+  flex-shrink:0;width:28px;padding-top:2px;
+}
+.how-step-content h4 {
+  font-family:'Poppins',sans-serif;font-weight:700;
+  font-size:15px;margin-bottom:4px;
+}
+.how-step-content p { font-size:14px;color:var(--ink-60);line-height:1.65; }
+
+/* Report visual */
+.how-visual {
+  position:relative;
+}
+.report-mockup {
+  background:var(--white);
+  border:1px solid var(--ink-25);
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 24px 60px rgba(14,14,16,.1);
+}
+.rm-topbar {
+  background:var(--ink);
+  padding:16px 20px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:3px solid var(--purple);
+}
+.rm-logo { display:flex;align-items:center;gap:8px; }
+.rm-logo-box {
+  width:26px;height:26px;border-radius:6px;
+  background:var(--purple-bg);
+}
+.rm-logo-name {
+  font-family:'Poppins',sans-serif;font-weight:800;
+  font-size:13px;color:var(--white);
+}
+.rm-badge {
+  font-size:9px;font-weight:800;text-transform:uppercase;
+  letter-spacing:2px;color:var(--purple);
+}
+.rm-body { padding:20px; }
+.rm-row {
+  display:flex;gap:8px;margin-bottom:8px;align-items:center;
+}
+.rm-row-lbl {
+  font-size:9px;font-weight:700;text-transform:uppercase;
+  letter-spacing:1.5px;color:var(--ink-60);width:80px;flex-shrink:0;
+}
+.rm-row-val {
+  height:6px;flex:1;background:var(--ink-25);border-radius:3px;
+}
+.rm-row-val.accent { background:var(--purple-bg);width:60%; }
+.rm-divider { height:1px;background:var(--ink-25);margin:12px 0; }
+.rm-rooms {
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;
+}
+.rm-room {
+  background:var(--cream);border-radius:8px;
+  padding:10px;
+}
+.rm-room-lbl { font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ink-60); }
+.rm-room-bar { height:4px;background:var(--ink-25);border-radius:3px;margin-top:6px;overflow:hidden; }
+.rm-room-fill { height:100%;border-radius:3px; }
+
+.rm-verified {
+  display:flex;align-items:center;gap:8px;
+  padding:10px 14px;
+  background:var(--green-bg);
+  border:1px solid rgba(202,254,135,.4);
+  border-radius:10px;
+  font-size:11px;font-weight:700;color:#3A7A00;
+}
+.rm-verified svg { flex-shrink:0;width:14px;height:14px; }
+
+/* Floating badges */
+.how-float {
+  position:absolute;
+  background:var(--white);border-radius:14px;
+  padding:10px 14px;
+  display:flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:600;
+  box-shadow:0 8px 32px rgba(14,14,16,.12);
+  border:1px solid var(--ink-25);white-space:nowrap;
+}
+.hf1 { top:-16px;right:-20px; }
+.hf2 { bottom:-12px;left:-20px; }
+.hf-icon {
+  width:26px;height:26px;border-radius:7px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.hf-icon svg { width:13px;height:13px; }
+
+/* ══ FAQ ══ */
+.faq-section { padding:100px 0; background:var(--white); }
+.faq-header { text-align:center;margin-bottom:64px; }
+.faq-title {
+  font-family:'Poppins',sans-serif;font-weight:800;
+  font-size:clamp(32px,3.5vw,48px);letter-spacing:-2px;margin-bottom:12px;
+}
+.faq-sub { font-size:17px;color:var(--ink-60);max-width:480px;margin:0 auto;line-height:1.7; }
+
+.faq-list {
+  max-width:760px;margin:0 auto;
+  display:flex;flex-direction:column;gap:0;
+}
+.faq-item {
+  border-bottom:1px solid var(--ink-25);
+  overflow:hidden;
+}
+.faq-item:first-child { border-top:1px solid var(--ink-25); }
+.faq-q {
+  display:flex;align-items:center;justify-content:space-between;
+  padding:24px 4px;
+  cursor:pointer;
+  gap:16px;
+  font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;
+  letter-spacing:-.3px;
+  transition:color .25s;
+}
+.faq-q:hover { color:var(--purple); }
+.faq-chevron {
+  width:28px;height:28px;border-radius:50%;
+  background:var(--cream);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  transition:background .25s, transform .35s cubic-bezier(.16,1,.3,1);
+}
+.faq-chevron svg { width:13px;height:13px;color:var(--ink-60); }
+.faq-item.open .faq-chevron {
+  background:var(--purple-bg);
+  transform:rotate(180deg);
+}
+.faq-item.open .faq-chevron svg { color:var(--purple); }
+.faq-a {
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .45s cubic-bezier(.16,1,.3,1);
+}
+.faq-item.open .faq-a { max-height:300px; }
+.faq-a-inner {
+  padding:0 4px 24px;
+  font-size:15px;color:var(--ink-60);line-height:1.8;
+}
+
+/* ══ CTA ══ */
+.cta-section {
+  padding:100px 48px;
+  background:var(--ink);
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-section::before {
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 70% at 50% 50%, rgba(154,136,253,.12) 0%, transparent 65%);
+  pointer-events:none;
+}
+.cta-inner { position:relative;z-index:2;max-width:640px;margin:0 auto; }
+.cta-eyebrow {
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:10px;text-transform:uppercase;letter-spacing:3.5px;
+  font-weight:600;color:rgba(255,255,255,.35);margin-bottom:24px;
+}
+.cta-dot { width:5px;height:5px;border-radius:50%;background:var(--green);animation:pulse 2s infinite; }
+.cta-title {
+  font-family:'Poppins',sans-serif;font-weight:800;
+  font-size:clamp(36px,4.5vw,56px);line-height:1;
+  letter-spacing:-3px;color:var(--white);margin-bottom:20px;
+}
+.cta-title em { font-style:italic;color:transparent;-webkit-text-stroke:1.5px var(--purple-l); }
+.cta-sub { font-size:16px;color:rgba(255,255,255,.45);margin-bottom:40px;line-height:1.7; }
+.cta-actions { display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap; }
+.btn-cta {
+  display:inline-flex;align-items:center;gap:10px;
+  padding:16px 32px;background:var(--purple);color:var(--ink);
+  font-family:'Poppins',sans-serif;font-weight:800;font-size:15px;
+  border-radius:999px;text-decoration:none;
+  transition:background .3s,transform .3s,box-shadow .3s;
+}
+.btn-cta:hover { background:#B4A4FE;transform:translateY(-3px);box-shadow:0 16px 40px rgba(154,136,253,.4); }
+.btn-cta-outline {
+  display:inline-flex;align-items:center;gap:8px;
+  padding:16px 28px;
+  background:rgba(255,255,255,.06);color:rgba(255,255,255,.7);
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:14px;
+  border-radius:999px;text-decoration:none;
+  border:1.5px solid rgba(255,255,255,.12);
+  transition:background .3s,border-color .3s;
+}
+.btn-cta-outline:hover { background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2); }
+
+/* ══ FOOTER ══ */
+footer {
+  background:var(--ink);
+  padding:48px;
+  border-top:1px solid rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:16px;
+}
+.foot-copy { font-size:13px;color:rgba(255,255,255,.3); }
+.foot-links { display:flex;gap:24px; }
+.foot-links a {
+  font-size:13px;color:rgba(255,255,255,.35);text-decoration:none;
+  transition:color .25s;
+}
+.foot-links a:hover { color:var(--purple); }
+
+/* ══ REVEALS ══ */
+.reveal { opacity:0;transform:translateY(24px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1); }
+.reveal.in { opacity:1;transform:translateY(0); }
+.reveal-delay-1 { transition-delay:.1s; }
+.reveal-delay-2 { transition-delay:.2s; }
+.reveal-delay-3 { transition-delay:.3s; }
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:1100px) {
+  .hero { grid-template-columns:1fr; gap:60px; padding:140px 32px 80px; }
+  .what-grid { grid-template-columns:1fr; gap:48px; }
+  .how-grid { grid-template-columns:1fr; gap:60px; }
+}
+@media(max-width:768px) {
+  nav { padding:14px 20px; }
+  .hero { padding:120px 20px 60px; }
+  .section-wrap { padding:0 20px; }
+  .what-inner { padding:0 20px; }
+  .req-grid { grid-template-columns:1fr; }
+  .cta-section { padding:72px 20px; }
+  footer { padding:32px 20px; flex-direction:column; align-items:flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <svg width="64" height="64" viewBox="0 0 700 700" fill="var(--purple)">
+      <path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z"/>
+      <path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z"/>
+    </svg>
+    <span>Snagify</span>
+  </a>
+  <a href="/" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to home
+  </a>
+  <a href="/#cta" class="nav-pill">Get Started →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-eyebrow">Legal Compliance</div>
+    <h1>RERA-compliant.<br>Court-<em>ready.</em></h1>
+    <p class="hero-desc">Every Snagify report is built to meet Dubai's Real Estate Regulatory Agency requirements — so your inspection holds up in court, every time.</p>
+    <div class="hero-actions">
+      <a href="/#pricing" class="btn-ink">
+        Start for free
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/sample-report.pdf" target="_blank" class="btn-ghost">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        View a sample report
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <div class="cert-title">Inspection Report</div>
+          <div class="cert-sub">Marina Heights · Unit 1204 · Dubai</div>
+        </div>
+        <div class="cert-badge">
+          <div class="cert-badge-dot"></div>
+          Verified
+        </div>
+      </div>
+
+      <div class="cert-checklist">
+        <div class="cert-check">
+          <div class="cert-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          RERA-required fields complete
+        </div>
+        <div class="cert-check">
+          <div class="cert-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Both parties signed digitally
+        </div>
+        <div class="cert-check">
+          <div class="cert-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          GPS-tagged photos attached
+        </div>
+        <div class="cert-check">
+          <div class="cert-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Tamper-proof SHA-256 hash
+        </div>
+        <div class="cert-check">
+          <div class="cert-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Timestamped at submission
+        </div>
+      </div>
+
+      <div class="cert-footer">
+        <span class="cert-footer-label">SHA-256</span>
+        <span class="cert-sha">a4f2c8e1b903d7ff…</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS RERA -->
+<section class="what-section">
+  <div class="what-inner">
+    <div class="what-grid">
+      <div class="reveal">
+        <div class="what-eyebrow">What is RERA</div>
+        <h2 class="what-title">The authority behind every Dubai rental</h2>
+        <p class="what-body">RERA — the Real Estate Regulatory Agency — is the branch of Dubai Land Department that governs all landlord-tenant relationships in the emirate. It sets the rules, and its Rental Dispute Center (RDC) settles conflicts.</p>
+        <p class="what-body" style="margin-top:16px">When a deposit dispute reaches the RDC, the first thing they ask for is a signed, dated inspection report from both move-in and move-out. Without it, the case is decided on testimony alone — which rarely goes in the claimant's favor.</p>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="what-facts">
+          <div class="what-fact">
+            <div class="what-fact-num">AED 12,000</div>
+            <div class="what-fact-lbl">Average rental deposit in Dubai. Gone without proof of condition at move-in.</div>
+          </div>
+          <div class="what-fact">
+            <div class="what-fact-num">90 days</div>
+            <div class="what-fact-lbl">Time limit to file a deposit dispute at the RDC after move-out.</div>
+          </div>
+          <div class="what-fact">
+            <div class="what-fact-num">Law 26 / 2007</div>
+            <div class="what-fact-lbl">UAE tenancy law requiring documented property condition at handover.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REQUIREMENTS -->
+<section class="req-section">
+  <div class="section-wrap">
+    <div class="req-header reveal">
+      <div class="req-eyebrow">Requirements</div>
+      <h2 class="req-title">What a valid inspection report needs</h2>
+      <p class="req-sub">The RDC evaluates reports against specific criteria. Snagify covers every one.</p>
+    </div>
+
+    <div class="req-grid">
+      <div class="req-card reveal">
+        <div class="req-icon ri-p">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
+        </div>
+        <h3>Dual signatures</h3>
+        <p>Both landlord and tenant must sign the inspection document. A report signed by only one party carries significantly less weight.</p>
+        <div class="req-snagify"><div class="req-snagify-dot"></div>On-screen or remote email signing</div>
+      </div>
+
+      <div class="req-card reveal reveal-delay-1">
+        <div class="req-icon ri-g">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Timestamped record</h3>
+        <p>The inspection must be dated and timed at the actual moment of handover. Backdating is a common issue with manual reports.</p>
+        <div class="req-snagify"><div class="req-snagify-dot"></div>Automatic UTC timestamp on submission</div>
+      </div>
+
+      <div class="req-card reveal reveal-delay-2">
+        <div class="req-icon ri-j">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <h3>Photo evidence</h3>
+        <p>Visual documentation of each room's condition is required to substantiate any claim of damage or pre-existing wear.</p>
+        <div class="req-snagify"><div class="req-snagify-dot"></div>Room-by-room photos stored immutably</div>
+      </div>
+
+      <div class="req-card reveal">
+        <div class="req-icon ri-p">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
+        </div>
+        <h3>Property identification</h3>
+        <p>The report must clearly identify the property — address, unit number, emirate — and the tenancy contract number where applicable.</p>
+        <div class="req-snagify"><div class="req-snagify-dot"></div>Structured property fields, contract auto-fill</div>
+      </div>
+
+      <div class="req-card reveal reveal-delay-1">
+        <div class="req-icon ri-g">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Tamper-proof integrity</h3>
+        <p>The document must not be alterable after signing. Paper forms and editable Word files are frequently challenged at the RDC.</p>
+        <div class="req-snagify"><div class="req-snagify-dot"></div>SHA-256 hash + QR verification on every PDF</div>
+      </div>
+
+      <div class="req-card reveal reveal-delay-2">
+        <div class="req-icon ri-j">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h3>Condition assessment</h3>
+        <p>Each room or area must carry an individual condition rating to establish baseline state at move-in and compare it at move-out.</p>
+        <div class="req-snagify"><div class="req-snagify-dot"></div>AI-generated Good / Fair / Poor per room</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW SNAGIFY COVERS IT -->
+<section class="how-section">
+  <div class="section-wrap">
+    <div class="how-grid">
+      <div class="how-content reveal">
+        <div class="how-eyebrow">How it works</div>
+        <h2 class="how-title">Built around the RDC checklist</h2>
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="how-step-num">01</div>
+            <div class="how-step-content">
+              <h4>Structured data collection</h4>
+              <p>Every required field — property address, unit, tenancy number, inspection type — is captured in a fixed format. Nothing can be skipped.</p>
+            </div>
+          </div>
+          <div class="how-step">
+            <div class="how-step-num">02</div>
+            <div class="how-step-content">
+              <h4>AI-assisted photo tagging</h4>
+              <p>Claude AI analyzes each photo and assigns damage tags with descriptions. Condition per room is calculated automatically, removing subjective bias.</p>
+            </div>
+          </div>
+          <div class="how-step">
+            <div class="how-step-num">03</div>
+            <div class="how-step-content">
+              <h4>On-site dual signature</h4>
+              <p>Both parties sign directly on the phone screen. If one party is absent, a remote signing link is sent by email with a 7-day window and reminder at J+1, J+3.</p>
+            </div>
+          </div>
+          <div class="how-step">
+            <div class="how-step-num">04</div>
+            <div class="how-step-content">
+              <h4>Immutable PDF with hash</h4>
+              <p>The moment both signatures are collected, a PDF is generated and locked with a SHA-256 fingerprint. Any alteration invalidates the QR verification code.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="how-visual reveal reveal-delay-1">
+        <div class="how-float hf1">
+          <div class="hf-icon" style="background:var(--green-bg);color:#3A7A00">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          Court-ready report generated
+        </div>
+        <div class="report-mockup">
+          <div class="rm-topbar">
+            <div class="rm-logo">
+              <div class="rm-logo-box"></div>
+              <span class="rm-logo-name">Snagify</span>
+            </div>
+            <span class="rm-badge">INSPECTION REPORT</span>
+          </div>
+          <div class="rm-body">
+            <div class="rm-row"><span class="rm-row-lbl">Property</span><div class="rm-row-val accent"></div></div>
+            <div class="rm-row"><span class="rm-row-lbl">Type</span><div class="rm-row-val" style="width:40%"></div></div>
+            <div class="rm-row"><span class="rm-row-lbl">Date</span><div class="rm-row-val" style="width:55%"></div></div>
+            <div class="rm-divider"></div>
+            <div class="rm-rooms">
+              <div class="rm-room">
+                <div class="rm-room-lbl">Living Room</div>
+                <div class="rm-room-bar"><div class="rm-room-fill" style="width:88%;background:var(--green)"></div></div>
+              </div>
+              <div class="rm-room">
+                <div class="rm-room-lbl">Kitchen</div>
+                <div class="rm-room-bar"><div class="rm-room-fill" style="width:55%;background:var(--jasmine)"></div></div>
+              </div>
+              <div class="rm-room">
+                <div class="rm-room-lbl">Bedroom</div>
+                <div class="rm-room-bar"><div class="rm-room-fill" style="width:90%;background:var(--green)"></div></div>
+              </div>
+              <div class="rm-room">
+                <div class="rm-room-lbl">Bathroom</div>
+                <div class="rm-room-bar"><div class="rm-room-fill" style="width:78%;background:var(--green)"></div></div>
+              </div>
+            </div>
+            <div class="rm-verified">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              SHA-256 verified · Both parties signed
+            </div>
+          </div>
+        </div>
+        <div class="how-float hf2">
+          <div class="hf-icon" style="background:var(--purple-bg);color:var(--purple)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
+          </div>
+          Signed on-site · March 25, 2025
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="section-wrap">
+    <div class="faq-header reveal">
+      <h2 class="faq-title">Common questions</h2>
+      <p class="faq-sub">On RERA, the RDC, and how Snagify fits into Dubai's rental framework.</p>
+    </div>
+
+    <div class="faq-list reveal">
+      <div class="faq-item open">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Is a Snagify report officially accepted by the RDC?
+          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Yes. The RDC accepts any inspection report that meets the documented-evidence standard: dual signatures, timestamp, photo evidence, and property identification. Snagify reports are structured to meet all of these criteria. They have been accepted in dispute proceedings in Dubai.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What if only one party signs the report?
+          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">A single-signature report still holds evidential value, particularly for the party that did sign. Snagify documents refusals: if one party declines to sign, this refusal is recorded in the report with a timestamp. The RDC factors refusal-to-sign into their assessment.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Does it matter which format the report is in?
+          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Yes. Handwritten forms, WhatsApp messages, or editable Word documents can all be challenged as altered or incomplete. A tamper-proof, digitally-signed PDF with a verifiable hash is significantly harder to dispute. Snagify generates this format by default.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Do I need to use Snagify for the check-in AND check-out?
+          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Ideally yes. The RDC comparison looks at the condition at move-in versus move-out. Having both inspections in the same system makes the comparison irrefutable. That said, even a Snagify check-out report submitted alongside a prior paper check-in adds significant weight to a claim.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Is the check-in really free?
+          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Yes, always. Check-in inspections are permanently free for individual landlords and tenants. Credits are only consumed for check-out inspections. Professional plans include a monthly credit allocation for both check-ins and check-outs.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          How long should I keep my inspection reports?
+          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">The RDC statute of limitations for tenancy disputes is generally 3 years from the date of the alleged breach. We recommend keeping inspection records for at least 3 years. All Snagify reports are stored indefinitely on your account and can be re-downloaded at any time.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner reveal">
+    <div class="cta-eyebrow"><div class="cta-dot"></div>Start protecting your property today</div>
+    <h2 class="cta-title">Court-ready in<br><em>20 minutes.</em></h2>
+    <p class="cta-sub">Your first check-in is free. No credit card, no contract. Just a report that holds up.</p>
+    <div class="cta-actions">
+      <a href="/#cta" class="btn-cta">
+        Get started free
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/sample-report.pdf" target="_blank" class="btn-cta-outline">
+        View sample report
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="foot-copy">© 2025 Snagify. All rights reserved.</span>
+  <div class="foot-links">
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="mailto:hello@snagify.net">Contact</a>
+    <a href="/">← Back to home</a>
+  </div>
+</footer>
+
+<script>
+// Reveals
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: .1 });
+document.querySelectorAll('.reveal').forEach(r => io.observe(r));
+
+// FAQ
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
