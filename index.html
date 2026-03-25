@@ -38,32 +38,18 @@ body {
 }
 @media(max-width:768px){ body { cursor: auto; } }
 
-/* ══════════════════════════════════
-   CURSOR  —  subtle, non-intrusive
-══════════════════════════════════ */
+/* ══ CURSOR ══ */
 #cur {
-  width: 8px; height: 8px;
+  width: 10px; height: 10px;
   background: var(--ink);
   border-radius: 50%;
   position: fixed; pointer-events: none; z-index: 9999;
   left: 0; top: 0;
   transform: translate(-50%, -50%);
-  transition: width .25s, height .25s, background .25s, border-radius .25s;
-  will-change: transform;
+  transition: background .2s, transform .2s;
+  will-change: left, top;
 }
-#curb {
-  width: 28px; height: 28px;
-  border: 1.5px solid rgba(14,14,16,.4);
-  border-radius: 50%;
-  position: fixed; pointer-events: none; z-index: 9998;
-  left: 0; top: 0;
-  transform: translate(-50%, -50%);
-  transition: width .3s, height .3s, border-color .3s;
-  will-change: transform;
-}
-/* hover: ring turns purple, dot becomes purple — no size explosion */
-#cur.big  { width: 10px; height: 10px; background: var(--purple); }
-#curb.big { width: 36px; height: 36px; border-color: var(--purple); }
+#cur.big { background: var(--purple); transform: translate(-50%, -50%) scale(1.4); }
 
 /* ── SCROLL PROGRESS ── */
 #prog { position:fixed;top:0;left:0;height:3px;background:var(--purple);z-index:9999;width:0; }
@@ -1693,7 +1679,6 @@ footer {
 <body>
 
 <div id="cur"></div>
-<div id="curb"></div>
 <div id="prog"></div>
 
 <!-- ╔══ NAV ══╗ -->
@@ -2716,29 +2701,15 @@ footer {
 </footer>
 
 <script>
-// ── CURSOR — fixed, non-intrusive ──
-const cur  = document.getElementById('cur');
-const curb = document.getElementById('curb');
-let bx = innerWidth/2, by = innerHeight/2;
-
-// dot follows mouse directly (no lag = feels snappy)
+// ── CURSOR ──
+const cur = document.getElementById('cur');
 window.addEventListener('mousemove', e => {
-  cur.style.left  = e.clientX + 'px';
-  cur.style.top   = e.clientY + 'px';
-  bx += (e.clientX - bx) * .14;
-  by += (e.clientY - by) * .14;
-});
-
-(function loop() {
-  curb.style.left = bx + 'px';
-  curb.style.top  = by + 'px';
-  requestAnimationFrame(loop);
-})();
-
-// hover: just a color change, no giant size
+  cur.style.left = e.clientX + 'px';
+  cur.style.top  = e.clientY + 'px';
+}, { passive: true });
 document.querySelectorAll('a, button').forEach(el => {
-  el.addEventListener('mouseenter', () => { cur.classList.add('big'); curb.classList.add('big'); });
-  el.addEventListener('mouseleave', () => { cur.classList.remove('big'); curb.classList.remove('big'); });
+  el.addEventListener('mouseenter', () => cur.classList.add('big'));
+  el.addEventListener('mouseleave', () => cur.classList.remove('big'));
 });
 
 // ── SCROLL PROGRESS ──
