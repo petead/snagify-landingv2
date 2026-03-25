@@ -751,32 +751,163 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
   .testi-grid { grid-template-columns: 1fr; }
 }
 
-/* ══════════════════════════════════
-   PRICING
-══════════════════════════════════ */
-.pricing { padding: 120px 0; }
-.pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 64px; }
-.price-card { background: var(--white); border: 1px solid var(--ink-25); border-radius: 24px; padding: 36px; position: relative; transition: transform .4s, box-shadow .4s; }
-.price-card:hover { transform: translateY(-8px); box-shadow: 0 24px 64px rgba(14,14,16,.1); }
-.price-card.featured { background: var(--ink); border-color: var(--ink); color: var(--white); }
-.price-card.featured::before { content: 'Most Popular'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); padding: 4px 16px; background: var(--purple); color: var(--ink); font-size: 11px; font-weight: 700; border-radius: 999px; font-family: 'Poppins', sans-serif; white-space: nowrap; }
-.price-plan { font-size: 11px; text-transform: uppercase; letter-spacing: 2.5px; font-weight: 600; color: var(--ink-60); margin-bottom: 12px; }
+/* ══ PRICING ══ */
+.pricing { padding: 120px 0; background: var(--cream); }
+
+.pricing-toggle {
+  display: flex; align-items: center; justify-content: center;
+  gap: 4px;
+  background: var(--white);
+  border: 1px solid var(--ink-25);
+  border-radius: 999px;
+  padding: 5px;
+  width: fit-content;
+  margin: 0 auto 56px;
+}
+.ptoggle-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 10px 22px;
+  border-radius: 999px; border: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700; font-size: 13px;
+  cursor: pointer;
+  background: transparent; color: var(--ink-60);
+  transition: all .3s ease;
+}
+.ptoggle-btn svg { opacity: .5; transition: opacity .3s; }
+.ptoggle-btn.active {
+  background: var(--ink); color: var(--white);
+}
+.ptoggle-btn.active svg { opacity: 1; }
+
+.pricing-panel { display: block; }
+.pricing-panel.hidden { display: none; }
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 16px; margin-bottom: 20px;
+}
+.pricing-grid-private { margin-top: 24px; }
+
+.price-card {
+  background: var(--white); border: 1px solid var(--ink-25);
+  border-radius: 24px; padding: 36px;
+  position: relative; transition: transform .4s, box-shadow .4s;
+}
+.price-card:hover { transform: translateY(-6px); box-shadow: 0 24px 64px rgba(14,14,16,.1); }
+.price-card.featured {
+  background: var(--ink); border-color: var(--ink); color: var(--white);
+}
+.price-card.featured::before {
+  content: 'Most Popular';
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  padding: 4px 16px; background: var(--purple); color: var(--ink);
+  font-size: 11px; font-weight: 700; border-radius: 999px;
+  font-family: 'Poppins', sans-serif; white-space: nowrap;
+}
+.price-plan {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 2.5px;
+  font-weight: 600; color: var(--ink-60); margin-bottom: 12px;
+}
 .price-card.featured .price-plan { color: rgba(255,255,255,.5); }
-.price-num { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 48px; letter-spacing: -3px; margin-bottom: 4px; }
-.price-num span { font-size: 16px; font-weight: 400; letter-spacing: 0; color: var(--ink-60); }
-.price-card.featured .price-num span { color: rgba(255,255,255,.5); }
-.price-desc { font-size: 14px; color: var(--ink-60); margin-bottom: 28px; line-height: 1.5; }
+.price-num {
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: 48px; letter-spacing: -3px; margin-bottom: 4px;
+}
+.price-num span { font-size: 15px; font-weight: 400; letter-spacing: 0; color: var(--ink-60); }
+.price-card.featured .price-num span { color: rgba(255,255,255,.45); }
+.price-desc { font-size: 14px; color: var(--ink-60); margin-bottom: 16px; line-height: 1.5; }
 .price-card.featured .price-desc { color: rgba(255,255,255,.6); }
-.price-feats { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
-.price-feats li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--ink-60); }
+
+.price-credits-info {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 12px; font-weight: 500; color: var(--ink-60);
+  padding: 8px 12px;
+  background: var(--cream);
+  border: 1px solid var(--ink-25);
+  border-radius: 8px;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+.price-credits-info svg { flex-shrink: 0; opacity: .6; }
+
+.price-feats {
+  list-style: none; display: flex; flex-direction: column;
+  gap: 10px; margin-bottom: 28px;
+}
+.price-feats li {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 14px; color: var(--ink-60);
+}
 .price-card.featured .price-feats li { color: rgba(255,255,255,.75); }
 .price-feats li::before { content: '✓'; color: #4A8A00; font-weight: 700; font-size: 12px; }
 .price-card.featured .price-feats li::before { color: var(--green); }
-.price-btn { display: block; width: 100%; padding: 14px; border-radius: 12px; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px; text-align: center; text-decoration: none; cursor: pointer; border: none; transition: all .3s; }
-.price-btn-outline { background: transparent; border: 1.5px solid var(--ink-25); color: var(--ink); }
+
+.price-btn {
+  display: block; width: 100%; padding: 14px;
+  border-radius: 12px; font-family: 'Poppins', sans-serif;
+  font-weight: 700; font-size: 14px;
+  text-align: center; text-decoration: none;
+  cursor: pointer; border: none; transition: all .3s;
+}
+.price-btn-outline {
+  background: transparent; border: 1.5px solid var(--ink-25); color: var(--ink);
+}
 .price-btn-outline:hover { border-color: var(--ink); background: var(--cream); }
 .price-btn-purple { background: var(--purple); color: var(--ink); }
 .price-btn-purple:hover { background: #8876F0; box-shadow: 0 8px 24px rgba(154,136,253,.4); }
+
+.pricing-note {
+  text-align: center; font-size: 13px; color: var(--ink-60);
+  margin-top: 8px;
+}
+.pricing-note a { color: var(--purple); text-decoration: none; font-weight: 600; }
+.pricing-note a:hover { text-decoration: underline; }
+
+/* Free check-in banner */
+.price-free-banner {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--ink); border-radius: 20px;
+  padding: 32px 36px; margin-bottom: 32px;
+  color: var(--white);
+}
+.price-free-badge {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700; font-size: 10px;
+  text-transform: uppercase; letter-spacing: 2px;
+  padding: 4px 12px; border-radius: 999px;
+  background: var(--green); color: var(--ink);
+  margin-bottom: 10px;
+}
+.price-free-left h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800; font-size: 24px; letter-spacing: -1px;
+  margin-bottom: 8px;
+}
+.price-free-left p {
+  font-size: 14px; color: rgba(255,255,255,.6);
+  max-width: 440px; line-height: 1.6;
+}
+.price-free-right { color: var(--green); opacity: .4; flex-shrink: 0; }
+
+.price-checkout-label {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 11px; text-transform: uppercase; letter-spacing: 2.5px;
+  font-weight: 600; color: var(--ink-60);
+  margin-bottom: 16px;
+}
+
+@media(max-width: 1100px) {
+  .pricing-grid { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width: 768px) {
+  .pricing-grid { grid-template-columns: 1fr; }
+  .price-free-banner { flex-direction: column; gap: 20px; align-items: flex-start; }
+  .pricing-toggle { width: 100%; }
+  .ptoggle-btn { flex: 1; justify-content: center; }
+}
 
 /* ══════════════════════════════════
    CTA
@@ -2438,52 +2569,167 @@ footer { background: var(--ink); padding: 80px 48px 40px; color: rgba(255,255,25
 <!-- ╔══ PRICING ══╗ -->
 <section class="pricing" id="pricing">
   <div class="section-wrap">
+
     <div class="section-header reveal" style="text-align:center">
       <div class="section-eyebrow" style="justify-content:center">Pricing</div>
-      <h2 class="section-title">Simple, transparent<br><em>pricing.</em></h2>
-      <p class="section-sub" style="margin:0 auto">Start free. Scale when you're ready.</p>
+      <h2 class="section-title">Simple pricing.<br><em>No surprises.</em></h2>
+      <p class="section-sub" style="margin:0 auto">All prices in AED. No hidden fees.</p>
     </div>
-    <div class="pricing-grid">
-      <div class="price-card reveal" id="pricing-particulier">
-        <div class="price-plan">Starter</div>
-        <div class="price-num">Free</div>
-        <p class="price-desc">For individual landlords getting started.</p>
-        <ul class="price-feats">
-          <li>3 inspections / month</li>
-          <li>AI photo analysis</li>
-          <li>PDF report generation</li>
-          <li>1 property</li>
-        </ul>
-        <a href="#" class="price-btn price-btn-outline">Get Started</a>
-      </div>
-      <div class="price-card featured reveal reveal-delay-1" id="pricing-pro">
-        <div class="price-plan">Professional</div>
-        <div class="price-num">$29<span>/month</span></div>
-        <p class="price-desc">For agents and managers with growing portfolios.</p>
-        <ul class="price-feats">
-          <li>Unlimited inspections</li>
-          <li>AI photo analysis</li>
-          <li>White-label branding</li>
-          <li>Unlimited properties</li>
-          <li>Email delivery</li>
-          <li>Priority support</li>
-        </ul>
-        <a href="#" class="price-btn price-btn-purple">Start Free Trial</a>
-      </div>
-      <div class="price-card reveal reveal-delay-2">
-        <div class="price-plan">Enterprise</div>
-        <div class="price-num">Custom</div>
-        <p class="price-desc">For large agencies and property management firms.</p>
-        <ul class="price-feats">
-          <li>Everything in Professional</li>
-          <li>Team management</li>
-          <li>API access</li>
-          <li>Custom integrations</li>
-          <li>Dedicated support</li>
-        </ul>
-        <a href="#" class="price-btn price-btn-outline">Contact Sales</a>
-      </div>
+
+    <!-- Toggle -->
+    <div class="pricing-toggle reveal">
+      <button type="button" class="ptoggle-btn active" id="toggle-pro" onclick="switchPricing('pro')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        Professionals
+      </button>
+      <button type="button" class="ptoggle-btn" id="toggle-private" onclick="switchPricing('private')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Landlords &amp; Tenants
+      </button>
     </div>
+
+    <!-- ── PRO PLANS ── -->
+    <div class="pricing-panel" id="panel-pro">
+      <div class="pricing-grid">
+
+        <div class="price-card reveal">
+          <div class="price-plan">Starter</div>
+          <div class="price-num">149<span> AED/mo</span></div>
+          <p class="price-desc">For independent agents doing a handful of inspections each month.</p>
+          <div class="price-credits-info">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            10 credits / month · 1 credit per check-in or check-out
+          </div>
+          <ul class="price-feats">
+            <li>10 inspections / month</li>
+            <li>AI photo analysis</li>
+            <li>PDF report generation</li>
+            <li>Digital signatures</li>
+            <li>White-label branding</li>
+          </ul>
+          <a href="#" class="price-btn price-btn-outline">Get Started</a>
+        </div>
+
+        <div class="price-card featured reveal reveal-delay-1" id="pricing-pro">
+          <div class="price-plan">Growth</div>
+          <div class="price-num">249<span> AED/mo</span></div>
+          <p class="price-desc">For active agents and small agencies managing multiple properties.</p>
+          <div class="price-credits-info" style="border-color:rgba(154,136,253,.2);background:rgba(154,136,253,.08);color:var(--purple-l)">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            20 credits / month · 1 credit per check-in or check-out
+          </div>
+          <ul class="price-feats">
+            <li>20 inspections / month</li>
+            <li>AI photo analysis</li>
+            <li>PDF report generation</li>
+            <li>Digital signatures</li>
+            <li>White-label branding</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="#" class="price-btn price-btn-purple">Start Free Trial</a>
+        </div>
+
+        <div class="price-card reveal reveal-delay-2">
+          <div class="price-plan">Agency</div>
+          <div class="price-num">349<span> AED/mo</span></div>
+          <p class="price-desc">For property management firms running high inspection volumes.</p>
+          <div class="price-credits-info">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            30 credits / month · 1 credit per check-in or check-out
+          </div>
+          <ul class="price-feats">
+            <li>30 inspections / month</li>
+            <li>AI photo analysis</li>
+            <li>PDF report generation</li>
+            <li>Digital signatures</li>
+            <li>White-label branding</li>
+            <li>Team management</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="#" class="price-btn price-btn-outline">Get Started</a>
+        </div>
+
+      </div>
+      <p class="pricing-note reveal">Need more than 30 inspections/month? <a href="mailto:hello@snagify.net">Contact us</a> for a custom plan.</p>
+    </div>
+
+    <!-- ── PARTICULIER PLANS ── -->
+    <div class="pricing-panel hidden" id="panel-private">
+      <div class="price-free-banner reveal">
+        <div class="price-free-left">
+          <div class="price-free-badge">Always Free</div>
+          <h3>Check-In Inspection</h3>
+          <p>Document your property at move-in at no cost, every time. No credits needed, no subscription.</p>
+        </div>
+        <div class="price-free-right">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+      </div>
+
+      <div class="price-checkout-label reveal">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Check-Out · Buy credits when you need them
+      </div>
+
+      <div class="pricing-grid pricing-grid-private">
+
+        <div class="price-card reveal" id="pricing-particulier">
+          <div class="price-plan">Essential</div>
+          <div class="price-num">49<span> AED</span></div>
+          <p class="price-desc">For a single move-out inspection.</p>
+          <div class="price-credits-info">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            2 credits · 2 credits used per check-out
+          </div>
+          <ul class="price-feats">
+            <li>1 check-out inspection</li>
+            <li>AI photo analysis</li>
+            <li>PDF report generation</li>
+            <li>Digital signatures</li>
+          </ul>
+          <a href="#" class="price-btn price-btn-outline">Buy Credits</a>
+        </div>
+
+        <div class="price-card featured reveal reveal-delay-1">
+          <div class="price-plan">Value</div>
+          <div class="price-num">119<span> AED</span></div>
+          <p class="price-desc">For landlords with a couple of properties.</p>
+          <div class="price-credits-info" style="border-color:rgba(154,136,253,.2);background:rgba(154,136,253,.08);color:var(--purple-l)">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            6 credits · 3 check-out inspections
+          </div>
+          <ul class="price-feats">
+            <li>3 check-out inspections</li>
+            <li>AI photo analysis</li>
+            <li>PDF report generation</li>
+            <li>Digital signatures</li>
+            <li>Credits never expire</li>
+          </ul>
+          <a href="#" class="price-btn price-btn-purple">Buy Credits</a>
+        </div>
+
+        <div class="price-card reveal reveal-delay-2">
+          <div class="price-plan">Multi</div>
+          <div class="price-num">179<span> AED</span></div>
+          <p class="price-desc">For landlords managing several units.</p>
+          <div class="price-credits-info">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            10 credits · 5 check-out inspections
+          </div>
+          <ul class="price-feats">
+            <li>5 check-out inspections</li>
+            <li>AI photo analysis</li>
+            <li>PDF report generation</li>
+            <li>Digital signatures</li>
+            <li>Credits never expire</li>
+          </ul>
+          <a href="#" class="price-btn price-btn-outline">Buy Credits</a>
+        </div>
+
+      </div>
+      <p class="pricing-note reveal">Check-in is always free. Credits are used only for check-out inspections.</p>
+    </div>
+
   </div>
 </section>
 
@@ -2592,10 +2838,28 @@ new IntersectionObserver(entries => {
 // ── SMOOTH ANCHOR ──
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    const href = a.getAttribute('href');
+    const t = document.querySelector(href);
+    if (t) {
+      e.preventDefault();
+      if (href === '#pricing-particulier' && typeof switchPricing === 'function') switchPricing('private');
+      if (href === '#pricing-pro' && typeof switchPricing === 'function') switchPricing('pro');
+      t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   });
 });
+
+// ── PRICING TOGGLE ──
+function switchPricing(type) {
+  document.getElementById('panel-pro').classList.toggle('hidden', type !== 'pro');
+  document.getElementById('panel-private').classList.toggle('hidden', type !== 'private');
+  document.getElementById('toggle-pro').classList.toggle('active', type === 'pro');
+  document.getElementById('toggle-private').classList.toggle('active', type === 'private');
+}
+// Auto-switch if anchor is #pricing-pro or #pricing-particulier
+const hash = window.location.hash;
+if (hash === '#pricing-particulier') switchPricing('private');
+if (hash === '#pricing-pro') switchPricing('pro');
 </script>
 </body>
 </html>
