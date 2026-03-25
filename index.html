@@ -1026,6 +1026,166 @@ footer { background: var(--ink); padding: 80px 48px 40px; color: rgba(255,255,25
 @media(max-width: 1100px) {
   .for-pros-grid { grid-template-columns: 1fr; gap: 60px; }
 }
+
+/* ══ FOR PRIVATE ══ */
+.for-private {
+  padding: 120px 0;
+  background: var(--cream-2);
+}
+.for-private-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.private-card-stack {
+  position: relative;
+  height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Main card */
+.priv-card-main {
+  width: 100%;
+  max-width: 400px;
+  background: var(--white);
+  border: 1px solid var(--ink-25);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(14,14,16,.1);
+  position: relative;
+  z-index: 2;
+}
+.priv-card-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--ink-25);
+}
+.priv-card-icon {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.priv-card-icon svg { width: 18px; height: 18px; }
+.priv-card-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700; font-size: 14px;
+}
+.priv-card-sub { font-size: 11px; color: var(--ink-60); }
+.priv-free-badge {
+  margin-left: auto;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800; font-size: 11px;
+  letter-spacing: 1.5px;
+  padding: 5px 10px;
+  background: var(--green);
+  color: var(--ink);
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+.priv-card-body { padding: 18px 20px; }
+.priv-stat-row {
+  display: flex;
+  gap: 0;
+  margin-bottom: 14px;
+}
+.priv-stat {
+  flex: 1;
+  text-align: center;
+  display: flex; flex-direction: column; gap: 3px;
+}
+.priv-stat:not(:last-child) {
+  border-right: 1px solid var(--ink-25);
+}
+.priv-stat-num {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800; font-size: 20px; letter-spacing: -1px;
+}
+.priv-stat-lbl { font-size: 10px; color: var(--ink-60); text-transform: uppercase; letter-spacing: 1px; }
+.priv-signed-row {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 12px; color: #4A8A00;
+  font-weight: 600;
+  padding: 8px 12px;
+  background: var(--green-bg);
+  border-radius: 8px;
+}
+.priv-signed-row svg { flex-shrink: 0; }
+
+/* Floating badge */
+.priv-float-badge {
+  position: absolute;
+  bottom: 0; right: 0;
+  display: flex; align-items: center; gap: 10px;
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 12px 16px;
+  box-shadow: 0 8px 32px rgba(14,14,16,.2);
+  z-index: 3;
+  animation: phfloat 5s ease-in-out infinite;
+}
+@keyframes phfloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.priv-float-icon {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: rgba(202,254,135,.15);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--green);
+  flex-shrink: 0;
+}
+.priv-float-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700; font-size: 13px; color: var(--white);
+}
+.priv-float-sub { font-size: 11px; color: rgba(255,255,255,.5); }
+
+/* Features list */
+.private-features {
+  display: flex; flex-direction: column;
+  gap: 16px; margin: 32px 0;
+}
+.priv-feat {
+  display: flex; gap: 14px; align-items: flex-start;
+}
+.priv-feat-check {
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  background: var(--green-bg);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  color: #4A8A00;
+}
+.priv-feat-check svg { width: 13px; height: 13px; }
+.priv-feat h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700; font-size: 15px; margin-bottom: 2px;
+}
+.priv-feat p { font-size: 13px; color: var(--ink-60); line-height: 1.6; }
+
+.private-cta {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+.private-cta-note {
+  font-size: 13px; color: var(--ink-60);
+}
+
+@media(max-width: 1100px) {
+  .for-private-grid { grid-template-columns: 1fr; gap: 60px; }
+  .for-private-left { order: 2; }
+  .for-private-right { order: 1; }
+}
+@media(max-width: 768px) {
+  .private-card-stack { height: auto; }
+  .priv-float-badge { position: relative; bottom: auto; right: auto; margin-top: 16px; }
+}
 </style>
 </head>
 <body>
@@ -1397,6 +1557,122 @@ footer { background: var(--ink); padding: 80px 48px 40px; color: rgba(255,255,25
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ╔══ POUR LES PARTICULIERS ══╗ -->
+<section class="for-private" id="for-private">
+  <div class="section-wrap">
+
+    <div class="for-private-grid">
+
+      <!-- ── Left: visual ── -->
+      <div class="for-private-left reveal">
+        <div class="private-card-stack">
+
+          <!-- Card 1 — Check-in gratuit -->
+          <div class="priv-card priv-card-main">
+            <div class="priv-card-top">
+              <div class="priv-card-icon" style="background:var(--green-bg);color:#4A8A00">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <div>
+                <div class="priv-card-name">Move-In Inspection</div>
+                <div class="priv-card-sub">Marina Heights — Unit 1204</div>
+              </div>
+              <div class="priv-free-badge">FREE</div>
+            </div>
+            <div class="priv-card-body">
+              <div class="priv-stat-row">
+                <div class="priv-stat">
+                  <span class="priv-stat-num">7</span>
+                  <span class="priv-stat-lbl">Rooms</span>
+                </div>
+                <div class="priv-stat">
+                  <span class="priv-stat-num">24</span>
+                  <span class="priv-stat-lbl">Photos</span>
+                </div>
+                <div class="priv-stat">
+                  <span class="priv-stat-num">18 min</span>
+                  <span class="priv-stat-lbl">Duration</span>
+                </div>
+              </div>
+              <div class="priv-signed-row">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Signed by both parties · March 25, 2025
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 — Protection badge flottante -->
+          <div class="priv-float-badge">
+            <div class="priv-float-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <div class="priv-float-title">Deposit Protected</div>
+              <div class="priv-float-sub">AED 8,500 secured</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── Right: content ── -->
+      <div class="for-private-right">
+        <div class="section-eyebrow reveal">For Landlords & Tenants</div>
+        <h2 class="section-title reveal reveal-delay-1">Your deposit.<br><em>Protected.</em></h2>
+        <p class="section-sub reveal reveal-delay-2">One inspection report is all it takes to avoid a dispute. Snagify makes it simple enough to do yourself — in under 20 minutes, from your phone.</p>
+
+        <div class="private-features reveal reveal-delay-2">
+          <div class="priv-feat">
+            <div class="priv-feat-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h4>Check-in is always free</h4>
+              <p>Document the property condition at move-in at no cost. Ever.</p>
+            </div>
+          </div>
+          <div class="priv-feat">
+            <div class="priv-feat-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h4>No subscription needed</h4>
+              <p>Buy credits when you need them. Pay only for check-outs.</p>
+            </div>
+          </div>
+          <div class="priv-feat">
+            <div class="priv-feat-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h4>RDC-accepted reports</h4>
+              <p>If a dispute reaches the Rental Dispute Center, your Snagify report stands as evidence.</p>
+            </div>
+          </div>
+          <div class="priv-feat">
+            <div class="priv-feat-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h4>Done from your phone</h4>
+              <p>No training needed. Walk through each room, snap photos, sign — done.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="private-cta reveal reveal-delay-3">
+          <a href="#pricing" class="btn-ink">
+            See Credit Packs
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <span class="private-cta-note">First check-in free — no credit card</span>
+        </div>
+
+      </div>
     </div>
   </div>
 </section>
