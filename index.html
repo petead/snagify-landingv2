@@ -1536,186 +1536,264 @@ footer {
   .priv-float-badge { position: relative; bottom: auto; right: auto; margin-top: 16px; }
 }
 
-/* ══ SAMPLE REPORT ══ */
-.sample-section {
-  padding: 120px 0;
-  background: var(--cream);
-}
-.sample-grid {
+/* ══ FEATURES SECTION ══ */
+.features-section { padding: 120px 0; background: var(--cream-2); }
+
+.feat-bento {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-.sample-checklist {
-  display: flex; flex-direction: column;
-  gap: 10px; margin: 28px 0;
-}
-.sample-check-item {
-  display: flex; align-items: center; gap: 10px;
-  font-size: 14px; font-weight: 500; color: var(--ink);
-}
-.sample-check-item svg {
-  width: 16px; height: 16px;
-  color: #4A8A00; flex-shrink: 0;
-}
-.sample-cta {
-  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
-}
-.sample-cta-note {
-  font-size: 13px; color: var(--ink-60);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 
-/* PDF Mockup */
-.pdf-mockup {
+.feat-card {
   background: var(--white);
   border: 1px solid var(--ink-25);
-  border-radius: 20px;
+  border-radius: 24px;
+  padding: 32px;
+  position: relative;
   overflow: hidden;
-  box-shadow: 0 32px 80px rgba(14,14,16,.12);
-  position: relative;
-  transition: transform .4s ease, box-shadow .4s ease;
+  transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s;
 }
-.pdf-mockup:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 48px 100px rgba(14,14,16,.16);
+.feat-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(14,14,16,.1); }
+
+.feat-large {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
 }
-.pdf-topbar {
-  display: flex; align-items: center; gap: 12px;
-  padding: 10px 16px;
-  background: var(--cream-2);
-  border-bottom: 1px solid var(--ink-25);
+.feat-dark {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--white);
 }
-.pdf-topbar-dots {
-  display: flex; gap: 5px;
+.feat-dark p { color: rgba(255,255,255,.6); }
+.feat-purple {
+  background: var(--purple);
+  border-color: var(--purple);
 }
-.pdf-topbar-dots span {
-  width: 10px; height: 10px; border-radius: 50%;
-  background: var(--ink-25);
+.feat-purple h3, .feat-purple p { color: var(--ink); }
+.feat-purple p { opacity: .7; }
+.feat-jasmine {
+  background: var(--jasmine);
+  border-color: var(--jasmine);
 }
-.pdf-topbar-dots span:first-child { background: #FF5F56; }
-.pdf-topbar-dots span:nth-child(2) { background: #FFBD2E; }
-.pdf-topbar-dots span:last-child { background: #27C93F; }
-.pdf-topbar-title {
-  flex: 1; font-size: 11px; color: var(--ink-60);
-  text-align: center; font-weight: 500;
-}
-.pdf-topbar-action {
-  color: var(--ink-60); cursor: pointer;
-}
-.pdf-body { padding: 20px; }
-.pdf-header {
-  display: flex; align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-  padding-bottom: 16px;
-  border-bottom: 2px solid var(--purple);
-}
-.pdf-logo-area { display: flex; align-items: center; gap: 10px; }
-.pdf-logo-box {
-  width: 32px; height: 32px; border-radius: 8px;
-  background: var(--purple-bg);
-}
-.pdf-report-type {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800; font-size: 11px;
-  letter-spacing: 2px; color: var(--purple);
-}
-.pdf-line {
-  height: 6px; background: var(--ink-25); border-radius: 4px;
-}
-.w100 { width: 100%; }
-.w90  { width: 90%; }
-.w75  { width: 75%; }
-.w60  { width: 60%; }
-.w40  { width: 40%; }
-.pdf-prop-block {
-  display: flex; flex-direction: column; gap: 6px;
-  padding: 12px;
-  background: var(--cream);
-  border-radius: 10px;
-  margin-bottom: 14px;
-}
-.pdf-prop-row {
-  display: flex; gap: 8px; font-size: 11px;
-}
-.pdf-prop-label {
-  color: var(--ink-60); font-weight: 600;
-  text-transform: uppercase; letter-spacing: 1px;
-  width: 56px; flex-shrink: 0;
-}
-.pdf-prop-val { color: var(--ink); font-weight: 500; }
-.pdf-ai-block {
-  padding: 12px;
-  background: var(--purple-bg);
-  border-radius: 10px;
-  margin-bottom: 14px;
-}
-.pdf-ai-label {
-  font-size: 9px; text-transform: uppercase;
-  letter-spacing: 2px; color: var(--purple);
-  font-weight: 700; margin-bottom: 8px;
-}
-.pdf-rooms {
-  display: grid; grid-template-columns: repeat(3,1fr);
-  gap: 8px; margin-bottom: 16px;
-}
-.pdf-room-item {
-  border: 1px solid var(--ink-25); border-radius: 8px; overflow: hidden;
-}
-.pdf-room-thumb { height: 44px; }
-.pdf-room-info { padding: 6px 8px; }
-.pdf-room-name { font-size: 10px; font-weight: 600; margin-bottom: 4px; }
-.pdf-room-badge {
+.feat-jasmine h3, .feat-jasmine p { color: var(--ink); }
+.feat-jasmine p { opacity: .7; }
+
+.feat-tag {
+  display: inline-flex;
   font-size: 9px; font-weight: 700;
-  padding: 2px 6px; border-radius: 999px;
-  display: inline-block;
+  text-transform: uppercase; letter-spacing: 2px;
+  padding: 4px 10px; border-radius: 999px;
+  background: var(--cream-2); color: var(--ink-60);
+  margin-bottom: 14px;
 }
-.pdf-sig-row {
-  display: flex; gap: 16px;
-  padding-top: 14px;
-  border-top: 1px solid var(--ink-25);
+.feat-tag-light { background: rgba(255,255,255,.15); color: rgba(255,255,255,.6); }
+.feat-tag-purple { background: rgba(14,14,16,.12); color: var(--ink); }
+
+.feat-card h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700; font-size: 19px; letter-spacing: -.4px;
+  margin-bottom: 10px;
 }
-.pdf-sig { flex: 1; }
-.pdf-sig-line {
-  height: 1px; background: var(--ink-25);
-  margin-bottom: 6px;
-  position: relative;
-}
-.pdf-sig-line::before {
-  content: '';
-  position: absolute;
-  left: 0; top: -8px;
-  width: 60%;
-  height: 8px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16'%3E%3Cpath d='M2 12 C20 4, 36 14, 54 8 C68 3, 78 13, 96 7 C110 3, 116 10, 120 6' stroke='%239A88FD' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat left center;
-  background-size: contain;
-}
-.pdf-sig-label {
-  font-size: 9px; text-transform: uppercase;
-  letter-spacing: 1.5px; color: var(--ink-60); font-weight: 600;
+.feat-card p { font-size: 13px; color: var(--ink-60); line-height: 1.7; }
+
+.feat-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.feat-pill {
+  font-size: 11px; font-weight: 600;
+  padding: 4px 10px; border-radius: 999px;
+  background: var(--purple-bg); color: var(--purple);
 }
 
-/* Hover overlay */
-.pdf-hover-overlay {
-  position: absolute; inset: 0;
-  background: rgba(14,14,16,.6);
-  backdrop-filter: blur(4px);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 10px;
-  color: var(--white);
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700; font-size: 15px;
-  text-decoration: none;
-  opacity: 0;
-  transition: opacity .3s ease;
+/* AI Visual */
+.feat-visual-ai { position: relative; }
+.fv-ai-photo {
+  height: 180px;
+  background: linear-gradient(135deg, #c9c4f5, #e4dffe 40%, #e8f5e0);
+  border-radius: 16px; position: relative; overflow: hidden;
 }
-.pdf-mockup:hover .pdf-hover-overlay { opacity: 1; }
+.fv-ai-scan {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 30%, rgba(154,136,253,.08) 50%, transparent 70%);
+  animation: aiScan 2.5s ease-in-out infinite;
+}
+@keyframes aiScan {
+  0%,100% { transform: translateY(-40%); }
+  50% { transform: translateY(40%); }
+}
+@keyframes pinPop {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+.fv-ai-pin {
+  position: absolute;
+  display: flex; align-items: center; gap: 6px;
+  opacity: 0; animation: pinPop .4s cubic-bezier(.34,1.56,.64,1) forwards;
+}
+.fv-pin-1 { left: 25%; top: 40%; animation-delay: .8s; }
+.fv-pin-2 { left: 55%; top: 62%; animation-delay: 1.2s; }
+.fv-pin-dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: rgba(255,82,82,.9); border: 2px solid white;
+  box-shadow: 0 2px 8px rgba(255,82,82,.4); flex-shrink: 0;
+}
+.fv-pin-lbl {
+  background: rgba(14,14,16,.75); backdrop-filter: blur(8px);
+  color: white; font-size: 9px; font-weight: 600;
+  padding: 3px 7px; border-radius: 5px; white-space: nowrap;
+}
+.fv-ai-badge {
+  position: absolute; top: 10px; left: 10px;
+  display: flex; align-items: center; gap: 5px;
+  background: rgba(14,14,16,.7); backdrop-filter: blur(8px);
+  border-radius: 7px; padding: 5px 9px;
+  font-size: 10px; font-weight: 600; color: white;
+}
+
+/* Signature visual */
+.feat-visual-sig { margin-top: 20px; }
+.fv-sig-line {
+  padding: 12px 16px;
+  background: var(--cream);
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+.fv-sig-path {
+  stroke-dasharray: 280;
+  stroke-dashoffset: 280;
+  animation: sigDraw 2s ease forwards 1s infinite alternate;
+}
+@keyframes sigDraw { to { stroke-dashoffset: 0; } }
+.fv-sig-meta {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 600; color: #4A8A00;
+}
+
+/* PDF visual */
+.feat-visual-pdf { margin-top: 20px; }
+.fv-pdf-bar {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 12px;
+  background: var(--cream-2); border-radius: 8px 8px 0 0;
+  border: 1px solid var(--ink-25); border-bottom: none;
+}
+.fv-pdf-dots { display: flex; gap: 4px; }
+.fv-pdf-dots span { width: 8px; height: 8px; border-radius: 50%; }
+.fv-pdf-name { font-size: 10px; color: var(--ink-60); font-weight: 500; }
+.fv-pdf-preview {
+  padding: 12px;
+  background: var(--white);
+  border: 1px solid var(--ink-25); border-radius: 0 0 8px 8px;
+}
+.fv-pdf-line { height: 5px; background: var(--ink-25); border-radius: 3px; }
+.fv-pdf-rooms { display: flex; gap: 6px; margin-top: 10px; }
+.fv-pdf-room { flex: 1; height: 28px; border-radius: 6px; }
+
+/* Room by room visual */
+.feat-visual-rooms { margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
+.fv-room-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 12px; border-radius: 10px;
+  font-size: 13px; font-weight: 500;
+}
+.fv-room-done { background: rgba(255,255,255,.06); color: rgba(255,255,255,.7); }
+.fv-room-done svg { color: var(--green); flex-shrink: 0; }
+.fv-room-active { background: rgba(154,136,253,.12); color: var(--white); }
+.fv-room-pending { background: rgba(255,255,255,.03); color: rgba(255,255,255,.3); }
+.fv-room-active-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--purple); flex-shrink: 0;
+  animation: eyePulse 1s infinite;
+}
+.fv-room-pending-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,.15); flex-shrink: 0;
+}
+.fv-room-badge {
+  margin-left: auto; font-size: 10px; font-weight: 700;
+  padding: 2px 8px; border-radius: 999px;
+}
+
+/* History visual */
+.feat-visual-history { margin-top: 20px; }
+.fv-hist-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px;
+  background: var(--cream); border-radius: 10px;
+  font-size: 13px;
+}
+.fv-hist-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.fv-hist-info { display: flex; flex-direction: column; flex: 1; }
+.fv-hist-type { font-weight: 600; font-size: 12px; }
+.fv-hist-date { font-size: 11px; color: var(--ink-60); }
+.fv-hist-badge {
+  font-size: 10px; font-weight: 700;
+  padding: 3px 8px; border-radius: 999px;
+}
+.fv-hist-badge.ok { background: var(--green-bg); color: #4A8A00; }
+.fv-hist-line {
+  width: 2px; height: 16px;
+  background: var(--ink-25); margin: 4px 0 4px 15px;
+}
+.fv-hist-compare {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 600; color: var(--purple);
+  margin-top: 10px; padding-left: 4px;
+}
+
+/* Keys visual */
+.feat-visual-keys { margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
+.fv-key-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 12px;
+  background: var(--cream); border-radius: 10px;
+  font-size: 13px; font-weight: 500;
+}
+.fv-key-icon {
+  width: 28px; height: 28px; border-radius: 8px;
+  background: var(--purple-bg); color: var(--purple);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+/* AI Summary visual */
+.feat-visual-summary { margin-top: 20px; }
+.fv-sum-label {
+  font-size: 9px; text-transform: uppercase; letter-spacing: 2px;
+  color: rgba(14,14,16,.4); font-weight: 700; margin-bottom: 10px;
+}
+.fv-sum-line {
+  height: 6px;
+  background: rgba(14,14,16,.12);
+  border-radius: 3px;
+}
+
+/* White label visual */
+.feat-visual-wl { margin-top: 20px; }
+.fv-wl-card {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 16px;
+  background: rgba(14,14,16,.06);
+  border-radius: 12px;
+}
+.fv-wl-logo {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: var(--ink); opacity: .15; flex-shrink: 0;
+}
+.fv-wl-lines { flex: 1; }
+.fv-wl-line { height: 5px; background: var(--ink); border-radius: 3px; }
 
 @media(max-width: 1100px) {
-  .sample-grid { grid-template-columns: 1fr; gap: 60px; }
+  .feat-bento { grid-template-columns: 1fr 1fr; }
+  .feat-large { grid-column: span 2; }
 }
+@media(max-width: 768px) {
+  .feat-bento { grid-template-columns: 1fr; }
+  .feat-large { grid-column: span 1; grid-template-columns: 1fr; }
+}
+
 </style>
 </head>
 <body>
@@ -2206,153 +2284,213 @@ footer {
   </div>
 </section>
 
-<!-- ╔══ SAMPLE REPORT ══╗ -->
-<section class="sample-section" id="sample-report">
+<!-- ╔══ FEATURES ══╗ -->
+<section class="features-section" id="features">
   <div class="section-wrap">
 
-    <div class="sample-grid">
+    <div class="section-header reveal" style="text-align:center;max-width:640px;margin-left:auto;margin-right:auto;margin-bottom:72px">
+      <div class="section-eyebrow" style="justify-content:center">Features</div>
+      <h2 class="section-title">Everything you need.<br><em>Nothing you don't.</em></h2>
+      <p class="section-sub" style="margin:0 auto">Built specifically for Dubai's rental market — every feature designed around one goal: a report that protects everyone.</p>
+    </div>
 
-      <!-- ── Left: content ── -->
-      <div class="sample-left">
-        <div class="section-eyebrow reveal">Sample Report</div>
-        <h2 class="section-title reveal reveal-delay-1">The report that ends<br><em>arguments.</em></h2>
-        <p class="section-sub reveal reveal-delay-2">See the exact document your tenant signs at move-in — and that you submit to the RDC at move-out. Timestamped, photo-documented, legally sound. Download a real example, no sign-up needed.</p>
+    <div class="feat-bento">
 
-        <div class="sample-checklist reveal reveal-delay-2">
-          <div class="sample-check-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Property details & inspection date
-          </div>
-          <div class="sample-check-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Room-by-room condition with photos
-          </div>
-          <div class="sample-check-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            AI-generated executive summary
-          </div>
-          <div class="sample-check-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Damage tags with descriptions
-          </div>
-          <div class="sample-check-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Key handover record
-          </div>
-          <div class="sample-check-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Digital signatures — landlord & tenant
+      <!-- ── GRANDE CARTE AI ── -->
+      <div class="feat-card feat-large reveal">
+        <div class="feat-card-content">
+          <div class="feat-tag">Core</div>
+          <h3>AI Photo Analysis</h3>
+          <p>Point your camera at any surface. Claude AI identifies scratches, stains, cracks, mold, and wear — tags them automatically with a description and severity level. No manual input, no missed details.</p>
+          <div class="feat-pills">
+            <span class="feat-pill">Scratches</span>
+            <span class="feat-pill">Stains</span>
+            <span class="feat-pill">Cracks</span>
+            <span class="feat-pill">Paint wear</span>
+            <span class="feat-pill">Mold</span>
           </div>
         </div>
-
-        <div class="sample-cta reveal reveal-delay-3">
-          <a href="/sample-report.pdf" target="_blank" class="btn-ink">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
-            Download Sample Report
-          </a>
-          <span class="sample-cta-note">PDF · Free · No sign-up required</span>
+        <div class="feat-card-visual feat-visual-ai">
+          <div class="fv-ai-photo">
+            <div class="fv-ai-scan"></div>
+            <div class="fv-ai-pin fv-pin-1">
+              <div class="fv-pin-dot"></div>
+              <div class="fv-pin-lbl">Wall scratch · Minor</div>
+            </div>
+            <div class="fv-ai-pin fv-pin-2">
+              <div class="fv-pin-dot"></div>
+              <div class="fv-pin-lbl">Paint wear · Moderate</div>
+            </div>
+            <div class="fv-ai-badge">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+              AI Analysis Active
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- ── Right: PDF mockup ── -->
-      <div class="sample-right reveal reveal-delay-2">
-        <div class="pdf-mockup">
+      <!-- ── SIGNATURE DIGITALE ── -->
+      <div class="feat-card reveal reveal-delay-1">
+        <div class="feat-tag">Legal</div>
+        <h3>Digital Signatures</h3>
+        <p>Landlord and tenant both sign on-device at the end of the inspection. Timestamped, bound to the report, RDC-accepted.</p>
+        <div class="feat-visual-sig">
+          <div class="fv-sig-line">
+            <svg viewBox="0 0 180 36" fill="none">
+              <path d="M4 28 C24 6, 44 32, 64 18 C80 7, 92 30, 112 20 C128 12, 140 26, 176 10" stroke="var(--purple)" stroke-width="2" stroke-linecap="round" class="fv-sig-path"/>
+            </svg>
+          </div>
+          <div class="fv-sig-meta">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Signed · March 25, 2025 · 11:04 AM
+          </div>
+        </div>
+      </div>
 
-          <!-- PDF top bar -->
-          <div class="pdf-topbar">
-            <div class="pdf-topbar-dots">
-              <span></span><span></span><span></span>
+      <!-- ── PDF ONE-CLICK ── -->
+      <div class="feat-card reveal reveal-delay-2">
+        <div class="feat-tag">Output</div>
+        <h3>One-Click PDF Report</h3>
+        <p>Branded, professional, legally sound. Generated instantly at the end of every inspection — ready to email, download, or submit.</p>
+        <div class="feat-visual-pdf">
+          <div class="fv-pdf-bar">
+            <div class="fv-pdf-dots">
+              <span style="background:#FF5F56"></span>
+              <span style="background:#FFBD2E"></span>
+              <span style="background:#27C93F"></span>
             </div>
-            <div class="pdf-topbar-title">Inspection_Report_Marina_1204.pdf</div>
-            <div class="pdf-topbar-action">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span class="fv-pdf-name">Inspection_Report.pdf</span>
+          </div>
+          <div class="fv-pdf-preview">
+            <div class="fv-pdf-header-line" style="background:var(--purple);height:3px;margin-bottom:8px"></div>
+            <div class="fv-pdf-line" style="width:55%"></div>
+            <div class="fv-pdf-line" style="width:80%;margin-top:5px"></div>
+            <div class="fv-pdf-line" style="width:65%;margin-top:5px"></div>
+            <div class="fv-pdf-rooms">
+              <div class="fv-pdf-room" style="background:var(--green-bg)"></div>
+              <div class="fv-pdf-room" style="background:var(--jasmine-bg)"></div>
+              <div class="fv-pdf-room" style="background:var(--purple-bg)"></div>
             </div>
           </div>
+        </div>
+      </div>
 
-          <!-- PDF content preview -->
-          <div class="pdf-body">
-
-            <!-- Header -->
-            <div class="pdf-header">
-              <div class="pdf-logo-area">
-                <div class="pdf-logo-box"></div>
-                <div>
-                  <div class="pdf-line w60"></div>
-                  <div class="pdf-line w40" style="margin-top:4px"></div>
-                </div>
-              </div>
-              <div class="pdf-report-type">INSPECTION REPORT</div>
-            </div>
-
-            <!-- Property info -->
-            <div class="pdf-prop-block">
-              <div class="pdf-prop-row">
-                <span class="pdf-prop-label">Property</span>
-                <span class="pdf-prop-val">Marina Heights, Unit 1204 — JBR, Dubai</span>
-              </div>
-              <div class="pdf-prop-row">
-                <span class="pdf-prop-label">Type</span>
-                <span class="pdf-prop-val">Move-In Inspection</span>
-              </div>
-              <div class="pdf-prop-row">
-                <span class="pdf-prop-label">Date</span>
-                <span class="pdf-prop-val">March 25, 2025 · 10:42 AM</span>
-              </div>
-            </div>
-
-            <!-- AI Summary block -->
-            <div class="pdf-ai-block">
-              <div class="pdf-ai-label">AI Executive Summary</div>
-              <div class="pdf-line w100"></div>
-              <div class="pdf-line w90" style="margin-top:5px"></div>
-              <div class="pdf-line w75" style="margin-top:5px"></div>
-            </div>
-
-            <!-- Room grid -->
-            <div class="pdf-rooms">
-              <div class="pdf-room-item">
-                <div class="pdf-room-thumb" style="background:linear-gradient(135deg,var(--purple-bg),var(--cream))"></div>
-                <div class="pdf-room-info">
-                  <div class="pdf-room-name">Living Room</div>
-                  <div class="pdf-room-badge" style="background:var(--green-bg);color:#4A8A00">Good</div>
-                </div>
-              </div>
-              <div class="pdf-room-item">
-                <div class="pdf-room-thumb" style="background:linear-gradient(135deg,var(--jasmine-bg),var(--cream))"></div>
-                <div class="pdf-room-info">
-                  <div class="pdf-room-name">Kitchen</div>
-                  <div class="pdf-room-badge" style="background:var(--jasmine-bg);color:#8A6000">Fair</div>
-                </div>
-              </div>
-              <div class="pdf-room-item">
-                <div class="pdf-room-thumb" style="background:linear-gradient(135deg,var(--green-bg),var(--cream))"></div>
-                <div class="pdf-room-info">
-                  <div class="pdf-room-name">Bedroom</div>
-                  <div class="pdf-room-badge" style="background:var(--green-bg);color:#4A8A00">Good</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Signature row -->
-            <div class="pdf-sig-row">
-              <div class="pdf-sig">
-                <div class="pdf-sig-line"></div>
-                <div class="pdf-sig-label">Landlord</div>
-              </div>
-              <div class="pdf-sig">
-                <div class="pdf-sig-line"></div>
-                <div class="pdf-sig-label">Tenant</div>
-              </div>
-            </div>
-
+      <!-- ── ROOM BY ROOM ── -->
+      <div class="feat-card feat-dark reveal">
+        <div class="feat-tag feat-tag-light">Process</div>
+        <h3>Room-by-Room Flow</h3>
+        <p>Structured walkthrough for every room. Nothing missed, nothing skipped. Each room gets its own condition score, photos, and notes.</p>
+        <div class="feat-visual-rooms">
+          <div class="fv-room-item fv-room-done">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Living Room
+            <span class="fv-room-badge" style="background:rgba(202,254,135,.15);color:var(--green)">Good</span>
           </div>
+          <div class="fv-room-item fv-room-done">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Kitchen
+            <span class="fv-room-badge" style="background:rgba(254,222,128,.15);color:var(--jasmine)">Fair</span>
+          </div>
+          <div class="fv-room-item fv-room-active">
+            <div class="fv-room-active-dot"></div>
+            Bedroom 1
+            <span class="fv-room-badge" style="background:rgba(154,136,253,.15);color:var(--purple)">In progress</span>
+          </div>
+          <div class="fv-room-item fv-room-pending">
+            <div class="fv-room-pending-dot"></div>
+            Bathroom
+          </div>
+        </div>
+      </div>
 
-          <!-- Download overlay on hover -->
-          <a href="/sample-report.pdf" target="_blank" class="pdf-hover-overlay">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Open Sample Report
-          </a>
+      <!-- ── HISTORIQUE ── -->
+      <div class="feat-card reveal reveal-delay-1">
+        <div class="feat-tag">History</div>
+        <h3>Full Inspection History</h3>
+        <p>Every check-in and check-out stored and accessible forever. Compare move-in vs move-out side by side. Dispute-proof paper trail built automatically.</p>
+        <div class="feat-visual-history">
+          <div class="fv-hist-item">
+            <div class="fv-hist-dot" style="background:var(--green)"></div>
+            <div class="fv-hist-info">
+              <span class="fv-hist-type">Check-In</span>
+              <span class="fv-hist-date">Jan 15, 2024</span>
+            </div>
+            <span class="fv-hist-badge ok">Signed</span>
+          </div>
+          <div class="fv-hist-line"></div>
+          <div class="fv-hist-item">
+            <div class="fv-hist-dot" style="background:var(--purple)"></div>
+            <div class="fv-hist-info">
+              <span class="fv-hist-type">Check-Out</span>
+              <span class="fv-hist-date">Jan 12, 2025</span>
+            </div>
+            <span class="fv-hist-badge ok">Signed</span>
+          </div>
+          <div class="fv-hist-compare">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+            Compare reports →
+          </div>
+        </div>
+      </div>
 
+      <!-- ── KEY HANDOVER ── -->
+      <div class="feat-card reveal reveal-delay-2">
+        <div class="feat-tag">Handover</div>
+        <h3>Key &amp; Access Tracking</h3>
+        <p>Keys, access cards, parking cards, remote controls — every item logged and signed for at handover. No more "I never received that key."</p>
+        <div class="feat-visual-keys">
+          <div class="fv-key-item">
+            <div class="fv-key-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+            </div>
+            <span>Main key × 2</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="color:#4A8A00;margin-left:auto"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="fv-key-item">
+            <div class="fv-key-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+            </div>
+            <span>Access card × 1</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="color:#4A8A00;margin-left:auto"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="fv-key-item">
+            <div class="fv-key-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+            </div>
+            <span>Parking remote × 1</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="color:#4A8A00;margin-left:auto"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── AI EXECUTIVE SUMMARY ── -->
+      <div class="feat-card feat-purple reveal">
+        <div class="feat-tag feat-tag-purple">AI</div>
+        <h3>AI Executive Summary</h3>
+        <p>After the inspection, Claude AI writes a complete property condition overview — professional, objective, and ready to include in the report. No writing required.</p>
+        <div class="feat-visual-summary">
+          <div class="fv-sum-label">Generated summary</div>
+          <div class="fv-sum-line" style="width:100%"></div>
+          <div class="fv-sum-line" style="width:88%;margin-top:6px"></div>
+          <div class="fv-sum-line" style="width:72%;margin-top:6px"></div>
+          <div class="fv-sum-line" style="width:90%;margin-top:6px"></div>
+          <div class="fv-sum-line" style="width:60%;margin-top:6px"></div>
+        </div>
+      </div>
+
+      <!-- ── WHITE LABEL ── -->
+      <div class="feat-card feat-jasmine reveal reveal-delay-1">
+        <div class="feat-tag">Branding</div>
+        <h3>White-Label Reports</h3>
+        <p>Your logo, colors, and contact details on every report. Clients see your agency — not Snagify.</p>
+        <div class="feat-visual-wl">
+          <div class="fv-wl-card">
+            <div class="fv-wl-logo"></div>
+            <div class="fv-wl-lines">
+              <div class="fv-wl-line" style="width:60%;background:var(--ink);opacity:.2"></div>
+              <div class="fv-wl-line" style="width:40%;margin-top:4px"></div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -2697,7 +2835,7 @@ footer {
       <ul>
         <li><a href="#for-pros">For Professionals</a></li>
         <li><a href="#for-private">For Landlords &amp; Tenants</a></li>
-        <li><a href="#sample-report">Sample Report</a></li>
+        <li><a href="#features">Features</a></li>
         <li><a href="#pricing">Pricing</a></li>
       </ul>
     </div>
