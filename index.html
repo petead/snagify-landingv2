@@ -679,22 +679,77 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
 .ai-feat h4 { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15px; margin-bottom: 2px; }
 .ai-feat p { font-size: 13px; color: var(--ink-60); line-height: 1.5; }
 
-/* ══════════════════════════════════
-   TESTIMONIALS
-══════════════════════════════════ */
-.testi { padding: 120px 0; background: var(--ink); }
+/* ══ TESTIMONIALS ══ */
+.testi {
+  padding: 120px 0;
+  background: var(--ink);
+}
 .testi .section-title { color: var(--white); }
 .testi .section-eyebrow { color: rgba(255,255,255,.5); }
 .testi .section-eyebrow::before { background: rgba(255,255,255,.4); }
-.testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 64px; }
-.testi-card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); border-radius: 24px; padding: 32px; transition: background .3s, transform .3s; }
-.testi-card:hover { background: rgba(255,255,255,.08); transform: translateY(-4px); }
-.testi-stars { color: var(--jasmine); font-size: 15px; margin-bottom: 16px; letter-spacing: 2px; }
-.testi-text { font-size: 15px; color: rgba(255,255,255,.75); line-height: 1.7; margin-bottom: 24px; font-style: italic; }
+
+.testi-group-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; text-transform: uppercase; letter-spacing: 2.5px;
+  font-weight: 600; color: rgba(255,255,255,.35);
+  margin-bottom: 20px;
+}
+.testi-group-label svg { opacity: .5; }
+
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+.testi-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.testi-card {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 24px; padding: 32px;
+  transition: background .3s, transform .3s, border-color .3s;
+}
+.testi-card:hover {
+  background: rgba(255,255,255,.08);
+  transform: translateY(-4px);
+  border-color: rgba(154,136,253,.2);
+}
+.testi-stars {
+  color: var(--jasmine); font-size: 13px;
+  margin-bottom: 16px; letter-spacing: 3px;
+}
+.testi-text {
+  font-size: 14px; color: rgba(255,255,255,.7);
+  line-height: 1.75; margin-bottom: 24px; font-style: italic;
+}
 .testi-author { display: flex; align-items: center; gap: 12px; }
-.testi-avatar { width: 42px; height: 42px; border-radius: 12px; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.testi-author h4 { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px; color: var(--white); }
-.testi-author p { font-size: 12px; color: rgba(255,255,255,.45); }
+.testi-avatar {
+  width: 42px; height: 42px; border-radius: 12px;
+  font-weight: 700; font-size: 13px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.testi-author h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700; font-size: 14px; color: var(--white);
+}
+.testi-author p { font-size: 12px; color: rgba(255,255,255,.4); }
+
+.testi-divider {
+  height: 1px;
+  background: rgba(255,255,255,.07);
+  margin: 48px 0 40px;
+}
+
+@media(max-width: 1100px) {
+  .testi-grid { grid-template-columns: 1fr 1fr; }
+  .testi-grid-2 { grid-template-columns: 1fr; }
+}
+@media(max-width: 768px) {
+  .testi-grid { grid-template-columns: 1fr; }
+}
 
 /* ══════════════════════════════════
    PRICING
@@ -2297,36 +2352,86 @@ footer { background: var(--ink); padding: 80px 48px 40px; color: rgba(255,255,25
 <!-- ╔══ TESTIMONIALS ══╗ -->
 <section class="testi">
   <div class="section-wrap">
-    <div class="section-header reveal">
-      <div class="section-eyebrow">Testimonials</div>
-      <h2 class="section-title">Loved by Dubai's<br>property professionals.</h2>
+
+    <div class="section-header reveal" style="text-align:center">
+      <div class="section-eyebrow" style="justify-content:center">Testimonials</div>
+      <h2 class="section-title" style="color:var(--white)">Trusted by professionals.<br><em style="color:var(--purple)">Loved by landlords.</em></h2>
     </div>
-    <div class="testi-grid">
-      <div class="testi-card reveal">
+
+    <!-- ── Pro testimonials ── -->
+    <div class="testi-group-label reveal">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      Property Professionals
+    </div>
+    <div class="testi-grid reveal reveal-delay-1">
+      <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Snagify cut our inspection time from 2 hours to 20 minutes. The AI photo analysis is incredibly accurate — catches things we used to miss."</p>
+        <p class="testi-text">"We run 60+ inspections a month across Dubai Marina and JVC. Snagify cut our average inspection time from 90 minutes to under 20. The white-label reports look better than anything we used to produce manually."</p>
         <div class="testi-author">
-          <div class="testi-avatar" style="background:var(--purple-bg);color:var(--purple)">S</div>
-          <div><h4>Sarah M.</h4><p>Property Manager, Dubai Marina</p></div>
+          <div class="testi-avatar" style="background:var(--purple-bg);color:var(--purple)">KA</div>
+          <div>
+            <h4>Khalid A.</h4>
+            <p>Head of Leasing · Prestige Properties, Dubai Marina</p>
+          </div>
         </div>
       </div>
-      <div class="testi-card reveal reveal-delay-1">
+      <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"The PDF reports look so professional. My clients think I hired a full team. It's just me and Snagify now."</p>
+        <p class="testi-text">"We had a deposit dispute go to the RDC last year — before Snagify. We lost. Since then we've done 40+ inspections with Snagify reports and haven't had a single dispute escalate. The documentation is bulletproof."</p>
         <div class="testi-author">
-          <div class="testi-avatar" style="background:var(--jasmine-bg);color:#8A6000">A</div>
-          <div><h4>Ahmed K.</h4><p>Independent Landlord, JVC</p></div>
+          <div class="testi-avatar" style="background:var(--jasmine-bg);color:#8A6000">SM</div>
+          <div>
+            <h4>Sara M.</h4>
+            <p>Property Manager · Pinnacle Real Estate, Downtown</p>
+          </div>
         </div>
       </div>
-      <div class="testi-card reveal reveal-delay-2">
+      <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Finally a tool built for the UAE market. RERA compliance out of the box, digital signatures — everything we needed."</p>
+        <p class="testi-text">"My team of 4 inspectors all use Snagify now. Every report looks identical, branded, professional. Clients think we have a whole operations team behind us. It's just us and Snagify."</p>
         <div class="testi-author">
-          <div class="testi-avatar" style="background:var(--green-bg);color:#4A8A00">L</div>
-          <div><h4>Lina R.</h4><p>Real Estate Agent, Downtown</p></div>
+          <div class="testi-avatar" style="background:var(--green-bg);color:#4A8A00">RH</div>
+          <div>
+            <h4>Rami H.</h4>
+            <p>Director · Elite Rentals, JVC &amp; JLT</p>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- ── Divider ── -->
+    <div class="testi-divider reveal"></div>
+
+    <!-- ── Private testimonials ── -->
+    <div class="testi-group-label reveal">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Landlords & Tenants
+    </div>
+    <div class="testi-grid testi-grid-2 reveal reveal-delay-1">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"I own two apartments in Dubai. After a bad experience losing part of my deposit on a previous rental, a friend told me about Snagify. I did the check-in myself, took 15 minutes. When I moved out, the report was right there — no dispute, full deposit back."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:var(--purple-bg);color:var(--purple)">NL</div>
+          <div>
+            <h4>Nadia L.</h4>
+            <p>Tenant · Downtown Dubai</p>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"As a landlord I always worried about proving damage at move-out. With Snagify the move-in report is free, takes 20 minutes, and when the tenant left there was zero argument — everything was documented with photos and timestamps."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:var(--jasmine-bg);color:#8A6000">FA</div>
+          <div>
+            <h4>Faisal A.</h4>
+            <p>Landlord · JVC, Dubai</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
