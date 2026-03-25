@@ -41,15 +41,16 @@ body {
 /* ══ CURSOR ══ */
 #cur {
   width: 10px; height: 10px;
-  background: var(--ink);
+  background: var(--white);
   border-radius: 50%;
   position: fixed; pointer-events: none; z-index: 9999;
   left: 0; top: 0;
   transform: translate(-50%, -50%);
-  transition: background .2s, transform .2s;
+  transition: transform .2s;
   will-change: left, top;
+  mix-blend-mode: difference;
 }
-#cur.big { background: var(--purple); transform: translate(-50%, -50%) scale(1.4); }
+#cur.big { transform: translate(-50%, -50%) scale(1.4); }
 
 /* ── SCROLL PROGRESS ── */
 #prog { position:fixed;top:0;left:0;height:3px;background:var(--purple);z-index:9999;width:0; }
