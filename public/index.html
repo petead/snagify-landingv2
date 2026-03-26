@@ -609,13 +609,23 @@ nav:not(.scrolled) {
   display: flex; align-items: center; gap: 6px;
 }
 .bc-pro-badge {
-  font-size: 9px; font-weight: 800; letter-spacing: 1px;
-  padding: 2px 7px; border-radius: 999px;
-  background: var(--ink); color: var(--white);
+  font-size: 9px; font-weight: 800; letter-spacing: 1.5px;
+  padding: 3px 9px; border-radius: 999px;
+  background: linear-gradient(135deg, #FEDE80 0%, #FFC940 60%, #FEDE80 100%);
+  background-size: 200% 100%;
+  color: #6B4400;
+  border: 1px solid rgba(255,201,64,.35);
+  box-shadow: 0 2px 8px rgba(254,222,128,.3);
+  animation: proBadgeShimmer 3s ease-in-out infinite;
 }
-.b-wl   .bc-pro-badge { background: rgba(14,14,16,.2); }
+@keyframes proBadgeShimmer {
+  0%,100% { background-position: 0% 0%; }
+  50%      { background-position: 100% 0%; }
+}
+/* Toutes les variantes héritent de la règle gold — plus de surcharges */
+.b-wl   .bc-pro-badge,
 .b-team .bc-pro-badge,
-.b-lease .bc-pro-badge { background: var(--purple); color: var(--ink); }
+.b-lease .bc-pro-badge { background: linear-gradient(135deg, #FEDE80 0%, #FFC940 60%, #FEDE80 100%); background-size: 200% 100%; color: #6B4400; }
 
 .bento-card h3 {
   font-family: 'Poppins', sans-serif;
@@ -1110,6 +1120,7 @@ nav:not(.scrolled) {
 /* Mini phone mockup per step */
 .hiw-phone {
   width: 100%;
+  min-height: 220px;
   background: rgba(255,255,255,.07);
   border: 1px solid rgba(255,255,255,.13);
   border-radius: 20px;
@@ -1117,6 +1128,11 @@ nav:not(.scrolled) {
   margin-bottom: 24px;
   position: relative;
   box-shadow: 0 8px 32px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.08);
+  display: flex;
+  flex-direction: column;
+}
+.hiw-phone .hiw-phone-body {
+  flex: 1;
 }
 .hiw-phone-notch {
   width: 60px; height: 14px;
@@ -1752,6 +1768,9 @@ nav:not(.scrolled) {
   .pricing-grid           { grid-template-columns: 1fr 1fr; }
   .pricing-grid-private   { grid-template-columns: repeat(3, 1fr); }
 }
+@media(max-width: 900px) {
+  .pricing-grid-private   { grid-template-columns: 1fr 1fr; }
+}
 @media(max-width: 768px) {
   .pricing-grid           { grid-template-columns: 1fr; }
   .pricing-grid-private   { grid-template-columns: 1fr; }
@@ -2048,7 +2067,7 @@ footer {
 }
 .footer-top {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
   gap: 60px; margin-bottom: 56px;
 }
 .foot-brand p {
@@ -2950,7 +2969,7 @@ footer {
 
 <!-- ╔══ NAV ══╗ -->
 <nav id="nav">
-  <a href="#" class="nav-logo">
+  <a href="/" class="nav-logo">
     <svg width="64" height="64" viewBox="0 0 700 700" fill="var(--purple)">
       <path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z"/>
       <path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z"/>
@@ -3200,7 +3219,7 @@ footer {
         </div>
 
         <div class="pain-stat-mini">
-          <span class="pain-stat-num">~2h</span>
+          <span class="pain-stat-num">120 min</span>
           <span class="pain-stat-lbl">wasted per manual inspection on average — time that compounds across every property you manage.</span>
         </div>
       </div>
@@ -4790,12 +4809,20 @@ new IntersectionObserver(entries => {
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const href = a.getAttribute('href');
+    // Retire les handlers onclick inline sur ces boutons pour éviter le doublon
+    a.removeAttribute('onclick');
     const t = document.querySelector(href);
     if (t) {
       e.preventDefault();
-      if (href === '#pricing-particulier' && typeof switchPricing === 'function') switchPricing('private');
-      if (href === '#pricing-pro' && typeof switchPricing === 'function') switchPricing('pro');
-      t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Switch pricing AVANT le scroll
+      if (href === '#pricing-particulier' && typeof switchPricing === 'function') {
+        switchPricing('private');
+      }
+      if (href === '#pricing-pro' && typeof switchPricing === 'function') {
+        switchPricing('pro');
+        if (typeof setBilling === 'function') setBilling('annual');
+      }
+      setTimeout(() => t.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
     }
   });
 });
