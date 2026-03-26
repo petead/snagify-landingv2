@@ -147,13 +147,20 @@ nav:not(.scrolled) {
 .mob-link:hover { color: #9A88FD; }
 .mob-cta {
   margin-top: 8px;
-  padding: 14px 36px;
-  background: #0E0E10;
+  padding: 14px 36px !important;
+  background: #0E0E10 !important;
   color: #FCFCFC !important;
-  border-radius: 999px;
-  font-size: 16px;
+  border-radius: 999px !important;
+  font-size: 16px !important;
 }
-.mob-cta:hover { background: #9A88FD; color: #0E0E10 !important; }
+.mob-cta:hover,
+.mob-cta:visited,
+.mob-cta:active {
+  background: #9A88FD !important;
+  color: #0E0E10 !important;
+}
+a.mob-link.mob-cta { color: #FCFCFC !important; }
+a.mob-link.mob-cta:hover { color: #0E0E10 !important; }
 /* ── HAMBURGER BUTTON ── */
 /* Hamburger */
 .nav-burger {
@@ -5122,6 +5129,11 @@ if (hash === '#pricing-pro') switchPricing('pro');
         <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
       </svg>
     </button>
+    <!-- Logo -->
+    <div style="position:absolute;top:22px;left:24px;display:flex;align-items:center;gap:10px;">
+      <svg width="32" height="32" viewBox="0 0 700 700" fill="#9A88FD"><path d="M350 80C197 80 80 197 80 350s117 270 270 270 270-117 270-270S503 80 350 80zm0 60c115 0 210 95 210 210s-95 210-210 210S140 465 140 350s95-210 210-210zm-60 100v90h-90v60h90v90h60v-90h90v-60h-90v-90z"/></svg>
+      <span style="font-family:'Poppins',sans-serif;font-weight:800;font-size:18px;color:#0E0E10;letter-spacing:-0.5px;">Snagify</span>
+    </div>
     <!-- Liens -->
     <a href="#for-pros" class="mob-link">Professionals</a>
     <a href="#for-private" class="mob-link">Landlords</a>
@@ -5129,7 +5141,7 @@ if (hash === '#pricing-pro') switchPricing('pro');
     <a href="#process" class="mob-link">How it works</a>
     <a href="#pricing" class="mob-link">Pricing</a>
     <div style="width:32px;height:1px;background:rgba(14,14,16,.15);margin:14px 0;"></div>
-    <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="mob-link mob-cta">Open App →</a>
+    <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="mob-link mob-cta" style="color:#FCFCFC!important;">Open App →</a>
   </div>
 
 </body>
