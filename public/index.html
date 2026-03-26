@@ -4592,16 +4592,52 @@ triggerSigOnScroll('hiw-sig-path');
 
 // ── CURSOR ──
 const cur = document.getElementById('cur');
-const darkSections = ['.for-pros', '.pain-section', '.hiw', '.testi', '.cta-band'];
+
+/**
+ * Remonte les ancêtres d'un élément et retourne la première
+ * backgroundColor non-transparente trouvée (format rgb/rgba).
+ */
+function getEffectiveBg(el) {
+  let node = el;
+  while (node && node !== document.documentElement) {
+    const bg = window.getComputedStyle(node).backgroundColor;
+    if (bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent') return bg;
+    node = node.parentElement;
+  }
+  return 'rgb(243,241,235)'; // fallback cream
+}
+
+/**
+ * Calcule la luminance relative d'une couleur rgb/rgba.
+ * Retourne true si le fond est sombre (luminance < 0.18).
+ */
+function isDarkBg(cssColor) {
+  const m = cssColor.match(/[\d.]+/g);
+  if (!m || m.length < 3) return false;
+  // Normalise 0–255 → 0–1, applique gamma
+  const [r, g, b] = [+m[0], +m[1], +m[2]].map(v => {
+    v /= 255;
+    return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+  });
+  const L = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  return L < 0.18; // seuil : fonds sombres (ink, #0A0818, dark cards…)
+}
+
+let lastDark = false;
 
 window.addEventListener('mousemove', e => {
   cur.style.left = e.clientX + 'px';
   cur.style.top  = e.clientY + 'px';
 
-  // Détecte si le curseur est sur un fond sombre
   const el = document.elementFromPoint(e.clientX, e.clientY);
-  const onDark = el && darkSections.some(sel => el.closest(sel));
-  cur.classList.toggle('light', !!onDark);
+  if (el) {
+    const bg = getEffectiveBg(el);
+    const dark = isDarkBg(bg);
+    if (dark !== lastDark) {
+      cur.classList.toggle('light', dark);
+      lastDark = dark;
+    }
+  }
 }, { passive: true });
 
 document.querySelectorAll('a, button').forEach(el => {
