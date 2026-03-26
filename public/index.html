@@ -1160,7 +1160,10 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
   stroke-dasharray: 700;
   stroke-dashoffset: 700;
   filter: url(#ink-filter);
-  animation: traceHiwSig 2.2s cubic-bezier(.4,0,.2,1) forwards 0.3s;
+  transition: none;
+}
+.hiw-s3-sig-path.sig-animate {
+  animation: traceHiwSig 2.4s cubic-bezier(.4,0,.2,1) forwards;
 }
 @keyframes traceHiwSig {
   to { stroke-dashoffset: 0; }
@@ -2831,18 +2834,15 @@ footer {
 <body>
 
 <div id="cur"></div>
-
-<!-- SVG defs globaux : filtre ink pour les signatures -->
-<svg width="0" height="0" style="position:absolute">
+<div id="prog"></div>
+<svg width="0" height="0" style="position:absolute;pointer-events:none">
   <defs>
     <filter id="ink-filter" x="-5%" y="-5%" width="110%" height="110%">
       <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" result="noise"/>
-      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.2" xChannelSelector="R" yChannelSelector="G"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.0" xChannelSelector="R" yChannelSelector="G"/>
     </filter>
   </defs>
 </svg>
-
-<div id="prog"></div>
 
 <!-- ╔══ NAV ══╗ -->
 <nav id="nav">
@@ -3344,15 +3344,37 @@ footer {
           <div class="hiw-phone">
             <div class="hiw-phone-notch"></div>
             <div class="hiw-phone-body">
-              <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px">Add Property</div>
-              <div class="hiw-s1-field"></div>
-              <div class="hiw-s1-field short"></div>
-              <div class="hiw-s1-field"></div>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px">
-                <div class="hiw-s1-field" style="margin:0"></div>
-                <div class="hiw-s1-field" style="margin:0"></div>
+              <div style="font-size:9px;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px">New Inspection</div>
+
+              <!-- Champ adresse avec valeur visible -->
+              <div class="hiw-s1-field" style="position:relative;background:rgba(154,136,253,.12);border:1px solid rgba(154,136,253,.25)">
+                <span style="position:absolute;left:8px;top:50%;transform:translateY(-50%);font-size:9px;font-weight:600;color:rgba(154,136,253,.9);white-space:nowrap">Marina Heights · Unit 1204</span>
               </div>
-              <div class="hiw-s1-btn"></div>
+
+              <!-- Type + Emirate -->
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:7px">
+                <div class="hiw-s1-field" style="margin:0;position:relative">
+                  <span style="position:absolute;left:7px;top:50%;transform:translateY(-50%);font-size:8px;color:rgba(255,255,255,.35)">Apartment</span>
+                </div>
+                <div class="hiw-s1-field" style="margin:0;position:relative">
+                  <span style="position:absolute;left:7px;top:50%;transform:translateY(-50%);font-size:8px;color:rgba(255,255,255,.35)">Dubai Marina</span>
+                </div>
+              </div>
+
+              <!-- Contrat Ejari -->
+              <div class="hiw-s1-field" style="background:rgba(202,254,135,.07);border:1px solid rgba(202,254,135,.15);position:relative;margin-bottom:10px">
+                <span style="position:absolute;left:8px;top:50%;transform:translateY(-50%);font-size:8px;font-weight:600;color:var(--green);white-space:nowrap">
+                  ✓ Ejari #DXB-2025-48921 detected
+                </span>
+              </div>
+
+              <!-- Type inspection pills -->
+              <div style="display:flex;gap:5px;margin-bottom:10px">
+                <div style="flex:1;height:24px;background:var(--purple);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;color:var(--ink)">Check-In</div>
+                <div style="flex:1;height:24px;background:rgba(255,255,255,.06);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:8px;color:rgba(255,255,255,.3)">Check-Out</div>
+              </div>
+
+              <div class="hiw-s1-btn" style="display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--ink)">Start Inspection →</div>
             </div>
           </div>
 
@@ -3382,21 +3404,45 @@ footer {
           <div class="hiw-phone">
             <div class="hiw-phone-notch"></div>
             <div class="hiw-phone-body">
-              <div class="hiw-s2-photo">
+              <!-- Photo zone avec pin de damage -->
+              <div class="hiw-s2-photo" style="position:relative;overflow:hidden">
                 <div class="hiw-s2-ai-bar">
                   <div class="hiw-s2-ai-dot"></div>
-                  AI Active
+                  AI Scanning
+                </div>
+                <!-- Scan line animée -->
+                <div style="position:absolute;left:0;right:0;height:1.5px;background:linear-gradient(90deg,transparent,rgba(154,136,253,.7),transparent);animation:aiScan 2.5s ease-in-out infinite;z-index:2"></div>
+                <!-- Pin damage -->
+                <div style="position:absolute;top:36px;left:48%;display:flex;align-items:center;gap:4px;z-index:3;animation:pinPop .4s cubic-bezier(.34,1.56,.64,1) forwards .9s;opacity:0">
+                  <div style="width:10px;height:10px;border-radius:50%;background:rgba(255,82,82,.9);border:1.5px solid white;flex-shrink:0"></div>
+                  <div style="background:rgba(14,14,16,.75);backdrop-filter:blur(6px);color:white;font-size:8px;font-weight:600;padding:2px 6px;border-radius:4px;white-space:nowrap">Paint wear</div>
                 </div>
               </div>
-              <div class="hiw-s2-tag">
+
+              <!-- Tag détection -->
+              <div class="hiw-s2-tag" style="margin-bottom:6px">
                 <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                Wall scratch detected
+                Wall scratch · Paint wear detected
               </div>
-              <div class="hiw-s2-rooms">
-                <div class="hiw-s2-room"></div>
-                <div class="hiw-s2-room"></div>
-                <div class="hiw-s2-room"></div>
-                <div class="hiw-s2-room"></div>
+
+              <!-- Rooms nommées avec condition -->
+              <div class="hiw-s2-rooms" style="grid-template-columns:1fr 1fr;gap:5px">
+                <div class="hiw-s2-room" style="display:flex;align-items:center;justify-content:space-between;padding:0 7px">
+                  <span style="font-size:8px;color:rgba(255,255,255,.4)">Living Rm</span>
+                  <span style="font-size:8px;font-weight:700;color:var(--green)">Good</span>
+                </div>
+                <div class="hiw-s2-room" style="display:flex;align-items:center;justify-content:space-between;padding:0 7px;border:1px solid rgba(254,222,128,.2)">
+                  <span style="font-size:8px;color:rgba(255,255,255,.4)">Kitchen</span>
+                  <span style="font-size:8px;font-weight:700;color:var(--jasmine)">Fair</span>
+                </div>
+                <div class="hiw-s2-room" style="display:flex;align-items:center;justify-content:space-between;padding:0 7px">
+                  <span style="font-size:8px;color:rgba(255,255,255,.4)">Bedroom</span>
+                  <span style="font-size:8px;font-weight:700;color:var(--green)">Good</span>
+                </div>
+                <div class="hiw-s2-room" style="display:flex;align-items:center;justify-content:space-between;padding:0 7px">
+                  <span style="font-size:8px;color:rgba(255,255,255,.4)">Bathroom</span>
+                  <span style="font-size:8px;font-weight:700;color:var(--green)">Good</span>
+                </div>
               </div>
             </div>
           </div>
@@ -3427,11 +3473,15 @@ footer {
           <div class="hiw-phone">
             <div class="hiw-phone-notch"></div>
             <div class="hiw-phone-body">
-              <div class="hiw-s3-sig">
-                <div class="hiw-s3-sig-label">Digital Signature</div>
+              <!-- Landlord sig -->
+              <div class="hiw-s3-sig" style="margin-bottom:6px">
+                <div class="hiw-s3-sig-label" style="display:flex;align-items:center;justify-content:space-between">
+                  <span>Landlord</span>
+                  <span style="font-size:8px;color:var(--green);font-weight:600">✓ Signed</span>
+                </div>
                 <div class="hiw-s3-sig-wave">
-                  <svg class="hiw-s3-sig-svg" viewBox="0 0 220 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path class="hiw-s3-sig-path"
+                  <svg class="hiw-s3-sig-svg" id="hiw-sig-svg" viewBox="0 0 220 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path class="hiw-s3-sig-path" id="hiw-sig-path"
                       d="M6 26
                          C5 19, 4 12, 10 9
                          C16 6, 22 13, 19 22
@@ -3456,6 +3506,16 @@ footer {
                   </svg>
                 </div>
               </div>
+
+              <!-- Tenant sig (ligne vide — en attente) -->
+              <div class="hiw-s3-sig" style="margin-bottom:8px;opacity:.55">
+                <div class="hiw-s3-sig-label" style="display:flex;align-items:center;justify-content:space-between">
+                  <span>Tenant</span>
+                  <span style="font-size:8px;color:rgba(255,255,255,.3)">Pending…</span>
+                </div>
+                <div style="height:20px;border-bottom:1px dashed rgba(255,255,255,.15);margin-top:4px"></div>
+              </div>
+
               <div class="hiw-s3-pdf-btn">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                 Generate PDF Report
@@ -4437,6 +4497,22 @@ document.querySelectorAll('a, button').forEach(el => {
   el.addEventListener('mouseenter', () => cur.classList.add('big'));
   el.addEventListener('mouseleave', () => cur.classList.remove('big'));
 });
+
+// ── SIGNATURE SCROLL TRIGGER ──
+const sigPath = document.getElementById('hiw-sig-path');
+if (sigPath) {
+  const sigObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        sigPath.style.strokeDashoffset = '700';
+        void sigPath.getBoundingClientRect();
+        sigPath.classList.add('sig-animate');
+        sigObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.6 });
+  sigObserver.observe(sigPath.closest('.hiw-phone') || sigPath);
+}
 
 // ── SCROLL PROGRESS ──
 const prog = document.getElementById('prog');
