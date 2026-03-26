@@ -4,6 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Snagify — Smart Inspections. Smarter Rentals.</title>
+<meta name="description" content="The fastest way to document, sign, and protect any Dubai property inspection. AI-powered, RDC Accepted reports in 20 minutes. Free check-in for landlords and tenants.">
+<meta name="keywords" content="property inspection Dubai, RERA compliant inspection, RDC report, rental inspection app, digital inspection UAE">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://snagify.net">
+<meta property="og:title" content="Snagify — Smart Inspections. Smarter Rentals.">
+<meta property="og:description" content="AI-powered property inspections for Dubai's rental market. RDC Accepted reports in 20 minutes. Free check-in.">
+<meta property="og:image" content="https://snagify.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Snagify — Smart Inspections. Smarter Rentals.">
+<meta name="twitter:description" content="AI-powered property inspections for Dubai. RDC Accepted reports in 20 minutes.">
+<meta name="twitter:image" content="https://snagify.net/og-image.png">
+<link rel="canonical" href="https://snagify.net">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <style>
@@ -115,6 +127,63 @@ nav:not(.scrolled) {
 .nav-links { display:flex;align-items:center;gap:32px;list-style:none; }
 .nav-links a { color:var(--ink-60);text-decoration:none;font-size:14px;font-weight:500;transition:color .25s; }
 .nav-links a:hover { color:var(--ink); }
+
+/* Hamburger */
+.nav-burger {
+  display: none;
+  flex-direction: column; justify-content: center; gap: 5px;
+  width: 36px; height: 36px;
+  background: none; border: none; cursor: pointer; padding: 4px;
+}
+.nav-burger span {
+  display: block; height: 2px; background: var(--ink);
+  border-radius: 2px;
+  transition: transform .3s ease, opacity .3s ease, width .3s ease;
+  transform-origin: center;
+}
+.nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile drawer */
+.nav-drawer {
+  display: none;
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(243,241,235,.97);
+  backdrop-filter: blur(20px);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+}
+.nav-drawer.open {
+  display: flex;
+  opacity: 1;
+  pointer-events: all;
+}
+.nav-drawer a {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700; font-size: 22px;
+  color: var(--ink); text-decoration: none;
+  letter-spacing: -0.5px;
+  padding: 10px 0;
+  transition: color .2s;
+}
+.nav-drawer a:hover { color: var(--purple); }
+.nav-drawer .drawer-divider {
+  width: 40px; height: 1px;
+  background: var(--ink-25); margin: 8px 0;
+}
+.nav-drawer .drawer-cta {
+  margin-top: 16px;
+  padding: 14px 32px;
+  background: var(--ink); color: var(--white) !important;
+  border-radius: 999px; font-size: 15px;
+}
+.nav-drawer .drawer-cta:hover { background: var(--purple); color: var(--ink) !important; }
 .nav-pill {
   padding: 9px 18px;
   background: var(--ink); color: var(--white)!important;
@@ -547,6 +616,7 @@ nav:not(.scrolled) {
 }
 .marquee-sep { width: 5px; height: 5px; border-radius: 50%; background: var(--ink); opacity: .4; }
 @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.marquee-track { animation-duration: 18s !important; }
 
 /* ══════════════════════════════════
    SECTION BASE
@@ -1409,6 +1479,31 @@ nav:not(.scrolled) {
   font-size: 14px; color: rgba(255,255,255,.7);
   line-height: 1.75; margin-bottom: 24px; font-style: italic;
 }
+@media(max-width: 768px) {
+  .testi-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .testi-text.expanded {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+  }
+  .testi-read-more {
+    display: inline-block;
+    font-size: 12px; font-weight: 700;
+    color: var(--purple); cursor: pointer;
+    margin-bottom: 16px;
+    background: none; border: none; padding: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+}
+@media(min-width: 769px) {
+  .testi-read-more { display: none; }
+}
 .testi-author { display: flex; align-items: center; gap: 12px; }
 .testi-avatar {
   width: 48px; height: 48px; border-radius: 14px;
@@ -2055,7 +2150,7 @@ nav:not(.scrolled) {
 }
 @media(max-width: 768px) {
   .cta-inner { padding: 72px 20px; }
-  .cta-inner h2 { font-size: clamp(42px, 9vw, 64px); }
+  .cta-inner h2 { font-size: clamp(42px, 9vw, 64px); letter-spacing: -2.5px; line-height: 1.0; }
 }
 
 
@@ -2842,7 +2937,8 @@ footer {
   /* Nav */
   nav               { padding: 14px 20px; }
   nav.scrolled      { padding: 12px 20px; top: 0; left: 0; right: 0; transform: none; width: 100%; border-radius: 0; }
-  .nav-links li:not(:last-child) { display: none; }
+  .nav-links { display: none; }
+  .nav-burger { display: flex; }
 
   /* Hero */
   .hero             { padding: 92px 20px 56px; min-height: auto; }
@@ -2990,6 +3086,22 @@ footer {
       </a>
     </li>
   </ul>
+
+  <!-- Hamburger button (mobile) -->
+  <button class="nav-burger" id="nav-burger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- Mobile drawer -->
+  <nav class="nav-drawer" id="nav-drawer">
+    <a href="#for-pros" class="drawer-link">Professionals</a>
+    <a href="#for-private" class="drawer-link">Landlords</a>
+    <a href="#features" class="drawer-link">Features</a>
+    <a href="#process" class="drawer-link">How it works</a>
+    <a href="#pricing" class="drawer-link">Pricing</a>
+    <div class="drawer-divider"></div>
+    <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="drawer-link drawer-cta">Open App →</a>
+  </nav>
 </nav>
 
 <!-- ╔══ HERO ══╗ -->
@@ -3152,19 +3264,21 @@ footer {
     <div class="marquee-item">Smart Inspections <span class="marquee-sep"></span></div>
     <div class="marquee-item">RERA Compliant <span class="marquee-sep"></span></div>
     <div class="marquee-item">AI-Powered <span class="marquee-sep"></span></div>
-    <div class="marquee-item">DLD Ready <span class="marquee-sep"></span></div>
     <div class="marquee-item">Digital Signatures <span class="marquee-sep"></span></div>
     <div class="marquee-item">One-Click PDF <span class="marquee-sep"></span></div>
     <div class="marquee-item">Key Handover <span class="marquee-sep"></span></div>
-    <div class="marquee-item">White-Label <span class="marquee-sep"></span></div>
+    <div class="marquee-item">White-Label Reports <span class="marquee-sep"></span></div>
+    <div class="marquee-item">SHA-256 Verified <span class="marquee-sep"></span></div>
+    <div class="marquee-item">Offline Ready <span class="marquee-sep"></span></div>
     <div class="marquee-item">Smart Inspections <span class="marquee-sep"></span></div>
     <div class="marquee-item">RERA Compliant <span class="marquee-sep"></span></div>
     <div class="marquee-item">AI-Powered <span class="marquee-sep"></span></div>
-    <div class="marquee-item">DLD Ready <span class="marquee-sep"></span></div>
     <div class="marquee-item">Digital Signatures <span class="marquee-sep"></span></div>
     <div class="marquee-item">One-Click PDF <span class="marquee-sep"></span></div>
     <div class="marquee-item">Key Handover <span class="marquee-sep"></span></div>
-    <div class="marquee-item">White-Label <span class="marquee-sep"></span></div>
+    <div class="marquee-item">White-Label Reports <span class="marquee-sep"></span></div>
+    <div class="marquee-item">SHA-256 Verified <span class="marquee-sep"></span></div>
+    <div class="marquee-item">Offline Ready <span class="marquee-sep"></span></div>
   </div>
 </div>
 
@@ -4055,7 +4169,7 @@ footer {
     <div class="testi-grid reveal reveal-delay-1">
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Honestly I resisted switching for months — we had our own Word template and I thought it was fine. Then a tenant contested damage at move-out and we had nothing solid to show. After that I tried Snagify. We now do 60+ inspections a month and I'd never go back. The reports are just on a different level."</p>
+        <p class="testi-text" id="t1">"Honestly I resisted switching for months — we had our own Word template and I thought it was fine. Then a tenant contested damage at move-out and we had nothing solid to show. After that I tried Snagify. We now do 60+ inspections a month and I'd never go back. The reports are just on a different level."</p>
         <div class="testi-author">
           <!-- Khalid — homme, teint moyen, courte barbe, costume -->
           <div class="testi-avatar">
@@ -4083,7 +4197,7 @@ footer {
       </div>
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"We lost an RDC case last year because our inspection photos were on someone's personal phone and the checklist was handwritten. It cost us the client relationship too. Since Snagify, every report is signed on the spot. We've had three potential disputes since, and none of them went anywhere."</p>
+        <p class="testi-text" id="t2">"We lost an RDC case last year because our inspection photos were on someone's personal phone and the checklist was handwritten. It cost us the client relationship too. Since Snagify, every report is signed on the spot. We've had three potential disputes since, and none of them went anywhere."</p>
         <div class="testi-author">
           <!-- Sara — femme, teint clair, cheveux attachés, blazer -->
           <div class="testi-avatar">
@@ -4112,7 +4226,7 @@ footer {
       </div>
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"I was worried it would be too complicated for my inspectors. It took them about 10 minutes to figure out. Now every report that goes to a client looks like it came from a serious firm. One client actually asked if we had an in-house legal team. It's just us and Snagify."</p>
+        <p class="testi-text" id="t3">"I was worried it would be too complicated for my inspectors. It took them about 10 minutes to figure out. Now every report that goes to a client looks like it came from a serious firm. One client actually asked if we had an in-house legal team. It's just us and Snagify."</p>
         <div class="testi-author">
           <!-- Rami — homme, teint olive, cheveux noirs, polo -->
           <div class="testi-avatar">
@@ -4152,7 +4266,7 @@ footer {
     <div class="testi-grid testi-grid-2 reveal reveal-delay-1">
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"My previous landlord kept AED 3,000 of my deposit for 'cleaning and repairs' I never caused. I had no proof. When I moved into my new apartment I did a Snagify check-in the same day — took 15 minutes, we both signed on the spot. Moved out 2 years later, full deposit back within a week. No discussion."</p>
+        <p class="testi-text" id="t4">"My previous landlord kept AED 3,000 of my deposit for 'cleaning and repairs' I never caused. I had no proof. When I moved into my new apartment I did a Snagify check-in the same day — took 15 minutes, we both signed on the spot. Moved out 2 years later, full deposit back within a week. No discussion."</p>
         <div class="testi-author">
           <!-- Nadia — femme, cheveux lâchés, tenue décontractée -->
           <div class="testi-avatar">
@@ -4182,7 +4296,7 @@ footer {
       </div>
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"I have three apartments and I used to dread move-outs. Once a tenant denies something, it becomes your word against theirs and it's exhausting. A colleague showed me Snagify and I thought it was overkill for a private landlord. Tried it anyway: check-in is free, nothing to lose. I wish I'd started five years ago."</p>
+        <p class="testi-text" id="t5">"I have three apartments and I used to dread move-outs. Once a tenant denies something, it becomes your word against theirs and it's exhausting. A colleague showed me Snagify and I thought it was overkill for a private landlord. Tried it anyway: check-in is free, nothing to lose. I wish I'd started five years ago."</p>
         <div class="testi-author">
           <!-- Faisal — homme plus âgé, teint brun, moustache fine, dishdasha -->
           <div class="testi-avatar">
@@ -4824,6 +4938,39 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
       }
       setTimeout(() => t.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
     }
+  });
+});
+
+// ── HAMBURGER MENU ──
+const burger = document.getElementById('nav-burger');
+const drawer = document.getElementById('nav-drawer');
+if (burger && drawer) {
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    drawer.classList.toggle('open');
+    document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
+  });
+  // Fermer au clic sur un lien
+  drawer.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      burger.classList.remove('open');
+      drawer.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+}
+
+// ── TESTIMONIALS READ MORE (mobile) ──
+['t1','t2','t3','t4','t5'].forEach(id => {
+  const p = document.getElementById(id);
+  if (!p) return;
+  const btn = document.createElement('button');
+  btn.className = 'testi-read-more';
+  btn.textContent = 'Read more';
+  p.after(btn);
+  btn.addEventListener('click', () => {
+    p.classList.toggle('expanded');
+    btn.textContent = p.classList.contains('expanded') ? 'Read less' : 'Read more';
   });
 });
 
