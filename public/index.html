@@ -132,6 +132,74 @@ nav:not(.scrolled) {
 .nav-links a { color:var(--ink-60);text-decoration:none;font-size:14px;font-weight:500;transition:color .25s; }
 .nav-links a:hover { color:var(--ink); }
 
+/* ── PWA INSTALL STRIP ── */
+.b-pwa-install {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.b-pwa-install-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--white);
+  border: 1px solid var(--ink-25);
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(14,14,16,.06);
+}
+.b-pwa-install-icon {
+  width: 36px; height: 36px;
+  background: #9A88FD;
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.b-pwa-install-info {
+  display: flex; flex-direction: column; flex: 1;
+  gap: 1px;
+}
+.b-pwa-install-name {
+  font-size: 13px; font-weight: 700;
+  color: var(--ink); font-family: 'Poppins', sans-serif;
+}
+.b-pwa-install-sub {
+  font-size: 11px; color: var(--ink-60);
+}
+.b-pwa-install-btn {
+  padding: 6px 16px;
+  background: #007AFF;
+  color: #fff;
+  border-radius: 999px;
+  font-size: 13px; font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  flex-shrink: 0;
+}
+.b-pwa-homescreen {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--cream-2);
+  border-radius: 12px;
+}
+.b-pwa-hs-icon {
+  width: 36px; height: 36px;
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(14,14,16,.12);
+}
+.b-pwa-hs-label {
+  font-size: 10px; font-weight: 700;
+  color: var(--ink-60);
+  font-family: 'Poppins', sans-serif;
+  margin-left: auto;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 /* ── MOB DRAWER LINKS ── */
 .mob-link {
   font-family: 'Poppins', sans-serif;
@@ -4107,6 +4175,34 @@ footer {
               <span class="b-pwa-pill">iOS</span>
               <span class="b-pwa-pill">Android</span>
               <span class="b-pwa-pill">Offline</span>
+            </div>
+            <!-- Home screen install strip -->
+            <div class="b-pwa-install">
+              <div class="b-pwa-install-bar">
+                <div class="b-pwa-install-icon">
+                  <svg width="18" height="18" viewBox="0 0 700 700" fill="#FCFCFC">
+                    <path d="M 485.977 349.973 v 118.175 L 357.375 596.746 H 232.219 L 106.332 470.863 l -2.813 -2.715 V 349.973 h 110.457 v 72.472 l 80.774 80.672 l 80.722 -80.672 V 349.973 Z"/>
+                    <path d="M 596.48 231.852 v 118.125 H 485.973 v -72.473 l -21.191 -21.156 v -44.047 h -31.098 v 12.957 l -28.426 -28.383 l -80.773 80.629 v 72.473 H 213.984 V 231.852 l 128.641 -128.598 h 125.113 l 125.879 125.883 Z"/>
+                  </svg>
+                </div>
+                <div class="b-pwa-install-info">
+                  <span class="b-pwa-install-name">Snagify</span>
+                  <span class="b-pwa-install-sub">snagify.net</span>
+                </div>
+                <div class="b-pwa-install-btn">Add</div>
+              </div>
+              <div class="b-pwa-homescreen">
+                <div class="b-pwa-hs-icon" style="background:#9A88FD">
+                  <svg width="14" height="14" viewBox="0 0 700 700" fill="#fff">
+                    <path d="M 485.977 349.973 v 118.175 L 357.375 596.746 H 232.219 L 106.332 470.863 l -2.813 -2.715 V 349.973 h 110.457 v 72.472 l 80.774 80.672 l 80.722 -80.672 V 349.973 Z"/>
+                    <path d="M 596.48 231.852 v 118.125 H 485.973 v -72.473 l -21.191 -21.156 v -44.047 h -31.098 v 12.957 l -28.426 -28.383 l -80.773 80.629 v 72.473 H 213.984 V 231.852 l 128.641 -128.598 h 125.113 l 125.879 125.883 Z"/>
+                  </svg>
+                </div>
+                <div class="b-pwa-hs-icon" style="background:#FEDE80"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0E0E10" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+                <div class="b-pwa-hs-icon" style="background:#CAFE87"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0E0E10" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+                <div class="b-pwa-hs-icon" style="background:#0E0E10"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3"/></svg></div>
+                <span class="b-pwa-hs-label">Snagify</span>
+              </div>
             </div>
           </div>
         </div>
