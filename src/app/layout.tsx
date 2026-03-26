@@ -1,5 +1,6 @@
-import { Analytics } from '@vercel/analytics/react'
 import type { ReactNode } from 'react'
+
+import { VercelAnalytics } from './vercel-analytics'
 
 export default function RootLayout({
   children,
@@ -10,7 +11,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
-        <Analytics />
+        <VercelAnalytics />
       </body>
     </html>
   )
