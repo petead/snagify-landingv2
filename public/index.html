@@ -1623,8 +1623,9 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
 .price-free-banner {
   display: flex; align-items: center; justify-content: space-between;
   background: var(--ink); border-radius: 20px;
-  padding: 32px 36px; margin-bottom: 32px;
+  padding: 24px 32px; margin-bottom: 32px;
   color: var(--white);
+  gap: 32px;
 }
 .price-free-badge {
   display: inline-block;
@@ -1646,6 +1647,39 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
 }
 .price-free-right { color: var(--green); opacity: .4; flex-shrink: 0; }
 
+/* Micro-stats dans le free banner */
+.price-free-stats {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px;
+  overflow: hidden;
+  padding: 0;
+}
+.pfs-stat {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 14px 22px; gap: 3px;
+}
+.pfs-num {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800; font-size: 20px;
+  letter-spacing: -1px; line-height: 1;
+  color: var(--green);
+}
+.pfs-lbl {
+  font-size: 10px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 1px;
+  color: rgba(255,255,255,.35);
+}
+.pfs-div {
+  width: 1px; height: 40px;
+  background: rgba(255,255,255,.07);
+  flex-shrink: 0;
+}
+
 .price-checkout-label {
   display: inline-flex; align-items: center; gap: 7px;
   font-size: 11px; text-transform: uppercase; letter-spacing: 2.5px;
@@ -1658,7 +1692,8 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
 }
 @media(max-width: 768px) {
   .pricing-grid { grid-template-columns: 1fr; }
-  .price-free-banner { flex-direction: column; gap: 20px; align-items: flex-start; }
+  .price-free-banner { flex-direction: column; gap: 16px; align-items: flex-start; }
+  .price-free-stats { display: none; }
   .pricing-toggle { width: 100%; }
   .ptoggle-btn { flex: 1; justify-content: center; }
 }
@@ -2811,7 +2846,8 @@ footer {
   .pricing-grid-private { grid-template-columns: 1fr; }
   .pricing-toggle   { width: 100%; }
   .ptoggle-btn      { flex: 1; justify-content: center; font-size: 12px; padding: 10px 12px; gap: 5px; }
-  .price-free-banner { flex-direction: column; gap: 20px; padding: 24px; align-items: flex-start; }
+  .price-free-banner { flex-direction: column; gap: 16px; padding: 24px; align-items: flex-start; }
+  .price-free-stats { display: none; }
   .price-card       { padding: 28px; border-radius: 20px; }
   .price-num        { font-size: 40px; }
 
@@ -4230,15 +4266,35 @@ footer {
     <!-- ── PARTICULIER PLANS ── -->
     <div class="pricing-panel hidden" id="panel-private">
 
-      <!-- Banner check-in gratuit -->
+      <!-- Banner check-in gratuit — redesign compact -->
       <div class="price-free-banner reveal">
+        <!-- Gauche : icône + texte -->
         <div class="price-free-left">
-          <div class="price-free-badge">Always Free</div>
-          <h3>Check-In Inspection</h3>
-          <p>Document your property at move-in at no cost, every time. No credits needed, no account required.</p>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:10px">
+            <div style="width:36px;height:36px;border-radius:10px;background:rgba(202,254,135,.12);border:1px solid rgba(202,254,135,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div class="price-free-badge" style="margin:0">Always Free</div>
+          </div>
+          <h3 style="font-size:20px;margin-bottom:6px">Check-In included — at no cost</h3>
+          <p style="max-width:400px">Every move-in inspection is free. Forever. No credits consumed, no card needed to start.</p>
         </div>
-        <div class="price-free-right">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <!-- Droite : 3 micro-stats -->
+        <div class="price-free-stats">
+          <div class="pfs-stat">
+            <span class="pfs-num">0 AED</span>
+            <span class="pfs-lbl">Per check-in</span>
+          </div>
+          <div class="pfs-div"></div>
+          <div class="pfs-stat">
+            <span class="pfs-num">20 min</span>
+            <span class="pfs-lbl">Avg. duration</span>
+          </div>
+          <div class="pfs-div"></div>
+          <div class="pfs-stat">
+            <span class="pfs-num">∞</span>
+            <span class="pfs-lbl">No limit</span>
+          </div>
         </div>
       </div>
 
@@ -4253,16 +4309,12 @@ footer {
         <div class="price-card reveal" id="pricing-particulier">
           <div class="price-plan">Solo</div>
           <div class="price-num">49 <span class="price-suffix">AED</span></div>
-          <p class="price-desc">One move-out inspection. Perfect for a single rental.</p>
+          <p class="price-desc">One move-in &amp; move-out inspection. Perfect for a single rental.</p>
           <div class="price-stats">
-            <div class="price-stat">
+            <div class="price-stat" style="flex:1">
               <span class="price-stat-val">2</span>
               <span class="price-stat-lbl">Credits</span>
               <span class="price-stat-sub" style="color:var(--ink-60)">24.5 AED / credit</span>
-            </div>
-            <div class="price-stat">
-              <span class="price-stat-val">2</span>
-              <span class="price-stat-lbl">Check-outs</span>
             </div>
           </div>
           <ul class="price-feats">
@@ -4280,14 +4332,10 @@ footer {
           <div class="price-num">119 <span class="price-suffix">AED</span></div>
           <p class="price-desc">A few properties. Best value for individual landlords.</p>
           <div class="price-stats">
-            <div class="price-stat">
+            <div class="price-stat" style="flex:1">
               <span class="price-stat-val">6</span>
               <span class="price-stat-lbl">Credits</span>
               <span class="price-stat-sub">19.8 AED / credit</span>
-            </div>
-            <div class="price-stat">
-              <span class="price-stat-val">6</span>
-              <span class="price-stat-lbl">Check-outs</span>
             </div>
           </div>
           <ul class="price-feats">
@@ -4305,14 +4353,10 @@ footer {
           <div class="price-num">189 <span class="price-suffix">AED</span></div>
           <p class="price-desc">Multiple units. Best price per inspection.</p>
           <div class="price-stats">
-            <div class="price-stat">
+            <div class="price-stat" style="flex:1">
               <span class="price-stat-val">12</span>
               <span class="price-stat-lbl">Credits</span>
               <span class="price-stat-sub" style="color:var(--ink-60)">15.8 AED / credit</span>
-            </div>
-            <div class="price-stat">
-              <span class="price-stat-val">12</span>
-              <span class="price-stat-lbl">Check-outs</span>
             </div>
           </div>
           <ul class="price-feats">
