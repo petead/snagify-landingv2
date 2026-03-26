@@ -2989,11 +2989,11 @@ footer {
       <!-- CTA bifurqué -->
       <div class="hero-actions">
         <div class="hero-cta-group">
-          <a href="#pricing-pro" class="btn-ink">
+          <a href="#pricing-pro" class="btn-ink" onclick="if(typeof switchPricing==='function'){switchPricing('pro');setBilling('annual');}">
             I'm a Professional
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="#pricing-particulier" class="btn-ghost">
+          <a href="#pricing-particulier" class="btn-ghost" onclick="if(typeof switchPricing==='function'){switchPricing('private');}">
             I'm a Landlord / Tenant
           </a>
         </div>
@@ -3236,7 +3236,7 @@ footer {
         </div>
 
         <div class="pros-cta reveal reveal-delay-3">
-          <a href="#pricing" class="btn-pros-primary">
+          <a href="#pricing-pro" class="btn-pros-primary" onclick="if(typeof switchPricing==='function'){switchPricing('pro');setBilling('annual');}">
             See Pro Plans
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -3629,7 +3629,7 @@ footer {
 
     <!-- Bottom CTA -->
     <div class="hiw-cta reveal">
-      <a href="#" class="btn-ink" style="background:var(--purple);color:var(--ink)">
+      <a href="https://app.snagify.net" target="_blank" class="btn-ink" style="background:var(--purple);color:var(--ink)">
         Start your first inspection
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -4171,6 +4171,7 @@ footer {
 </section>
 
 <!-- ╔══ PRICING ══╗ -->
+<div id="pricing-pro" style="position:relative;top:-120px;pointer-events:none;visibility:hidden"></div>
 <section class="pricing" id="pricing">
   <div class="section-wrap">
 
@@ -4246,7 +4247,7 @@ footer {
         </div>
 
         <!-- GROWTH -->
-        <div class="price-card featured reveal reveal-delay-1" id="pricing-pro">
+        <div class="price-card featured reveal reveal-delay-1">
           <div class="price-plan">Growth</div>
           <div class="price-num">
             <span class="price-monthly">299 <span class="price-suffix">AED/mo</span></span>
@@ -4366,7 +4367,8 @@ footer {
       <div class="pricing-grid pricing-grid-private">
 
         <!-- SOLO -->
-        <div class="price-card reveal" id="pricing-particulier">
+        <div id="pricing-particulier" style="position:relative;top:-120px;pointer-events:none;visibility:hidden"></div>
+        <div class="price-card reveal">
           <div class="price-plan">Solo</div>
           <div class="price-num">49 <span class="price-suffix">AED</span></div>
           <p class="price-desc">One move-in &amp; move-out inspection. Perfect for a single rental.</p>
