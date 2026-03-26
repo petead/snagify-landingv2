@@ -738,11 +738,12 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
   font-weight: 600; margin-bottom: 12px;
 }
 /* Animated signature path */
-.b-sig-svg { width: 100%; height: 40px; overflow: visible; }
+.b-sig-svg { width: 100%; height: 56px; overflow: visible; }
 .b-sig-path {
-  stroke-dasharray: 300;
-  stroke-dashoffset: 300;
-  animation: drawSig 2s ease forwards 1s;
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+  filter: url(#ink-filter);
+  animation: drawSig 2.4s cubic-bezier(.4,0,.2,1) forwards 1s;
 }
 @keyframes drawSig {
   to { stroke-dashoffset: 0; }
@@ -750,7 +751,7 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
 .b-sig-confirmed {
   display: flex; align-items: center; gap: 8px;
   margin-top: 12px; font-size: 11px; font-weight: 600; color: #3A7A00;
-  opacity: 0; animation: fadeIn .5s ease forwards 2.5s;
+  opacity: 0; animation: fadeIn .5s ease forwards 3s;
 }
 .b-sig-check-icon {
   width: 18px; height: 18px; border-radius: 50%;
@@ -1156,8 +1157,9 @@ nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
   overflow: visible;
 }
 .hiw-s3-sig-path {
-  stroke-dasharray: 420;
-  stroke-dashoffset: 420;
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  filter: url(#ink-filter);
   animation: traceHiwSig 2.2s cubic-bezier(.4,0,.2,1) forwards 0.3s;
 }
 @keyframes traceHiwSig {
@@ -2829,6 +2831,17 @@ footer {
 <body>
 
 <div id="cur"></div>
+
+<!-- SVG defs globaux : filtre ink pour les signatures -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <filter id="ink-filter" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
 <div id="prog"></div>
 
 <!-- ╔══ NAV ══╗ -->
@@ -3419,23 +3432,23 @@ footer {
                 <div class="hiw-s3-sig-wave">
                   <svg class="hiw-s3-sig-svg" viewBox="0 0 220 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path class="hiw-s3-sig-path"
-                      d="M4 24
-                         C8 20, 10 14, 14 16
-                         C18 18, 16 26, 20 22
-                         C24 18, 26 10, 32 12
-                         C38 14, 36 24, 40 20
-                         C46 14, 52 8, 60 10
-                         C68 12, 64 22, 70 20
-                         C76 18, 80 12, 88 14
-                         C96 16, 92 24, 98 22
-                         C106 18, 114 8, 124 10
-                         C132 12, 128 22, 136 20
-                         C144 18, 152 6, 164 8
-                         C174 10, 170 20, 178 18
-                         C186 16, 196 10, 210 12
-                         C216 13, 218 16, 220 15"
+                      d="M6 26
+                         C5 19, 4 12, 10 9
+                         C16 6, 22 13, 19 22
+                         C16 28, 8 30, 11 23
+                         C14 17, 22 14, 25 19
+                         C28 24, 25 30, 30 25
+                         C35 20, 40 11, 46 13
+                         C52 15, 50 24, 56 21
+                         C62 18, 66 10, 74 12
+                         C80 14, 78 22, 84 20
+                         C90 18, 94 10, 102 12
+                         C110 14, 114 22, 122 20
+                         C132 17, 148 8, 164 10
+                         C176 12, 182 20, 192 18
+                         C202 16, 212 11, 218 10"
                       stroke="var(--purple)"
-                      stroke-width="1.8"
+                      stroke-width="1.6"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                       fill="none"
@@ -3621,8 +3634,32 @@ footer {
           <p>Both parties sign on-screen or remotely by email. Reminder sent at J+1, J+3. Refusal is documented and legally binding.</p>
           <div class="b-sig-canvas">
             <div class="b-sig-label">Tenant signature</div>
-            <svg class="b-sig-svg" viewBox="0 0 260 40">
-              <path class="b-sig-path" d="M4 28 C24 8, 44 36, 64 22 C82 10, 96 32, 118 18 C138 6, 152 30, 176 16 C196 4, 212 28, 236 18 C248 13, 254 20, 258 16" fill="none" stroke="var(--purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg class="b-sig-svg" viewBox="0 0 320 56">
+              <!-- Signature réelle tracée : boucle initiale + corps + trait terminal -->
+              <path class="b-sig-path"
+                d="M12 38
+                   C10 28, 8 18, 16 14
+                   C24 10, 32 20, 28 32
+                   C24 40, 14 44, 18 36
+                   C22 28, 34 22, 38 28
+                   C42 34, 38 42, 44 36
+                   C50 30, 56 18, 64 20
+                   C70 22, 68 34, 74 30
+                   C80 26, 82 16, 90 18
+                   C96 20, 94 30, 100 28
+                   C106 26, 110 18, 118 20
+                   C124 22, 122 32, 128 30
+                   C136 26, 148 14, 162 16
+                   C174 18, 178 28, 186 26
+                   C196 22, 212 16, 230 18
+                   C248 20, 268 26, 290 22
+                   C304 20, 312 18, 318 16"
+                fill="none"
+                stroke="var(--purple)"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
             <div class="b-sig-confirmed">
               <div class="b-sig-check-icon">
