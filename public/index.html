@@ -62,24 +62,79 @@ body {
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 22px 48px;
-  background: rgba(243,241,235,0.85);
-  backdrop-filter: blur(16px) saturate(1.2);
+  padding: 20px 48px;
+  background: rgba(243,241,235,0);
+  backdrop-filter: blur(0px) saturate(1);
   border-bottom: 1px solid transparent;
-  transition: padding .4s ease, border-color .4s ease;
+  transition:
+    padding .5s cubic-bezier(.16,1,.3,1),
+    background .5s ease,
+    backdrop-filter .5s ease,
+    border-color .4s ease,
+    box-shadow .5s ease;
 }
-nav.sticky { padding: 14px 48px; border-bottom-color: var(--ink-25); }
+/* Floating pill — après scroll */
+nav.scrolled {
+  padding: 10px 20px;
+  top: 12px;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  width: calc(100% - 64px);
+  max-width: 1100px;
+  background: rgba(243,241,235,0.92);
+  backdrop-filter: blur(20px) saturate(1.4);
+  border-radius: 999px;
+  border-color: var(--ink-25);
+  box-shadow: 0 4px 32px rgba(14,14,16,.1), 0 1px 0 rgba(255,255,255,.7) inset;
+}
+nav.scrolled .nav-links a { font-size: 13px; }
+nav.scrolled .nav-logo span { font-size: 18px; }
+nav.scrolled .nav-logo svg { width: 28px; height: 28px; }
+
+/* État initial : nav pleine largeur transparente */
+nav:not(.scrolled) {
+  background: rgba(243,241,235,0);
+  border-color: transparent;
+  box-shadow: none;
+}
 .nav-logo { display:flex;align-items:center;gap:9px;text-decoration:none; }
 .nav-logo span { font-family:'Poppins',sans-serif;font-weight:800;font-size:20px;color:var(--ink);letter-spacing:-0.5px; }
 .nav-links { display:flex;align-items:center;gap:32px;list-style:none; }
 .nav-links a { color:var(--ink-60);text-decoration:none;font-size:14px;font-weight:500;transition:color .25s; }
 .nav-links a:hover { color:var(--ink); }
 .nav-pill {
-  padding:10px 22px;background:var(--ink);color:var(--white)!important;
-  border-radius:999px;font-weight:700!important;font-size:13px;
-  transition:background .3s, transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s!important;
+  padding: 9px 18px;
+  background: var(--ink); color: var(--white)!important;
+  border-radius: 999px; font-weight: 700!important; font-size: 13px;
+  transition: background .3s, transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s!important;
+  display: inline-flex!important; align-items: center!important; gap: 7px!important;
 }
-.nav-pill:hover { background:var(--purple)!important;transform:translateY(-2px)!important;color:var(--ink)!important;box-shadow:0 8px 20px rgba(154,136,253,.3)!important; }
+.nav-pill:hover {
+  background: var(--purple)!important;
+  transform: translateY(-2px)!important;
+  color: var(--ink)!important;
+  box-shadow: 0 8px 20px rgba(154,136,253,.3)!important;
+}
+.nav-pill:hover .nav-pill-dot { background: var(--ink)!important; }
+
+/* Dot live vert pulsé */
+.nav-pill-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--green);
+  flex-shrink: 0;
+  box-shadow: 0 0 0 0 rgba(202,254,135,.5);
+  animation: navDotPulse 2s ease-out infinite;
+}
+@keyframes navDotPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(202,254,135,.5); }
+  60%  { box-shadow: 0 0 0 5px rgba(202,254,135,0); }
+  100% { box-shadow: 0 0 0 0 rgba(202,254,135,0); }
+}
+
+/* Transition logo size smooth */
+.nav-logo svg { transition: width .4s ease, height .4s ease; }
+.nav-logo span { transition: font-size .4s ease; }
 
 /* ══════════════════════════════════
    HERO
@@ -2758,7 +2813,7 @@ footer {
 
   /* Nav */
   nav               { padding: 14px 20px; }
-  nav.sticky        { padding: 12px 20px; }
+  nav.scrolled      { padding: 8px 14px; top: 10px; width: calc(100% - 28px); }
   .nav-links li:not(:last-child) { display: none; }
 
   /* Hero */
@@ -2890,7 +2945,13 @@ footer {
     <li><a href="#features">Features</a></li>
     <li><a href="#process">How it works</a></li>
     <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#cta" class="nav-pill">Get Started →</a></li>
+    <li>
+      <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="nav-pill nav-app-btn">
+        <span class="nav-pill-dot"></span>
+        Open App
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </li>
   </ul>
 </nav>
 
@@ -4645,11 +4706,19 @@ document.querySelectorAll('a, button').forEach(el => {
   el.addEventListener('mouseleave', () => cur.classList.remove('big'));
 });
 
-// ── SCROLL PROGRESS ──
+// ── SCROLL PROGRESS + NAV PILL ──
 const prog = document.getElementById('prog');
+const navEl = document.getElementById('nav');
+
 window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY > 60;
   prog.style.width = (window.scrollY / (document.body.scrollHeight - innerHeight) * 100) + '%';
-  document.getElementById('nav').classList.toggle('sticky', window.scrollY > 50);
+
+  if (scrolled && !navEl.classList.contains('scrolled')) {
+    navEl.classList.add('scrolled');
+  } else if (!scrolled && navEl.classList.contains('scrolled')) {
+    navEl.classList.remove('scrolled');
+  }
 }, { passive: true });
 
 // ── REVEAL ON SCROLL ──
