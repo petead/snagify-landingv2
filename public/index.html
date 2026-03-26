@@ -36,7 +36,7 @@ body {
   cursor: none;
   overflow-x: hidden;
 }
-@media(max-width:768px){ body { cursor: auto; } }
+@media(max-width:1024px){ body { cursor: auto; } }
 
 /* ══ CURSOR ══ */
 #cur {
@@ -52,6 +52,7 @@ body {
 #cur.big  { transform: translate(-50%, -50%) scale(1.4); }
 #cur.light { background: var(--white); }
 #cur.light.big { background: var(--purple-l); }
+@media(max-width:1024px) { #cur { display: none !important; } }
 
 /* ── SCROLL PROGRESS ── */
 #prog { position:fixed;top:0;left:0;height:3px;background:var(--purple);z-index:9999;width:0; }
@@ -3006,7 +3007,7 @@ footer {
         <div class="hstat-div"></div>
         <div class="hstat">
           <span class="hstat-num">Free</span>
-          <span class="hstat-lbl">Check-ins, free</span>
+          <span class="hstat-lbl">Check-ins</span>
         </div>
       </div>
 
@@ -3015,11 +3016,11 @@ footer {
       <!-- CTA bifurqué -->
       <div class="hero-actions">
         <div class="hero-cta-group">
-          <a href="#pricing-pro" class="btn-ink" onclick="if(typeof switchPricing==='function'){switchPricing('pro');setBilling('annual');}">
+          <a href="#for-pros" class="btn-ink">
             I'm a Professional
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="#pricing-particulier" class="btn-ghost" onclick="if(typeof switchPricing==='function'){switchPricing('private');}">
+          <a href="#for-private" class="btn-ghost">
             I'm a Landlord / Tenant
           </a>
         </div>
@@ -4689,60 +4690,63 @@ function triggerSigOnScroll(pathId) {
 triggerSigOnScroll('bento-sig-path');
 triggerSigOnScroll('hiw-sig-path');
 
-// ── CURSOR ──
+// ── CURSOR (desktop uniquement) ──
 const cur = document.getElementById('cur');
+const isTouch = window.matchMedia('(max-width: 1024px)').matches || ('ontouchstart' in window);
+if (isTouch && cur) cur.style.display = 'none';
 
-/**
- * Remonte les ancêtres d'un élément et retourne la première
- * backgroundColor non-transparente trouvée (format rgb/rgba).
- */
-function getEffectiveBg(el) {
-  let node = el;
-  while (node && node !== document.documentElement) {
-    const bg = window.getComputedStyle(node).backgroundColor;
-    if (bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent') return bg;
-    node = node.parentElement;
-  }
-  return 'rgb(243,241,235)'; // fallback cream
-}
-
-/**
- * Calcule la luminance relative d'une couleur rgb/rgba.
- * Retourne true si le fond est sombre (luminance < 0.18).
- */
-function isDarkBg(cssColor) {
-  const m = cssColor.match(/[\d.]+/g);
-  if (!m || m.length < 3) return false;
-  // Normalise 0–255 → 0–1, applique gamma
-  const [r, g, b] = [+m[0], +m[1], +m[2]].map(v => {
-    v /= 255;
-    return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
-  });
-  const L = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-  return L < 0.18; // seuil : fonds sombres (ink, #0A0818, dark cards…)
-}
-
-let lastDark = false;
-
-window.addEventListener('mousemove', e => {
-  cur.style.left = e.clientX + 'px';
-  cur.style.top  = e.clientY + 'px';
-
-  const el = document.elementFromPoint(e.clientX, e.clientY);
-  if (el) {
-    const bg = getEffectiveBg(el);
-    const dark = isDarkBg(bg);
-    if (dark !== lastDark) {
-      cur.classList.toggle('light', dark);
-      lastDark = dark;
+if (!isTouch && cur) {
+  /**
+   * Remonte les ancêtres d'un élément et retourne la première
+   * backgroundColor non-transparente trouvée (format rgb/rgba).
+   */
+  function getEffectiveBg(el) {
+    let node = el;
+    while (node && node !== document.documentElement) {
+      const bg = window.getComputedStyle(node).backgroundColor;
+      if (bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent') return bg;
+      node = node.parentElement;
     }
+    return 'rgb(243,241,235)'; // fallback cream
   }
-}, { passive: true });
 
-document.querySelectorAll('a, button').forEach(el => {
-  el.addEventListener('mouseenter', () => cur.classList.add('big'));
-  el.addEventListener('mouseleave', () => cur.classList.remove('big'));
-});
+  /**
+   * Calcule la luminance relative d'une couleur rgb/rgba.
+   * Retourne true si le fond est sombre (luminance < 0.18).
+   */
+  function isDarkBg(cssColor) {
+    const m = cssColor.match(/[\d.]+/g);
+    if (!m || m.length < 3) return false;
+    const [r, g, b] = [+m[0], +m[1], +m[2]].map(v => {
+      v /= 255;
+      return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+    });
+    const L = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    return L < 0.18;
+  }
+
+  let lastDark = false;
+
+  window.addEventListener('mousemove', e => {
+    cur.style.left = e.clientX + 'px';
+    cur.style.top  = e.clientY + 'px';
+
+    const el = document.elementFromPoint(e.clientX, e.clientY);
+    if (el) {
+      const bg = getEffectiveBg(el);
+      const dark = isDarkBg(bg);
+      if (dark !== lastDark) {
+        cur.classList.toggle('light', dark);
+        lastDark = dark;
+      }
+    }
+  }, { passive: true });
+
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => cur.classList.add('big'));
+    el.addEventListener('mouseleave', () => cur.classList.remove('big'));
+  });
+}
 
 // ── SCROLL PROGRESS + NAV PILL ──
 const prog = document.getElementById('prog');
