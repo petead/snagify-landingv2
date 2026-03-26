@@ -4517,8 +4517,8 @@ footer {
       <!-- Primary CTA avec pulse -->
       <div class="cta-primary-wrap">
         <div class="cta-pulse-ring"></div>
-        <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="btn-cta-primary">
-          Create my free account
+        <a href="#pricing-pro" class="btn-cta-primary" onclick="if(typeof switchPricing==='function'){switchPricing('pro')}">
+          I'm a Professional — Start free
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -4528,8 +4528,8 @@ footer {
       </div>
 
       <!-- Secondary -->
-      <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="btn-cta-ghost">
-        Start my first free check-in
+      <a href="#pricing-particulier" class="btn-cta-ghost" onclick="if(typeof switchPricing==='function'){switchPricing('private')}">
+        I'm a Landlord / Tenant
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
 
