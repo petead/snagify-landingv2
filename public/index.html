@@ -1590,7 +1590,14 @@ nav:not(.scrolled) {
   grid-template-columns: repeat(3,1fr);
   gap: 16px; margin-bottom: 20px;
 }
-.pricing-grid-private { margin-top: 24px; }
+.pricing-grid-private {
+  margin-top: 24px;
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+@media(max-width: 900px) {
+  .pricing-grid-private { grid-template-columns: 1fr !important; }
+}
 
 .price-card {
   background: var(--white); border: 1px solid var(--ink-25);
