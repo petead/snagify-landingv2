@@ -132,6 +132,29 @@ nav:not(.scrolled) {
 .nav-links a { color:var(--ink-60);text-decoration:none;font-size:14px;font-weight:500;transition:color .25s; }
 .nav-links a:hover { color:var(--ink); }
 
+/* ── MOB DRAWER LINKS ── */
+.mob-link {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 26px;
+  color: #0E0E10;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  padding: 8px 0;
+  display: block;
+  transition: color .2s;
+}
+.mob-link:hover { color: #9A88FD; }
+.mob-cta {
+  margin-top: 8px;
+  padding: 14px 36px;
+  background: #0E0E10;
+  color: #FCFCFC !important;
+  border-radius: 999px;
+  font-size: 16px;
+}
+.mob-cta:hover { background: #9A88FD; color: #0E0E10 !important; }
+/* ── HAMBURGER BUTTON ── */
 /* Hamburger */
 .nav-burger {
   display: none;
@@ -3135,21 +3158,6 @@ footer {
     <span></span><span></span><span></span>
   </button>
 
-  <!-- Mobile drawer -->
-  <div class="nav-drawer" id="nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu" style="background-color:#F3F1EB!important">
-    <button class="drawer-close" id="drawer-close" aria-label="Close menu">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E0E10" stroke-width="2.5" stroke-linecap="round">
-        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-      </svg>
-    </button>
-    <a href="#for-pros" class="drawer-link">Professionals</a>
-    <a href="#for-private" class="drawer-link">Landlords</a>
-    <a href="#features" class="drawer-link">Features</a>
-    <a href="#process" class="drawer-link">How it works</a>
-    <a href="#pricing" class="drawer-link">Pricing</a>
-    <div class="drawer-divider"></div>
-    <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="drawer-link drawer-cta">Open App →</a>
-  </div>
 </nav>
 
 <!-- ╔══ HERO ══╗ -->
@@ -4990,34 +4998,45 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 // ── HAMBURGER MENU ──
-const burger = document.getElementById('nav-burger');
-const drawer = document.getElementById('nav-drawer');
-const drawerClose = document.getElementById('drawer-close');
+(function() {
+  function initHamburgerMenu() {
+    var burger = document.getElementById('nav-burger');
+    var drawer = document.getElementById('nav-drawer');
+    var closeBtn = document.getElementById('drawer-close');
+    if (!burger || !drawer) return;
 
-function closeDrawer() {
-  burger.classList.remove('open');
-  drawer.classList.remove('is-open');
-  document.body.style.overflow = '';
-}
-function openDrawer() {
-  burger.classList.add('open');
-  drawer.classList.add('is-open');
-  document.body.style.overflow = 'hidden';
-}
+    function open() {
+      drawer.style.opacity = '1';
+      drawer.style.visibility = 'visible';
+      burger.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      drawer.style.opacity = '0';
+      drawer.style.visibility = 'hidden';
+      burger.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
 
-if (burger && drawer) {
-  burger.addEventListener('click', () => {
-    drawer.classList.contains('is-open') ? closeDrawer() : openDrawer();
-  });
-  if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
-  drawer.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', closeDrawer);
-  });
-  // Fermer avec Escape
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && drawer.classList.contains('is-open')) closeDrawer();
-  });
-}
+    burger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      drawer.style.opacity === '1' ? close() : open();
+    });
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    drawer.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', close);
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') close();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHamburgerMenu);
+  } else {
+    initHamburgerMenu();
+  }
+})();
 
 // ── TESTIMONIALS READ MORE (mobile) ──
 ['t1','t2','t3','t4','t5'].forEach(id => {
@@ -5074,5 +5093,44 @@ const hash = window.location.hash;
 if (hash === '#pricing-particulier') switchPricing('private');
 if (hash === '#pricing-pro') switchPricing('pro');
 </script>
+  <!-- ══ MOBILE DRAWER (hors nav, niveau body) ══ -->
+  <div id="nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation" style="
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    position:fixed;
+    top:0;left:0;right:0;bottom:0;
+    width:100vw;height:100vh;
+    background:#F3F1EB;
+    z-index:99999;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .25s ease,visibility .25s ease;
+  ">
+    <!-- Bouton X -->
+    <button id="drawer-close" aria-label="Fermer" style="
+      position:absolute;top:20px;right:20px;
+      width:44px;height:44px;
+      background:rgba(14,14,16,.08);
+      border:none;border-radius:50%;
+      cursor:pointer;
+      display:flex;align-items:center;justify-content:center;
+    ">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E0E10" stroke-width="2.5" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+    <!-- Liens -->
+    <a href="#for-pros" class="mob-link">Professionals</a>
+    <a href="#for-private" class="mob-link">Landlords</a>
+    <a href="#features" class="mob-link">Features</a>
+    <a href="#process" class="mob-link">How it works</a>
+    <a href="#pricing" class="mob-link">Pricing</a>
+    <div style="width:32px;height:1px;background:rgba(14,14,16,.15);margin:14px 0;"></div>
+    <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="mob-link mob-cta">Open App →</a>
+  </div>
+
 </body>
 </html>
