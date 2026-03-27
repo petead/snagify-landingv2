@@ -71,7 +71,7 @@ body {
 @media(max-width:1024px) { #cur { display: none !important; } }
 
 /* ── SCROLL PROGRESS ── */
-#prog { position:fixed;top:0;left:0;height:3px;background:var(--purple);z-index:9999;width:0; }
+#prog { position:fixed;top:0;left:0;height:3px;background:var(--purple);z-index:9999;width:0;pointer-events:none; }
 
 /* ══════════════════════════════════
    NAV
@@ -4531,10 +4531,10 @@ footer {
     <!-- ── Billing toggle — style pill ── -->
     <div class="billing-toggle-wrap" id="billing-toggle-wrap">
       <div class="billing-pill-toggle">
-        <button type="button" class="billing-pill-btn" id="btn-monthly" onclick="setBilling('monthly')">
+        <button type="button" class="billing-pill-btn" id="btn-monthly" onclick="event.preventDefault();event.stopPropagation();setBilling('monthly')">
           Monthly
         </button>
-        <button type="button" class="billing-pill-btn active" id="btn-annual" onclick="setBilling('annual')">
+        <button type="button" class="billing-pill-btn active" id="btn-annual" onclick="event.preventDefault();event.stopPropagation();setBilling('annual')">
           Annual
           <span class="billing-pill-sub">2 months free</span>
         </button>
@@ -5122,12 +5122,16 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (!burger || !drawer) return;
 
     function open() {
+      drawer.classList.add('is-open');
+      drawer.setAttribute('aria-hidden', 'false');
       drawer.style.opacity = '1';
       drawer.style.visibility = 'visible';
       burger.classList.add('is-open');
       document.body.style.overflow = 'hidden';
     }
     function close() {
+      drawer.classList.remove('is-open');
+      drawer.setAttribute('aria-hidden', 'true');
       drawer.style.opacity = '0';
       drawer.style.visibility = 'hidden';
       burger.classList.remove('is-open');
@@ -5211,7 +5215,7 @@ if (hash === '#pricing-particulier') switchPricing('private');
 if (hash === '#pricing-pro') { switchPricing('pro'); setBilling('annual'); }
 </script>
   <!-- ══ MOBILE DRAWER (hors nav, niveau body) ══ -->
-  <div id="nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation" style="
+  <div id="nav-drawer" class="nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation" aria-hidden="true" style="
     display:flex;
     flex-direction:column;
     align-items:center;
