@@ -3701,7 +3701,7 @@ footer {
         </div>
 
         <div class="private-cta reveal reveal-delay-3">
-          <a href="#pricing" class="btn-ink" onclick="if(typeof switchPricing==='function'){switchPricing('private')}">
+          <a href="#pricing-particulier" class="btn-ink" onclick="if(typeof switchPricing==='function'){switchPricing('private')}">
             See Credit Packs
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -4531,10 +4531,10 @@ footer {
     <!-- ── Billing toggle — style pill ── -->
     <div class="billing-toggle-wrap" id="billing-toggle-wrap">
       <div class="billing-pill-toggle">
-        <button type="button" class="billing-pill-btn active" id="btn-monthly" onclick="setBilling('monthly')">
+        <button type="button" class="billing-pill-btn" id="btn-monthly" onclick="setBilling('monthly')">
           Monthly
         </button>
-        <button type="button" class="billing-pill-btn" id="btn-annual" onclick="setBilling('annual')">
+        <button type="button" class="billing-pill-btn active" id="btn-annual" onclick="setBilling('annual')">
           Annual
           <span class="billing-pill-sub">2 months free</span>
         </button>
@@ -4665,6 +4665,7 @@ footer {
     </div>
 
     <!-- ── PARTICULIER PLANS ── -->
+    <div id="pricing-particulier" style="position:relative;top:-120px;pointer-events:none;visibility:hidden"></div>
     <div class="pricing-panel hidden" id="panel-private">
 
       <!-- Banner check-in gratuit — redesign compact -->
@@ -4699,7 +4700,6 @@ footer {
         </div>
       </div>
 
-      <div id="pricing-particulier" style="position:relative;top:-120px;pointer-events:none;visibility:hidden;display:block"></div>
       <div class="pricing-grid pricing-grid-private">
 
         <!-- SOLO -->
@@ -5098,12 +5098,9 @@ new IntersectionObserver(entries => {
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const href = a.getAttribute('href');
-    // Retire les handlers onclick inline sur ces boutons pour éviter le doublon
-    a.removeAttribute('onclick');
     const t = document.querySelector(href);
     if (t) {
       e.preventDefault();
-      // Switch pricing AVANT le scroll
       if (href === '#pricing-particulier' && typeof switchPricing === 'function') {
         switchPricing('private');
       }
@@ -5205,12 +5202,13 @@ function switchPricing(type) {
   document.getElementById('toggle-private').classList.toggle('active', type === 'private');
   showBillingToggle(type === 'pro');
 }
-// Billing annual par défaut
+// État initial : pro + annual
+switchPricing('pro');
 setBilling('annual');
-// Auto-switch if anchor is #pricing-pro or #pricing-particulier
+// Override si hash présent
 const hash = window.location.hash;
 if (hash === '#pricing-particulier') switchPricing('private');
-if (hash === '#pricing-pro') switchPricing('pro');
+if (hash === '#pricing-pro') { switchPricing('pro'); setBilling('annual'); }
 </script>
   <!-- ══ MOBILE DRAWER (hors nav, niveau body) ══ -->
   <div id="nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation" style="
