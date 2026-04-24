@@ -2380,6 +2380,198 @@ footer {
 }
 
 /* ══════════════════════════════════
+   FAQ
+══════════════════════════════════ */
+.faq {
+  padding: 140px 48px 120px;
+  background: var(--cream);
+  position: relative;
+}
+.faq-inner { max-width: 900px; margin: 0 auto; }
+
+.faq-head { margin-bottom: 56px; }
+.faq h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -1.5px;
+  margin: 18px 0 20px;
+  color: var(--ink);
+}
+.faq h2 em {
+  color: var(--purple);
+  font-style: italic;
+}
+.faq-sub {
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink-60);
+  max-width: 560px;
+}
+
+/* Tabs */
+.faq-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+.faq-tab {
+  padding: 11px 20px;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-60);
+  border: 1px solid var(--ink-25);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .25s cubic-bezier(.16,1,.3,1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.faq-tab:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.faq-tab.active {
+  background: var(--ink);
+  color: var(--white);
+  border-color: var(--ink);
+  font-weight: 700;
+}
+.faq-tab-count {
+  font-size: 11px;
+  opacity: .5;
+  font-weight: 600;
+}
+.faq-tab.active .faq-tab-count { opacity: .6; }
+
+/* Panels */
+.faq-panel { display: none; }
+.faq-panel.active { display: block; animation: faqFadeIn .35s cubic-bezier(.16,1,.3,1); }
+@keyframes faqFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Accordion */
+.faq-list { border-top: 1px solid var(--ink-25); }
+.faq-item { border-bottom: 1px solid var(--ink-25); }
+
+.faq-q {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 28px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 1.4;
+  color: var(--ink);
+  transition: color .25s;
+}
+.faq-q:hover { color: var(--purple); }
+
+.faq-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid var(--ink-25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-60);
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1;
+  transition: all .4s cubic-bezier(.16,1,.3,1);
+}
+.faq-item.open .faq-icon {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: var(--white);
+  transform: rotate(45deg);
+  font-weight: 500;
+}
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .5s cubic-bezier(.16,1,.3,1);
+}
+.faq-a-inner { padding: 0 0 28px; max-width: 680px; }
+.faq-a p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink-60);
+}
+
+/* Bottom CTA */
+.faq-bottom {
+  margin-top: 48px;
+  padding: 24px 28px;
+  background: var(--purple-bg);
+  border: 1px solid rgba(154,136,253,.25);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.faq-bottom-text h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+.faq-bottom-text p {
+  font-size: 14px;
+  color: var(--ink-60);
+  margin: 0;
+}
+.faq-bottom-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.faq-btn {
+  padding: 12px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s;
+}
+.faq-btn:hover { transform: translateY(-2px); }
+.faq-btn-wa { background: #25D366; color: var(--white); }
+.faq-btn-wa:hover { box-shadow: 0 8px 20px rgba(37,211,102,.3); }
+.faq-btn-mail { background: var(--ink); color: var(--white); }
+.faq-btn-mail:hover { box-shadow: 0 8px 20px rgba(14,14,16,.3); }
+
+@media (max-width: 768px) {
+  .faq { padding: 80px 20px; }
+  .faq h2 { letter-spacing: -1px; }
+  .faq-q { font-size: 16px; padding: 22px 0; gap: 16px; }
+  .faq-icon { width: 30px; height: 30px; font-size: 18px; }
+  .faq-a p { font-size: 15px; }
+  .faq-bottom { flex-direction: column; align-items: stretch; text-align: center; padding: 20px; }
+  .faq-bottom-actions { justify-content: center; }
+}
+
+/* ══════════════════════════════════
    SCROLL REVEALS
 ══════════════════════════════════ */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .75s cubic-bezier(.16,1,.3,1), transform .75s cubic-bezier(.16,1,.3,1); }
@@ -3214,6 +3406,118 @@ footer {
 }
 
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is a Snagify report actually accepted by the Dubai Rental Dispute Center (RDC)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A Snagify report includes everything the RDC requires: timestamped entries, dual signatures, photo evidence with metadata, and a SHA-256 cryptographic hash that proves the file wasn't altered after signature. You submit the PDF as-is — no notarisation, no reformatting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if the tenant refuses to sign?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You document the refusal directly in the report. A dedicated field logs 'Refused to sign' with timestamp and optional reason. Courts treat a documented refusal as strong evidence that due process was followed. In practice, most tenants sign once they see the report is balanced and photo-backed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Snagify certified by RERA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RERA doesn't certify apps — it regulates brokers. Snagify follows RERA's inspection guidelines (room-by-room breakdown, dual signatures, photo documentation) and our report format is built around the exact criteria RERA uses when reviewing disputes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use a Snagify report as evidence in court?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The RDC and Dubai civil courts accept digitally signed documents with verifiable timestamps. The SHA-256 hash on every PDF is cryptographic proof the file hasn't been tampered with — a lawyer can verify it in under a minute if challenged."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to train my inspectors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Inspectors are usually productive on their first real inspection. The flow is guided screen-by-screen: add property, walk room-by-room, photograph, tag, sign. If they can use WhatsApp, they can use Snagify."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are check-ins free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because an undocumented move-in is the single biggest cause of lost deposits in Dubai. We want every landlord to have that baseline — whether they pay us later or not. Check-outs need proof of the original condition, so that's where credits are used."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does an inspection actually take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "20 minutes for an average 1-bedroom apartment. 30 to 40 minutes for a villa with 4+ rooms. First-time property setup adds 2 to 3 minutes (address, rooms, Ejari). After that, every check-out uses the pre-filled template — fast."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work offline on-site?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Snagify is a PWA — it installs on your phone and runs offline once loaded. Photos and AI tagging queue locally and sync when you're back online. You can start in a basement with no signal, finish on the rooftop, and not lose a thing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do credits expire? Can I share them with my team?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Subscription credits roll over while your plan is active. Credit packs for landlords are valid 2 years. On Pro plans, all inspectors in your team share one credit pool — no one runs out while another has extras."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I cancel anytime?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, anytime. Monthly plans cancel in one click — no fees, no questions. You keep access until the end of your billing period, and every report you've ever generated stays accessible forever."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is my data stored? Is it secure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reports, photos, and signatures are stored on encrypted servers. Photos are analysed by Claude AI and then discarded — only the final report is retained. SHA-256 hashes detect any tampering. Your data is never sold, shared, or used for AI training."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I keep my reports if I stop my subscription?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Forever. Every PDF you've generated stays in your account, downloadable anytime. If you cancel, you keep read-only access to all past reports — you just can't create new ones until you reactivate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is Snagify different from traditional snagging companies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Completely different use case. Traditional snagging companies are services — they send an engineer to inspect a new build for construction defects, 800 to 2,000 AED per visit. Snagify is software for rental inspections — check-in and check-out between landlord and tenant — that you run yourself, in 20 minutes, for 7 to 12 AED per inspection."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -3235,6 +3539,7 @@ footer {
     <li><a href="#features">Features</a></li>
     <li><a href="#process">How it works</a></li>
     <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li>
       <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="nav-pill nav-app-btn">
         <span class="nav-pill-dot"></span>
@@ -4786,6 +5091,232 @@ footer {
   </div>
 </section>
 
+<!-- ╔══ FAQ ══╗ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+
+    <div class="faq-head">
+      <div class="section-eyebrow reveal">
+        <span class="eyebrow-dot"></span>
+        FAQ
+      </div>
+      <h2 class="reveal reveal-delay-1">Answered <em>before you ask.</em></h2>
+      <p class="faq-sub reveal reveal-delay-2">The questions we hear most often from Dubai landlords, agents, and property managers.</p>
+    </div>
+
+    <div class="faq-tabs reveal">
+      <button class="faq-tab active" data-tab="legal" type="button">
+        Legal &amp; RDC
+        <span class="faq-tab-count">4</span>
+      </button>
+      <button class="faq-tab" data-tab="start" type="button">
+        Getting Started
+        <span class="faq-tab-count">4</span>
+      </button>
+      <button class="faq-tab" data-tab="pricing" type="button">
+        Pricing &amp; Data
+        <span class="faq-tab-count">5</span>
+      </button>
+    </div>
+
+    <!-- Panel: Legal & RDC -->
+    <div class="faq-panel active" data-panel="legal">
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            Is a Snagify report actually accepted by the Dubai Rental Dispute Center (RDC)?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>Yes. A Snagify report includes everything the RDC requires: timestamped entries, dual signatures, photo evidence with metadata, and a SHA-256 cryptographic hash that proves the file wasn't altered after signature. You submit the PDF as-is — no notarisation, no reformatting.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            What happens if the tenant refuses to sign?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>You document the refusal directly in the report. A dedicated field logs &quot;Refused to sign&quot; with timestamp and optional reason. Courts treat a documented refusal as strong evidence that due process was followed. In practice, most tenants sign once they see the report is balanced and photo-backed.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            Is Snagify certified by RERA?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>RERA doesn't certify apps — it regulates brokers. Snagify follows RERA's inspection guidelines (room-by-room breakdown, dual signatures, photo documentation) and our report format is built around the exact criteria RERA uses when reviewing disputes.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            Can I use a Snagify report as evidence in court?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>Yes. The RDC and Dubai civil courts accept digitally signed documents with verifiable timestamps. The SHA-256 hash on every PDF is cryptographic proof the file hasn't been tampered with — a lawyer can verify it in under a minute if challenged.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Panel: Getting Started -->
+    <div class="faq-panel" data-panel="start">
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            Do I need to train my inspectors?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>No. Inspectors are usually productive on their first real inspection. The flow is guided screen-by-screen: add property → walk room-by-room → photograph → tag → sign. If they can use WhatsApp, they can use Snagify.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            Why are check-ins free?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>Because an undocumented move-in is the single biggest cause of lost deposits in Dubai. We want every landlord to have that baseline — whether they pay us later or not. Check-outs need proof of the original condition, so that's where credits are used.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            How long does an inspection actually take?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>20 minutes for an average 1-bedroom apartment. 30–40 min for a villa with 4+ rooms. First-time property setup adds 2–3 min (address, rooms, Ejari). After that, every check-out uses the pre-filled template — fast.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            Does it work offline on-site?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>Yes. Snagify is a PWA — it installs on your phone and runs offline once loaded. Photos and AI tagging queue locally and sync when you're back online. You can start in a basement with no signal, finish on the rooftop, and not lose a thing.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Panel: Pricing & Data -->
+    <div class="faq-panel" data-panel="pricing">
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            Do credits expire? Can I share them with my team?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>Subscription credits roll over while your plan is active. Credit packs for landlords are valid 2 years. On Pro plans, all inspectors in your team share one credit pool — no one runs out while another has extras.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            Can I cancel anytime?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>Yes, anytime. Monthly plans cancel in one click — no fees, no questions. You keep access until the end of your billing period, and every report you've ever generated stays accessible forever.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            Where is my data stored? Is it secure?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>Reports, photos, and signatures are stored on encrypted servers. Photos are analysed by Claude AI and then discarded — only the final report is retained. SHA-256 hashes detect any tampering. Your data is never sold, shared, or used for AI training.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            Do I keep my reports if I stop my subscription?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>Forever. Every PDF you've generated stays in your account, downloadable anytime. If you cancel, you keep read-only access to all past reports — you just can't create new ones until you reactivate.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            How is Snagify different from traditional snagging companies?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>Completely different use case. Traditional snagging companies are <strong>services</strong> — they send an engineer to inspect a <em>new build</em> for construction defects, 800–2,000 AED per visit. Snagify is <strong>software</strong> for <em>rental</em> inspections — check-in/check-out between landlord and tenant — that you run yourself, in 20 min, for 7–12 AED per inspection.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="faq-bottom reveal">
+      <div class="faq-bottom-text">
+        <h4>Still have questions?</h4>
+        <p>We usually reply within the hour.</p>
+      </div>
+      <div class="faq-bottom-actions">
+        <a href="javascript:void(0)" class="faq-btn faq-btn-wa" aria-label="Contact us on WhatsApp">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.93 11.93 0 0012.06 0C5.45 0 .1 5.35.1 11.96c0 2.11.55 4.17 1.6 5.99L0 24l6.24-1.64a11.96 11.96 0 005.82 1.48h.01c6.6 0 11.96-5.35 11.96-11.96a11.9 11.9 0 00-3.51-8.4zM12.07 21.79h-.01a9.84 9.84 0 01-5.02-1.38l-.36-.21-3.71.97.99-3.61-.23-.37a9.86 9.86 0 01-1.51-5.24c0-5.46 4.44-9.9 9.9-9.9 2.64 0 5.13 1.03 7 2.9a9.83 9.83 0 012.9 7c0 5.46-4.44 9.9-9.9 9.9zm5.44-7.42c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51H8.5c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.1 4.49.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35z"/></svg>
+          WhatsApp
+        </a>
+        <a href="mailto:hello@snagify.net" class="faq-btn faq-btn-mail" aria-label="Email us">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2 7 12 14 22 7"/></svg>
+          Email us
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
 <!-- ╔══ CTA FINAL ══╗ -->
 <section class="cta-band" id="cta">
   <div class="cta-band-top"></div>
@@ -5257,6 +5788,7 @@ if (hash === '#pricing-pro') { switchPricing('pro'); setBilling('annual'); }
     <a href="#features" class="mob-link">Features</a>
     <a href="#process" class="mob-link">How it works</a>
     <a href="#pricing" class="mob-link">Pricing</a>
+    <a href="#faq" class="mob-link">FAQ</a>
     <div style="width:32px;height:1px;background:rgba(14,14,16,.15);margin:14px 0;"></div>
     <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="mob-link mob-cta" style="color:#FCFCFC!important;">Open App →</a>
   </div>
@@ -5265,5 +5797,60 @@ if (hash === '#pricing-pro') { switchPricing('pro'); setBilling('annual'); }
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
+<script>
+// FAQ — tabs + accordion (one open at a time per panel)
+(function(){
+  const tabs = document.querySelectorAll('.faq-tab');
+  const panels = document.querySelectorAll('.faq-panel');
+  const items = document.querySelectorAll('.faq-item');
+  if (!items.length) return;
+
+  function closeItem(item) {
+    item.classList.remove('open');
+    const a = item.querySelector('.faq-a');
+    if (a) a.style.maxHeight = '0px';
+  }
+  function openItem(item) {
+    item.classList.add('open');
+    const a = item.querySelector('.faq-a');
+    if (a) a.style.maxHeight = a.scrollHeight + 'px';
+  }
+
+  // Tabs
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+      tabs.forEach(t => t.classList.toggle('active', t === tab));
+      panels.forEach(p => p.classList.toggle('active', p.dataset.panel === target));
+      items.forEach(closeItem);
+    });
+  });
+
+  // Accordion
+  items.forEach(item => {
+    const q = item.querySelector('.faq-q');
+    if (!q) return;
+    q.addEventListener('click', () => {
+      const wasOpen = item.classList.contains('open');
+      const panel = item.closest('.faq-panel');
+      panel.querySelectorAll('.faq-item.open').forEach(closeItem);
+      if (!wasOpen) {
+        openItem(item);
+        // Smart scroll: only if question sits above the fixed nav after opening
+        requestAnimationFrame(() => {
+          setTimeout(() => {
+            const rect = item.getBoundingClientRect();
+            const navH = 80;
+            if (rect.top < navH) {
+              const absoluteTop = window.scrollY + rect.top - navH - 16;
+              window.scrollTo({ top: absoluteTop, behavior: 'smooth' });
+            }
+          }, 120);
+        });
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>
