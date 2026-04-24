@@ -2572,6 +2572,320 @@ footer {
 }
 
 /* ══════════════════════════════════
+   ROI CALCULATOR
+══════════════════════════════════ */
+.roi {
+  padding: 140px 48px 120px;
+  background: var(--ink);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.roi-inner { max-width: 1100px; margin: 0 auto; }
+
+.roi .section-eyebrow { color: rgba(255,255,255,.45); }
+.roi .section-eyebrow::before { background: rgba(255,255,255,.35); }
+
+.roi-head { margin-bottom: 48px; max-width: 640px; }
+.roi h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -1.5px;
+  margin: 18px 0 18px;
+  color: var(--white);
+}
+.roi h2 em { color: var(--purple); font-style: italic; }
+.roi-sub {
+  font-size: 17px; line-height: 1.55;
+  color: rgba(255,255,255,0.55);
+  max-width: 560px;
+}
+
+.roi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.roi-slider-block { margin-bottom: 36px; }
+.roi-slider-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 16px;
+  gap: 12px;
+}
+.roi-slider-label {
+  font-size: 13px; font-weight: 600;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.3px;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.roi-info {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.55);
+  font-size: 10px; font-weight: 700;
+  cursor: help;
+  position: relative;
+  outline: none;
+}
+.roi-info:hover .roi-tooltip,
+.roi-info:focus .roi-tooltip,
+.roi-info:focus-within .roi-tooltip {
+  opacity: 1; transform: translate(-50%, 0); pointer-events: auto;
+}
+.roi-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px); left: 50%;
+  transform: translate(-50%, 6px);
+  width: 260px;
+  padding: 12px 14px;
+  background: #18181F;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  font-size: 12px; line-height: 1.55;
+  color: rgba(255,255,255,0.78);
+  font-weight: 400;
+  opacity: 0; pointer-events: none;
+  transition: opacity .22s cubic-bezier(.16,1,.3,1),
+              transform .22s cubic-bezier(.16,1,.3,1);
+  text-align: left;
+  letter-spacing: 0;
+  text-transform: none;
+  z-index: 20;
+}
+.roi-tooltip::after {
+  content: '';
+  position: absolute; top: 100%; left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #18181F;
+}
+.roi-slider-value {
+  font-family: 'Poppins', sans-serif;
+  font-size: 36px; font-weight: 800;
+  color: var(--white);
+  letter-spacing: -1.2px;
+  line-height: 1;
+}
+.roi-slider-value .unit {
+  font-size: 14px; font-weight: 500;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0;
+  margin-left: 4px;
+}
+
+.roi-slider {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 4px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+}
+.roi-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 22px; height: 22px;
+  background: var(--purple);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid var(--ink);
+  box-shadow: 0 0 0 1px var(--purple);
+  transition: transform .2s ease;
+}
+.roi-slider::-webkit-slider-thumb:hover { transform: scale(1.18); }
+.roi-slider::-moz-range-thumb {
+  width: 22px; height: 22px;
+  background: var(--purple);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid var(--ink);
+  box-shadow: 0 0 0 1px var(--purple);
+}
+.roi-slider-hint {
+  font-size: 12px; color: rgba(255,255,255,0.35);
+  margin-top: 10px;
+}
+
+.roi-math-toggle {
+  font-size: 13px; color: rgba(255,255,255,0.5);
+  background: none; border: none;
+  cursor: pointer;
+  padding: 8px 0;
+  margin-top: 4px;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: inherit;
+  transition: color .2s;
+}
+.roi-math-toggle:hover { color: var(--purple); }
+.roi-math-toggle .chev {
+  display: inline-block;
+  transition: transform .25s;
+  font-size: 10px;
+}
+.roi-math-toggle.open .chev { transform: rotate(180deg); }
+.roi-math {
+  max-height: 0; overflow: hidden;
+  transition: max-height .4s cubic-bezier(.16,1,.3,1);
+}
+.roi-math-inner {
+  padding: 14px 16px;
+  margin-top: 10px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.06);
+  font-size: 12px; line-height: 1.8;
+  color: rgba(255,255,255,0.55);
+  font-family: 'JetBrains Mono', 'Space Mono', ui-monospace, monospace;
+}
+.roi-math-inner strong { color: var(--purple); font-weight: 700; }
+
+.roi-result {
+  background: #18181F;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 24px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.roi-result::before {
+  content: '';
+  position: absolute; top: -60px; right: -60px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: rgba(154,136,253,0.18);
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+.roi-plan-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  background: rgba(154,136,253,0.18);
+  color: var(--purple);
+  border-radius: 999px;
+  font-size: 11px; font-weight: 800;
+  letter-spacing: 0.6px; text-transform: uppercase;
+  margin-bottom: 10px;
+  position: relative;
+}
+.roi-result-label {
+  font-size: 11px; font-weight: 700;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 1.4px; text-transform: uppercase;
+  margin: 0 0 14px;
+  position: relative;
+}
+.roi-big {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: clamp(48px, 6vw, 72px);
+  line-height: 1;
+  letter-spacing: -3px;
+  color: var(--white);
+  margin: 0 0 8px;
+  position: relative;
+}
+.roi-big .aed {
+  font-size: 0.42em;
+  color: rgba(255,255,255,0.5);
+  margin-right: 8px;
+  vertical-align: 10%;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+.roi-big-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  margin: 0 0 26px;
+  position: relative;
+}
+
+.roi-break {
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  position: relative;
+}
+.roi-line {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 9px 0;
+  font-size: 14px;
+}
+.roi-line-label {
+  color: rgba(255,255,255,0.65);
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.roi-line-val {
+  font-weight: 700; color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: -0.3px;
+}
+.roi-line.plus .roi-line-val { color: var(--purple); }
+.roi-line.minus .roi-line-val { color: rgba(255,255,255,0.75); }
+.roi-tick, .roi-minus {
+  width: 16px; height: 16px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 900;
+  flex-shrink: 0;
+}
+.roi-tick { background: rgba(154,136,253,0.2); color: var(--purple); }
+.roi-minus { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.55); font-weight: 700; line-height: 1; }
+
+.roi-multiplier {
+  display: flex; align-items: center; gap: 14px;
+  margin: 22px 0 0;
+  padding: 14px 16px;
+  background: rgba(154,136,253,0.08);
+  border: 1px solid rgba(154,136,253,0.22);
+  border-radius: 14px;
+  position: relative;
+}
+.roi-multi-num {
+  font-family: 'Poppins', sans-serif;
+  font-size: 26px; font-weight: 800;
+  color: var(--purple);
+  letter-spacing: -1px;
+  flex-shrink: 0;
+}
+.roi-multi-text {
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.45;
+}
+
+.roi-cta {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%;
+  margin-top: 20px;
+  padding: 16px 22px;
+  background: var(--purple);
+  color: var(--ink);
+  text-decoration: none;
+  border: none; border-radius: 999px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px; font-weight: 800;
+  cursor: pointer;
+  transition: transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s;
+  position: relative;
+}
+.roi-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(154,136,253,0.35);
+}
+
+@media (max-width: 960px) {
+  .roi-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 768px) {
+  .roi { padding: 80px 20px; }
+  .roi h2 { letter-spacing: -1px; }
+  .roi-result { padding: 24px; }
+  .roi-big { letter-spacing: -2px; }
+}
+
+/* ══════════════════════════════════
    SCROLL REVEALS
 ══════════════════════════════════ */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .75s cubic-bezier(.16,1,.3,1), transform .75s cubic-bezier(.16,1,.3,1); }
@@ -3538,6 +3852,7 @@ footer {
     <li><a href="#for-private">Landlords</a></li>
     <li><a href="#features">Features</a></li>
     <li><a href="#process">How it works</a></li>
+    <li><a href="#roi">ROI</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li>
@@ -4810,6 +5125,93 @@ footer {
   </div>
 </section>
 
+<!-- ╔══ ROI CALCULATOR ══╗ -->
+<section class="roi" id="roi">
+  <div class="roi-inner">
+
+    <div class="roi-head">
+      <div class="section-eyebrow reveal">
+        <span class="eyebrow-dot"></span>
+        ROI Calculator
+      </div>
+      <h2 class="reveal reveal-delay-1">Turn inspection admin <em>into revenue.</em></h2>
+      <p class="roi-sub reveal reveal-delay-2">Most agencies do inspections for free. With Snagify, you bill the landlord for a branded, RDC-valid report — and keep the margin.</p>
+    </div>
+
+    <div class="roi-grid reveal">
+
+      <div class="roi-inputs">
+
+        <div class="roi-slider-block">
+          <div class="roi-slider-head">
+            <span class="roi-slider-label">Inspections per month</span>
+            <span class="roi-slider-value"><span id="roi-insp-val">20</span></span>
+          </div>
+          <input type="range" id="roi-insp" class="roi-slider" min="1" max="100" value="20" step="1" aria-label="Inspections per month">
+          <div class="roi-slider-hint">Each check-in or check-out counts as one.</div>
+        </div>
+
+        <div class="roi-slider-block">
+          <div class="roi-slider-head">
+            <span class="roi-slider-label">
+              What you'd bill per inspection
+              <span class="roi-info" tabindex="0" aria-label="Pricing guidance">
+                ?
+                <span class="roi-tooltip">Typical range in Dubai: 150–300 AED. Most agencies already charge move-in / move-out fees — Snagify just positions it as a premium, branded, RDC-valid service worth paying for.</span>
+              </span>
+            </span>
+            <span class="roi-slider-value"><span id="roi-bill-val">200</span><span class="unit">AED</span></span>
+          </div>
+          <input type="range" id="roi-bill" class="roi-slider" min="100" max="500" value="200" step="10" aria-label="Bill per inspection in AED">
+          <div class="roi-slider-hint">Dubai average: 150–300 AED per inspection.</div>
+        </div>
+
+        <button class="roi-math-toggle" id="roi-math-toggle" type="button" aria-expanded="false">
+          Show me the math <span class="chev">▾</span>
+        </button>
+        <div class="roi-math" id="roi-math-box">
+          <div class="roi-math-inner" id="roi-math-content"></div>
+        </div>
+
+      </div>
+
+      <div class="roi-result">
+        <span class="roi-plan-badge" id="roi-plan-badge">Growth plan</span>
+        <p class="roi-result-label">What you'd take home as pro</p>
+        <div class="roi-big"><span class="aed">AED</span><span id="roi-take">45,012</span></div>
+        <p class="roi-big-sub">per year, after Snagify cost</p>
+
+        <div class="roi-break">
+          <div class="roi-line plus">
+            <span class="roi-line-label"><span class="roi-tick">+</span>Billed to landlords</span>
+            <span class="roi-line-val">AED <span id="roi-rev">48,000</span></span>
+          </div>
+          <div class="roi-line minus">
+            <span class="roi-line-label"><span class="roi-minus">−</span>Snagify <span id="roi-plan-inline">Growth</span> plan</span>
+            <span class="roi-line-val">AED <span id="roi-cost">2,988</span></span>
+          </div>
+          <div class="roi-line minus" id="roi-extra-line" style="display:none;">
+            <span class="roi-line-label"><span class="roi-minus">−</span>Extra credits (<span id="roi-extra-n">0</span>)</span>
+            <span class="roi-line-val">AED <span id="roi-extra">0</span></span>
+          </div>
+        </div>
+
+        <div class="roi-multiplier">
+          <span class="roi-multi-num" id="roi-mult">15.1×</span>
+          <span class="roi-multi-text">your yearly Snagify cost.</span>
+        </div>
+
+        <a href="https://app.snagify.net" class="roi-cta" id="roi-cta" target="_blank" rel="noopener noreferrer">
+          Start with the <span id="roi-plan-cta">Growth</span> plan →
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
 <!-- ╔══ PRICING ══╗ -->
 <div id="pricing-pro" style="position:relative;top:-120px;pointer-events:none;visibility:hidden"></div>
 <section class="pricing" id="pricing">
@@ -5787,6 +6189,7 @@ if (hash === '#pricing-pro') { switchPricing('pro'); setBilling('annual'); }
     <a href="#for-private" class="mob-link">Landlords</a>
     <a href="#features" class="mob-link">Features</a>
     <a href="#process" class="mob-link">How it works</a>
+    <a href="#roi" class="mob-link">ROI</a>
     <a href="#pricing" class="mob-link">Pricing</a>
     <a href="#faq" class="mob-link">FAQ</a>
     <div style="width:32px;height:1px;background:rgba(14,14,16,.15);margin:14px 0;"></div>
@@ -5850,6 +6253,120 @@ if (hash === '#pricing-pro') { switchPricing('pro'); setBilling('annual'); }
       }
     });
   });
+})();
+</script>
+<script>
+(function(){
+  const sInsp = document.getElementById('roi-insp');
+  const sBill = document.getElementById('roi-bill');
+  if (!sInsp || !sBill) return;
+
+  const rInspVal = document.getElementById('roi-insp-val');
+  const rBillVal = document.getElementById('roi-bill-val');
+  const rRev = document.getElementById('roi-rev');
+  const rCost = document.getElementById('roi-cost');
+  const rTake = document.getElementById('roi-take');
+  const rMult = document.getElementById('roi-mult');
+  const rPlanBadge = document.getElementById('roi-plan-badge');
+  const rPlanInline = document.getElementById('roi-plan-inline');
+  const rPlanCta = document.getElementById('roi-plan-cta');
+  const rExtra = document.getElementById('roi-extra');
+  const rExtraN = document.getElementById('roi-extra-n');
+  const rExtraLine = document.getElementById('roi-extra-line');
+  const mathToggle = document.getElementById('roi-math-toggle');
+  const mathBox = document.getElementById('roi-math-box');
+  const mathContent = document.getElementById('roi-math-content');
+
+  const plans = {
+    starter: { name: 'Starter', credits: 15, cost: 1788, extra: 28 },
+    growth:  { name: 'Growth',  credits: 30, cost: 2988, extra: 22 },
+    agency:  { name: 'Agency',  credits: 50, cost: 4488, extra: 16 }
+  };
+
+  function pickPlan(insp){
+    if (insp <= 15) return plans.starter;
+    if (insp <= 30) return plans.growth;
+    return plans.agency;
+  }
+
+  function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
+
+  const prev = { rev: 48000, cost: 2988, take: 45012, extra: 0 };
+
+  function animateTo(el, fromVal, toVal, duration){
+    const start = performance.now();
+    function tick(now){
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const v = fromVal + (toVal - fromVal) * eased;
+      el.textContent = fmt(v);
+      if (t < 1) requestAnimationFrame(tick);
+      else el.textContent = fmt(toVal);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function calc(){
+    const insp = parseInt(sInsp.value, 10);
+    const bill = parseInt(sBill.value, 10);
+
+    rInspVal.textContent = insp;
+    rBillVal.textContent = bill;
+
+    const plan = pickPlan(insp);
+    const rev = insp * 12 * bill;
+    const creditsNeeded = insp * 12;
+    const creditsIncluded = plan.credits * 12;
+    const extraCredits = Math.max(0, creditsNeeded - creditsIncluded);
+    const extraCost = extraCredits * plan.extra;
+    const totalCost = plan.cost + extraCost;
+    const take = rev - totalCost;
+    const mult = take / plan.cost;
+
+    rPlanBadge.textContent = plan.name + ' plan';
+    rPlanInline.textContent = plan.name;
+    rPlanCta.textContent = plan.name;
+
+    animateTo(rRev, prev.rev, rev, 400);
+    animateTo(rCost, prev.cost, plan.cost, 400);
+    animateTo(rTake, prev.take, take, 500);
+
+    rMult.textContent = mult.toFixed(1) + '×';
+
+    if (extraCredits > 0) {
+      rExtraLine.style.display = 'flex';
+      rExtraN.textContent = extraCredits;
+      animateTo(rExtra, prev.extra, extraCost, 400);
+    } else {
+      rExtraLine.style.display = 'none';
+    }
+
+    mathContent.innerHTML =
+      'Revenue    : ' + insp + ' × 12 × ' + bill + ' AED = ' + fmt(rev) + ' AED<br>' +
+      'Plan       : ' + plan.name + ' (' + plan.credits + ' credits/mo, ' + fmt(plan.cost) + ' AED/yr)<br>' +
+      'Credits    : ' + creditsNeeded + '/yr needed, ' + creditsIncluded + ' included' +
+      (extraCredits > 0 ? '<br>Extra      : ' + extraCredits + ' × ' + plan.extra + ' AED = ' + fmt(extraCost) + ' AED' : '') +
+      '<br>Take-home  : ' + fmt(rev) + ' − ' + fmt(totalCost) + ' = <strong>' + fmt(take) + ' AED</strong>';
+
+    if (mathToggle && mathToggle.classList.contains('open') && mathBox) {
+      mathBox.style.maxHeight = mathContent.scrollHeight + 40 + 'px';
+    }
+
+    prev.rev = rev; prev.cost = plan.cost; prev.take = take; prev.extra = extraCost;
+  }
+
+  sInsp.addEventListener('input', calc);
+  sBill.addEventListener('input', calc);
+
+  if (mathToggle && mathBox) {
+    mathToggle.addEventListener('click', () => {
+      const open = mathToggle.classList.toggle('open');
+      mathToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      mathBox.style.maxHeight = open ? (mathContent.scrollHeight + 40) + 'px' : '0px';
+    });
+  }
+
+  calc();
 })();
 </script>
 </body>
