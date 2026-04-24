@@ -1661,20 +1661,6 @@ div#nav-drawer a {
 @media(min-width: 769px) {
   .testi-read-more { display: none; }
 }
-.testi-author { display: flex; align-items: center; gap: 12px; }
-.testi-avatar {
-  width: 48px; height: 48px; border-radius: 14px;
-  flex-shrink: 0; overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0,0,0,.2);
-}
-.testi-avatar img,
-.testi-avatar svg { width: 100%; height: 100%; display: block; }
-.testi-author h4 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700; font-size: 14px; color: var(--white);
-}
-.testi-author p { font-size: 12px; color: rgba(255,255,255,.4); }
-
 .testi-divider {
   height: 1px;
   background: rgba(255,255,255,.07);
@@ -2914,6 +2900,68 @@ footer {
   .roi h2 { letter-spacing: -1px; }
   .roi-result { padding: 24px; }
   .roi-big { letter-spacing: -2px; }
+}
+
+/* ══════════════════════════════════
+   TESTIMONIAL AUTHOR + AVATAR
+══════════════════════════════════ */
+.testi-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid rgba(14,14,16,0.08);
+  padding-top: 18px;
+  margin-top: 24px;
+}
+.testi-avatar {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+.testi-avatar.is-pro {
+  background: var(--purple);
+  color: var(--white);
+}
+.testi-avatar.is-landlord {
+  background: var(--jasmine);
+  color: var(--ink);
+}
+.testi-author-text {
+  flex: 1;
+  min-width: 0;
+}
+.testi-author h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ink);
+  margin: 0 0 2px;
+  line-height: 1.2;
+}
+.testi-author p {
+  font-size: 12px;
+  color: var(--ink-60);
+  margin: 0;
+  line-height: 1.4;
+}
+/* Dark testimonial cards: keep contrast on ink-tinted UI */
+.testi .testi-author {
+  border-top-color: rgba(255,255,255,0.1);
+}
+.testi .testi-author h4 {
+  color: var(--white);
+}
+.testi .testi-author p {
+  color: rgba(255,255,255,0.55);
 }
 
 /* ══════════════════════════════════
@@ -4333,6 +4381,92 @@ footer {
   </div>
 </section>
 
+<!-- ╔══ ROI CALCULATOR ══╗ -->
+<section class="roi" id="roi">
+  <div class="roi-inner">
+
+    <div class="roi-head">
+      <div class="section-eyebrow reveal">
+        <span class="eyebrow-dot"></span>
+        ROI Calculator
+      </div>
+      <h2 class="reveal reveal-delay-1">Turn inspection admin <em>into revenue.</em></h2>
+      <p class="roi-sub reveal reveal-delay-2">Most agencies do inspections for free. With Snagify, you bill the landlord for a branded, RDC-valid report — and keep the margin.</p>
+    </div>
+
+    <div class="roi-grid reveal">
+
+      <div class="roi-inputs">
+
+        <div class="roi-slider-block">
+          <div class="roi-slider-head">
+            <span class="roi-slider-label">Inspections per month</span>
+            <span class="roi-slider-value"><span id="roi-insp-val">20</span></span>
+          </div>
+          <input type="range" id="roi-insp" class="roi-slider" min="1" max="100" value="20" step="1" aria-label="Inspections per month">
+          <div class="roi-slider-hint">Each check-in or check-out counts as one.</div>
+        </div>
+
+        <div class="roi-slider-block">
+          <div class="roi-slider-head">
+            <span class="roi-slider-label">
+              What you'd bill per inspection
+              <span class="roi-info" tabindex="0" aria-label="Pricing guidance">
+                ?
+                <span class="roi-tooltip">Typical range in Dubai: 150–300 AED. Most agencies already charge move-in / move-out fees — Snagify just positions it as a premium, branded, RDC-valid service worth paying for.</span>
+              </span>
+            </span>
+            <span class="roi-slider-value"><span id="roi-bill-val">200</span><span class="unit">AED</span></span>
+          </div>
+          <input type="range" id="roi-bill" class="roi-slider" min="100" max="500" value="200" step="10" aria-label="Bill per inspection in AED">
+          <div class="roi-slider-hint">Dubai average: 150–300 AED per inspection.</div>
+        </div>
+
+        <button class="roi-math-toggle" id="roi-math-toggle" type="button" aria-expanded="false">
+          Show me the math <span class="chev">▾</span>
+        </button>
+        <div class="roi-math" id="roi-math-box">
+          <div class="roi-math-inner" id="roi-math-content"></div>
+        </div>
+
+      </div>
+
+      <div class="roi-result">
+        <span class="roi-plan-badge" id="roi-plan-badge">Growth plan</span>
+        <p class="roi-result-label">What you'd take home as pro</p>
+        <div class="roi-big"><span class="aed">AED</span><span id="roi-take">45,012</span></div>
+        <p class="roi-big-sub">per year, after Snagify cost</p>
+
+        <div class="roi-break">
+          <div class="roi-line plus">
+            <span class="roi-line-label"><span class="roi-tick">+</span>Billed to landlords</span>
+            <span class="roi-line-val">AED <span id="roi-rev">48,000</span></span>
+          </div>
+          <div class="roi-line minus">
+            <span class="roi-line-label"><span class="roi-minus">−</span>Snagify <span id="roi-plan-inline">Growth</span> plan</span>
+            <span class="roi-line-val">AED <span id="roi-cost">2,988</span></span>
+          </div>
+          <div class="roi-line minus" id="roi-extra-line" style="display:none;">
+            <span class="roi-line-label"><span class="roi-minus">−</span>Extra credits (<span id="roi-extra-n">0</span>)</span>
+            <span class="roi-line-val">AED <span id="roi-extra">0</span></span>
+          </div>
+        </div>
+
+        <div class="roi-multiplier">
+          <span class="roi-multi-num" id="roi-mult">15.1×</span>
+          <span class="roi-multi-text">your yearly Snagify cost.</span>
+        </div>
+
+        <a href="https://app.snagify.net" class="roi-cta" id="roi-cta" target="_blank" rel="noopener noreferrer">
+          Start with the <span id="roi-plan-cta">Growth</span> plan →
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
 <!-- ╔══ POUR LES PARTICULIERS ══╗ -->
 <section class="for-private" id="for-private">
   <div class="section-wrap">
@@ -5062,27 +5196,10 @@ footer {
         <div class="testi-stars">★★★★★</div>
         <p class="testi-text" id="t1">"Honestly I resisted switching for months — we had our own Word template and I thought it was fine. Then a tenant contested damage at move-out and we had nothing solid to show. After that I tried Snagify. We now do 60+ inspections a month and I'd never go back. The reports are just on a different level."</p>
         <div class="testi-author">
-          <!-- Khalid — homme, teint moyen, courte barbe, costume -->
-          <div class="testi-avatar" role="img" aria-label="Khalid A., Head of Leasing">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="48" height="48" fill="#2A1F6E"/>
-              <path d="M4 48 C4 34 14 30 24 30 C34 30 44 34 44 48Z" fill="#1E3A5F"/>
-              <path d="M16 30 L32 30 L34 48 L14 48Z" fill="#2563EB" opacity=".6"/>
-              <rect x="21" y="25" width="6" height="7" rx="2" fill="#C8956C"/>
-              <ellipse cx="24" cy="20" rx="9" ry="10" fill="#C8956C"/>
-              <path d="M15 18 C15 10 33 10 33 18 L33 15 C33 8 15 8 15 15Z" fill="#1A0F00"/>
-              <path d="M17 24 C17 28 31 28 31 24 L30 26 C28 30 20 30 18 26Z" fill="#2D1800" opacity=".7"/>
-              <ellipse cx="20.5" cy="19" rx="1.8" ry="1.8" fill="#1A0F00"/>
-              <ellipse cx="27.5" cy="19" rx="1.8" ry="1.8" fill="#1A0F00"/>
-              <ellipse cx="21" cy="18.5" rx=".6" ry=".6" fill="white" opacity=".6"/>
-              <ellipse cx="28" cy="18.5" rx=".6" ry=".6" fill="white" opacity=".6"/>
-              <path d="M23 21 Q24 23 25 21" stroke="#A0724A" stroke-width=".8" fill="none"/>
-              <path d="M20.5 25 Q24 27.5 27.5 25" stroke="#8B5E3C" stroke-width="1" fill="none" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div>
+          <div class="testi-avatar is-pro" role="img" aria-label="Khalid A.">KA</div>
+          <div class="testi-author-text">
             <h4>Khalid A.</h4>
-            <p>Head of Leasing · Prestige Properties, Dubai Marina</p>
+            <p>Head of Leasing · Prestige Properties</p>
           </div>
         </div>
       </div>
@@ -5090,28 +5207,10 @@ footer {
         <div class="testi-stars">★★★★★</div>
         <p class="testi-text" id="t2">"We lost an RDC case last year because our inspection photos were on someone's personal phone and the checklist was handwritten. It cost us the client relationship too. Since Snagify, every report is signed on the spot. We've had three potential disputes since, and none of them went anywhere."</p>
         <div class="testi-author">
-          <!-- Sara — femme, teint clair, cheveux attachés, blazer -->
-          <div class="testi-avatar" role="img" aria-label="Sara M., Property Manager">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="48" height="48" fill="#7C3D12"/>
-              <path d="M4 48 C4 34 14 30 24 30 C34 30 44 34 44 48Z" fill="#431407"/>
-              <path d="M16 30 L32 30 L33 48 L15 48Z" fill="#92400E" opacity=".7"/>
-              <rect x="21" y="25" width="6" height="7" rx="2" fill="#FBBF8A"/>
-              <ellipse cx="24" cy="20" rx="9" ry="10" fill="#FBBF8A"/>
-              <path d="M15 17 C15 9 33 9 33 17 L33 14 C33 7 15 7 15 14Z" fill="#3B1F08"/>
-              <ellipse cx="31" cy="15" rx="3" ry="4" fill="#3B1F08"/>
-              <circle cx="15.5" cy="22" r="1.2" fill="#F59E0B"/>
-              <ellipse cx="20.5" cy="19.5" rx="2" ry="1.5" fill="#1A0F00"/>
-              <ellipse cx="27.5" cy="19.5" rx="2" ry="1.5" fill="#1A0F00"/>
-              <ellipse cx="21" cy="19" rx=".7" ry=".7" fill="white" opacity=".6"/>
-              <ellipse cx="28" cy="19" rx=".7" ry=".7" fill="white" opacity=".6"/>
-              <path d="M23.2 21.5 Q24 23 24.8 21.5" stroke="#D4956A" stroke-width=".8" fill="none"/>
-              <path d="M21 25.5 Q24 27.5 27 25.5" stroke="#C07A4A" stroke-width="1" fill="none" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div>
+          <div class="testi-avatar is-pro" role="img" aria-label="Sara M.">SM</div>
+          <div class="testi-author-text">
             <h4>Sara M.</h4>
-            <p>Property Manager · Pinnacle Real Estate, Downtown</p>
+            <p>Property Manager · Pinnacle Real Estate</p>
           </div>
         </div>
       </div>
@@ -5119,28 +5218,10 @@ footer {
         <div class="testi-stars">★★★★★</div>
         <p class="testi-text" id="t3">"I was worried it would be too complicated for my inspectors. It took them about 10 minutes to figure out. Now every report that goes to a client looks like it came from a serious firm. One client actually asked if we had an in-house legal team. It's just us and Snagify."</p>
         <div class="testi-author">
-          <!-- Rami — homme, teint olive, cheveux noirs, polo -->
-          <div class="testi-avatar" role="img" aria-label="Rami H., Director">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="48" height="48" fill="#064E3B"/>
-              <path d="M4 48 C4 34 14 30 24 30 C34 30 44 34 44 48Z" fill="#022C22"/>
-              <path d="M16 30 L32 30 L33 48 L15 48Z" fill="#047857" opacity=".7"/>
-              <rect x="21" y="25" width="6" height="7" rx="2" fill="#B5845A"/>
-              <ellipse cx="24" cy="20" rx="9" ry="10" fill="#B5845A"/>
-              <path d="M15 18 C15 9 33 9 33 18 L32 13 C30 7 18 7 16 13Z" fill="#0D0700"/>
-              <path d="M18 16.5 Q20.5 15.5 22 16.5" stroke="#0D0700" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-              <path d="M26 16.5 Q27.5 15.5 30 16.5" stroke="#0D0700" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-              <ellipse cx="20.5" cy="19" rx="1.8" ry="1.8" fill="#0D0700"/>
-              <ellipse cx="27.5" cy="19" rx="1.8" ry="1.8" fill="#0D0700"/>
-              <ellipse cx="21" cy="18.5" rx=".6" ry=".6" fill="white" opacity=".6"/>
-              <ellipse cx="28" cy="18.5" rx=".6" ry=".6" fill="white" opacity=".6"/>
-              <path d="M23 21.5 Q24 23.5 25 21.5" stroke="#8B5E3C" stroke-width=".8" fill="none"/>
-              <path d="M20 25.5 Q24 28 28 25.5" stroke="#7A4F2D" stroke-width="1.1" fill="none" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div>
+          <div class="testi-avatar is-pro" role="img" aria-label="Rami H.">RH</div>
+          <div class="testi-author-text">
             <h4>Rami H.</h4>
-            <p>Director · Elite Rentals, JVC &amp; JLT</p>
+            <p>Director · Elite Rentals</p>
           </div>
         </div>
       </div>
@@ -5159,29 +5240,10 @@ footer {
         <div class="testi-stars">★★★★★</div>
         <p class="testi-text" id="t4">"My previous landlord kept AED 3,000 of my deposit for 'cleaning and repairs' I never caused. I had no proof. When I moved into my new apartment I did a Snagify check-in the same day — took 15 minutes, we both signed on the spot. Moved out 2 years later, full deposit back within a week. No discussion."</p>
         <div class="testi-author">
-          <!-- Nadia — femme, cheveux lâchés, tenue décontractée -->
-          <div class="testi-avatar" role="img" aria-label="Nadia L., Tenant">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="48" height="48" fill="#4C1D95"/>
-              <path d="M4 48 C4 34 14 30 24 30 C34 30 44 34 44 48Z" fill="#2E1065"/>
-              <path d="M16 30 L32 30 L33 48 L15 48Z" fill="#7C3AED" opacity=".5"/>
-              <rect x="21" y="25" width="6" height="7" rx="2" fill="#F3C5A0"/>
-              <ellipse cx="24" cy="20" rx="9" ry="10" fill="#F3C5A0"/>
-              <path d="M14 16 C13 9 35 9 34 16 L34 28 C32 34 16 34 14 28Z" fill="#5C3317" opacity=".9"/>
-              <path d="M15 17 C15 10 33 10 33 17 L32 14 C30 7 18 7 16 14Z" fill="#5C3317"/>
-              <ellipse cx="20.5" cy="19.5" rx="2" ry="1.6" fill="#1A0F00"/>
-              <ellipse cx="27.5" cy="19.5" rx="2" ry="1.6" fill="#1A0F00"/>
-              <path d="M18.5 18 Q20.5 17 22.5 18" stroke="#1A0F00" stroke-width=".9" fill="none"/>
-              <path d="M25.5 18 Q27.5 17 29.5 18" stroke="#1A0F00" stroke-width=".9" fill="none"/>
-              <ellipse cx="21" cy="19" rx=".7" ry=".7" fill="white" opacity=".6"/>
-              <ellipse cx="28" cy="19" rx=".7" ry=".7" fill="white" opacity=".6"/>
-              <path d="M23.2 22 Q24 23.5 24.8 22" stroke="#D4956A" stroke-width=".7" fill="none"/>
-              <path d="M20.5 25.5 Q24 28 27.5 25.5" stroke="#B87050" stroke-width="1.1" fill="none" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div>
+          <div class="testi-avatar is-landlord" role="img" aria-label="Nadia L.">NL</div>
+          <div class="testi-author-text">
             <h4>Nadia L.</h4>
-            <p>Tenant · Downtown Dubai</p>
+            <p>Tenant · Downtown</p>
           </div>
         </div>
       </div>
@@ -5189,30 +5251,10 @@ footer {
         <div class="testi-stars">★★★★★</div>
         <p class="testi-text" id="t5">"I have three apartments and I used to dread move-outs. Once a tenant denies something, it becomes your word against theirs and it's exhausting. A colleague showed me Snagify and I thought it was overkill for a private landlord. Tried it anyway: check-in is free, nothing to lose. I wish I'd started five years ago."</p>
         <div class="testi-author">
-          <!-- Faisal — homme plus âgé, teint brun, moustache fine, dishdasha -->
-          <div class="testi-avatar" role="img" aria-label="Faisal A., Landlord">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="48" height="48" fill="#78350F"/>
-              <path d="M4 48 C4 34 14 29 24 29 C34 29 44 34 44 48Z" fill="#F5F0E8"/>
-              <path d="M17 29 L31 29 L32 48 L16 48Z" fill="white" opacity=".8"/>
-              <rect x="21" y="24" width="6" height="7" rx="2" fill="#A0724A"/>
-              <ellipse cx="24" cy="19" rx="9" ry="10" fill="#A0724A"/>
-              <path d="M14 17 C14 7 34 7 34 17 L34 12 C34 5 14 5 14 12Z" fill="#F5F0E8"/>
-              <ellipse cx="24" cy="12" rx="10" ry="5" fill="#F5F0E8"/>
-              <ellipse cx="24" cy="10" rx="10" ry="3" fill="#D4C5A9"/>
-              <ellipse cx="24" cy="9" rx="9" ry="2.5" fill="#1A1A1A" opacity=".8"/>
-              <ellipse cx="20.5" cy="19.5" rx="1.8" ry="1.6" fill="#1A0F00"/>
-              <ellipse cx="27.5" cy="19.5" rx="1.8" ry="1.6" fill="#1A0F00"/>
-              <ellipse cx="21" cy="19" rx=".6" ry=".6" fill="white" opacity=".6"/>
-              <ellipse cx="28" cy="19" rx=".6" ry=".6" fill="white" opacity=".6"/>
-              <path d="M20.5 24.5 Q24 23 27.5 24.5" stroke="#2D1800" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-              <path d="M22.5 21.5 Q24 23 25.5 21.5" stroke="#7A5235" stroke-width=".9" fill="none"/>
-              <path d="M21 26 Q24 27.5 27 26" stroke="#7A5235" stroke-width=".9" fill="none" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div>
+          <div class="testi-avatar is-landlord" role="img" aria-label="Faisal A.">FA</div>
+          <div class="testi-author-text">
             <h4>Faisal A.</h4>
-            <p>Landlord · JVC, Dubai</p>
+            <p>Landlord · JVC</p>
           </div>
         </div>
       </div>
@@ -5220,93 +5262,6 @@ footer {
 
   </div>
 </section>
-
-<!-- ╔══ ROI CALCULATOR ══╗ -->
-<section class="roi" id="roi">
-  <div class="roi-inner">
-
-    <div class="roi-head">
-      <div class="section-eyebrow reveal">
-        <span class="eyebrow-dot"></span>
-        ROI Calculator
-      </div>
-      <h2 class="reveal reveal-delay-1">Turn inspection admin <em>into revenue.</em></h2>
-      <p class="roi-sub reveal reveal-delay-2">Most agencies do inspections for free. With Snagify, you bill the landlord for a branded, RDC-valid report — and keep the margin.</p>
-    </div>
-
-    <div class="roi-grid reveal">
-
-      <div class="roi-inputs">
-
-        <div class="roi-slider-block">
-          <div class="roi-slider-head">
-            <span class="roi-slider-label">Inspections per month</span>
-            <span class="roi-slider-value"><span id="roi-insp-val">20</span></span>
-          </div>
-          <input type="range" id="roi-insp" class="roi-slider" min="1" max="100" value="20" step="1" aria-label="Inspections per month">
-          <div class="roi-slider-hint">Each check-in or check-out counts as one.</div>
-        </div>
-
-        <div class="roi-slider-block">
-          <div class="roi-slider-head">
-            <span class="roi-slider-label">
-              What you'd bill per inspection
-              <span class="roi-info" tabindex="0" aria-label="Pricing guidance">
-                ?
-                <span class="roi-tooltip">Typical range in Dubai: 150–300 AED. Most agencies already charge move-in / move-out fees — Snagify just positions it as a premium, branded, RDC-valid service worth paying for.</span>
-              </span>
-            </span>
-            <span class="roi-slider-value"><span id="roi-bill-val">200</span><span class="unit">AED</span></span>
-          </div>
-          <input type="range" id="roi-bill" class="roi-slider" min="100" max="500" value="200" step="10" aria-label="Bill per inspection in AED">
-          <div class="roi-slider-hint">Dubai average: 150–300 AED per inspection.</div>
-        </div>
-
-        <button class="roi-math-toggle" id="roi-math-toggle" type="button" aria-expanded="false">
-          Show me the math <span class="chev">▾</span>
-        </button>
-        <div class="roi-math" id="roi-math-box">
-          <div class="roi-math-inner" id="roi-math-content"></div>
-        </div>
-
-      </div>
-
-      <div class="roi-result">
-        <span class="roi-plan-badge" id="roi-plan-badge">Growth plan</span>
-        <p class="roi-result-label">What you'd take home as pro</p>
-        <div class="roi-big"><span class="aed">AED</span><span id="roi-take">45,012</span></div>
-        <p class="roi-big-sub">per year, after Snagify cost</p>
-
-        <div class="roi-break">
-          <div class="roi-line plus">
-            <span class="roi-line-label"><span class="roi-tick">+</span>Billed to landlords</span>
-            <span class="roi-line-val">AED <span id="roi-rev">48,000</span></span>
-          </div>
-          <div class="roi-line minus">
-            <span class="roi-line-label"><span class="roi-minus">−</span>Snagify <span id="roi-plan-inline">Growth</span> plan</span>
-            <span class="roi-line-val">AED <span id="roi-cost">2,988</span></span>
-          </div>
-          <div class="roi-line minus" id="roi-extra-line" style="display:none;">
-            <span class="roi-line-label"><span class="roi-minus">−</span>Extra credits (<span id="roi-extra-n">0</span>)</span>
-            <span class="roi-line-val">AED <span id="roi-extra">0</span></span>
-          </div>
-        </div>
-
-        <div class="roi-multiplier">
-          <span class="roi-multi-num" id="roi-mult">15.1×</span>
-          <span class="roi-multi-text">your yearly Snagify cost.</span>
-        </div>
-
-        <a href="https://app.snagify.net" class="roi-cta" id="roi-cta" target="_blank" rel="noopener noreferrer">
-          Start with the <span id="roi-plan-cta">Growth</span> plan →
-        </a>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
 
 <!-- ╔══ PRICING ══╗ -->
 <div id="pricing-pro" style="position:relative;top:-120px;pointer-events:none;visibility:hidden"></div>
