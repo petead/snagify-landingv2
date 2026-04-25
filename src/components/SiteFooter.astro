@@ -1,102 +1,278 @@
 ---
-const currentPath = Astro.url.pathname;
-const isArabicPath = /^\/ar(\/|$)/.test(currentPath);
-const cleanPath = currentPath.replace(/^\/ar(?=\/|$)/, '') || '/';
-const enPath = cleanPath;
-const arabicAvailablePaths = new Set(['/']);
-const arPath = arabicAvailablePaths.has(cleanPath)
-  ? (cleanPath === '/' ? '/ar/' : `/ar${cleanPath}`)
-  : '/ar/';
-const currentLocale = isArabicPath ? 'ar' : 'en';
+const pathname = Astro.url.pathname;
+
+let locale = 'en';
+if (/^\/ar(?:\/|$|\.html$)/.test(pathname)) locale = 'ar';
+else if (/^\/ru(?:\/|$|\.html$)/.test(pathname)) locale = 'ru';
+else if (/^\/hi(?:\/|$|\.html$)/.test(pathname)) locale = 'hi';
+
+const prefix = locale === 'en' ? '' : `/${locale}`;
+const isRTL = locale === 'ar';
+
+const labels = {
+  en: {
+    brandTagline: "Digital property inspections for Dubai's rental market. AI-powered, RDC Valid, and built for professionals and landlords alike.",
+    brandBadge: "RERA Compliant · RDC Valid · Dubai",
+    productCol: "Product",
+    productLinks: [
+      { label: "For Professionals", href: `${prefix}/#for-pros` },
+      { label: "For Landlords & Tenants", href: `${prefix}/#for-private` },
+      { label: "Features", href: `${prefix}/#features` },
+      { label: "Pricing", href: `${prefix}/#pricing` },
+      { label: "Sample Report", href: "/sample-report.pdf", external: true }
+    ],
+    builtForCol: "Built for",
+    builtForLinks: [
+      { label: "Landlords", href: `${prefix}/for/landlords` },
+      { label: "Tenants", href: `${prefix}/for/tenants` },
+      { label: "Property Managers", href: `${prefix}/for/property-managers` },
+      { label: "Real Estate Agencies", href: `${prefix}/for/real-estate-agencies` },
+      { label: "Holiday Homes", href: `${prefix}/for/holiday-homes` },
+      { label: "Property Investors", href: `${prefix}/for/property-investors` },
+      { label: "Expats", href: `${prefix}/for/expats` }
+    ],
+    areasCol: "Areas covered",
+    areasAllLink: { label: "All 60 neighborhoods →", href: `${prefix}/inspections` },
+    areasLinks: [
+      { label: "Dubai Marina", href: `${prefix}/inspections/dubai-marina` },
+      { label: "Downtown Dubai", href: `${prefix}/inspections/downtown-dubai` },
+      { label: "Business Bay", href: `${prefix}/inspections/business-bay` },
+      { label: "JVC", href: `${prefix}/inspections/jvc` },
+      { label: "Palm Jumeirah", href: `${prefix}/inspections/palm-jumeirah` }
+    ],
+    useCasesCol: "Use cases",
+    useCasesLinksLocalized: [
+      { label: "Check-in inspection", href: `${prefix}/check-in-inspection-dubai` },
+      { label: "Check-out inspection", href: `${prefix}/check-out-inspection-dubai` },
+      { label: "Property snagging", href: `${prefix}/snagging-inspection-dubai` }
+    ],
+    useCasesLinksEnOnly: [
+      { label: "Handover inspection", href: "/handover-inspection-dubai" },
+      { label: "Deposit protection", href: "/deposit-protection-dubai" },
+      { label: "Dilapidations", href: "/dilapidations-dubai" }
+    ],
+    guidesCol: "Guides",
+    guidesLinks: [
+      { label: "Dubai RDC Guide", href: "/dubai-rental-dispute-center-guide" }
+    ],
+    legalCol: "Legal",
+    legalLinks: [
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms of Service", href: "/terms" },
+      { label: "RERA Compliance", href: "/rera" },
+      { label: "Contact", href: "/contact" }
+    ],
+    copyright: "© 2026 Snagify. All rights reserved."
+  },
+  ar: {
+    brandTagline: "فحوصات العقارات الرقمية لسوق الإيجار في دبي. مدعومة بالذكاء الاصطناعي، معتمدة لدى RDC، ومصمَّمة للمحترفين والملاك على حدّ سواء.",
+    brandBadge: "متوافق مع RERA · معتمد لدى RDC · دبي",
+    productCol: "المنتج",
+    productLinks: [
+      { label: "للمحترفين", href: `${prefix}/#for-pros` },
+      { label: "للملاك والمستأجرين", href: `${prefix}/#for-private` },
+      { label: "الميزات", href: `${prefix}/#features` },
+      { label: "الأسعار", href: `${prefix}/#pricing` },
+      { label: "تقرير نموذجي", href: "/sample-report.pdf", external: true }
+    ],
+    builtForCol: "مصمَّم لـ",
+    builtForLinks: [
+      { label: "الملاك", href: `${prefix}/for/landlords` },
+      { label: "المستأجرون", href: `${prefix}/for/tenants` },
+      { label: "مديرو العقارات", href: `${prefix}/for/property-managers` },
+      { label: "وكالات العقارات", href: `${prefix}/for/real-estate-agencies` },
+      { label: "العقارات السياحية", href: `${prefix}/for/holiday-homes` },
+      { label: "المستثمرون العقاريون", href: `${prefix}/for/property-investors` },
+      { label: "المغتربون", href: `${prefix}/for/expats` }
+    ],
+    areasCol: "المناطق المغطّاة",
+    areasAllLink: { label: "كل 60 منطقة →", href: `${prefix}/inspections` },
+    areasLinks: [
+      { label: "دبي مارينا", href: `${prefix}/inspections/dubai-marina` },
+      { label: "وسط مدينة دبي", href: `${prefix}/inspections/downtown-dubai` },
+      { label: "الخليج التجاري", href: `${prefix}/inspections/business-bay` },
+      { label: "قرية جميرا الدائرية", href: `${prefix}/inspections/jvc` },
+      { label: "نخلة جميرا", href: `${prefix}/inspections/palm-jumeirah` }
+    ],
+    useCasesCol: "حالات الاستخدام",
+    useCasesLinksLocalized: [
+      { label: "فحص الاستلام", href: `${prefix}/check-in-inspection-dubai` },
+      { label: "فحص التسليم", href: `${prefix}/check-out-inspection-dubai` },
+      { label: "فحص العيوب", href: `${prefix}/snagging-inspection-dubai` }
+    ],
+    copyright: "© 2026 Snagify. جميع الحقوق محفوظة."
+  },
+  ru: {
+    brandTagline: "Цифровые осмотры недвижимости для рынка аренды в Дубае. С искусственным интеллектом, действительные в RDC, созданные для профессионалов и арендодателей.",
+    brandBadge: "Соответствует RERA · Действителен в RDC · Дубай",
+    productCol: "Продукт",
+    productLinks: [
+      { label: "Для профессионалов", href: `${prefix}/#for-pros` },
+      { label: "Для арендодателей и арендаторов", href: `${prefix}/#for-private` },
+      { label: "Функции", href: `${prefix}/#features` },
+      { label: "Цены", href: `${prefix}/#pricing` },
+      { label: "Пример отчёта", href: "/sample-report.pdf", external: true }
+    ],
+    builtForCol: "Создано для",
+    builtForLinks: [
+      { label: "Арендодатели", href: `${prefix}/for/landlords` },
+      { label: "Арендаторы", href: `${prefix}/for/tenants` },
+      { label: "Управляющие недвижимостью", href: `${prefix}/for/property-managers` },
+      { label: "Агентства недвижимости", href: `${prefix}/for/real-estate-agencies` },
+      { label: "Курортная недвижимость", href: `${prefix}/for/holiday-homes` },
+      { label: "Инвесторы в недвижимость", href: `${prefix}/for/property-investors` },
+      { label: "Экспаты", href: `${prefix}/for/expats` }
+    ],
+    areasCol: "Покрываемые районы",
+    areasAllLink: { label: "Все 60 районов →", href: `${prefix}/inspections` },
+    areasLinks: [
+      { label: "Дубай Марина", href: `${prefix}/inspections/dubai-marina` },
+      { label: "Даунтаун Дубай", href: `${prefix}/inspections/downtown-dubai` },
+      { label: "Бизнес Бэй", href: `${prefix}/inspections/business-bay` },
+      { label: "JVC", href: `${prefix}/inspections/jvc` },
+      { label: "Пальма Джумейра", href: `${prefix}/inspections/palm-jumeirah` }
+    ],
+    useCasesCol: "Сценарии использования",
+    useCasesLinksLocalized: [
+      { label: "Осмотр при заселении", href: `${prefix}/check-in-inspection-dubai` },
+      { label: "Осмотр при выезде", href: `${prefix}/check-out-inspection-dubai` },
+      { label: "Осмотр дефектов", href: `${prefix}/snagging-inspection-dubai` }
+    ],
+    copyright: "© 2026 Snagify. Все права защищены."
+  },
+  hi: {
+    brandTagline: "दुबई के किराये के बाज़ार के लिए डिजिटल संपत्ति निरीक्षण। AI-संचालित, RDC में मान्य, और पेशेवरों तथा मकान मालिकों दोनों के लिए बनाया गया।",
+    brandBadge: "RERA अनुरूप · RDC में मान्य · दुबई",
+    productCol: "उत्पाद",
+    productLinks: [
+      { label: "पेशेवरों के लिए", href: `${prefix}/#for-pros` },
+      { label: "मकान मालिकों और किरायेदारों के लिए", href: `${prefix}/#for-private` },
+      { label: "विशेषताएँ", href: `${prefix}/#features` },
+      { label: "मूल्य निर्धारण", href: `${prefix}/#pricing` },
+      { label: "नमूना रिपोर्ट", href: "/sample-report.pdf", external: true }
+    ],
+    builtForCol: "किसके लिए बनाया गया",
+    builtForLinks: [
+      { label: "मकान मालिक", href: `${prefix}/for/landlords` },
+      { label: "किरायेदार", href: `${prefix}/for/tenants` },
+      { label: "संपत्ति प्रबंधक", href: `${prefix}/for/property-managers` },
+      { label: "रियल एस्टेट एजेंसियाँ", href: `${prefix}/for/real-estate-agencies` },
+      { label: "हॉलिडे होम्स", href: `${prefix}/for/holiday-homes` },
+      { label: "संपत्ति निवेशक", href: `${prefix}/for/property-investors` },
+      { label: "प्रवासी", href: `${prefix}/for/expats` }
+    ],
+    areasCol: "कवर किए गए क्षेत्र",
+    areasAllLink: { label: "सभी 60 क्षेत्र →", href: `${prefix}/inspections` },
+    areasLinks: [
+      { label: "दुबई मरीना", href: `${prefix}/inspections/dubai-marina` },
+      { label: "डाउनटाउन दुबई", href: `${prefix}/inspections/downtown-dubai` },
+      { label: "बिज़नेस बे", href: `${prefix}/inspections/business-bay` },
+      { label: "JVC", href: `${prefix}/inspections/jvc` },
+      { label: "पाम जुमेइरा", href: `${prefix}/inspections/palm-jumeirah` }
+    ],
+    useCasesCol: "उपयोग के मामले",
+    useCasesLinksLocalized: [
+      { label: "चेक-इन निरीक्षण", href: `${prefix}/check-in-inspection-dubai` },
+      { label: "चेक-आउट निरीक्षण", href: `${prefix}/check-out-inspection-dubai` },
+      { label: "स्नैगिंग निरीक्षण", href: `${prefix}/snagging-inspection-dubai` }
+    ],
+    copyright: "© 2026 Snagify. सर्वाधिकार सुरक्षित।"
+  }
+};
+
+const t = labels[locale];
+const showEnOnlyColumns = locale === 'en';
 ---
 
-<footer class="site-footer-full">
+<footer class="site-footer-full" dir={isRTL ? 'rtl' : 'ltr'}>
   <div class="site-footer-top">
 
     <div class="site-foot-brand">
-      <a href="/" class="site-foot-logo">
+      <a href={prefix || '/'} class="site-foot-logo">
         <svg width="28" height="28" viewBox="0 0 700 700" fill="#9A88FD">
           <path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z"/>
           <path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z"/>
         </svg>
         <span>Snagify</span>
       </a>
-      <p>Digital property inspections for Dubai's rental market. AI-powered, RDC Valid, and built for professionals and landlords alike.</p>
+      <p>{t.brandTagline}</p>
       <div class="site-foot-badge">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        RERA Compliant · RDC Valid · Dubai
+        {t.brandBadge}
       </div>
     </div>
 
     <div class="site-foot-col">
-      <h4>Product</h4>
+      <h4>{t.productCol}</h4>
       <ul>
-        <li><a href="/#for-pros">For Professionals</a></li>
-        <li><a href="/#for-private">For Landlords &amp; Tenants</a></li>
-        <li><a href="/#features">Features</a></li>
-        <li><a href="/#pricing">Pricing</a></li>
-        <li><a href="/sample-report.pdf" target="_blank">Sample Report</a></li>
+        {t.productLinks.map(link => (
+          <li>
+            {link.external
+              ? <a href={link.href} target="_blank">{link.label}</a>
+              : <a href={link.href}>{link.label}</a>
+            }
+          </li>
+        ))}
       </ul>
     </div>
 
     <div class="site-foot-col">
-      <h4>Built for</h4>
+      <h4>{t.builtForCol}</h4>
       <ul>
-        <li><a href="/for/landlords">Landlords</a></li>
-        <li><a href="/for/tenants">Tenants</a></li>
-        <li><a href="/for/property-managers">Property Managers</a></li>
-        <li><a href="/for/real-estate-agencies">Real Estate Agencies</a></li>
-        <li><a href="/for/holiday-homes">Holiday Homes</a></li>
-        <li><a href="/for/property-investors">Property Investors</a></li>
-        <li><a href="/for/expats">Expats</a></li>
+        {t.builtForLinks.map(link => (
+          <li><a href={link.href}>{link.label}</a></li>
+        ))}
       </ul>
     </div>
 
     <div class="site-foot-col">
-      <h4>Areas covered</h4>
+      <h4>{t.areasCol}</h4>
       <ul>
-        <li><a href="/inspections">All 60 neighborhoods →</a></li>
-        <li><a href="/inspections/dubai-marina">Dubai Marina</a></li>
-        <li><a href="/inspections/downtown-dubai">Downtown Dubai</a></li>
-        <li><a href="/inspections/business-bay">Business Bay</a></li>
-        <li><a href="/inspections/jvc">JVC</a></li>
-        <li><a href="/inspections/palm-jumeirah">Palm Jumeirah</a></li>
+        <li><a href={t.areasAllLink.href}>{t.areasAllLink.label}</a></li>
+        {t.areasLinks.map(link => (
+          <li><a href={link.href}>{link.label}</a></li>
+        ))}
       </ul>
     </div>
 
     <div class="site-foot-col">
-      <h4>Use cases</h4>
+      <h4>{t.useCasesCol}</h4>
       <ul>
-        <li><a href="/check-in-inspection-dubai">Check-in inspection</a></li>
-        <li><a href="/check-out-inspection-dubai">Check-out inspection</a></li>
-        <li><a href="/handover-inspection-dubai">Handover inspection</a></li>
-        <li><a href="/snagging-inspection-dubai">Property snagging</a></li>
-        <li><a href="/deposit-protection-dubai">Deposit protection</a></li>
-        <li><a href="/dilapidations-dubai">Dilapidations</a></li>
+        {t.useCasesLinksLocalized.map(link => (
+          <li><a href={link.href}>{link.label}</a></li>
+        ))}
+        {showEnOnlyColumns && labels.en.useCasesLinksEnOnly.map(link => (
+          <li><a href={link.href}>{link.label}</a></li>
+        ))}
       </ul>
     </div>
 
-    <div class="site-foot-col">
-      <h4>Guides</h4>
-      <ul>
-        <li><a href="/dubai-rental-dispute-center-guide">Dubai RDC Guide</a></li>
-      </ul>
-    </div>
+    {showEnOnlyColumns && (
+      <div class="site-foot-col">
+        <h4>{labels.en.guidesCol}</h4>
+        <ul>
+          {labels.en.guidesLinks.map(link => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+    )}
 
-    <div class="site-foot-col">
-      <h4>Legal</h4>
-      <ul>
-        <li><a href="/privacy">Privacy Policy</a></li>
-        <li><a href="/terms">Terms of Service</a></li>
-        <li><a href="/rera">RERA Compliance</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-    </div>
+    {showEnOnlyColumns && (
+      <div class="site-foot-col">
+        <h4>{labels.en.legalCol}</h4>
+        <ul>
+          {labels.en.legalLinks.map(link => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+    )}
 
   </div>
 
   <div class="site-footer-bottom">
-    <p>© 2026 Snagify. All rights reserved.</p>
+    <p>{t.copyright}</p>
     <div class="site-foot-socials">
       <a href="https://instagram.com/snagifyapp" target="_blank" rel="noopener" aria-label="Instagram">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
@@ -111,10 +287,6 @@ const currentLocale = isArabicPath ? 'ar' : 'en';
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.13a8.16 8.16 0 0 0 4.77 1.52V7.2a4.85 4.85 0 0 1-1-.51z"/></svg>
       </a>
     </div>
-  </div>
-  <div class="site-hreflang-links" aria-hidden="true">
-    <a rel="alternate" hreflang="en" href={enPath} class:list={['site-hreflang-link', { 'is-current': currentLocale === 'en' }]}>English</a>
-    <a rel="alternate" hreflang="ar" href={arPath} class:list={['site-hreflang-link', { 'is-current': currentLocale === 'ar' }]}>العربية</a>
   </div>
 </footer>
 
