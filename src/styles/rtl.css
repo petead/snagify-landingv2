@@ -8,6 +8,18 @@
 /* ---- Arabic typography ---- */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap');
 
+/* ============================================
+   SELF-DISABLE: if rtl.css gets loaded by accident on a non-AR page
+   (cache, service worker, build error...), force LTR override.
+   ============================================ */
+html:not([lang="ar"]) {
+  direction: ltr !important;
+}
+html:not([lang="ar"]) body {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
 [dir="rtl"] body {
   font-family: 'Noto Naskh Arabic', 'Tajawal', 'DM Sans', system-ui, sans-serif;
   text-align: right;
