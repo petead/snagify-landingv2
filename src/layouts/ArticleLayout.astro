@@ -102,6 +102,11 @@ const breadcrumbJsonLd = {
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
+* { cursor: auto; }
+a, button, [role="button"], .faq-q, .nearby-card, .pricing-cta, .hero-cta, .final-cta-btn, .cta-strip-btn, .area-card, .toc-list a { cursor: pointer; }
+input, textarea, select { cursor: text; }
+input[type="checkbox"], input[type="radio"] { cursor: pointer; }
+
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
   --cream: #F3F1EB;
@@ -124,9 +129,7 @@ body {
   font-family: 'DM Sans', system-ui, sans-serif;
   background: var(--cream); color: var(--ink); line-height: 1.7;
   -webkit-font-smoothing: antialiased;
-  cursor: default;
 }
-a, button, .faq-q, .toc-list a, .final-cta-btn { cursor: pointer; }
 
 .progress-bar {
   position: fixed; top: 0; left: 0; height: 3px;
