@@ -1,0 +1,88 @@
+---
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+---
+<!DOCTYPE html>
+<html lang="hi" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snagify · हिन्दी संस्करण निर्माणाधीन है</title>
+<meta name="description" content="दुबई के किराये के बाजार के लिए डिजिटल संपत्ति निरीक्षण। हिन्दी संस्करण निर्माणाधीन है।">
+<link rel="canonical" href="https://snagify.net/hi/">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="content-language" content="hi-AE">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+* { cursor: auto; }
+a, button { cursor: pointer; }
+:root {
+  --cream: #F3F1EB;
+  --paper: #FCFCFC;
+  --ink: #0E0E10;
+  --ink-70: rgba(14,14,16,0.7);
+  --ink-60: rgba(14,14,16,0.6);
+  --ink-10: rgba(14,14,16,0.08);
+  --purple: #9A88FD;
+  --white: #FCFCFC;
+}
+body {
+  font-family: 'Noto Sans Devanagari', 'DM Sans', system-ui, sans-serif;
+  background: var(--cream); color: var(--ink); line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+.placeholder {
+  max-width: 720px; margin: 0 auto;
+  padding: 96px 32px; text-align: center;
+}
+.placeholder h1 {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-weight: 800; font-size: clamp(34px, 5vw, 50px); line-height: 1.2;
+  letter-spacing: -0.8px;
+  margin-bottom: 24px;
+}
+.placeholder p {
+  font-size: 19px; line-height: 1.7;
+  color: var(--ink-70); margin-bottom: 24px;
+}
+.placeholder-sub {
+  font-size: 16px; color: var(--ink-60);
+  margin-top: 32px; margin-bottom: 16px;
+}
+.placeholder a {
+  display: inline-block; padding: 14px 28px;
+  background: var(--ink); color: var(--white);
+  border-radius: 999px;
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-weight: 700; font-size: 15px;
+  text-decoration: none;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.placeholder a:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(14,14,16,0.2); }
+</style>
+</head>
+<body>
+
+<SiteHeader />
+
+<main class="placeholder">
+  <h1>हिन्दी संस्करण निर्माणाधीन है</h1>
+  <p>हम मूल वक्ताओं की समीक्षा के साथ Snagify का हिन्दी में अनुवाद करने पर काम कर रहे हैं। हिन्दी संस्करण जल्द ही उपलब्ध होगा।</p>
+  <p class="placeholder-sub">इस बीच, आप साइट को अंग्रेज़ी में देख सकते हैं:</p>
+  <a href="/">अंग्रेज़ी संस्करण पर वापस जाएं →</a>
+</main>
+
+<SiteFooter />
+
+</body>
+</html>

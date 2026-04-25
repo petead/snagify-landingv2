@@ -4,7 +4,8 @@ const { currentLocale = 'en', currentPath = '/' } = Astro.props;
 const languages = [
   { code: 'en', label: 'English', native: 'English', dir: 'ltr' },
   { code: 'ar', label: 'Arabic', native: 'العربية', dir: 'rtl' },
-  { code: 'ru', label: 'Russian', native: 'Русский', dir: 'ltr' }
+  { code: 'ru', label: 'Russian', native: 'Русский', dir: 'ltr' },
+  { code: 'hi', label: 'Hindi', native: 'हिन्दी', dir: 'ltr' }
 ];
 
 // Whitelist of pages that exist in Arabic.
@@ -50,9 +51,17 @@ const russianAvailablePaths = new Set([
   '/snagging-inspection-dubai'
 ]);
 
+const hindiAvailablePaths = new Set([
+  '/'
+  // Future additions during Sprint HI.1:
+  // '/for/landlords', '/for/tenants', etc.
+  // '/inspections/...', etc.
+  // Use cases will be added in Step 3
+]);
+
 function getLocalizedPath(targetLocale, path) {
   // Strip any existing locale prefix
-  let cleanPath = path.replace(/^\/(ar|ru|en)(?=\/|$)/, '') || '/';
+  let cleanPath = path.replace(/^\/(ar|ru|hi|en)(?=\/|$)/, '') || '/';
 
   // Going to EN: always direct (default locale, not prefixed)
   if (targetLocale === 'en') {
@@ -73,6 +82,14 @@ function getLocalizedPath(targetLocale, path) {
       return cleanPath === '/' ? '/ru/' : `/ru${cleanPath}`;
     }
     return '/ru/';
+  }
+
+  // Going to HI: only if HI version exists
+  if (targetLocale === 'hi') {
+    if (hindiAvailablePaths.has(cleanPath)) {
+      return cleanPath === '/' ? '/hi/' : `/hi${cleanPath}`;
+    }
+    return '/hi/';
   }
 
   return cleanPath;
