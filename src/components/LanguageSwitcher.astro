@@ -1,5 +1,5 @@
 ---
-const { currentLocale = 'en', currentPath = '/' } = Astro.props;
+const { currentLocale = 'en' } = Astro.props;
 
 const languages = [
   { code: 'en', label: 'English', native: 'English', dir: 'ltr' },
@@ -8,121 +8,49 @@ const languages = [
   { code: 'hi', label: 'Hindi', native: 'हिन्दी', dir: 'ltr' }
 ];
 
-// Whitelist of pages that exist in Arabic.
-// As we build more AR pages, we add their EN paths here.
-// Format: EN path (without leading /ar/) → confirmed available in AR
-const arabicAvailablePaths = new Set([
-  '/',
-  '/for/landlords',
-  '/for/tenants',
-  '/for/property-managers',
-  '/for/real-estate-agencies',
-  '/for/holiday-homes',
-  '/for/property-investors',
-  '/for/expats',
-  '/inspections',
-  '/inspections/dubai-marina',
-  '/inspections/downtown-dubai',
-  '/inspections/business-bay',
-  '/inspections/jvc',
-  '/inspections/palm-jumeirah',
-  '/check-in-inspection-dubai',
-  '/check-out-inspection-dubai',
+const arabicPaths = [
+  '/', '/for/landlords', '/for/tenants', '/for/property-managers',
+  '/for/real-estate-agencies', '/for/holiday-homes', '/for/property-investors',
+  '/for/expats', '/inspections', '/inspections/dubai-marina',
+  '/inspections/downtown-dubai', '/inspections/business-bay',
+  '/inspections/jvc', '/inspections/palm-jumeirah',
+  '/check-in-inspection-dubai', '/check-out-inspection-dubai',
   '/snagging-inspection-dubai'
-]);
+];
 
-const russianAvailablePaths = new Set([
-  '/',
-  '/for/landlords',
-  '/for/tenants',
-  '/for/property-managers',
-  '/for/real-estate-agencies',
-  '/for/holiday-homes',
-  '/for/property-investors',
-  '/for/expats',
-  '/inspections',
-  '/inspections/dubai-marina',
-  '/inspections/downtown-dubai',
-  '/inspections/business-bay',
-  '/inspections/jvc',
-  '/inspections/palm-jumeirah',
-  '/check-in-inspection-dubai',
-  '/check-out-inspection-dubai',
-  '/snagging-inspection-dubai'
-]);
-
-const hindiAvailablePaths = new Set([
-  '/',
-  '/for/landlords',
-  '/for/tenants',
-  '/for/property-managers',
-  '/for/real-estate-agencies',
-  '/for/holiday-homes',
-  '/for/property-investors',
-  '/for/expats',
-  '/inspections',
-  '/inspections/dubai-marina',
-  '/inspections/downtown-dubai',
-  '/inspections/business-bay',
-  '/inspections/jvc',
-  '/inspections/palm-jumeirah',
-  '/check-in-inspection-dubai',
-  '/check-out-inspection-dubai',
-  '/snagging-inspection-dubai'
-]);
-
-function getLocalizedPath(targetLocale, path) {
-  // Strip any existing locale prefix
-  let cleanPath = path.replace(/^\/(ar|ru|hi|en)(?=\/|$)/, '') || '/';
-
-  // Going to EN: always direct (default locale, not prefixed)
-  if (targetLocale === 'en') {
-    return cleanPath;
-  }
-
-  // Going to AR: only if AR version exists
-  if (targetLocale === 'ar') {
-    if (arabicAvailablePaths.has(cleanPath)) {
-      return cleanPath === '/' ? '/ar/' : `/ar${cleanPath}`;
-    }
-    return '/ar/';
-  }
-
-  // Going to RU: only if RU version exists
-  if (targetLocale === 'ru') {
-    if (russianAvailablePaths.has(cleanPath)) {
-      return cleanPath === '/' ? '/ru/' : `/ru${cleanPath}`;
-    }
-    return '/ru/';
-  }
-
-  // Going to HI: only if HI version exists
-  if (targetLocale === 'hi') {
-    if (hindiAvailablePaths.has(cleanPath)) {
-      return cleanPath === '/' ? '/hi/' : `/hi${cleanPath}`;
-    }
-    return '/hi/';
-  }
-
-  return cleanPath;
-}
+const russianPaths = [...arabicPaths];
+const hindiPaths = [...arabicPaths];
 
 const current = languages.find(l => l.code === currentLocale) || languages[0];
 ---
 
-<div class="lang-switcher">
-  <button class="lang-switcher-button" id="langSwitcherButton" aria-label="Select language" aria-expanded="false">
+<div
+  class="lang-switcher"
+  data-arabic-paths={JSON.stringify(arabicPaths)}
+  data-russian-paths={JSON.stringify(russianPaths)}
+  data-hindi-paths={JSON.stringify(hindiPaths)}
+>
+  <button
+    class="lang-switcher-button"
+    type="button"
+    aria-label="Select language"
+    aria-expanded="false"
+    aria-haspopup="listbox"
+  >
     <span class="lang-switcher-current">{current.code.toUpperCase()}</span>
     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
   </button>
-  <ul class="lang-switcher-menu" id="langSwitcherMenu" role="menu">
+  <ul class="lang-switcher-menu" role="listbox">
     {languages.map(lang => (
-      <li role="menuitem">
+      <li role="presentation">
         <a
-          href={getLocalizedPath(lang.code, currentPath)}
+          href="#"
+          role="option"
+          aria-selected={lang.code === currentLocale ? 'true' : 'false'}
           class:list={['lang-switcher-item', { 'is-current': lang.code === currentLocale }]}
           lang={lang.code}
           dir={lang.dir}
+          data-locale={lang.code}
         >
           <span class="lang-switcher-code">{lang.code.toUpperCase()}</span>
           <span class="lang-switcher-native">{lang.native}</span>
@@ -184,6 +112,7 @@ const current = languages.find(l => l.code === currentLocale) || languages[0];
   font-size: 13px; color: rgba(14,14,16,0.7);
   text-decoration: none;
   transition: background 0.15s, color 0.15s;
+  cursor: pointer;
 }
 .lang-switcher-item:hover { background: rgba(154,136,253,0.08); color: #0E0E10; }
 .lang-switcher-item.is-current { color: #9A88FD; font-weight: 600; }
@@ -204,28 +133,110 @@ const current = languages.find(l => l.code === currentLocale) || languages[0];
 </style>
 
 <script>
-const button = document.getElementById('langSwitcherButton');
-const menu = document.getElementById('langSwitcherMenu');
+(function initLangSwitchers() {
+  const switchers = document.querySelectorAll('.lang-switcher');
 
-if (button && menu) {
-  button.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isOpen = menu.classList.toggle('is-open');
-    button.setAttribute('aria-expanded', String(isOpen));
-  });
+  switchers.forEach(switcher => {
+    if (switcher.dataset.langInit === 'true') return;
+    switcher.dataset.langInit = 'true';
 
-  document.addEventListener('click', (e) => {
-    if (!menu.contains(e.target) && !button.contains(e.target)) {
-      menu.classList.remove('is-open');
-      button.setAttribute('aria-expanded', 'false');
+    const button = switcher.querySelector('.lang-switcher-button');
+    const menu = switcher.querySelector('.lang-switcher-menu');
+    const items = switcher.querySelectorAll('.lang-switcher-item');
+
+    if (!button || !menu) return;
+
+    let arabicPaths, russianPaths, hindiPaths;
+    try {
+      arabicPaths = new Set(JSON.parse(switcher.dataset.arabicPaths || '[]'));
+      russianPaths = new Set(JSON.parse(switcher.dataset.russianPaths || '[]'));
+      hindiPaths = new Set(JSON.parse(switcher.dataset.hindiPaths || '[]'));
+    } catch (e) {
+      arabicPaths = new Set(['/']);
+      russianPaths = new Set(['/']);
+      hindiPaths = new Set(['/']);
     }
-  });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      menu.classList.remove('is-open');
-      button.setAttribute('aria-expanded', 'false');
+    function getCurrentLocale() {
+      const path = window.location.pathname;
+      if (path.startsWith('/ar/') || path === '/ar') return 'ar';
+      if (path.startsWith('/ru/') || path === '/ru') return 'ru';
+      if (path.startsWith('/hi/') || path === '/hi') return 'hi';
+      return 'en';
     }
+
+    function stripLocalePrefix(path) {
+      const cleaned = path.replace(/^\/(ar|ru|hi|en)(?=\/|$)/, '');
+      return cleaned || '/';
+    }
+
+    function getLocalizedPath(targetLocale) {
+      const path = window.location.pathname;
+      const cleanPath = stripLocalePrefix(path);
+
+      if (targetLocale === 'en') {
+        return cleanPath || '/';
+      }
+
+      const targetPaths = targetLocale === 'ar' ? arabicPaths
+        : targetLocale === 'ru' ? russianPaths
+        : targetLocale === 'hi' ? hindiPaths
+        : null;
+
+      if (!targetPaths) return cleanPath || '/';
+
+      if (targetPaths.has(cleanPath)) {
+        return cleanPath === '/' ? `/${targetLocale}/` : `/${targetLocale}${cleanPath}`;
+      }
+      return `/${targetLocale}/`;
+    }
+
+    button.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const willOpen = !menu.classList.contains('is-open');
+      document.querySelectorAll('.lang-switcher-menu.is-open').forEach(m => {
+        if (m !== menu) {
+          m.classList.remove('is-open');
+          const btn = m.parentElement.querySelector('.lang-switcher-button');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+      menu.classList.toggle('is-open', willOpen);
+      button.setAttribute('aria-expanded', String(willOpen));
+    });
+
+    items.forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const targetLocale = item.dataset.locale;
+        if (!targetLocale) return;
+
+        const currentLocale = getCurrentLocale();
+        if (targetLocale === currentLocale) {
+          menu.classList.remove('is-open');
+          button.setAttribute('aria-expanded', 'false');
+          return;
+        }
+
+        const targetUrl = getLocalizedPath(targetLocale);
+        window.location.href = targetUrl;
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!switcher.contains(e.target)) {
+        menu.classList.remove('is-open');
+        button.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.classList.contains('is-open')) {
+        menu.classList.remove('is-open');
+        button.setAttribute('aria-expanded', 'false');
+      }
+    });
   });
-}
+})();
 </script>
