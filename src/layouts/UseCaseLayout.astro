@@ -1,5 +1,15 @@
 ---
-const { usecase } = Astro.props;
+const { usecase, locale = 'en' } = Astro.props;
+const isRTL = locale === 'ar';
+const htmlLang = locale === 'ar' ? 'ar' : 'en';
+const htmlDir = isRTL ? 'rtl' : 'ltr';
+const ogLocale = locale === 'ar' ? 'ar_AE' : 'en_AE';
+const inLanguage = locale === 'ar' ? 'ar-AE' : 'en-AE';
+const canonicalBase = locale === 'ar'
+  ? `https://snagify.net/ar/${usecase.slug}`
+  : `https://snagify.net/${usecase.slug}`;
+const altEn = `https://snagify.net/${usecase.slug}`;
+const altAr = `https://snagify.net/ar/${usecase.slug}`;
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 
@@ -26,12 +36,13 @@ const articleJsonLd = {
   },
   "datePublished": "2026-04-25",
   "dateModified": "2026-04-25",
-  "mainEntityOfPage": `https://snagify.net/${usecase.slug}`,
+  "inLanguage": inLanguage,
+  "mainEntityOfPage": canonicalBase,
   "image": "https://snagify.net/og-image.png"
 };
 ---
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang={htmlLang} dir={htmlDir}>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,18 +50,21 @@ const articleJsonLd = {
 <title>{usecase.metaTitle}</title>
 <meta name="description" content={usecase.metaDescription}>
 <meta name="keywords" content={usecase.keywords}>
-<link rel="canonical" href={`https://snagify.net/${usecase.slug}`}>
+<link rel="canonical" href={canonicalBase}>
+<link rel="alternate" hreflang="en" href={altEn}>
+<link rel="alternate" hreflang="ar" href={altAr}>
+<link rel="alternate" hreflang="x-default" href={altEn}>
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Snagify · MULKEEF">
-<meta http-equiv="content-language" content="en-AE">
+<meta http-equiv="content-language" content={inLanguage}>
 
 <meta property="og:type" content="article">
 <meta property="og:title" content={usecase.metaTitle}>
 <meta property="og:description" content={usecase.metaDescription}>
-<meta property="og:url" content={`https://snagify.net/${usecase.slug}`}>
+<meta property="og:url" content={canonicalBase}>
 <meta property="og:image" content="https://snagify.net/og-image.png">
 <meta property="og:site_name" content="Snagify">
-<meta property="og:locale" content="en_AE">
+<meta property="og:locale" content={ogLocale}>
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content={usecase.metaTitle}>
@@ -290,6 +304,14 @@ body {
   .final-cta { padding: 48px 24px; }
 }
 </style>
+{isRTL && <link rel="stylesheet" href="/src/styles/rtl.css">}
+{isRTL && (
+  <>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  </>
+)}
 </head>
 <body>
 
