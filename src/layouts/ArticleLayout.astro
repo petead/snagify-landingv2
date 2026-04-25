@@ -1,0 +1,473 @@
+---
+const { article } = Astro.props;
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": article.title,
+  "description": article.metaDescription,
+  "author": { "@type": "Organization", "name": "Snagify", "url": "https://snagify.net" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Snagify",
+    "logo": { "@type": "ImageObject", "url": "https://snagify.net/og-image.png" }
+  },
+  "datePublished": article.publishedDate,
+  "dateModified": article.modifiedDate,
+  "mainEntityOfPage": `https://snagify.net/${article.slug}`,
+  "image": "https://snagify.net/og-image.png",
+  "articleSection": article.section,
+  "wordCount": article.wordCount,
+  "inLanguage": "en-AE"
+};
+
+const howToJsonLd = article.howTo ? {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": article.howTo.name,
+  "description": article.howTo.description,
+  "totalTime": article.howTo.totalTime,
+  "estimatedCost": article.howTo.estimatedCost,
+  "step": article.howTo.steps.map((s, i) => ({
+    "@type": "HowToStep",
+    "position": i + 1,
+    "name": s.name,
+    "text": s.text
+  }))
+} : null;
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": article.faqs.map(f => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+  }))
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://snagify.net/" },
+    { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://snagify.net/" },
+    { "@type": "ListItem", "position": 3, "name": article.title, "item": `https://snagify.net/${article.slug}` }
+  ]
+};
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{article.metaTitle}</title>
+<meta name="description" content={article.metaDescription}>
+<meta name="keywords" content={article.keywords}>
+<link rel="canonical" href={`https://snagify.net/${article.slug}`}>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Snagify · MULKEEF">
+<meta http-equiv="content-language" content="en-AE">
+
+<meta property="og:type" content="article">
+<meta property="article:published_time" content={article.publishedDate}>
+<meta property="article:modified_time" content={article.modifiedDate}>
+<meta property="og:title" content={article.metaTitle}>
+<meta property="og:description" content={article.metaDescription}>
+<meta property="og:url" content={`https://snagify.net/${article.slug}`}>
+<meta property="og:image" content="https://snagify.net/og-image.png">
+<meta property="og:site_name" content="Snagify">
+<meta property="og:locale" content="en_AE">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content={article.metaTitle}>
+<meta name="twitter:description" content={article.metaDescription}>
+<meta name="twitter:image" content="https://snagify.net/og-image.png">
+
+<script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
+{howToJsonLd && <script type="application/ld+json" set:html={JSON.stringify(howToJsonLd)} />}
+<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --cream: #F3F1EB;
+  --paper: #FCFCFC;
+  --ink: #0E0E10;
+  --ink-80: rgba(14,14,16,0.8);
+  --ink-70: rgba(14,14,16,0.7);
+  --ink-60: rgba(14,14,16,0.6);
+  --ink-25: rgba(14,14,16,0.12);
+  --ink-10: rgba(14,14,16,0.08);
+  --ink-05: rgba(14,14,16,0.04);
+  --purple: #9A88FD;
+  --purple-bg: rgba(154,136,253,0.1);
+  --jasmine: #FEDE80;
+  --green: #CAFE87;
+  --white: #FCFCFC;
+}
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--cream); color: var(--ink); line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+.progress-bar {
+  position: fixed; top: 0; left: 0; height: 3px;
+  background: var(--purple); width: 0%; z-index: 200;
+  transition: width 0.1s linear;
+}
+
+.topnav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(243,241,235,0.92);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--ink-10);
+  padding: 16px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.topnav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.topnav-logo { width: 32px; height: 32px; background: var(--purple); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.topnav-logo svg { width: 60%; height: 60%; }
+.topnav-name { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -0.5px; }
+.topnav-back { font-size: 13px; color: var(--ink-70); text-decoration: none; font-weight: 600; }
+.topnav-back:hover { color: var(--purple); }
+
+.layout { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 280px; gap: 56px; padding: 0 32px; }
+@media (max-width: 1024px) { .layout { grid-template-columns: 1fr; gap: 0; } }
+
+.article-main { padding: 56px 0; max-width: 760px; }
+
+.breadcrumb {
+  font-size: 13px; color: var(--ink-60); margin-bottom: 28px; font-weight: 500;
+}
+.breadcrumb a { color: var(--ink-70); text-decoration: none; }
+.breadcrumb a:hover { color: var(--purple); }
+.breadcrumb-sep { padding: 0 6px; opacity: 0.4; }
+
+.article-meta {
+  display: flex; gap: 16px; flex-wrap: wrap; align-items: center;
+  font-size: 13px; color: var(--ink-60); margin-bottom: 24px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.article-meta-pill {
+  padding: 4px 10px; background: var(--ink-05); border-radius: 999px;
+  font-size: 11px; font-weight: 600; color: var(--ink-70);
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+.article-title {
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: clamp(36px, 5vw, 56px); line-height: 1.05;
+  letter-spacing: -2px; margin-bottom: 24px;
+}
+.article-title em { color: var(--purple); font-style: italic; }
+.article-lead {
+  font-size: 21px; line-height: 1.55; color: var(--ink-70);
+  margin-bottom: 48px; font-weight: 400;
+}
+
+.article-body { font-size: 17px; line-height: 1.8; color: var(--ink-80); }
+.article-body h2 {
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: clamp(26px, 3.5vw, 36px); line-height: 1.15;
+  letter-spacing: -0.8px; margin: 64px 0 20px; color: var(--ink);
+  scroll-margin-top: 90px;
+}
+.article-body h3 {
+  font-family: 'Poppins', sans-serif; font-weight: 700;
+  font-size: 22px; line-height: 1.25;
+  letter-spacing: -0.4px; margin: 36px 0 14px; color: var(--ink);
+}
+.article-body p { margin-bottom: 22px; }
+.article-body ul, .article-body ol { margin: 16px 0 28px; padding-left: 24px; }
+.article-body li { margin-bottom: 10px; line-height: 1.7; }
+.article-body strong { color: var(--ink); font-weight: 700; }
+.article-body a { color: var(--purple); text-decoration: underline; text-underline-offset: 3px; }
+.article-body a:hover { color: var(--ink); }
+
+.callout {
+  background: var(--purple-bg);
+  border-left: 4px solid var(--purple);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin: 36px 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.callout strong { color: var(--ink); font-weight: 700; }
+
+.snagify-mention {
+  background: var(--paper);
+  border: 1px solid var(--ink-10);
+  border-radius: 14px;
+  padding: 22px 26px;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-70);
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.snagify-mention-icon {
+  width: 32px; height: 32px; background: var(--purple); border-radius: 8px;
+  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+}
+.snagify-mention-icon svg { width: 60%; height: 60%; fill: var(--white); }
+.snagify-mention strong { color: var(--ink); font-weight: 700; }
+.snagify-mention a { color: var(--purple); font-weight: 600; }
+
+.article-table-wrap { overflow-x: auto; margin: 28px 0; border-radius: 14px; border: 1px solid var(--ink-10); }
+.article-table { width: 100%; border-collapse: collapse; font-size: 15px; background: var(--paper); }
+.article-table th, .article-table td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--ink-10); }
+.article-table th { background: var(--ink-05); font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.3px; }
+.article-table tr:last-child td { border-bottom: none; }
+
+.toc-aside {
+  position: sticky; top: 88px; align-self: start;
+  padding: 56px 0;
+  max-height: calc(100vh - 88px);
+  overflow-y: auto;
+}
+@media (max-width: 1024px) { .toc-aside { display: none; } }
+.toc-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  text-transform: uppercase; letter-spacing: 0.6px;
+  color: var(--ink-60); margin-bottom: 16px;
+}
+.toc-list { list-style: none; padding: 0; margin: 0; }
+.toc-list li { margin-bottom: 4px; }
+.toc-list a {
+  display: block; padding: 8px 12px; border-radius: 8px;
+  font-size: 13px; line-height: 1.5; color: var(--ink-70);
+  text-decoration: none; border-left: 2px solid transparent;
+  transition: all 0.2s;
+}
+.toc-list a:hover { background: var(--ink-05); color: var(--ink); }
+.toc-list a.active { color: var(--purple); border-left-color: var(--purple); background: var(--purple-bg); font-weight: 600; }
+
+.howto-card {
+  background: var(--paper); border: 1px solid var(--ink-10);
+  border-radius: 18px; padding: 36px;
+  margin: 32px 0;
+}
+.howto-step {
+  display: flex; gap: 20px; padding: 22px 0;
+  border-bottom: 1px solid var(--ink-10);
+}
+.howto-step:last-child { border-bottom: none; }
+.howto-step-num {
+  width: 36px; height: 36px; flex-shrink: 0;
+  border-radius: 50%; background: var(--purple); color: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 14px;
+}
+.howto-step-name {
+  font-family: 'Poppins', sans-serif; font-weight: 700;
+  font-size: 17px; line-height: 1.3; margin-bottom: 6px; color: var(--ink);
+}
+.howto-step-text { font-size: 15px; color: var(--ink-70); line-height: 1.65; }
+
+.faq-list { border-top: 1px solid var(--ink-25); margin-top: 16px; }
+.faq-item { border-bottom: 1px solid var(--ink-25); }
+.faq-q {
+  width: 100%; background: none; border: none;
+  padding: 24px 0;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 24px; cursor: pointer; text-align: left;
+  font-family: 'Poppins', sans-serif; font-weight: 700;
+  font-size: 17px; line-height: 1.4; color: var(--ink);
+  transition: color 0.25s;
+}
+.faq-q:hover { color: var(--purple); }
+.faq-icon {
+  flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%;
+  border: 1px solid var(--ink-25);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-60); font-size: 18px; font-weight: 300; line-height: 1;
+  transition: all 0.4s cubic-bezier(.16,1,.3,1);
+}
+.faq-item.open .faq-icon { background: var(--purple); border-color: var(--purple); color: var(--white); transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(.16,1,.3,1); }
+.faq-a-inner { padding: 0 0 24px; }
+.faq-a p { font-size: 15px; line-height: 1.7; color: var(--ink-70); }
+
+.final-cta {
+  background: var(--ink); color: var(--white);
+  border-radius: 28px;
+  padding: 56px 40px; text-align: center;
+  position: relative; overflow: hidden;
+  margin: 64px 0;
+}
+.final-cta::before {
+  content: ''; position: absolute;
+  top: -80px; right: -80px;
+  width: 320px; height: 320px; border-radius: 50%;
+  background: rgba(154,136,253,0.18); filter: blur(60px); pointer-events: none;
+}
+.final-cta h2 {
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: clamp(26px, 3.5vw, 38px); line-height: 1.15;
+  letter-spacing: -1px; margin-bottom: 14px; position: relative; color: var(--white);
+}
+.final-cta p {
+  font-size: 16px; color: rgba(252,252,252,0.7);
+  margin-bottom: 28px; position: relative;
+}
+.final-cta-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 16px 30px;
+  background: var(--purple); color: var(--ink);
+  font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 15px;
+  border-radius: 999px; text-decoration: none; position: relative;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.final-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(154,136,253,0.35); }
+
+footer.site-footer { background: var(--ink); color: var(--white); padding: 48px 32px; }
+.site-footer-inner {
+  max-width: 1080px; margin: 0 auto;
+  display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap;
+  font-size: 13px;
+}
+.site-footer a { color: rgba(252,252,252,0.7); text-decoration: none; }
+.site-footer a:hover { color: var(--purple); }
+
+@media (max-width: 720px) {
+  .topnav { padding: 14px 18px; }
+  .layout { padding: 0 18px; }
+  .article-main { padding: 36px 0; }
+  .article-body { font-size: 16px; line-height: 1.75; }
+  .howto-card { padding: 24px; }
+  .final-cta { padding: 40px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav class="topnav">
+  <a href="/" class="topnav-brand">
+    <div class="topnav-logo">
+      <svg viewBox="0 0 700 700" fill="#FCFCFC"><path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z"/><path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z"/></svg>
+    </div>
+    <span class="topnav-name">Snagify</span>
+  </a>
+  <a href="/" class="topnav-back">← Back to home</a>
+</nav>
+
+<div class="layout">
+
+<article class="article-main">
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Guides</span>
+    <span class="breadcrumb-sep">›</span>
+    <span>RDC Guide</span>
+  </nav>
+
+  <div class="article-meta">
+    <span class="article-meta-pill">Guide</span>
+    <span>Updated April 2026</span>
+    <span>·</span>
+    <span>{Math.ceil(article.wordCount / 230)} min read</span>
+  </div>
+
+  <h1 class="article-title">Dubai Rental Dispute Center (RDC): The <em>Complete 2026 Guide</em></h1>
+  <p class="article-lead">{article.lead}</p>
+
+  <div class="article-body" set:html={article.body} />
+
+  <div class="final-cta">
+    <h2>Inspections that hold up at the RDC.</h2>
+    <p>RDC-valid PDF reports, AI photo analysis, dual digital signatures. Free at check-in.</p>
+    <a href="https://app.snagify.net" class="final-cta-btn">Try Snagify free →</a>
+  </div>
+
+</article>
+
+<aside class="toc-aside" aria-label="Table of contents">
+  <div class="toc-label">In this guide</div>
+  <ul class="toc-list" id="toc">
+    {article.toc.map(item => (
+      <li><a href={`#${item.id}`}>{item.label}</a></li>
+    ))}
+  </ul>
+</aside>
+
+</div>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div>© 2026 Snagify · MULKEEF · Dubai, UAE</div>
+    <div>
+      <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/contact">Contact</a> · <a href="/rera">RERA</a> · <a href="/inspections">All neighborhoods</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const progressBar = document.getElementById('progressBar');
+window.addEventListener('scroll', () => {
+  if (!progressBar) return;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+  progressBar.style.width = Math.min(scrolled, 100) + '%';
+});
+
+const tocLinks = document.querySelectorAll('#toc a');
+const sections = Array.from(tocLinks).map(a => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+
+function updateActiveSection() {
+  const scrollPos = window.scrollY + 120;
+  let active = sections[0];
+  for (const s of sections) {
+    if (s.offsetTop <= scrollPos) active = s;
+  }
+  tocLinks.forEach(a => a.classList.remove('active'));
+  if (active) {
+    const link = document.querySelector('#toc a[href="#' + active.id + '"]');
+    if (link) link.classList.add('active');
+  }
+}
+window.addEventListener('scroll', updateActiveSection);
+updateActiveSection();
+
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q');
+  if (!q) return;
+  q.addEventListener('click', () => {
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      const a = i.querySelector('.faq-a');
+      if (a) a.style.maxHeight = '0px';
+    });
+    if (!wasOpen) {
+      item.classList.add('open');
+      const a = item.querySelector('.faq-a');
+      if (a) a.style.maxHeight = a.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+
+</body>
+</html>

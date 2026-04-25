@@ -1,0 +1,62 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import articleBody from '../data/dubai-rental-dispute-center-guide-body.html?raw';
+
+const article = {
+  slug: 'dubai-rental-dispute-center-guide',
+  metaTitle: "Dubai Rental Dispute Center (RDC): Complete 2026 Guide · Snagify",
+  metaDescription: "How the Dubai Rental Dispute Center (RDC) works in 2026. Filing process, fees, timelines, evidence requirements, win rates. The complete guide for tenants, landlords, and property managers.",
+  keywords: "dubai rental dispute center, rdc dubai, rental dispute dubai, rdc filing dubai, dubai rental dispute fees, win rental dispute dubai, rdc process, dubai rdc guide, rental dispute settlement dubai",
+  title: "Dubai Rental Dispute Center (RDC): The Complete 2026 Guide",
+  publishedDate: "2026-04-25",
+  modifiedDate: "2026-04-25",
+  section: "Guides",
+  wordCount: 3850,
+  lead: "Everything tenants, landlords, and property managers need to know about the Dubai RDC in 2026. The filing process, current fees, expected timelines, evidence requirements, win rates, and what really determines who walks away with the deposit.",
+  toc: [
+    { id: "what-is-rdc", label: "1. What is the RDC?" },
+    { id: "when-file", label: "2. When you can file" },
+    { id: "rdc-fees", label: "3. RDC fees in 2026" },
+    { id: "filing-process", label: "4. The filing process" },
+    { id: "evidence", label: "5. Evidence the RDC accepts" },
+    { id: "timelines", label: "6. Typical timelines" },
+    { id: "win-rates", label: "7. Win rates & outcomes" },
+    { id: "common-failures", label: "8. Why cases fail" },
+    { id: "alternatives", label: "9. Alternatives to filing" },
+    { id: "rdc-vs-court", label: "10. RDC vs civil court" },
+    { id: "after-verdict", label: "11. Enforcement & appeals" },
+    { id: "faq", label: "FAQ" }
+  ],
+  howTo: {
+    name: "How to file a case at the Dubai Rental Dispute Center",
+    description: "Step-by-step process to file a rental dispute at the Dubai RDC in 2026.",
+    totalTime: "P14D",
+    estimatedCost: { "@type": "MonetaryAmount", "currency": "AED", "value": "750" },
+    steps: [
+      { name: "Verify eligibility", text: "Confirm the dispute falls under RDC jurisdiction (rental property in Dubai, registered with Ejari, dispute concerns tenancy terms or deposit)." },
+      { name: "Gather evidence", text: "Collect tenancy contract, Ejari certificate, payment records, photographs, inspection reports, and all written correspondence with the other party." },
+      { name: "Pay the filing fee", text: "Filing fee is 3.5% of the annual rent value of the disputed contract, with a minimum of 500 AED and a maximum of 20,000 AED." },
+      { name: "Submit the case", text: "Submit through the Dubai REST app, the DLD website, or in person at the RDC office in Deira. Online filing is fastest." },
+      { name: "Attend mediation", text: "The RDC schedules a mediation session within 14 days. Both parties attend, often with their lawyers if represented." },
+      { name: "Present at the hearing", text: "If mediation fails, a formal hearing is scheduled. Each side presents evidence and arguments. Hearings typically last 30-60 minutes." },
+      { name: "Receive the verdict", text: "The RDC issues a written decision within 30 days of the hearing. The verdict is enforceable through the Dubai Court of Execution if the losing party does not comply voluntarily." }
+    ]
+  },
+  faqs: [
+    { question: "How much does it cost to file a case at the Dubai RDC?", answer: "The RDC filing fee is 3.5% of the annual rent of the disputed contract, with a minimum of 500 AED and a maximum of 20,000 AED. On a 100,000 AED tenancy, the fee is 3,500 AED. The fee is paid by the party filing the case and is generally awarded to the winning party as part of the verdict." },
+    { question: "How long does an RDC case take?", answer: "Most RDC cases resolve within 30 to 60 days from filing to verdict. Mediation happens within 14 days of filing; if mediation fails, the formal hearing typically occurs within another 14-21 days, with the written verdict issued 14-30 days after that. Complex cases or those requiring expert witnesses can take longer." },
+    { question: "Do I need a lawyer to file at the RDC?", answer: "No, you can represent yourself. The RDC is designed to be accessible to non-lawyers. However, for high-value disputes (over 50,000 AED) or complex commercial leases, hiring a lawyer experienced in Dubai tenancy law is strongly recommended. Lawyer fees typically range from 5,000 to 25,000 AED." },
+    { question: "Can the RDC handle disputes between roommates or sublets?", answer: "Generally no. The RDC has jurisdiction over disputes between the registered tenant (per Ejari) and the landlord. Disputes between primary tenant and subtenant, or between roommates, fall outside RDC jurisdiction unless there is a separate registered tenancy contract for each party." },
+    { question: "What evidence does the RDC give the most weight to?", answer: "The RDC weighs documented evidence over verbal claims. Strongest evidence: signed tenancy contract, Ejari certificate, written communication trails, dated photographs with metadata, and dual-signed inspection reports. Weakest evidence: WhatsApp screenshots without context, undated photos, verbal agreements." },
+    { question: "Can I file a case at the RDC if I don't have Ejari?", answer: "Technically the RDC requires Ejari registration to formally hear a case. If you don't have Ejari, the first step is registering it (which is the landlord's legal obligation). Without Ejari, you may be redirected to the Dubai Civil Court, which has broader jurisdiction but slower timelines." },
+    { question: "What happens if the other party doesn't show up?", answer: "If the respondent fails to appear after proper notice, the RDC can issue a default judgment in favor of the filing party. The defaulting party has limited grounds to overturn a default judgment, typically only if they can prove the notice was improperly served." },
+    { question: "Can I appeal an RDC verdict?", answer: "Yes. Verdicts on disputes valued under 100,000 AED are typically final. Verdicts on disputes valued over 100,000 AED can be appealed to the RDC Appeal Committee within 15 days of receiving the written verdict. Appeals are heard within 60 days." },
+    { question: "What does it mean to enforce an RDC verdict?", answer: "If the losing party doesn't voluntarily comply (e.g. landlord doesn't return the deposit, tenant doesn't vacate), the winning party files for enforcement through the Dubai Court of Execution. Enforcement can include bank account freezes, travel bans, and asset seizure. Enforcement typically resolves within 30-90 days." },
+    { question: "Can the RDC order a tenant to be evicted?", answer: "Yes, in specific circumstances. Eviction orders require the landlord to provide 12 months' written notice for owner-occupation or property sale, or shorter notice for breach of contract (non-payment, illegal use, unauthorized subletting). The RDC reviews each eviction case on its merits." },
+    { question: "What if my landlord increases rent more than the RERA index allows?", answer: "Rent increases must follow the RERA Rental Index. If your landlord proposes an increase exceeding the RERA-allowed cap, you can refuse and continue paying the old rent. If the landlord persists or terminates the contract, file at the RDC. Cases challenging illegal rent increases are typically won by the tenant." },
+    { question: "Are Snagify reports accepted by the RDC?", answer: "Yes. Snagify reports are formatted to meet RDC evidentiary standards: timestamped photos, dual digital signatures, SHA-256 cryptographic verification, and detailed condition documentation per room. The RDC accepts the PDF as-is, no notarization required. Reports can be submitted alongside other evidence in the case file." }
+  ],
+  body: articleBody.trim()
+};
+---
+<ArticleLayout article={article} />
