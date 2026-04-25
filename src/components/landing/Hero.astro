@@ -1,0 +1,156 @@
+---
+const { data, locale = 'en' } = Astro.props;
+
+const tagIconClass = {
+  purple: 'background:var(--purple-bg);color:var(--purple)',
+  green: 'background:var(--green-bg);color:#4A8A00',
+  jasmine: 'background:var(--jasmine-bg);color:#8A6000'
+};
+
+const roomIconClass = {
+  purple: 'ri-purple',
+  yellow: 'ri-yellow',
+  green: 'ri-green'
+};
+
+const barClass = {
+  good: 'bar-good',
+  fair: 'bar-fair'
+};
+
+const badgeClass = {
+  Good: 'bdg-good',
+  Fair: 'bdg-fair'
+};
+
+const roomIcons = {
+  purple: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M2 11a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/><path d="M4 16v2M20 16v2"/></svg>',
+  yellow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>',
+  green: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>'
+};
+
+const tagIcons = {
+  purple: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>',
+  green: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>',
+  jasmine: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>'
+};
+---
+<section class="hero">
+  <div class="hero-watermark">01</div>
+
+  <div class="hero-inner section-wrap">
+
+    <!-- ── Left ── -->
+    <div class="hero-left">
+
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        {data.eyebrow}
+      </div>
+
+      <h1>
+        <div class="line-wrap"><span class="line-inner">{data.headline.line1}</span></div>
+        <div class="line-wrap"><span class="line-inner">{data.headline.line2}</span></div>
+        <div class="line-wrap"><span class="line-inner"><em>{data.headline.line3Em}</em></span></div>
+      </h1>
+
+      <!-- Stats strip — social proof juste après le titre -->
+      <div class="hero-stats">
+        {data.stats.map((stat, i) => (
+          <>
+            <div class="hstat">
+              <span class="hstat-num" {...(stat.animated ? { id: 'ctr' } : {})}>{stat.num}</span>
+              <span class="hstat-lbl">{stat.label}</span>
+            </div>
+            {i < data.stats.length - 1 && <div class="hstat-div"></div>}
+          </>
+        ))}
+      </div>
+
+      <p class="hero-desc">{data.description}</p>
+
+      <!-- CTA bifurqué -->
+      <div class="hero-actions">
+        <div class="hero-cta-group">
+          <a href="#for-pros" class="btn-ink">
+            {data.ctaPro}
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#for-private" class="btn-ghost">
+            {data.ctaPrivate}
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── Right: Inspection Card ── -->
+    <div class="hero-right">
+      {data.card.tags.map((tag, i) => (
+        <div class={`hero-tag ht${i + 1}`}>
+          <div class="htag-ico" style={tagIconClass[tag.iconColor]} set:html={tagIcons[tag.iconColor]}></div>
+          {tag.label}
+        </div>
+      ))}
+
+      <div class="insp-card-back"></div>
+
+      <div class="insp-card">
+        <div class="ic-header">
+          <div>
+            <div class="ic-prop-name">{data.card.header.propertyName}</div>
+            <div class="ic-prop-sub">
+              {data.card.header.propertySub}
+              <span class="ic-dot"></span>
+              {data.card.header.date}
+            </div>
+          </div>
+          <div class="ic-badge">
+            <span class="ic-badge-dot"></span>
+            {data.card.header.badgeLabel}
+          </div>
+        </div>
+
+        <div class="ic-photo">
+          <div class="ic-photo-texture"></div>
+          <div class="ic-ai-bar">
+            <span class="ic-ai-blink"></span>
+            {data.card.photo.aiBarLabel}
+          </div>
+          <div class="ic-pin ic-pin-1">
+            <div class="ic-pin-dot"></div>
+            <div class="ic-pin-label">{data.card.photo.pin1Label}</div>
+          </div>
+          <div class="ic-pin ic-pin-2">
+            <div class="ic-pin-dot"></div>
+            <div class="ic-pin-label">{data.card.photo.pin2Label}</div>
+          </div>
+        </div>
+
+        <div class="ic-rooms">
+          <div class="ic-rooms-title">{data.card.rooms.title}</div>
+          {data.card.rooms.items.map(room => (
+            <div class="ic-room-row">
+              <div class={`ic-room-icon ${roomIconClass[room.iconColor]}`} set:html={roomIcons[room.iconColor]}></div>
+              <span class="ic-room-name">{room.name}</span>
+              <div class="ic-room-bar-wrap"><div class="ic-room-bar"><div class={`ic-room-bar-fill ${barClass[room.barLevel]}`}></div></div></div>
+              <span class={`ic-room-badge ${badgeClass[room.status]}`}>{room.status}</span>
+            </div>
+          ))}
+        </div>
+
+        <div class="ic-footer">
+          <div class="ic-progress">
+            <span class="ic-progress-text">{data.card.footer.progressText}</span>
+            <div class="ic-progress-bar"><div class="ic-progress-fill"></div></div>
+          </div>
+          <div class="ic-gen-btn">
+            {data.card.footer.buttonLabel}
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
