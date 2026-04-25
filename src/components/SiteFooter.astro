@@ -3,7 +3,10 @@ const currentPath = Astro.url.pathname;
 const isArabicPath = /^\/ar(\/|$)/.test(currentPath);
 const cleanPath = currentPath.replace(/^\/ar(?=\/|$)/, '') || '/';
 const enPath = cleanPath;
-const arPath = cleanPath === '/' ? '/ar' : `/ar${cleanPath}`;
+const arabicAvailablePaths = new Set(['/']);
+const arPath = arabicAvailablePaths.has(cleanPath)
+  ? (cleanPath === '/' ? '/ar/' : `/ar${cleanPath}`)
+  : '/ar/';
 const currentLocale = isArabicPath ? 'ar' : 'en';
 ---
 

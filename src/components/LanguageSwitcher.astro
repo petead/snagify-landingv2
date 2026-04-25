@@ -6,15 +6,37 @@ const languages = [
   { code: 'ar', label: 'Arabic', native: 'العربية', dir: 'rtl' }
 ];
 
-// Compute the equivalent path for each language
-function getLocalizedPath(targetLocale, path) {
-  // Remove existing locale prefix if any
-  const cleanPath = path.replace(/^\/(ar|en)(?=\/|$)/, '') || '/';
+// Whitelist of pages that exist in Arabic.
+// As we build more AR pages, we add their EN paths here.
+// Format: EN path (without leading /ar/) → confirmed available in AR
+const arabicAvailablePaths = new Set([
+  '/'
+  // Future additions during Sprint AR.1:
+  // '/for/landlords', '/for/tenants', etc.
+  // '/inspections/dubai-marina', etc.
+  // '/check-in-inspection-dubai', etc.
+  // '/dubai-rental-dispute-center-guide'
+]);
 
+function getLocalizedPath(targetLocale, path) {
+  // Strip any existing locale prefix
+  let cleanPath = path.replace(/^\/(ar|en)(?=\/|$)/, '') || '/';
+
+  // Going to EN: always direct
   if (targetLocale === 'en') {
     return cleanPath;
   }
-  return `/${targetLocale}${cleanPath === '/' ? '' : cleanPath}`;
+
+  // Going to AR: only if the AR version exists, else fallback to /ar/ home
+  if (targetLocale === 'ar') {
+    if (arabicAvailablePaths.has(cleanPath)) {
+      return cleanPath === '/' ? '/ar/' : `/ar${cleanPath}`;
+    }
+    // AR version not yet built: redirect to AR home with a hint
+    return '/ar/';
+  }
+
+  return cleanPath;
 }
 
 const current = languages.find(l => l.code === currentLocale) || languages[0];
