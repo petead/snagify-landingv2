@@ -3,7 +3,8 @@ const { currentLocale = 'en', currentPath = '/' } = Astro.props;
 
 const languages = [
   { code: 'en', label: 'English', native: 'English', dir: 'ltr' },
-  { code: 'ar', label: 'Arabic', native: 'العربية', dir: 'rtl' }
+  { code: 'ar', label: 'Arabic', native: 'العربية', dir: 'rtl' },
+  { code: 'ru', label: 'Russian', native: 'Русский', dir: 'ltr' }
 ];
 
 // Whitelist of pages that exist in Arabic.
@@ -29,22 +30,37 @@ const arabicAvailablePaths = new Set([
   '/snagging-inspection-dubai'
 ]);
 
+const russianAvailablePaths = new Set([
+  '/'
+  // Future additions during Sprint RU.1:
+  // '/for/landlords', '/for/tenants', etc.
+  // '/inspections/...', etc.
+  // Use cases will be added in Step 3
+]);
+
 function getLocalizedPath(targetLocale, path) {
   // Strip any existing locale prefix
-  let cleanPath = path.replace(/^\/(ar|en)(?=\/|$)/, '') || '/';
+  let cleanPath = path.replace(/^\/(ar|ru|en)(?=\/|$)/, '') || '/';
 
-  // Going to EN: always direct
+  // Going to EN: always direct (default locale, not prefixed)
   if (targetLocale === 'en') {
     return cleanPath;
   }
 
-  // Going to AR: only if the AR version exists, else fallback to /ar/ home
+  // Going to AR: only if AR version exists
   if (targetLocale === 'ar') {
     if (arabicAvailablePaths.has(cleanPath)) {
       return cleanPath === '/' ? '/ar/' : `/ar${cleanPath}`;
     }
-    // AR version not yet built: redirect to AR home with a hint
     return '/ar/';
+  }
+
+  // Going to RU: only if RU version exists
+  if (targetLocale === 'ru') {
+    if (russianAvailablePaths.has(cleanPath)) {
+      return cleanPath === '/' ? '/ru/' : `/ru${cleanPath}`;
+    }
+    return '/ru/';
   }
 
   return cleanPath;

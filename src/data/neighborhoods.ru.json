@@ -1,0 +1,67 @@
+{
+  "dubai-marina": {
+    "slug": "dubai-marina",
+    "label": "Дубай Марина",
+    "shortLabel": "Марина",
+    "tier": 1,
+    "propertyMix": "Преимущественно высотные квартиры (от 1 до 4 спален), несколько таунхаусов",
+    "rentRange": "От 80 000 до 400 000 дирхамов в год",
+    "sampleBuildings": ["Princess Tower", "Marina Promenade", "Cayan Tower", "Marina Pinnacle", "Damac Heights"],
+    "typicalDuration": "От 20 до 25 минут",
+    "inspectionNote": "Квартиры в Дубай Марине обычно имеют от 4 до 6 комнат плюс балкон. Большинство осмотров занимают от 20 до 25 минут, включая кухню, две ванные комнаты и документирование вида с балкона.",
+    "rdcReference": "Ближайший RDC: Земельный департамент Дубая, Дейра",
+    "nearbyNeighborhoods": ["jbr", "bluewaters-island", "the-views", "the-greens"]
+  },
+  "downtown-dubai": {
+    "slug": "downtown-dubai",
+    "label": "Даунтаун Дубай",
+    "shortLabel": "Даунтаун",
+    "tier": 1,
+    "propertyMix": "Люксовые квартиры и пентхаусы, брендированные резиденции (Address, Burj Vista)",
+    "rentRange": "От 120 000 до 800 000 дирхамов в год",
+    "sampleBuildings": ["Burj Khalifa", "The Address Downtown", "Burj Vista", "Boulevard Heights", "Standpoint Towers"],
+    "typicalDuration": "От 25 до 35 минут",
+    "inspectionNote": "Объекты в Даунтауне часто включают премиальную отделку и интегрированные системы умного дома. Осмотры занимают от 25 до 35 минут, особенно в брендированных резиденциях, где документируется каждое приспособление.",
+    "rdcReference": "Ближайший RDC: Земельный департамент Дубая, Дейра",
+    "nearbyNeighborhoods": ["business-bay", "dubai-creek-harbour", "city-walk", "al-wasl"]
+  },
+  "business-bay": {
+    "slug": "business-bay",
+    "label": "Бизнес Бэй",
+    "shortLabel": "Бизнес Бэй",
+    "tier": 1,
+    "propertyMix": "Студии, квартиры с 1 и 2 спальнями, апартаменты с обслуживанием",
+    "rentRange": "От 55 000 до 250 000 дирхамов в год",
+    "sampleBuildings": ["Executive Towers", "Bay Square", "Damac Towers", "Paramount Tower Hotel & Residences", "Vezul Residence"],
+    "typicalDuration": "От 15 до 22 минут",
+    "inspectionNote": "Студии и однокомнатные квартиры в Бизнес Бэй быстро осматриваются, обычно от 15 до 22 минут. Многие апартаменты с обслуживанием поставляются с мебелью, что требует документирования инвентаря наряду с состоянием.",
+    "rdcReference": "Ближайший RDC: Земельный департамент Дубая, Дейра",
+    "nearbyNeighborhoods": ["downtown-dubai", "dubai-creek-harbour", "al-wasl", "city-walk"]
+  },
+  "jvc": {
+    "slug": "jvc",
+    "label": "Джумейра Виллидж Сёркл",
+    "shortLabel": "JVC",
+    "tier": 1,
+    "propertyMix": "Квартиры и таунхаусы, семейный район",
+    "rentRange": "От 40 000 до 180 000 дирхамов в год",
+    "sampleBuildings": ["Bloom Towers", "Hyati Residence", "Belgravia", "Diamond Views", "Plaza Residences"],
+    "typicalDuration": "От 20 до 30 минут",
+    "inspectionNote": "Объекты в JVC варьируются от компактных студий до таунхаусов с 4 спальнями. Осмотры таунхаусов занимают больше времени, обычно 30 минут, включая сад, гараж и внешние зоны.",
+    "rdcReference": "Ближайший RDC: Земельный департамент Дубая, Дейра",
+    "nearbyNeighborhoods": ["jvt", "motor-city", "dubai-sports-city", "al-furjan"]
+  },
+  "palm-jumeirah": {
+    "slug": "palm-jumeirah",
+    "label": "Пальма Джумейра",
+    "shortLabel": "Пальма",
+    "tier": 1,
+    "propertyMix": "Люксовые виллы, signature-виллы и квартиры в районах ствола и ветвей",
+    "rentRange": "От 150 000 до 2 500 000 дирхамов в год",
+    "sampleBuildings": ["Atlantis The Royal Residences", "Five Palm Jumeirah", "Tiara Residences", "Oceana", "Marina Residences"],
+    "typicalDuration": "От 35 до 60 минут",
+    "inspectionNote": "Виллы на Пальма Джумейра большие, часто с собственным бассейном и доступом к пляжу. Осмотры занимают от 35 до 60 минут, включая внешние зоны, оборудование бассейна и документирование границ береговой линии.",
+    "rdcReference": "Ближайший RDC: Земельный департамент Дубая, Дейра",
+    "nearbyNeighborhoods": ["jbr", "dubai-marina", "bluewaters-island", "al-sufouh"]
+  }
+}
