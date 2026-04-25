@@ -1,0 +1,255 @@
+---
+// frontmatter (empty for now)
+---
+<!-- BEGIN: bit-perfect copy of original terms.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico">
+<title>Terms of Service — Snagify</title>
+<meta name="description" content="Snagify's terms of service — credits, billing, account rules, and governing law for the Dubai property inspection platform.">
+<meta property="og:title" content="Terms of Service — Snagify">
+<meta property="og:url" content="https://snagify.net/terms">
+<link rel="canonical" href="https://snagify.net/terms">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --cream: #F3F1EB; --cream-2: #EAE8E0; --white: #FCFCFC;
+  --ink: #0E0E10; --ink-60: rgba(14,14,16,0.6); --ink-25: rgba(14,14,16,0.1);
+  --purple: #9A88FD; --purple-bg: #EDE9FE; --jasmine: #FEDE80; --jasmine-bg: #FFF8DC;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 48px;
+  background: rgba(252,252,252,.92); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--ink-25);
+}
+.nav-logo { display:flex;align-items:center;gap:9px;text-decoration:none; }
+.nav-logo span { font-family:'Poppins',sans-serif;font-weight:800;font-size:20px;color:var(--ink); }
+.nav-back { display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--ink-60);text-decoration:none;transition:color .2s; }
+.nav-back:hover { color:var(--ink); }
+.nav-back:hover svg { transform:translateX(-3px); }
+.nav-back svg { transition:transform .2s; }
+
+.page-hero { padding:80px 48px 60px; max-width:800px; margin:0 auto; border-bottom:1px solid var(--ink-25); }
+.page-eyebrow { display:inline-flex;align-items:center;gap:8px;font-size:11px;text-transform:uppercase;letter-spacing:3px;font-weight:600;color:var(--ink-60);margin-bottom:20px; }
+.page-eyebrow::before { content:'';width:16px;height:1.5px;background:var(--ink-60); }
+.page-hero h1 { font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(36px,4vw,52px);letter-spacing:-2px;margin-bottom:12px; }
+.page-meta { font-size:14px;color:var(--ink-60);display:flex;align-items:center;gap:16px;flex-wrap:wrap; }
+.page-meta span { display:flex;align-items:center;gap:6px; }
+
+.layout { display:grid;grid-template-columns:220px 1fr;gap:60px;max-width:1000px;margin:0 auto;padding:60px 48px 100px;align-items:start; }
+
+.toc { position:sticky;top:88px; }
+.toc-title { font-size:10px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;color:var(--ink-60);margin-bottom:16px; }
+.toc-list { list-style:none;display:flex;flex-direction:column;gap:2px; }
+.toc-list a { display:block;padding:8px 12px;border-radius:8px;font-size:13px;font-weight:500;color:var(--ink-60);text-decoration:none;transition:all .2s; }
+.toc-list a:hover, .toc-list a.active { background:var(--purple-bg);color:var(--purple);font-weight:600; }
+
+.content { min-width:0; }
+.content-section { margin-bottom:56px; }
+.content-section:last-child { margin-bottom:0; }
+.content-section h2 { font-family:'Poppins',sans-serif;font-weight:800;font-size:22px;letter-spacing:-.5px;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid var(--purple-bg);scroll-margin-top:100px; }
+.content-section p { font-size:15px;color:var(--ink-60);line-height:1.8;margin-bottom:14px; }
+.content-section p:last-child { margin-bottom:0; }
+.content-section ul { padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:14px; }
+.content-section ul li { display:flex;align-items:flex-start;gap:10px;font-size:15px;color:var(--ink-60);line-height:1.7; }
+.content-section ul li::before { content:'·';color:var(--purple);font-weight:800;flex-shrink:0;margin-top:1px; }
+.content-section h3 { font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;margin:20px 0 10px; }
+
+.warning-box { padding:20px 24px;background:var(--jasmine-bg);border:1px solid rgba(254,222,128,.5);border-radius:14px;font-size:14px;color:#7A5A00;line-height:1.7;margin-bottom:14px;display:flex;align-items:flex-start;gap:10px; }
+.warning-box svg { flex-shrink:0;margin-top:2px; }
+
+.contact-box { padding:24px;background:var(--cream);border-radius:16px;border:1px solid var(--ink-25); }
+.contact-box h3 { font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;margin-bottom:8px; }
+.contact-box p { font-size:14px;color:var(--ink-60);margin-bottom:0; }
+.contact-box a { color:var(--purple);text-decoration:none;font-weight:600; }
+
+footer { background:var(--ink);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px; }
+.foot-copy { font-size:13px;color:rgba(255,255,255,.3); }
+.foot-links { display:flex;gap:20px; }
+.foot-links a { font-size:13px;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s; }
+.foot-links a:hover { color:#9A88FD; }
+
+@media(max-width:768px) {
+  nav { padding:14px 20px; }
+  .page-hero { padding:60px 20px 40px; }
+  .layout { grid-template-columns:1fr;padding:40px 20px 60px;gap:40px; }
+  .toc { position:static; }
+  footer { padding:32px 20px;flex-direction:column; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <svg width="32" height="32" viewBox="0 0 700 700" fill="#9A88FD"><path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z"/><path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z"/></svg>
+    <span>Snagify</span>
+  </a>
+  <a href="/" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to home
+  </a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-eyebrow">Legal</div>
+  <h1>Terms of Service</h1>
+  <div class="page-meta">
+    <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Last updated: March 2025</span>
+    <span>Applies to snagify.net and the Snagify app</span>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="toc">
+    <div class="toc-title">On this page</div>
+    <ul class="toc-list">
+      <li><a href="#acceptance">Acceptance</a></li>
+      <li><a href="#service">The service</a></li>
+      <li><a href="#accounts">Accounts</a></li>
+      <li><a href="#credits">Credits & billing</a></li>
+      <li><a href="#content">Your content</a></li>
+      <li><a href="#prohibited">Prohibited uses</a></li>
+      <li><a href="#liability">Liability</a></li>
+      <li><a href="#termination">Termination</a></li>
+      <li><a href="#governing">Governing law</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+
+    <section class="content-section" id="acceptance">
+      <h2>Acceptance of terms</h2>
+      <p>By accessing or using Snagify ("the Service"), you agree to be bound by these Terms of Service. If you do not agree, do not use the Service. These terms apply to all users, including professionals, landlords, and tenants.</p>
+    </section>
+
+    <section class="content-section" id="service">
+      <h2>The service</h2>
+      <p>Snagify provides a digital property inspection platform that enables users to document property conditions, collect digital signatures, and generate PDF inspection reports for use in the UAE rental market.</p>
+      <div class="warning-box">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Snagify generates inspection reports, but does not provide legal advice. Reports are designed to meet documentation standards but acceptance in any dispute proceeding is subject to the discretion of the relevant authority.
+      </div>
+      <p>We reserve the right to modify, suspend, or discontinue any part of the Service at any time. We will provide reasonable notice for material changes.</p>
+    </section>
+
+    <section class="content-section" id="accounts">
+      <h2>Accounts</h2>
+      <p>You must provide accurate information when creating your account. You are responsible for maintaining the security of your login credentials and for all activity that occurs under your account.</p>
+      <ul>
+        <li>You must be at least 18 years old to create an account</li>
+        <li>One person or entity may not maintain multiple accounts</li>
+        <li>You must notify us immediately of any unauthorized account access</li>
+        <li>We reserve the right to suspend accounts that violate these terms</li>
+      </ul>
+    </section>
+
+    <section class="content-section" id="credits">
+      <h2>Credits & billing</h2>
+      <h3>Professional subscriptions</h3>
+      <p>Professional plans are billed monthly or annually. Unused credits do not roll over to the following month. Annual plans are non-refundable after the first 14 days.</p>
+      <h3>Credit packs (individuals)</h3>
+      <p>Credits purchased as one-time packs are valid for 2 years from the date of purchase. Credits are non-refundable once any credit in the pack has been used.</p>
+      <h3>Check-in inspections</h3>
+      <p>Check-in inspections are free for individual accounts. No credits are consumed for check-in inspections.</p>
+      <h3>Failed payments</h3>
+      <p>If a subscription payment fails, access to paid features will be suspended until payment is resolved. Your data will be retained for 90 days after suspension.</p>
+    </section>
+
+    <section class="content-section" id="content">
+      <h2>Your content</h2>
+      <p>You retain ownership of all inspection data, photos, and reports you create through Snagify. By using the Service, you grant us a limited license to store and process your content solely to deliver the Service.</p>
+      <p>You are responsible for ensuring that inspection data you enter is accurate and that you have the right to photograph and document the properties you inspect.</p>
+    </section>
+
+    <section class="content-section" id="prohibited">
+      <h2>Prohibited uses</h2>
+      <p>You may not use Snagify to:</p>
+      <ul>
+        <li>Create false, misleading, or fabricated inspection reports</li>
+        <li>Backdate or alter the timestamp of any inspection</li>
+        <li>Impersonate another person in the signature process</li>
+        <li>Scrape, reverse-engineer, or copy the platform</li>
+        <li>Use the service for any unlawful purpose under UAE law</li>
+        <li>Attempt to circumvent any security or access controls</li>
+      </ul>
+      <p>Violations may result in immediate account termination and, where required by law, reporting to relevant authorities.</p>
+    </section>
+
+    <section class="content-section" id="liability">
+      <h2>Limitation of liability</h2>
+      <p>Snagify is provided "as is." We make no warranty that the Service will be uninterrupted, error-free, or that reports generated will be accepted in any specific legal proceeding.</p>
+      <p>To the maximum extent permitted by applicable law, our total liability for any claim arising from use of the Service is limited to the amount you paid us in the 3 months preceding the claim.</p>
+      <p>We are not liable for any indirect, incidental, or consequential damages, including lost deposits, missed legal deadlines, or decisions made in reliance on reports generated by the Service.</p>
+    </section>
+
+    <section class="content-section" id="termination">
+      <h2>Termination</h2>
+      <p>You may close your account at any time from your account settings. Upon closing, your data will be deleted within 30 days. Subscription fees for the current billing period are non-refundable.</p>
+      <p>We may terminate or suspend your account without notice if you materially breach these terms.</p>
+    </section>
+
+    <section class="content-section" id="governing">
+      <h2>Governing law</h2>
+      <p>These terms are governed by the laws of the United Arab Emirates. Any dispute arising from these terms shall be subject to the exclusive jurisdiction of the courts of Dubai, UAE.</p>
+    </section>
+
+    <section class="content-section" id="contact">
+      <h2>Contact</h2>
+      <div class="contact-box">
+        <h3>Legal inquiries</h3>
+        <p>Email: <a href="mailto:hello@snagify.net">hello@snagify.net</a><br>
+        Subject line: "Terms of Service inquiry"<br>
+        We respond within 14 business days.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <span class="foot-copy">© 2025 Snagify. All rights reserved.</span>
+  <div class="foot-links">
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="/rera">RERA Compliance</a>
+    <a href="/contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+const sections = document.querySelectorAll('.content-section');
+const links = document.querySelectorAll('.toc-list a');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      links.forEach(l => l.classList.remove('active'));
+      const match = document.querySelector(`.toc-list a[href="#${e.target.id}"]`);
+      if (match) match.classList.add('active');
+    }
+  });
+}, { threshold: .4 });
+sections.forEach(s => io.observe(s));
+</script>
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
+
+<!-- END: bit-perfect copy of original terms.html -->

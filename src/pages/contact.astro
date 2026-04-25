@@ -1,0 +1,364 @@
+---
+// frontmatter (empty for now)
+---
+<!-- BEGIN: bit-perfect copy of original contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico">
+<title>Contact — Snagify</title>
+<meta name="description" content="Get in touch with Snagify — product questions, partnerships, or technical support. We respond in under 24 hours.">
+<meta property="og:title" content="Contact — Snagify">
+<meta property="og:url" content="https://snagify.net/contact">
+<link rel="canonical" href="https://snagify.net/contact">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --cream: #F3F1EB; --cream-2: #EAE8E0; --white: #FCFCFC;
+  --ink: #0E0E10; --ink-60: rgba(14,14,16,0.6); --ink-25: rgba(14,14,16,0.1); --ink-08: rgba(14,14,16,0.05);
+  --purple: #9A88FD; --purple-l: #C4B9FE; --purple-bg: #EDE9FE;
+  --green: #CAFE87; --green-bg: #EEFAD5; --jasmine: #FEDE80;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); -webkit-font-smoothing: antialiased; min-height: 100vh; }
+
+nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 48px;
+  background: rgba(243,241,235,.92); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--ink-25);
+}
+.nav-logo { display:flex;align-items:center;gap:9px;text-decoration:none; }
+.nav-logo span { font-family:'Poppins',sans-serif;font-weight:800;font-size:20px;color:var(--ink); }
+.nav-back { display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--ink-60);text-decoration:none;transition:color .2s; }
+.nav-back:hover { color:var(--ink); }
+.nav-back:hover svg { transform:translateX(-3px); }
+.nav-back svg { transition:transform .2s; }
+
+/* Hero */
+.page-hero {
+  padding: 80px 48px 72px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.page-hero::before {
+  content:''; position:absolute; inset:0;
+  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(154,136,253,.07) 0%, transparent 65%);
+  pointer-events:none;
+}
+.page-eyebrow { display:inline-flex;align-items:center;gap:8px;font-size:11px;text-transform:uppercase;letter-spacing:3.5px;font-weight:600;color:var(--ink-60);margin-bottom:20px; }
+.page-eyebrow::before { content:'';width:20px;height:1.5px;background:var(--ink-60); }
+.page-eyebrow::after { content:'';width:20px;height:1.5px;background:var(--ink-60); }
+.page-hero h1 { font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(44px,5vw,68px);letter-spacing:-3px;line-height:.95;margin-bottom:16px;position:relative;z-index:1; }
+.page-hero h1 em { font-style:italic;color:var(--purple); }
+.page-hero p { font-size:17px;color:var(--ink-60);max-width:480px;margin:0 auto;line-height:1.75;position:relative;z-index:1; }
+
+/* Main layout */
+.main { max-width:1200px;margin:0 auto;padding:0 48px 100px;display:grid;grid-template-columns:1fr 400px;gap:48px;align-items:start; }
+
+/* Cards grid left */
+.contact-cards { display:flex;flex-direction:column;gap:16px; }
+.contact-card {
+  background:var(--white);border:1px solid var(--ink-25);border-radius:24px;
+  padding:36px;display:flex;gap:24px;align-items:flex-start;
+  transition:transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s;
+}
+.contact-card:hover { transform:translateY(-4px);box-shadow:0 16px 48px rgba(14,14,16,.09); }
+.cc-icon {
+  width:52px;height:52px;border-radius:16px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.cc-icon svg { width:24px;height:24px; }
+.ci-p { background:var(--purple-bg);color:var(--purple); }
+.ci-g { background:var(--green-bg);color:#3A7A00; }
+.ci-j { background:#FFF8DC;color:#7A5A00; }
+.cc-content {}
+.cc-label { font-size:10px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;color:var(--ink-60);margin-bottom:6px; }
+.cc-title { font-family:'Poppins',sans-serif;font-weight:700;font-size:18px;letter-spacing:-.3px;margin-bottom:6px; }
+.cc-desc { font-size:14px;color:var(--ink-60);line-height:1.65;margin-bottom:16px; }
+.cc-link {
+  display:inline-flex;align-items:center;gap:7px;
+  padding:10px 20px;border-radius:999px;
+  font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;
+  text-decoration:none;transition:all .3s;
+}
+.cc-link-primary { background:var(--ink);color:var(--white); }
+.cc-link-primary:hover { background:var(--purple);color:var(--ink); }
+.cc-link-outline { background:transparent;border:1.5px solid var(--ink-25);color:var(--ink); }
+.cc-link-outline:hover { border-color:var(--ink); }
+.cc-response { display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-60);margin-top:10px; }
+.cc-response-dot { width:6px;height:6px;border-radius:50%;background:#3A7A00;flex-shrink:0; }
+
+/* FAQ quick */
+.faq-quick { background:var(--white);border:1px solid var(--ink-25);border-radius:24px;padding:32px;margin-top:16px; }
+.faq-quick h3 { font-family:'Poppins',sans-serif;font-weight:700;font-size:17px;margin-bottom:20px; }
+.faq-item { padding:14px 0;border-bottom:1px solid var(--ink-25);font-size:14px;color:var(--ink-60); }
+.faq-item:last-child { border-bottom:none;padding-bottom:0; }
+.faq-item strong { display:block;color:var(--ink);font-weight:600;margin-bottom:4px;font-size:14px; }
+
+/* Form panel */
+.form-panel {
+  background:var(--white);border:1px solid var(--ink-25);
+  border-radius:28px;padding:40px;
+  position:sticky;top:88px;
+}
+.form-panel h2 { font-family:'Poppins',sans-serif;font-weight:800;font-size:22px;letter-spacing:-.5px;margin-bottom:6px; }
+.form-panel p { font-size:14px;color:var(--ink-60);margin-bottom:28px;line-height:1.6; }
+
+.form-group { margin-bottom:18px; }
+.form-group label { display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--ink-60);margin-bottom:8px; }
+.form-group input, .form-group select, .form-group textarea {
+  width:100%;padding:13px 16px;
+  background:var(--cream);border:1.5px solid var(--ink-25);
+  border-radius:12px;font-family:'DM Sans',sans-serif;
+  font-size:15px;color:var(--ink);
+  transition:border-color .25s, background .25s;
+  outline:none;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color:var(--purple);background:var(--white);
+}
+.form-group textarea { resize:vertical;min-height:110px; }
+.form-group select { cursor:pointer;appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2.5' stroke-linecap='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat:no-repeat;background-position:right 14px center; }
+
+.form-row { display:grid;grid-template-columns:1fr 1fr;gap:12px; }
+
+.btn-submit {
+  width:100%;padding:15px;
+  background:var(--ink);color:var(--white);
+  font-family:'Poppins',sans-serif;font-weight:700;font-size:15px;
+  border-radius:12px;border:none;cursor:pointer;
+  transition:background .3s,transform .3s;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  margin-top:4px;
+}
+.btn-submit:hover { background:var(--purple);color:var(--ink);transform:translateY(-2px); }
+
+.form-success {
+  display:none;text-align:center;padding:32px 0;
+}
+.form-success.show { display:block; }
+.form-main.hide { display:none; }
+.success-icon {
+  width:56px;height:56px;border-radius:50%;
+  background:var(--green-bg);border:2px solid rgba(202,254,135,.4);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 16px;
+}
+.success-icon svg { width:24px;height:24px;color:#3A7A00; }
+.form-success h3 { font-family:'Poppins',sans-serif;font-weight:800;font-size:20px;letter-spacing:-.5px;margin-bottom:8px; }
+.form-success p { font-size:14px;color:var(--ink-60);line-height:1.7; }
+
+footer { background:var(--ink);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px; }
+.foot-copy { font-size:13px;color:rgba(255,255,255,.3); }
+.foot-links { display:flex;gap:20px; }
+.foot-links a { font-size:13px;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s; }
+.foot-links a:hover { color:#9A88FD; }
+
+@media(max-width:1100px) {
+  .main { grid-template-columns:1fr; }
+  .form-panel { position:static; }
+}
+@media(max-width:768px) {
+  nav { padding:14px 20px; }
+  .page-hero { padding:60px 20px 48px; }
+  .main { padding:0 20px 60px; }
+  .contact-card { flex-direction:column;gap:16px;padding:24px; }
+  footer { padding:32px 20px;flex-direction:column; }
+  .form-row { grid-template-columns:1fr; }
+  .form-panel { padding:28px 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <svg width="32" height="32" viewBox="0 0 700 700" fill="#9A88FD"><path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z"/><path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z"/></svg>
+    <span>Snagify</span>
+  </a>
+  <a href="/" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to home
+  </a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-eyebrow">Get in touch</div>
+  <h1>We're here<br>to <em>help.</em></h1>
+  <p>Whether you have a question about the product, pricing, or a technical issue, we'll get back to you fast.</p>
+</div>
+
+<div class="main">
+  <div>
+    <div class="contact-cards">
+
+      <div class="contact-card">
+        <div class="cc-icon ci-p">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="cc-content">
+          <div class="cc-label">General inquiries</div>
+          <div class="cc-title">Send us an email</div>
+          <div class="cc-desc">For product questions, feedback, or anything else. We read every message.</div>
+          <a href="mailto:hello@snagify.net" class="cc-link cc-link-primary">
+            hello@snagify.net
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <div class="cc-response"><div class="cc-response-dot"></div>Typical response time: under 24 hours</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="cc-icon ci-g">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="cc-content">
+          <div class="cc-label">Partnerships</div>
+          <div class="cc-title">Work with us</div>
+          <div class="cc-desc">Real estate agencies, property management companies, and proptech platforms — let's talk.</div>
+          <a href="mailto:hello@snagify.net?subject=Partnership inquiry" class="cc-link cc-link-outline">
+            Get in touch
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <div class="cc-response"><div class="cc-response-dot"></div>We'll respond within 2 business days</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="cc-icon ci-j">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <div class="cc-content">
+          <div class="cc-label">Support</div>
+          <div class="cc-title">Technical help</div>
+          <div class="cc-desc">Having trouble with your account, a report, or a payment? Describe the issue and we'll sort it out.</div>
+          <a href="mailto:hello@snagify.net?subject=Support request" class="cc-link cc-link-outline">
+            Report an issue
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <div class="cc-response"><div class="cc-response-dot"></div>Priority support for Pro plan users</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="faq-quick">
+      <h3>Quick answers</h3>
+      <div class="faq-item">
+        <strong>Is check-in really free?</strong>
+        Yes. Check-in inspections for individual landlords and tenants are free. No credits needed, no card required.
+      </div>
+      <div class="faq-item">
+        <strong>Can I get a refund?</strong>
+        Credit packs are refundable before any credit is used. Annual subscriptions are refundable within 14 days of purchase. Email us.
+      </div>
+      <div class="faq-item">
+        <strong>Do you offer agency or volume pricing?</strong>
+        Yes. For teams doing more than 50 inspections per month, contact us for a custom plan.
+      </div>
+      <div class="faq-item">
+        <strong>How do I delete my account?</strong>
+        Go to Settings in the app, or email us and we'll handle it within 48 hours.
+      </div>
+    </div>
+  </div>
+
+  <!-- Form -->
+  <div class="form-panel">
+    <div class="form-main" id="form-main">
+      <h2>Send a message</h2>
+      <p>Fill in the form and we'll get back to you within one business day.</p>
+
+      <form id="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First name</label>
+            <input type="text" placeholder="Ahmed" required>
+          </div>
+          <div class="form-group">
+            <label>Last name</label>
+            <input type="text" placeholder="Al-Rashid" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label>I am a</label>
+          <select required>
+            <option value="">Select...</option>
+            <option>Property agent / agency</option>
+            <option>Individual landlord</option>
+            <option>Tenant</option>
+            <option>Property manager</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <select>
+            <option>General question</option>
+            <option>Technical support</option>
+            <option>Billing or refund</option>
+            <option>Partnership</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell us what's on your mind..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">
+          Send message
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+    </div>
+
+    <div class="form-success" id="form-success">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h3>Message sent!</h3>
+      <p>Thanks for reaching out. We'll get back to you at your email address within one business day.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span class="foot-copy">© 2025 Snagify. All rights reserved.</span>
+  <div class="foot-links">
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="/rera">RERA Compliance</a>
+    <a href="/contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  // In production: send to your backend / Resend API
+  document.getElementById('form-main').classList.add('hide');
+  document.getElementById('form-success').classList.add('show');
+}
+</script>
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
+
+<!-- END: bit-perfect copy of original contact.html -->

@@ -1,0 +1,11 @@
+node_modules
+.DS_Store
+dist
+.astro
+.vercel
+.env
+.env.local
+*.log
+_legacy_html
+_test_write.txt
+.vscode

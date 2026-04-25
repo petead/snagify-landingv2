@@ -1,0 +1,60 @@
+# Snagify · robots.txt
+# https://snagify.net
+
+User-agent: *
+Allow: /
+Disallow: /hero-video.html
+Disallow: /api/
+Disallow: /*.json$
+
+# Major search engines — explicit allow
+User-agent: Googlebot
+Allow: /
+Disallow: /hero-video.html
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# AI training crawlers — opt in (helps brand visibility in LLM answers)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Aggressive scrapers — block
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://snagify.net/sitemap.xml

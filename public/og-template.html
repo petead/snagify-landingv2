@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Snagify · OG Image Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;800&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1200px;
+  height: 630px;
+  background: #F3F1EB;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+.og-canvas {
+  width: 1200px;
+  height: 630px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 60px 70px;
+  position: relative;
+}
+.og-glow-1 {
+  position: absolute;
+  top: -100px;
+  right: -150px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(154,136,253,0.35), transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+.og-glow-2 {
+  position: absolute;
+  bottom: -150px;
+  left: -100px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(254,222,128,0.28), transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+.og-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(14,14,16,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14,14,16,0.04) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+.og-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+.og-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.og-logo {
+  width: 56px;
+  height: 56px;
+  background: #9A88FD;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.og-logo svg {
+  width: 60%;
+  height: 60%;
+}
+.og-brand-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 32px;
+  color: #0E0E10;
+  letter-spacing: -1px;
+}
+.og-tagline-pill {
+  padding: 8px 16px;
+  background: rgba(14,14,16,0.06);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(14,14,16,0.6);
+  letter-spacing: 0.5px;
+}
+.og-main {
+  position: relative;
+  z-index: 2;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.og-headline {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 92px;
+  line-height: 0.95;
+  letter-spacing: -3px;
+  color: #0E0E10;
+  margin-bottom: 24px;
+}
+.og-headline em {
+  color: #9A88FD;
+  font-style: italic;
+}
+.og-sub {
+  font-size: 26px;
+  line-height: 1.4;
+  color: rgba(14,14,16,0.65);
+  font-weight: 400;
+  max-width: 800px;
+}
+.og-bottom {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(14,14,16,0.1);
+  padding-top: 26px;
+}
+.og-badges {
+  display: flex;
+  gap: 14px;
+}
+.og-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #FCFCFC;
+  border: 1px solid rgba(14,14,16,0.08);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0E0E10;
+  font-family: 'Poppins', sans-serif;
+}
+.og-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.og-badge-dot.purple { background: #9A88FD; }
+.og-badge-dot.green  { background: #5DCAA5; }
+.og-badge-dot.jasmine{ background: #FEDE80; }
+.og-url {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(14,14,16,0.5);
+  letter-spacing: 0.5px;
+}
+</style>
+</head>
+<body>
+
+<div class="og-canvas">
+
+  <div class="og-glow-1"></div>
+  <div class="og-glow-2"></div>
+  <div class="og-grid"></div>
+
+  <div class="og-top">
+    <div class="og-brand">
+      <div class="og-logo">
+        <svg viewBox="0 0 700 700" fill="#FCFCFC">
+          <path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z"/>
+          <path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z"/>
+        </svg>
+      </div>
+      <div class="og-brand-name">Snagify</div>
+    </div>
+    <div class="og-tagline-pill">RDC · RERA · DUBAI</div>
+  </div>
+
+  <div class="og-main">
+    <h1 class="og-headline">Inspections,<br><em>done right.</em></h1>
+    <p class="og-sub">Dubai's property inspection app. RDC-valid PDF reports, AI photo analysis, dual digital signatures.</p>
+  </div>
+
+  <div class="og-bottom">
+    <div class="og-badges">
+      <span class="og-badge"><span class="og-badge-dot purple"></span>RDC Valid</span>
+      <span class="og-badge"><span class="og-badge-dot green"></span>20 min/inspection</span>
+      <span class="og-badge"><span class="og-badge-dot jasmine"></span>40+ agencies</span>
+    </div>
+    <div class="og-url">snagify.net</div>
+  </div>
+
+</div>
+
+</body>
+</html>
