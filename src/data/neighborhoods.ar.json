@@ -1,0 +1,67 @@
+{
+    "dubai-marina": {
+      "slug": "dubai-marina",
+      "label": "دبي مارينا",
+      "shortLabel": "مارينا",
+      "tier": 1,
+      "propertyMix": "شقق برجية بشكل رئيسي (من غرفة إلى 4 غرف نوم)، وبعض البيوت المتلاصقة",
+      "rentRange": "من 80,000 إلى 400,000 درهم سنويًا",
+      "sampleBuildings": ["Princess Tower", "Marina Promenade", "Cayan Tower", "Marina Pinnacle", "Damac Heights"],
+      "typicalDuration": "من 20 إلى 25 دقيقة",
+      "inspectionNote": "تتكوّن شقق دبي مارينا عادة من 4 إلى 6 غرف بالإضافة إلى شرفة. تستغرق أغلب الفحوصات من 20 إلى 25 دقيقة، شاملةً المطبخ وحمّامين وتوثيق إطلالة الشرفة.",
+      "rdcReference": "أقرب RDC: دائرة الأراضي والأملاك في دبي، ديرة",
+      "nearbyNeighborhoods": ["jbr", "bluewaters-island", "the-views", "the-greens"]
+    },
+    "downtown-dubai": {
+      "slug": "downtown-dubai",
+      "label": "وسط مدينة دبي",
+      "shortLabel": "وسط المدينة",
+      "tier": 1,
+      "propertyMix": "شقق فاخرة وبنتهاوسات، إقامات بعلامات تجارية (Address، Burj Vista)",
+      "rentRange": "من 120,000 إلى 800,000 درهم سنويًا",
+      "sampleBuildings": ["Burj Khalifa", "The Address Downtown", "Burj Vista", "Boulevard Heights", "Standpoint Towers"],
+      "typicalDuration": "من 25 إلى 35 دقيقة",
+      "inspectionNote": "تتضمّن وحدات وسط المدينة غالبًا تشطيبات فاخرة وأنظمة منزل ذكي مدمجة. تستغرق الفحوصات من 25 إلى 35 دقيقة، خاصة في الإقامات بعلامات تجارية حيث يُوثَّق كل تجهيز.",
+      "rdcReference": "أقرب RDC: دائرة الأراضي والأملاك في دبي، ديرة",
+      "nearbyNeighborhoods": ["business-bay", "dubai-creek-harbour", "city-walk", "al-wasl"]
+    },
+    "business-bay": {
+      "slug": "business-bay",
+      "label": "الخليج التجاري",
+      "shortLabel": "الخليج التجاري",
+      "tier": 1,
+      "propertyMix": "استوديوهات، شقق من غرفة وغرفتين، ووحدات مخدومة",
+      "rentRange": "من 55,000 إلى 250,000 درهم سنويًا",
+      "sampleBuildings": ["Executive Towers", "Bay Square", "Damac Towers", "Paramount Tower Hotel & Residences", "Vezul Residence"],
+      "typicalDuration": "من 15 إلى 22 دقيقة",
+      "inspectionNote": "استوديوهات الخليج التجاري ووحدات الغرفة الواحدة سريعة الفحص، عادة من 15 إلى 22 دقيقة. تأتي كثير من الشقق المخدومة مفروشة، مما يتطلّب توثيق الجرد إلى جانب توثيق الحالة.",
+      "rdcReference": "أقرب RDC: دائرة الأراضي والأملاك في دبي، ديرة",
+      "nearbyNeighborhoods": ["downtown-dubai", "dubai-creek-harbour", "al-wasl", "city-walk"]
+    },
+    "jvc": {
+      "slug": "jvc",
+      "label": "قرية جميرا الدائرية",
+      "shortLabel": "JVC",
+      "tier": 1,
+      "propertyMix": "شقق وبيوت متلاصقة، مجتمع موجّه للعائلات",
+      "rentRange": "من 40,000 إلى 180,000 درهم سنويًا",
+      "sampleBuildings": ["Bloom Towers", "Hyati Residence", "Belgravia", "Diamond Views", "Plaza Residences"],
+      "typicalDuration": "من 20 إلى 30 دقيقة",
+      "inspectionNote": "تتراوح عقارات JVC من استوديوهات صغيرة إلى بيوت متلاصقة من 4 غرف نوم. فحوصات البيوت المتلاصقة تستغرق وقتًا أطول، عادة 30 دقيقة شاملةً الحديقة والمرآب والمناطق الخارجية.",
+      "rdcReference": "أقرب RDC: دائرة الأراضي والأملاك في دبي، ديرة",
+      "nearbyNeighborhoods": ["jvt", "motor-city", "dubai-sports-city", "al-furjan"]
+    },
+    "palm-jumeirah": {
+      "slug": "palm-jumeirah",
+      "label": "نخلة جميرا",
+      "shortLabel": "النخلة",
+      "tier": 1,
+      "propertyMix": "فيلات فاخرة، فيلات مميّزة، وشقق في مشاريع الجذع والسعفات",
+      "rentRange": "من 150,000 إلى 2,500,000 درهم سنويًا",
+      "sampleBuildings": ["Atlantis The Royal Residences", "Five Palm Jumeirah", "Tiara Residences", "Oceana", "Marina Residences"],
+      "typicalDuration": "من 35 إلى 60 دقيقة",
+      "inspectionNote": "فيلات نخلة جميرا واسعة، غالبًا مع مسبح خاص ووصول مباشر إلى الشاطئ. تستغرق الفحوصات من 35 إلى 60 دقيقة شاملةً المناطق الخارجية ومعدات المسبح وتوثيق حدود الشاطئ.",
+      "rdcReference": "أقرب RDC: دائرة الأراضي والأملاك في دبي، ديرة",
+      "nearbyNeighborhoods": ["jbr", "dubai-marina", "bluewaters-island", "al-sufouh"]
+    }
+  }
