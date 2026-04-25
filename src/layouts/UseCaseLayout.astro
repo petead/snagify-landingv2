@@ -1,5 +1,7 @@
 ---
 const { usecase } = Astro.props;
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -89,21 +91,9 @@ body {
   font-family: 'DM Sans', system-ui, sans-serif;
   background: var(--cream); color: var(--ink); line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  cursor: default;
 }
-.topnav {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(243,241,235,0.92);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--ink-10);
-  padding: 16px 32px;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.topnav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-.topnav-logo { width: 32px; height: 32px; background: var(--purple); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
-.topnav-logo svg { width: 60%; height: 60%; }
-.topnav-name { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -0.5px; }
-.topnav-back { font-size: 13px; color: var(--ink-70); text-decoration: none; font-weight: 600; }
-.topnav-back:hover { color: var(--purple); }
+a, button, .faq-q, .hero-cta, .final-cta-btn { cursor: pointer; }
 
 .container { max-width: 980px; margin: 0 auto; padding: 0 32px; }
 
@@ -282,17 +272,7 @@ body {
 }
 .final-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(154,136,253,0.35); }
 
-footer.site-footer { background: var(--ink); color: var(--white); padding: 48px 32px; }
-.site-footer-inner {
-  max-width: 1080px; margin: 0 auto;
-  display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap;
-  font-size: 13px;
-}
-.site-footer a { color: rgba(252,252,252,0.7); text-decoration: none; }
-.site-footer a:hover { color: var(--purple); }
-
 @media (max-width: 720px) {
-  .topnav { padding: 14px 18px; }
   .container { padding: 0 18px; }
   .hero { padding: 56px 0 44px; }
   .section { padding: 44px 0; }
@@ -305,15 +285,7 @@ footer.site-footer { background: var(--ink); color: var(--white); padding: 48px 
 </head>
 <body>
 
-<nav class="topnav">
-  <a href="/" class="topnav-brand">
-    <div class="topnav-logo">
-      <svg viewBox="0 0 700 700" fill="#FCFCFC"><path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z"/><path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z"/></svg>
-    </div>
-    <span class="topnav-name">Snagify</span>
-  </a>
-  <a href="/" class="topnav-back">← Back to home</a>
-</nav>
+<SiteHeader />
 
 <main>
 
@@ -407,14 +379,7 @@ footer.site-footer { background: var(--ink); color: var(--white); padding: 48px 
 
 </main>
 
-<footer class="site-footer">
-  <div class="site-footer-inner">
-    <div>© 2026 Snagify · MULKEEF · Dubai, UAE</div>
-    <div>
-      <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/contact">Contact</a> · <a href="/rera">RERA</a> · <a href="/inspections">All neighborhoods</a>
-    </div>
-  </div>
-</footer>
+<SiteFooter />
 
 <script>
 document.querySelectorAll('.faq-item').forEach(item => {

@@ -1,0 +1,147 @@
+---
+// SiteHeader: shared across all programmatic pages.
+// Differs from landing nav: smaller logo, reduced links, anchors
+// prefixed with "/" so they always return to the landing.
+---
+
+<nav id="site-header">
+  <a href="/" class="site-header-logo" aria-label="Snagify home">
+    <svg width="40" height="40" viewBox="0 0 700 700" fill="#9A88FD">
+      <path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z"/>
+      <path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z"/>
+    </svg>
+    <span>Snagify</span>
+  </a>
+
+  <ul class="site-header-links">
+    <li><a href="/#features">Features</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+    <li>
+      <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="site-header-pill">
+        <span class="site-header-pill-dot"></span>
+        Open App
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </li>
+  </ul>
+
+  <button class="site-header-burger" id="site-header-burger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<style>
+#site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(243,241,235,0.92);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(14,14,16,0.08);
+  padding: 14px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+  cursor: default;
+}
+.site-header-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; cursor: pointer;
+}
+.site-header-logo span {
+  font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 20px;
+  letter-spacing: -0.5px; color: #0E0E10;
+}
+
+.site-header-links {
+  display: flex; align-items: center; gap: 8px;
+  list-style: none; margin: 0; padding: 0;
+}
+.site-header-links a {
+  display: inline-block;
+  padding: 8px 14px; border-radius: 999px;
+  font-family: 'DM Sans', system-ui, sans-serif; font-weight: 500;
+  font-size: 14px; color: rgba(14,14,16,0.7);
+  text-decoration: none; cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+.site-header-links a:hover { color: #0E0E10; background: rgba(14,14,16,0.04); }
+
+.site-header-pill {
+  display: inline-flex !important; align-items: center; gap: 8px;
+  padding: 9px 16px !important;
+  background: #0E0E10 !important; color: #FCFCFC !important;
+  font-family: 'Poppins', sans-serif !important; font-weight: 700 !important;
+  font-size: 13px !important;
+  border-radius: 999px !important;
+  cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.site-header-pill:hover {
+  background: #0E0E10 !important; color: #FCFCFC !important;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(14,14,16,0.2);
+}
+.site-header-pill-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: #CAFE87;
+  animation: site-header-pulse 2s infinite;
+}
+@keyframes site-header-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.site-header-burger {
+  display: none;
+  background: none; border: none; cursor: pointer;
+  width: 32px; height: 32px;
+  flex-direction: column; justify-content: center; gap: 5px;
+  padding: 0;
+}
+.site-header-burger span {
+  display: block; width: 22px; height: 2px;
+  background: #0E0E10; border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.site-header-burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.site-header-burger.is-open span:nth-child(2) { opacity: 0; }
+.site-header-burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 768px) {
+  #site-header { padding: 12px 18px; }
+  .site-header-links {
+    position: fixed; top: 60px; left: 0; right: 0;
+    background: rgba(243,241,235,0.98);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 16px;
+    border-bottom: 1px solid rgba(14,14,16,0.08);
+    transform: translateY(-130%);
+    transition: transform 0.3s cubic-bezier(.16,1,.3,1);
+  }
+  .site-header-links.is-open { transform: translateY(0); }
+  .site-header-links a {
+    padding: 14px 16px;
+    font-size: 16px;
+  }
+  .site-header-pill { justify-content: center; }
+  .site-header-burger { display: flex; }
+}
+</style>
+
+<script>
+const burger = document.getElementById('site-header-burger');
+const links = document.querySelector('.site-header-links');
+if (burger && links) {
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('is-open');
+    links.classList.toggle('is-open');
+  });
+  // Close menu when clicking a link
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      burger.classList.remove('is-open');
+      links.classList.remove('is-open');
+    });
+  });
+}
+</script>
