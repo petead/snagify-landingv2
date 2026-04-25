@@ -1,0 +1,101 @@
+{
+  "testimonials": {
+    "khalid": {
+      "name": "Khalid A.",
+      "role": "Head of Leasing · Prestige Properties",
+      "initials": "KA",
+      "color": "purple",
+      "quote": "Honestly I resisted switching for months, we had our own Word template and I thought it was fine. We now do 60+ inspections a month and I'd never go back."
+    },
+    "sara": {
+      "name": "Sara M.",
+      "role": "Property Manager · Pinnacle Real Estate",
+      "initials": "SM",
+      "color": "purple",
+      "quote": "We lost an RDC case last year because our inspection photos were on someone's personal phone and the checklist was handwritten. It cost us the client relationship too. Since Snagify, every report is signed on the spot."
+    },
+    "rami": {
+      "name": "Rami H.",
+      "role": "Director · Elite Rentals",
+      "initials": "RH",
+      "color": "purple",
+      "quote": "We used to lose at least one dispute per quarter. Since switching to Snagify, our last 14 cases all settled in our favor before reaching the RDC."
+    },
+    "faisal": {
+      "name": "Faisal A.",
+      "role": "Landlord · JVC",
+      "initials": "FA",
+      "color": "jasmine",
+      "quote": "I rent out two apartments. The first time I tried Snagify was on a check-out where I knew there'd be a fight. Tenant signed without disputing a single line. Saved me 8,000 AED."
+    },
+    "nadia": {
+      "name": "Nadia L.",
+      "role": "Tenant · Downtown",
+      "initials": "NL",
+      "color": "jasmine",
+      "quote": "I insisted on doing a Snagify check-in when I moved in. My landlord laughed at first. When I moved out 18 months later he tried to keep 6,000 AED for a wall scratch that was in the original report. Got my full deposit back without even filing."
+    }
+  },
+  "faqs": {
+    "rdc-valid-landlord": {
+      "question": "Is a Snagify report actually accepted by the Dubai Rental Dispute Center?",
+      "answer": "Yes. Every Snagify report includes the evidence the RDC requires: timestamped entries, dual signatures, photos with metadata, and a SHA-256 hash proving the file hasn't been altered after signature. You submit the PDF as-is. No notarisation, no reformatting."
+    },
+    "rdc-valid-tenant": {
+      "question": "Will the RDC accept my Snagify report as evidence?",
+      "answer": "Yes. The RDC and Dubai civil courts accept digitally signed documents with verifiable timestamps. The SHA-256 hash on every PDF is cryptographic proof that the file wasn't tampered with. A lawyer can verify it in under a minute if challenged."
+    },
+    "rdc-valid-pro": {
+      "question": "Are Snagify reports accepted by the Dubai RDC?",
+      "answer": "Yes. Reports include timestamped entries, dual signatures, photo metadata, and a SHA-256 hash. Your agency name, logo, and RERA broker number appear on every page. Submit the PDF as-is, no notarisation needed."
+    },
+    "tenant-refuses-sign": {
+      "question": "What if the tenant refuses to sign?",
+      "answer": "You document the refusal directly inside the report. A dedicated field logs the refusal with timestamp and optional reason. The report stays legally valid. A documented refusal is strong evidence you followed due process."
+    },
+    "tenant-refuses-sign-pro": {
+      "question": "What happens if a tenant refuses to sign?",
+      "answer": "You document the refusal in the report. A dedicated field logs it with timestamp and optional reason. The report stays legally valid and protects both your agency and your landlord client if the case reaches the RDC."
+    },
+    "credits-expire": {
+      "question": "Do my credits expire?",
+      "answer": "No. Credit packs never expire. Buy 6 credits today, use them in 3 years if you want. Check-ins are always free, so you only spend credits when you actually do a check-out."
+    },
+    "checkin-free": {
+      "question": "Why are check-ins free?",
+      "answer": "An undocumented move-in is the single biggest cause of lost deposits in Dubai. We want every tenant and landlord to have that baseline protection. You only spend a credit when you do a check-out, to prove what the property looked like originally."
+    },
+    "team-credits": {
+      "question": "How do credits work across my team?",
+      "answer": "Pro plans give your whole team one shared credit pool. Credits refresh monthly and roll over while your subscription is active. No inspector ever runs out while another has extras. Extra credits beyond your plan cost 16 to 28 AED each depending on your tier."
+    },
+    "billable-to-client": {
+      "question": "Can I bill my landlord client for inspections?",
+      "answer": "Yes, and most agencies already do. Move-in and move-out fees are standard practice. Snagify gives you a branded, RDC-valid report that justifies the fee. Typical billing range: 150 to 300 AED per inspection. Use the ROI calculator on snagify.net to see your annual margin."
+    },
+    "data-secure": {
+      "question": "Is my data secure?",
+      "answer": "Reports, photos, and signatures are stored on encrypted servers. Photos are analysed by Claude AI and then discarded. Only the final report is retained. SHA-256 hashes detect any tampering. Your data is never sold, shared, or used for AI training."
+    },
+    "cancel-anytime": {
+      "question": "Can I cancel my subscription anytime?",
+      "answer": "Yes. Monthly Pro plans cancel in one click. No fees, no questions. You keep access until the end of your billing period, and every report you've ever generated stays accessible forever."
+    },
+    "rera-cert": {
+      "question": "Is Snagify certified by RERA?",
+      "answer": "RERA regulates brokers, not software. Snagify follows RERA's inspection guidelines and our report format matches the criteria RERA applies when reviewing disputes. Your RERA broker number appears on every report."
+    },
+    "evidence-court": {
+      "question": "Can a Snagify report be used as evidence in court?",
+      "answer": "Yes. The RDC and Dubai civil courts accept digitally signed documents with verifiable timestamps. The SHA-256 hash on every PDF is cryptographic proof the file wasn't tampered with."
+    },
+    "offline-mode": {
+      "question": "Does Snagify work offline?",
+      "answer": "Yes. Snagify is a PWA. It installs on your phone and runs offline once loaded. Photos and AI tagging queue locally and sync when you're back online. You can start in a basement and finish on the rooftop without losing a thing."
+    },
+    "ejari-detection": {
+      "question": "Does Snagify auto-detect Ejari?",
+      "answer": "Yes. When you create an inspection, Snagify auto-detects your Ejari registration based on the address and pre-fills the report header. One less form field, one less mistake."
+    }
+  }
+}

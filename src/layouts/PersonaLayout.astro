@@ -1,0 +1,475 @@
+---
+const { persona, shared } = Astro.props;
+const testimonials = persona.testimonialIds.map(id => shared.testimonials[id]).filter(Boolean);
+const faqs = persona.faqIds.map(id => shared.faqs[id]).filter(Boolean);
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+  }))
+};
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": persona.headline,
+  "description": persona.metaDescription,
+  "author": { "@type": "Organization", "name": "Snagify" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Snagify",
+    "logo": { "@type": "ImageObject", "url": "https://snagify.net/og-image.png" }
+  },
+  "datePublished": "2026-04-25",
+  "dateModified": "2026-04-25",
+  "mainEntityOfPage": `https://snagify.net/for/${persona.slug}`,
+  "image": "https://snagify.net/og-image.png"
+};
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{persona.metaTitle}</title>
+<meta name="description" content={persona.metaDescription}>
+<meta name="keywords" content={persona.keywords}>
+<link rel="canonical" href={`https://snagify.net/for/${persona.slug}`}>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Snagify · MULKEEF">
+<meta http-equiv="content-language" content="en-AE">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content={persona.metaTitle}>
+<meta property="og:description" content={persona.metaDescription}>
+<meta property="og:url" content={`https://snagify.net/for/${persona.slug}`}>
+<meta property="og:image" content="https://snagify.net/og-image.png">
+<meta property="og:site_name" content="Snagify">
+<meta property="og:locale" content="en_AE">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content={persona.metaTitle}>
+<meta name="twitter:description" content={persona.metaDescription}>
+<meta name="twitter:image" content="https://snagify.net/og-image.png">
+
+<script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
+<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --cream: #F3F1EB;
+  --paper: #FCFCFC;
+  --ink: #0E0E10;
+  --ink-70: rgba(14,14,16,0.7);
+  --ink-60: rgba(14,14,16,0.6);
+  --ink-25: rgba(14,14,16,0.12);
+  --ink-10: rgba(14,14,16,0.08);
+  --ink-05: rgba(14,14,16,0.04);
+  --purple: #9A88FD;
+  --purple-bg: rgba(154,136,253,0.1);
+  --jasmine: #FEDE80;
+  --green: #CAFE87;
+  --white: #FCFCFC;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.topnav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(243,241,235,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--ink-10);
+  padding: 16px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.topnav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.topnav-logo { width: 32px; height: 32px; background: var(--purple); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.topnav-logo svg { width: 60%; height: 60%; }
+.topnav-name { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -0.5px; }
+.topnav-back { font-size: 13px; color: var(--ink-70); text-decoration: none; font-weight: 600; }
+.topnav-back:hover { color: var(--purple); }
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+
+.hero { padding: 80px 0 64px; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px; border-radius: 999px; background: var(--ink-05);
+  font-size: 12px; font-weight: 600; color: var(--ink-70);
+  letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 22px;
+}
+.eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--purple); }
+.hero h1 {
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: clamp(40px, 5.5vw, 68px); line-height: 1.04;
+  letter-spacing: -2px; max-width: 780px; margin-bottom: 22px;
+}
+.hero h1 em { color: var(--purple); font-style: italic; }
+.hero-sub {
+  font-size: 19px; line-height: 1.55; color: var(--ink-70);
+  max-width: 640px; margin-bottom: 32px;
+}
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 16px 28px; background: var(--ink); color: var(--white);
+  font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 15px;
+  border-radius: 999px; text-decoration: none;
+  transition: transform 0.25s cubic-bezier(.16,1,.3,1), box-shadow 0.25s;
+}
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(14,14,16,0.25); }
+
+.section { padding: 72px 0; }
+.section-title {
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: clamp(30px, 4vw, 44px); line-height: 1.1;
+  letter-spacing: -1.2px; max-width: 760px; margin-bottom: 18px;
+}
+.section-sub {
+  font-size: 17px; color: var(--ink-70); max-width: 640px; margin-bottom: 44px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media (max-width: 860px) {
+  .grid-3 { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: var(--paper);
+  border: 1px solid var(--ink-10);
+  border-radius: 18px; padding: 28px;
+}
+.card-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: 8px;
+  background: var(--ink); color: var(--white);
+  font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700;
+  margin-bottom: 16px;
+}
+.card-title {
+  font-family: 'Poppins', sans-serif; font-weight: 700;
+  font-size: 18px; line-height: 1.3; margin-bottom: 10px;
+}
+.card-body { font-size: 15px; line-height: 1.6; color: var(--ink-70); }
+
+.feature {
+  background: var(--paper); border: 1px solid var(--ink-10);
+  border-radius: 18px; padding: 28px;
+  position: relative; overflow: hidden;
+}
+.feature-tick {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: 8px;
+  background: var(--purple-bg); color: var(--purple);
+  margin-bottom: 16px;
+}
+.feature-tick svg { width: 18px; height: 18px; stroke-width: 2.4; stroke: var(--purple); fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+}
+.testimonial {
+  background: var(--paper); border: 1px solid var(--ink-10);
+  border-radius: 18px; padding: 28px;
+}
+.testimonial-quote {
+  font-size: 16px; line-height: 1.6; color: var(--ink); margin-bottom: 22px;
+  font-weight: 500;
+}
+.testimonial-author { display: flex; align-items: center; gap: 12px; padding-top: 18px; border-top: 1px solid var(--ink-10); }
+.testimonial-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 14px;
+  letter-spacing: -0.5px; flex-shrink: 0;
+}
+.testimonial-avatar.purple { background: var(--purple); color: var(--white); }
+.testimonial-avatar.jasmine { background: var(--jasmine); color: var(--ink); }
+.testimonial-name { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px; }
+.testimonial-role { font-size: 12px; color: var(--ink-60); margin-top: 2px; }
+
+.pricing-card {
+  background: var(--paper); border: 1px solid var(--ink-10);
+  border-radius: 22px; padding: 36px;
+  display: flex; align-items: center; gap: 36px;
+  flex-wrap: wrap;
+}
+.pricing-card-info { flex: 1; min-width: 280px; }
+.pricing-badge {
+  display: inline-block; padding: 4px 12px; background: var(--purple-bg);
+  color: var(--purple); border-radius: 999px;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.6px;
+  text-transform: uppercase; margin-bottom: 12px;
+}
+.pricing-plan-name {
+  font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 24px;
+  margin-bottom: 8px; letter-spacing: -0.6px;
+}
+.pricing-reason { font-size: 15px; line-height: 1.55; color: var(--ink-70); }
+.pricing-cta {
+  padding: 14px 24px; background: var(--purple); color: var(--ink);
+  font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 14px;
+  border-radius: 999px; text-decoration: none; flex-shrink: 0;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.pricing-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(154,136,253,0.4); }
+
+.faq-list { border-top: 1px solid var(--ink-25); }
+.faq-item { border-bottom: 1px solid var(--ink-25); }
+.faq-q {
+  width: 100%; background: none; border: none;
+  padding: 26px 0;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 24px; cursor: pointer; text-align: left;
+  font-family: 'Poppins', sans-serif; font-weight: 700;
+  font-size: 18px; line-height: 1.4; color: var(--ink);
+  transition: color 0.25s;
+}
+.faq-q:hover { color: var(--purple); }
+.faq-icon {
+  flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+  border: 1px solid var(--ink-25);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-60); font-size: 20px; font-weight: 300; line-height: 1;
+  transition: all 0.4s cubic-bezier(.16,1,.3,1);
+}
+.faq-item.open .faq-icon {
+  background: var(--purple); border-color: var(--purple);
+  color: var(--white); transform: rotate(45deg); font-weight: 500;
+}
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(.16,1,.3,1); }
+.faq-a-inner { padding: 0 0 26px; max-width: 680px; }
+.faq-a p { font-size: 15px; line-height: 1.7; color: var(--ink-70); }
+
+.final-cta {
+  background: var(--ink); color: var(--white);
+  border-radius: 28px;
+  padding: 64px 48px; text-align: center;
+  position: relative; overflow: hidden;
+  margin: 24px 0 80px;
+}
+.final-cta::before {
+  content: ''; position: absolute;
+  top: -80px; right: -80px;
+  width: 320px; height: 320px; border-radius: 50%;
+  background: rgba(154,136,253,0.18); filter: blur(60px); pointer-events: none;
+}
+.final-cta h2 {
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: clamp(30px, 4vw, 48px); line-height: 1.1;
+  letter-spacing: -1.2px; margin-bottom: 14px;
+  position: relative;
+}
+.final-cta p {
+  font-size: 17px; color: rgba(252,252,252,0.7);
+  margin-bottom: 28px; position: relative;
+}
+.final-cta-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 16px 30px;
+  background: var(--purple); color: var(--ink);
+  font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 15px;
+  border-radius: 999px; text-decoration: none;
+  position: relative;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.final-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(154,136,253,0.35); }
+
+footer.site-footer {
+  background: var(--ink); color: var(--white);
+  padding: 48px 32px;
+}
+.site-footer-inner {
+  max-width: 1080px; margin: 0 auto;
+  display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap;
+  font-size: 13px;
+}
+.site-footer a { color: rgba(252,252,252,0.7); text-decoration: none; }
+.site-footer a:hover { color: var(--purple); }
+
+@media (max-width: 720px) {
+  .topnav { padding: 14px 18px; }
+  .container { padding: 0 18px; }
+  .hero { padding: 56px 0 44px; }
+  .section { padding: 56px 0; }
+  .pricing-card { padding: 24px; }
+  .final-cta { padding: 48px 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="/" class="topnav-brand">
+    <div class="topnav-logo">
+      <svg viewBox="0 0 700 700" fill="#FCFCFC"><path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z"/><path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z"/></svg>
+    </div>
+    <span class="topnav-name">Snagify</span>
+  </a>
+  <a href="/" class="topnav-back">← Back to home</a>
+</nav>
+
+<main>
+
+<section class="hero container">
+  <div class="eyebrow"><span class="eyebrow-dot"></span>{persona.eyebrow}</div>
+  <h1>{persona.headline.replace(persona.headlineHighlight, '')}<em>{persona.headlineHighlight}</em></h1>
+  <p class="hero-sub">{persona.subheadline}</p>
+  <a href="https://app.snagify.net" class="hero-cta">Try Snagify free →</a>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">The {persona.label.toLowerCase()} problem.</h2>
+    <p class="section-sub">Three pains we hear from {persona.label.toLowerCase()} every week.</p>
+    <div class="grid-3">
+      {persona.problems.map((p, i) => (
+        <div class="card">
+          <div class="card-num">{String(i + 1).padStart(2, '0')}</div>
+          <h3 class="card-title">{p.title}</h3>
+          <p class="card-body">{p.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">How Snagify solves it.</h2>
+    <p class="section-sub">The features that matter most for {persona.label.toLowerCase()}.</p>
+    <div class="grid-3">
+      {persona.features.map(f => (
+        <div class="feature">
+          <div class="feature-tick">
+            <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <h3 class="card-title">{f.title}</h3>
+          <p class="card-body">{f.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+{testimonials.length > 0 && (
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">What other {persona.label.toLowerCase()} say.</h2>
+      <div class="testimonials">
+        {testimonials.map(t => (
+          <div class="testimonial">
+            <p class="testimonial-quote">"{t.quote}"</p>
+            <div class="testimonial-author">
+              <div class={`testimonial-avatar ${t.color}`}>{t.initials}</div>
+              <div>
+                <div class="testimonial-name">{t.name}</div>
+                <div class="testimonial-role">{t.role}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Recommended for {persona.label.toLowerCase()}.</h2>
+    <div class="pricing-card">
+      <div class="pricing-card-info">
+        <span class="pricing-badge">Recommended</span>
+        <div class="pricing-plan-name">{persona.pricing.recommendedPlan}</div>
+        <p class="pricing-reason">{persona.pricing.reason}</p>
+      </div>
+      <a href="/#pricing" class="pricing-cta">{persona.pricing.ctaLabel} →</a>
+    </div>
+  </div>
+</section>
+
+{faqs.length > 0 && (
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Frequently asked.</h2>
+      <div class="faq-list">
+        {faqs.map(f => (
+          <div class="faq-item">
+            <button class="faq-q" type="button">
+              {f.question}
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner"><p>{f.answer}</p></div></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<section class="container">
+  <div class="final-cta">
+    <h2>{persona.finalCta.headline}</h2>
+    <p>{persona.finalCta.subheadline}</p>
+    <a href="https://app.snagify.net" class="final-cta-btn">{persona.finalCta.buttonLabel}</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div>© 2026 Snagify · MULKEEF · Dubai, UAE</div>
+    <div>
+      <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/contact">Contact</a> · <a href="/rera">RERA</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q');
+  if (!q) return;
+  q.addEventListener('click', () => {
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      const a = i.querySelector('.faq-a');
+      if (a) a.style.maxHeight = '0px';
+    });
+    if (!wasOpen) {
+      item.classList.add('open');
+      const a = item.querySelector('.faq-a');
+      if (a) a.style.maxHeight = a.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+
+</body>
+</html>

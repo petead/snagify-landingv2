@@ -1,0 +1,15 @@
+---
+import personasData from '../../data/personas.json';
+import sharedData from '../../data/persona-shared.json';
+import PersonaLayout from '../../layouts/PersonaLayout.astro';
+
+export async function getStaticPaths() {
+  return Object.values(personasData).map(persona => ({
+    params: { slug: persona.slug },
+    props: { persona, shared: sharedData }
+  }));
+}
+
+const { persona, shared } = Astro.props;
+---
+<PersonaLayout persona={persona} shared={shared} />

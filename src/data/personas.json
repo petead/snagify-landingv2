@@ -1,0 +1,359 @@
+{
+  "landlords": {
+    "slug": "landlords",
+    "label": "Landlords",
+    "eyebrow": "Built for landlords",
+    "headline": "Protect your deposit. Document everything. Win disputes.",
+    "headlineHighlight": "Win disputes.",
+    "subheadline": "Stop trusting WhatsApp photos and Word templates. Snagify gives you legally-valid inspection reports the Dubai RDC accepts as evidence.",
+    "metaTitle": "Property Inspection App for Dubai Landlords · Snagify",
+    "metaDescription": "Protect your rental deposits with RDC-valid inspection reports. AI photo analysis, dual digital signatures, SHA-256 verification. Free check-ins for Dubai landlords.",
+    "keywords": "property inspection app for landlords dubai, dubai landlord rental tools, landlord deposit protection dubai, rental inspection landlord uae",
+    "problems": [
+      {
+        "title": "You trust your tenants. Then you lose your deposit.",
+        "body": "When the RDC weighs evidence, a clean Word checklist with no photo proof carries no weight. You walk in with goodwill, you walk out 12,000 AED short."
+      },
+      {
+        "title": "Your photos are scattered across WhatsApp threads.",
+        "body": "When you finally need them as evidence, half are deleted, none are timestamped, and the tenant disputes their authenticity. Court inadmissible."
+      },
+      {
+        "title": "You spend hours typing a report that gets contested anyway.",
+        "body": "Two hours of inspection writing, three rounds of email back-and-forth, and the tenant still says the wall scratch was already there. With no proof, you lose."
+      }
+    ],
+    "features": [
+      {
+        "title": "AI catches what you miss",
+        "body": "Snagify's AI tags damage in your photos automatically. Wall scratches, paint wear, grout discoloration. You can't forget what you didn't see."
+      },
+      {
+        "title": "RDC-valid evidence by default",
+        "body": "Every report ships with timestamps, dual signatures, photo metadata, and a SHA-256 cryptographic hash. The RDC accepts it as-is."
+      },
+      {
+        "title": "Free check-ins, always",
+        "body": "Move-in inspections never cost a credit. We want every Dubai landlord to have that baseline protection, whether you pay us later or not."
+      }
+    ],
+    "testimonialIds": ["faisal", "nadia"],
+    "pricing": {
+      "recommendedPlan": "Pay-as-you-go credits",
+      "reason": "If you have 1-3 properties, credit packs are cheaper than any subscription. They never expire. Buy 6 credits today, use them in 3 years if you want.",
+      "ctaLabel": "See credit packs"
+    },
+    "faqIds": ["rdc-valid-landlord", "tenant-refuses-sign", "credits-expire", "data-secure"],
+    "finalCta": {
+      "headline": "Ready to protect your deposit?",
+      "subheadline": "Free check-in, no credit card needed.",
+      "buttonLabel": "Try Snagify free →"
+    }
+  },
+  "tenants": {
+    "slug": "tenants",
+    "label": "Tenants",
+    "eyebrow": "Built for tenants",
+    "headline": "Protect your deposit before you move in.",
+    "headlineHighlight": "Before you move in.",
+    "subheadline": "An undocumented move-in is the single biggest cause of lost deposits in Dubai. Snagify gives tenants the same evidence-grade reports landlords use, for free at check-in.",
+    "metaTitle": "Rental Inspection App for Dubai Tenants · Snagify",
+    "metaDescription": "Don't lose your deposit on damages you didn't cause. Document your move-in inspection with RDC-valid reports. Free for tenants on check-in.",
+    "keywords": "rental inspection app dubai tenants, tenant deposit protection dubai, move-in inspection tenant dubai, deposit dispute dubai tenant",
+    "problems": [
+      {
+        "title": "You moved out clean. The landlord still kept your deposit.",
+        "body": "Without a documented baseline of the apartment's original condition, every scratch, every stain, every dent gets billed to you. Even the ones that were already there."
+      },
+      {
+        "title": "Your check-in was a verbal walk-through.",
+        "body": "Most Dubai landlords don't insist on a formal inspection at move-in. They benefit from the ambiguity later. Don't let that happen."
+      },
+      {
+        "title": "Going to the RDC sounds expensive and slow.",
+        "body": "It is, when you have no evidence. With timestamped photos and a signed report, most tenants win their case in 30 days, often without even filing."
+      }
+    ],
+    "features": [
+      {
+        "title": "Free check-ins. Always.",
+        "body": "Document the apartment's condition the day you move in. Costs you nothing. No credit card. No subscription required."
+      },
+      {
+        "title": "20 minutes, room by room.",
+        "body": "Walk through the property with your phone. Take photos. AI tags issues automatically. Sign with the landlord. Done."
+      },
+      {
+        "title": "Reports the RDC accepts as-is.",
+        "body": "If a dispute happens later, you submit the PDF directly. SHA-256 verification proves it wasn't tampered with. Landlord disputes nothing."
+      }
+    ],
+    "testimonialIds": ["faisal", "nadia"],
+    "pricing": {
+      "recommendedPlan": "Free at check-in",
+      "reason": "Move-in inspections are 100% free. You only pay if you want to do a check-out inspection at move-out. A 6-credit pack covers most tenants for life.",
+      "ctaLabel": "See pricing"
+    },
+    "faqIds": ["rdc-valid-tenant", "checkin-free", "credits-expire", "data-secure"],
+    "finalCta": {
+      "headline": "Don't move in without it.",
+      "subheadline": "Document your apartment in 20 minutes. Free.",
+      "buttonLabel": "Start your free check-in →"
+    }
+  },
+  "property-managers": {
+    "slug": "property-managers",
+    "label": "Property Managers",
+    "eyebrow": "Built for property managers",
+    "headline": "Standardize inspections across your portfolio.",
+    "headlineHighlight": "Win every dispute.",
+    "subheadline": "When every inspector on your team uses Word and WhatsApp, every report looks different. When the RDC weighs evidence, that costs you. Snagify makes every inspection consistent, defensible, and 4x faster.",
+    "metaTitle": "Property Management Software Dubai · Snagify Inspections",
+    "metaDescription": "Inspection software built for Dubai property managers. Standardize reports, share credits across your team, win every RDC case. Pro plans from 149 AED/month.",
+    "keywords": "property management software dubai, inspection tool for property managers, dubai property management app, rera property management",
+    "problems": [
+      {
+        "title": "Every inspector does it differently.",
+        "body": "One uses Word, one uses Excel, one uses photos in a WhatsApp group. Reports are inconsistent, hard to defend, and impossible to QA at scale."
+      },
+      {
+        "title": "You lose disputes you should win.",
+        "body": "When the RDC asks for evidence, a hand-typed report with no signatures and no metadata gets dismissed. You eat the cost. Your client gets unhappy."
+      },
+      {
+        "title": "Inspections eat hours that should generate revenue.",
+        "body": "Two hours per inspection × 30 inspections per month × 4 inspectors = 240 hours. That's 1.5 FTEs lost to admin every month."
+      }
+    ],
+    "features": [
+      {
+        "title": "One process, every inspector",
+        "body": "Snagify standardizes the flow: address, rooms, photos, AI tags, signatures. Every report leaves your agency identical in structure. RDC sees consistency. RDC trusts consistency."
+      },
+      {
+        "title": "Shared credit pool across your team",
+        "body": "Pro plans give your whole team one credit pool. No inspector ever runs out while another has extras. You buy once, your team uses across the portfolio."
+      },
+      {
+        "title": "20 min per inspection, white-labeled",
+        "body": "Your agency name, logo, and RERA broker number on every page. Your client sees your brand, not ours. You bill them for the inspection. We help you keep the margin."
+      }
+    ],
+    "testimonialIds": ["sara", "rami"],
+    "pricing": {
+      "recommendedPlan": "Growth Pro",
+      "reason": "30 credits/month covers a typical 30-inspection volume. Annual pricing brings it to 249 AED/month for unlimited team members and shared credits.",
+      "ctaLabel": "See Pro plans"
+    },
+    "faqIds": ["rdc-valid-pro", "team-credits", "tenant-refuses-sign-pro", "cancel-anytime"],
+    "finalCta": {
+      "headline": "Stop losing disputes you should win.",
+      "subheadline": "Try Growth Pro free for 14 days. No credit card.",
+      "buttonLabel": "Start free trial →"
+    }
+  },
+  "real-estate-agencies": {
+    "slug": "real-estate-agencies",
+    "label": "Real Estate Agencies",
+    "eyebrow": "Built for real estate agencies",
+    "headline": "Branded inspections your agents do in 20 minutes.",
+    "headlineHighlight": "Bill clients for them.",
+    "subheadline": "Most agencies do inspections for free as part of management. With Snagify, you turn them into a premium service you can bill for, with reports that carry your brand and your RERA number.",
+    "metaTitle": "Real Estate Agency Inspection Software Dubai · Snagify",
+    "metaDescription": "Branded RDC-valid inspection reports for Dubai real estate agencies. Your logo, your RERA number, billable as a service. ROI calculator on snagify.net.",
+    "keywords": "real estate agency software dubai, inspection tool for agents dubai, dubai real estate agent app, rera agency software",
+    "problems": [
+      {
+        "title": "Each agent has their own process.",
+        "body": "Some use Word, some use Excel, some skip the inspection entirely. Reports are inconsistent. When a dispute hits, you can't defend a fragmented process."
+      },
+      {
+        "title": "You're doing inspections for free.",
+        "body": "Most Dubai agencies bundle inspections into management fees. That's hours of agent time, monetized at zero. Meanwhile your competitors find ways to charge for them."
+      },
+      {
+        "title": "Your reports look like they're from 2010.",
+        "body": "A Word doc with stretched photos doesn't impress a landlord client. It tells them you're cutting corners on the part of the job that matters most when things go wrong."
+      }
+    ],
+    "features": [
+      {
+        "title": "White-label by default",
+        "body": "Every report ships with your agency name, logo, and RERA broker number on every page. Your landlord client sees your brand on a premium document. Snagify is invisible."
+      },
+      {
+        "title": "Billable as a service",
+        "body": "Move-in and move-out fees are standard practice in Dubai. Snagify gives you a justifiable, premium-looking deliverable to bill for. Typical range: 150 to 300 AED per inspection."
+      },
+      {
+        "title": "ROI calculator built into snagify.net",
+        "body": "We've built a public calculator that shows agencies their take-home profit at any volume. Move 30 sliders, see your annual margin. Most agencies see 50,000 to 70,000 AED per year."
+      }
+    ],
+    "testimonialIds": ["khalid", "rami"],
+    "pricing": {
+      "recommendedPlan": "Agency Pro",
+      "reason": "50 credits/month + extra credits at 16 AED. Built for agencies doing 50+ inspections monthly. White-label included. Custom training for your team.",
+      "ctaLabel": "See ROI calculator"
+    },
+    "faqIds": ["rdc-valid-pro", "team-credits", "billable-to-client", "rera-cert"],
+    "finalCta": {
+      "headline": "Turn inspections into revenue.",
+      "subheadline": "Calculate your annual margin in 30 seconds.",
+      "buttonLabel": "Open ROI calculator →"
+    }
+  },
+  "holiday-homes": {
+    "slug": "holiday-homes",
+    "label": "Holiday Homes",
+    "eyebrow": "Built for holiday home operators",
+    "headline": "Inspection-grade evidence between every stay.",
+    "headlineHighlight": "Between every stay.",
+    "subheadline": "Each guest cycle is a new inspection. Damage disputes come in via Booking and Airbnb chat, hard to prove without timestamped evidence. Snagify gives DTCM-aligned, guest-friendly reports between every stay.",
+    "metaTitle": "Holiday Homes Inspection App Dubai · DTCM Compliant · Snagify",
+    "metaDescription": "Document the condition of your Dubai holiday home between every guest. RDC and DTCM-aligned reports, AI photo analysis, dual signatures. From 49 AED/month.",
+    "keywords": "holiday homes dubai inspection, DTCM compliance dubai, short-term rental inspection tool, dubai airbnb host inspection, holiday rental dubai evidence",
+    "problems": [
+      {
+        "title": "Guests damage things and dispute the charges.",
+        "body": "Booking and Airbnb give the guest the benefit of the doubt by default. Without timestamped photos showing the room before they arrived, you eat the loss."
+      },
+      {
+        "title": "Your cleaning team is your only witness.",
+        "body": "When something is broken between stays, your cleaner WhatsApps you a photo. By the time you respond, the next guest has checked in. Evidence is gone."
+      },
+      {
+        "title": "DTCM compliance is a moving target.",
+        "body": "Dubai's holiday home rules are tightening. Operators with proper documentation handle audits and complaints in stride. Operators without it get fined or delisted."
+      }
+    ],
+    "features": [
+      {
+        "title": "20 minutes per cycle, between every stay",
+        "body": "Quick, repeatable inspection flow optimized for short-term rental turnover. Use the same template for every guest. Compare condition cycle to cycle in seconds."
+      },
+      {
+        "title": "Booking and Airbnb-ready evidence",
+        "body": "Damage claims to OTAs require timestamped photos and proof of pre-stay condition. Snagify's SHA-256 verification + dual-signed reports beat 'guest he said, host said' arguments."
+      },
+      {
+        "title": "DTCM-aligned format",
+        "body": "Our report structure follows DTCM's holiday home standards. When inspectors visit or audits happen, you have records that hold up."
+      }
+    ],
+    "testimonialIds": ["khalid", "rami"],
+    "pricing": {
+      "recommendedPlan": "Growth Pro",
+      "reason": "30 credits/month covers ~30 turnover cycles per property. For multi-property operators, the team-shared credit pool keeps costs predictable.",
+      "ctaLabel": "See Pro plans"
+    },
+    "faqIds": ["rdc-valid-pro", "team-credits", "offline-mode", "data-secure"],
+    "finalCta": {
+      "headline": "Document every stay. Prevent every dispute.",
+      "subheadline": "Try Growth Pro free for 14 days.",
+      "buttonLabel": "Start free trial →"
+    }
+  },
+  "property-investors": {
+    "slug": "property-investors",
+    "label": "Property Investors",
+    "eyebrow": "Built for property investors",
+    "headline": "Inspection reports delivered to your inbox.",
+    "headlineHighlight": "Wherever you are in the world.",
+    "subheadline": "If you own Dubai property but live abroad, you can't physically inspect anything. You depend on your manager's word, with no independent record. Snagify changes that. Every inspection lands in your inbox as a verifiable PDF, the same day it happens.",
+    "metaTitle": "Remote Property Management Dubai · Investor Tools · Snagify",
+    "metaDescription": "Inspection reports for absentee Dubai property owners. Verifiable PDFs delivered to your inbox same day. RDC-valid evidence even if you're not in the country.",
+    "keywords": "remote property management dubai, absentee landlord dubai, dubai property investor tools, overseas dubai property owner",
+    "problems": [
+      {
+        "title": "You live abroad. You have no independent record.",
+        "body": "Your manager says everything is fine. Or that something needs urgent repair. You can't verify either claim from London or Mumbai. You write the check on faith."
+      },
+      {
+        "title": "Repair invoices feel inflated. You can't push back.",
+        "body": "A 3,000 AED bathroom repair that you can't see. A 'damaged' AC you have to trust was actually broken. Without photos and timestamps, you have no leverage."
+      },
+      {
+        "title": "When you finally visit Dubai, the apartment looks worse than expected.",
+        "body": "Six months of WhatsApp updates, six months of trust. Then you walk in and find issues nobody mentioned. By the time you leave, the questions are still open."
+      }
+    ],
+    "features": [
+      {
+        "title": "Reports in your inbox the same day",
+        "body": "Every inspection your manager runs is sent to you as a PDF the same day. Photos, condition, AI-tagged issues, dual signatures. You see what they see."
+      },
+      {
+        "title": "SHA-256 verifiable, anywhere",
+        "body": "Reports can't be modified after signature. Cryptographically verifiable from anywhere in the world. If your manager edits a Word doc, you'd never know. With Snagify, that's impossible."
+      },
+      {
+        "title": "Compare cycle to cycle",
+        "body": "Look at last year's check-in. Compare to this year's check-out. Spot drift, wear, recurring issues. Have data when you renegotiate the management contract."
+      }
+    ],
+    "testimonialIds": ["khalid", "sara"],
+    "pricing": {
+      "recommendedPlan": "Pay-as-you-go credits",
+      "reason": "For 1-5 properties with 2-3 inspections per year each, credit packs are far cheaper than any subscription. Never expire. Use across all your Dubai assets.",
+      "ctaLabel": "See credit packs"
+    },
+    "faqIds": ["rdc-valid-landlord", "credits-expire", "data-secure", "evidence-court"],
+    "finalCta": {
+      "headline": "Stop trusting on faith.",
+      "subheadline": "Get verifiable reports for every property, anywhere you are.",
+      "buttonLabel": "Try Snagify free →"
+    }
+  },
+  "expats": {
+    "slug": "expats",
+    "label": "Expats",
+    "eyebrow": "Built for expats new to Dubai",
+    "headline": "New to Dubai? Make sure your first move-in is documented.",
+    "headlineHighlight": "Documented properly.",
+    "subheadline": "Dubai rental rules are different from anywhere else. Deposits are often kept on technicalities. Your first apartment is your most vulnerable. Snagify gives you the same evidence-grade documentation a property manager would use, free at check-in.",
+    "metaTitle": "Renting in Dubai as an Expat · Move-In Inspection · Snagify",
+    "metaDescription": "New to Dubai? Document your apartment at move-in to protect your deposit. RDC-valid reports, free at check-in. Snagify guides expats through Dubai rental rules.",
+    "keywords": "expat moving to dubai, first time renting dubai, dubai rental rules for expats, dubai tenant rights expats, ejari dubai for expats",
+    "problems": [
+      {
+        "title": "Dubai rental rules are unfamiliar.",
+        "body": "Ejari, RERA, RDC, security deposits often kept on principle. Coming from London, Singapore, or New York, you don't know what's legal and what's a tactic."
+      },
+      {
+        "title": "Your landlord won't insist on a formal inspection.",
+        "body": "Most Dubai landlords prefer ambiguity. They benefit from it later. By default, you walk in with goodwill, no record, and zero leverage when something goes sideways."
+      },
+      {
+        "title": "By the time you understand the system, your first deposit is gone.",
+        "body": "Most expats lose their first Dubai deposit on damages they didn't cause. They learn the rules through experience. Snagify lets you skip that lesson."
+      }
+    ],
+    "features": [
+      {
+        "title": "Free check-ins",
+        "body": "Document your apartment the day you move in. Costs you nothing. The reports are RDC-valid the same day. No credit card, no subscription, no commitment."
+      },
+      {
+        "title": "Built around Dubai rental law",
+        "body": "Snagify's report format follows RERA inspection guidelines and the criteria the RDC actually uses when reviewing disputes. You don't need to understand the system. The report does."
+      },
+      {
+        "title": "20 minutes, in English",
+        "body": "Step-by-step guided flow. Add address, walk room by room, photograph, sign with the landlord. No prior real estate experience needed."
+      }
+    ],
+    "testimonialIds": ["faisal", "nadia"],
+    "pricing": {
+      "recommendedPlan": "Free at check-in",
+      "reason": "Move-in inspections are 100% free for tenants. You only spend a credit for the check-out inspection at the end of your lease. A 6-credit pack covers a typical 1-2 year tenancy.",
+      "ctaLabel": "Start your free check-in"
+    },
+    "faqIds": ["rdc-valid-tenant", "checkin-free", "credits-expire", "ejari-detection"],
+    "finalCta": {
+      "headline": "Welcome to Dubai. Don't lose your deposit.",
+      "subheadline": "Document your move-in in 20 minutes. Free, no credit card.",
+      "buttonLabel": "Start your free check-in →"
+    }
+  }
+}
