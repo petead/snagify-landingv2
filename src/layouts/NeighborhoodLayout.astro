@@ -1,0 +1,523 @@
+---
+import neighborhoodsData from '../data/neighborhoods.json';
+
+const { neighborhood } = Astro.props;
+
+// Compute nearby neighborhoods (resolve slugs to full data)
+const nearby = (neighborhood.nearbyNeighborhoods || [])
+  .map(slug => neighborhoodsData[slug])
+  .filter(Boolean);
+
+// Build dynamic FAQ tailored to this neighborhood
+const dynamicFaqs = [
+  {
+    question: `How long does a property inspection take in ${neighborhood.label}?`,
+    answer: `${neighborhood.inspectionNote} The Snagify guided flow keeps you on track room by room.`
+  },
+  {
+    question: `What types of properties does Snagify cover in ${neighborhood.label}?`,
+    answer: `Snagify works for every property type in ${neighborhood.label}: ${neighborhood.propertyMix.toLowerCase()}. The inspection adapts automatically to studio, apartment, townhouse, or villa layouts.`
+  },
+  {
+    question: `Are Snagify reports valid for ${neighborhood.label} disputes?`,
+    answer: `Yes. The Dubai Rental Dispute Center accepts Snagify reports as evidence regardless of where the property is located within Dubai. ${neighborhood.rdcReference}.`
+  },
+  {
+    question: "Does Snagify auto-detect Ejari?",
+    answer: "Yes. When you create an inspection, Snagify auto-detects your Ejari registration based on the property address and pre-fills the report header. One less form field, one less mistake."
+  },
+  {
+    question: "Are credits the same price for any neighborhood?",
+    answer: "Yes. Credit cost is identical anywhere in Dubai. Check-ins are free, and check-outs use one credit regardless of location, size, or property type."
+  }
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": dynamicFaqs.map(f => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+  }))
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://snagify.net/" },
+    { "@type": "ListItem", "position": 2, "name": "Inspections", "item": "https://snagify.net/inspections" },
+    { "@type": "ListItem", "position": 3, "name": neighborhood.label, "item": `https://snagify.net/inspections/${neighborhood.slug}` }
+  ]
+};
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": `Property Inspection in ${neighborhood.label} · Snagify`,
+  "description": `Property inspection app for ${neighborhood.label} apartments and villas. RDC-valid PDF reports, AI photo analysis, dual digital signatures.`,
+  "author": { "@type": "Organization", "name": "Snagify" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Snagify",
+    "logo": { "@type": "ImageObject", "url": "https://snagify.net/og-image.png" }
+  },
+  "datePublished": "2026-04-25",
+  "dateModified": "2026-04-25",
+  "mainEntityOfPage": `https://snagify.net/inspections/${neighborhood.slug}`,
+  "image": "https://snagify.net/og-image.png"
+};
+
+const metaTitle = `Property Inspection in ${neighborhood.label} · Dubai · Snagify`;
+const metaDescription = `RDC-valid property inspection reports for ${neighborhood.label}. AI photo analysis, dual digital signatures, ${neighborhood.typicalDuration} per inspection. Free check-ins.`;
+const keywords = `property inspection ${neighborhood.label.toLowerCase()}, ${neighborhood.label.toLowerCase()} inspection app, check-in inspection ${neighborhood.label.toLowerCase()}, rental inspection ${neighborhood.shortLabel.toLowerCase()} dubai, ejari inspection ${neighborhood.shortLabel.toLowerCase()}`;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{metaTitle}</title>
+<meta name="description" content={metaDescription}>
+<meta name="keywords" content={keywords}>
+<link rel="canonical" href={`https://snagify.net/inspections/${neighborhood.slug}`}>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Snagify · MULKEEF">
+<meta http-equiv="content-language" content="en-AE">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content={metaTitle}>
+<meta property="og:description" content={metaDescription}>
+<meta property="og:url" content={`https://snagify.net/inspections/${neighborhood.slug}`}>
+<meta property="og:image" content="https://snagify.net/og-image.png">
+<meta property="og:site_name" content="Snagify">
+<meta property="og:locale" content="en_AE">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content={metaTitle}>
+<meta name="twitter:description" content={metaDescription}>
+<meta name="twitter:image" content="https://snagify.net/og-image.png">
+
+<script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
+<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --cream: #F3F1EB;
+  --paper: #FCFCFC;
+  --ink: #0E0E10;
+  --ink-70: rgba(14,14,16,0.7);
+  --ink-60: rgba(14,14,16,0.6);
+  --ink-25: rgba(14,14,16,0.12);
+  --ink-10: rgba(14,14,16,0.08);
+  --ink-05: rgba(14,14,16,0.04);
+  --purple: #9A88FD;
+  --purple-bg: rgba(154,136,253,0.1);
+  --jasmine: #FEDE80;
+  --green: #CAFE87;
+  --white: #FCFCFC;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.topnav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(243,241,235,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--ink-10);
+  padding: 16px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.topnav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.topnav-logo { width: 32px; height: 32px; background: var(--purple); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.topnav-logo svg { width: 60%; height: 60%; }
+.topnav-name { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -0.5px; }
+.topnav-back { font-size: 13px; color: var(--ink-70); text-decoration: none; font-weight: 600; }
+.topnav-back:hover { color: var(--purple); }
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+
+.breadcrumb {
+  font-size: 13px; color: var(--ink-60);
+  padding: 24px 0 0; font-weight: 500;
+}
+.breadcrumb a { color: var(--ink-70); text-decoration: none; }
+.breadcrumb a:hover { color: var(--purple); }
+.breadcrumb-sep { padding: 0 6px; opacity: 0.4; }
+
+.hero { padding: 40px 0 64px; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px; border-radius: 999px; background: var(--ink-05);
+  font-size: 12px; font-weight: 600; color: var(--ink-70);
+  letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 22px;
+}
+.eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--purple); }
+.hero h1 {
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: clamp(38px, 5vw, 60px); line-height: 1.05;
+  letter-spacing: -1.8px; max-width: 800px; margin-bottom: 22px;
+}
+.hero h1 em { color: var(--purple); font-style: italic; }
+.hero-sub {
+  font-size: 18px; line-height: 1.55; color: var(--ink-70);
+  max-width: 680px; margin-bottom: 32px;
+}
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 16px 28px; background: var(--ink); color: var(--white);
+  font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 15px;
+  border-radius: 999px; text-decoration: none;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(14,14,16,0.25); }
+
+.section { padding: 64px 0; }
+.section-title {
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: clamp(28px, 4vw, 40px); line-height: 1.1;
+  letter-spacing: -1.2px; max-width: 760px; margin-bottom: 18px;
+}
+.section-sub {
+  font-size: 16px; color: var(--ink-70); max-width: 640px; margin-bottom: 44px;
+}
+
+.facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+.fact-card {
+  background: var(--paper); border: 1px solid var(--ink-10);
+  border-radius: 16px; padding: 22px;
+}
+.fact-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  text-transform: uppercase; letter-spacing: 0.6px;
+  color: var(--ink-60); margin-bottom: 10px;
+}
+.fact-value {
+  font-family: 'Poppins', sans-serif; font-weight: 700;
+  font-size: 17px; line-height: 1.4; color: var(--ink);
+}
+.fact-value.purple { color: var(--purple); }
+
+.buildings-list {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.building-pill {
+  padding: 8px 14px;
+  background: var(--paper); border: 1px solid var(--ink-10);
+  border-radius: 999px;
+  font-size: 13px; font-weight: 600; color: var(--ink-70);
+}
+
+.note-card {
+  background: var(--purple-bg);
+  border: 1px solid rgba(154,136,253,0.25);
+  border-radius: 18px; padding: 28px;
+  font-size: 16px; line-height: 1.65; color: var(--ink);
+}
+
+.cta-strip {
+  background: var(--paper); border: 1px solid var(--ink-10);
+  border-radius: 22px; padding: 32px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; flex-wrap: wrap;
+}
+.cta-strip-text { flex: 1; min-width: 280px; }
+.cta-strip-title {
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: 22px; letter-spacing: -0.6px; margin-bottom: 6px;
+}
+.cta-strip-sub { font-size: 14px; color: var(--ink-70); }
+.cta-strip-btn {
+  padding: 14px 24px; background: var(--purple); color: var(--ink);
+  font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 14px;
+  border-radius: 999px; text-decoration: none; flex-shrink: 0;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.cta-strip-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(154,136,253,0.4); }
+
+.faq-list { border-top: 1px solid var(--ink-25); }
+.faq-item { border-bottom: 1px solid var(--ink-25); }
+.faq-q {
+  width: 100%; background: none; border: none;
+  padding: 24px 0;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 24px; cursor: pointer; text-align: left;
+  font-family: 'Poppins', sans-serif; font-weight: 700;
+  font-size: 17px; line-height: 1.4; color: var(--ink);
+  transition: color 0.25s;
+}
+.faq-q:hover { color: var(--purple); }
+.faq-icon {
+  flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%;
+  border: 1px solid var(--ink-25);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-60); font-size: 18px; font-weight: 300; line-height: 1;
+  transition: all 0.4s cubic-bezier(.16,1,.3,1);
+}
+.faq-item.open .faq-icon {
+  background: var(--purple); border-color: var(--purple);
+  color: var(--white); transform: rotate(45deg); font-weight: 500;
+}
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(.16,1,.3,1); }
+.faq-a-inner { padding: 0 0 24px; max-width: 720px; }
+.faq-a p { font-size: 15px; line-height: 1.7; color: var(--ink-70); }
+
+.nearby-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+.nearby-card {
+  background: var(--paper); border: 1px solid var(--ink-10);
+  border-radius: 14px; padding: 18px 20px;
+  text-decoration: none; color: var(--ink);
+  transition: border-color 0.25s, transform 0.25s;
+}
+.nearby-card:hover { border-color: var(--purple); transform: translateY(-2px); }
+.nearby-card-title {
+  font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15px;
+  margin-bottom: 4px;
+}
+.nearby-card-sub {
+  font-size: 12px; color: var(--ink-60);
+}
+
+.final-cta {
+  background: var(--ink); color: var(--white);
+  border-radius: 28px;
+  padding: 64px 48px; text-align: center;
+  position: relative; overflow: hidden;
+  margin: 24px 0 80px;
+}
+.final-cta::before {
+  content: ''; position: absolute;
+  top: -80px; right: -80px;
+  width: 320px; height: 320px; border-radius: 50%;
+  background: rgba(154,136,253,0.18); filter: blur(60px); pointer-events: none;
+}
+.final-cta h2 {
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: clamp(28px, 4vw, 40px); line-height: 1.1;
+  letter-spacing: -1.2px; margin-bottom: 14px; position: relative;
+}
+.final-cta p {
+  font-size: 16px; color: rgba(252,252,252,0.7);
+  margin-bottom: 28px; position: relative;
+}
+.final-cta-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 16px 30px;
+  background: var(--purple); color: var(--ink);
+  font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 15px;
+  border-radius: 999px; text-decoration: none; position: relative;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.final-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(154,136,253,0.35); }
+
+footer.site-footer {
+  background: var(--ink); color: var(--white); padding: 48px 32px;
+}
+.site-footer-inner {
+  max-width: 1080px; margin: 0 auto;
+  display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap;
+  font-size: 13px;
+}
+.site-footer a { color: rgba(252,252,252,0.7); text-decoration: none; }
+.site-footer a:hover { color: var(--purple); }
+
+@media (max-width: 720px) {
+  .topnav { padding: 14px 18px; }
+  .container { padding: 0 18px; }
+  .hero { padding: 32px 0 44px; }
+  .section { padding: 48px 0; }
+  .cta-strip { padding: 24px; }
+  .final-cta { padding: 48px 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="/" class="topnav-brand">
+    <div class="topnav-logo">
+      <svg viewBox="0 0 700 700" fill="#FCFCFC"><path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z"/><path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z"/></svg>
+    </div>
+    <span class="topnav-name">Snagify</span>
+  </a>
+  <a href="/" class="topnav-back">← Back to home</a>
+</nav>
+
+<main>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/inspections">Inspections</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>{neighborhood.label}</span>
+  </nav>
+</div>
+
+<section class="hero container">
+  <div class="eyebrow"><span class="eyebrow-dot"></span>Inspections in {neighborhood.label}</div>
+  <h1>Property inspection in <em>{neighborhood.label}</em>.</h1>
+  <p class="hero-sub">RDC-valid PDF reports for {neighborhood.label} apartments and villas. AI photo analysis, dual digital signatures, free at check-in.</p>
+  <a href="https://app.snagify.net" class="hero-cta">Try Snagify free →</a>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">{neighborhood.label} at a glance.</h2>
+    <p class="section-sub">What to expect when inspecting properties in this area.</p>
+    <div class="facts-grid">
+      <div class="fact-card">
+        <div class="fact-label">Property mix</div>
+        <div class="fact-value">{neighborhood.propertyMix}</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-label">Typical rent range</div>
+        <div class="fact-value">{neighborhood.rentRange}</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-label">Inspection duration</div>
+        <div class="fact-value purple">{neighborhood.typicalDuration}</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-label">RDC reference</div>
+        <div class="fact-value">{neighborhood.rdcReference}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Sample buildings in {neighborhood.shortLabel}.</h2>
+    <p class="section-sub">A few well-known properties Snagify users have inspected here.</p>
+    <div class="buildings-list">
+      {neighborhood.sampleBuildings.map(b => (
+        <span class="building-pill">{b}</span>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">What to know before you inspect in {neighborhood.shortLabel}.</h2>
+    <div class="note-card">
+      {neighborhood.inspectionNote}
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="cta-strip">
+    <div class="cta-strip-text">
+      <div class="cta-strip-title">Your first inspection in {neighborhood.label} is free.</div>
+      <div class="cta-strip-sub">Check-ins are always free. You only spend a credit at check-out.</div>
+    </div>
+    <a href="https://app.snagify.net" class="cta-strip-btn">Start free →</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Frequently asked.</h2>
+    <div class="faq-list">
+      {dynamicFaqs.map(f => (
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            {f.question}
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><p>{f.answer}</p></div></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+{nearby.length > 0 && (
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Inspections in nearby areas.</h2>
+      <p class="section-sub">Snagify covers every Dubai neighborhood. Here are some near {neighborhood.shortLabel}.</p>
+      <div class="nearby-grid">
+        {nearby.map(n => (
+          <a href={`/inspections/${n.slug}`} class="nearby-card">
+            <div class="nearby-card-title">{n.label}</div>
+            <div class="nearby-card-sub">{n.shortLabel} · {n.typicalDuration}</div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<section class="container">
+  <div class="final-cta">
+    <h2>Ready to inspect in {neighborhood.label}?</h2>
+    <p>Free check-in, no credit card needed.</p>
+    <a href="https://app.snagify.net" class="final-cta-btn">Try Snagify free →</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div>© 2026 Snagify · MULKEEF · Dubai, UAE</div>
+    <div>
+      <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/contact">Contact</a> · <a href="/rera">RERA</a> · <a href="/inspections">All neighborhoods</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q');
+  if (!q) return;
+  q.addEventListener('click', () => {
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      const a = i.querySelector('.faq-a');
+      if (a) a.style.maxHeight = '0px';
+    });
+    if (!wasOpen) {
+      item.classList.add('open');
+      const a = item.querySelector('.faq-a');
+      if (a) a.style.maxHeight = a.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+
+</body>
+</html>

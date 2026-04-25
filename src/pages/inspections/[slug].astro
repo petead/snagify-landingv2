@@ -1,0 +1,14 @@
+---
+import neighborhoodsData from '../../data/neighborhoods.json';
+import NeighborhoodLayout from '../../layouts/NeighborhoodLayout.astro';
+
+export async function getStaticPaths() {
+  return Object.values(neighborhoodsData).map(neighborhood => ({
+    params: { slug: neighborhood.slug },
+    props: { neighborhood }
+  }));
+}
+
+const { neighborhood } = Astro.props;
+---
+<NeighborhoodLayout neighborhood={neighborhood} />

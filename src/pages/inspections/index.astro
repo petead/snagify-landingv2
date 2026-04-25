@@ -1,0 +1,198 @@
+---
+import neighborhoodsData from '../../data/neighborhoods.json';
+
+const all = Object.values(neighborhoodsData);
+const tier1 = all.filter(n => n.tier === 1).sort((a, b) => a.label.localeCompare(b.label));
+const tier2 = all.filter(n => n.tier === 2).sort((a, b) => a.label.localeCompare(b.label));
+const tier3 = all.filter(n => n.tier === 3).sort((a, b) => a.label.localeCompare(b.label));
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Property Inspections in Dubai · 60 Neighborhoods Covered · Snagify</title>
+<meta name="description" content="Snagify covers property inspections across 60 Dubai neighborhoods. RDC-valid reports, AI photo analysis, dual signatures. Free at check-in.">
+<meta name="keywords" content="property inspection dubai, dubai neighborhoods inspection, rental inspection dubai areas, dubai property areas">
+<link rel="canonical" href="https://snagify.net/inspections">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Property Inspections in Dubai · 60 Neighborhoods · Snagify">
+<meta property="og:description" content="Snagify covers property inspections across 60 Dubai neighborhoods. RDC-valid reports, AI photo analysis, free check-ins.">
+<meta property="og:url" content="https://snagify.net/inspections">
+<meta property="og:image" content="https://snagify.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Property Inspections Dubai · 60 Neighborhoods · Snagify">
+<meta name="twitter:image" content="https://snagify.net/og-image.png">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --cream: #F3F1EB;
+  --paper: #FCFCFC;
+  --ink: #0E0E10;
+  --ink-70: rgba(14,14,16,0.7);
+  --ink-60: rgba(14,14,16,0.6);
+  --ink-25: rgba(14,14,16,0.12);
+  --ink-10: rgba(14,14,16,0.08);
+  --purple: #9A88FD;
+  --white: #FCFCFC;
+}
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--cream); color: var(--ink); line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.topnav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(243,241,235,0.92);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--ink-10);
+  padding: 16px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.topnav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.topnav-logo { width: 32px; height: 32px; background: var(--purple); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.topnav-logo svg { width: 60%; height: 60%; }
+.topnav-name { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -0.5px; }
+.topnav-back { font-size: 13px; color: var(--ink-70); text-decoration: none; font-weight: 600; }
+.topnav-back:hover { color: var(--purple); }
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+.hero { padding: 80px 0 56px; }
+.hero h1 {
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: clamp(40px, 5vw, 64px); line-height: 1.05;
+  letter-spacing: -2px; max-width: 800px; margin-bottom: 22px;
+}
+.hero h1 em { color: var(--purple); font-style: italic; }
+.hero-sub {
+  font-size: 18px; color: var(--ink-70); max-width: 680px;
+}
+
+.section { padding: 48px 0; }
+.section h2 {
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: 28px; letter-spacing: -0.8px; margin-bottom: 24px;
+}
+.section h2 .count {
+  font-family: 'JetBrains Mono', monospace; font-size: 13px;
+  color: var(--purple); margin-left: 10px; vertical-align: middle;
+}
+.grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+.area-card {
+  background: var(--paper); border: 1px solid var(--ink-10);
+  border-radius: 14px; padding: 16px 18px;
+  text-decoration: none; color: var(--ink);
+  transition: border-color 0.25s, transform 0.25s;
+}
+.area-card:hover { border-color: var(--purple); transform: translateY(-2px); }
+.area-name {
+  font-family: 'Poppins', sans-serif; font-weight: 700;
+  font-size: 15px; margin-bottom: 4px;
+}
+.area-meta { font-size: 12px; color: var(--ink-60); }
+
+footer.site-footer { background: var(--ink); color: var(--white); padding: 48px 32px; margin-top: 80px; }
+.site-footer-inner {
+  max-width: 1080px; margin: 0 auto;
+  display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap;
+  font-size: 13px;
+}
+.site-footer a { color: rgba(252,252,252,0.7); text-decoration: none; }
+.site-footer a:hover { color: var(--purple); }
+
+@media (max-width: 720px) {
+  .topnav { padding: 14px 18px; }
+  .container { padding: 0 18px; }
+  .hero { padding: 56px 0 44px; }
+  .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="/" class="topnav-brand">
+    <div class="topnav-logo">
+      <svg viewBox="0 0 700 700" fill="#FCFCFC"><path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z"/><path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z"/></svg>
+    </div>
+    <span class="topnav-name">Snagify</span>
+  </a>
+  <a href="/" class="topnav-back">← Back to home</a>
+</nav>
+
+<main>
+
+<section class="hero container">
+  <h1>Inspections across <em>60 Dubai neighborhoods</em>.</h1>
+  <p class="hero-sub">From Dubai Marina to Mirdif, Snagify works the same way: 20 minutes per inspection, RDC-valid PDF, free at check-in.</p>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Major neighborhoods<span class="count">{tier1.length} areas</span></h2>
+    <div class="grid">
+      {tier1.map(n => (
+        <a href={`/inspections/${n.slug}`} class="area-card">
+          <div class="area-name">{n.label}</div>
+          <div class="area-meta">{n.typicalDuration}</div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Established &amp; emerging<span class="count">{tier2.length} areas</span></h2>
+    <div class="grid">
+      {tier2.map(n => (
+        <a href={`/inspections/${n.slug}`} class="area-card">
+          <div class="area-name">{n.label}</div>
+          <div class="area-meta">{n.typicalDuration}</div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Residential classics<span class="count">{tier3.length} areas</span></h2>
+    <div class="grid">
+      {tier3.map(n => (
+        <a href={`/inspections/${n.slug}`} class="area-card">
+          <div class="area-name">{n.label}</div>
+          <div class="area-meta">{n.typicalDuration}</div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div>© 2026 Snagify · MULKEEF · Dubai, UAE</div>
+    <div>
+      <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/contact">Contact</a> · <a href="/rera">RERA</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

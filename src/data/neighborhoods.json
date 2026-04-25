@@ -1,0 +1,1442 @@
+{
+  "dubai-marina": {
+    "slug": "dubai-marina",
+    "label": "Dubai Marina",
+    "shortLabel": "Marina",
+    "tier": 1,
+    "propertyMix": "Predominantly high-rise apartments (1BR to 4BR), some townhouses",
+    "rentRange": "AED 80,000 to AED 400,000 per year",
+    "sampleBuildings": [
+      "Princess Tower",
+      "Marina Promenade",
+      "Cayan Tower",
+      "Marina Pinnacle",
+      "Damac Heights"
+    ],
+    "typicalDuration": "20 to 25 minutes",
+    "inspectionNote": "Marina apartments typically have 4-6 rooms plus a balcony. Most inspections take 20 to 25 minutes including the kitchen, two bathrooms, and the balcony view documentation.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "jbr",
+      "bluewaters-island",
+      "the-views",
+      "the-greens"
+    ]
+  },
+  "downtown-dubai": {
+    "slug": "downtown-dubai",
+    "label": "Downtown Dubai",
+    "shortLabel": "Downtown",
+    "tier": 1,
+    "propertyMix": "Luxury apartments and penthouses, branded residences (Address, Burj Vista)",
+    "rentRange": "AED 120,000 to AED 800,000 per year",
+    "sampleBuildings": [
+      "Burj Khalifa",
+      "The Address Downtown",
+      "Burj Vista",
+      "Boulevard Heights",
+      "Standpoint Towers"
+    ],
+    "typicalDuration": "25 to 35 minutes",
+    "inspectionNote": "Downtown units often include premium finishes and integrated smart-home systems. Inspections take 25 to 35 minutes, particularly in branded residences where every fixture is documented.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "business-bay",
+      "dubai-creek-harbour",
+      "city-walk",
+      "al-wasl"
+    ]
+  },
+  "business-bay": {
+    "slug": "business-bay",
+    "label": "Business Bay",
+    "shortLabel": "Business Bay",
+    "tier": 1,
+    "propertyMix": "Studios, 1BR, 2BR apartments and serviced units",
+    "rentRange": "AED 55,000 to AED 250,000 per year",
+    "sampleBuildings": [
+      "Executive Towers",
+      "Bay Square",
+      "Damac Towers",
+      "Paramount Tower Hotel & Residences",
+      "Vezul Residence"
+    ],
+    "typicalDuration": "15 to 22 minutes",
+    "inspectionNote": "Business Bay studios and 1BR units are quick to inspect, typically 15 to 22 minutes. Many serviced apartments come furnished, requiring inventory documentation alongside condition reporting.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "downtown-dubai",
+      "dubai-creek-harbour",
+      "al-wasl",
+      "city-walk"
+    ]
+  },
+  "jlt": {
+    "slug": "jlt",
+    "label": "Jumeirah Lake Towers",
+    "shortLabel": "JLT",
+    "tier": 1,
+    "propertyMix": "Apartments across 80+ towers, mostly 1BR and 2BR",
+    "rentRange": "AED 60,000 to AED 220,000 per year",
+    "sampleBuildings": [
+      "Almas Tower",
+      "Goldcrest Views",
+      "Lake Terrace",
+      "Bonnington Tower",
+      "Lake Point Tower"
+    ],
+    "typicalDuration": "18 to 25 minutes",
+    "inspectionNote": "JLT towers vary widely in finish quality. Buildings completed before 2010 often need more thorough wear-and-tear documentation. Average inspection runs 18 to 25 minutes.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "dubai-marina",
+      "the-greens",
+      "the-views",
+      "discovery-gardens"
+    ]
+  },
+  "jvc": {
+    "slug": "jvc",
+    "label": "Jumeirah Village Circle",
+    "shortLabel": "JVC",
+    "tier": 1,
+    "propertyMix": "Apartments and townhouses, family-oriented community",
+    "rentRange": "AED 40,000 to AED 180,000 per year",
+    "sampleBuildings": [
+      "Bloom Towers",
+      "Hyati Residence",
+      "Belgravia",
+      "Diamond Views",
+      "Plaza Residences"
+    ],
+    "typicalDuration": "20 to 30 minutes",
+    "inspectionNote": "JVC properties range from compact studios to 4BR townhouses. Townhouse inspections take longer, typically 30 minutes including garden, garage, and exterior areas.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "jvt",
+      "motor-city",
+      "dubai-sports-city",
+      "al-furjan"
+    ]
+  },
+  "jbr": {
+    "slug": "jbr",
+    "label": "Jumeirah Beach Residence",
+    "shortLabel": "JBR",
+    "tier": 1,
+    "propertyMix": "Beachfront apartments, 1BR to 4BR with sea views",
+    "rentRange": "AED 90,000 to AED 450,000 per year",
+    "sampleBuildings": [
+      "Sadaf",
+      "Murjan",
+      "Shams",
+      "Rimal",
+      "Bahar"
+    ],
+    "typicalDuration": "22 to 28 minutes",
+    "inspectionNote": "JBR units commonly come furnished or partially furnished. Inventory documentation alongside condition is standard. Inspections include balcony sea-view shots and beach-access amenities.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "dubai-marina",
+      "bluewaters-island",
+      "palm-jumeirah",
+      "the-views"
+    ]
+  },
+  "palm-jumeirah": {
+    "slug": "palm-jumeirah",
+    "label": "Palm Jumeirah",
+    "shortLabel": "Palm",
+    "tier": 1,
+    "propertyMix": "Luxury villas, signature villas, and apartments in trunk and frond developments",
+    "rentRange": "AED 150,000 to AED 2,500,000 per year",
+    "sampleBuildings": [
+      "Atlantis The Royal Residences",
+      "Five Palm Jumeirah",
+      "Tiara Residences",
+      "Oceana",
+      "Marina Residences"
+    ],
+    "typicalDuration": "35 to 60 minutes",
+    "inspectionNote": "Palm Jumeirah villas are large, often with private pool and beach access. Inspections take 35 to 60 minutes including outdoor areas, pool equipment, and shoreline boundary documentation.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "jbr",
+      "dubai-marina",
+      "bluewaters-island",
+      "the-views"
+    ]
+  },
+  "arabian-ranches": {
+    "slug": "arabian-ranches",
+    "label": "Arabian Ranches",
+    "shortLabel": "Arabian Ranches",
+    "tier": 1,
+    "propertyMix": "Villas (3BR, 4BR, 5BR) in family-oriented gated community",
+    "rentRange": "AED 130,000 to AED 600,000 per year",
+    "sampleBuildings": [
+      "Saheel",
+      "Mirador",
+      "Alvorada",
+      "Al Reem",
+      "Palmera"
+    ],
+    "typicalDuration": "40 to 55 minutes",
+    "inspectionNote": "Arabian Ranches villas have multiple bedrooms, gardens, and often a maid's room. Full inspections take 40 to 55 minutes including the garage, garden equipment, and external structures.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "dubai-hills-estate",
+      "the-springs",
+      "the-meadows",
+      "motor-city"
+    ]
+  },
+  "dubai-hills-estate": {
+    "slug": "dubai-hills-estate",
+    "label": "Dubai Hills Estate",
+    "shortLabel": "Dubai Hills",
+    "tier": 1,
+    "propertyMix": "Villas, townhouses, and apartments around the golf course",
+    "rentRange": "AED 90,000 to AED 800,000 per year",
+    "sampleBuildings": [
+      "Sidra Villas",
+      "Maple Townhouses",
+      "Park Heights",
+      "Mulberry",
+      "Park Point"
+    ],
+    "typicalDuration": "25 to 50 minutes",
+    "inspectionNote": "Dubai Hills properties range from 1BR apartments to 6BR villas. Villas typically take 45 to 50 minutes; apartments around 25 minutes.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "arabian-ranches",
+      "the-meadows",
+      "al-barsha",
+      "motor-city"
+    ]
+  },
+  "the-greens": {
+    "slug": "the-greens",
+    "label": "The Greens",
+    "shortLabel": "The Greens",
+    "tier": 1,
+    "propertyMix": "Mid-rise apartments in landscaped gardens, 1BR and 2BR",
+    "rentRange": "AED 65,000 to AED 160,000 per year",
+    "sampleBuildings": [
+      "Al Thayyal",
+      "Al Ghozlan",
+      "Al Sidir",
+      "Al Arta",
+      "Al Nakheel"
+    ],
+    "typicalDuration": "18 to 24 minutes",
+    "inspectionNote": "The Greens apartments are well-maintained and consistent in finish. Most inspections take 18 to 24 minutes. Many units have private balconies overlooking the lakes.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "the-views",
+      "jlt",
+      "dubai-marina",
+      "al-barsha"
+    ]
+  },
+  "the-views": {
+    "slug": "the-views",
+    "label": "The Views",
+    "shortLabel": "The Views",
+    "tier": 1,
+    "propertyMix": "Apartments overlooking Emirates Golf Club, 1BR to 3BR",
+    "rentRange": "AED 75,000 to AED 200,000 per year",
+    "sampleBuildings": [
+      "Mosela Waterside",
+      "Tanaro",
+      "Travo",
+      "Turia",
+      "Fairways"
+    ],
+    "typicalDuration": "20 to 26 minutes",
+    "inspectionNote": "The Views apartments come in waterside or golf-facing layouts. Premium units have larger balconies that need separate documentation. Inspections take 20 to 26 minutes.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "the-greens",
+      "jlt",
+      "dubai-marina",
+      "al-barsha"
+    ]
+  },
+  "dubai-silicon-oasis": {
+    "slug": "dubai-silicon-oasis",
+    "label": "Dubai Silicon Oasis",
+    "shortLabel": "Silicon Oasis",
+    "tier": 1,
+    "propertyMix": "Affordable apartments and a few villa clusters",
+    "rentRange": "AED 35,000 to AED 110,000 per year",
+    "sampleBuildings": [
+      "Silicon Gates",
+      "Axis Residences",
+      "Le Presidium",
+      "Binghatti Apartments",
+      "Cedre Villas"
+    ],
+    "typicalDuration": "15 to 22 minutes",
+    "inspectionNote": "DSO apartments are typically smaller in size and quick to inspect, around 15 to 22 minutes. Many tenants are tech professionals; documentation tends to be detailed and digital-first.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "dubailand",
+      "mirdif",
+      "al-warqaa",
+      "international-city"
+    ]
+  },
+  "mirdif": {
+    "slug": "mirdif",
+    "label": "Mirdif",
+    "shortLabel": "Mirdif",
+    "tier": 1,
+    "propertyMix": "Villas and townhouses, established residential area, family-oriented",
+    "rentRange": "AED 75,000 to AED 220,000 per year",
+    "sampleBuildings": [
+      "Mirdif Hills",
+      "Shorooq Mirdif",
+      "Uptown Mirdif",
+      "Ghoroob Mirdif",
+      "Mushrif Park villas"
+    ],
+    "typicalDuration": "30 to 45 minutes",
+    "inspectionNote": "Mirdif villas are family homes, often with multiple bedrooms and large gardens. Inspections typically run 30 to 45 minutes including outdoor and garage spaces.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "al-warqaa",
+      "mizhar",
+      "al-nahda",
+      "dubai-silicon-oasis"
+    ]
+  },
+  "discovery-gardens": {
+    "slug": "discovery-gardens",
+    "label": "Discovery Gardens",
+    "shortLabel": "Discovery Gardens",
+    "tier": 1,
+    "propertyMix": "Mid-rise apartments, mostly studios and 1BR, themed garden clusters",
+    "rentRange": "AED 35,000 to AED 90,000 per year",
+    "sampleBuildings": [
+      "Mediterranean",
+      "Mogul",
+      "Mesoamerican",
+      "Cactus",
+      "Zen"
+    ],
+    "typicalDuration": "12 to 20 minutes",
+    "inspectionNote": "Discovery Gardens studios and 1BR apartments are compact and standardized. Inspections move quickly, around 12 to 20 minutes. The themed clusters share similar floor plans.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "al-furjan",
+      "jvt",
+      "jvc",
+      "dubai-investment-park"
+    ]
+  },
+  "al-barsha": {
+    "slug": "al-barsha",
+    "label": "Al Barsha",
+    "shortLabel": "Al Barsha",
+    "tier": 1,
+    "propertyMix": "Apartments and villas, established mixed-use area near Mall of the Emirates",
+    "rentRange": "AED 55,000 to AED 250,000 per year",
+    "sampleBuildings": [
+      "Al Barsha South villas",
+      "First Central Hotel Apartments",
+      "City Stay",
+      "Crystal Plaza",
+      "Al Barsha Villas"
+    ],
+    "typicalDuration": "20 to 40 minutes",
+    "inspectionNote": "Al Barsha covers both apartment buildings and villa compounds. Apartments take 20 to 25 minutes; villas can extend to 35 to 40 minutes for larger family homes.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "the-greens",
+      "the-views",
+      "dubai-hills-estate",
+      "al-quoz"
+    ]
+  },
+  "deira": {
+    "slug": "deira",
+    "label": "Deira",
+    "shortLabel": "Deira",
+    "tier": 1,
+    "propertyMix": "Older apartment buildings, traditional Dubai neighborhood, mostly 1BR and 2BR",
+    "rentRange": "AED 35,000 to AED 100,000 per year",
+    "sampleBuildings": [
+      "Al Ghurair Centre Residences",
+      "Deira Tower",
+      "Twin Towers",
+      "Hilton Apartments",
+      "Al Bustan Residence"
+    ],
+    "typicalDuration": "18 to 25 minutes",
+    "inspectionNote": "Deira properties are in older buildings where wear-and-tear documentation is critical. Inspections take 18 to 25 minutes; particular attention to plumbing, AC age, and finish degradation.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "bur-dubai",
+      "al-garhoud",
+      "al-nahda",
+      "karama"
+    ]
+  },
+  "jvt": {
+    "slug": "jvt",
+    "label": "Jumeirah Village Triangle",
+    "shortLabel": "JVT",
+    "tier": 2,
+    "propertyMix": "Townhouses and apartments, quieter than JVC",
+    "rentRange": "AED 45,000 to AED 200,000 per year",
+    "sampleBuildings": [
+      "Imperial Residence",
+      "Triplex Townhouses",
+      "Plaza Premium",
+      "Green Park",
+      "Al Manara"
+    ],
+    "typicalDuration": "22 to 40 minutes",
+    "inspectionNote": "JVT townhouses come in 2BR, 3BR, and 4BR layouts. Townhouse inspections include garage, small garden, and roof terrace. Average duration 30 to 40 minutes.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "jvc",
+      "motor-city",
+      "al-furjan",
+      "dubai-sports-city"
+    ]
+  },
+  "dubai-sports-city": {
+    "slug": "dubai-sports-city",
+    "label": "Dubai Sports City",
+    "shortLabel": "Sports City",
+    "tier": 2,
+    "propertyMix": "Apartments and a few villa clusters around stadium and golf course",
+    "rentRange": "AED 38,000 to AED 130,000 per year",
+    "sampleBuildings": [
+      "Diamond Views",
+      "Olympic Park",
+      "Hub Canal",
+      "Royal Residence",
+      "Champions Tower"
+    ],
+    "typicalDuration": "18 to 25 minutes",
+    "inspectionNote": "Sports City apartments are mostly 1BR and 2BR with views over sports facilities. Inspections take 18 to 25 minutes. Many units come unfurnished with standard finishes.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "motor-city",
+      "jvt",
+      "dubai-production-city",
+      "dubailand"
+    ]
+  },
+  "dubai-production-city": {
+    "slug": "dubai-production-city",
+    "label": "Dubai Production City (IMPZ)",
+    "shortLabel": "IMPZ",
+    "tier": 2,
+    "propertyMix": "Affordable mid-rise apartments, mostly studios and 1BR",
+    "rentRange": "AED 28,000 to AED 80,000 per year",
+    "sampleBuildings": [
+      "Lago Vista",
+      "Centrium Towers",
+      "Crystal Residence",
+      "Lakeside Tower",
+      "Oakwood Residency"
+    ],
+    "typicalDuration": "12 to 20 minutes",
+    "inspectionNote": "IMPZ studios and 1BRs are compact, around 12 to 20 minutes per inspection. Standard finishes mean fewer differentiations between units.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "dubai-sports-city",
+      "motor-city",
+      "jvt",
+      "dubailand"
+    ]
+  },
+  "motor-city": {
+    "slug": "motor-city",
+    "label": "Motor City",
+    "shortLabel": "Motor City",
+    "tier": 2,
+    "propertyMix": "Apartments, townhouses, and a few villa clusters around Dubai Autodrome",
+    "rentRange": "AED 45,000 to AED 200,000 per year",
+    "sampleBuildings": [
+      "Uptown Motorcity",
+      "Green Community Motor City",
+      "Foster",
+      "Bristol",
+      "Norton Court"
+    ],
+    "typicalDuration": "22 to 40 minutes",
+    "inspectionNote": "Motor City has a mix of apartment buildings and townhouse clusters. Townhouses include private parking and small gardens, extending inspection time to 35 to 40 minutes.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "arabian-ranches",
+      "dubai-sports-city",
+      "jvt",
+      "dubai-production-city"
+    ]
+  },
+  "town-square-dubai": {
+    "slug": "town-square-dubai",
+    "label": "Town Square Dubai",
+    "shortLabel": "Town Square",
+    "tier": 2,
+    "propertyMix": "Townhouses and apartments, family-oriented Nshama development",
+    "rentRange": "AED 55,000 to AED 180,000 per year",
+    "sampleBuildings": [
+      "Hayat Townhouses",
+      "Zahra Apartments",
+      "Safi Townhouses",
+      "Warda Apartments",
+      "Naseem Townhouses"
+    ],
+    "typicalDuration": "25 to 40 minutes",
+    "inspectionNote": "Town Square is mostly Nshama-built townhouses with consistent layouts. 3BR and 4BR townhouses take 30 to 40 minutes; apartments around 22 to 25 minutes.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "damac-hills",
+      "damac-hills-2",
+      "dubailand",
+      "tilal-al-ghaf"
+    ]
+  },
+  "damac-hills": {
+    "slug": "damac-hills",
+    "label": "Damac Hills",
+    "shortLabel": "Damac Hills",
+    "tier": 2,
+    "propertyMix": "Villas and apartments around Trump International Golf Club",
+    "rentRange": "AED 75,000 to AED 600,000 per year",
+    "sampleBuildings": [
+      "Akoya Park",
+      "Topanga",
+      "Loreto",
+      "Pacifica",
+      "Aurum Villas"
+    ],
+    "typicalDuration": "30 to 50 minutes",
+    "inspectionNote": "Damac Hills villas are 3BR to 5BR with private gardens. Inspections take 30 to 50 minutes including pool documentation where applicable.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "damac-hills-2",
+      "town-square-dubai",
+      "dubailand",
+      "tilal-al-ghaf"
+    ]
+  },
+  "damac-hills-2": {
+    "slug": "damac-hills-2",
+    "label": "Damac Hills 2",
+    "shortLabel": "Damac Hills 2",
+    "tier": 2,
+    "propertyMix": "Townhouses in Akoya Oxygen, family-oriented community",
+    "rentRange": "AED 50,000 to AED 180,000 per year",
+    "sampleBuildings": [
+      "Akoya Aknan",
+      "Vardon",
+      "Pelham",
+      "Centaury",
+      "Casablanca"
+    ],
+    "typicalDuration": "30 to 40 minutes",
+    "inspectionNote": "Damac Hills 2 is mostly 3BR townhouses in clusters. Standardized layouts mean inspections are predictable, 30 to 40 minutes including small garden and rooftop.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "damac-hills",
+      "town-square-dubai",
+      "dubailand",
+      "tilal-al-ghaf"
+    ]
+  },
+  "dubailand": {
+    "slug": "dubailand",
+    "label": "Dubailand",
+    "shortLabel": "Dubailand",
+    "tier": 2,
+    "propertyMix": "Mixed: townhouses, villas, and apartments across various sub-developments",
+    "rentRange": "AED 38,000 to AED 250,000 per year",
+    "sampleBuildings": [
+      "Living Legends",
+      "Mira Reem",
+      "Dubai Sustainable City",
+      "Mudon",
+      "Nshama"
+    ],
+    "typicalDuration": "20 to 50 minutes",
+    "inspectionNote": "Dubailand is a vast area; inspection time varies hugely by sub-development. Apartments 20 to 25 minutes, villas up to 50 minutes.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "dubai-sports-city",
+      "motor-city",
+      "town-square-dubai",
+      "damac-hills"
+    ]
+  },
+  "the-springs": {
+    "slug": "the-springs",
+    "label": "The Springs",
+    "shortLabel": "The Springs",
+    "tier": 2,
+    "propertyMix": "Townhouses (2BR, 3BR, 4BR) in landscaped community with lakes",
+    "rentRange": "AED 110,000 to AED 250,000 per year",
+    "sampleBuildings": [
+      "Springs 1",
+      "Springs 4",
+      "Springs 7",
+      "Springs 10",
+      "Springs 14"
+    ],
+    "typicalDuration": "30 to 40 minutes",
+    "inspectionNote": "The Springs townhouses have similar layouts across phases. 3BR townhouses (most common) take 30 to 40 minutes including front yard, back garden, and garage.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "the-meadows",
+      "emirates-hills",
+      "jumeirah-park",
+      "the-greens"
+    ]
+  },
+  "the-meadows": {
+    "slug": "the-meadows",
+    "label": "The Meadows",
+    "shortLabel": "The Meadows",
+    "tier": 2,
+    "propertyMix": "Villas (3BR to 6BR) in family-oriented gated community",
+    "rentRange": "AED 180,000 to AED 700,000 per year",
+    "sampleBuildings": [
+      "Meadows 1",
+      "Meadows 4",
+      "Meadows 6",
+      "Meadows 8",
+      "Meadows 9"
+    ],
+    "typicalDuration": "40 to 55 minutes",
+    "inspectionNote": "The Meadows villas are spacious family homes with private pools in larger types. Inspections take 40 to 55 minutes including outdoor areas, pool equipment, and external structures.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "the-springs",
+      "emirates-hills",
+      "jumeirah-park",
+      "jumeirah-islands"
+    ]
+  },
+  "emirates-hills": {
+    "slug": "emirates-hills",
+    "label": "Emirates Hills",
+    "shortLabel": "Emirates Hills",
+    "tier": 2,
+    "propertyMix": "Luxury custom villas, often called 'the Beverly Hills of Dubai'",
+    "rentRange": "AED 500,000 to AED 4,000,000 per year",
+    "sampleBuildings": [
+      "Sector E",
+      "Sector P",
+      "Sector W",
+      "Sector L",
+      "Sector V"
+    ],
+    "typicalDuration": "60 to 90 minutes",
+    "inspectionNote": "Emirates Hills villas are large custom mansions, often 6BR+ with private pools, gyms, and home cinemas. Inspections require 60 to 90 minutes for full documentation.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "the-meadows",
+      "the-springs",
+      "jumeirah-islands",
+      "jumeirah-park"
+    ]
+  },
+  "jumeirah-park": {
+    "slug": "jumeirah-park",
+    "label": "Jumeirah Park",
+    "shortLabel": "Jumeirah Park",
+    "tier": 2,
+    "propertyMix": "Villas (3BR to 5BR) in landscaped community",
+    "rentRange": "AED 180,000 to AED 500,000 per year",
+    "sampleBuildings": [
+      "Legacy Villas",
+      "Regional Villas",
+      "Heritage Villas",
+      "Nova Villas",
+      "Diamond Villas"
+    ],
+    "typicalDuration": "40 to 55 minutes",
+    "inspectionNote": "Jumeirah Park villas are family homes with consistent layouts across districts. Standard inspection 40 to 55 minutes including garden, garage, and maid's room.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "the-meadows",
+      "the-springs",
+      "jumeirah-islands",
+      "discovery-gardens"
+    ]
+  },
+  "jumeirah-islands": {
+    "slug": "jumeirah-islands",
+    "label": "Jumeirah Islands",
+    "shortLabel": "Jumeirah Islands",
+    "tier": 2,
+    "propertyMix": "Lakefront luxury villas, 4BR to 6BR",
+    "rentRange": "AED 280,000 to AED 900,000 per year",
+    "sampleBuildings": [
+      "Garden Hall",
+      "Mediterranean",
+      "European",
+      "Garden View",
+      "Master View"
+    ],
+    "typicalDuration": "50 to 70 minutes",
+    "inspectionNote": "Jumeirah Islands villas come with private gardens and lake views. Inspections run 50 to 70 minutes including private dock or lake-edge documentation in some clusters.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "emirates-hills",
+      "the-meadows",
+      "jumeirah-park",
+      "the-springs"
+    ]
+  },
+  "dubai-festival-city": {
+    "slug": "dubai-festival-city",
+    "label": "Dubai Festival City",
+    "shortLabel": "Festival City",
+    "tier": 2,
+    "propertyMix": "Apartments and townhouses, mixed-use waterfront development",
+    "rentRange": "AED 65,000 to AED 250,000 per year",
+    "sampleBuildings": [
+      "Marsa Plaza",
+      "Al Badia Residences",
+      "Al Badia Hillside Village",
+      "Al Badia Townhouses",
+      "Festival Tower"
+    ],
+    "typicalDuration": "22 to 40 minutes",
+    "inspectionNote": "Dubai Festival City has both apartments and townhouses. Apartments take 22 to 28 minutes; townhouses extend to 35 to 40 minutes.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "al-garhoud",
+      "deira",
+      "ras-al-khor",
+      "mirdif"
+    ]
+  },
+  "dubai-creek-harbour": {
+    "slug": "dubai-creek-harbour",
+    "label": "Dubai Creek Harbour",
+    "shortLabel": "Creek Harbour",
+    "tier": 2,
+    "propertyMix": "New apartment towers along the creek, premium finishes",
+    "rentRange": "AED 80,000 to AED 350,000 per year",
+    "sampleBuildings": [
+      "Creek Edge",
+      "Creekside 18",
+      "Harbour Views",
+      "Address Harbour Point",
+      "Creek Rise"
+    ],
+    "typicalDuration": "22 to 30 minutes",
+    "inspectionNote": "Creek Harbour is mostly new construction (post-2020). Premium finishes and modern fixtures mean detailed condition documentation. Inspections take 22 to 30 minutes.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "downtown-dubai",
+      "business-bay",
+      "ras-al-khor",
+      "deira"
+    ]
+  },
+  "bluewaters-island": {
+    "slug": "bluewaters-island",
+    "label": "Bluewaters Island",
+    "shortLabel": "Bluewaters",
+    "tier": 2,
+    "propertyMix": "Premium apartments and a few townhouses with sea views",
+    "rentRange": "AED 110,000 to AED 700,000 per year",
+    "sampleBuildings": [
+      "Bluewaters Residences 1",
+      "Bluewaters Residences 4",
+      "Bluewaters Residences 7",
+      "Bluewaters Residences 10",
+      "Caesars Bluewaters"
+    ],
+    "typicalDuration": "25 to 35 minutes",
+    "inspectionNote": "Bluewaters apartments are premium-finish with full sea views. Most inspections take 25 to 35 minutes, slightly longer for partly-furnished units that include inventory documentation.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "jbr",
+      "dubai-marina",
+      "palm-jumeirah",
+      "the-views"
+    ]
+  },
+  "city-walk": {
+    "slug": "city-walk",
+    "label": "City Walk",
+    "shortLabel": "City Walk",
+    "tier": 2,
+    "propertyMix": "Premium apartments in pedestrian-friendly mixed-use development",
+    "rentRange": "AED 95,000 to AED 350,000 per year",
+    "sampleBuildings": [
+      "Building 1",
+      "Building 6",
+      "Building 8",
+      "Building 14",
+      "Central Park"
+    ],
+    "typicalDuration": "22 to 30 minutes",
+    "inspectionNote": "City Walk apartments have premium urban finishes. Most are 1BR or 2BR, taking 22 to 30 minutes per inspection.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "al-wasl",
+      "downtown-dubai",
+      "jumeirah-1",
+      "business-bay"
+    ]
+  },
+  "al-furjan": {
+    "slug": "al-furjan",
+    "label": "Al Furjan",
+    "shortLabel": "Al Furjan",
+    "tier": 2,
+    "propertyMix": "Apartments and townhouses, growing family community",
+    "rentRange": "AED 45,000 to AED 200,000 per year",
+    "sampleBuildings": [
+      "Avenue Residence",
+      "Al Furjan Pavilion",
+      "Furjan Villas",
+      "Quortaj",
+      "Murano Residences"
+    ],
+    "typicalDuration": "20 to 40 minutes",
+    "inspectionNote": "Al Furjan has a mix of apartment buildings and villa-style townhouses. Apartments 20 to 25 minutes; townhouses 35 to 40 minutes.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "discovery-gardens",
+      "jvt",
+      "jvc",
+      "dubai-investment-park"
+    ]
+  },
+  "international-city": {
+    "slug": "international-city",
+    "label": "International City",
+    "shortLabel": "International City",
+    "tier": 2,
+    "propertyMix": "Affordable studios and 1BR in country-themed clusters",
+    "rentRange": "AED 22,000 to AED 65,000 per year",
+    "sampleBuildings": [
+      "China Cluster",
+      "France Cluster",
+      "Spain Cluster",
+      "England Cluster",
+      "Persia Cluster"
+    ],
+    "typicalDuration": "10 to 18 minutes",
+    "inspectionNote": "International City studios and 1BR units are compact and standardized. Inspections move quickly, typically 10 to 18 minutes.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "dubai-silicon-oasis",
+      "dubailand",
+      "mirdif",
+      "al-warqaa"
+    ]
+  },
+  "mira": {
+    "slug": "mira",
+    "label": "Mira (Reem)",
+    "shortLabel": "Mira",
+    "tier": 2,
+    "propertyMix": "Townhouses (3BR, 4BR) in family-oriented Reem community",
+    "rentRange": "AED 95,000 to AED 220,000 per year",
+    "sampleBuildings": [
+      "Mira 1",
+      "Mira 2",
+      "Mira 3",
+      "Mira 4",
+      "Mira 5"
+    ],
+    "typicalDuration": "30 to 40 minutes",
+    "inspectionNote": "Mira townhouses are part of Reem development. 3BR (most common) and 4BR layouts. Standard inspection 30 to 40 minutes including small garden and garage.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "arabian-ranches",
+      "dubai-hills-estate",
+      "town-square-dubai",
+      "damac-hills"
+    ]
+  },
+  "tilal-al-ghaf": {
+    "slug": "tilal-al-ghaf",
+    "label": "Tilal Al Ghaf",
+    "shortLabel": "Tilal Al Ghaf",
+    "tier": 2,
+    "propertyMix": "Villas and townhouses in master-planned lagoon community",
+    "rentRange": "AED 110,000 to AED 600,000 per year",
+    "sampleBuildings": [
+      "Aura Gardens",
+      "Harmony",
+      "Elysian Mansions",
+      "Magnolia",
+      "Serenity Mansions"
+    ],
+    "typicalDuration": "35 to 60 minutes",
+    "inspectionNote": "Tilal Al Ghaf is mostly new construction (post-2022). Premium villas with private gardens and pool access. Inspections take 35 to 60 minutes depending on size.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "damac-hills",
+      "damac-hills-2",
+      "town-square-dubai",
+      "dubai-hills-estate"
+    ]
+  },
+  "jumeirah-1": {
+    "slug": "jumeirah-1",
+    "label": "Jumeirah 1",
+    "shortLabel": "Jumeirah 1",
+    "tier": 3,
+    "propertyMix": "Villas and apartments, beachfront luxury area",
+    "rentRange": "AED 130,000 to AED 700,000 per year",
+    "sampleBuildings": [
+      "La Mer Residences",
+      "Jumeirah Beach Park villas",
+      "Sunset Mall area",
+      "Jumeirah Heritage",
+      "Pearl Jumeirah"
+    ],
+    "typicalDuration": "30 to 50 minutes",
+    "inspectionNote": "Jumeirah 1 includes a mix of villas (40 to 50 min) and apartments (25 to 30 min). Premium beachfront villas can extend to 60 minutes.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "jumeirah-2",
+      "city-walk",
+      "al-wasl",
+      "satwa"
+    ]
+  },
+  "jumeirah-2": {
+    "slug": "jumeirah-2",
+    "label": "Jumeirah 2",
+    "shortLabel": "Jumeirah 2",
+    "tier": 3,
+    "propertyMix": "Villas predominantly, family-oriented residential area",
+    "rentRange": "AED 150,000 to AED 600,000 per year",
+    "sampleBuildings": [
+      "Villa cluster A",
+      "Villa cluster B",
+      "Villa cluster C",
+      "Old Jumeirah Houses",
+      "Jumeirah Park-style villas"
+    ],
+    "typicalDuration": "35 to 50 minutes",
+    "inspectionNote": "Jumeirah 2 is predominantly villas, 4BR to 6BR family homes. Inspections take 35 to 50 minutes including garden and garage.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "jumeirah-1",
+      "jumeirah-3",
+      "umm-suqeim",
+      "al-wasl"
+    ]
+  },
+  "jumeirah-3": {
+    "slug": "jumeirah-3",
+    "label": "Jumeirah 3",
+    "shortLabel": "Jumeirah 3",
+    "tier": 3,
+    "propertyMix": "Villas, beachfront and inland residential area",
+    "rentRange": "AED 160,000 to AED 800,000 per year",
+    "sampleBuildings": [
+      "Jumeirah Bay villas",
+      "Jumeirah villas A",
+      "Jumeirah villas B",
+      "Sunset Beach villas",
+      "Madinat Jumeirah area"
+    ],
+    "typicalDuration": "35 to 55 minutes",
+    "inspectionNote": "Jumeirah 3 villas include beachfront properties with private pool access. Larger villas extend inspection time to 55 minutes.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "jumeirah-2",
+      "umm-suqeim",
+      "palm-jumeirah",
+      "the-views"
+    ]
+  },
+  "umm-suqeim": {
+    "slug": "umm-suqeim",
+    "label": "Umm Suqeim",
+    "shortLabel": "Umm Suqeim",
+    "tier": 3,
+    "propertyMix": "Villas in family-oriented residential area near Burj Al Arab",
+    "rentRange": "AED 150,000 to AED 700,000 per year",
+    "sampleBuildings": [
+      "Umm Suqeim 1 villas",
+      "Umm Suqeim 2 villas",
+      "Umm Suqeim 3 villas",
+      "Madinat Jumeirah area villas",
+      "Sunset Beach area"
+    ],
+    "typicalDuration": "35 to 55 minutes",
+    "inspectionNote": "Umm Suqeim villas are spacious family homes, 4BR to 6BR. Inspections take 35 to 55 minutes including external structures.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "jumeirah-3",
+      "the-views",
+      "al-barsha",
+      "jumeirah-2"
+    ]
+  },
+  "al-wasl": {
+    "slug": "al-wasl",
+    "label": "Al Wasl",
+    "shortLabel": "Al Wasl",
+    "tier": 3,
+    "propertyMix": "Mixed: villas, townhouses, and a few apartment buildings",
+    "rentRange": "AED 90,000 to AED 400,000 per year",
+    "sampleBuildings": [
+      "Al Wasl villas",
+      "Wasl 1",
+      "Wasl Square",
+      "Citywalk-adjacent villas",
+      "Al Wasl Tower"
+    ],
+    "typicalDuration": "25 to 50 minutes",
+    "inspectionNote": "Al Wasl mixes apartment and villa properties. Apartments 25 to 30 minutes; villas 40 to 50 minutes.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "jumeirah-1",
+      "city-walk",
+      "satwa",
+      "downtown-dubai"
+    ]
+  },
+  "satwa": {
+    "slug": "satwa",
+    "label": "Satwa",
+    "shortLabel": "Satwa",
+    "tier": 3,
+    "propertyMix": "Older apartment buildings, traditional Dubai neighborhood",
+    "rentRange": "AED 35,000 to AED 90,000 per year",
+    "sampleBuildings": [
+      "Satwa Roundabout area",
+      "2nd December Street buildings",
+      "Plant Street area",
+      "Al Rolla",
+      "Old Satwa villas"
+    ],
+    "typicalDuration": "18 to 25 minutes",
+    "inspectionNote": "Satwa apartments are typically older. Wear-and-tear documentation is critical. Inspections take 18 to 25 minutes with attention to plumbing and AC condition.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "jumeirah-1",
+      "al-wasl",
+      "karama",
+      "bur-dubai"
+    ]
+  },
+  "al-quoz": {
+    "slug": "al-quoz",
+    "label": "Al Quoz",
+    "shortLabel": "Al Quoz",
+    "tier": 3,
+    "propertyMix": "Mostly industrial with limited residential, some staff accommodation",
+    "rentRange": "AED 25,000 to AED 70,000 per year",
+    "sampleBuildings": [
+      "Al Quoz residential",
+      "Al Quoz villas",
+      "Times Square Center area",
+      "Alserkal Avenue area",
+      "Al Quoz Industrial"
+    ],
+    "typicalDuration": "12 to 22 minutes",
+    "inspectionNote": "Al Quoz residential units are limited. Studios and 1BR apartments dominate, 12 to 22 minutes per inspection.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "al-barsha",
+      "al-wasl",
+      "jumeirah-1",
+      "satwa"
+    ]
+  },
+  "bur-dubai": {
+    "slug": "bur-dubai",
+    "label": "Bur Dubai",
+    "shortLabel": "Bur Dubai",
+    "tier": 3,
+    "propertyMix": "Older apartment buildings, traditional historic Dubai area",
+    "rentRange": "AED 32,000 to AED 95,000 per year",
+    "sampleBuildings": [
+      "Mankhool",
+      "Al Mankhool",
+      "Khalid Bin Al Waleed Road buildings",
+      "Bank Street area",
+      "Al Souk Al Kabeer"
+    ],
+    "typicalDuration": "18 to 25 minutes",
+    "inspectionNote": "Bur Dubai apartments are typically older. Detailed condition documentation is essential. Inspections take 18 to 25 minutes.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "karama",
+      "satwa",
+      "deira",
+      "oud-metha"
+    ]
+  },
+  "karama": {
+    "slug": "karama",
+    "label": "Karama",
+    "shortLabel": "Karama",
+    "tier": 3,
+    "propertyMix": "Older apartment buildings, mostly 1BR and 2BR",
+    "rentRange": "AED 35,000 to AED 90,000 per year",
+    "sampleBuildings": [
+      "Karama Centre area",
+      "Zaabeel Road buildings",
+      "Karama Park area",
+      "Al Karama Tower",
+      "Karama Shopping Complex"
+    ],
+    "typicalDuration": "18 to 25 minutes",
+    "inspectionNote": "Karama apartments are budget-friendly but require careful wear-and-tear documentation. 18 to 25 minutes per inspection.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "bur-dubai",
+      "satwa",
+      "oud-metha",
+      "deira"
+    ]
+  },
+  "al-nahda": {
+    "slug": "al-nahda",
+    "label": "Al Nahda",
+    "shortLabel": "Al Nahda",
+    "tier": 3,
+    "propertyMix": "Apartment buildings, established residential area near Sharjah border",
+    "rentRange": "AED 30,000 to AED 85,000 per year",
+    "sampleBuildings": [
+      "Al Nahda 1 area",
+      "Al Nahda 2 area",
+      "Sahara Center area",
+      "Al Nahda Pond Park",
+      "City Avenue"
+    ],
+    "typicalDuration": "18 to 25 minutes",
+    "inspectionNote": "Al Nahda apartments are typically 1BR and 2BR. Inspections 18 to 25 minutes. Many tenants commute to Sharjah, so check-out timing flexibility is valued.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "al-warqaa",
+      "mirdif",
+      "deira",
+      "international-city"
+    ]
+  },
+  "al-warqaa": {
+    "slug": "al-warqaa",
+    "label": "Al Warqaa",
+    "shortLabel": "Al Warqaa",
+    "tier": 3,
+    "propertyMix": "Villas and townhouses, family residential area",
+    "rentRange": "AED 65,000 to AED 200,000 per year",
+    "sampleBuildings": [
+      "Al Warqaa 1 villas",
+      "Al Warqaa 2 villas",
+      "Al Warqaa 3 villas",
+      "Al Warqaa 4 villas",
+      "Al Warqaa 5 villas"
+    ],
+    "typicalDuration": "30 to 45 minutes",
+    "inspectionNote": "Al Warqaa villas are family homes, 3BR to 5BR. Inspections take 30 to 45 minutes including garden and garage.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "mirdif",
+      "al-nahda",
+      "mizhar",
+      "international-city"
+    ]
+  },
+  "mizhar": {
+    "slug": "mizhar",
+    "label": "Mizhar",
+    "shortLabel": "Mizhar",
+    "tier": 3,
+    "propertyMix": "Villas in family-oriented residential community",
+    "rentRange": "AED 80,000 to AED 220,000 per year",
+    "sampleBuildings": [
+      "Mizhar 1 villas",
+      "Mizhar 2 villas",
+      "Arabian Center area",
+      "Mizhar Park area",
+      "Sun Mall area"
+    ],
+    "typicalDuration": "30 to 45 minutes",
+    "inspectionNote": "Mizhar villas are family homes, typical inspection 30 to 45 minutes including outdoor and garage spaces.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "mirdif",
+      "al-warqaa",
+      "nad-al-sheba",
+      "al-nahda"
+    ]
+  },
+  "nad-al-sheba": {
+    "slug": "nad-al-sheba",
+    "label": "Nad Al Sheba",
+    "shortLabel": "Nad Al Sheba",
+    "tier": 3,
+    "propertyMix": "Villas in established residential area, family-oriented",
+    "rentRange": "AED 90,000 to AED 280,000 per year",
+    "sampleBuildings": [
+      "Nad Al Sheba villas 1",
+      "Nad Al Sheba villas 2",
+      "Nad Al Sheba villas 3",
+      "Nad Al Sheba Mall area",
+      "Meydan-adjacent villas"
+    ],
+    "typicalDuration": "35 to 45 minutes",
+    "inspectionNote": "Nad Al Sheba villas are spacious, 4BR to 5BR family homes. Inspections take 35 to 45 minutes.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "meydan",
+      "ras-al-khor",
+      "mizhar",
+      "mirdif"
+    ]
+  },
+  "meydan": {
+    "slug": "meydan",
+    "label": "Meydan",
+    "shortLabel": "Meydan",
+    "tier": 3,
+    "propertyMix": "Premium villas and apartments around Meydan Racecourse",
+    "rentRange": "AED 100,000 to AED 600,000 per year",
+    "sampleBuildings": [
+      "Meydan One",
+      "Meydan Heights",
+      "Polo Residence",
+      "Meydan Avenue",
+      "Millennium Estates"
+    ],
+    "typicalDuration": "30 to 50 minutes",
+    "inspectionNote": "Meydan properties range from 1BR apartments to 6BR villas. Apartments 25 to 30 minutes; villas 40 to 50 minutes.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "nad-al-sheba",
+      "ras-al-khor",
+      "downtown-dubai",
+      "business-bay"
+    ]
+  },
+  "ras-al-khor": {
+    "slug": "ras-al-khor",
+    "label": "Ras Al Khor",
+    "shortLabel": "Ras Al Khor",
+    "tier": 3,
+    "propertyMix": "Limited residential, mostly industrial; emerging waterfront developments",
+    "rentRange": "AED 40,000 to AED 150,000 per year",
+    "sampleBuildings": [
+      "Ras Al Khor Industrial residential",
+      "Lakeshore Tower",
+      "Wildlife Sanctuary area",
+      "DIC area residences",
+      "Industrial 3 area"
+    ],
+    "typicalDuration": "18 to 28 minutes",
+    "inspectionNote": "Ras Al Khor residential units are mostly studios and 1BR. Inspections 18 to 28 minutes.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "meydan",
+      "nad-al-sheba",
+      "dubai-creek-harbour",
+      "business-bay"
+    ]
+  },
+  "al-garhoud": {
+    "slug": "al-garhoud",
+    "label": "Al Garhoud",
+    "shortLabel": "Al Garhoud",
+    "tier": 3,
+    "propertyMix": "Older apartment buildings and a few villa clusters near airport",
+    "rentRange": "AED 50,000 to AED 130,000 per year",
+    "sampleBuildings": [
+      "Al Garhoud Residence",
+      "Aviation Club area",
+      "Le Meridien area villas",
+      "Garhoud Bridge area",
+      "Festival City-adjacent"
+    ],
+    "typicalDuration": "20 to 30 minutes",
+    "inspectionNote": "Al Garhoud apartments take 20 to 25 minutes; the few villas extend to 30 minutes. Older buildings need careful condition documentation.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "deira",
+      "dubai-festival-city",
+      "oud-metha",
+      "ras-al-khor"
+    ]
+  },
+  "oud-metha": {
+    "slug": "oud-metha",
+    "label": "Oud Metha",
+    "shortLabel": "Oud Metha",
+    "tier": 3,
+    "propertyMix": "Older apartment buildings, established residential",
+    "rentRange": "AED 45,000 to AED 110,000 per year",
+    "sampleBuildings": [
+      "Oud Metha Tower",
+      "Wafi area buildings",
+      "Lamcy Plaza area",
+      "Healthcare City area",
+      "American Hospital area"
+    ],
+    "typicalDuration": "20 to 28 minutes",
+    "inspectionNote": "Oud Metha apartments are typically 1BR and 2BR. 20 to 28 minutes per inspection.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "karama",
+      "bur-dubai",
+      "al-garhoud",
+      "deira"
+    ]
+  },
+  "dubai-investment-park": {
+    "slug": "dubai-investment-park",
+    "label": "Dubai Investment Park (DIP)",
+    "shortLabel": "DIP",
+    "tier": 3,
+    "propertyMix": "Mixed-use; some residential apartments and townhouses, mostly industrial",
+    "rentRange": "AED 30,000 to AED 95,000 per year",
+    "sampleBuildings": [
+      "DIP 1",
+      "DIP 2",
+      "Green Community Village",
+      "Schon Properties",
+      "Dunes Village"
+    ],
+    "typicalDuration": "18 to 30 minutes",
+    "inspectionNote": "DIP residential units are mostly 1BR apartments and small townhouses. 18 to 30 minutes per inspection.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "green-community",
+      "al-furjan",
+      "discovery-gardens",
+      "jvt"
+    ]
+  },
+  "green-community": {
+    "slug": "green-community",
+    "label": "Green Community",
+    "shortLabel": "Green Community",
+    "tier": 3,
+    "propertyMix": "Villas and townhouses, family-oriented gated community",
+    "rentRange": "AED 80,000 to AED 250,000 per year",
+    "sampleBuildings": [
+      "Green Community villas",
+      "Green Community townhouses",
+      "Green Community West",
+      "Green Community DIP",
+      "Green Community East"
+    ],
+    "typicalDuration": "30 to 45 minutes",
+    "inspectionNote": "Green Community properties are family villas and townhouses, 30 to 45 minutes per inspection including garden and garage.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "dubai-investment-park",
+      "discovery-gardens",
+      "jvt",
+      "al-furjan"
+    ]
+  },
+  "remraam": {
+    "slug": "remraam",
+    "label": "Remraam",
+    "shortLabel": "Remraam",
+    "tier": 3,
+    "propertyMix": "Affordable apartments in family-oriented Dubailand sub-community",
+    "rentRange": "AED 32,000 to AED 75,000 per year",
+    "sampleBuildings": [
+      "Al Thamam",
+      "Al Ramth",
+      "Al Sahab",
+      "Al Reem",
+      "Al Habbool"
+    ],
+    "typicalDuration": "15 to 22 minutes",
+    "inspectionNote": "Remraam apartments are studios, 1BR, and 2BR with consistent layouts. Inspections 15 to 22 minutes.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "dubailand",
+      "serena",
+      "town-square-dubai",
+      "damac-hills-2"
+    ]
+  },
+  "serena": {
+    "slug": "serena",
+    "label": "Serena",
+    "shortLabel": "Serena",
+    "tier": 3,
+    "propertyMix": "Townhouses in family-oriented Dubailand sub-community",
+    "rentRange": "AED 60,000 to AED 160,000 per year",
+    "sampleBuildings": [
+      "Bella Casa",
+      "Casa Dora",
+      "Casa Viva",
+      "Casa Familia",
+      "Casa Real"
+    ],
+    "typicalDuration": "28 to 40 minutes",
+    "inspectionNote": "Serena townhouses are 3BR Spanish-themed family homes. Standard inspection 28 to 40 minutes.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "dubailand",
+      "remraam",
+      "town-square-dubai",
+      "damac-hills-2"
+    ]
+  },
+  "the-lakes": {
+    "slug": "the-lakes",
+    "label": "The Lakes",
+    "shortLabel": "The Lakes",
+    "tier": 3,
+    "propertyMix": "Villas in established gated community next to Emirates Hills",
+    "rentRange": "AED 200,000 to AED 600,000 per year",
+    "sampleBuildings": [
+      "Forat",
+      "Maeen",
+      "Hattan",
+      "Ghadeer",
+      "Deema"
+    ],
+    "typicalDuration": "40 to 55 minutes",
+    "inspectionNote": "The Lakes villas are 3BR to 5BR family homes with private gardens. Inspections take 40 to 55 minutes.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "emirates-hills",
+      "the-meadows",
+      "the-springs",
+      "jumeirah-park"
+    ]
+  },
+  "mudon": {
+    "slug": "mudon",
+    "label": "Mudon",
+    "shortLabel": "Mudon",
+    "tier": 2,
+    "propertyMix": "Townhouses and villas around parks and cycle paths in Dubailand",
+    "rentRange": "AED 85,000 to AED 320,000 per year",
+    "sampleBuildings": [
+      "Mudon Al Ranim",
+      "Mudon Al Salam",
+      "Mudon Al Naseem",
+      "Mudon Central",
+      "Mudon Rahat"
+    ],
+    "typicalDuration": "28 to 45 minutes",
+    "inspectionNote": "Mudon is mostly 3BR and 4BR townhouses with back gardens and shared park frontage. Inspections run 28 to 40 minutes for townhouses and up to 45 minutes for corner villas with larger outdoor areas.",
+    "rdcReference": "Closest RDC: Dubai Land Department, Deira",
+    "nearbyNeighborhoods": [
+      "dubailand",
+      "arabian-ranches",
+      "remraam",
+      "town-square-dubai"
+    ]
+  }
+}
