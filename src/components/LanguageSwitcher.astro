@@ -10,12 +10,23 @@ const languages = [
 // As we build more AR pages, we add their EN paths here.
 // Format: EN path (without leading /ar/) → confirmed available in AR
 const arabicAvailablePaths = new Set([
-  '/'
-  // Future additions during Sprint AR.1:
-  // '/for/landlords', '/for/tenants', etc.
-  // '/inspections/dubai-marina', etc.
-  // '/check-in-inspection-dubai', etc.
-  // '/dubai-rental-dispute-center-guide'
+  '/',
+  '/for/landlords',
+  '/for/tenants',
+  '/for/property-managers',
+  '/for/real-estate-agencies',
+  '/for/holiday-homes',
+  '/for/property-investors',
+  '/for/expats',
+  '/inspections',
+  '/inspections/dubai-marina',
+  '/inspections/downtown-dubai',
+  '/inspections/business-bay',
+  '/inspections/jvc',
+  '/inspections/palm-jumeirah',
+  '/check-in-inspection-dubai',
+  '/check-out-inspection-dubai',
+  '/snagging-inspection-dubai'
 ]);
 
 function getLocalizedPath(targetLocale, path) {
