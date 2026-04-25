@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sample Inspection Report · Snagify · Dubai RDC-Compliant Example</title>
+<meta name="description" content="See an example of a Snagify inspection report for a Dubai apartment. RDC-valid format, AI photo analysis, dual signatures, SHA-256 verification. Real format, fictional data.">
+<meta name="keywords" content="sample inspection report dubai, dubai property inspection example, rdc compliant report, move-in inspection sample, check-in report dubai, snagify report example">
+<link rel="canonical" href="https://snagify.net/sample-report.html">
+<meta name="robots" content="index, follow">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sample Inspection Report · Snagify · Dubai">
+<meta property="og:description" content="Example of an RDC-compliant Snagify inspection report. AI photo analysis, dual signatures, SHA-256 verification.">
+<meta property="og:url" content="https://snagify.net/sample-report.html">
+<meta property="og:image" content="https://snagify.net/og-image.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sample Inspection Report · Snagify">
+<meta name="twitter:description" content="Example of an RDC-compliant Dubai property inspection report.">
+<meta name="twitter:image" content="https://snagify.net/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Sample Inspection Report · Dubai Property",
+  "description": "Example of a Snagify inspection report for a Dubai apartment, RDC-compliant format with AI photo analysis and dual digital signatures.",
+  "author": {
+    "@type": "Organization",
+    "name": "Snagify"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Snagify",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://snagify.net/og-image.png"
+    }
+  },
+  "datePublished": "2026-04-25",
+  "dateModified": "2026-04-25",
+  "mainEntityOfPage": "https://snagify.net/sample-report.html",
+  "image": "https://snagify.net/og-image.png"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --cream: #F8F7F4;
+  --paper: #FCFCFC;
+  --ink: #0E0E10;
+  --ink-70: rgba(14,14,16,0.7);
+  --ink-50: rgba(14,14,16,0.5);
+  --ink-30: rgba(14,14,16,0.3);
+  --ink-10: rgba(14,14,16,0.08);
+  --ink-05: rgba(14,14,16,0.04);
+  --purple: #9A88FD;
+  --purple-bg: rgba(154,136,253,0.1);
+  --jasmine: #FEDE80;
+  --green: #5DCAA5;
+  --green-bg: rgba(93,202,165,0.12);
+  --red: #E26B6B;
+  --red-bg: rgba(226,107,107,0.12);
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(248,247,244,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--ink-10);
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.topnav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.topnav-logo {
+  width: 32px; height: 32px;
+  background: var(--purple);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+}
+.topnav-logo svg { width: 60%; height: 60%; }
+.topnav-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+}
+.topnav-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--ink-50);
+}
+.topnav-back {
+  font-size: 13px;
+  color: var(--ink-70);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.topnav-back:hover { color: var(--purple); }
+
+.report {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 48px 32px 140px;
+}
+
+.demo-banner {
+  background: var(--purple-bg);
+  border: 1px solid rgba(154,136,253,0.3);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+  font-size: 13px;
+  color: var(--ink-70);
+}
+.demo-banner-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--purple);
+  flex-shrink: 0;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+@keyframes pulse { 50% { opacity: 0.4; transform: scale(1.4); } }
+.demo-banner strong { color: var(--ink); font-weight: 700; }
+
+.report-header {
+  background: var(--paper);
+  border: 1px solid var(--ink-10);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 24px;
+}
+.report-head-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--ink-10);
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.agency-block {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.agency-logo {
+  width: 56px; height: 56px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2C2C2A, #444441);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+}
+.agency-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  margin-bottom: 2px;
+}
+.agency-rera {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-50);
+}
+.report-id {
+  text-align: right;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--ink-50);
+}
+.report-id strong { color: var(--ink); font-weight: 600; display: block; }
+
+.report-title-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.report-type-pill {
+  padding: 4px 12px;
+  background: var(--green-bg);
+  color: #2D7B5C;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.report-status-pill {
+  padding: 4px 12px;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.report-h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 4vw, 38px);
+  letter-spacing: -1.2px;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+.report-address {
+  font-size: 16px;
+  color: var(--ink-70);
+}
+
+.report-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--ink-10);
+}
+.meta-cell {}
+.meta-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ink-50);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.meta-value {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ink);
+}
+.meta-value-mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-70);
+  word-break: break-all;
+}
+
+.toc {
+  background: var(--paper);
+  border: 1px solid var(--ink-10);
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin-bottom: 24px;
+}
+.toc-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--ink-50);
+  margin-bottom: 14px;
+}
+.toc-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.toc-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.toc-link:hover { background: var(--ink-05); color: var(--purple); }
+.toc-num {
+  width: 24px; height: 24px;
+  border-radius: 6px;
+  background: var(--ink-05);
+  color: var(--ink-70);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.section {
+  background: var(--paper);
+  border: 1px solid var(--ink-10);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 24px;
+  scroll-margin-top: 80px;
+}
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-num {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section-h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -0.5px;
+}
+.condition-pill {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+.cond-good { background: var(--green-bg); color: #2D7B5C; }
+.cond-fair { background: rgba(254,222,128,0.25); color: #8C6D1F; }
+.cond-attention { background: var(--red-bg); color: #A04444; }
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.photo-grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+.photo {
+  position: relative;
+  aspect-ratio: 4/3;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--ink-10);
+  background: linear-gradient(135deg, #EDE7DC, #DCD2BD);
+}
+.photo-living { background: linear-gradient(135deg, #E8E0CC 0%, #D4C5A0 60%, #6B5640 100%); }
+.photo-living::after { content: ''; position: absolute; top: 18%; right: 12%; width: 38%; height: 42%; background: linear-gradient(180deg, #B9CFE4, #D4E1EC); border: 4px solid #FCFCFC; border-radius: 4px; }
+.photo-kitchen { background: linear-gradient(180deg, #F4F0E8 0%, #E5DCC8 50%, #2C2520 50%, #1F1814 100%); }
+.photo-kitchen::after { content: ''; position: absolute; bottom: 28%; left: 18%; right: 18%; height: 6%; background: #C4A574; border-radius: 2px; }
+.photo-bedroom { background: linear-gradient(135deg, #ECE3D2 0%, #D4C7AB 50%, #8B7355 100%); }
+.photo-bedroom::after { content: ''; position: absolute; bottom: 15%; left: 20%; width: 60%; height: 35%; background: #FCFCFC; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.photo-bathroom { background: linear-gradient(180deg, #F0EBE0 0%, #E2D9C5 60%, #4A4239 100%); }
+.photo-bathroom::after { content: ''; position: absolute; top: 25%; left: 30%; width: 40%; height: 50%; background: rgba(252,252,252,0.85); border-radius: 8px; }
+.photo-balcony { background: linear-gradient(180deg, #C5DCE8 0%, #A8C4D5 30%, #E8DCC5 30%, #D4C5A0 100%); }
+
+.photo-meta {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  display: flex;
+  gap: 6px;
+}
+.photo-time {
+  padding: 4px 10px;
+  background: rgba(14,14,16,0.85);
+  color: var(--paper);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+}
+.photo-tag {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+}
+.photo-tag::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+}
+.photo-tag.tag-red { top: 30%; left: 18%; }
+.photo-tag.tag-red::before { background: var(--red); }
+.photo-tag.tag-yellow { top: 55%; right: 14%; }
+.photo-tag.tag-yellow::before { background: var(--jasmine); }
+
+.notes {
+  background: var(--ink-05);
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-size: 14px;
+  color: var(--ink-70);
+  line-height: 1.55;
+}
+.notes strong { color: var(--ink); font-weight: 600; }
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.summary-cell {
+  background: var(--ink-05);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+.summary-num {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: -1px;
+  margin-bottom: 2px;
+}
+.summary-num.green { color: #2D7B5C; }
+.summary-num.red { color: #A04444; }
+.summary-num.amber { color: #8C6D1F; }
+.summary-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink-50);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.issue-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--ink-10);
+  gap: 16px;
+}
+.issue-row:last-child { border-bottom: none; }
+.issue-info { display: flex; align-items: center; gap: 12px; }
+.issue-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.issue-dot.red { background: var(--red); }
+.issue-dot.yellow { background: var(--jasmine); }
+.issue-label {
+  font-weight: 600;
+  font-size: 14px;
+}
+.issue-room {
+  font-size: 12px;
+  color: var(--ink-50);
+}
+
+.signature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+@media (max-width: 600px) { .signature-grid { grid-template-columns: 1fr; } }
+
+.sig-block {
+  background: var(--ink-05);
+  border-radius: 12px;
+  padding: 20px;
+}
+.sig-role {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink-50);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.sig-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+.sig-canvas {
+  background: var(--paper);
+  border: 1px solid var(--ink-10);
+  border-radius: 8px;
+  padding: 16px;
+  height: 80px;
+  position: relative;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sig-canvas svg { width: 100%; height: 100%; }
+.sig-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-50);
+}
+
+.verification {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.verif-check {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.verif-check svg { width: 22px; height: 22px; stroke: var(--ink); stroke-width: 3; fill: none; }
+.verif-text { flex: 1; min-width: 0; }
+.verif-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+.verif-hash {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(252,252,252,0.55);
+  word-break: break-all;
+}
+
+.cta-sticky {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(252,252,252,0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--ink-10);
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  z-index: 100;
+  flex-wrap: wrap;
+}
+.cta-text {
+  font-size: 14px;
+  color: var(--ink-70);
+}
+.cta-text strong { color: var(--ink); font-weight: 700; }
+.cta-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+.cta-btn {
+  padding: 12px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.cta-btn:hover { transform: translateY(-2px); }
+.cta-btn-primary { background: var(--purple); color: var(--ink); }
+.cta-btn-primary:hover { box-shadow: 0 8px 20px rgba(154,136,253,0.4); }
+.cta-btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink-30);
+}
+.cta-btn-ghost:hover { border-color: var(--ink); }
+
+@media (max-width: 720px) {
+  .topnav { padding: 12px 16px; }
+  .topnav-meta { display: none; }
+  .report { padding: 32px 16px 180px; }
+  .report-header, .toc, .section { padding: 22px; }
+  .toc-list { grid-template-columns: 1fr; }
+  .photo-grid { grid-template-columns: 1fr; }
+  .report-meta-grid { grid-template-columns: repeat(2, 1fr); }
+  .cta-sticky { padding: 14px 16px; flex-direction: column; align-items: stretch; }
+  .cta-text { text-align: center; }
+  .cta-buttons { justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="https://snagify.net/" class="topnav-brand">
+    <div class="topnav-logo">
+      <svg viewBox="0 0 700 700" fill="#FCFCFC"><path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z"/><path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z"/></svg>
+    </div>
+    <span class="topnav-name">Snagify</span>
+  </a>
+  <div class="topnav-meta">SAMPLE REPORT · CHECK-IN · MARINA HEIGHTS · UNIT 1204</div>
+  <a href="https://snagify.net/" class="topnav-back">← Back to site</a>
+</nav>
+
+<main class="report">
+
+  <div class="demo-banner">
+    <span class="demo-banner-dot"></span>
+    <div><strong>Sample report.</strong> All names, addresses, and signatures are fictional. Real Snagify reports use the same exact format and are RDC-compliant.</div>
+  </div>
+
+  <header class="report-header">
+    <div class="report-head-top">
+      <div class="agency-block">
+        <div class="agency-logo">PR</div>
+        <div>
+          <div class="agency-name">Prestige Properties</div>
+          <div class="agency-rera">RERA #11042 · BRN #58921</div>
+        </div>
+      </div>
+      <div class="report-id">
+        <strong>Report ID</strong>
+        SNG-2026-04-25-1204
+      </div>
+    </div>
+
+    <div class="report-title-block">
+      <span class="report-type-pill">Check-In Inspection</span>
+      <span class="report-status-pill">● Signed · RDC Valid</span>
+    </div>
+    <h1 class="report-h1">Marina Heights · Unit 1204</h1>
+    <p class="report-address">Dubai Marina, Dubai, UAE · 1 Bedroom Apartment, 64 m²</p>
+
+    <div class="report-meta-grid">
+      <div class="meta-cell">
+        <div class="meta-label">Inspection date</div>
+        <div class="meta-value">25 Mar 2026 · 10:45</div>
+      </div>
+      <div class="meta-cell">
+        <div class="meta-label">Duration</div>
+        <div class="meta-value">22 minutes</div>
+      </div>
+      <div class="meta-cell">
+        <div class="meta-label">Ejari ref</div>
+        <div class="meta-value-mono">DXB-2025-48921</div>
+      </div>
+      <div class="meta-cell">
+        <div class="meta-label">Inspector</div>
+        <div class="meta-value">Sara M.</div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="toc">
+    <div class="toc-title">Contents</div>
+    <div class="toc-list">
+      <a href="#summary" class="toc-link"><span class="toc-num">01</span>Summary</a>
+      <a href="#living" class="toc-link"><span class="toc-num">02</span>Living Room</a>
+      <a href="#kitchen" class="toc-link"><span class="toc-num">03</span>Kitchen</a>
+      <a href="#bedroom" class="toc-link"><span class="toc-num">04</span>Bedroom</a>
+      <a href="#bathroom" class="toc-link"><span class="toc-num">05</span>Bathroom</a>
+      <a href="#balcony" class="toc-link"><span class="toc-num">06</span>Balcony</a>
+      <a href="#issues" class="toc-link"><span class="toc-num">07</span>Issues Detected</a>
+      <a href="#signatures" class="toc-link"><span class="toc-num">08</span>Signatures &amp; Verification</a>
+    </div>
+  </nav>
+
+  <section class="section" id="summary">
+    <div class="section-head">
+      <div class="section-title">
+        <div class="section-num">01</div>
+        <h2 class="section-h2">Summary</h2>
+      </div>
+      <span class="condition-pill cond-fair">Fair condition</span>
+    </div>
+    <div class="summary-grid">
+      <div class="summary-cell"><div class="summary-num">5</div><div class="summary-label">Rooms inspected</div></div>
+      <div class="summary-cell"><div class="summary-num">42</div><div class="summary-label">Photos captured</div></div>
+      <div class="summary-cell"><div class="summary-num green">38</div><div class="summary-label">Items in good state</div></div>
+      <div class="summary-cell"><div class="summary-num amber">3</div><div class="summary-label">Items needing attention</div></div>
+    </div>
+    <div class="notes"><strong>Inspector notes:</strong> Apartment delivered in fair overall condition. Key items: fresh paint in living room and bedroom, new appliances in kitchen, minor wear on master bathroom tiles. Three issues documented for transparency, none requiring immediate action. AC functional and recently serviced. Keys handed over to tenant: 2 main door, 1 mailbox, 1 parking remote (B2-44).</div>
+  </section>
+
+  <section class="section" id="living">
+    <div class="section-head">
+      <div class="section-title">
+        <div class="section-num">02</div>
+        <h2 class="section-h2">Living Room</h2>
+      </div>
+      <span class="condition-pill cond-good">Good</span>
+    </div>
+    <div class="photo-grid">
+      <div class="photo photo-living">
+        <span class="photo-tag tag-red">Wall scratch · 3cm</span>
+        <div class="photo-meta"><span class="photo-time">10:48 · IMG_001</span></div>
+      </div>
+      <div class="photo photo-living">
+        <div class="photo-meta"><span class="photo-time">10:49 · IMG_002</span></div>
+      </div>
+    </div>
+    <div class="notes"><strong>AI-detected:</strong> Minor wall scratch on the east wall (3cm, behind sofa position). Otherwise excellent condition. Floor: polished marble, no stains. Curtains: new, white linen. Lighting fixtures: 4× LED ceiling spots, all functional.</div>
+  </section>
+
+  <section class="section" id="kitchen">
+    <div class="section-head">
+      <div class="section-title">
+        <div class="section-num">03</div>
+        <h2 class="section-h2">Kitchen</h2>
+      </div>
+      <span class="condition-pill cond-good">Good</span>
+    </div>
+    <div class="photo-grid photo-grid-3">
+      <div class="photo photo-kitchen"><div class="photo-meta"><span class="photo-time">10:53 · IMG_011</span></div></div>
+      <div class="photo photo-kitchen"><div class="photo-meta"><span class="photo-time">10:54 · IMG_012</span></div></div>
+      <div class="photo photo-kitchen"><div class="photo-meta"><span class="photo-time">10:55 · IMG_013</span></div></div>
+    </div>
+    <div class="notes"><strong>Appliances tested:</strong> Oven (working), induction hob (4 zones, all working), fridge/freezer (cold, no smell), dishwasher (cycle tested), extractor fan (functional). Cabinets: clean, no damage. Sink: no leaks. Worktop: granite, minor scratch near sink.</div>
+  </section>
+
+  <section class="section" id="bedroom">
+    <div class="section-head">
+      <div class="section-title">
+        <div class="section-num">04</div>
+        <h2 class="section-h2">Master Bedroom</h2>
+      </div>
+      <span class="condition-pill cond-good">Good</span>
+    </div>
+    <div class="photo-grid">
+      <div class="photo photo-bedroom"><div class="photo-meta"><span class="photo-time">11:02 · IMG_021</span></div></div>
+      <div class="photo photo-bedroom">
+        <span class="photo-tag tag-yellow">Paint wear · door frame</span>
+        <div class="photo-meta"><span class="photo-time">11:03 · IMG_022</span></div>
+      </div>
+    </div>
+    <div class="notes"><strong>AI-detected:</strong> Slight paint wear on the door frame (cosmetic, expected wear). Built-in wardrobe: 4 doors, all aligned, sliding mechanism functional. Carpet: cream, no stains. AC unit: serviced 12 Mar 2026 (sticker on unit).</div>
+  </section>
+
+  <section class="section" id="bathroom">
+    <div class="section-head">
+      <div class="section-title">
+        <div class="section-num">05</div>
+        <h2 class="section-h2">Bathroom</h2>
+      </div>
+      <span class="condition-pill cond-fair">Fair</span>
+    </div>
+    <div class="photo-grid">
+      <div class="photo photo-bathroom">
+        <span class="photo-tag tag-yellow">Grout discoloration</span>
+        <div class="photo-meta"><span class="photo-time">11:09 · IMG_031</span></div>
+      </div>
+      <div class="photo photo-bathroom"><div class="photo-meta"><span class="photo-time">11:10 · IMG_032</span></div></div>
+    </div>
+    <div class="notes"><strong>AI-detected:</strong> Minor grout discoloration in shower area (cosmetic, not affecting waterproofing). Toilet: clean, flush working. Sink: no chips, faucet pressure normal. Mirror: small fixing scratch top-right (pre-existing). Extractor fan working.</div>
+  </section>
+
+  <section class="section" id="balcony">
+    <div class="section-head">
+      <div class="section-title">
+        <div class="section-num">06</div>
+        <h2 class="section-h2">Balcony</h2>
+      </div>
+      <span class="condition-pill cond-good">Good</span>
+    </div>
+    <div class="photo-grid">
+      <div class="photo photo-balcony"><div class="photo-meta"><span class="photo-time">11:14 · IMG_041</span></div></div>
+      <div class="photo photo-balcony"><div class="photo-meta"><span class="photo-time">11:15 · IMG_042</span></div></div>
+    </div>
+    <div class="notes"><strong>Notes:</strong> Marina view. Tile floor clean and intact. Glass railing: clean, secure. Drain: clear. Outdoor light fixture: working.</div>
+  </section>
+
+  <section class="section" id="issues">
+    <div class="section-head">
+      <div class="section-title">
+        <div class="section-num">07</div>
+        <h2 class="section-h2">Issues Detected</h2>
+      </div>
+      <span class="condition-pill cond-fair">3 items</span>
+    </div>
+    <div class="issue-row">
+      <div class="issue-info">
+        <span class="issue-dot red"></span>
+        <div>
+          <div class="issue-label">Wall scratch · 3cm</div>
+          <div class="issue-room">Living Room · East wall</div>
+        </div>
+      </div>
+      <span class="condition-pill cond-attention">Attention</span>
+    </div>
+    <div class="issue-row">
+      <div class="issue-info">
+        <span class="issue-dot yellow"></span>
+        <div>
+          <div class="issue-label">Paint wear on door frame</div>
+          <div class="issue-room">Master Bedroom</div>
+        </div>
+      </div>
+      <span class="condition-pill cond-fair">Cosmetic</span>
+    </div>
+    <div class="issue-row">
+      <div class="issue-info">
+        <span class="issue-dot yellow"></span>
+        <div>
+          <div class="issue-label">Grout discoloration</div>
+          <div class="issue-room">Bathroom · Shower area</div>
+        </div>
+      </div>
+      <span class="condition-pill cond-fair">Cosmetic</span>
+    </div>
+  </section>
+
+  <section class="section" id="signatures">
+    <div class="section-head">
+      <div class="section-title">
+        <div class="section-num">08</div>
+        <h2 class="section-h2">Signatures &amp; Verification</h2>
+      </div>
+      <span class="condition-pill cond-good">● Both signed</span>
+    </div>
+
+    <div class="signature-grid">
+      <div class="sig-block">
+        <div class="sig-role">Landlord representative</div>
+        <div class="sig-name">Khalid A. (Prestige Properties)</div>
+        <div class="sig-canvas">
+          <svg viewBox="0 0 240 60" preserveAspectRatio="xMidYMid meet">
+            <path d="M 12 42 C 22 18, 36 12, 46 38 S 64 56, 78 32 Q 92 6, 106 40 C 120 64, 132 18, 148 38 Q 162 56, 176 30 S 198 46, 218 30" stroke="#9A88FD" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="sig-meta">Signed at 11:24 · IP redacted</div>
+      </div>
+      <div class="sig-block">
+        <div class="sig-role">Tenant</div>
+        <div class="sig-name">Faisal A.</div>
+        <div class="sig-canvas">
+          <svg viewBox="0 0 240 60" preserveAspectRatio="xMidYMid meet">
+            <path d="M 14 38 Q 28 14, 42 36 T 70 32 Q 86 8, 102 36 C 116 56, 134 22, 150 38 S 174 50, 192 28 Q 208 16, 222 36" stroke="#9A88FD" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="sig-meta">Signed at 11:25 · IP redacted</div>
+      </div>
+    </div>
+
+    <div class="verification">
+      <div class="verif-check">
+        <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="verif-text">
+        <div class="verif-title">RDC-Valid · SHA-256 verified · Cannot be tampered with</div>
+        <div class="verif-hash">a4f2c8e1b903d7f1c9e2487a6d3b0f5e8c4a91d72e6f8b3a0c5d92e4f7b18a3c</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="cta-sticky">
+  <div class="cta-text"><strong>This is a sample.</strong> Get your own RDC-valid Snagify reports in 20 minutes.</div>
+  <div class="cta-buttons">
+    <a href="https://snagify.net/#pricing" class="cta-btn cta-btn-ghost">See pricing</a>
+    <a href="https://app.snagify.net" class="cta-btn cta-btn-primary">Try free →</a>
+  </div>
+</div>
+
+</body>
+</html>
