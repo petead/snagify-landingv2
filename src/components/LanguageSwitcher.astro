@@ -107,9 +107,6 @@ const current = languages.find(l => l.code === currentLocale) || languages[0];
 .lang-switcher-item.is-current .lang-switcher-code { color: #9A88FD; }
 .lang-switcher-native { flex: 1; }
 
-[dir="rtl"] .lang-switcher-menu { right: auto; left: 0; }
-[dir="rtl"] .lang-switcher-item.is-current svg { margin-left: 0; margin-right: auto; }
-
 @media (max-width: 768px) {
   .lang-switcher-button { padding: 6px 10px; font-size: 10px; }
   .lang-switcher-menu { right: -4px; min-width: 140px; }
