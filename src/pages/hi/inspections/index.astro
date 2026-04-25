@@ -1,0 +1,142 @@
+---
+import SiteHeader from '../../../components/SiteHeader.astro';
+import SiteFooter from '../../../components/SiteFooter.astro';
+import neighborhoodsDataHI from '../../../data/neighborhoods.hi.json';
+
+const all = Object.values(neighborhoodsDataHI);
+
+const canonicalUrl = 'https://snagify.net/hi/inspections';
+const altEn = 'https://snagify.net/inspections';
+const altAr = 'https://snagify.net/ar/inspections';
+const altRu = 'https://snagify.net/ru/inspections';
+const altHi = 'https://snagify.net/hi/inspections';
+---
+<!DOCTYPE html>
+<html lang="hi" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>दुबई में संपत्ति निरीक्षण · कवर किए गए क्षेत्र · Snagify</title>
+<meta name="description" content="Snagify दुबई के मुख्य क्षेत्रों में संपत्ति निरीक्षण कवर करता है। RDC में मान्य रिपोर्ट्स, AI तस्वीर विश्लेषण, दोहरे हस्ताक्षर। चेक-इन पर मुफ़्त।">
+<meta name="keywords" content="संपत्ति निरीक्षण दुबई, दुबई के क्षेत्र निरीक्षण, दुबई क्षेत्रों में किराया निरीक्षण">
+<link rel="canonical" href={canonicalUrl}>
+<link rel="alternate" hreflang="en" href={altEn}>
+<link rel="alternate" hreflang="ar" href={altAr}>
+<link rel="alternate" hreflang="ru" href={altRu}>
+<link rel="alternate" hreflang="hi" href={altHi}>
+<link rel="alternate" hreflang="x-default" href={altEn}>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta http-equiv="content-language" content="hi-AE">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="दुबई में संपत्ति निरीक्षण · Snagify">
+<meta property="og:description" content="Snagify दुबई के मुख्य क्षेत्रों में संपत्ति निरीक्षण कवर करता है।">
+<meta property="og:url" content={canonicalUrl}>
+<meta property="og:image" content="https://snagify.net/og-image.png">
+<meta property="og:locale" content="hi_AE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="दुबई में संपत्ति निरीक्षण · Snagify">
+<meta name="twitter:image" content="https://snagify.net/og-image.png">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+* { cursor: auto; }
+a, button { cursor: pointer; }
+:root {
+  --cream: #F3F1EB;
+  --paper: #FCFCFC;
+  --ink: #0E0E10;
+  --ink-70: rgba(14,14,16,0.7);
+  --ink-60: rgba(14,14,16,0.6);
+  --ink-10: rgba(14,14,16,0.08);
+  --purple: #9A88FD;
+  --white: #FCFCFC;
+}
+body {
+  font-family: 'Noto Sans Devanagari', 'DM Sans', system-ui, sans-serif;
+  background: var(--cream); color: var(--ink); line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+.hero { padding: 80px 0 56px; }
+.hero h1 {
+  font-family: 'Noto Sans Devanagari', sans-serif; font-weight: 800;
+  font-size: clamp(34px, 5vw, 54px); line-height: 1.2;
+  letter-spacing: -0.6px; max-width: 800px; margin-bottom: 22px;
+}
+.hero h1 em { color: var(--purple); font-style: normal; }
+.hero-sub {
+  font-size: 18px; line-height: 1.75; color: var(--ink-70); max-width: 680px;
+}
+.section { padding: 48px 0; }
+.section h2 {
+  font-family: 'Noto Sans Devanagari', sans-serif; font-weight: 800;
+  font-size: 28px; letter-spacing: -0.4px; margin-bottom: 24px;
+}
+.section h2 .count {
+  font-family: 'JetBrains Mono', monospace; font-size: 13px;
+  color: var(--purple); margin-left: 10px; vertical-align: middle;
+}
+.grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+.area-card {
+  background: var(--paper); border: 1px solid var(--ink-10);
+  border-radius: 14px; padding: 18px 20px;
+  text-decoration: none; color: var(--ink);
+  transition: border-color 0.25s, transform 0.25s;
+}
+.area-card:hover { border-color: var(--purple); transform: translateY(-2px); }
+.area-name {
+  font-family: 'Noto Sans Devanagari', sans-serif; font-weight: 700;
+  font-size: 16px; margin-bottom: 4px;
+}
+.area-meta { font-size: 12px; color: var(--ink-70); }
+@media (max-width: 720px) {
+  .container { padding: 0 18px; }
+  .hero { padding: 56px 0 44px; }
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<SiteHeader />
+
+<main>
+
+<section class="hero container">
+  <h1>दुबई के <em>मुख्य क्षेत्रों</em> में निरीक्षण।</h1>
+  <p class="hero-sub">दुबई मरीना से पाम जुमेइरा तक — Snagify एक ही तरह से काम करता है: प्रति निरीक्षण 20 मिनट, RDC में मान्य PDF रिपोर्ट, चेक-इन पर मुफ़्त।</p>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>कवर किए गए क्षेत्र<span class="count">{all.length} क्षेत्र</span></h2>
+    <div class="grid">
+      {all.map(n => (
+        <a href={`/hi/inspections/${n.slug}`} class="area-card">
+          <div class="area-name">{n.label}</div>
+          <div class="area-meta">{n.typicalDuration}</div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+</main>
+
+<SiteFooter />
+
+</body>
+</html>

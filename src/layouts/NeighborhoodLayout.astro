@@ -5,18 +5,27 @@ import SiteFooter from '../components/SiteFooter.astro';
 
 const { neighborhood, locale = 'en' } = Astro.props;
 const isRTL = locale === 'ar';
-const htmlLang = locale === 'ar' ? 'ar' : (locale === 'ru' ? 'ru' : 'en');
+const htmlLang = locale === 'ar' ? 'ar'
+  : (locale === 'ru' ? 'ru'
+  : (locale === 'hi' ? 'hi' : 'en'));
 const htmlDir = isRTL ? 'rtl' : 'ltr';
-const ogLocale = locale === 'ar' ? 'ar_AE' : (locale === 'ru' ? 'ru_AE' : 'en_AE');
-const inLanguage = locale === 'ar' ? 'ar-AE' : (locale === 'ru' ? 'ru-AE' : 'en-AE');
+const ogLocale = locale === 'ar' ? 'ar_AE'
+  : (locale === 'ru' ? 'ru_AE'
+  : (locale === 'hi' ? 'hi_AE' : 'en_AE'));
+const inLanguage = locale === 'ar' ? 'ar-AE'
+  : (locale === 'ru' ? 'ru-AE'
+  : (locale === 'hi' ? 'hi-AE' : 'en-AE'));
 const canonicalBase = locale === 'ar'
   ? `https://snagify.net/ar/inspections/${neighborhood.slug}`
   : (locale === 'ru'
     ? `https://snagify.net/ru/inspections/${neighborhood.slug}`
-    : `https://snagify.net/inspections/${neighborhood.slug}`);
+    : (locale === 'hi'
+      ? `https://snagify.net/hi/inspections/${neighborhood.slug}`
+      : `https://snagify.net/inspections/${neighborhood.slug}`));
 const altEn = `https://snagify.net/inspections/${neighborhood.slug}`;
 const altAr = `https://snagify.net/ar/inspections/${neighborhood.slug}`;
 const altRu = `https://snagify.net/ru/inspections/${neighborhood.slug}`;
+const altHi = `https://snagify.net/hi/inspections/${neighborhood.slug}`;
 
 // Compute nearby neighborhoods (resolve slugs to full data)
 const nearby = (neighborhood.nearbyNeighborhoods || [])
@@ -102,6 +111,7 @@ const keywords = `property inspection ${neighborhood.label.toLowerCase()}, ${nei
 <link rel="alternate" hreflang="en" href={altEn}>
 <link rel="alternate" hreflang="ar" href={altAr}>
 <link rel="alternate" hreflang="ru" href={altRu}>
+<link rel="alternate" hreflang="hi" href={altHi}>
 <link rel="alternate" hreflang="x-default" href={altEn}>
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Snagify · MULKEEF">
@@ -366,6 +376,13 @@ body {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  </>
+)}
+{locale === 'hi' && (
+  <>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   </>
 )}
 </head>

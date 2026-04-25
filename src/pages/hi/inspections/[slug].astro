@@ -1,0 +1,14 @@
+---
+import neighborhoodsDataHI from '../../../data/neighborhoods.hi.json';
+import NeighborhoodLayout from '../../../layouts/NeighborhoodLayout.astro';
+
+export async function getStaticPaths() {
+  return Object.values(neighborhoodsDataHI).map(neighborhood => ({
+    params: { slug: neighborhood.slug },
+    props: { neighborhood }
+  }));
+}
+
+const { neighborhood } = Astro.props;
+---
+<NeighborhoodLayout neighborhood={neighborhood} locale="hi" />
