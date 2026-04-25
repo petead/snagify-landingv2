@@ -1,17 +1,44 @@
 ---
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
+
+const canonicalUrl = 'https://snagify.net/ru/';
+const altEn = 'https://snagify.net/';
+const altAr = 'https://snagify.net/ar/';
+const altRu = 'https://snagify.net/ru/';
 ---
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Snagify · Русская версия в разработке</title>
-<meta name="description" content="Цифровые осмотры недвижимости для рынка аренды в Дубае. Русская версия в разработке.">
-<link rel="canonical" href="https://snagify.net/ru/">
-<meta name="robots" content="noindex, nofollow">
+
+<title>Snagify · Цифровые осмотры недвижимости в Дубае · Действительны в RDC</title>
+<meta name="description" content="Цифровые осмотры недвижимости для рынка аренды в Дубае. С искусственным интеллектом, действительные в RDC, созданные для профессионалов и арендодателей.">
+<meta name="keywords" content="осмотр недвижимости дубай, осмотр аренды дубай, RDC приложение дубай, осмотр заселения дубай, осмотр выезда дубай, ejari дубай">
+<link rel="canonical" href={canonicalUrl}>
+<link rel="alternate" hreflang="en" href={altEn}>
+<link rel="alternate" hreflang="ar" href={altAr}>
+<link rel="alternate" hreflang="ru" href={altRu}>
+<link rel="alternate" hreflang="x-default" href={altEn}>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Snagify · MULKEEF">
 <meta http-equiv="content-language" content="ru-AE">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Snagify · Цифровые осмотры недвижимости в Дубае">
+<meta property="og:description" content="Цифровые осмотры недвижимости для рынка аренды в Дубае. С искусственным интеллектом, действительные в RDC.">
+<meta property="og:url" content={canonicalUrl}>
+<meta property="og:image" content="https://snagify.net/og-image.png">
+<meta property="og:site_name" content="Snagify">
+<meta property="og:locale" content="ru_AE">
+<meta property="og:locale:alternate" content="en_AE">
+<meta property="og:locale:alternate" content="ar_AE">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Snagify · Цифровые осмотры недвижимости в Дубае">
+<meta name="twitter:description" content="Цифровые осмотры недвижимости для рынка аренды в Дубае.">
+<meta name="twitter:image" content="https://snagify.net/og-image.png">
 
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -25,61 +52,249 @@ import SiteFooter from '../../components/SiteFooter.astro';
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 * { cursor: auto; }
-a, button { cursor: pointer; }
+a, button, [role="button"] { cursor: pointer; }
+input, textarea, select { cursor: text; }
+
 :root {
   --cream: #F3F1EB;
   --paper: #FCFCFC;
   --ink: #0E0E10;
   --ink-70: rgba(14,14,16,0.7);
   --ink-60: rgba(14,14,16,0.6);
+  --ink-25: rgba(14,14,16,0.12);
   --ink-10: rgba(14,14,16,0.08);
+  --ink-05: rgba(14,14,16,0.04);
   --purple: #9A88FD;
+  --purple-bg: rgba(154,136,253,0.1);
+  --jasmine: #FEDE80;
+  --green: #CAFE87;
   --white: #FCFCFC;
 }
+html { scroll-behavior: smooth; }
 body {
   font-family: 'DM Sans', system-ui, sans-serif;
   background: var(--cream); color: var(--ink); line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
-.placeholder {
-  max-width: 720px; margin: 0 auto;
-  padding: 96px 32px; text-align: center;
+.container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+
+.hero { padding: 96px 0 80px; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px; border-radius: 999px; background: var(--ink-05);
+  font-size: 12px; font-weight: 600; color: var(--ink-70);
+  letter-spacing: 0.5px; margin-bottom: 22px;
+  font-family: 'JetBrains Mono', monospace;
 }
-.placeholder h1 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800; font-size: clamp(36px, 5vw, 52px); line-height: 1.15;
-  letter-spacing: -1.4px;
-  margin-bottom: 24px;
+.hero-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--purple); }
+
+.hero h1 {
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: clamp(38px, 5.5vw, 68px); line-height: 1.05;
+  letter-spacing: -1.6px; max-width: 880px; margin-bottom: 24px;
 }
-.placeholder p {
-  font-size: 19px; line-height: 1.7;
-  color: var(--ink-70); margin-bottom: 24px;
+.hero h1 em { color: var(--purple); font-style: italic; }
+.hero-sub {
+  font-size: 19px; line-height: 1.65; color: var(--ink-70);
+  max-width: 720px; margin-bottom: 36px;
 }
-.placeholder-sub {
-  font-size: 16px; color: var(--ink-60);
-  margin-top: 32px; margin-bottom: 16px;
-}
-.placeholder a {
-  display: inline-block; padding: 14px 28px;
-  background: var(--ink); color: var(--white);
-  border-radius: 999px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700; font-size: 15px;
-  text-decoration: none;
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 16px 30px; background: var(--ink); color: var(--white);
+  font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 15px;
+  border-radius: 999px; text-decoration: none;
   transition: transform 0.25s, box-shadow 0.25s;
 }
-.placeholder a:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(14,14,16,0.2); }
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(14,14,16,0.25); }
+.hero-cta-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 16px 30px; background: transparent; color: var(--ink);
+  font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15px;
+  border-radius: 999px; text-decoration: none;
+  border: 1px solid var(--ink-25);
+  transition: border-color 0.25s, background 0.25s;
+}
+.hero-cta-secondary:hover { border-color: var(--ink); background: var(--ink-05); }
+
+.section { padding: 72px 0; }
+.section-eyebrow {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  text-transform: uppercase; letter-spacing: 0.6px;
+  color: var(--purple); margin-bottom: 14px;
+}
+.section h2 {
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: clamp(28px, 4.5vw, 44px); line-height: 1.1;
+  letter-spacing: -1.2px; max-width: 800px; margin-bottom: 22px;
+}
+.section-sub {
+  font-size: 17px; line-height: 1.6; color: var(--ink-70);
+  max-width: 720px; margin-bottom: 48px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+@media (max-width: 860px) { .grid-3 { grid-template-columns: 1fr; } }
+
+.card {
+  background: var(--paper);
+  border: 1px solid var(--ink-10);
+  border-radius: 18px; padding: 30px;
+}
+.card-tick {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 10px;
+  background: var(--purple-bg); color: var(--purple);
+  margin-bottom: 18px;
+}
+.card-tick svg { width: 20px; height: 20px; stroke-width: 2.5; stroke: var(--purple); fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.card h3 {
+  font-family: 'Poppins', sans-serif; font-weight: 700;
+  font-size: 19px; line-height: 1.3; margin-bottom: 12px;
+}
+.card p { font-size: 15px; line-height: 1.65; color: var(--ink-70); }
+
+.trust-row {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+}
+@media (max-width: 720px) { .trust-row { grid-template-columns: repeat(2, 1fr); } }
+.trust-item {
+  background: var(--paper); border: 1px solid var(--ink-10);
+  border-radius: 14px; padding: 20px; text-align: center;
+}
+.trust-item-num {
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: 32px; color: var(--purple); margin-bottom: 6px;
+}
+.trust-item-label {
+  font-size: 13px; color: var(--ink-70); line-height: 1.5;
+}
+
+.final-cta {
+  background: var(--ink); color: var(--white);
+  border-radius: 32px;
+  padding: 80px 48px; text-align: center;
+  position: relative; overflow: hidden;
+  margin: 24px 0 80px;
+}
+.final-cta::before {
+  content: ''; position: absolute;
+  top: -100px; right: -100px;
+  width: 360px; height: 360px; border-radius: 50%;
+  background: rgba(154,136,253,0.18); filter: blur(80px); pointer-events: none;
+}
+.final-cta h2 {
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: clamp(30px, 4.5vw, 48px); line-height: 1.1;
+  letter-spacing: -1.2px; margin-bottom: 18px;
+  position: relative; color: var(--white);
+}
+.final-cta p {
+  font-size: 17px; color: rgba(252,252,252,0.7);
+  margin-bottom: 32px; position: relative;
+  max-width: 540px; margin: 0 auto 32px;
+}
+.final-cta-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 18px 36px;
+  background: var(--purple); color: var(--ink);
+  font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 16px;
+  border-radius: 999px; text-decoration: none;
+  position: relative;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.final-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(154,136,253,0.35); }
+
+@media (max-width: 720px) {
+  .container { padding: 0 18px; }
+  .hero { padding: 64px 0 56px; }
+  .section { padding: 56px 0; }
+  .final-cta { padding: 56px 24px; }
+}
 </style>
 </head>
 <body>
 
 <SiteHeader />
 
-<main class="placeholder">
-  <h1>Русская версия в разработке</h1>
-  <p>Мы работаем над переводом Snagify на русский язык с проверкой носителем. Русская версия будет доступна в ближайшее время.</p>
-  <p class="placeholder-sub">Тем временем вы можете просмотреть сайт на английском языке:</p>
-  <a href="/">Вернуться к английской версии →</a>
+<main>
+
+<section class="hero container">
+  <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>SNAGIFY · DUBAI</div>
+  <h1>Осмотры недвижимости, которые <em>выдерживают RDC</em>.</h1>
+  <p class="hero-sub">Snagify превращает каждый осмотр в защищаемое доказательство: анализ фото с искусственным интеллектом, двойные цифровые подписи, криптографическая проверка SHA-256. Бесплатно при заселении.</p>
+  <div class="hero-actions">
+    <a href="https://app.snagify.net" class="hero-cta">Попробовать Snagify бесплатно →</a>
+    <a href="/sample-report.pdf" target="_blank" class="hero-cta-secondary">Посмотреть пример отчёта</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="trust-row">
+      <div class="trust-item">
+        <div class="trust-item-num">40+</div>
+        <div class="trust-item-label">агентств в Дубае используют нас</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-item-num">15K+</div>
+        <div class="trust-item-label">проведённых осмотров</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-item-num">80%</div>
+        <div class="trust-item-label">возвращённых депозитов</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-item-num">20 min</div>
+        <div class="trust-item-label">средняя длительность осмотра</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-eyebrow">ПРОДУКТ</div>
+    <h2>Всё необходимое, чтобы выиграть каждый спор.</h2>
+    <p class="section-sub">Три столпа, которые делают Snagify эталоном осмотров недвижимости в Дубае.</p>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-tick">
+          <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <h3>ИИ замечает то, что упускаете вы</h3>
+        <p>Claude AI автоматически классифицирует все повреждения на ваших фотографиях: трещины в стенах, износ краски, сколы плитки. Вы не забудете того, чего не видели.</p>
+      </div>
+      <div class="card">
+        <div class="card-tick">
+          <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <h3>Доказательства, действительные в RDC</h3>
+        <p>Каждый отчёт содержит временные метки, двойные подписи, метаданные фотографий и криптографический хэш SHA-256. RDC принимает его как есть.</p>
+      </div>
+      <div class="card">
+        <div class="card-tick">
+          <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <h3>20 минут от начала до конца</h3>
+        <p>Пошаговый процесс по комнатам. Автоопределение Ejari, отмеченные ИИ фотографии, цифровая подпись. Профессиональный PDF-отчёт за 60 секунд.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="final-cta">
+    <h2>Добро пожаловать в осмотры новее, чем 2010 год.</h2>
+    <p>Бесплатный осмотр при заселении, без банковской карты. Откройте для себя то, что используют более 40 агентств в Дубае.</p>
+    <a href="https://app.snagify.net" class="final-cta-btn">Начать бесплатно сейчас →</a>
+  </div>
+</section>
+
 </main>
 
 <SiteFooter />

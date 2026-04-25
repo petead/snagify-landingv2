@@ -1,0 +1,15 @@
+---
+import personasDataRU from '../../../data/personas.ru.json';
+import sharedDataRU from '../../../data/persona-shared.ru.json';
+import PersonaLayout from '../../../layouts/PersonaLayout.astro';
+
+export async function getStaticPaths() {
+  return Object.values(personasDataRU).map(persona => ({
+    params: { slug: persona.slug },
+    props: { persona, shared: sharedDataRU }
+  }));
+}
+
+const { persona, shared } = Astro.props;
+---
+<PersonaLayout persona={persona} shared={shared} locale="ru" />

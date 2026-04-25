@@ -1,15 +1,18 @@
 ---
 const { usecase, locale = 'en' } = Astro.props;
 const isRTL = locale === 'ar';
-const htmlLang = locale === 'ar' ? 'ar' : 'en';
+const htmlLang = locale === 'ar' ? 'ar' : (locale === 'ru' ? 'ru' : 'en');
 const htmlDir = isRTL ? 'rtl' : 'ltr';
-const ogLocale = locale === 'ar' ? 'ar_AE' : 'en_AE';
-const inLanguage = locale === 'ar' ? 'ar-AE' : 'en-AE';
+const ogLocale = locale === 'ar' ? 'ar_AE' : (locale === 'ru' ? 'ru_AE' : 'en_AE');
+const inLanguage = locale === 'ar' ? 'ar-AE' : (locale === 'ru' ? 'ru-AE' : 'en-AE');
 const canonicalBase = locale === 'ar'
   ? `https://snagify.net/ar/${usecase.slug}`
-  : `https://snagify.net/${usecase.slug}`;
+  : (locale === 'ru'
+    ? `https://snagify.net/ru/${usecase.slug}`
+    : `https://snagify.net/${usecase.slug}`);
 const altEn = `https://snagify.net/${usecase.slug}`;
 const altAr = `https://snagify.net/ar/${usecase.slug}`;
+const altRu = `https://snagify.net/ru/${usecase.slug}`;
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 
@@ -53,6 +56,7 @@ const articleJsonLd = {
 <link rel="canonical" href={canonicalBase}>
 <link rel="alternate" hreflang="en" href={altEn}>
 <link rel="alternate" hreflang="ar" href={altAr}>
+<link rel="alternate" hreflang="ru" href={altRu}>
 <link rel="alternate" hreflang="x-default" href={altEn}>
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Snagify · MULKEEF">
