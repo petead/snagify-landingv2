@@ -1,5 +1,8 @@
 ---
-// frontmatter (empty for now)
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+
+const currentLocale = Astro.currentLocale || 'en';
+const currentPath = Astro.url.pathname;
 ---
 <!-- BEGIN: bit-perfect copy of original index.html -->
 <!DOCTYPE html>
@@ -4217,6 +4220,9 @@ footer {
     <li><a href="#roi">ROI</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#faq">FAQ</a></li>
+    <li>
+      <LanguageSwitcher currentLocale={currentLocale} currentPath={currentPath} />
+    </li>
     <li>
       <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="nav-pill nav-app-btn">
         <span class="nav-pill-dot"></span>

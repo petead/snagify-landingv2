@@ -1,3 +1,12 @@
+---
+const currentPath = Astro.url.pathname;
+const isArabicPath = /^\/ar(\/|$)/.test(currentPath);
+const cleanPath = currentPath.replace(/^\/ar(?=\/|$)/, '') || '/';
+const enPath = cleanPath;
+const arPath = cleanPath === '/' ? '/ar' : `/ar${cleanPath}`;
+const currentLocale = isArabicPath ? 'ar' : 'en';
+---
+
 <footer class="site-footer-full">
   <div class="site-footer-top">
 
@@ -100,6 +109,10 @@
       </a>
     </div>
   </div>
+  <div class="site-hreflang-links" aria-hidden="true">
+    <a rel="alternate" hreflang="en" href={enPath} class:list={['site-hreflang-link', { 'is-current': currentLocale === 'en' }]}>English</a>
+    <a rel="alternate" hreflang="ar" href={arPath} class:list={['site-hreflang-link', { 'is-current': currentLocale === 'ar' }]}>العربية</a>
+  </div>
 </footer>
 
 <style>
@@ -176,6 +189,8 @@
   transition: background 0.2s, color 0.2s;
 }
 .site-foot-socials a:hover { background: rgba(154,136,253,0.2); color: #9A88FD; }
+.site-hreflang-links { display: none; }
+.site-hreflang-link { display: none; }
 
 @media (max-width: 1100px) {
   .site-footer-top { grid-template-columns: 1fr 1fr 1fr; }

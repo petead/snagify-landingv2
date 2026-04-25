@@ -1,0 +1,116 @@
+/* ============================================
+   PREMIUM RTL STYLES FOR snagify.net (Arabic)
+   ============================================
+   Loaded only on /ar/* pages via the layout.
+   Targets [dir="rtl"] selector for safety.
+*/
+
+/* ---- Arabic typography ---- */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap');
+
+[dir="rtl"] body,
+[dir="rtl"] {
+  font-family: 'Noto Naskh Arabic', 'Tajawal', 'DM Sans', system-ui, sans-serif;
+  text-align: right;
+  line-height: 1.85;
+  letter-spacing: 0;
+}
+
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+  font-family: 'Tajawal', 'Noto Naskh Arabic', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  line-height: 1.2;
+}
+
+[dir="rtl"] .article-body,
+[dir="rtl"] .hero-sub,
+[dir="rtl"] .section-sub,
+[dir="rtl"] .prose {
+  font-family: 'Noto Naskh Arabic', sans-serif;
+  font-size: 17px;
+  line-height: 1.95;
+}
+
+/* ---- Arrows: flip → into ← ---- */
+[dir="rtl"] .hero-cta::after,
+[dir="rtl"] .final-cta-btn::after,
+[dir="rtl"] .pricing-cta::after,
+[dir="rtl"] .cta-strip-btn::after { transform: scaleX(-1); }
+
+/* Replace literal "→" arrow chars in text with proper directional */
+[dir="rtl"] .arrow-rtl-flip {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+/* ---- Layout mirroring ---- */
+[dir="rtl"] .breadcrumb { direction: rtl; }
+[dir="rtl"] .breadcrumb-sep { transform: scaleX(-1); display: inline-block; }
+
+[dir="rtl"] .toc-aside { border-left: none; border-right: 1px solid rgba(14,14,16,0.08); }
+[dir="rtl"] .toc-list a {
+  border-left: none;
+  border-right: 2px solid transparent;
+  padding: 8px 12px 8px 12px;
+}
+[dir="rtl"] .toc-list a.active { border-right-color: #9A88FD; }
+
+[dir="rtl"] .timeline {
+  padding-left: 0;
+  padding-right: 48px;
+  border-left: none;
+  border-right: 2px solid rgba(14,14,16,0.12);
+}
+[dir="rtl"] .step-num { left: auto; right: -73px; }
+
+[dir="rtl"] .callout {
+  border-left: none;
+  border-right: 4px solid #9A88FD;
+}
+
+[dir="rtl"] .snagify-mention { flex-direction: row-reverse; }
+
+/* ---- Footer mirror ---- */
+[dir="rtl"] .site-footer-top { direction: rtl; }
+[dir="rtl"] .site-foot-brand { text-align: right; }
+[dir="rtl"] .site-footer-bottom { direction: rtl; }
+
+/* ---- Header mirror ---- */
+[dir="rtl"] #site-header { direction: rtl; }
+[dir="rtl"] .site-header-logo { flex-direction: row; }
+[dir="rtl"] .site-header-pill svg { transform: scaleX(-1); }
+
+/* ---- Tables in articles ---- */
+[dir="rtl"] .article-table { direction: rtl; }
+[dir="rtl"] .article-table th,
+[dir="rtl"] .article-table td { text-align: right; }
+
+/* ---- FAQ mirror ---- */
+[dir="rtl"] .faq-q {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+[dir="rtl"] .faq-icon { transform: rotate(0deg); }
+[dir="rtl"] .faq-item.open .faq-icon { transform: rotate(-45deg); }
+
+/* ---- Mobile RTL adjustments ---- */
+@media (max-width: 720px) {
+  [dir="rtl"] .timeline { padding-right: 36px; }
+  [dir="rtl"] .step-num { right: -57px; }
+}
+
+/* ---- Numbers stay LTR (prices, dates, codes) ---- */
+[dir="rtl"] .ltr-number,
+[dir="rtl"] .article-meta,
+[dir="rtl"] .building-pill,
+[dir="rtl"] code,
+[dir="rtl"] kbd {
+  direction: ltr;
+  unicode-bidi: embed;
+}

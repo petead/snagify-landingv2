@@ -1,0 +1,144 @@
+---
+const { currentLocale = 'en', currentPath = '/' } = Astro.props;
+
+const languages = [
+  { code: 'en', label: 'English', native: 'English', dir: 'ltr' },
+  { code: 'ar', label: 'Arabic', native: 'العربية', dir: 'rtl' }
+];
+
+// Compute the equivalent path for each language
+function getLocalizedPath(targetLocale, path) {
+  // Remove existing locale prefix if any
+  const cleanPath = path.replace(/^\/(ar|en)(?=\/|$)/, '') || '/';
+
+  if (targetLocale === 'en') {
+    return cleanPath;
+  }
+  return `/${targetLocale}${cleanPath === '/' ? '' : cleanPath}`;
+}
+
+const current = languages.find(l => l.code === currentLocale) || languages[0];
+---
+
+<div class="lang-switcher">
+  <button class="lang-switcher-button" id="langSwitcherButton" aria-label="Select language" aria-expanded="false">
+    <span class="lang-switcher-current">{current.code.toUpperCase()}</span>
+    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
+  <ul class="lang-switcher-menu" id="langSwitcherMenu" role="menu">
+    {languages.map(lang => (
+      <li role="menuitem">
+        <a
+          href={getLocalizedPath(lang.code, currentPath)}
+          class:list={['lang-switcher-item', { 'is-current': lang.code === currentLocale }]}
+          lang={lang.code}
+          dir={lang.dir}
+        >
+          <span class="lang-switcher-code">{lang.code.toUpperCase()}</span>
+          <span class="lang-switcher-native">{lang.native}</span>
+          {lang.code === currentLocale && (
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          )}
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+.lang-switcher { position: relative; display: inline-block; }
+.lang-switcher-button {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px;
+  background: rgba(14,14,16,0.04);
+  border: 1px solid rgba(14,14,16,0.08);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 600;
+  color: rgba(14,14,16,0.7);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.lang-switcher-button:hover {
+  background: rgba(14,14,16,0.08);
+  border-color: rgba(14,14,16,0.15);
+  color: #0E0E10;
+}
+.lang-switcher-button[aria-expanded="true"] {
+  background: rgba(14,14,16,0.08);
+  color: #0E0E10;
+}
+.lang-switcher-button[aria-expanded="true"] svg { transform: rotate(180deg); }
+.lang-switcher-button svg { transition: transform 0.2s; }
+
+.lang-switcher-menu {
+  position: absolute; top: calc(100% + 6px); right: 0;
+  list-style: none; padding: 6px; margin: 0;
+  background: #FCFCFC;
+  border: 1px solid rgba(14,14,16,0.08);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(14,14,16,0.12);
+  min-width: 160px;
+  opacity: 0; visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+  z-index: 110;
+}
+.lang-switcher-menu.is-open {
+  opacity: 1; visibility: visible; transform: translateY(0);
+}
+.lang-switcher-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 12px; border-radius: 8px;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 13px; color: rgba(14,14,16,0.7);
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.lang-switcher-item:hover { background: rgba(154,136,253,0.08); color: #0E0E10; }
+.lang-switcher-item.is-current { color: #9A88FD; font-weight: 600; }
+.lang-switcher-item.is-current svg { margin-left: auto; }
+.lang-switcher-code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 700;
+  color: rgba(14,14,16,0.5);
+  width: 24px;
+}
+.lang-switcher-item.is-current .lang-switcher-code { color: #9A88FD; }
+.lang-switcher-native { flex: 1; }
+
+[dir="rtl"] .lang-switcher-menu { right: auto; left: 0; }
+[dir="rtl"] .lang-switcher-item.is-current svg { margin-left: 0; margin-right: auto; }
+
+@media (max-width: 768px) {
+  .lang-switcher-button { padding: 6px 10px; font-size: 10px; }
+  .lang-switcher-menu { right: -4px; min-width: 140px; }
+}
+</style>
+
+<script>
+const button = document.getElementById('langSwitcherButton');
+const menu = document.getElementById('langSwitcherMenu');
+
+if (button && menu) {
+  button.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = menu.classList.toggle('is-open');
+    button.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!menu.contains(e.target) && !button.contains(e.target)) {
+      menu.classList.remove('is-open');
+      button.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      menu.classList.remove('is-open');
+      button.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+</script>
