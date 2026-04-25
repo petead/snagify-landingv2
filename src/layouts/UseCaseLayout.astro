@@ -1,0 +1,440 @@
+---
+const { usecase } = Astro.props;
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": usecase.faqs.map(f => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+  }))
+};
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": usecase.headline,
+  "description": usecase.metaDescription,
+  "author": { "@type": "Organization", "name": "Snagify" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Snagify",
+    "logo": { "@type": "ImageObject", "url": "https://snagify.net/og-image.png" }
+  },
+  "datePublished": "2026-04-25",
+  "dateModified": "2026-04-25",
+  "mainEntityOfPage": `https://snagify.net/${usecase.slug}`,
+  "image": "https://snagify.net/og-image.png"
+};
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{usecase.metaTitle}</title>
+<meta name="description" content={usecase.metaDescription}>
+<meta name="keywords" content={usecase.keywords}>
+<link rel="canonical" href={`https://snagify.net/${usecase.slug}`}>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Snagify · MULKEEF">
+<meta http-equiv="content-language" content="en-AE">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content={usecase.metaTitle}>
+<meta property="og:description" content={usecase.metaDescription}>
+<meta property="og:url" content={`https://snagify.net/${usecase.slug}`}>
+<meta property="og:image" content="https://snagify.net/og-image.png">
+<meta property="og:site_name" content="Snagify">
+<meta property="og:locale" content="en_AE">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content={usecase.metaTitle}>
+<meta name="twitter:description" content={usecase.metaDescription}>
+<meta name="twitter:image" content="https://snagify.net/og-image.png">
+
+<script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
+<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --cream: #F3F1EB;
+  --paper: #FCFCFC;
+  --ink: #0E0E10;
+  --ink-70: rgba(14,14,16,0.7);
+  --ink-60: rgba(14,14,16,0.6);
+  --ink-25: rgba(14,14,16,0.12);
+  --ink-10: rgba(14,14,16,0.08);
+  --ink-05: rgba(14,14,16,0.04);
+  --purple: #9A88FD;
+  --purple-bg: rgba(154,136,253,0.1);
+  --jasmine: #FEDE80;
+  --green: #CAFE87;
+  --white: #FCFCFC;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--cream); color: var(--ink); line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.topnav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(243,241,235,0.92);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--ink-10);
+  padding: 16px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.topnav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.topnav-logo { width: 32px; height: 32px; background: var(--purple); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.topnav-logo svg { width: 60%; height: 60%; }
+.topnav-name { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -0.5px; }
+.topnav-back { font-size: 13px; color: var(--ink-70); text-decoration: none; font-weight: 600; }
+.topnav-back:hover { color: var(--purple); }
+
+.container { max-width: 980px; margin: 0 auto; padding: 0 32px; }
+
+.hero { padding: 80px 0 56px; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px; border-radius: 999px; background: var(--ink-05);
+  font-size: 12px; font-weight: 600; color: var(--ink-70);
+  letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 22px;
+}
+.eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--purple); }
+.hero h1 {
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: clamp(40px, 5.5vw, 64px); line-height: 1.04;
+  letter-spacing: -2px; max-width: 800px; margin-bottom: 22px;
+}
+.hero h1 em { color: var(--purple); font-style: italic; }
+.hero-sub {
+  font-size: 19px; line-height: 1.55; color: var(--ink-70);
+  max-width: 680px; margin-bottom: 32px;
+}
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 16px 28px; background: var(--ink); color: var(--white);
+  font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 15px;
+  border-radius: 999px; text-decoration: none;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(14,14,16,0.25); }
+
+.section { padding: 56px 0; }
+.section-title {
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: clamp(28px, 4vw, 38px); line-height: 1.1;
+  letter-spacing: -1.2px; max-width: 760px; margin-bottom: 28px;
+}
+.prose p {
+  font-size: 17px; line-height: 1.7; color: var(--ink-70);
+  max-width: 720px; margin-bottom: 18px;
+}
+.prose p:last-child { margin-bottom: 0; }
+
+.scenarios {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+}
+@media (max-width: 860px) { .scenarios { grid-template-columns: 1fr; } }
+.scenario {
+  background: var(--paper); border: 1px solid var(--ink-10);
+  border-radius: 16px; padding: 26px;
+}
+.scenario-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: 8px;
+  background: var(--ink); color: var(--white);
+  font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700;
+  margin-bottom: 16px;
+}
+.scenario-title {
+  font-family: 'Poppins', sans-serif; font-weight: 700;
+  font-size: 17px; line-height: 1.3; margin-bottom: 10px;
+}
+.scenario-body { font-size: 15px; line-height: 1.6; color: var(--ink-70); }
+
+.approach-card {
+  background: var(--purple-bg);
+  border: 1px solid rgba(154,136,253,0.25);
+  border-radius: 18px; padding: 32px;
+  font-size: 17px; line-height: 1.65; color: var(--ink);
+  max-width: 800px;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 48px;
+  border-left: 2px solid var(--ink-25);
+  display: flex; flex-direction: column; gap: 32px;
+}
+.step {
+  position: relative;
+}
+.step-num {
+  position: absolute;
+  left: -73px; top: 0;
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  background: var(--purple); color: var(--ink);
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+  border: 4px solid var(--cream);
+}
+.step-title {
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: 19px; line-height: 1.3; margin-bottom: 6px; letter-spacing: -0.4px;
+}
+.step-body { font-size: 15px; line-height: 1.65; color: var(--ink-70); max-width: 680px; }
+
+.deliverable-card {
+  background: var(--ink); color: var(--white);
+  border-radius: 22px; padding: 36px;
+  position: relative; overflow: hidden;
+  max-width: 900px;
+}
+.deliverable-card::before {
+  content: ''; position: absolute;
+  top: -50px; right: -50px;
+  width: 240px; height: 240px; border-radius: 50%;
+  background: rgba(154,136,253,0.18); filter: blur(50px); pointer-events: none;
+}
+.deliverable-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  text-transform: uppercase; letter-spacing: 0.6px;
+  color: var(--purple); margin-bottom: 14px; position: relative;
+}
+.deliverable-text {
+  font-size: 18px; line-height: 1.6; color: rgba(252,252,252,0.92);
+  position: relative;
+}
+
+.faq-list { border-top: 1px solid var(--ink-25); }
+.faq-item { border-bottom: 1px solid var(--ink-25); }
+.faq-q {
+  width: 100%; background: none; border: none;
+  padding: 26px 0;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 24px; cursor: pointer; text-align: left;
+  font-family: 'Poppins', sans-serif; font-weight: 700;
+  font-size: 18px; line-height: 1.4; color: var(--ink);
+  transition: color 0.25s;
+}
+.faq-q:hover { color: var(--purple); }
+.faq-icon {
+  flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+  border: 1px solid var(--ink-25);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-60); font-size: 20px; font-weight: 300; line-height: 1;
+  transition: all 0.4s cubic-bezier(.16,1,.3,1);
+}
+.faq-item.open .faq-icon {
+  background: var(--purple); border-color: var(--purple);
+  color: var(--white); transform: rotate(45deg); font-weight: 500;
+}
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(.16,1,.3,1); }
+.faq-a-inner { padding: 0 0 26px; max-width: 720px; }
+.faq-a p { font-size: 15px; line-height: 1.7; color: var(--ink-70); }
+
+.final-cta {
+  background: var(--ink); color: var(--white);
+  border-radius: 28px;
+  padding: 64px 48px; text-align: center;
+  position: relative; overflow: hidden;
+  margin: 24px 0 80px;
+}
+.final-cta::before {
+  content: ''; position: absolute;
+  top: -80px; right: -80px;
+  width: 320px; height: 320px; border-radius: 50%;
+  background: rgba(154,136,253,0.18); filter: blur(60px); pointer-events: none;
+}
+.final-cta h2 {
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: clamp(30px, 4vw, 44px); line-height: 1.1;
+  letter-spacing: -1.2px; margin-bottom: 14px; position: relative;
+}
+.final-cta p {
+  font-size: 17px; color: rgba(252,252,252,0.7);
+  margin-bottom: 28px; position: relative;
+}
+.final-cta-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 16px 30px;
+  background: var(--purple); color: var(--ink);
+  font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 15px;
+  border-radius: 999px; text-decoration: none; position: relative;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.final-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(154,136,253,0.35); }
+
+footer.site-footer { background: var(--ink); color: var(--white); padding: 48px 32px; }
+.site-footer-inner {
+  max-width: 1080px; margin: 0 auto;
+  display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap;
+  font-size: 13px;
+}
+.site-footer a { color: rgba(252,252,252,0.7); text-decoration: none; }
+.site-footer a:hover { color: var(--purple); }
+
+@media (max-width: 720px) {
+  .topnav { padding: 14px 18px; }
+  .container { padding: 0 18px; }
+  .hero { padding: 56px 0 44px; }
+  .section { padding: 44px 0; }
+  .timeline { padding-left: 36px; }
+  .step-num { left: -57px; width: 38px; height: 38px; font-size: 12px; }
+  .approach-card, .deliverable-card { padding: 24px; }
+  .final-cta { padding: 48px 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="/" class="topnav-brand">
+    <div class="topnav-logo">
+      <svg viewBox="0 0 700 700" fill="#FCFCFC"><path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z"/><path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z"/></svg>
+    </div>
+    <span class="topnav-name">Snagify</span>
+  </a>
+  <a href="/" class="topnav-back">← Back to home</a>
+</nav>
+
+<main>
+
+<section class="hero container">
+  <div class="eyebrow"><span class="eyebrow-dot"></span>{usecase.eyebrow}</div>
+  <h1>{usecase.headline.replace(usecase.headlineHighlight, '')}<em>{usecase.headlineHighlight}</em></h1>
+  <p class="hero-sub">{usecase.subheadline}</p>
+  <a href="https://app.snagify.net" class="hero-cta">Try Snagify free →</a>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">What is a {usecase.label.toLowerCase()}?</h2>
+    <div class="prose">
+      {usecase.what.map(p => <p>{p}</p>)}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">When you need it.</h2>
+    <div class="scenarios">
+      {usecase.scenarios.map((s, i) => (
+        <div class="scenario">
+          <div class="scenario-num">{String(i + 1).padStart(2, '0')}</div>
+          <h3 class="scenario-title">{s.title}</h3>
+          <p class="scenario-body">{s.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">The Snagify approach.</h2>
+    <div class="approach-card">{usecase.approach}</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Step by step.</h2>
+    <div class="timeline">
+      {usecase.steps.map(step => (
+        <div class="step">
+          <div class="step-num">{step.num}</div>
+          <h3 class="step-title">{step.title}</h3>
+          <p class="step-body">{step.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">What you get at the end.</h2>
+    <div class="deliverable-card">
+      <div class="deliverable-label">Final deliverable</div>
+      <p class="deliverable-text">{usecase.deliverable}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Frequently asked.</h2>
+    <div class="faq-list">
+      {usecase.faqs.map(f => (
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            {f.question}
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><p>{f.answer}</p></div></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="final-cta">
+    <h2>{usecase.finalCta.headline}</h2>
+    <p>{usecase.finalCta.subheadline}</p>
+    <a href="https://app.snagify.net" class="final-cta-btn">{usecase.finalCta.buttonLabel}</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div>© 2026 Snagify · MULKEEF · Dubai, UAE</div>
+    <div>
+      <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/contact">Contact</a> · <a href="/rera">RERA</a> · <a href="/inspections">All neighborhoods</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q');
+  if (!q) return;
+  q.addEventListener('click', () => {
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      const a = i.querySelector('.faq-a');
+      if (a) a.style.maxHeight = '0px';
+    });
+    if (!wasOpen) {
+      item.classList.add('open');
+      const a = item.querySelector('.faq-a');
+      if (a) a.style.maxHeight = a.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+
+</body>
+</html>

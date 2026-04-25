@@ -1,0 +1,758 @@
+{
+  "check-in-inspection-dubai": {
+    "slug": "check-in-inspection-dubai",
+    "label": "Check-in inspection",
+    "fileName": "check-in-inspection-dubai",
+    "metaTitle": "Check-in Inspection Dubai · Free RDC-Valid Reports · Snagify",
+    "metaDescription": "Document your Dubai apartment at move-in with a free, RDC-valid check-in inspection. AI photo analysis, dual signatures, 20 minutes. Used by 40+ Dubai agencies.",
+    "keywords": "check-in inspection dubai, move-in inspection dubai, dubai check in report, rental check in dubai, ejari check in inspection",
+    "eyebrow": "Use case",
+    "headline": "Check-in inspection in Dubai.",
+    "headlineHighlight": "in Dubai.",
+    "subheadline": "An undocumented move-in is the single biggest cause of lost deposits in Dubai. A proper check-in inspection sets the baseline that protects both landlord and tenant for the entire lease.",
+    "what": [
+      "A check-in inspection is a documented walk-through of a rental property the day the tenant moves in. It captures the exact condition of every room, every fixture, and every appliance before anyone has lived in the unit.",
+      "In Dubai, a check-in inspection serves one critical purpose: it creates a baseline that the Rental Dispute Center (RDC) can compare against at move-out time. Without that baseline, every scratch, stain, or damage at check-out becomes a he-said-she-said argument that almost always ends with the tenant losing their deposit.",
+      "Snagify makes check-ins free. We want every Dubai tenant and landlord to have that protection, regardless of whether they ever use Snagify again."
+    ],
+    "scenarios": [
+      {
+        "title": "You just signed your Ejari and got the keys.",
+        "body": "The day you move in is the only chance to document the apartment in its original state. Wait two weeks and you can no longer prove what was already there before you arrived."
+      },
+      {
+        "title": "You're a landlord renting out a unit for the first time.",
+        "body": "Without a documented check-in, you have no baseline to defend against false damage claims at move-out. A 20-minute inspection now saves a 12,000 AED dispute later."
+      },
+      {
+        "title": "You're an agency onboarding a new tenant for your client.",
+        "body": "Your landlord client expects you to protect their asset. A signed check-in inspection report, branded with your agency name, is the deliverable that justifies your management fee."
+      }
+    ],
+    "approach": "Snagify guides you through a standardized check-in flow that takes 20 minutes. You enter the address (Ejari is auto-detected), walk room by room, take photos that AI tags automatically for damage, and finish with dual digital signatures. The PDF report is RDC-valid, cryptographically verifiable via SHA-256, and never expires.",
+    "steps": [
+      {
+        "num": "01",
+        "title": "Auto-detect Ejari",
+        "body": "Enter the property address. Snagify pulls the Ejari registration and pre-fills the report header."
+      },
+      {
+        "num": "02",
+        "title": "Walk room by room",
+        "body": "Living room, bedrooms, kitchen, bathrooms, balcony. The flow adapts to studio, apartment, or villa."
+      },
+      {
+        "num": "03",
+        "title": "Photograph everything",
+        "body": "Each room gets 3 to 8 photos. Walls, floor, fixtures, fittings. AI tags damage as you shoot."
+      },
+      {
+        "num": "04",
+        "title": "Note unit details",
+        "body": "Appliances tested, keys handed over, AC service date, meter readings if applicable."
+      },
+      {
+        "num": "05",
+        "title": "Dual digital signature",
+        "body": "Landlord (or agent) and tenant both sign on the same device. Timestamps are cryptographically logged."
+      },
+      {
+        "num": "06",
+        "title": "Receive the PDF",
+        "body": "Branded RDC-valid report delivered by email to both parties within 60 seconds. Free at check-in."
+      }
+    ],
+    "deliverable": "A multi-page PDF including a cover page with property details, room-by-room photo grids with AI-tagged condition notes, an issue summary, dual signatures, and a SHA-256 verification hash. Accepted as-is by the Dubai RDC and civil courts.",
+    "faqs": [
+      {
+        "question": "Why are check-in inspections free?",
+        "answer": "An undocumented move-in is the single biggest cause of lost deposits in Dubai. We want every tenant and landlord to have that baseline protection. You only spend a credit when you do a check-out."
+      },
+      {
+        "question": "How long does a Snagify check-in take?",
+        "answer": "Most check-ins run 20 to 25 minutes for a 1BR or 2BR apartment. Studios are quicker (12 to 18 minutes). Larger villas can take 40 to 60 minutes."
+      },
+      {
+        "question": "Does the landlord have to use Snagify too?",
+        "answer": "No. Either party can initiate a check-in inspection. Once you start one, you generate a signing link for the other party to sign on their own phone. The report is dual-signed regardless of whether the landlord has a Snagify account."
+      },
+      {
+        "question": "What if the tenant or landlord refuses to sign?",
+        "answer": "You document the refusal directly inside the report. A dedicated field logs it with timestamp and optional reason. The report stays legally valid. A documented refusal is strong evidence you followed due process."
+      },
+      {
+        "question": "Is the check-in report enough, or do I need a check-out too?",
+        "answer": "The check-in alone protects you against false claims about pre-existing damage. To protect against new damage during the lease, you'll also need a check-out at move-out time. The check-out compares directly to the check-in baseline."
+      }
+    ],
+    "finalCta": {
+      "headline": "Document your move-in.",
+      "subheadline": "Free check-in. RDC valid. No credit card.",
+      "buttonLabel": "Start free check-in →"
+    }
+  },
+  "check-out-inspection-dubai": {
+    "slug": "check-out-inspection-dubai",
+    "label": "Check-out inspection",
+    "fileName": "check-out-inspection-dubai",
+    "metaTitle": "Check-out Inspection Dubai · Get Your Deposit Back · Snagify",
+    "metaDescription": "RDC-valid check-out inspection for Dubai rentals. Compare to check-in baseline, AI photo analysis, dual signatures. Settle deposits in 30 days, not 6 months.",
+    "keywords": "check-out inspection dubai, move-out inspection dubai, dubai check out report, rental check out dubai, deposit return dubai",
+    "eyebrow": "Use case",
+    "headline": "Check-out inspection in Dubai.",
+    "headlineHighlight": "in Dubai.",
+    "subheadline": "Your deposit is at stake. A documented check-out, compared directly against the original check-in, settles disputes in 30 days instead of 6 months. Snagify makes the comparison automatic.",
+    "what": [
+      "A check-out inspection is the formal walk-through done at the end of a tenancy, comparing the property's current state to its original check-in condition. It identifies what changed during the lease and assigns responsibility for any damage beyond fair wear and tear.",
+      "In Dubai, the check-out is where deposits get fought over. Without a comparable check-in baseline, the landlord can claim almost anything was caused by the tenant. With Snagify, every check-out auto-pulls the original check-in for direct visual comparison.",
+      "Check-outs use one credit per inspection. The report is RDC-valid, cryptographically verifiable, and accepted as evidence in Dubai civil courts."
+    ],
+    "scenarios": [
+      {
+        "title": "Your lease is ending and you want your deposit back.",
+        "body": "A documented check-out, signed by both parties, is the strongest evidence you can produce. Tenants who present a Snagify check-out get full deposits back in 80% of cases without filing at the RDC."
+      },
+      {
+        "title": "You're a landlord and your tenant is moving out.",
+        "body": "If there's any damage, you need evidence. If there isn't, you still need a clean signed report to protect against future claims. Either way, 20 minutes of work prevents months of back-and-forth."
+      },
+      {
+        "title": "You're an agency settling a tenancy on behalf of a client.",
+        "body": "A signed check-out, comparing to the check-in, gives your landlord client a defensible position. Disputes that would have taken 4 months are settled in 2 weeks."
+      }
+    ],
+    "approach": "Snagify pulls the original check-in inspection automatically. You walk through the same rooms, take comparable photos, and the system highlights changes between then and now. AI flags damage. Dual signatures lock the report. The PDF includes both check-in and check-out side by side.",
+    "steps": [
+      {
+        "num": "01",
+        "title": "Pull the check-in baseline",
+        "body": "Snagify auto-loads the original check-in for this property. You see what every room looked like at move-in."
+      },
+      {
+        "num": "02",
+        "title": "Walk the same flow",
+        "body": "Same rooms, same order, same photo angles where possible. The flow is identical to make comparison easy."
+      },
+      {
+        "num": "03",
+        "title": "Capture current state",
+        "body": "Photos of every room. AI compares against the check-in to flag changes. New damage is highlighted automatically."
+      },
+      {
+        "num": "04",
+        "title": "Tag the differences",
+        "body": "Pre-existing damage stays untouched. New damage gets flagged for landlord/tenant discussion. Each tag is timestamped and logged."
+      },
+      {
+        "num": "05",
+        "title": "Discuss and document",
+        "body": "Walk through findings with the other party. Each contested item gets a note. The report records both views."
+      },
+      {
+        "num": "06",
+        "title": "Dual signature & SHA-256 lock",
+        "body": "Both parties sign. The report is cryptographically locked. Any later edit would invalidate the SHA-256 hash, immediately visible to the RDC."
+      },
+      {
+        "num": "07",
+        "title": "Settle the deposit",
+        "body": "Most disputes settle within 7 days when both parties have signed the same evidence document. No need to file at the RDC."
+      }
+    ],
+    "deliverable": "A multi-page PDF including the original check-in for reference, current condition photos, side-by-side comparison of any changed rooms, an issue summary with new damage flagged, dual signatures, and the SHA-256 hash. Accepted as-is by the Dubai RDC.",
+    "faqs": [
+      {
+        "question": "Do I need to have used Snagify at check-in to do a Snagify check-out?",
+        "answer": "Ideally yes. A check-out inspection's main strength is comparison against a documented check-in baseline. If your original check-in was on Word or paper, you can still do a Snagify check-out, but you lose the automatic side-by-side comparison feature."
+      },
+      {
+        "question": "How does Snagify handle fair wear and tear?",
+        "answer": "Snagify follows RERA's fair wear and tear guidelines. AI flags damage but does not assign fault. The dual-signed discussion section is where landlord and tenant agree on what's normal wear versus what requires deduction. The RDC weighs both views if a dispute escalates."
+      },
+      {
+        "question": "How quickly does a check-out settle a deposit?",
+        "answer": "When both parties sign the same Snagify check-out report, deposits typically settle within 5 to 10 days. When they don't sign, the report is still strong RDC evidence and most cases close within 30 to 60 days."
+      },
+      {
+        "question": "What if the tenant claims damage was already there?",
+        "answer": "Snagify pulls the original check-in automatically. If a damaged item was photographed at check-in with the same condition, the system flags it as pre-existing. The tenant cannot be charged for it."
+      },
+      {
+        "question": "How much does a check-out cost?",
+        "answer": "One credit per check-out. Credit packs start at 6 credits and never expire. Pro plans include 15 to 50 credits per month for agencies and property managers."
+      }
+    ],
+    "finalCta": {
+      "headline": "End your tenancy with proof.",
+      "subheadline": "20 minutes. RDC valid. One credit.",
+      "buttonLabel": "Run a check-out →"
+    }
+  },
+  "handover-inspection-dubai": {
+    "slug": "handover-inspection-dubai",
+    "label": "Handover inspection",
+    "fileName": "handover-inspection-dubai",
+    "metaTitle": "Handover Inspection Dubai · New Property Snag List · Snagify",
+    "metaDescription": "Document defects when taking handover of your new Dubai property. AI-powered snag list, RDC-valid PDF, dual signatures with the developer. From AED 49.",
+    "keywords": "handover inspection dubai, dubai property handover, new property handover dubai, developer handover dubai, off-plan handover inspection",
+    "eyebrow": "Use case",
+    "headline": "Handover inspection in Dubai.",
+    "headlineHighlight": "in Dubai.",
+    "subheadline": "When you take handover of a new property from the developer, you have a fixed window to flag defects before they become your problem. A documented handover inspection forces the developer to fix what's broken, on their dime.",
+    "what": [
+      "A handover inspection is the documented walk-through done when a property is delivered by the developer to the buyer or tenant. It identifies every defect, every snag, every incomplete finish that should be remedied before the buyer takes occupancy or starts paying rent.",
+      "In Dubai, every developer offers a defects liability period (typically 1 year) during which they must fix issues at no cost. That window only protects you if you've documented the defects in writing, with photos, signed by the developer's representative.",
+      "Snagify formalizes the handover into a single signed report. The developer's representative signs on the spot. Anything documented is on their bill to fix."
+    ],
+    "scenarios": [
+      {
+        "title": "You're taking handover of an off-plan apartment.",
+        "body": "You've waited 2 years for delivery. The unit looks finished but you spot wall cracks, missing kitchen handles, AC noise. Without a documented snag list, the developer disputes everything later."
+      },
+      {
+        "title": "You're a buyer taking possession from a developer.",
+        "body": "Your defects liability period starts on the handover date. Anything not documented in the handover inspection becomes your maintenance cost from day one. Don't lose 6 months of free fixes."
+      },
+      {
+        "title": "You're a landlord receiving a new build to lease out.",
+        "body": "You'll list this unit for rent within weeks. Tenant complaints about builder defects will land on you, not the developer. Document everything at handover so it stays on the developer's tab."
+      }
+    ],
+    "approach": "Snagify uses an extended inspection flow optimized for snag lists. You walk every room, every fixture, every appliance, photographing defects in detail. AI categorizes by severity (cosmetic, functional, urgent). The developer's representative signs on the same device. The PDF lists every snag with photos and goes directly to the developer.",
+    "steps": [
+      {
+        "num": "01",
+        "title": "Confirm property details",
+        "body": "Building, unit, handover date. Developer's representative is added as the second signatory."
+      },
+      {
+        "num": "02",
+        "title": "Walk every room",
+        "body": "More thorough than a check-in. Open every cabinet, test every socket, run every tap. Photograph every defect."
+      },
+      {
+        "num": "03",
+        "title": "AI categorizes severity",
+        "body": "Wall scratches and cosmetic issues are flagged separately from functional defects (broken AC, leaking pipes, faulty wiring)."
+      },
+      {
+        "num": "04",
+        "title": "Test all appliances",
+        "body": "Oven, fridge, washer, dryer, AC units, water heater. Every appliance tested live, with photo documentation."
+      },
+      {
+        "num": "05",
+        "title": "Test all systems",
+        "body": "Electrical sockets, plumbing fixtures, smart-home features, balcony locks, intercom. Each documented as working or defective."
+      },
+      {
+        "num": "06",
+        "title": "Developer signs the snag list",
+        "body": "Developer's representative signs on the same device. Each snag is now formally acknowledged. Repair timeline is auto-set per developer policy."
+      },
+      {
+        "num": "07",
+        "title": "Track repair completion",
+        "body": "Each snag can be re-inspected and marked resolved as the developer fixes it. Final report shows what was fixed and what wasn't."
+      }
+    ],
+    "deliverable": "A detailed snag list PDF with photos of every defect, severity classification, developer signature on each item, and a tracking section that updates as repairs are completed. SHA-256 verified, accepted by RERA and the Dubai RDC if disputes escalate.",
+    "faqs": [
+      {
+        "question": "How long does a handover inspection take?",
+        "answer": "Handovers are more thorough than check-ins. Plan for 60 to 90 minutes for a 1BR apartment, 90 to 120 minutes for a 3BR villa. Better to take the time than to discover defects after the developer's window closes."
+      },
+      {
+        "question": "What if the developer refuses to sign the snag list?",
+        "answer": "You document the refusal in the report. The unsigned report is still legal evidence. RERA expects developers to engage with snag lists in good faith. A documented refusal becomes evidence in any RERA-mediated dispute."
+      },
+      {
+        "question": "Can I do my own handover or does the developer do it?",
+        "answer": "Either party can initiate. Most developers run their own handover and ask the buyer to sign. With Snagify, you can run yours independently before signing theirs. The two reports together strengthen your position dramatically."
+      },
+      {
+        "question": "What's the difference between a handover inspection and snagging?",
+        "answer": "Handover inspection is the formal moment of property delivery from developer to buyer. Snagging is the broader practice of identifying defects, which can also happen later in a property's life. A handover inspection always includes a snag list."
+      },
+      {
+        "question": "How much does a handover inspection cost?",
+        "answer": "Handover inspections use one credit, same as check-outs. Credit packs start at AED 49. For multiple properties (e.g. an investor with 5 units), pay-as-you-go credits are usually cheaper than any subscription."
+      }
+    ],
+    "finalCta": {
+      "headline": "Document your handover.",
+      "subheadline": "Don't let developer defects become your problem.",
+      "buttonLabel": "Start your handover →"
+    }
+  },
+  "snagging-inspection-dubai": {
+    "slug": "snagging-inspection-dubai",
+    "label": "Snagging inspection",
+    "fileName": "snagging-inspection-dubai",
+    "metaTitle": "Property Snagging Dubai · AI-Powered Snag List · Snagify",
+    "metaDescription": "Snagging inspection for Dubai new builds and rentals. AI tags every defect, generates a developer-ready snag list PDF. SHA-256 verified, RDC-valid. From AED 49.",
+    "keywords": "property snagging dubai, snagging inspection dubai, dubai snag list, new build snagging dubai, off plan snagging",
+    "eyebrow": "Use case",
+    "headline": "Property snagging in Dubai.",
+    "headlineHighlight": "in Dubai.",
+    "subheadline": "Snagging is the practice of identifying defects in a new or recently completed property. Done right, it forces the developer to fix issues at zero cost to you. Done wrong, every snag becomes your maintenance bill.",
+    "what": [
+      "Snagging is a property inspection focused on identifying defects rather than condition. It's most commonly done at handover from a developer, but can also be done after major renovations or before a tenant moves into a recently completed unit.",
+      "In Dubai, snagging is a critical step for any new build buyer. Developers offer a defects liability period (typically 12 months) during which they must remedy issues at no cost. The snagging report is your evidence that those issues exist.",
+      "Snagify's AI is trained on thousands of Dubai property defects. It flags wall cracks, paint imperfections, tile chips, plumbing leaks, electrical issues, and finish problems automatically. The PDF goes straight to the developer with severity ratings."
+    ],
+    "scenarios": [
+      {
+        "title": "You bought off-plan and the unit is being delivered.",
+        "body": "Snagging in the first 2 weeks after handover catches 90% of developer-fixable defects. Wait too long and the developer will argue you caused them yourself."
+      },
+      {
+        "title": "Your renovation just finished and you want to verify quality.",
+        "body": "Contractors miss things. A 30-minute snagging inspection produces a punch list that holds them accountable to fix issues before final payment."
+      },
+      {
+        "title": "You're listing a recently completed unit for rent.",
+        "body": "Snagging before the first tenant moves in protects you against tenant complaints about builder defects. Issues you document now are still on the developer's bill."
+      }
+    ],
+    "approach": "Snagify's snagging flow is more thorough than a check-in. AI scans every photo for defects (wall, paint, tile, finish, fixture, electrical, plumbing) and classifies severity (cosmetic, functional, urgent). Each defect gets photo evidence, location, and a recommended fix. The PDF is structured to go directly to the developer or contractor.",
+    "steps": [
+      {
+        "num": "01",
+        "title": "Set up the snagging session",
+        "body": "Property details, developer or contractor as recipient. Severity threshold (default: flag everything cosmetic and above)."
+      },
+      {
+        "num": "02",
+        "title": "Walk room by room",
+        "body": "Snagging is more thorough than condition checks. Open every cabinet, test every socket, run every tap. Each defect deserves its own photo."
+      },
+      {
+        "num": "03",
+        "title": "AI scans every photo",
+        "body": "Wall cracks, paint streaks, tile chips, missing grout, scuffed skirting, broken fixtures, exposed wiring. AI flags everything."
+      },
+      {
+        "num": "04",
+        "title": "Severity classification",
+        "body": "Cosmetic (paint, scuffs), functional (leaky tap, broken outlet), urgent (water damage, electrical hazard). Each tagged separately."
+      },
+      {
+        "num": "05",
+        "title": "Developer signs acknowledgement",
+        "body": "Developer's representative signs on the same device. Each snag is now formally acknowledged with an expected resolution date."
+      },
+      {
+        "num": "06",
+        "title": "Track resolutions over time",
+        "body": "As the developer fixes each snag, mark it resolved with a follow-up photo. Final report shows what was fixed and what's still outstanding."
+      }
+    ],
+    "deliverable": "A multi-page snag list PDF with photos of every defect, severity classifications, room-by-room organization, developer acknowledgement signature, and a resolution tracker. Suitable for sending directly to the developer's customer service team or escalating to RERA if needed.",
+    "faqs": [
+      {
+        "question": "When should I do a snagging inspection?",
+        "answer": "Within 2 weeks of taking handover for off-plan purchases. Within 1 week of contractor completion for renovations. Before listing a new unit for rent. The earlier the better, as developers often argue defects appeared after handover if you wait too long."
+      },
+      {
+        "question": "What's the difference between snagging and a check-in?",
+        "answer": "A check-in documents condition for a tenancy baseline. Snagging documents defects that should be fixed by the developer or contractor at no cost to you. They overlap in flow but the report structure and recipient are different."
+      },
+      {
+        "question": "Can the AI miss real defects?",
+        "answer": "AI catches the vast majority of visible defects in photos. It can miss anything not captured in the photo (subtle smells, faint sounds, intermittent issues). Take photos liberally and walk through each room mindfully. The human eye plus the AI together catch nearly everything."
+      },
+      {
+        "question": "How big should a snag list be?",
+        "answer": "It varies. A new build off-plan unit typically has 30 to 80 snags at handover, depending on developer quality. A renovated unit usually has 10 to 30. If you're seeing zero, you're probably not looking carefully enough."
+      },
+      {
+        "question": "What if the developer ignores my snag list?",
+        "answer": "Most reputable Dubai developers respond within 14 to 30 days. If yours doesn't, escalate to RERA. The Snagify PDF with its SHA-256 hash and developer's acknowledgement signature is strong evidence in a RERA complaint."
+      }
+    ],
+    "finalCta": {
+      "headline": "Catch every defect.",
+      "subheadline": "AI-powered snagging. Free check-ins. Pay only for snag reports.",
+      "buttonLabel": "Start a snag list →"
+    }
+  },
+  "move-in-checklist-dubai": {
+    "slug": "move-in-checklist-dubai",
+    "label": "Move-in checklist",
+    "fileName": "move-in-checklist-dubai",
+    "metaTitle": "Move-in Checklist Dubai · Free Inspection Template · Snagify",
+    "metaDescription": "The complete Dubai move-in checklist for tenants and landlords. Room-by-room walkthrough, RDC-valid documentation, free with Snagify.",
+    "keywords": "move in checklist dubai, dubai move in template, rental move in dubai, ejari move in checklist, tenant move in dubai",
+    "eyebrow": "Use case",
+    "headline": "The Dubai move-in checklist.",
+    "headlineHighlight": "checklist.",
+    "subheadline": "What you should check, room by room, the day you move into a Dubai rental. Snagify automates the entire flow into a 20-minute walk-through that produces RDC-valid evidence by default.",
+    "what": [
+      "A move-in checklist is the standardized list of every item, fixture, and condition point you should verify and document the day you take possession of a Dubai rental property. It exists because Dubai's deposit return rules favor whoever has the better documentation.",
+      "A good checklist covers the obvious (walls, floors, ceilings) and the easy-to-forget (AC service date, water meter reading, key inventory, balcony lock condition). Missing any of these creates a gap an unscrupulous landlord can exploit at move-out.",
+      "Snagify turns the checklist into a guided flow. You can't skip steps. You can't forget rooms. AI catches what your eyes miss. The output is a signed PDF that the RDC accepts as evidence."
+    ],
+    "scenarios": [
+      {
+        "title": "You're a tenant moving in for the first time.",
+        "body": "You've never done a Dubai move-in before. You don't know what to check. A guided checklist makes sure you don't miss anything that could cost you 5,000 AED at move-out."
+      },
+      {
+        "title": "You're a landlord handing over a new tenancy.",
+        "body": "You want a thorough, signed record. A standardized checklist gives you that consistency every time, regardless of which inspector or agent does the walkthrough."
+      },
+      {
+        "title": "You're an agency doing 5 inspections this week.",
+        "body": "Your team needs to do every check-in the same way. A digital checklist enforces process discipline. Your reports look identical, your RDC defenses are consistent, your time per inspection drops to 20 minutes."
+      }
+    ],
+    "approach": "Snagify's move-in flow follows a strict checklist that covers every required item: address & Ejari, room-by-room photos, appliance tests, key inventory, meter readings, AC service date, balcony & exterior, signature. You can't submit a report with steps skipped. Every check-in is complete by design.",
+    "steps": [
+      {
+        "num": "01",
+        "title": "Property identification",
+        "body": "Building, unit number, Ejari (auto-detected), property type. Sets the report header."
+      },
+      {
+        "num": "02",
+        "title": "Room-by-room photos",
+        "body": "Living room, bedrooms, kitchen, bathrooms, balcony. Minimum 3 photos per room. AI tags issues automatically."
+      },
+      {
+        "num": "03",
+        "title": "Appliances tested",
+        "body": "Oven, fridge, washing machine, dryer, dishwasher, AC units. Each tested live, condition logged."
+      },
+      {
+        "num": "04",
+        "title": "Key inventory",
+        "body": "How many main door keys, parking remote, mailbox, service entrance. Each key counted and logged."
+      },
+      {
+        "num": "05",
+        "title": "Meter readings",
+        "body": "DEWA water and electricity meter readings at handover. Photos of the meters as evidence."
+      },
+      {
+        "num": "06",
+        "title": "AC service date",
+        "body": "Service sticker on AC units photographed. Verifies when the unit was last serviced."
+      },
+      {
+        "num": "07",
+        "title": "Dual signature",
+        "body": "Landlord and tenant both sign on the same device. The PDF is locked with SHA-256 and emailed to both parties."
+      }
+    ],
+    "deliverable": "A complete move-in PDF including property header, room-by-room photo grids, appliance test log, key inventory, meter readings, AC service date, dual signatures, and SHA-256 hash. Ready for the RDC if a dispute happens later.",
+    "faqs": [
+      {
+        "question": "Do I really need to record meter readings?",
+        "answer": "Yes. DEWA bills the registered tenant from the day Ejari starts. Without a meter reading at move-in, the landlord can claim the previous tenant's outstanding usage was yours. A photo of the meter at handover prevents that."
+      },
+      {
+        "question": "Why count keys?",
+        "answer": "At move-out, the landlord verifies you returned every key. Tenants who can't prove they only received 2 main keys often get charged for 'lost' third keys that never existed. Counting at check-in protects you."
+      },
+      {
+        "question": "What if the AC service is overdue?",
+        "answer": "Document it. Most Dubai tenancy contracts say the landlord covers AC servicing. If the unit hasn't been serviced in over 6 months at check-in, that's the landlord's responsibility. Photo of the service sticker is your evidence."
+      },
+      {
+        "question": "Can I do a move-in checklist on paper?",
+        "answer": "You can. But paper has no timestamps, no signatures cryptographically locked, no AI to catch what you missed, and no SHA-256 verification. It's also harder to share by email if a dispute escalates. The RDC accepts paper reluctantly."
+      },
+      {
+        "question": "Is the Snagify checklist the same as RERA's?",
+        "answer": "Snagify's flow follows RERA inspection guidelines. Our checklist covers everything RERA expects in a tenancy inspection, plus a few additional items (AI tagging, SHA-256 verification, dual signature) that strengthen the report's evidentiary weight."
+      }
+    ],
+    "finalCta": {
+      "headline": "Don't move in without it.",
+      "subheadline": "Free guided checklist. RDC valid. 20 minutes.",
+      "buttonLabel": "Start your free move-in →"
+    }
+  },
+  "move-out-checklist-dubai": {
+    "slug": "move-out-checklist-dubai",
+    "label": "Move-out checklist",
+    "fileName": "move-out-checklist-dubai",
+    "metaTitle": "Move-out Checklist Dubai · Get Your Deposit Back · Snagify",
+    "metaDescription": "Complete Dubai move-out checklist for tenants. What to clean, what to document, how to defend your deposit. RDC-valid reports with Snagify.",
+    "keywords": "move out checklist dubai, dubai move out template, deposit return checklist, tenant move out dubai, ejari move out",
+    "eyebrow": "Use case",
+    "headline": "The Dubai move-out checklist.",
+    "headlineHighlight": "checklist.",
+    "subheadline": "What to clean, what to document, what to confirm before you hand back the keys. Done right, you walk out with your full deposit. Done wrong, you fight for it for months.",
+    "what": [
+      "A move-out checklist is the standardized list of every step a Dubai tenant should complete before returning keys to the landlord. It covers cleaning, repairs, documentation, utility transfer, and the final inspection itself.",
+      "Most Dubai deposit disputes happen because the tenant skipped the documentation step. They cleaned the apartment, returned the keys, and trusted the landlord to transfer the deposit. Two weeks later, the landlord deducts 6,000 AED for 'damage' that nobody discussed. Now you're in a he-said-she-said with no signed evidence.",
+      "Snagify turns the move-out into a comparison against the original check-in. Every changed item is highlighted. Every disputed point is logged. The signed PDF is your evidence in any deposit negotiation."
+    ],
+    "scenarios": [
+      {
+        "title": "Your lease ends in 30 days and you want full deposit back.",
+        "body": "Plan ahead: clean professionally, fix any obvious damage, schedule the move-out inspection 1-2 days before key handover. Without a documented inspection, you have no leverage."
+      },
+      {
+        "title": "You're being asked to sign a check-out you didn't review.",
+        "body": "Don't. Insist on a Snagify check-out that pulls the original check-in for direct comparison. Pre-existing damage cannot be charged to you if it was photographed at move-in."
+      },
+      {
+        "title": "Your landlord is making vague claims about damage.",
+        "body": "A Snagify move-out forces every claim to be documented with photos and signatures. Vague claims have no place in an RDC-valid report. Either the damage exists with evidence, or it doesn't."
+      }
+    ],
+    "approach": "Snagify's move-out flow auto-pulls the original check-in for side-by-side comparison. You walk the same rooms, photograph the same angles, and AI highlights changes between then and now. Pre-existing damage is excluded automatically. Only new damage is up for discussion. The PDF includes both inspections.",
+    "steps": [
+      {
+        "num": "01",
+        "title": "Schedule the move-out",
+        "body": "1-2 days before key handover. Both parties present. Allow 30 to 45 minutes for the walk-through."
+      },
+      {
+        "num": "02",
+        "title": "Pre-clean professionally",
+        "body": "Done before the inspection, not during. A spotless property settles disputes before they start."
+      },
+      {
+        "num": "03",
+        "title": "Pull the check-in baseline",
+        "body": "Snagify auto-loads the original check-in. Pre-existing damage is visible in the comparison view."
+      },
+      {
+        "num": "04",
+        "title": "Walk the same flow",
+        "body": "Same rooms, same order. Photograph each room's current state. AI compares to check-in and flags changes."
+      },
+      {
+        "num": "05",
+        "title": "Discuss each flagged item",
+        "body": "For each new item AI flags, agree with the landlord whether it's wear and tear, your responsibility, or theirs. Each decision is documented."
+      },
+      {
+        "num": "06",
+        "title": "Final meter readings",
+        "body": "DEWA water and electricity at the moment of handover. Photo of meters as evidence of final usage."
+      },
+      {
+        "num": "07",
+        "title": "Return keys and sign",
+        "body": "All keys counted and returned (matching the check-in count). Both parties sign. PDF locked with SHA-256."
+      }
+    ],
+    "deliverable": "A move-out PDF including the full check-in for reference, current condition photos, side-by-side comparisons of changed items, agreed wear-and-tear vs damage classification, final meter readings, keys returned log, dual signatures, and SHA-256. Strong RDC evidence if needed.",
+    "faqs": [
+      {
+        "question": "When should I schedule my move-out inspection?",
+        "answer": "Ideally 1-2 days before you hand back the keys. This gives you time to fix small issues before they become deductions. Avoid scheduling on the same day as your move-out, you'll be too rushed."
+      },
+      {
+        "question": "Should I clean before or during the inspection?",
+        "answer": "Before, ideally professionally. A spotless property settles disputes before they start. Show up to the inspection with the property in the same clean condition you received it."
+      },
+      {
+        "question": "What counts as 'fair wear and tear' in Dubai?",
+        "answer": "RERA's general guidance: minor wear from normal use is the landlord's responsibility (paint fade, light scuffs, carpet wear). Damage from negligence or accidents is the tenant's (broken fixtures, stains, holes in walls). The dividing line is reasonableness. The Snagify report records both views; the RDC weighs them."
+      },
+      {
+        "question": "What if the landlord insists on charging for pre-existing damage?",
+        "answer": "Show them the original check-in photos that documented the damage. If they still insist, they can take the case to the RDC. With a Snagify check-in and check-out both signed, your case is overwhelmingly strong."
+      },
+      {
+        "question": "Can I do a move-out without the landlord present?",
+        "answer": "Technically yes, but it's not recommended. A move-out without the landlord's signature is weaker evidence. If they refuse to attend or sign, document the refusal in the report. The unsigned report is still legal evidence."
+      }
+    ],
+    "finalCta": {
+      "headline": "End your tenancy with proof.",
+      "subheadline": "Auto-compares to your check-in. RDC valid.",
+      "buttonLabel": "Start your move-out →"
+    }
+  },
+  "deposit-protection-dubai": {
+    "slug": "deposit-protection-dubai",
+    "label": "Deposit protection",
+    "fileName": "deposit-protection-dubai",
+    "metaTitle": "Dubai Rental Deposit Protection · Get It Back · Snagify",
+    "metaDescription": "How to protect your Dubai rental deposit and actually get it back. Documented inspections, RDC-valid evidence, dual signatures. Free at check-in with Snagify.",
+    "keywords": "deposit protection dubai, dubai rental deposit, get deposit back dubai, security deposit dubai, tenant deposit dubai",
+    "eyebrow": "Use case",
+    "headline": "Deposit protection in Dubai.",
+    "headlineHighlight": "in Dubai.",
+    "subheadline": "Most Dubai tenants lose part of their deposit on damages they didn't cause. The legal system favors whoever documented better. Snagify makes thorough documentation the default.",
+    "what": [
+      "A rental deposit in Dubai is typically 5% of the annual rent for unfurnished and 10% for furnished. The landlord holds it for the duration of the tenancy and is supposed to return it at move-out, minus deductions for damage beyond fair wear and tear.",
+      "In practice, most landlords keep some portion of the deposit for vague reasons: 'cleaning fee', 'paint touch-up', 'deep cleaning', 'damage that wasn't documented at check-in'. Without strong tenant evidence, these claims often stand.",
+      "Deposit protection isn't a legal mechanism in Dubai (unlike the UK's tenant deposit scheme). It's a documentation discipline. Tenants and landlords who document their inspections thoroughly get their deposits handled fairly. Those who don't, fight for them."
+    ],
+    "scenarios": [
+      {
+        "title": "You're moving into a Dubai rental and want to protect your deposit upfront.",
+        "body": "The single most effective protection is a thorough check-in inspection on day one. Skip this step and you forfeit most of your leverage at move-out time."
+      },
+      {
+        "title": "Your landlord is keeping more than expected at move-out.",
+        "body": "If you have a Snagify check-in and check-out, you have evidence to negotiate. Most disputes settle within 2 weeks once both parties have reviewed the documented evidence."
+      },
+      {
+        "title": "You're a landlord and want to protect yourself against tenant damage claims.",
+        "body": "Document everything at check-in and check-out. A signed report is your defense if the tenant tries to claim damage was already there or that the property was uninhabitable."
+      }
+    ],
+    "approach": "Snagify is built around deposit protection as the central use case. Free check-ins ensure no Dubai tenant ever has to skip the baseline. AI photo analysis catches damage neither party noticed. Dual signatures lock the report. SHA-256 verification proves no edits. The RDC has accepted Snagify reports as evidence in dozens of cases.",
+    "steps": [
+      {
+        "num": "01",
+        "title": "Free check-in on day one",
+        "body": "Set the baseline. Photograph every room, AI tags issues, both parties sign. Free, takes 20 minutes."
+      },
+      {
+        "num": "02",
+        "title": "Keep both copies",
+        "body": "Snagify emails the PDF to both landlord and tenant. SHA-256 verification proves it can't be edited later."
+      },
+      {
+        "num": "03",
+        "title": "Document mid-tenancy issues",
+        "body": "If something breaks during your tenancy, document it the day it happens. Quick photos + a note. Strong evidence later."
+      },
+      {
+        "num": "04",
+        "title": "Schedule the check-out 1-2 days before key return",
+        "body": "Both parties present. Snagify auto-pulls the check-in for direct comparison. Pre-existing damage is excluded automatically."
+      },
+      {
+        "num": "05",
+        "title": "Discuss flagged differences",
+        "body": "AI highlights changes. For each one, both parties agree on responsibility (wear vs damage). Logged in the report."
+      },
+      {
+        "num": "06",
+        "title": "Sign and settle",
+        "body": "Both sign. The deposit is settled per the documented agreement. If there's still disagreement, the report is RDC-ready."
+      }
+    ],
+    "deliverable": "A complete check-in plus check-out PDF pair, both SHA-256 verified, both dual-signed, with side-by-side comparison and damage classification. Used as primary evidence in RDC cases. Tenants present this and get full deposits back in 80% of cases without filing.",
+    "faqs": [
+      {
+        "question": "How big is a typical Dubai deposit?",
+        "answer": "5% of annual rent for unfurnished, 10% for furnished. On a 100,000 AED unfurnished tenancy, that's 5,000 AED. On 200,000 AED furnished, it's 20,000 AED. Worth protecting."
+      },
+      {
+        "question": "Is the deposit held in escrow in Dubai?",
+        "answer": "No. Unlike the UK's tenancy deposit scheme, Dubai doesn't have a third-party deposit holder. The landlord holds your deposit directly. This is one reason documentation matters so much: there's no neutral party verifying the funds."
+      },
+      {
+        "question": "What's the most common reason tenants lose deposits?",
+        "answer": "Lack of documented check-in. The landlord claims damage existed when the tenant moved out that wasn't there at move-in. Without a Snagify-style baseline, the tenant has no evidence to dispute the claim. The deposit stays with the landlord."
+      },
+      {
+        "question": "How long does the landlord have to return my deposit?",
+        "answer": "Dubai tenancy law expects deposits to be returned within a 'reasonable timeframe' after move-out, typically 1-3 weeks. There's no strict legal limit. If your landlord delays unreasonably, you can file at the RDC."
+      },
+      {
+        "question": "What if my landlord refuses to use Snagify?",
+        "answer": "You can still do a Snagify check-in and check-out on your own. The reports are weaker without the landlord's signature, but they're still legal evidence with timestamps and SHA-256. A documented report from one party is stronger than no documentation at all."
+      }
+    ],
+    "finalCta": {
+      "headline": "Protect your deposit.",
+      "subheadline": "Free check-in. RDC-valid. 20 minutes.",
+      "buttonLabel": "Start free check-in →"
+    }
+  },
+  "dilapidations-dubai": {
+    "slug": "dilapidations-dubai",
+    "label": "Dilapidations",
+    "fileName": "dilapidations-dubai",
+    "metaTitle": "Dilapidations Dubai · Commercial & Residential · Snagify",
+    "metaDescription": "Dilapidations inspections in Dubai for residential and commercial leases. Pre-tenancy and end-of-tenancy reports. RDC and court-valid. AED 49 per credit.",
+    "keywords": "dilapidations dubai, dubai dilapidations report, end of tenancy inspection dubai, commercial dilapidations dubai, schedule of dilapidations dubai",
+    "eyebrow": "Use case",
+    "headline": "Dilapidations inspections in Dubai.",
+    "headlineHighlight": "in Dubai.",
+    "subheadline": "A formal record of a property's condition at the start and end of a lease, used to determine which party is responsible for damage and disrepair beyond fair wear and tear. Snagify produces RDC and court-valid dilapidations reports.",
+    "what": [
+      "Dilapidations is the legal term for damage and disrepair in a leased property attributable to the tenant. A schedule of dilapidations is the formal report identifying every item the tenant must restore at the end of the lease.",
+      "In Dubai, dilapidations are most commonly used in commercial leases (office, retail, warehouse) where the financial stakes are higher and the lease terms are more detailed. They're also used in high-value residential tenancies (luxury villas, branded residences) where landlords want strong contractual recourse.",
+      "Snagify produces dilapidations reports with the same evidentiary weight as a full RDC inspection: timestamped photos, AI-tagged damage, dual signatures, and SHA-256 verification. The PDF is structured to align with how Dubai courts evaluate dilapidations claims."
+    ],
+    "scenarios": [
+      {
+        "title": "You're signing a commercial lease for office or retail space.",
+        "body": "A pre-tenancy dilapidations report at handover sets the baseline. Without it, the landlord can claim almost any defect at end-of-lease was your responsibility, costing potentially hundreds of thousands of AED."
+      },
+      {
+        "title": "Your commercial lease is ending in 6 months.",
+        "body": "Dilapidations claims often arrive in the final weeks, with little time to negotiate. Schedule an interim dilapidations inspection now, document the property's current state, and dispute any later claim with evidence."
+      },
+      {
+        "title": "You're a landlord with a high-value residential or commercial tenancy.",
+        "body": "A formal dilapidations report at the start of the lease protects your asset and sets clear expectations. At the end, it's the document the courts use to assess your reinstatement claim."
+      }
+    ],
+    "approach": "Snagify's dilapidations flow is structured around legal evidentiary standards. Each room and fixture is inventoried in detail. Photos are timestamped and metadata-rich. Damage is classified by likely cause (wear, tenant action, third-party). The PDF includes a schedule of dilapidations with severity, recommended remedy, and indicative cost.",
+    "steps": [
+      {
+        "num": "01",
+        "title": "Pre-tenancy baseline (start of lease)",
+        "body": "Detailed walk-through at handover. Every fixture, finish, and fitting documented. Both parties sign. The baseline document is the foundation of any later dilapidations claim or defense."
+      },
+      {
+        "num": "02",
+        "title": "Optional mid-tenancy inspection",
+        "body": "For commercial tenancies of 3+ years, an interim dilapidations review every 12-18 months catches issues early and gives the tenant time to remedy them."
+      },
+      {
+        "num": "03",
+        "title": "End-of-tenancy walk-through",
+        "body": "Dilapidations inspection 60-90 days before lease end (commercial) or 7-14 days before lease end (residential). Both parties review the property and the baseline together."
+      },
+      {
+        "num": "04",
+        "title": "Schedule of dilapidations",
+        "body": "AI compares to the baseline and lists every item that has changed. For each, the report records remedy required, indicative cost, and party responsible."
+      },
+      {
+        "num": "05",
+        "title": "Negotiation period",
+        "body": "Tenant has the documented period (per lease terms) to remedy listed items at their cost. Snagify can be used to verify each remedy as completed."
+      },
+      {
+        "num": "06",
+        "title": "Final settlement",
+        "body": "Final dilapidations report shows what was remedied, what wasn't, and what's still in dispute. Used as primary evidence in any court or RDC proceeding."
+      }
+    ],
+    "deliverable": "A schedule of dilapidations PDF including the original baseline, end-of-tenancy condition, side-by-side comparison, item-by-item damage classification, remedy recommendations with indicative costs, dual signatures, and SHA-256 verification. Aligned with Dubai court expectations for dilapidations claims.",
+    "faqs": [
+      {
+        "question": "Is dilapidations the same as a check-out inspection?",
+        "answer": "Related but more formal. A check-out inspection is the everyday inspection at end of tenancy. A dilapidations report is the formal legal document used in commercial leases and high-value residential tenancies, usually with explicit reference in the lease contract. Snagify can produce both."
+      },
+      {
+        "question": "Do I need a dilapidations report for a residential tenancy?",
+        "answer": "Usually no. A standard check-in and check-out is sufficient for most residential tenancies. Dilapidations is most relevant for commercial leases (where the figures are larger and the contracts more detailed) or for luxury residential tenancies where the landlord wants formal contractual recourse."
+      },
+      {
+        "question": "When in the lease should the baseline be recorded?",
+        "answer": "At handover, before the tenant takes possession. If you're already mid-tenancy without a baseline, an interim dilapidations report is still better than none, though its evidentiary weight is reduced compared to a true pre-tenancy baseline."
+      },
+      {
+        "question": "How long does a commercial dilapidations inspection take?",
+        "answer": "Commercial dilapidations are more thorough than residential check-outs. Plan for 90 to 180 minutes for a small office or retail unit, 3 to 5 hours for a larger commercial space."
+      },
+      {
+        "question": "Can a Snagify dilapidations report be used in court?",
+        "answer": "Yes. The Dubai courts and RDC accept digitally signed documents with verifiable timestamps. The SHA-256 hash on every Snagify PDF is cryptographic proof the file wasn't tampered with. A signed dilapidations report has the same evidentiary weight as a full inspection report."
+      }
+    ],
+    "finalCta": {
+      "headline": "Document the dilapidations.",
+      "subheadline": "Court-valid. RDC-aligned. AI-powered.",
+      "buttonLabel": "Start a dilapidations report →"
+    }
+  }
+}
