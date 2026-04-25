@@ -1,15 +1,14 @@
 /* ============================================
-   PREMIUM RTL STYLES FOR snagify.net (Arabic)
+   PREMIUM RTL STYLES FOR snagify.net (Arabic only)
    ============================================
-   Loaded only on /ar/* pages via the layout.
-   Targets [dir="rtl"] selector for safety.
+   Every rule is strictly scoped to [dir="rtl"].
+   Loaded ONLY on /ar/* pages. Cannot affect EN pages.
 */
 
 /* ---- Arabic typography ---- */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap');
 
-[dir="rtl"] body,
-[dir="rtl"] {
+[dir="rtl"] body {
   font-family: 'Noto Naskh Arabic', 'Tajawal', 'DM Sans', system-ui, sans-serif;
   text-align: right;
   line-height: 1.85;
@@ -37,13 +36,7 @@
   line-height: 1.95;
 }
 
-/* ---- Arrows: flip → into ← ---- */
-[dir="rtl"] .hero-cta::after,
-[dir="rtl"] .final-cta-btn::after,
-[dir="rtl"] .pricing-cta::after,
-[dir="rtl"] .cta-strip-btn::after { transform: scaleX(-1); }
-
-/* Replace literal "→" arrow chars in text with proper directional */
+/* ---- Arrow flips ---- */
 [dir="rtl"] .arrow-rtl-flip {
   display: inline-block;
   transform: scaleX(-1);
@@ -57,7 +50,6 @@
 [dir="rtl"] .toc-list a {
   border-left: none;
   border-right: 2px solid transparent;
-  padding: 8px 12px 8px 12px;
 }
 [dir="rtl"] .toc-list a.active { border-right-color: #9A88FD; }
 
@@ -86,7 +78,7 @@
 [dir="rtl"] .site-header-logo { flex-direction: row; }
 [dir="rtl"] .site-header-pill svg { transform: scaleX(-1); }
 
-/* ---- Tables in articles ---- */
+/* ---- Tables ---- */
 [dir="rtl"] .article-table { direction: rtl; }
 [dir="rtl"] .article-table th,
 [dir="rtl"] .article-table td { text-align: right; }
@@ -99,13 +91,13 @@
 [dir="rtl"] .faq-icon { transform: rotate(0deg); }
 [dir="rtl"] .faq-item.open .faq-icon { transform: rotate(-45deg); }
 
-/* ---- Mobile RTL adjustments ---- */
+/* ---- Mobile RTL ---- */
 @media (max-width: 720px) {
   [dir="rtl"] .timeline { padding-right: 36px; }
   [dir="rtl"] .step-num { right: -57px; }
 }
 
-/* ---- Numbers stay LTR (prices, dates, codes) ---- */
+/* ---- Numbers stay LTR within Arabic content ---- */
 [dir="rtl"] .ltr-number,
 [dir="rtl"] .article-meta,
 [dir="rtl"] .building-pill,
