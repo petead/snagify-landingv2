@@ -1639,31 +1639,6 @@ div#nav-drawer a {
   font-size: 14px; color: rgba(255,255,255,.7);
   line-height: 1.75; margin-bottom: 24px; font-style: italic;
 }
-@media(max-width: 768px) {
-  .testi-text {
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    margin-bottom: 12px;
-  }
-  .testi-text.expanded {
-    display: block;
-    -webkit-line-clamp: unset;
-    overflow: visible;
-  }
-  .testi-read-more {
-    display: inline-block;
-    font-size: 12px; font-weight: 700;
-    color: var(--purple); cursor: pointer;
-    margin-bottom: 16px;
-    background: none; border: none; padding: 0;
-    font-family: 'Poppins', sans-serif;
-  }
-}
-@media(min-width: 769px) {
-  .testi-read-more { display: none; }
-}
 .testi-divider {
   height: 1px;
   background: rgba(255,255,255,.07);
@@ -6371,20 +6346,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     initHamburgerMenu();
   }
 })();
-
-// ── TESTIMONIALS READ MORE (mobile) ──
-['t1','t2','t3','t4','t5'].forEach(id => {
-  const p = document.getElementById(id);
-  if (!p) return;
-  const btn = document.createElement('button');
-  btn.className = 'testi-read-more';
-  btn.textContent = 'Read more';
-  p.after(btn);
-  btn.addEventListener('click', () => {
-    p.classList.toggle('expanded');
-    btn.textContent = p.classList.contains('expanded') ? 'Read less' : 'Read more';
-  });
-});
 
 // ── BILLING TOGGLE ──
 let billingMode = 'annual';
