@@ -1694,6 +1694,46 @@ div#nav-drawer a {
 .ptoggle-btn.active { background: var(--ink); color: var(--white); }
 .ptoggle-btn.active svg { opacity: 1; }
 
+/* Segmented audience toggle — animated glider */
+.pricing-toggle-seg {
+  position: relative;
+}
+.pricing-toggle-glider {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 5px;
+  width: calc((100% - 14px) / 2);
+  background: var(--ink);
+  border-radius: 999px;
+  z-index: 0;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  will-change: transform;
+}
+.pricing-toggle-seg[data-active="private"] .pricing-toggle-glider {
+  transform: translateX(calc(100% + 4px));
+}
+.pricing-toggle-seg .ptoggle-btn {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-width: 0;
+  justify-content: center;
+  background: transparent !important;
+  transition: color 0.28s ease, transform 0.2s ease;
+}
+.pricing-toggle-seg .ptoggle-btn.active {
+  background: transparent !important;
+  color: var(--white);
+}
+.pricing-toggle-seg .ptoggle-btn:not(.active) {
+  color: var(--ink-60);
+}
+.pricing-toggle-seg .ptoggle-btn:active {
+  transform: scale(0.985);
+}
+
 /* ── Toggle billing Monthly / Annual — style pill ── */
 .billing-toggle-wrap {
   display: flex; align-items: center; justify-content: center;
@@ -1736,6 +1776,48 @@ div#nav-drawer a {
 .billing-pill-btn:not(.active) .billing-pill-sub {
   color: #3A7A00;
   opacity: .55;
+}
+
+/* Segmented billing toggle — animated glider */
+.billing-pill-seg {
+  position: relative;
+}
+.billing-pill-glider {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 5px;
+  width: calc((100% - 14px) / 2);
+  background: var(--ink);
+  border-radius: 999px;
+  z-index: 0;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  will-change: transform;
+}
+.billing-pill-seg[data-billing="annual"] .billing-pill-glider {
+  transform: translateX(calc(100% + 4px));
+}
+.billing-pill-seg[data-billing="monthly"] .billing-pill-glider {
+  transform: translateX(0);
+}
+.billing-pill-seg .billing-pill-btn {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-width: 0;
+  background: transparent !important;
+  transition: color 0.28s ease, transform 0.2s ease;
+}
+.billing-pill-seg .billing-pill-btn.active {
+  background: transparent !important;
+  color: var(--white);
+}
+.billing-pill-seg .billing-pill-btn:not(.active) {
+  color: var(--ink-60);
+}
+.billing-pill-seg .billing-pill-btn:active {
+  transform: scale(0.985);
 }
 
 /* Extra info annuel sous le prix */
@@ -5462,13 +5544,14 @@ footer {
       <p class="section-sub" style="margin:0 auto">All prices in AED. No hidden fees.</p>
     </div>
 
-    <!-- Toggle -->
-    <div class="pricing-toggle reveal">
-      <button type="button" class="ptoggle-btn active" id="toggle-pro" onclick="switchPricing('pro')">
+    <!-- Toggle (segmented + glider) -->
+    <div class="pricing-toggle pricing-toggle-seg reveal" id="pricing-audience-track" data-active="pro" role="tablist" aria-label="Pricing audience">
+      <span class="pricing-toggle-glider" aria-hidden="true"></span>
+      <button type="button" class="ptoggle-btn active" id="toggle-pro" role="tab" aria-selected="true" aria-controls="panel-pro">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
         Professionals
       </button>
-      <button type="button" class="ptoggle-btn" id="toggle-private" onclick="switchPricing('private')">
+      <button type="button" class="ptoggle-btn" id="toggle-private" role="tab" aria-selected="false" aria-controls="panel-private">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         Landlords &amp; Tenants
       </button>
@@ -5476,11 +5559,12 @@ footer {
 
     <!-- ── Billing toggle — style pill ── -->
     <div class="billing-toggle-wrap" id="billing-toggle-wrap">
-      <div class="billing-pill-toggle">
-        <button type="button" class="billing-pill-btn" id="btn-monthly" onclick="event.preventDefault();event.stopPropagation();setBilling('monthly')">
+      <div class="billing-pill-toggle billing-pill-seg" id="billing-pill-track" data-billing="annual" role="tablist" aria-label="Billing period">
+        <span class="billing-pill-glider" aria-hidden="true"></span>
+        <button type="button" class="billing-pill-btn" id="btn-monthly" role="tab" aria-selected="false">
           Monthly
         </button>
-        <button type="button" class="billing-pill-btn active" id="btn-annual" onclick="event.preventDefault();event.stopPropagation();setBilling('annual')">
+        <button type="button" class="billing-pill-btn active" id="btn-annual" role="tab" aria-selected="true">
           Annual
           <span class="billing-pill-sub">2 months free</span>
         </button>
@@ -6347,47 +6431,80 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   }
 })();
 
-// ── BILLING TOGGLE ──
+// ── BILLING + PRICING TOGGLES ──
 let billingMode = 'annual';
+
 function toggleBilling() {
   setBilling(billingMode === 'monthly' ? 'annual' : 'monthly');
 }
+
 function setBilling(mode) {
   billingMode = mode;
-  const btnM  = document.getElementById('btn-monthly');
-  const btnA  = document.getElementById('btn-annual');
+  const btnM = document.getElementById('btn-monthly');
+  const btnA = document.getElementById('btn-annual');
   const panel = document.getElementById('panel-pro');
-  if (mode === 'annual') {
-    btnM.classList.remove('active');
-    btnA.classList.add('active');
-    panel.classList.add('billing-annual');
-  } else {
-    btnM.classList.add('active');
-    btnA.classList.remove('active');
-    panel.classList.remove('billing-annual');
-  }
+  const billingTrack = document.getElementById('billing-pill-track');
+  if (billingTrack) billingTrack.dataset.billing = mode;
+  if (!btnM || !btnA || !panel) return;
+  var isAnnual = mode === 'annual';
+  btnM.classList.toggle('active', !isAnnual);
+  btnA.classList.toggle('active', isAnnual);
+  btnM.setAttribute('aria-selected', String(!isAnnual));
+  btnA.setAttribute('aria-selected', String(isAnnual));
+  panel.classList.toggle('billing-annual', isAnnual);
 }
-// Cacher le billing toggle quand on switch vers landlord
+
 function showBillingToggle(show) {
   const wrap = document.getElementById('billing-toggle-wrap');
   if (wrap) wrap.style.display = show ? 'flex' : 'none';
 }
 
-// ── PRICING TOGGLE ──
 function switchPricing(type) {
-  document.getElementById('panel-pro').classList.toggle('hidden', type !== 'pro');
-  document.getElementById('panel-private').classList.toggle('hidden', type !== 'private');
-  document.getElementById('toggle-pro').classList.toggle('active', type === 'pro');
-  document.getElementById('toggle-private').classList.toggle('active', type === 'private');
+  var panelPro = document.getElementById('panel-pro');
+  var panelPrivate = document.getElementById('panel-private');
+  var togglePro = document.getElementById('toggle-pro');
+  var togglePrivate = document.getElementById('toggle-private');
+  var audienceTrack = document.getElementById('pricing-audience-track');
+  if (panelPro) panelPro.classList.toggle('hidden', type !== 'pro');
+  if (panelPrivate) panelPrivate.classList.toggle('hidden', type !== 'private');
+  if (togglePro) {
+    togglePro.classList.toggle('active', type === 'pro');
+    togglePro.setAttribute('aria-selected', String(type === 'pro'));
+  }
+  if (togglePrivate) {
+    togglePrivate.classList.toggle('active', type === 'private');
+    togglePrivate.setAttribute('aria-selected', String(type === 'private'));
+  }
+  if (audienceTrack) audienceTrack.dataset.active = type;
   showBillingToggle(type === 'pro');
 }
-// État initial : pro + annual
+
+function initPricingTabs() {
+  var pro = document.getElementById('toggle-pro');
+  var priv = document.getElementById('toggle-private');
+  var m = document.getElementById('btn-monthly');
+  var a = document.getElementById('btn-annual');
+  if (pro) pro.addEventListener('click', function () { switchPricing('pro'); });
+  if (priv) priv.addEventListener('click', function () { switchPricing('private'); });
+  if (m) m.addEventListener('click', function (e) { e.preventDefault(); setBilling('monthly'); });
+  if (a) a.addEventListener('click', function (e) { e.preventDefault(); setBilling('annual'); });
+}
+
+initPricingTabs();
+
 switchPricing('pro');
 setBilling('annual');
-// Override si hash présent
-const hash = window.location.hash;
+
+var hash = window.location.hash;
 if (hash === '#pricing-particulier') switchPricing('private');
-if (hash === '#pricing-pro') { switchPricing('pro'); setBilling('annual'); }
+if (hash === '#pricing-pro') {
+  switchPricing('pro');
+  setBilling('annual');
+}
+
+window.switchPricing = switchPricing;
+window.setBilling = setBilling;
+window.toggleBilling = toggleBilling;
 </script>
   <!-- ══ MOBILE DRAWER (hors nav, niveau body) ══ -->
   <div id="nav-drawer" class="nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation" aria-hidden="true" style="
