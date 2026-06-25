@@ -1681,7 +1681,7 @@ div#nav-drawer a {
   border-radius: 999px;
   padding: 5px;
   width: fit-content;
-  margin: 0 auto 48px;
+  margin: 0 auto 20px;
 }
 .ptoggle-btn {
   display: inline-flex; align-items: center; gap: 7px;
@@ -1733,7 +1733,8 @@ div#nav-drawer a {
 }
 .billing-toggle-wrap.is-visible {
   display: flex;
-  margin-bottom: 48px;
+  margin-top: -6px;
+  margin-bottom: 28px;
   height: auto;
   overflow: visible;
 }
@@ -1908,10 +1909,11 @@ div#nav-drawer a {
 }
 .metric.solo .m-row {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 16px 18px;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 16px 18px 10px;
+  text-align: center;
 }
 .m-credits {
   font-family: 'Poppins', sans-serif;
@@ -1921,13 +1923,14 @@ div#nav-drawer a {
   color: var(--ink);
   line-height: 1.1;
   flex-shrink: 0;
+  text-align: center;
 }
 .price-card-popular .m-credits { color: var(--purple); }
 .m-pricewrap {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  text-align: right;
+  align-items: center;
+  text-align: center;
   gap: 2px;
 }
 .m-per {
@@ -1968,14 +1971,12 @@ div#nav-drawer a {
 }
 .metric .price-faq-link.metric-faq {
   margin-bottom: 0;
-  padding: 10px 14px;
-  border-top: 1px solid var(--ink-25);
+  padding: 4px 14px 12px;
   width: 100%;
   font-size: 11px;
   align-self: stretch;
-}
-.price-card-popular .metric .price-faq-link.metric-faq {
-  border-top-color: rgba(154,136,253,.25);
+  justify-content: center;
+  text-align: center;
 }
 .m-val {
   font-family: 'Poppins', sans-serif;
@@ -5565,15 +5566,14 @@ footer {
 </section>
 
 <!-- ╔══ PRICING ══╗ -->
-<div id="pricing-pro" style="position:relative;top:-120px;pointer-events:none;visibility:hidden"></div>
-<div id="pricing-particulier" style="position:relative;top:-120px;pointer-events:none;visibility:hidden"></div>
+<div id="pricing-pro" style="position:relative;top:-60px;pointer-events:none;visibility:hidden"></div>
+<div id="pricing-particulier" style="position:relative;top:-60px;pointer-events:none;visibility:hidden"></div>
 <section class="pricing" id="pricing">
   <div class="section-wrap">
 
     <div class="section-header reveal" style="text-align:center">
       <div class="section-eyebrow" style="justify-content:center">Pricing</div>
       <h2 class="section-title" id="pricing-dynamic-title">Pay only for <span class="title-muted-italic">check-outs.</span></h2>
-      <p class="section-sub" style="margin:0 auto">All prices in AED. No hidden fees.</p>
     </div>
 
     <div class="pricing-toggle pricing-toggle-seg" id="pricing-audience-track" data-active="private" role="tablist" aria-label="Pricing audience">
@@ -6381,6 +6381,18 @@ new IntersectionObserver(entries => {
 }, { threshold: 1 }).observe(ctr);
 
 // ── SMOOTH ANCHOR ──
+function scrollToPricingCards(audience) {
+  const grid = document.querySelector(audience === 'pro' ? '#panel-pro .pricing-grid' : '#panel-private .pricing-grid');
+  if (!grid) return;
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      const rect = grid.getBoundingClientRect();
+      const top = window.scrollY + rect.top - (window.innerHeight - rect.height) / 2;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    }, 100);
+  });
+}
+
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const href = a.getAttribute('href');
@@ -6389,10 +6401,14 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
       e.preventDefault();
       if (href === '#pricing-particulier' && typeof switchPricing === 'function') {
         switchPricing('private');
+        scrollToPricingCards('private');
+        return;
       }
       if (href === '#pricing-pro' && typeof switchPricing === 'function') {
         switchPricing('pro');
         if (typeof setBilling === 'function') setBilling('annual');
+        scrollToPricingCards('pro');
+        return;
       }
       setTimeout(() => t.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
     }
@@ -6444,7 +6460,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   }
 })();
 
-// ── BILLING + PRICING TOGGLES ──
+// ── BILLING + PRICING TOGGLES (exposed on window for inline onclick deep links; Astro bundles scripts as modules) ──
 let billingMode = 'annual';
 
 function toggleBilling() {
@@ -6459,7 +6475,7 @@ function setBilling(mode) {
   const billingTrack = document.getElementById('billing-pill-track');
   if (billingTrack) billingTrack.dataset.billing = mode;
   if (!btnM || !btnA || !panel) return;
-  var isAnnual = mode === 'annual';
+  const isAnnual = mode === 'annual';
   btnM.classList.toggle('active', !isAnnual);
   btnA.classList.toggle('active', isAnnual);
   btnM.setAttribute('aria-selected', String(!isAnnual));
@@ -6540,10 +6556,14 @@ setBilling('annual');
 window.addEventListener('resize', syncPricingGliders);
 
 const hash = window.location.hash;
-if (hash === '#pricing-particulier') switchPricing('private');
+if (hash === '#pricing-particulier') {
+  switchPricing('private');
+  scrollToPricingCards('private');
+}
 if (hash === '#pricing-pro') {
   switchPricing('pro');
   setBilling('annual');
+  scrollToPricingCards('pro');
 }
 
 window.switchPricing = switchPricing;
