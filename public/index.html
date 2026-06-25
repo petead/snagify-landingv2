@@ -1790,15 +1790,6 @@ div#nav-drawer a {
 .billing-pill-seg .billing-pill-btn.active .billing-pill-sub { color: var(--purple-l); }
 .billing-pill-seg .billing-pill-btn:active { transform: scale(0.985); }
 
-.price-annual-sub {
-  font-size: 12px; color: var(--ink-60);
-  margin-bottom: 16px;
-  display: none;
-  line-height: 1.4;
-}
-.price-annual-sub strong { color: var(--purple); font-weight: 700; }
-.billing-annual .price-annual-sub { display: block; }
-
 .pricing-panel { display: block; }
 .pricing-panel.hidden { display: none; }
 
@@ -1807,6 +1798,7 @@ div#nav-drawer a {
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-bottom: 20px;
+  align-items: stretch;
 }
 
 .price-card {
@@ -1818,46 +1810,66 @@ div#nav-drawer a {
   transition: transform .4s, box-shadow .4s;
   display: flex;
   flex-direction: column;
+  overflow: visible;
+  height: 100%;
 }
 .price-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(14,14,16,.08); }
 
 .price-card-popular {
   border: 2px solid var(--purple);
   box-shadow: 0 0 0 4px var(--purple-bg), 0 16px 48px rgba(154,136,253,.18);
-  overflow: hidden;
+  overflow: visible;
 }
-.price-card-popular::after {
+.price-card-popular::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
   background: var(--purple);
+  border-radius: 22px 22px 0 0;
+  z-index: 1;
+  pointer-events: none;
 }
-.price-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
+
+.price-corner {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-family: 'Poppins', sans-serif;
   font-size: 9px;
   font-weight: 700;
-  letter-spacing: .9px;
+  letter-spacing: .7px;
   text-transform: uppercase;
-  padding: 5px 12px;
+  padding: 5px 11px;
   border-radius: 20px;
-  margin-bottom: 15px;
   background: var(--purple);
   color: var(--white);
-  align-self: flex-start;
-  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 6px 14px -6px rgba(154,136,253,.7);
+  z-index: 2;
+  pointer-events: none;
+  white-space: nowrap;
 }
 
 .price-plan {
   font-size: 11px; text-transform: uppercase; letter-spacing: 2.5px;
-  font-weight: 600; color: var(--ink-60); margin-bottom: 12px;
+  font-weight: 600; color: var(--ink-60);
+}
+.price-name {
+  min-height: 18px;
+  padding-right: 96px;
+  margin-bottom: 12px;
+}
+.price-top {
+  min-height: 54px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 16px;
 }
 .price-num {
   font-family: 'Poppins', sans-serif; font-weight: 800;
   font-size: 48px; letter-spacing: -3px;
-  line-height: 1; margin-bottom: 16px;
+  line-height: 1; margin-bottom: 0;
 }
 .price-num .price-suffix { font-size: 15px; font-weight: 400; letter-spacing: 0; color: var(--ink-60); }
 .price-num .price-monthly { display: inline; }
@@ -1865,16 +1877,32 @@ div#nav-drawer a {
 .billing-annual .price-num .price-monthly { display: none; }
 .billing-annual .price-num .price-annual  { display: inline; }
 
-.price-credit-block {
+.price-billed { min-height: 15px; margin-bottom: 16px; }
+.price-annual-sub {
+  font-size: 12px; color: var(--ink-60);
+  line-height: 1.4;
+  min-height: 15px;
+  visibility: hidden;
+}
+.billing-annual .price-annual-sub { visibility: visible; }
+.price-annual-sub strong { color: var(--purple); font-weight: 700; }
+
+.metric {
+  margin-bottom: 20px;
+  background: var(--cream);
+  border: 1px solid var(--ink-25);
+  border-radius: 14px;
+}
+.price-card-popular .metric {
+  background: var(--purple-bg);
+  border-color: rgba(154,136,253,.3);
+}
+.metric.solo { padding: 16px 18px; }
+.metric.solo .m-row {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 16px;
-  background: var(--cream);
-  border: 1px solid var(--ink-25);
-  border-radius: 14px;
-  padding: 16px 18px;
-  margin-bottom: 20px;
 }
 .m-credits {
   font-family: 'Poppins', sans-serif;
@@ -1904,38 +1932,40 @@ div#nav-drawer a {
   font-weight: 700;
   color: var(--purple);
   font-family: 'Poppins', sans-serif;
+  line-height: 1.3;
+  min-height: 14px;
 }
+.m-disc.empty { visibility: hidden; }
 
-.price-metric-block {
+.metric.duo {
   display: flex;
-  gap: 0;
-  margin-bottom: 20px;
-  background: var(--cream);
-  border: 1px solid var(--ink-25);
-  border-radius: 14px;
+  padding: 0;
   overflow: hidden;
 }
-.price-metric {
+.metric.duo .m-cell {
   flex: 1;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 14px 8px;
   gap: 3px;
   position: relative;
 }
-.price-metric + .price-metric::before {
+.metric.duo .m-cell + .m-cell::before {
   content: '';
   position: absolute; left: 0; top: 20%; bottom: 20%;
   width: 1px;
   background: var(--ink-25);
 }
-.price-metric-val {
+.m-val {
   font-family: 'Poppins', sans-serif;
   font-weight: 800; font-size: 22px;
   letter-spacing: -1px; line-height: 1;
   color: var(--ink);
 }
-.price-metric-lbl {
+.price-card-popular .m-val { color: var(--purple); }
+.m-lbl {
   font-size: 10px; font-weight: 600;
   text-transform: uppercase; letter-spacing: .8px;
   color: var(--ink-60);
@@ -1956,7 +1986,6 @@ div#nav-drawer a {
   display: flex; flex-direction: column;
   gap: 10px;
   margin-bottom: 16px;
-  flex-grow: 1;
 }
 .price-feats li {
   display: flex; align-items: flex-start; gap: 10px;
@@ -1980,8 +2009,6 @@ div#nav-drawer a {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  align-items: center;
-  gap: 6px;
   font-size: 12px;
   font-weight: 600;
   color: var(--purple);
@@ -1997,13 +2024,15 @@ div#nav-drawer a {
   border-radius: 4px;
 }
 
+.price-card-spacer { flex: 1; min-height: 0; }
+
 .price-btn {
   display: block; width: 100%; padding: 14px;
   border-radius: 12px; font-family: 'Poppins', sans-serif;
   font-weight: 700; font-size: 14px;
   text-align: center; text-decoration: none;
   cursor: pointer; border: none; transition: all .3s;
-  margin-top: auto;
+  margin-top: 0;
 }
 .price-btn:focus-visible {
   outline: 2px solid var(--purple);
@@ -5557,57 +5586,73 @@ footer {
       <div class="pricing-grid">
 
         <div class="price-card">
-          <div class="price-plan">Solo</div>
-          <div class="price-num">49 <span class="price-suffix">AED</span></div>
-          <div class="price-credit-block">
-            <span class="m-credits">2 credits</span>
-            <div class="m-pricewrap">
-              <span class="m-per">24.5 AED / credit</span>
+          <div class="price-plan price-name">Solo</div>
+          <div class="price-top">
+            <div class="price-num">49 <span class="price-suffix">AED</span></div>
+          </div>
+          <div class="metric solo">
+            <div class="m-row">
+              <span class="m-credits">2 credits</span>
+              <div class="m-pricewrap">
+                <span class="m-per">24.5 AED / credit</span>
+                <span class="m-disc empty">Save 0%</span>
+              </div>
             </div>
           </div>
           <a href="#faq-checkout-cost" class="price-faq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How much is a check-out?</a>
           <ul class="price-feats">
             <li>Up to 3 properties</li>
           </ul>
+          <div class="price-card-spacer"></div>
           <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-outline">
             Sign up &amp; buy in-app →
           </a>
         </div>
 
         <div class="price-card price-card-popular">
-          <span class="price-badge">Best Value</span>
-          <div class="price-plan">Essential</div>
-          <div class="price-num">119 <span class="price-suffix">AED</span></div>
-          <div class="price-credit-block">
-            <span class="m-credits">6 credits</span>
-            <div class="m-pricewrap">
-              <span class="m-per">19.8 AED / credit</span>
-              <span class="m-disc">Save 19%</span>
+          <span class="price-corner">★ Most Popular</span>
+          <div class="price-plan price-name">Essential</div>
+          <div class="price-top">
+            <div class="price-num">119 <span class="price-suffix">AED</span></div>
+          </div>
+          <div class="metric solo">
+            <div class="m-row">
+              <span class="m-credits">6 credits</span>
+              <div class="m-pricewrap">
+                <span class="m-per">19.8 AED / credit</span>
+                <span class="m-disc">Save 19%</span>
+              </div>
             </div>
           </div>
           <a href="#faq-checkout-cost" class="price-faq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How much is a check-out?</a>
           <ul class="price-feats">
             <li>Up to 3 properties</li>
           </ul>
+          <div class="price-card-spacer"></div>
           <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-purple">
             Sign up &amp; buy in-app →
           </a>
         </div>
 
         <div class="price-card">
-          <div class="price-plan">Professional</div>
-          <div class="price-num">189 <span class="price-suffix">AED</span></div>
-          <div class="price-credit-block">
-            <span class="m-credits">12 credits</span>
-            <div class="m-pricewrap">
-              <span class="m-per">15.8 AED / credit</span>
-              <span class="m-disc">Save 36%</span>
+          <div class="price-plan price-name">Professional</div>
+          <div class="price-top">
+            <div class="price-num">189 <span class="price-suffix">AED</span></div>
+          </div>
+          <div class="metric solo">
+            <div class="m-row">
+              <span class="m-credits">12 credits</span>
+              <div class="m-pricewrap">
+                <span class="m-per">15.8 AED / credit</span>
+                <span class="m-disc">Save 36%</span>
+              </div>
             </div>
           </div>
           <a href="#faq-checkout-cost" class="price-faq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How much is a check-out?</a>
           <ul class="price-feats">
             <li>Up to 3 properties</li>
           </ul>
+          <div class="price-card-spacer"></div>
           <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-outline">
             Sign up &amp; buy in-app →
           </a>
@@ -5624,20 +5669,24 @@ footer {
       <div class="pricing-grid">
 
         <div class="price-card">
-          <div class="price-plan">Starter</div>
-          <div class="price-num">
-            <span class="price-monthly">179 <span class="price-suffix">AED/mo</span></span>
-            <span class="price-annual">149 <span class="price-suffix">AED/mo</span></span>
-          </div>
-          <div class="price-annual-sub">1,788 AED billed annually · <strong>Save 360 AED</strong></div>
-          <div class="price-metric-block">
-            <div class="price-metric">
-              <span class="price-metric-val">15</span>
-              <span class="price-metric-lbl">credits/mo</span>
+          <div class="price-plan price-name">Starter</div>
+          <div class="price-top">
+            <div class="price-num">
+              <span class="price-monthly">179 <span class="price-suffix">AED/mo</span></span>
+              <span class="price-annual">149 <span class="price-suffix">AED/mo</span></span>
             </div>
-            <div class="price-metric">
-              <span class="price-metric-val">2</span>
-              <span class="price-metric-lbl">users</span>
+          </div>
+          <div class="price-billed">
+            <div class="price-annual-sub">1,788 AED billed annually · <strong>Save 360 AED</strong></div>
+          </div>
+          <div class="metric duo">
+            <div class="m-cell">
+              <span class="m-val">15</span>
+              <span class="m-lbl">credits/mo</span>
+            </div>
+            <div class="m-cell">
+              <span class="m-val">2</span>
+              <span class="m-lbl">users</span>
             </div>
           </div>
           <a href="#faq-credits-pro" class="price-faq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How do credits work on Pro plans?</a>
@@ -5649,27 +5698,32 @@ footer {
             <li>Priority support</li>
           </ul>
           <div class="price-extra">Extra credit: <strong>28 AED each</strong></div>
+          <div class="price-card-spacer"></div>
           <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-outline">
             Create free account →
           </a>
         </div>
 
         <div class="price-card price-card-popular">
-          <span class="price-badge">Most Popular</span>
-          <div class="price-plan">Growth</div>
-          <div class="price-num">
-            <span class="price-monthly">299 <span class="price-suffix">AED/mo</span></span>
-            <span class="price-annual">249 <span class="price-suffix">AED/mo</span></span>
-          </div>
-          <div class="price-annual-sub">2,988 AED billed annually · <strong>Save 600 AED</strong></div>
-          <div class="price-metric-block">
-            <div class="price-metric">
-              <span class="price-metric-val">30</span>
-              <span class="price-metric-lbl">credits/mo</span>
+          <span class="price-corner">★ Most Popular</span>
+          <div class="price-plan price-name">Growth</div>
+          <div class="price-top">
+            <div class="price-num">
+              <span class="price-monthly">299 <span class="price-suffix">AED/mo</span></span>
+              <span class="price-annual">249 <span class="price-suffix">AED/mo</span></span>
             </div>
-            <div class="price-metric">
-              <span class="price-metric-val">5</span>
-              <span class="price-metric-lbl">users</span>
+          </div>
+          <div class="price-billed">
+            <div class="price-annual-sub">2,988 AED billed annually · <strong>Save 600 AED</strong></div>
+          </div>
+          <div class="metric duo">
+            <div class="m-cell">
+              <span class="m-val">30</span>
+              <span class="m-lbl">credits/mo</span>
+            </div>
+            <div class="m-cell">
+              <span class="m-val">5</span>
+              <span class="m-lbl">users</span>
             </div>
           </div>
           <a href="#faq-credits-pro" class="price-faq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How do credits work on Pro plans?</a>
@@ -5681,26 +5735,31 @@ footer {
             <li>Priority support</li>
           </ul>
           <div class="price-extra">Extra credit: <strong>22 AED each</strong></div>
+          <div class="price-card-spacer"></div>
           <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-purple">
             Start free, upgrade in-app →
           </a>
         </div>
 
         <div class="price-card">
-          <div class="price-plan">Agency</div>
-          <div class="price-num">
-            <span class="price-monthly">449 <span class="price-suffix">AED/mo</span></span>
-            <span class="price-annual">374 <span class="price-suffix">AED/mo</span></span>
-          </div>
-          <div class="price-annual-sub">4,488 AED billed annually · <strong>Save 900 AED</strong></div>
-          <div class="price-metric-block">
-            <div class="price-metric">
-              <span class="price-metric-val">50</span>
-              <span class="price-metric-lbl">credits/mo</span>
+          <div class="price-plan price-name">Agency</div>
+          <div class="price-top">
+            <div class="price-num">
+              <span class="price-monthly">449 <span class="price-suffix">AED/mo</span></span>
+              <span class="price-annual">374 <span class="price-suffix">AED/mo</span></span>
             </div>
-            <div class="price-metric">
-              <span class="price-metric-val">15</span>
-              <span class="price-metric-lbl">users</span>
+          </div>
+          <div class="price-billed">
+            <div class="price-annual-sub">4,488 AED billed annually · <strong>Save 900 AED</strong></div>
+          </div>
+          <div class="metric duo">
+            <div class="m-cell">
+              <span class="m-val">50</span>
+              <span class="m-lbl">credits/mo</span>
+            </div>
+            <div class="m-cell">
+              <span class="m-val">15</span>
+              <span class="m-lbl">users</span>
             </div>
           </div>
           <a href="#faq-credits-pro" class="price-faq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How do credits work on Pro plans?</a>
@@ -5712,6 +5771,7 @@ footer {
             <li>Priority support</li>
           </ul>
           <div class="price-extra">Extra credit: <strong>16 AED each</strong></div>
+          <div class="price-card-spacer"></div>
           <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-outline">
             Create free account →
           </a>
