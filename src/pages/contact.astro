@@ -1,47 +1,17 @@
 ---
-// frontmatter (empty for now)
+import LegalLayout from '../layouts/LegalLayout.astro';
 ---
-<!-- BEGIN: bit-perfect copy of original contact.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" href="/favicon.ico">
-<title>Contact — Snagify</title>
-<meta name="description" content="Get in touch with Snagify — product questions, partnerships, or technical support. We respond in under 24 hours.">
-<meta property="og:title" content="Contact — Snagify">
-<meta property="og:url" content="https://snagify.net/contact">
-<link rel="canonical" href="https://snagify.net/contact">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+<LegalLayout
+  title="Contact — Snagify"
+  description="Get in touch with Snagify — product questions, partnerships, or technical support. We respond in under 24 hours."
+  slug="contact"
+>
+<style slot="styles">
+body { min-height: 100vh; }
 :root {
-  --cream: #F3F1EB; --cream-2: #EAE8E0; --white: #FCFCFC;
-  --ink: #0E0E10; --ink-60: rgba(14,14,16,0.6); --ink-25: rgba(14,14,16,0.1); --ink-08: rgba(14,14,16,0.05);
-  --purple: #9A88FD; --purple-l: #C4B9FE; --purple-bg: #EDE9FE;
-  --green: #CAFE87; --green-bg: #EEFAD5; --jasmine: #FEDE80;
+  --ink-08: rgba(14,14,16,0.05);
+  --purple-l: #C4B9FE;
 }
-html { scroll-behavior: smooth; }
-body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); -webkit-font-smoothing: antialiased; min-height: 100vh; }
-
-nav {
-  position: sticky; top: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 20px 48px;
-  background: rgba(243,241,235,.92); backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--ink-25);
-}
-.nav-logo { display:flex;align-items:center;gap:9px;text-decoration:none; }
-.nav-logo span { font-family:'Poppins',sans-serif;font-weight:800;font-size:20px;color:var(--ink); }
-.nav-back { display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--ink-60);text-decoration:none;transition:color .2s; }
-.nav-back:hover { color:var(--ink); }
-.nav-back:hover svg { transform:translateX(-3px); }
-.nav-back svg { transition:transform .2s; }
 
 /* Hero */
 .page-hero {
@@ -157,39 +127,18 @@ nav {
 .form-success h3 { font-family:'Poppins',sans-serif;font-weight:800;font-size:20px;letter-spacing:-.5px;margin-bottom:8px; }
 .form-success p { font-size:14px;color:var(--ink-60);line-height:1.7; }
 
-footer { background:var(--ink);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px; }
-.foot-copy { font-size:13px;color:rgba(255,255,255,.3); }
-.foot-links { display:flex;gap:20px; }
-.foot-links a { font-size:13px;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s; }
-.foot-links a:hover { color:#9A88FD; }
-
 @media(max-width:1100px) {
   .main { grid-template-columns:1fr; }
   .form-panel { position:static; }
 }
 @media(max-width:768px) {
-  nav { padding:14px 20px; }
   .page-hero { padding:60px 20px 48px; }
   .main { padding:0 20px 60px; }
   .contact-card { flex-direction:column;gap:16px;padding:24px; }
-  footer { padding:32px 20px;flex-direction:column; }
   .form-row { grid-template-columns:1fr; }
   .form-panel { padding:28px 24px; }
 }
 </style>
-</head>
-<body>
-
-<nav>
-  <a href="/" class="nav-logo">
-    <svg width="32" height="32" viewBox="0 0 700 700" fill="#9A88FD"><path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z"/><path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z"/></svg>
-    <span>Snagify</span>
-  </a>
-  <a href="/" class="nav-back">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-    Back to home
-  </a>
-</nav>
 
 <div class="page-hero">
   <div class="page-eyebrow">Get in touch</div>
@@ -336,29 +285,11 @@ footer { background:var(--ink);padding:40px 48px;display:flex;align-items:center
 
 </div>
 
-<footer>
-  <span class="foot-copy">© 2025 Snagify. All rights reserved.</span>
-  <div class="foot-links">
-    <a href="/privacy">Privacy</a>
-    <a href="/terms">Terms</a>
-    <a href="/rera">RERA Compliance</a>
-    <a href="/contact">Contact</a>
-  </div>
-</footer>
-
-<script>
+<script is:inline slot="scripts">
 function handleSubmit(e) {
   e.preventDefault();
-  // In production: send to your backend / Resend API
   document.getElementById('form-main').classList.add('hide');
   document.getElementById('form-success').classList.add('show');
 }
 </script>
-  <script>
-    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-  </script>
-  <script defer src="/_vercel/insights/script.js"></script>
-</body>
-</html>
-
-<!-- END: bit-perfect copy of original contact.html -->
+</LegalLayout>

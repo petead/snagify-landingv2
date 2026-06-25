@@ -1,83 +1,22 @@
 ---
-// frontmatter (empty for now)
+import LegalLayout from '../layouts/LegalLayout.astro';
 ---
-<!-- BEGIN: bit-perfect copy of original rera.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" href="/favicon.ico">
-<title>RERA Compliance — Snagify</title>
-<meta name="description" content="How Snagify meets every RERA and Dubai Land Department requirement for property inspection reports. Dual signatures, SHA-256 hash, GPS photos, RDC Valid.">
-<meta property="og:title" content="RERA Compliance — Snagify">
-<meta property="og:description" content="Every Snagify report is built to meet RERA requirements — so your inspection holds up in the RDC, every time.">
-<meta property="og:url" content="https://snagify.net/rera">
-<link rel="canonical" href="https://snagify.net/rera">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
+<LegalLayout
+  title="RERA Compliance — Snagify"
+  description="How Snagify meets every RERA and Dubai Land Department requirement for property inspection reports. Dual signatures, SHA-256 hash, GPS photos, RDC Valid."
+  slug="rera"
+  ogDescription="Every Snagify report is built to meet RERA requirements — so your inspection holds up in the RDC, every time."
+>
+<style slot="styles">
 :root {
-  --cream:    #F3F1EB;
-  --cream-2:  #EAE8E0;
-  --white:    #FCFCFC;
-  --ink:      #0E0E10;
-  --ink-60:   rgba(14,14,16,0.6);
-  --ink-25:   rgba(14,14,16,0.1);
-  --purple:   #9A88FD;
   --purple-l: #C4B9FE;
-  --purple-bg:#EDE9FE;
-  --jasmine:  #FEDE80;
-  --jasmine-bg:#FFF8DC;
-  --green:    #CAFE87;
-  --green-bg: #EEFAD5;
-  --red:      #FF5252;
+  --red: #FF5252;
 }
-
-html { scroll-behavior: smooth; overflow-x: hidden; }
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--cream);
-  color: var(--ink);
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
-
-/* ══ NAV ══ */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 22px 48px;
-  background: rgba(243,241,235,0.92);
-  backdrop-filter: blur(16px) saturate(1.2);
-  border-bottom: 1px solid var(--ink-25);
-}
-.nav-logo { display:flex;align-items:center;gap:9px;text-decoration:none; }
-.nav-logo span { font-family:'Poppins',sans-serif;font-weight:800;font-size:20px;color:var(--ink);letter-spacing:-0.5px; }
-.nav-back {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 14px; font-weight: 600; color: var(--ink-60);
-  text-decoration: none;
-  transition: color .25s;
-}
-.nav-back:hover { color: var(--ink); }
-.nav-back svg { transition: transform .25s; }
-.nav-back:hover svg { transform: translateX(-3px); }
-.nav-pill {
-  padding:10px 22px;background:var(--ink);color:var(--white);
-  border-radius:999px;font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;
-  text-decoration:none; transition:background .3s;
-}
-.nav-pill:hover { background:var(--purple); color:var(--ink); }
+body { overflow-x: hidden; }
 
 /* ══ HERO ══ */
 .hero {
-  padding: 160px 48px 100px;
+  padding: 80px 48px 100px;
   max-width: 1360px; margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -524,22 +463,6 @@ nav {
 }
 .btn-cta-outline:hover { background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2); }
 
-/* ══ FOOTER ══ */
-footer {
-  background:var(--ink);
-  padding:48px;
-  border-top:1px solid rgba(255,255,255,.06);
-  display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:16px;
-}
-.foot-copy { font-size:13px;color:rgba(255,255,255,.3); }
-.foot-links { display:flex;gap:24px; }
-.foot-links a {
-  font-size:13px;color:rgba(255,255,255,.35);text-decoration:none;
-  transition:color .25s;
-}
-.foot-links a:hover { color:var(--purple); }
-
 /* ══ REVEALS ══ */
 .reveal { opacity:0;transform:translateY(24px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1); }
 .reveal.in { opacity:1;transform:translateY(0); }
@@ -549,38 +472,18 @@ footer {
 
 /* ══ RESPONSIVE ══ */
 @media(max-width:1100px) {
-  .hero { grid-template-columns:1fr; gap:60px; padding:140px 32px 80px; }
+  .hero { grid-template-columns:1fr; gap:60px; padding:60px 32px 80px; }
   .what-grid { grid-template-columns:1fr; gap:48px; }
   .how-grid { grid-template-columns:1fr; gap:60px; }
 }
 @media(max-width:768px) {
-  nav { padding:14px 20px; }
-  .hero { padding:120px 20px 60px; }
+  .hero { padding:48px 20px 60px; }
   .section-wrap { padding:0 20px; }
   .what-inner { padding:0 20px; }
   .req-grid { grid-template-columns:1fr; }
   .cta-section { padding:72px 20px; }
-  footer { padding:32px 20px; flex-direction:column; align-items:flex-start; }
 }
 </style>
-</head>
-<body>
-
-<!-- NAV -->
-<nav>
-  <a href="/" class="nav-logo">
-    <svg width="64" height="64" viewBox="0 0 700 700" fill="var(--purple)">
-      <path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z"/>
-      <path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z"/>
-    </svg>
-    <span>Snagify</span>
-  </a>
-  <a href="/" class="nav-back">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-    Back to home
-  </a>
-  <a href="/#cta" class="nav-pill">Get Started →</a>
-</nav>
 
 <!-- HERO -->
 <section class="hero">
@@ -928,37 +831,18 @@ footer {
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <span class="foot-copy">© 2025 Snagify. All rights reserved.</span>
-  <div class="foot-links">
-    <a href="/privacy">Privacy</a>
-    <a href="/terms">Terms</a>
-    <a href="mailto:hello@snagify.net">Contact</a>
-    <a href="/">← Back to home</a>
-  </div>
-</footer>
-
-<script>
-// Reveals
+<script is:inline slot="scripts">
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
 }, { threshold: .1 });
 document.querySelectorAll('.reveal').forEach(r => io.observe(r));
 
-// FAQ
 function toggleFaq(el) {
   const item = el.parentElement;
   const isOpen = item.classList.contains('open');
   document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
   if (!isOpen) item.classList.add('open');
 }
+window.toggleFaq = toggleFaq;
 </script>
-  <script>
-    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-  </script>
-  <script defer src="/_vercel/insights/script.js"></script>
-</body>
-</html>
-
-<!-- END: bit-perfect copy of original rera.html -->
+</LegalLayout>

@@ -1,0 +1,81 @@
+---
+const { title, description, slug, ogDescription } = Astro.props;
+const canonical = `https://snagify.net/${slug}`;
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{title}</title>
+<meta name="description" content={description}>
+<meta property="og:title" content={title}>
+<meta property="og:description" content={ogDescription ?? description}>
+<meta property="og:url" content={canonical}>
+<link rel="canonical" href={canonical}>
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+
+<style>
+html[lang="en"], html[lang="en"] body,
+html[lang="ru"], html[lang="ru"] body,
+html[lang="hi"], html[lang="hi"] body,
+html[lang="fr"], html[lang="fr"] body {
+  direction: ltr !important;
+  text-align: left;
+}
+html:not([lang="ar"]) { direction: ltr !important; }
+html:not([lang="ar"]) body { direction: ltr !important; }
+
+* { cursor: auto; }
+a, button, [role="button"], .faq-q, .toc-list a, .btn-ink, .btn-ghost, .btn-cta, .btn-cta-outline, .btn-submit, .cc-link { cursor: pointer; }
+input, textarea, select { cursor: text; }
+input[type="checkbox"], input[type="radio"] { cursor: pointer; }
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --cream: #F3F1EB;
+  --cream-2: #EAE8E0;
+  --white: #FCFCFC;
+  --ink: #0E0E10;
+  --ink-60: rgba(14,14,16,0.6);
+  --ink-25: rgba(14,14,16,0.1);
+  --purple: #9A88FD;
+  --purple-bg: #EDE9FE;
+  --green: #CAFE87;
+  --green-bg: #EEFAD5;
+  --jasmine: #FEDE80;
+  --jasmine-bg: #FFF8DC;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+</style>
+<slot name="styles" />
+</head>
+<body>
+
+<SiteHeader />
+
+<slot />
+
+<SiteFooter />
+
+<slot name="scripts" />
+
+</body>
+</html>
