@@ -1977,13 +1977,19 @@ div#nav-drawer a {
 }
 
 .price-faq-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-items: center;
+  gap: 6px;
   font-size: 12px;
   font-weight: 600;
   color: var(--purple);
   text-decoration: none;
   margin-bottom: 16px;
+  align-self: flex-start;
 }
+.price-faq-link svg { flex-shrink: 0; opacity: .75; }
 .price-faq-link:hover { text-decoration: underline; }
 .price-faq-link:focus-visible {
   outline: 2px solid var(--purple);
@@ -2506,6 +2512,8 @@ footer {
 
 .faq-list { border-top: 1px solid var(--ink-25); }
 .faq-item { border-bottom: 1px solid var(--ink-25); }
+#faq-checkout-cost,
+#faq-credits-pro { scroll-margin-top: 96px; }
 
 .faq-q {
   width: 100%;
@@ -5557,10 +5565,10 @@ footer {
               <span class="m-per">24.5 AED / credit</span>
             </div>
           </div>
+          <a href="#faq-checkout-cost" class="price-faq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How much is a check-out?</a>
           <ul class="price-feats">
             <li>Up to 3 properties</li>
           </ul>
-          <a href="#faq-checkout-cost" class="price-faq-link">How much is a check-out?</a>
           <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-outline">
             Sign up &amp; buy in-app →
           </a>
@@ -5577,10 +5585,10 @@ footer {
               <span class="m-disc">Save 19%</span>
             </div>
           </div>
+          <a href="#faq-checkout-cost" class="price-faq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How much is a check-out?</a>
           <ul class="price-feats">
             <li>Up to 3 properties</li>
           </ul>
-          <a href="#faq-checkout-cost" class="price-faq-link">How much is a check-out?</a>
           <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-purple">
             Sign up &amp; buy in-app →
           </a>
@@ -5596,10 +5604,10 @@ footer {
               <span class="m-disc">Save 36%</span>
             </div>
           </div>
+          <a href="#faq-checkout-cost" class="price-faq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How much is a check-out?</a>
           <ul class="price-feats">
             <li>Up to 3 properties</li>
           </ul>
-          <a href="#faq-checkout-cost" class="price-faq-link">How much is a check-out?</a>
           <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-outline">
             Sign up &amp; buy in-app →
           </a>
@@ -5632,6 +5640,7 @@ footer {
               <span class="price-metric-lbl">users</span>
             </div>
           </div>
+          <a href="#faq-credits-pro" class="price-faq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How do credits work on Pro plans?</a>
           <ul class="price-feats">
             <li class="price-feat-highlight">Unlimited properties</li>
             <li>Credit rollover ×1</li>
@@ -5640,7 +5649,6 @@ footer {
             <li>Priority support</li>
           </ul>
           <div class="price-extra">Extra credit: <strong>28 AED each</strong></div>
-          <a href="#faq-credits-pro" class="price-faq-link">How do credits work?</a>
           <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-outline">
             Create free account →
           </a>
@@ -5664,6 +5672,7 @@ footer {
               <span class="price-metric-lbl">users</span>
             </div>
           </div>
+          <a href="#faq-credits-pro" class="price-faq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How do credits work on Pro plans?</a>
           <ul class="price-feats">
             <li class="price-feat-highlight">Unlimited properties</li>
             <li>Credit rollover ×1.5</li>
@@ -5672,7 +5681,6 @@ footer {
             <li>Priority support</li>
           </ul>
           <div class="price-extra">Extra credit: <strong>22 AED each</strong></div>
-          <a href="#faq-credits-pro" class="price-faq-link">How do credits work?</a>
           <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-purple">
             Start free, upgrade in-app →
           </a>
@@ -5695,6 +5703,7 @@ footer {
               <span class="price-metric-lbl">users</span>
             </div>
           </div>
+          <a href="#faq-credits-pro" class="price-faq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How do credits work on Pro plans?</a>
           <ul class="price-feats">
             <li class="price-feat-highlight">Unlimited properties</li>
             <li>Credit rollover ×2</li>
@@ -5703,7 +5712,6 @@ footer {
             <li>Priority support</li>
           </ul>
           <div class="price-extra">Extra credit: <strong>16 AED each</strong></div>
-          <a href="#faq-credits-pro" class="price-faq-link">How do credits work?</a>
           <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-outline">
             Create free account →
           </a>
@@ -5829,7 +5837,7 @@ footer {
 
       <div class="faq-tabs">
         <button class="faq-tab active" data-tab="legal" type="button">Legal &amp; RDC <span class="faq-tab-count">3</span></button>
-        <button class="faq-tab" data-tab="start" type="button">Getting Started <span class="faq-tab-count">3</span></button>
+        <button class="faq-tab" data-tab="start" type="button">Getting Started <span class="faq-tab-count">4</span></button>
         <button class="faq-tab" data-tab="pricing" type="button">Pricing &amp; Data <span class="faq-tab-count">3</span></button>
       </div>
 
@@ -5857,9 +5865,14 @@ footer {
       <div class="faq-panel" data-panel="start">
         <div class="faq-list">
 
-          <div class="faq-item" id="faq-checkout-cost">
+          <div class="faq-item">
             <button class="faq-q" type="button">Why are check-ins free?<span class="faq-icon">+</span></button>
             <div class="faq-a"><div class="faq-a-inner"><p>An undocumented move-in is the single biggest cause of lost deposits in Dubai. We want every landlord and tenant to have that baseline protection, whether you pay us later or not. You only spend credits when you do a check-out, to prove what the property looked like originally.</p></div></div>
+          </div>
+
+          <div class="faq-item" id="faq-checkout-cost">
+            <button class="faq-q" type="button">How much does a check-out cost?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Check-ins are always free. You only spend credits on a check-out. Right now one check-out uses 2 credits, so the cost depends on the pack you buy: from 15.8 AED per credit on the Professional pack up to 24.5 AED per credit on the Solo pack. Credits never expire for 2 years, and you can buy more anytime inside the app.</p></div></div>
           </div>
 
           <div class="faq-item">
@@ -6595,28 +6608,36 @@ window.toggleBilling = toggleBilling;
       activateFaqTab('pros', 'pricing');
     }
 
-    const panel = item.closest('.faq-panel');
-    if (panel) {
+    setTimeout(() => {
+      const panel = item.closest('.faq-panel');
       const pp = item.closest('.faq-persona-panel');
-      if (pp) {
+      if (pp && panel) {
         const tabName = panel.dataset.panel;
         const tab = pp.querySelector('.faq-tab[data-tab="' + tabName + '"]');
         if (tab && !tab.classList.contains('active')) tab.click();
       }
-    }
-
-    panel && panel.querySelectorAll('.faq-item.open').forEach(closeItem);
-    openItem(item);
-
-    requestAnimationFrame(() => {
+      if (panel) panel.querySelectorAll('.faq-item.open').forEach(closeItem);
+      openItem(item);
       setTimeout(() => {
         const rect = item.getBoundingClientRect();
-        const navH = 80;
-        const top = window.scrollY + rect.top - navH - 16;
-        window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
-      }, 120);
-    });
+        const navH = 96;
+        window.scrollTo({ top: Math.max(0, window.scrollY + rect.top - navH - 16), behavior: 'smooth' });
+      }, 150);
+    }, 80);
   }
+
+  document.querySelectorAll('.price-faq-link').forEach(link => {
+    link.addEventListener('click', e => {
+      const href = link.getAttribute('href');
+      if (!href || !href.startsWith('#faq-')) return;
+      e.preventDefault();
+      if (window.location.hash !== href) {
+        window.location.hash = href;
+      } else {
+        openFaqFromHash();
+      }
+    });
+  });
 
   window.addEventListener('hashchange', openFaqFromHash);
   if (window.location.hash === '#faq-checkout-cost' || window.location.hash === '#faq-credits-pro') {
