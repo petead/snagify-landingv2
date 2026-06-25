@@ -1873,6 +1873,11 @@ div#nav-drawer a {
   justify-content: flex-end;
   margin-bottom: 16px;
 }
+#panel-pro .price-top {
+  min-height: 72px;
+  justify-content: flex-start;
+  gap: 2px;
+}
 .price-num {
   font-family: 'Poppins', sans-serif; font-weight: 800;
   font-size: 48px; letter-spacing: -3px;
@@ -1884,7 +1889,8 @@ div#nav-drawer a {
 .billing-annual .price-num .price-monthly { display: none; }
 .billing-annual .price-num .price-annual  { display: inline; }
 
-.price-billed { min-height: 15px; margin-bottom: 16px; }
+.price-billed { min-height: 15px; }
+.price-top .price-billed { margin-top: 4px; margin-bottom: 0; }
 .price-annual-sub {
   font-size: 12px; color: var(--ink-60);
   line-height: 1.4;
@@ -1899,17 +1905,20 @@ div#nav-drawer a {
   background: var(--cream);
   border: 1px solid var(--ink-25);
   border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 .price-card-popular .metric {
   background: var(--purple-bg);
   border-color: rgba(154,136,253,.3);
 }
-.metric.solo { padding: 16px 18px; }
 .metric.solo .m-row {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 16px;
+  padding: 16px 18px;
 }
 .m-credits {
   font-family: 'Poppins', sans-serif;
@@ -1944,10 +1953,9 @@ div#nav-drawer a {
 }
 .m-disc.empty { visibility: hidden; }
 
-.metric.duo {
+.metric.duo .duo-row {
   display: flex;
-  padding: 0;
-  overflow: hidden;
+  width: 100%;
 }
 .metric.duo .m-cell {
   flex: 1;
@@ -1964,6 +1972,17 @@ div#nav-drawer a {
   position: absolute; left: 0; top: 20%; bottom: 20%;
   width: 1px;
   background: var(--ink-25);
+}
+.metric .price-faq-link.metric-faq {
+  margin-bottom: 0;
+  padding: 10px 14px;
+  border-top: 1px solid var(--ink-25);
+  width: 100%;
+  font-size: 11px;
+  align-self: stretch;
+}
+.price-card-popular .metric .price-faq-link.metric-faq {
+  border-top-color: rgba(154,136,253,.25);
 }
 .m-val {
   font-family: 'Poppins', sans-serif;
@@ -5609,15 +5628,15 @@ footer {
                 <span class="m-disc empty">Save 0%</span>
               </div>
             </div>
+            <a href="#faq-checkout-cost" class="price-faq-link metric-faq"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How much is a check-out?</a>
           </div>
           <ul class="price-feats">
+            <li><b>Check in always FREE</b></li>
             <li>Up to <b>3 properties</b></li>
             <li>AI photo analysis</li>
             <li>PDF report generation</li>
             <li>Digital signatures</li>
-            <li>RDC Valid report</li>
           </ul>
-          <a href="#faq-checkout-cost" class="price-faq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How much is a check-out?</a>
           <div class="price-card-spacer"></div>
           <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-outline">
             Sign up &amp; buy in-app →
@@ -5638,15 +5657,15 @@ footer {
                 <span class="m-disc">Save 19%</span>
               </div>
             </div>
+            <a href="#faq-checkout-cost" class="price-faq-link metric-faq"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How much is a check-out?</a>
           </div>
           <ul class="price-feats">
+            <li><b>Check in always FREE</b></li>
             <li>Up to <b>3 properties</b></li>
             <li>AI photo analysis</li>
             <li>PDF report generation</li>
             <li>Digital signatures</li>
-            <li>RDC Valid report</li>
           </ul>
-          <a href="#faq-checkout-cost" class="price-faq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How much is a check-out?</a>
           <div class="price-card-spacer"></div>
           <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-purple">
             Sign up &amp; buy in-app →
@@ -5666,15 +5685,15 @@ footer {
                 <span class="m-disc">Save 36%</span>
               </div>
             </div>
+            <a href="#faq-checkout-cost" class="price-faq-link metric-faq"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How much is a check-out?</a>
           </div>
           <ul class="price-feats">
+            <li><b>Check in always FREE</b></li>
             <li>Up to <b>3 properties</b></li>
             <li>AI photo analysis</li>
             <li>PDF report generation</li>
             <li>Digital signatures</li>
-            <li>RDC Valid report</li>
           </ul>
-          <a href="#faq-checkout-cost" class="price-faq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How much is a check-out?</a>
           <div class="price-card-spacer"></div>
           <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-outline">
             Sign up &amp; buy in-app →
@@ -5683,7 +5702,7 @@ footer {
 
       </div>
       <div class="pricing-note">
-        <p>Check-in is free. Credits for check-out only. Valid 2 years.</p>
+        <p>Check-in is free. Credits for check-out only. Credits never expire.</p>
         <p>Create your free account on the app. Packs available directly after sign-up.</p>
       </div>
     </div>
@@ -5695,24 +5714,26 @@ footer {
           <div class="price-plan price-name">Starter</div>
           <div class="price-top">
             <div class="price-num">
-              <span class="price-monthly">179 <span class="price-suffix">AED/mo</span></span>
-              <span class="price-annual">149 <span class="price-suffix">AED/mo</span></span>
+              <span class="price-monthly">179 <span class="price-suffix">AED/month</span></span>
+              <span class="price-annual">149 <span class="price-suffix">AED/month</span></span>
             </div>
-          </div>
-          <div class="price-billed">
-            <div class="price-annual-sub">1,788 AED billed annually · <strong>Save 360 AED</strong></div>
+            <div class="price-billed">
+              <div class="price-annual-sub">1,788 AED billed annually · <strong>Save 360 AED</strong></div>
+            </div>
           </div>
           <div class="metric duo">
-            <div class="m-cell">
-              <span class="m-val">15</span>
-              <span class="m-lbl">credits/mo</span>
+            <div class="duo-row">
+              <div class="m-cell">
+                <span class="m-val">15</span>
+                <span class="m-lbl">credits/month</span>
+              </div>
+              <div class="m-cell">
+                <span class="m-val">2</span>
+                <span class="m-lbl">users</span>
+              </div>
             </div>
-            <div class="m-cell">
-              <span class="m-val">2</span>
-              <span class="m-lbl">users</span>
-            </div>
+            <a href="#faq-credits-pro" class="price-faq-link metric-faq"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How do credits work on Pro plans?</a>
           </div>
-          <a href="#faq-credits-pro" class="price-faq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How do credits work on Pro plans?</a>
           <ul class="price-feats">
             <li class="price-feat-highlight">Unlimited properties</li>
             <li>Credit rollover ×1</li>
@@ -5732,24 +5753,26 @@ footer {
           <div class="price-plan price-name">Growth</div>
           <div class="price-top">
             <div class="price-num">
-              <span class="price-monthly">299 <span class="price-suffix">AED/mo</span></span>
-              <span class="price-annual">249 <span class="price-suffix">AED/mo</span></span>
+              <span class="price-monthly">299 <span class="price-suffix">AED/month</span></span>
+              <span class="price-annual">249 <span class="price-suffix">AED/month</span></span>
             </div>
-          </div>
-          <div class="price-billed">
-            <div class="price-annual-sub">2,988 AED billed annually · <strong>Save 600 AED</strong></div>
+            <div class="price-billed">
+              <div class="price-annual-sub">2,988 AED billed annually · <strong>Save 600 AED</strong></div>
+            </div>
           </div>
           <div class="metric duo">
-            <div class="m-cell">
-              <span class="m-val">30</span>
-              <span class="m-lbl">credits/mo</span>
+            <div class="duo-row">
+              <div class="m-cell">
+                <span class="m-val">30</span>
+                <span class="m-lbl">credits/month</span>
+              </div>
+              <div class="m-cell">
+                <span class="m-val">5</span>
+                <span class="m-lbl">users</span>
+              </div>
             </div>
-            <div class="m-cell">
-              <span class="m-val">5</span>
-              <span class="m-lbl">users</span>
-            </div>
+            <a href="#faq-credits-pro" class="price-faq-link metric-faq"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How do credits work on Pro plans?</a>
           </div>
-          <a href="#faq-credits-pro" class="price-faq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How do credits work on Pro plans?</a>
           <ul class="price-feats">
             <li class="price-feat-highlight">Unlimited properties</li>
             <li>Credit rollover ×1.5</li>
@@ -5768,24 +5791,26 @@ footer {
           <div class="price-plan price-name">Agency</div>
           <div class="price-top">
             <div class="price-num">
-              <span class="price-monthly">449 <span class="price-suffix">AED/mo</span></span>
-              <span class="price-annual">374 <span class="price-suffix">AED/mo</span></span>
+              <span class="price-monthly">449 <span class="price-suffix">AED/month</span></span>
+              <span class="price-annual">374 <span class="price-suffix">AED/month</span></span>
             </div>
-          </div>
-          <div class="price-billed">
-            <div class="price-annual-sub">4,488 AED billed annually · <strong>Save 900 AED</strong></div>
+            <div class="price-billed">
+              <div class="price-annual-sub">4,488 AED billed annually · <strong>Save 900 AED</strong></div>
+            </div>
           </div>
           <div class="metric duo">
-            <div class="m-cell">
-              <span class="m-val">50</span>
-              <span class="m-lbl">credits/mo</span>
+            <div class="duo-row">
+              <div class="m-cell">
+                <span class="m-val">50</span>
+                <span class="m-lbl">credits/month</span>
+              </div>
+              <div class="m-cell">
+                <span class="m-val">15</span>
+                <span class="m-lbl">users</span>
+              </div>
             </div>
-            <div class="m-cell">
-              <span class="m-val">15</span>
-              <span class="m-lbl">users</span>
-            </div>
+            <a href="#faq-credits-pro" class="price-faq-link metric-faq"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How do credits work on Pro plans?</a>
           </div>
-          <a href="#faq-credits-pro" class="price-faq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How do credits work on Pro plans?</a>
           <ul class="price-feats">
             <li class="price-feat-highlight">Unlimited properties</li>
             <li>Credit rollover ×2</li>
@@ -5955,7 +5980,7 @@ footer {
 
           <div class="faq-item" id="faq-checkout-cost">
             <button class="faq-q" type="button">How much does a check-out cost?<span class="faq-icon">+</span></button>
-            <div class="faq-a"><div class="faq-a-inner"><p>Check-ins are always free. You only spend credits on a check-out. Right now one check-out uses 2 credits, so the cost depends on the pack you buy: from 15.8 AED per credit on the Professional pack up to 24.5 AED per credit on the Solo pack. Credits never expire for 2 years, and you can buy more anytime inside the app.</p></div></div>
+            <div class="faq-a"><div class="faq-a-inner"><p>Check-ins are always free. You only spend credits on a check-out. Right now one check-out uses 2 credits, so the cost depends on the pack you buy: from 15.8 AED per credit on the Professional pack up to 24.5 AED per credit on the Solo pack. Credits never expire, and you can buy more anytime inside the app.</p></div></div>
           </div>
 
           <div class="faq-item">
