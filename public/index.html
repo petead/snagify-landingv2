@@ -1693,7 +1693,17 @@ div#nav-drawer a {
   background: transparent; color: var(--ink-60);
   transition: color 0.28s ease, transform 0.2s ease;
 }
-.ptoggle-btn svg { opacity: .5; transition: opacity .3s; }
+.ptoggle-btn svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  opacity: .5;
+  transition: opacity .3s;
+}
+#toggle-pro svg {
+  width: 20px;
+  height: 20px;
+}
 .ptoggle-btn.active svg { opacity: 1; }
 .ptoggle-btn:focus-visible {
   outline: 2px solid var(--purple);
@@ -2015,6 +2025,21 @@ div#nav-drawer a {
 .price-feat-highlight {
   color: var(--ink) !important;
   font-weight: 600;
+}
+.price-includes-line {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+.price-includes-plus {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--purple);
+  line-height: 1;
+  vertical-align: -2px;
 }
 
 .price-faq-link {
@@ -5713,8 +5738,8 @@ footer {
             </div>
             <a href="#faq-credits-pro" class="price-faq-link metric-faq"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How do credits work on Pro plans?</a>
           </div>
+          <p class="price-includes-line">Everything in Individual <span class="price-includes-plus">+</span></p>
           <ul class="price-feats">
-            <li class="price-feat-includes">Everything in Individual +</li>
             <li class="price-feat-highlight">Unlimited properties</li>
             <li>Credit rollover <b>×1</b></li>
             <li>Your logo on every PDF</li>
@@ -5753,8 +5778,8 @@ footer {
             </div>
             <a href="#faq-credits-pro" class="price-faq-link metric-faq"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How do credits work on Pro plans?</a>
           </div>
+          <p class="price-includes-line">Everything in Individual <span class="price-includes-plus">+</span></p>
           <ul class="price-feats">
-            <li class="price-feat-includes">Everything in Individual +</li>
             <li class="price-feat-highlight">Unlimited properties</li>
             <li>Credit rollover <b>×1.5</b></li>
             <li>Your logo on every PDF</li>
@@ -5792,8 +5817,8 @@ footer {
             </div>
             <a href="#faq-credits-pro" class="price-faq-link metric-faq"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How do credits work on Pro plans?</a>
           </div>
+          <p class="price-includes-line">Everything in Individual <span class="price-includes-plus">+</span></p>
           <ul class="price-feats">
-            <li class="price-feat-includes">Everything in Individual +</li>
             <li class="price-feat-highlight">Unlimited properties</li>
             <li>Credit rollover <b>×2</b></li>
             <li>Your logo on every PDF</li>
