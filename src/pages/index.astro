@@ -1746,6 +1746,18 @@ div#nav-drawer a {
   height: auto;
   overflow: visible;
 }
+.pricing-audience-sub {
+  display: none;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-60);
+  margin: -6px auto 28px;
+  line-height: 1.4;
+}
+.pricing-audience-sub.is-visible {
+  display: block;
+}
 .billing-pill-toggle {
   display: flex; align-items: stretch; gap: 4px;
   background: var(--white);
@@ -2011,6 +2023,11 @@ div#nav-drawer a {
 .price-feat-highlight {
   color: var(--ink) !important;
   font-weight: 600;
+}
+.price-feat-includes {
+  color: var(--ink-60) !important;
+  font-weight: 600;
+  font-size: 13px;
 }
 
 .price-faq-link {
@@ -5572,13 +5589,15 @@ footer {
       <span class="pricing-toggle-glider" aria-hidden="true"></span>
       <button type="button" class="ptoggle-btn active" id="toggle-private" role="tab" aria-selected="true" aria-controls="panel-private">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        Landlords &amp; Tenants
+        Individuals
       </button>
       <button type="button" class="ptoggle-btn" id="toggle-pro" role="tab" aria-selected="false" aria-controls="panel-pro">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
         Professionals
       </button>
     </div>
+
+    <p class="pricing-audience-sub is-visible" id="pricing-individual-sub">Perfect for landlords and tenants</p>
 
     <div class="billing-toggle-wrap" id="billing-toggle-wrap">
       <div class="billing-pill-toggle billing-pill-seg" id="billing-pill-track" data-billing="annual" role="tablist" aria-label="Billing period">
@@ -5712,9 +5731,10 @@ footer {
             <a href="#faq-credits-pro" class="price-faq-link metric-faq"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How do credits work on Pro plans?</a>
           </div>
           <ul class="price-feats">
+            <li class="price-feat-includes">Everything in Individual +</li>
             <li class="price-feat-highlight">Unlimited properties</li>
-            <li>Credit rollover ×1</li>
-            <li>White-label branding</li>
+            <li>Credit rollover <b>×1</b></li>
+            <li>Your logo on every PDF</li>
             <li>Shared team credit pool</li>
             <li>Priority support</li>
           </ul>
@@ -5751,9 +5771,10 @@ footer {
             <a href="#faq-credits-pro" class="price-faq-link metric-faq"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How do credits work on Pro plans?</a>
           </div>
           <ul class="price-feats">
+            <li class="price-feat-includes">Everything in Individual +</li>
             <li class="price-feat-highlight">Unlimited properties</li>
-            <li>Credit rollover ×1.5</li>
-            <li>White-label branding</li>
+            <li>Credit rollover <b>×1.5</b></li>
+            <li>Your logo on every PDF</li>
             <li>Shared team credit pool</li>
             <li>Priority support</li>
           </ul>
@@ -5789,9 +5810,10 @@ footer {
             <a href="#faq-credits-pro" class="price-faq-link metric-faq"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How do credits work on Pro plans?</a>
           </div>
           <ul class="price-feats">
+            <li class="price-feat-includes">Everything in Individual +</li>
             <li class="price-feat-highlight">Unlimited properties</li>
-            <li>Credit rollover ×2</li>
-            <li>White-label branding</li>
+            <li>Credit rollover <b>×2</b></li>
+            <li>Your logo on every PDF</li>
             <li>Shared team credit pool</li>
             <li>Priority support</li>
           </ul>
@@ -6474,6 +6496,8 @@ function setBilling(mode) {
 function showBillingToggle(show) {
   const wrap = document.getElementById('billing-toggle-wrap');
   if (wrap) wrap.classList.toggle('is-visible', show);
+  const sub = document.getElementById('pricing-individual-sub');
+  if (sub) sub.classList.toggle('is-visible', !show);
 }
 
 function updatePricingTitle(type) {
