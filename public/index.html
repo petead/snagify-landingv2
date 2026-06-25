@@ -1867,6 +1867,20 @@ div#nav-drawer a {
   justify-content: flex-end;
   margin-bottom: 16px;
 }
+.price-top-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.price-save {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--purple);
+  line-height: 1.2;
+  letter-spacing: 0;
+}
 #panel-pro .price-top {
   min-height: 72px;
   justify-content: flex-start;
@@ -1911,8 +1925,7 @@ div#nav-drawer a {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  padding: 16px 18px 10px;
+  padding: 14px 18px 8px;
   text-align: center;
 }
 .m-credits {
@@ -1922,32 +1935,9 @@ div#nav-drawer a {
   letter-spacing: -0.5px;
   color: var(--ink);
   line-height: 1.1;
-  flex-shrink: 0;
   text-align: center;
 }
 .price-card-popular .m-credits { color: var(--purple); }
-.m-pricewrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 2px;
-}
-.m-per {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--ink-60);
-  line-height: 1.3;
-}
-.m-disc {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--purple);
-  font-family: 'Poppins', sans-serif;
-  line-height: 1.3;
-  min-height: 14px;
-}
-.m-disc.empty { visibility: hidden; }
 
 .metric.duo .duo-row {
   display: flex;
@@ -5607,15 +5597,13 @@ footer {
         <div class="price-card">
           <div class="price-plan price-name">Solo</div>
           <div class="price-top">
-            <div class="price-num">49 <span class="price-suffix">AED</span></div>
+            <div class="price-top-row">
+              <div class="price-num">49 <span class="price-suffix">AED</span></div>
+            </div>
           </div>
           <div class="metric solo">
             <div class="m-row">
               <span class="m-credits">2 credits</span>
-              <div class="m-pricewrap">
-                <span class="m-per">24.5 AED / credit</span>
-                <span class="m-disc empty">Save 0%</span>
-              </div>
             </div>
             <a href="#faq-checkout-cost" class="price-faq-link metric-faq"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How much is a check-out?</a>
           </div>
@@ -5636,15 +5624,14 @@ footer {
           <span class="price-corner">★ Most Popular</span>
           <div class="price-plan price-name">Essential</div>
           <div class="price-top">
-            <div class="price-num">119 <span class="price-suffix">AED</span></div>
+            <div class="price-top-row">
+              <div class="price-num">119 <span class="price-suffix">AED</span></div>
+              <span class="price-save">Save 19%</span>
+            </div>
           </div>
           <div class="metric solo">
             <div class="m-row">
               <span class="m-credits">6 credits</span>
-              <div class="m-pricewrap">
-                <span class="m-per">19.8 AED / credit</span>
-                <span class="m-disc">Save 19%</span>
-              </div>
             </div>
             <a href="#faq-checkout-cost" class="price-faq-link metric-faq"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How much is a check-out?</a>
           </div>
@@ -5664,15 +5651,14 @@ footer {
         <div class="price-card">
           <div class="price-plan price-name">Professional</div>
           <div class="price-top">
-            <div class="price-num">189 <span class="price-suffix">AED</span></div>
+            <div class="price-top-row">
+              <div class="price-num">189 <span class="price-suffix">AED</span></div>
+              <span class="price-save">Save 36%</span>
+            </div>
           </div>
           <div class="metric solo">
             <div class="m-row">
               <span class="m-credits">12 credits</span>
-              <div class="m-pricewrap">
-                <span class="m-per">15.8 AED / credit</span>
-                <span class="m-disc">Save 36%</span>
-              </div>
             </div>
             <a href="#faq-checkout-cost" class="price-faq-link metric-faq"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How much is a check-out?</a>
           </div>
