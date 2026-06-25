@@ -1676,7 +1676,7 @@ div#nav-drawer a {
 }
 .pricing .section-wrap { position: relative; z-index: 1; }
 
-/* ── Toggle audience Pro / Landlord ── */
+/* ── Toggle audience Landlords / Professionals ── */
 .pricing-toggle {
   display: flex; align-items: center; justify-content: center;
   gap: 4px;
@@ -1695,21 +1695,19 @@ div#nav-drawer a {
   font-weight: 700; font-size: 13px;
   cursor: pointer;
   background: transparent; color: var(--ink-60);
-  transition: all .3s ease;
+  transition: color 0.28s ease, transform 0.2s ease;
 }
 .ptoggle-btn svg { opacity: .5; transition: opacity .3s; }
-.ptoggle-btn.active { background: var(--ink); color: var(--white); }
 .ptoggle-btn.active svg { opacity: 1; }
-
-/* Segmented audience toggle — animated glider */
-.pricing-toggle-seg {
-  position: relative;
+.ptoggle-btn:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 2px;
 }
+
+.pricing-toggle-seg { position: relative; }
 .pricing-toggle-glider {
   position: absolute;
-  top: 5px;
-  bottom: 5px;
-  left: 5px;
+  top: 5px; bottom: 5px; left: 5px;
   width: calc((100% - 14px) / 2);
   background: var(--ink);
   border-radius: 999px;
@@ -1718,37 +1716,33 @@ div#nav-drawer a {
   pointer-events: none;
   will-change: transform;
 }
-.pricing-toggle-seg[data-active="private"] .pricing-toggle-glider {
-  transform: translateX(calc(100% + 4px));
-}
+.pricing-toggle-seg[data-active="private"] .pricing-toggle-glider { transform: translateX(0); }
+.pricing-toggle-seg[data-active="pro"] .pricing-toggle-glider { transform: translateX(calc(100% + 4px)); }
 .pricing-toggle-seg .ptoggle-btn {
-  position: relative;
-  z-index: 1;
-  flex: 1;
-  min-width: 0;
-  justify-content: center;
+  position: relative; z-index: 1;
+  flex: 1; min-width: 0; justify-content: center;
   background: transparent !important;
-  transition: color 0.28s ease, transform 0.2s ease;
 }
-.pricing-toggle-seg .ptoggle-btn.active {
-  background: transparent !important;
-  color: var(--white);
-}
-.pricing-toggle-seg .ptoggle-btn:not(.active) {
-  color: var(--ink-60);
-}
-.pricing-toggle-seg .ptoggle-btn:active {
-  transform: scale(0.985);
-}
+.pricing-toggle-seg .ptoggle-btn.active { background: transparent !important; color: var(--white); }
+.pricing-toggle-seg .ptoggle-btn:not(.active) { color: var(--ink-60); }
+.pricing-toggle-seg .ptoggle-btn:active { transform: scale(0.985); }
 
-/* ── Toggle billing Monthly / Annual — style pill ── */
+/* ── Toggle billing Monthly / Annual ── */
 .billing-toggle-wrap {
-  display: flex; align-items: center; justify-content: center;
+  display: none;
+  align-items: center; justify-content: center;
+  margin: 0;
+  height: 0;
+  overflow: hidden;
+}
+.billing-toggle-wrap.is-visible {
+  display: flex;
   margin-bottom: 48px;
+  height: auto;
+  overflow: visible;
 }
 .billing-pill-toggle {
-  display: flex; align-items: stretch;
-  gap: 4px;
+  display: flex; align-items: stretch; gap: 4px;
   background: var(--white);
   border: 1px solid var(--ink-25);
   border-radius: 999px;
@@ -1762,38 +1756,23 @@ div#nav-drawer a {
   font-weight: 700; font-size: 13px;
   cursor: pointer;
   background: transparent; color: var(--ink-60);
-  transition: all .3s ease;
-  gap: 2px;
-  line-height: 1.3;
-  min-height: 48px;
+  transition: color 0.28s ease, transform 0.2s ease;
+  gap: 2px; line-height: 1.3; min-height: 48px;
 }
 .billing-pill-btn .billing-pill-sub {
   font-size: 10px; font-weight: 600;
-  color: #3A7A00;
-  opacity: 1;
+  color: var(--purple);
   font-family: 'DM Sans', sans-serif;
   letter-spacing: .3px;
 }
-.billing-pill-btn.active {
-  background: var(--ink); color: var(--white);
+.billing-pill-btn:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 2px;
 }
-.billing-pill-btn.active .billing-pill-sub {
-  color: var(--green);
-}
-.billing-pill-btn:not(.active) .billing-pill-sub {
-  color: #3A7A00;
-  opacity: .55;
-}
-
-/* Segmented billing toggle — animated glider */
-.billing-pill-seg {
-  position: relative;
-}
+.billing-pill-seg { position: relative; }
 .billing-pill-glider {
   position: absolute;
-  top: 5px;
-  bottom: 5px;
-  left: 5px;
+  top: 5px; bottom: 5px; left: 5px;
   width: calc((100% - 14px) / 2);
   background: var(--ink);
   border-radius: 999px;
@@ -1802,54 +1781,135 @@ div#nav-drawer a {
   pointer-events: none;
   will-change: transform;
 }
-.billing-pill-seg[data-billing="annual"] .billing-pill-glider {
-  transform: translateX(calc(100% + 4px));
-}
-.billing-pill-seg[data-billing="monthly"] .billing-pill-glider {
-  transform: translateX(0);
-}
+.billing-pill-seg[data-billing="annual"] .billing-pill-glider { transform: translateX(calc(100% + 4px)); }
+.billing-pill-seg[data-billing="monthly"] .billing-pill-glider { transform: translateX(0); }
 .billing-pill-seg .billing-pill-btn {
-  position: relative;
-  z-index: 1;
-  flex: 1;
-  min-width: 0;
+  position: relative; z-index: 1;
+  flex: 1; min-width: 0;
   background: transparent !important;
-  transition: color 0.28s ease, transform 0.2s ease;
 }
-.billing-pill-seg .billing-pill-btn.active {
-  background: transparent !important;
-  color: var(--white);
-}
-.billing-pill-seg .billing-pill-btn:not(.active) {
-  color: var(--ink-60);
-}
-.billing-pill-seg .billing-pill-btn:active {
-  transform: scale(0.985);
-}
+.billing-pill-seg .billing-pill-btn.active { background: transparent !important; color: var(--white); }
+.billing-pill-seg .billing-pill-btn:not(.active) { color: var(--ink-60); }
+.billing-pill-seg .billing-pill-btn:not(.active) .billing-pill-sub { opacity: .55; }
+.billing-pill-seg .billing-pill-btn.active .billing-pill-sub { color: var(--purple-l); }
+.billing-pill-seg .billing-pill-btn:active { transform: scale(0.985); }
 
-/* Extra info annuel sous le prix */
 .price-annual-sub {
   font-size: 12px; color: var(--ink-60);
-  margin-bottom: 4px;
-  display: none;
-}
-.billing-annual .price-annual-sub { display: block; }
-.price-card.featured .price-annual-sub { color: rgba(255,255,255,.45); }
-
-/* ── Bande de stats horizontale ── */
-.price-stats {
-  display: flex;
-  align-items: stretch;
-  gap: 0;
   margin-bottom: 16px;
+  display: none;
+  line-height: 1.4;
+}
+.price-annual-sub strong { color: var(--purple); font-weight: 700; }
+.billing-annual .price-annual-sub { display: block; }
+
+.pricing-panel { display: block; }
+.pricing-panel.hidden { display: none; }
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.price-card {
+  background: var(--white);
+  border: 1px solid var(--ink-25);
+  border-radius: 24px;
+  padding: 36px;
+  position: relative;
+  transition: transform .4s, box-shadow .4s;
+  display: flex;
+  flex-direction: column;
+}
+.price-card:hover { transform: translateY(-6px); box-shadow: 0 24px 64px rgba(14,14,16,.1); }
+
+.price-card-popular {
+  border: 2px solid var(--purple);
+  box-shadow: 0 0 0 4px var(--purple-bg), 0 16px 48px rgba(154,136,253,.18);
+}
+.price-card-popular::before {
+  content: attr(data-badge);
+  position: absolute;
+  top: -12px; left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 16px;
+  background: var(--purple);
+  color: var(--ink);
+  font-size: 11px; font-weight: 700;
+  border-radius: 999px;
+  font-family: 'Poppins', sans-serif;
+  white-space: nowrap;
+}
+.price-card-popular::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 24px; right: 24px;
+  height: 3px;
+  background: var(--purple);
+  border-radius: 0 0 4px 4px;
+}
+
+.price-plan {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 2.5px;
+  font-weight: 600; color: var(--ink-60); margin-bottom: 12px;
+}
+.price-num {
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: 48px; letter-spacing: -3px;
+  line-height: 1; margin-bottom: 16px;
+}
+.price-num .price-suffix { font-size: 15px; font-weight: 400; letter-spacing: 0; color: var(--ink-60); }
+.price-num .price-monthly { display: inline; }
+.price-num .price-annual  { display: none; }
+.billing-annual .price-num .price-monthly { display: none; }
+.billing-annual .price-num .price-annual  { display: inline; }
+
+.price-credit-block {
   background: var(--cream);
+  border: 1px solid var(--ink-25);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+.price-credit-count {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -0.5px;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.price-credit-rate {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-60);
+}
+.price-save-badge {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 4px 10px;
+  background: var(--purple-bg);
+  color: var(--purple);
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 999px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.price-metric-block {
+  display: flex;
+  gap: 0;
+  margin-bottom: 20px;
+  background: var(--cream);
+  border: 1px solid var(--ink-25);
   border-radius: 14px;
   overflow: hidden;
 }
-.price-card.featured .price-stats {
-  background: rgba(255,255,255,.08);
-}
-.price-stat {
+.price-metric {
   flex: 1;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
@@ -1857,135 +1917,73 @@ div#nav-drawer a {
   gap: 3px;
   position: relative;
 }
-.price-stat + .price-stat::before {
+.price-metric + .price-metric::before {
   content: '';
   position: absolute; left: 0; top: 20%; bottom: 20%;
   width: 1px;
   background: var(--ink-25);
 }
-.price-card.featured .price-stat + .price-stat::before {
-  background: rgba(255,255,255,.1);
-}
-.price-stat-val {
+.price-metric-val {
   font-family: 'Poppins', sans-serif;
   font-weight: 800; font-size: 22px;
   letter-spacing: -1px; line-height: 1;
   color: var(--ink);
 }
-.price-card.featured .price-stat-val { color: var(--white); }
-.price-stat-lbl {
+.price-metric-lbl {
   font-size: 10px; font-weight: 600;
   text-transform: uppercase; letter-spacing: .8px;
   color: var(--ink-60);
 }
-.price-card.featured .price-stat-lbl { color: rgba(255,255,255,.4); }
-.price-stat-sub {
-  font-size: 11px; font-weight: 600;
-  color: var(--purple);
-  margin-top: 2px;
-}
-.price-stat-sub .price-monthly { display: inline; }
-.price-stat-sub .price-annual  { display: none; }
-.billing-annual .price-stat-sub .price-monthly { display: none; }
-.billing-annual .price-stat-sub .price-annual  { display: inline; }
 
-/* Ligne dépassement */
-.price-overage {
-  display: flex; align-items: center; gap: 8px;
+.price-extra {
+  font-size: 13px;
+  color: var(--ink-60);
+  margin-bottom: 16px;
   padding: 9px 14px;
   background: var(--cream);
   border-radius: 10px;
-  margin-bottom: 20px;
-  font-size: 13px;
-  color: var(--ink-60);
 }
-.price-card.featured .price-overage {
-  background: rgba(255,255,255,.07);
-  color: rgba(255,255,255,.5);
-}
-.price-overage svg { flex-shrink: 0; opacity: .5; }
-.price-overage strong {
-  color: var(--ink);
-  font-weight: 700;
-}
-.price-card.featured .price-overage strong {
-  color: var(--white);
-}
-.price-overage .price-monthly { display: inline; }
-.price-overage .price-annual  { display: none; }
-.billing-annual .price-overage .price-monthly { display: none; }
-.billing-annual .price-overage .price-annual  { display: inline; }
-
-.pricing-panel { display: block; }
-.pricing-panel.hidden { display: none; }
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 16px; margin-bottom: 20px;
-}
-.pricing-grid-private {
-  margin-top: 24px;
-}
-
-.price-card {
-  background: var(--white); border: 1px solid var(--ink-25);
-  border-radius: 24px; padding: 36px;
-  position: relative; transition: transform .4s, box-shadow .4s;
-}
-.price-card:hover { transform: translateY(-6px); box-shadow: 0 24px 64px rgba(14,14,16,.1); }
-.price-card.featured {
-  background: var(--ink); border-color: var(--ink); color: var(--white);
-}
-.price-card.featured::before {
-  content: 'Most Popular';
-  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-  padding: 4px 16px; background: var(--purple); color: var(--ink);
-  font-size: 11px; font-weight: 700; border-radius: 999px;
-  font-family: 'Poppins', sans-serif; white-space: nowrap;
-}
-.price-plan {
-  font-size: 11px; text-transform: uppercase; letter-spacing: 2.5px;
-  font-weight: 600; color: var(--ink-60); margin-bottom: 12px;
-}
-.price-card.featured .price-plan { color: rgba(255,255,255,.5); }
-.price-num {
-  font-family: 'Poppins', sans-serif; font-weight: 800;
-  font-size: 48px; letter-spacing: -3px;
-  line-height: 1; margin-bottom: 4px;
-}
-.price-num .price-suffix { font-size: 15px; font-weight: 400; letter-spacing: 0; color: var(--ink-60); }
-.price-card.featured .price-num .price-suffix { color: rgba(255,255,255,.45); }
-.price-num .price-monthly { display: inline; }
-.price-num .price-annual  { display: none; }
-.billing-annual .price-num .price-monthly { display: none; }
-.billing-annual .price-num .price-annual  { display: inline; }
-.price-desc { font-size: 14px; color: var(--ink-60); margin-top: 12px; margin-bottom: 16px; line-height: 1.5; }
-.price-card.featured .price-desc { color: rgba(255,255,255,.6); }
-
-.price-credits-info {
-  display: flex; align-items: center; gap: 7px;
-  font-size: 12px; font-weight: 500; color: var(--ink-60);
-  padding: 8px 12px;
-  background: var(--cream);
-  border: 1px solid var(--ink-25);
-  border-radius: 8px;
-  margin-bottom: 20px;
-  line-height: 1.4;
-}
-.price-credits-info svg { flex-shrink: 0; opacity: .6; }
+.price-extra strong { color: var(--ink); font-weight: 700; }
 
 .price-feats {
-  list-style: none; display: flex; flex-direction: column;
-  gap: 10px; margin-bottom: 28px;
+  list-style: none;
+  display: flex; flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-grow: 1;
 }
 .price-feats li {
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: flex-start; gap: 10px;
   font-size: 14px; color: var(--ink-60);
+  line-height: 1.4;
 }
-.price-card.featured .price-feats li { color: rgba(255,255,255,.75); }
-.price-feats li::before { content: '✓'; color: #4A8A00; font-weight: 700; font-size: 12px; }
-.price-card.featured .price-feats li::before { color: var(--green); }
+.price-feats li::before {
+  content: '✓';
+  color: var(--purple);
+  font-weight: 700;
+  font-size: 12px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.price-feat-highlight {
+  color: var(--ink) !important;
+  font-weight: 600;
+}
+
+.price-faq-link {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--purple);
+  text-decoration: none;
+  margin-bottom: 16px;
+}
+.price-faq-link:hover { text-decoration: underline; }
+.price-faq-link:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
 
 .price-btn {
   display: block; width: 100%; padding: 14px;
@@ -1993,13 +1991,20 @@ div#nav-drawer a {
   font-weight: 700; font-size: 14px;
   text-align: center; text-decoration: none;
   cursor: pointer; border: none; transition: all .3s;
+  margin-top: auto;
+}
+.price-btn:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 2px;
 }
 .price-btn-outline {
-  background: transparent; border: 1.5px solid var(--ink-25); color: var(--ink);
+  background: transparent;
+  border: 1.5px solid var(--ink-25);
+  color: var(--ink);
 }
 .price-btn-outline:hover { border-color: var(--ink); background: var(--cream); }
 .price-btn-purple { background: var(--purple); color: var(--ink); }
-.price-btn-purple:hover { background: #8876F0; box-shadow: 0 8px 24px rgba(154,136,253,.4); }
+.price-btn-purple:hover { background: var(--purple-l); box-shadow: 0 8px 24px rgba(154,136,253,.4); }
 
 .pricing-note {
   text-align: center; font-size: 13px; color: var(--ink-60);
@@ -2007,82 +2012,31 @@ div#nav-drawer a {
 }
 .pricing-note a { color: var(--purple); text-decoration: none; font-weight: 600; }
 .pricing-note a:hover { text-decoration: underline; }
-
-/* Free check-in banner */
-.price-free-banner {
-  display: flex; align-items: center; justify-content: space-between;
-  background: var(--ink); border-radius: 20px;
-  padding: 24px 32px; margin-bottom: 32px;
-  color: var(--white);
-  gap: 32px;
-}
-.price-free-badge {
-  display: inline-block;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700; font-size: 10px;
-  text-transform: uppercase; letter-spacing: 2px;
-  padding: 4px 12px; border-radius: 999px;
-  background: var(--green); color: var(--ink);
-  margin-bottom: 10px;
-}
-.price-free-left h3 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800; font-size: 24px; letter-spacing: -1px;
-  margin-bottom: 8px;
-}
-.price-free-left p {
-  font-size: 14px; color: rgba(255,255,255,.6);
-  max-width: 440px; line-height: 1.6;
-}
-.price-free-right { color: var(--green); opacity: .4; flex-shrink: 0; }
-
-/* Micro-stats dans le free banner */
-.price-free-stats {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  flex-shrink: 0;
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 14px;
-  overflow: hidden;
-  padding: 0;
-}
-.pfs-stat {
-  display: flex; flex-direction: column; align-items: center;
-  padding: 14px 22px; gap: 3px;
-}
-.pfs-num {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800; font-size: 20px;
-  letter-spacing: -1px; line-height: 1;
-  color: var(--green);
-}
-.pfs-lbl {
-  font-size: 10px; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 1px;
-  color: rgba(255,255,255,.35);
-}
-.pfs-div {
-  width: 1px; height: 40px;
-  background: rgba(255,255,255,.07);
-  flex-shrink: 0;
+.pricing-note a:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
-@media(max-width: 1100px) {
-  .pricing-grid           { grid-template-columns: 1fr 1fr; }
-  .pricing-grid-private   { grid-template-columns: repeat(3, 1fr); }
-}
-@media(max-width: 900px) {
-  .pricing-grid-private   { grid-template-columns: 1fr 1fr; }
-}
-@media(max-width: 768px) {
-  .pricing-grid           { grid-template-columns: 1fr; }
-  .pricing-grid-private   { grid-template-columns: 1fr; }
-  .price-free-banner { flex-direction: column; gap: 16px; align-items: flex-start; }
-  .price-free-stats { display: none; }
+@media (max-width: 880px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .pricing-toggle { width: 100%; }
   .ptoggle-btn { flex: 1; justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pricing-toggle-glider,
+  .billing-pill-glider,
+  .price-card,
+  .pricing .reveal {
+    transition: none !important;
+    animation: none !important;
+  }
 }
 
 /* ══ CTA FINAL ══ */
@@ -3832,13 +3786,8 @@ footer {
 
   /* Pricing */
   .pricing-grid           { grid-template-columns: 1fr; }
-  .pricing-grid-private   { grid-template-columns: 1fr; }
   .pricing-toggle   { width: 100%; }
   .ptoggle-btn      { flex: 1; justify-content: center; font-size: 12px; padding: 10px 12px; gap: 5px; }
-  .price-free-stats { display: none; }
-  .price-free-banner { gap: 16px; flex-direction: column; align-items: flex-start; padding: 20px 24px; }
-  .price-free-banner h3 { font-size: 17px !important; }
-  .price-free-banner p  { font-size: 14px; }
   .price-card       { padding: 28px; border-radius: 20px; }
   .price-num        { font-size: 40px; }
 
@@ -5556,29 +5505,28 @@ footer {
 
 <!-- ╔══ PRICING ══╗ -->
 <div id="pricing-pro" style="position:relative;top:-120px;pointer-events:none;visibility:hidden"></div>
+<div id="pricing-particulier" style="position:relative;top:-120px;pointer-events:none;visibility:hidden"></div>
 <section class="pricing" id="pricing">
   <div class="section-wrap">
 
     <div class="section-header reveal" style="text-align:center">
       <div class="section-eyebrow" style="justify-content:center">Pricing</div>
-      <h2 class="section-title">Simple pricing.<br><span class="title-muted-italic">No surprises.</span></h2>
+      <h2 class="section-title" id="pricing-dynamic-title">Pay only for <span class="title-muted-italic">check-outs.</span></h2>
       <p class="section-sub" style="margin:0 auto">All prices in AED. No hidden fees.</p>
     </div>
 
-    <!-- Toggle (segmented + glider; handlers in bundled script + window.* for deep links) -->
-    <div class="pricing-toggle pricing-toggle-seg reveal" id="pricing-audience-track" data-active="pro" role="tablist" aria-label="Pricing audience">
+    <div class="pricing-toggle pricing-toggle-seg reveal" id="pricing-audience-track" data-active="private" role="tablist" aria-label="Pricing audience">
       <span class="pricing-toggle-glider" aria-hidden="true"></span>
-      <button type="button" class="ptoggle-btn active" id="toggle-pro" role="tab" aria-selected="true" aria-controls="panel-pro">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-        Professionals
-      </button>
-      <button type="button" class="ptoggle-btn" id="toggle-private" role="tab" aria-selected="false" aria-controls="panel-private">
+      <button type="button" class="ptoggle-btn active" id="toggle-private" role="tab" aria-selected="true" aria-controls="panel-private">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         Landlords &amp; Tenants
       </button>
+      <button type="button" class="ptoggle-btn" id="toggle-pro" role="tab" aria-selected="false" aria-controls="panel-pro">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        Professionals
+      </button>
     </div>
 
-    <!-- ── Billing toggle — style pill ── -->
     <div class="billing-toggle-wrap" id="billing-toggle-wrap">
       <div class="billing-pill-toggle billing-pill-seg" id="billing-pill-track" data-billing="annual" role="tablist" aria-label="Billing period">
         <span class="billing-pill-glider" aria-hidden="true"></span>
@@ -5592,245 +5540,166 @@ footer {
       </div>
     </div>
 
-    <!-- ── PRO PLANS ── -->
-    <div class="pricing-panel" id="panel-pro">
+    <div class="pricing-panel" id="panel-private">
       <div class="pricing-grid">
 
-        <!-- STARTER -->
+        <div class="price-card reveal">
+          <div class="price-plan">Solo</div>
+          <div class="price-num">49 <span class="price-suffix">AED</span></div>
+          <div class="price-credit-block">
+            <span class="price-credit-count">2 credits</span>
+            <span class="price-credit-rate">24.5 AED / credit</span>
+          </div>
+          <ul class="price-feats">
+            <li>Up to 3 properties</li>
+          </ul>
+          <a href="#faq-checkout-cost" class="price-faq-link">How much is a check-out?</a>
+          <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-outline">
+            Create free account →
+          </a>
+        </div>
+
+        <div class="price-card price-card-popular reveal reveal-delay-1" data-badge="Best Value">
+          <div class="price-plan">Essential</div>
+          <div class="price-num">119 <span class="price-suffix">AED</span></div>
+          <div class="price-credit-block">
+            <span class="price-credit-count">6 credits</span>
+            <span class="price-credit-rate">19.8 AED / credit</span>
+            <span class="price-save-badge">Save 19%</span>
+          </div>
+          <ul class="price-feats">
+            <li>Up to 3 properties</li>
+          </ul>
+          <a href="#faq-checkout-cost" class="price-faq-link">How much is a check-out?</a>
+          <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-purple">
+            Create free account →
+          </a>
+        </div>
+
+        <div class="price-card reveal reveal-delay-2">
+          <div class="price-plan">Professional</div>
+          <div class="price-num">189 <span class="price-suffix">AED</span></div>
+          <div class="price-credit-block">
+            <span class="price-credit-count">12 credits</span>
+            <span class="price-credit-rate">15.8 AED / credit</span>
+            <span class="price-save-badge">Save 36%</span>
+          </div>
+          <ul class="price-feats">
+            <li>Up to 3 properties</li>
+          </ul>
+          <a href="#faq-checkout-cost" class="price-faq-link">How much is a check-out?</a>
+          <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-outline">
+            Create free account →
+          </a>
+        </div>
+
+      </div>
+      <div class="pricing-note reveal">
+        <p>Check-in is free. Credits for check-out only. Valid 2 years.</p>
+        <p>Create your free account on the app. Packs available directly after sign-up.</p>
+      </div>
+    </div>
+
+    <div class="pricing-panel hidden billing-annual" id="panel-pro">
+      <div class="pricing-grid">
+
         <div class="price-card reveal">
           <div class="price-plan">Starter</div>
           <div class="price-num">
             <span class="price-monthly">179 <span class="price-suffix">AED/mo</span></span>
             <span class="price-annual">149 <span class="price-suffix">AED/mo</span></span>
           </div>
-          <div class="price-annual-sub">1,788 AED billed annually · <strong style="color:#3A7A00">Save 17% · 360 AED saved</strong></div>
-          <p class="price-desc">For independent agents doing a handful of inspections each month.</p>
-          <div class="price-stats">
-            <div class="price-stat">
-              <span class="price-stat-val">15</span>
-              <span class="price-stat-lbl">Credits</span>
-              <span class="price-stat-sub"><span class="price-monthly">11.9</span><span class="price-annual">9.9</span> AED / credit</span>
+          <div class="price-annual-sub">1,788 AED billed annually · <strong>Save 360 AED</strong></div>
+          <div class="price-metric-block">
+            <div class="price-metric">
+              <span class="price-metric-val">15</span>
+              <span class="price-metric-lbl">credits/mo</span>
             </div>
-            <div class="price-stat">
-              <span class="price-stat-val">2</span>
-              <span class="price-stat-lbl">Users</span>
+            <div class="price-metric">
+              <span class="price-metric-val">2</span>
+              <span class="price-metric-lbl">users</span>
             </div>
-          </div>
-          <div class="price-overage">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Extra credit: <strong>28 AED each</strong>
           </div>
           <ul class="price-feats">
-            <li>AI photo analysis</li>
+            <li class="price-feat-highlight">Unlimited properties</li>
+            <li>Credit rollover ×1</li>
             <li>White-label branding</li>
-            <li>Digital signatures</li>
-            <li>PDF report generation</li>
+            <li>Shared team credit pool</li>
             <li>Priority support</li>
           </ul>
+          <div class="price-extra">Extra credit: <strong>28 AED each</strong></div>
+          <a href="#faq-credits-pro" class="price-faq-link">How do credits work?</a>
           <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-outline">
             Create free account →
           </a>
         </div>
 
-        <!-- GROWTH -->
-        <div class="price-card featured reveal reveal-delay-1">
+        <div class="price-card price-card-popular reveal reveal-delay-1" data-badge="Most Popular">
           <div class="price-plan">Growth</div>
           <div class="price-num">
             <span class="price-monthly">299 <span class="price-suffix">AED/mo</span></span>
             <span class="price-annual">249 <span class="price-suffix">AED/mo</span></span>
           </div>
-          <div class="price-annual-sub">2,988 AED billed annually · <strong style="color:var(--green)">Save 17% · 600 AED saved</strong></div>
-          <p class="price-desc">For active agents and small agencies managing multiple properties.</p>
-          <div class="price-stats">
-            <div class="price-stat">
-              <span class="price-stat-val">30</span>
-              <span class="price-stat-lbl">Credits</span>
-              <span class="price-stat-sub"><span class="price-monthly">10.0</span><span class="price-annual">8.3</span> AED / credit</span>
+          <div class="price-annual-sub">2,988 AED billed annually · <strong>Save 600 AED</strong></div>
+          <div class="price-metric-block">
+            <div class="price-metric">
+              <span class="price-metric-val">30</span>
+              <span class="price-metric-lbl">credits/mo</span>
             </div>
-            <div class="price-stat">
-              <span class="price-stat-val">5</span>
-              <span class="price-stat-lbl">Users</span>
+            <div class="price-metric">
+              <span class="price-metric-val">5</span>
+              <span class="price-metric-lbl">users</span>
             </div>
-          </div>
-          <div class="price-overage">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Extra credit: <strong>22 AED each</strong>
           </div>
           <ul class="price-feats">
-            <li>AI photo analysis</li>
+            <li class="price-feat-highlight">Unlimited properties</li>
+            <li>Credit rollover ×1.5</li>
             <li>White-label branding</li>
-            <li>Digital signatures</li>
-            <li>PDF report generation</li>
+            <li>Shared team credit pool</li>
             <li>Priority support</li>
           </ul>
-          <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-purple" style="display:flex;align-items:center;justify-content:center;gap:8px">
-            <span>Start free — upgrade in-app</span>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <div class="price-extra">Extra credit: <strong>22 AED each</strong></div>
+          <a href="#faq-credits-pro" class="price-faq-link">How do credits work?</a>
+          <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-purple">
+            Start free, upgrade in-app →
           </a>
         </div>
 
-        <!-- AGENCY -->
         <div class="price-card reveal reveal-delay-2">
           <div class="price-plan">Agency</div>
           <div class="price-num">
             <span class="price-monthly">449 <span class="price-suffix">AED/mo</span></span>
             <span class="price-annual">374 <span class="price-suffix">AED/mo</span></span>
           </div>
-          <div class="price-annual-sub">4,488 AED billed annually · <strong style="color:#3A7A00">Save 17% · 900 AED saved</strong></div>
-          <p class="price-desc">For property management firms running high inspection volumes.</p>
-          <div class="price-stats">
-            <div class="price-stat">
-              <span class="price-stat-val">50</span>
-              <span class="price-stat-lbl">Credits</span>
-              <span class="price-stat-sub"><span class="price-monthly">9.0</span><span class="price-annual">7.5</span> AED / credit</span>
+          <div class="price-annual-sub">4,488 AED billed annually · <strong>Save 900 AED</strong></div>
+          <div class="price-metric-block">
+            <div class="price-metric">
+              <span class="price-metric-val">50</span>
+              <span class="price-metric-lbl">credits/mo</span>
             </div>
-            <div class="price-stat">
-              <span class="price-stat-val">15</span>
-              <span class="price-stat-lbl">Users</span>
+            <div class="price-metric">
+              <span class="price-metric-val">15</span>
+              <span class="price-metric-lbl">users</span>
             </div>
-          </div>
-          <div class="price-overage">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Extra credit: <strong>16 AED each</strong>
           </div>
           <ul class="price-feats">
-            <li>AI photo analysis</li>
+            <li class="price-feat-highlight">Unlimited properties</li>
+            <li>Credit rollover ×2</li>
             <li>White-label branding</li>
-            <li>Digital signatures</li>
-            <li>PDF report generation</li>
+            <li>Shared team credit pool</li>
             <li>Priority support</li>
           </ul>
+          <div class="price-extra">Extra credit: <strong>16 AED each</strong></div>
+          <a href="#faq-credits-pro" class="price-faq-link">How do credits work?</a>
           <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-outline">
             Create free account →
           </a>
         </div>
 
       </div>
-      <div class="pricing-note reveal" style="display:flex;flex-direction:column;align-items:center;gap:6px">
-        <p style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--ink-60)">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Free account to start — choose your plan inside the app. No card required.
-        </p>
-        <p style="font-size:13px;color:var(--ink-60)">Need more than 50 inspections/month? <a href="mailto:hello@snagify.net">Contact us</a> for a custom plan.</p>
-      </div>
-    </div>
-
-    <!-- ── PARTICULIER PLANS ── -->
-    <div id="pricing-particulier" style="position:relative;top:-120px;pointer-events:none;visibility:hidden"></div>
-    <div class="pricing-panel hidden" id="panel-private">
-
-      <!-- Banner check-in gratuit — redesign compact -->
-      <div class="price-free-banner reveal">
-        <!-- Gauche : icône + texte -->
-        <div class="price-free-left">
-          <div style="display:flex;align-items:center;gap:14px;margin-bottom:10px">
-            <div style="width:36px;height:36px;border-radius:10px;background:rgba(202,254,135,.12);border:1px solid rgba(202,254,135,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            </div>
-            <div class="price-free-badge" style="margin:0">Free</div>
-          </div>
-          <h3 style="font-size:20px;margin-bottom:6px">Check-In is included — at no cost</h3>
-          <p style="max-width:400px">Every move-in inspection is free. Forever. No credits consumed, no card needed to start.</p>
-        </div>
-        <!-- Droite : 3 micro-stats -->
-        <div class="price-free-stats">
-          <div class="pfs-stat">
-            <span class="pfs-num">0 AED</span>
-            <span class="pfs-lbl">Per check-in</span>
-          </div>
-          <div class="pfs-div"></div>
-          <div class="pfs-stat">
-            <span class="pfs-num">20 min</span>
-            <span class="pfs-lbl">Avg. duration</span>
-          </div>
-          <div class="pfs-div"></div>
-          <div class="pfs-stat">
-            <span class="pfs-num">∞</span>
-            <span class="pfs-lbl">No limit</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="pricing-grid pricing-grid-private">
-
-        <!-- SOLO -->
-        <div class="price-card reveal">
-          <div class="price-plan">Solo</div>
-          <div class="price-num">49 <span class="price-suffix">AED</span></div>
-          <p class="price-desc">One move-in &amp; move-out inspection. Perfect for a single rental.</p>
-          <div class="price-stats">
-            <div class="price-stat" style="flex:1">
-              <span class="price-stat-val">2</span>
-              <span class="price-stat-lbl">Credits</span>
-              <span class="price-stat-sub" style="color:var(--ink-60)">24.5 AED / credit</span>
-            </div>
-          </div>
-          <ul class="price-feats">
-            <li>AI photo analysis</li>
-            <li>PDF report generation</li>
-            <li>Digital signatures</li>
-            <li>RDC Valid report</li>
-          </ul>
-          <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-outline">
-            Sign up &amp; buy in-app →
-          </a>
-        </div>
-
-        <!-- LANDLORD -->
-        <div class="price-card featured reveal reveal-delay-1">
-          <div class="price-plan">Essential</div>
-          <div class="price-num">119 <span class="price-suffix">AED</span></div>
-          <p class="price-desc">A few properties. Best value for individual landlords.</p>
-          <div class="price-stats">
-            <div class="price-stat" style="flex:1">
-              <span class="price-stat-val">6</span>
-              <span class="price-stat-lbl">Credits</span>
-              <span class="price-stat-sub">19.8 AED / credit</span>
-            </div>
-          </div>
-          <ul class="price-feats">
-            <li>AI photo analysis</li>
-            <li>PDF report generation</li>
-            <li>Digital signatures</li>
-            <li>RDC Valid report</li>
-          </ul>
-          <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-purple" style="display:flex;align-items:center;justify-content:center;gap:8px">
-            <span>Sign up &amp; buy in-app</span>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-
-        <!-- PORTFOLIO -->
-        <div class="price-card reveal reveal-delay-2">
-          <div class="price-plan">Professional</div>
-          <div class="price-num">189 <span class="price-suffix">AED</span></div>
-          <p class="price-desc">Multiple units. Best price per inspection.</p>
-          <div class="price-stats">
-            <div class="price-stat" style="flex:1">
-              <span class="price-stat-val">12</span>
-              <span class="price-stat-lbl">Credits</span>
-              <span class="price-stat-sub" style="color:var(--ink-60)">15.8 AED / credit</span>
-            </div>
-          </div>
-          <ul class="price-feats">
-            <li>AI photo analysis</li>
-            <li>PDF report generation</li>
-            <li>Digital signatures</li>
-            <li>RDC Valid report</li>
-          </ul>
-          <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-outline">
-            Sign up &amp; buy in-app →
-          </a>
-        </div>
-
-      </div>
-
-      <div class="pricing-note reveal" style="display:flex;flex-direction:column;align-items:center;gap:5px">
-        <p style="font-size:13px;color:var(--ink-60)">Check-in is free. Credits for check-out only. Valid 2 years.</p>
-        <p style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--ink-60)">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Create your free account on the app — packs available directly after sign-up.
-        </p>
+      <div class="pricing-note reveal">
+        <p>Free account to start. Choose your plan inside the app. No card required.</p>
+        <p>Need more than 50 inspections/month? <a href="mailto:hello@snagify.net">Contact us</a> for a custom plan.</p>
       </div>
     </div>
 
@@ -5918,7 +5787,7 @@ footer {
             <div class="faq-a"><div class="faq-a-inner"><p>Yes, and most agencies already do. Move-in and move-out fees are standard practice in Dubai property management. Snagify gives you a branded, RDC-valid report that justifies the fee and positions inspection as a premium service. Typical rates range from 150 to 300 AED per inspection. The ROI calculator above shows what this looks like at your volume.</p></div></div>
           </div>
 
-          <div class="faq-item">
+          <div class="faq-item" id="faq-credits-pro">
             <button class="faq-q" type="button">How do credits work on Pro plans? Can my team share them?<span class="faq-icon">+</span></button>
             <div class="faq-a"><div class="faq-a-inner"><p>Each inspection, check-in or check-out, uses 1 credit. Your plan's credits refresh monthly, and unused credits roll over while your subscription is active. All inspectors in your team share one credit pool, so no one runs out while another has extras. Extra credits beyond your plan cost 16 to 28 AED each depending on your tier.</p></div></div>
           </div>
@@ -5975,7 +5844,7 @@ footer {
       <div class="faq-panel" data-panel="start">
         <div class="faq-list">
 
-          <div class="faq-item">
+          <div class="faq-item" id="faq-checkout-cost">
             <button class="faq-q" type="button">Why are check-ins free?<span class="faq-icon">+</span></button>
             <div class="faq-a"><div class="faq-a-inner"><p>An undocumented move-in is the single biggest cause of lost deposits in Dubai. We want every landlord and tenant to have that baseline protection, whether you pay us later or not. You only spend credits when you do a check-out, to prove what the property looked like originally.</p></div></div>
           </div>
@@ -6477,7 +6346,34 @@ function setBilling(mode) {
 
 function showBillingToggle(show) {
   const wrap = document.getElementById('billing-toggle-wrap');
-  if (wrap) wrap.style.display = show ? 'flex' : 'none';
+  if (wrap) wrap.classList.toggle('is-visible', show);
+}
+
+function updatePricingTitle(type) {
+  const title = document.getElementById('pricing-dynamic-title');
+  if (!title) return;
+  if (type === 'private') {
+    title.innerHTML = 'Pay only for <span class="title-muted-italic">check-outs.</span>';
+  } else {
+    title.innerHTML = 'Plans that <span class="title-muted-italic">pay for themselves.</span>';
+  }
+}
+
+function syncPricingGliders() {
+  const audienceTrack = document.getElementById('pricing-audience-track');
+  const billingTrack = document.getElementById('billing-pill-track');
+  if (audienceTrack) {
+    const active = audienceTrack.dataset.active;
+    audienceTrack.dataset.active = '';
+    void audienceTrack.offsetWidth;
+    audienceTrack.dataset.active = active;
+  }
+  if (billingTrack) {
+    const billing = billingTrack.dataset.billing;
+    billingTrack.dataset.billing = '';
+    void billingTrack.offsetWidth;
+    billingTrack.dataset.billing = billing;
+  }
 }
 
 function switchPricing(type) {
@@ -6497,7 +6393,9 @@ function switchPricing(type) {
     togglePrivate.setAttribute('aria-selected', String(type === 'private'));
   }
   if (audienceTrack) audienceTrack.dataset.active = type;
+  updatePricingTitle(type);
   showBillingToggle(type === 'pro');
+  requestAnimationFrame(syncPricingGliders);
 }
 
 function initPricingTabs() {
@@ -6513,9 +6411,10 @@ function initPricingTabs() {
 
 initPricingTabs();
 
-// État initial : pro + annual
-switchPricing('pro');
+switchPricing('private');
 setBilling('annual');
+
+window.addEventListener('resize', syncPricingGliders);
 
 const hash = window.location.hash;
 if (hash === '#pricing-particulier') switchPricing('private');
@@ -6656,6 +6555,60 @@ window.toggleBilling = toggleBilling;
       });
     });
   });
+
+  function activateFaqPersona(persona) {
+    const btn = document.querySelector('.faq-persona-btn[data-persona="' + persona + '"]');
+    if (btn && !btn.classList.contains('active')) btn.click();
+  }
+
+  function activateFaqTab(personaPanel, tabName) {
+    const pp = document.querySelector('.faq-persona-panel[data-persona-panel="' + personaPanel + '"]');
+    if (!pp) return;
+    const tab = pp.querySelector('.faq-tab[data-tab="' + tabName + '"]');
+    if (tab) tab.click();
+  }
+
+  function openFaqFromHash() {
+    const hash = window.location.hash;
+    if (hash !== '#faq-checkout-cost' && hash !== '#faq-credits-pro') return;
+    const item = document.querySelector(hash);
+    if (!item) return;
+
+    if (hash === '#faq-checkout-cost') {
+      activateFaqPersona('landlords');
+      activateFaqTab('landlords', 'start');
+    } else if (hash === '#faq-credits-pro') {
+      activateFaqPersona('pros');
+      activateFaqTab('pros', 'pricing');
+    }
+
+    const panel = item.closest('.faq-panel');
+    if (panel) {
+      const pp = item.closest('.faq-persona-panel');
+      if (pp) {
+        const tabName = panel.dataset.panel;
+        const tab = pp.querySelector('.faq-tab[data-tab="' + tabName + '"]');
+        if (tab && !tab.classList.contains('active')) tab.click();
+      }
+    }
+
+    panel && panel.querySelectorAll('.faq-item.open').forEach(closeItem);
+    openItem(item);
+
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        const rect = item.getBoundingClientRect();
+        const navH = 80;
+        const top = window.scrollY + rect.top - navH - 16;
+        window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+      }, 120);
+    });
+  }
+
+  window.addEventListener('hashchange', openFaqFromHash);
+  if (window.location.hash === '#faq-checkout-cost' || window.location.hash === '#faq-credits-pro') {
+    openFaqFromHash();
+  }
 })();
 </script>
 <script>
