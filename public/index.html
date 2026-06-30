@@ -3000,10 +3000,7 @@ footer {
   .roi-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 @media (max-width: 768px) {
-  .roi { padding: 80px 20px; }
-  .roi h2 { letter-spacing: -1px; }
-  .roi-result { padding: 24px; }
-  .roi-big { letter-spacing: -2px; }
+  .roi { display: none !important; }
 }
 
 /* ══════════════════════════════════
@@ -3780,6 +3777,7 @@ footer {
   nav.scrolled      { padding: 12px 20px; top: 0; left: 0; right: 0; transform: none; width: 100%; border-radius: 0; }
   .nav-links { display: none; }
   .nav-burger { display: flex; }
+  a.mob-link[href="#roi"] { display: none; }
 
   /* Hero */
   .hero             { padding: 92px 20px 56px; min-height: auto; }
