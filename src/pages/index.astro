@@ -146,73 +146,6 @@ nav:not(.scrolled) {
 .nav-links a:hover { color:var(--ink); }
 
 /* ── PWA INSTALL STRIP ── */
-.b-pwa-install {
-  margin-top: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.b-pwa-install-bar {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  background: var(--white);
-  border: 1px solid var(--ink-25);
-  border-radius: 14px;
-  box-shadow: 0 2px 12px rgba(14,14,16,.06);
-}
-.b-pwa-install-icon {
-  width: 36px; height: 36px;
-  background: #9A88FD;
-  border-radius: 9px;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.b-pwa-install-info {
-  display: flex; flex-direction: column; flex: 1;
-  gap: 1px;
-}
-.b-pwa-install-name {
-  font-size: 13px; font-weight: 700;
-  color: var(--ink); font-family: 'Poppins', sans-serif;
-}
-.b-pwa-install-sub {
-  font-size: 11px; color: var(--ink-60);
-}
-.b-pwa-install-btn {
-  padding: 6px 16px;
-  background: #007AFF;
-  color: #fff;
-  border-radius: 999px;
-  font-size: 13px; font-weight: 700;
-  font-family: 'Poppins', sans-serif;
-  flex-shrink: 0;
-}
-.b-pwa-homescreen {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 14px;
-  background: var(--cream-2);
-  border-radius: 12px;
-}
-.b-pwa-hs-icon {
-  width: 36px; height: 36px;
-  border-radius: 9px;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(14,14,16,.12);
-}
-.b-pwa-hs-label {
-  font-size: 10px; font-weight: 700;
-  color: var(--ink-60);
-  font-family: 'Poppins', sans-serif;
-  margin-left: auto;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
 /* ── MOB DRAWER LINKS ── */
 .mob-link {
   font-family: 'Poppins', sans-serif;
@@ -645,6 +578,12 @@ div#nav-drawer a {
 .ic-pin-1 { left: 28%; top: 45%; animation-delay: 1.4s; }
 .ic-pin-2 { left: 62%; top: 62%; animation-delay: 1.7s; }
 @keyframes pinPop { from{opacity:0;transform:scale(0.4)} to{opacity:1;transform:scale(1)} }
+@keyframes aiScan {
+  0%   { top: 10%; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { top: 90%; opacity: 0; }
+}
 
 .ic-pin-dot {
   width: 14px; height: 14px; border-radius: 50%;
@@ -793,452 +732,150 @@ div#nav-drawer a {
 
 /* ══ FEATURES BENTO ══ */
 .features { padding: 80px 0 120px; }
-
 .bento {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 14px;
+  gap: 16px;
 }
-
 /* ── Base card ── */
 .bento-card {
   background: var(--white);
   border-radius: 24px;
   border: 1px solid var(--ink-25);
-  overflow: hidden;
+  padding: 30px;
   position: relative;
-  transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s;
+  overflow: hidden;
+  transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s, border-color .4s;
 }
 .bento-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 56px rgba(14,14,16,.09);
+  box-shadow: 0 20px 44px -20px rgba(14,14,16,.22);
+  border-color: var(--purple-l);
 }
-
-/* ── Grid spans ── */
-.b-ai     { grid-column: span 7; }
-.b-cmp    { grid-column: span 5; }
-.b-pdf    { grid-column: span 5; }
-.b-spd    { grid-column: span 3; }
-.b-rera   { grid-column: span 4; }
-.b-sig    { grid-column: span 6; }
-.b-pwa    { grid-column: span 6; }
-.b-wl     { grid-column: span 7; background: var(--ink); border-color: var(--ink); }
-.b-wl h3,
-.b-wl p,
-.b-wl .bc-eyebrow,
-.b-wl .bc-foot { color: #FCFCFC !important; }
-.b-wl p { color: rgba(255,255,255,.7) !important; }
-.b-team   { grid-column: span 5; background: var(--ink); border-color: var(--ink); }
-.b-team h3,
-.b-team p,
-.b-team .bc-eyebrow,
-.b-team .b-team-pool-lbl,
-.b-team .b-team-pool-num { color: #FCFCFC !important; }
-.b-team p { color: rgba(255,255,255,.7) !important; }
-.b-team .b-team-pool-lbl { color: rgba(255,255,255,.5) !important; }
-.b-lease  { grid-column: span 12; background: var(--ink); border-color: var(--ink); }
-.b-lease h3,
-.b-lease p,
-.b-lease .bc-eyebrow { color: #FCFCFC !important; }
-.b-lease p { color: rgba(255,255,255,.7) !important; }
-
-/* ── Shared text inside cards ── */
-.bc-eyebrow {
-  font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
-  font-weight: 600; color: var(--ink-60); margin-bottom: 10px;
-  display: flex; align-items: center; gap: 6px;
-}
-.bc-pro-badge {
-  font-size: 9px; font-weight: 800; letter-spacing: 1.5px;
-  padding: 3px 9px; border-radius: 999px;
-  background: linear-gradient(135deg, #FEDE80 0%, #FFC940 60%, #FEDE80 100%);
-  background-size: 200% 100%;
-  color: #6B4400;
-  border: 1px solid rgba(255,201,64,.35);
-  box-shadow: 0 2px 8px rgba(254,222,128,.3);
-  animation: proBadgeShimmer 3s ease-in-out infinite;
-}
-@keyframes proBadgeShimmer {
-  0%,100% { background-position: 0% 0%; }
-  50%      { background-position: 100% 0%; }
-}
-/* Toutes les variantes héritent de la règle gold — plus de surcharges */
-.b-wl   .bc-pro-badge,
-.b-team .bc-pro-badge,
-.b-lease .bc-pro-badge { background: linear-gradient(135deg, #FEDE80 0%, #FFC940 60%, #FEDE80 100%); background-size: 200% 100%; color: #6B4400; }
-
 .bento-card h3 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700; font-size: 19px;
-  letter-spacing: -.4px; margin-bottom: 8px; line-height: 1.25;
+  font-family: 'Poppins', sans-serif; font-weight: 600;
+  font-size: 20px; letter-spacing: -.01em; margin-bottom: 8px; color: var(--ink);
 }
-.bento-card p { font-size: 13px; color: var(--ink-60); line-height: 1.7; max-width: 320px; }
-.b-wl   h3, .b-wl   p { color: var(--ink); }
-.b-wl   p  { color: rgba(14,14,16,.6); }
-.b-team h3, .b-team p,
-.b-lease h3, .b-lease p { color: var(--white); }
-.b-team p, .b-lease p { color: rgba(255,255,255,.45); }
+.bento-card p { font-size: 15px; line-height: 1.55; color: var(--ink-60); }
+.bc-eyebrow {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 11px;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--ink-60);
+  margin-bottom: 12px;
+}
+.bc-eyebrow.bc-pro::after {
+  content: "PRO"; background: var(--jasmine-bg); color: #B08900;
+  padding: 2px 7px; border-radius: 6px; font-size: 10px; letter-spacing: .06em;
+}
+.bc-icon {
+  width: 38px; height: 38px; border-radius: 11px;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+}
+.bc-icon svg { width: 19px; height: 19px; }
+.bc-ic-purple  { background: var(--purple-bg); } .bc-ic-purple svg  { stroke: var(--purple); }
+.bc-ic-green   { background: var(--green-bg); }  .bc-ic-green svg   { stroke: #5FA82E; }
+.bc-ic-jasmine { background: var(--jasmine-bg); }.bc-ic-jasmine svg { stroke: #B08900; }
 
-/* ── Shared bento icon ── */
-.bento-icon {
-  width: 44px; height: 44px; border-radius: 12px;
+/* ── Grid spans (hierarchical bento) ── */
+.b-ai   { grid-column: span 7; }
+.b-cmp  { grid-column: span 5; }
+.b-sig  { grid-column: span 4; }
+.b-pdf  { grid-column: span 4; }
+.b-pwa  { grid-column: span 4; }
+.b-wl   { grid-column: span 6; }
+.b-team { grid-column: span 6; }
+
+/* ── Mockup shell ── */
+.bc-mock {
+  margin-top: 18px; border-radius: 14px; height: 140px;
+  background: linear-gradient(160deg, var(--purple-bg), #E4DEFB);
+  border: 1px solid var(--ink-08); position: relative; overflow: hidden;
+}
+.b-ai .bc-mock { height: 170px; }
+.bc-mock-dark { background: linear-gradient(160deg, #1c1928, #141120); border-color: rgba(255,255,255,.06); }
+
+/* AI scan + pins + bars */
+.bcm-scan {
+  position: absolute; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--purple), transparent);
+  box-shadow: 0 0 14px 2px rgba(154,136,253,.55);
+  animation: bcmScan 3.2s ease-in-out infinite;
+}
+@keyframes bcmScan { 0%,100% { top: 12%; } 50% { top: 84%; } }
+.bcm-pin {
+  position: absolute; width: 20px; height: 20px; border-radius: 50%;
+  background: var(--red); color: #fff; font-size: 11px; font-weight: 700;
+  font-family: 'Poppins', sans-serif; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 0 4px rgba(255,82,82,.22); opacity: 0; animation: bcmPop .5s ease forwards;
+}
+@keyframes bcmPop { 0% { transform: scale(0); } 70% { transform: scale(1.2); } 100% { transform: scale(1); opacity: 1; } }
+.bcm-bars { position: absolute; left: 16px; right: 16px; bottom: 16px; display: flex; flex-direction: column; gap: 7px; }
+.bcm-bar { height: 6px; border-radius: 4px; background: rgba(255,255,255,.08); overflow: hidden; }
+.bcm-bar i { display: block; height: 100%; border-radius: 4px; animation: bcmGrow 1.6s cubic-bezier(.16,1,.3,1) both; }
+@keyframes bcmGrow { from { width: 0 !important; } }
+
+/* Compare split */
+.bcm-split { display: flex; gap: 8px; padding: 16px; height: 100%; }
+.bcm-ph {
+  flex: 1; border-radius: 10px; display: flex; align-items: flex-end; padding: 10px;
+  font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 600;
+  letter-spacing: .04em; color: #fff;
+}
+.bcm-ph-in  { background: linear-gradient(135deg, var(--purple-l), var(--purple)); }
+.bcm-ph-out { background: linear-gradient(135deg, #FFC9A8, #FF9A6B); }
+
+/* Signature draw */
+.bcm-sig { position: absolute; inset: 0; margin: auto; width: 70%; height: 60%; }
+.bcm-sig path {
+  stroke: #5FA82E; stroke-width: 2.5; fill: none;
+  stroke-dasharray: 200; stroke-dashoffset: 200; animation: bcmDraw 3s ease forwards infinite;
+}
+@keyframes bcmDraw { 0% { stroke-dashoffset: 200; } 55%,100% { stroke-dashoffset: 0; } }
+
+/* QR */
+.bcm-qr {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 60px; height: 60px; border-radius: 8px; background-color: #fff;
+  background-image:
+    repeating-linear-gradient(0deg, var(--ink) 0 3px, transparent 3px 6px),
+    repeating-linear-gradient(90deg, var(--ink) 0 3px, transparent 3px 6px);
+}
+
+/* Phone */
+.bcm-phone {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 64px; height: 104px; border-radius: 13px; background: var(--white);
+  border: 3px solid var(--ink-25); display: flex; flex-direction: column; gap: 5px; padding: 12px 9px;
+}
+.bcm-phone i { height: 9px; border-radius: 3px; background: var(--ink-08); display: block; }
+.bcm-phone i:first-child { background: var(--purple); width: 62%; }
+
+/* White-label preview */
+.bcm-wl { padding: 18px; }
+.bcm-wl-logo { width: 42px; height: 13px; border-radius: 4px; background: var(--jasmine); margin-bottom: 10px; }
+.bcm-wl-line { height: 7px; border-radius: 4px; background: var(--ink-08); margin-bottom: 7px; }
+
+/* Avatars */
+.bcm-avatars { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); display: flex; }
+.bcm-av {
+  width: 36px; height: 36px; border-radius: 50%; margin-left: -8px;
   display: flex; align-items: center; justify-content: center;
-  margin-bottom: 16px; flex-shrink: 0;
-}
-.bento-icon svg { width: 20px; height: 20px; }
-.bi-p { background: var(--purple-bg); color: var(--purple); }
-.bi-g { background: var(--green-bg);  color: #3A7A00; }
-.bi-j { background: var(--jasmine-bg); color: #7A5A00; }
-.bi-k { background: rgba(14,14,16,.08); color: var(--ink); }
-.bi-w { background: rgba(255,255,255,.12); color: rgba(255,255,255,.7); }
-
-/* ══ B-AI : grand format avec mini UI animée ══ */
-.b-ai-layout {
-  display: grid;
-  grid-template-columns: 1fr 200px;
-  gap: 0;
-  min-height: 320px;
-}
-.b-ai-content {
-  padding: 32px 28px 32px 32px;
-  display: flex; flex-direction: column; justify-content: space-between;
-}
-.b-ai-visual {
-  background: linear-gradient(145deg, #EDE9FE 0%, #F3F0FF 40%, #EEFAD5 100%);
-  border-left: 1px solid var(--ink-25);
-  position: relative;
-  overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
-  padding: 20px 16px;
-}
-/* Scanning line animation */
-.b-ai-scan {
-  position: absolute;
-  left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(154,136,253,.6), transparent);
-  animation: aiScan 2.5s ease-in-out infinite;
-  z-index: 2;
-}
-@keyframes aiScan {
-  0%   { top: 10%; opacity: 0; }
-  10%  { opacity: 1; }
-  90%  { opacity: 1; }
-  100% { top: 90%; opacity: 0; }
-}
-/* Damage pin inside the visual */
-.b-ai-pin {
-  position: absolute;
-  display: flex; align-items: center; gap: 5px;
-  animation: pinPop .4s cubic-bezier(.34,1.56,.64,1) forwards;
-  opacity: 0;
-}
-.b-ai-pin:nth-child(2) { top: 30%; left: 20%; animation-delay: .8s; }
-.b-ai-pin:nth-child(3) { top: 60%; left: 45%; animation-delay: 1.4s; }
-.b-ai-pin-dot {
-  width: 12px; height: 12px; border-radius: 50%;
-  background: rgba(255,82,82,.9); border: 2px solid white;
-  box-shadow: 0 2px 8px rgba(255,82,82,.4); flex-shrink: 0;
-}
-.b-ai-pin-lbl {
-  background: rgba(14,14,16,.72); backdrop-filter: blur(6px);
-  color: white; font-size: 9px; font-weight: 600;
-  padding: 3px 7px; border-radius: 5px; white-space: nowrap;
-}
-/* Room condition bars */
-.b-ai-rooms {
-  width: 100%;
-  display: flex; flex-direction: column; gap: 7px;
-}
-.b-ai-room-row {
-  display: flex; align-items: center; gap: 8px;
-}
-.b-ai-room-lbl { font-size: 9px; font-weight: 600; color: var(--ink-60); width: 52px; flex-shrink: 0; }
-.b-ai-room-bar {
-  flex: 1; height: 5px; background: var(--ink-25); border-radius: 9px; overflow: hidden;
-}
-.b-ai-room-fill { height: 100%; border-radius: 9px; }
-.b-ai-badge {
-  display: inline-flex; align-items: center; gap: 5px;
-  padding: 4px 9px; border-radius: 999px;
-  font-size: 9px; font-weight: 700;
-}
-.badge-good { background: var(--green-bg); color: #3A7A00; }
-.badge-fair { background: var(--jasmine-bg); color: #7A5A00; }
-
-/* ══ B-CMP : check-in vs check-out split ══ */
-.b-cmp-layout { padding: 28px; height: 100%; }
-.b-cmp-split {
-  display: grid; grid-template-columns: 1fr 1px 1fr;
-  gap: 0; margin-top: 16px;
-  border: 1px solid var(--ink-25); border-radius: 16px; overflow: hidden;
-}
-.b-cmp-col { padding: 14px 12px; }
-.b-cmp-col:last-child { background: var(--cream); }
-.b-cmp-col-label {
-  font-size: 9px; text-transform: uppercase; letter-spacing: 2px;
-  font-weight: 700; margin-bottom: 10px;
-  display: flex; align-items: center; gap: 5px;
-}
-.lbl-in  { color: var(--purple); }
-.lbl-out { color: #3A7A00; }
-.b-cmp-divider { background: var(--ink-25); width: 1px; }
-.b-cmp-photo {
-  height: 52px; border-radius: 9px; margin-bottom: 7px;
-  position: relative; overflow: hidden;
-}
-.b-cmp-photo-in  { background: linear-gradient(135deg, rgba(154,136,253,.15), rgba(202,254,135,.1)); }
-.b-cmp-photo-out { background: linear-gradient(135deg, rgba(202,254,135,.2), rgba(154,136,253,.08)); }
-.b-cmp-tag {
-  display: inline-flex; align-items: center; gap: 4px;
-  font-size: 9px; font-weight: 700; padding: 3px 7px;
-  border-radius: 999px;
-}
-.tag-neutral { background: var(--purple-bg); color: var(--purple); }
-.tag-match   { background: var(--green-bg);  color: #3A7A00; }
-.tag-diff    { background: #FEE2E2; color: var(--red); }
-
-/* ══ B-PDF : document avec QR ══ */
-.b-pdf-layout { padding: 28px; }
-.b-pdf-doc {
-  margin-top: 16px;
-  border: 1px solid var(--ink-25); border-radius: 14px;
-  overflow: hidden; background: var(--cream);
-}
-.b-pdf-doc-top {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 10px 14px;
-  background: var(--white);
-  border-bottom: 2px solid var(--purple);
-}
-.b-pdf-doc-brand { display: flex; align-items: center; gap: 8px; }
-.b-pdf-logo { width: 22px; height: 22px; border-radius: 5px; background: var(--purple-bg); flex-shrink: 0; }
-.b-pdf-lines { display: flex; flex-direction: column; gap: 3px; }
-.b-pdf-line { height: 4px; background: var(--ink-25); border-radius: 3px; }
-.b-pdf-qr {
-  width: 48px; height: 48px;
-  background: var(--ink); border-radius: 6px;
-  display: grid; grid-template-columns: repeat(6,1fr); gap: 1.5px;
-  padding: 5px; flex-shrink: 0;
-}
-.b-pdf-qr-cell { background: rgba(255,255,255,.6); border-radius: 1px; }
-.b-pdf-qr-cell.qr-on { background: white; }
-.b-pdf-doc-body { padding: 10px 14px; }
-.b-pdf-hash {
-  font-size: 9px; font-family: monospace;
-  color: var(--ink-60); letter-spacing: .5px;
-  word-break: break-all; line-height: 1.5;
-}
-
-/* ══ B-SPD & B-RERA : stat compactes ══ */
-.b-stat-layout { padding: 28px 24px; }
-.b-stat-num {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800; line-height: .9;
-  letter-spacing: -4px;
-  font-size: clamp(52px, 4.5vw, 72px);
-  margin: 12px 0 8px;
-}
-.b-stat-sub { font-size: 12px; color: var(--ink-60); line-height: 1.4; }
-
-/* ══ B-SIG : signature animée ══ */
-.b-sig-layout { padding: 28px; }
-.b-sig-canvas {
-  margin-top: 18px;
-  background: var(--cream); border-radius: 16px;
-  padding: 20px; border: 1px solid var(--ink-25);
-  position: relative; overflow: hidden;
-}
-.b-sig-label {
-  font-size: 9px; text-transform: uppercase;
-  letter-spacing: 2px; color: var(--ink-60);
-  font-weight: 600; margin-bottom: 12px;
-}
-/* Animated signature path */
-.b-sig-svg { width: 100%; height: 56px; overflow: visible; }
-.b-sig-path {
-  stroke-dasharray: 900;
-  stroke-dashoffset: 900;
-  filter: url(#ink-filter);
-  transition: none;
-}
-.b-sig-path.sig-animate {
-  animation: drawSig 2.6s cubic-bezier(.4,0,.2,1) forwards;
-}
-@keyframes drawSig {
-  to { stroke-dashoffset: 0; }
-}
-.b-sig-confirmed {
-  display: flex; align-items: center; gap: 8px;
-  margin-top: 12px; font-size: 11px; font-weight: 600; color: #3A7A00;
-  opacity: 0; animation: fadeIn .5s ease forwards 3s;
-}
-.b-sig-check-icon {
-  width: 18px; height: 18px; border-radius: 50%;
-  background: var(--green-bg); border: 1px solid rgba(202,254,135,.4);
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-}
-
-/* ══ B-PWA : mobile-first ══ */
-.b-pwa-layout {
-  padding: 28px;
-  display: flex; align-items: center; gap: 28px;
-}
-.b-pwa-phone {
-  width: 80px; flex-shrink: 0;
-  background: var(--ink);
-  border-radius: 20px;
-  border: 2px solid rgba(255,255,255,.15);
-  padding: 8px 6px;
-  box-shadow: 0 12px 32px rgba(14,14,16,.2);
-  position: relative;
-}
-.b-pwa-notch {
-  width: 28px; height: 8px;
-  background: rgba(255,255,255,.1);
-  border-radius: 0 0 6px 6px;
-  margin: 0 auto 6px;
-}
-.b-pwa-screen-row {
-  height: 7px; background: rgba(255,255,255,.07);
-  border-radius: 4px; margin-bottom: 4px;
-}
-.b-pwa-screen-row.accent { background: rgba(154,136,253,.3); width: 60%; }
-.b-pwa-offline {
-  position: absolute; bottom: -8px; right: -8px;
-  background: var(--green); border-radius: 999px;
-  padding: 3px 7px; font-size: 8px; font-weight: 800;
-  color: var(--ink); white-space: nowrap;
+  font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 12px; color: #fff;
   border: 2px solid var(--white);
 }
-.b-pwa-text { flex: 1; }
-.b-pwa-pills { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px; }
-.b-pwa-pill {
-  font-size: 10px; font-weight: 600; padding: 3px 9px;
-  border-radius: 999px; background: var(--cream);
-  border: 1px solid var(--ink-25); color: var(--ink-60);
+.bcm-av:first-child { margin-left: 0; }
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .b-ai, .b-wl, .b-team { grid-column: span 12; }
+  .b-cmp, .b-sig, .b-pdf, .b-pwa { grid-column: span 6; }
+}
+@media (max-width: 768px) {
+  .bento { gap: 12px; }
+  .b-ai, .b-cmp, .b-sig, .b-pdf, .b-pwa, .b-wl, .b-team { grid-column: span 12; }
+  .bento-card { padding: 24px; }
 }
 
-/* ══ B-WL : white-label PRO — MOMENT FORT jasmine ══ */
-.b-wl-layout { display: grid; grid-template-columns: 1fr 1fr; min-height: 280px; }
-.b-wl-content { padding: 32px 28px; display: flex; flex-direction: column; justify-content: space-between; }
-.b-wl-preview {
-  background: white;
-  border-left: 1px solid rgba(14,14,16,.12);
-  padding: 20px 18px;
-  display: flex; flex-direction: column; gap: 10px;
-}
-/* Branded report header mockup */
-.b-wl-report-header {
-  display: flex; align-items: center; justify-content: space-between;
-  padding-bottom: 10px;
-  border-bottom: 3px solid #FF6B35;
-}
-.b-wl-agency-logo { display: flex; align-items: center; gap: 8px; }
-.b-wl-logo-box {
-  width: 28px; height: 28px; border-radius: 6px;
-  background: linear-gradient(135deg, #FF6B35, #FF8C5A);
-}
-.b-wl-agency-name {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800; font-size: 11px;
-  letter-spacing: -.3px; color: var(--ink);
-}
-.b-wl-agency-sub { font-size: 8px; color: var(--ink-60); }
-.b-wl-report-type {
-  font-size: 8px; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 2px;
-  color: #FF6B35;
-}
-/* Property info rows */
-.b-wl-row { height: 5px; background: var(--ink-25); border-radius: 3px; }
-.b-wl-row.w80 { width: 80%; }
-.b-wl-row.w55 { width: 55%; }
-/* Room grid in preview */
-.b-wl-rooms { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
-.b-wl-room-card { height: 32px; border-radius: 6px; background: var(--cream); border: 1px solid var(--ink-25); }
-/* Signature zone */
-.b-wl-sig-row { display: flex; gap: 8px; margin-top: 4px; }
-.b-wl-sig-block { flex: 1; }
-.b-wl-sig-line { height: 1px; background: var(--ink-25); margin-bottom: 3px; }
-.b-wl-sig-lbl { font-size: 7px; color: var(--ink-60); text-transform: uppercase; letter-spacing: 1px; }
-
-/* ══ B-TEAM : team PRO dark ══ */
-.b-team-layout { padding: 28px; }
-.b-team-avatars {
-  display: flex; align-items: center;
-  margin: 16px 0 12px;
-}
-.b-team-av {
-  width: 36px; height: 36px; border-radius: 50%;
-  border: 2px solid var(--ink);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 11px; font-weight: 700;
-  margin-left: -8px; flex-shrink: 0;
-}
-.b-team-av:first-child { margin-left: 0; }
-.b-team-av-more {
-  background: rgba(255,255,255,.08);
-  border: 2px dashed rgba(255,255,255,.2);
-  color: rgba(255,255,255,.4);
-  font-size: 10px;
-}
-.b-team-pool { margin-top: 14px; }
-.b-team-pool-label { display: flex; align-items: center; justify-content: space-between; font-size: 11px; margin-bottom: 6px; }
-.b-team-pool-lbl { color: rgba(255,255,255,.35); }
-.b-team-pool-num { color: var(--purple); font-weight: 700; }
-.b-team-pool-bar { height: 5px; background: rgba(255,255,255,.08); border-radius: 9px; overflow: hidden; }
-.b-team-pool-fill { height: 100%; width: 62%; background: linear-gradient(90deg, var(--purple), var(--purple-l)); border-radius: 9px; }
-
-/* ══ B-LEASE : wide PRO dark avec timeline ══ */
-.b-lease-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  padding: 36px 40px;
-  gap: 48px;
-}
-.b-lease-timeline { position: relative; padding: 20px 0; }
-/* Base line */
-.b-lease-line { position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: rgba(255,255,255,.08); transform: translateY(-50%); }
-/* Progress */
-.b-lease-progress { position: absolute; top: 50%; left: 0; width: 72%; height: 2px; background: linear-gradient(90deg, var(--purple), rgba(154,136,253,.3)); transform: translateY(-50%); }
-/* Markers */
-.b-lease-markers { display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 2; }
-.b-lease-marker { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-.b-lease-dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,.15); border: 2px solid rgba(255,255,255,.2); }
-.b-lease-dot.active { background: var(--purple); border-color: var(--purple); box-shadow: 0 0 12px rgba(154,136,253,.5); }
-.b-lease-dot.warn { background: var(--jasmine); border-color: var(--jasmine); box-shadow: 0 0 12px rgba(254,222,128,.4); animation: eyePulse 1.5s infinite; }
-.b-lease-marker-lbl { font-size: 9px; font-weight: 600; text-align: center; white-space: nowrap; }
-.b-lease-marker-lbl .sublbl { display: block; font-size: 8px; color: rgba(255,255,255,.3); margin-top: 1px; }
-.b-lease-marker.today .b-lease-marker-lbl { color: var(--purple); }
-.b-lease-marker.warn .b-lease-marker-lbl { color: var(--jasmine); }
-.b-lease-marker.start .b-lease-marker-lbl,
-.b-lease-marker.end .b-lease-marker-lbl { color: rgba(255,255,255,.35); }
-/* J-100 callout */
-.b-lease-callout { position: absolute; top: -44px; left: 72%; transform: translateX(-50%); background: var(--jasmine); border-radius: 8px; padding: 5px 10px; font-size: 10px; font-weight: 800; color: var(--ink); white-space: nowrap; }
-.b-lease-callout::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-top-color: var(--jasmine); }
-
-@media(max-width: 1100px) {
-  .b-ai     { grid-column: span 12; }
-  .b-cmp    { grid-column: span 12; }
-  .b-pdf, .b-spd, .b-rera { grid-column: span 4; }
-  .b-sig, .b-pwa { grid-column: span 6; }
-  .b-wl     { grid-column: span 12; }
-  .b-team   { grid-column: span 6; }
-  .b-lease  { grid-column: span 6; }
-  .b-ai-layout { grid-template-columns: 1fr; }
-  .b-ai-visual { display: none; }
-  .b-wl-layout { grid-template-columns: 1fr; }
-  .b-wl-preview { display: none; }
-  .b-lease-layout { grid-template-columns: 1fr; gap: 32px; }
-}
-@media(max-width: 768px) {
-  .b-pdf, .b-spd, .b-rera { grid-column: span 12; }
-  .b-sig, .b-pwa { grid-column: span 12; }
-  .b-team, .b-lease { grid-column: span 12; }
-  .b-lease-timeline { display: none; }
-}
 
 /* ══ TITLE VARIANTS — remplacements em purple ══ */
 
@@ -3727,23 +3364,7 @@ footer {
   .hiw-grid         { grid-template-columns: 1fr 1fr; gap: 20px; }
   .hiw-connector    { display: none; }
 
-  /* Bento */
-  .bento            { grid-template-columns: repeat(12, 1fr); }
-  .b-ai             { grid-column: span 12; }
-  .b-cmp            { grid-column: span 12; }
-  .b-pdf            { grid-column: span 5; }
-  .b-spd            { grid-column: span 3; }
-  .b-rera           { grid-column: span 4; }
-  .b-sig            { grid-column: span 6; }
-  .b-pwa            { grid-column: span 6; }
-  .b-wl             { grid-column: span 12; }
-  .b-team           { grid-column: span 6; }
-  .b-lease          { grid-column: span 6; }
-  .b-ai-layout      { grid-template-columns: 1fr; min-height: auto; }
-  .b-ai-visual      { display: none; }
-  .b-wl-layout      { grid-template-columns: 1fr; }
-  .b-wl-preview     { display: none; }
-  .b-lease-layout   { grid-template-columns: 1fr; gap: 32px; }
+  /* Bento — spans handled in FEATURES BENTO block */
 
   /* Testimonials */
   .testi-grid       { grid-template-columns: 1fr 1fr; }
@@ -3845,26 +3466,6 @@ footer {
   .hiw-step         { padding: 0; }
 
   /* Bento */
-  .bento            { grid-template-columns: 1fr; gap: 12px; }
-  .b-ai, .b-cmp, .b-pdf, .b-spd, .b-rera,
-  .b-sig, .b-pwa, .b-wl, .b-team, .b-lease { grid-column: span 12; }
-  .b-ai-layout      { grid-template-columns: 1fr; min-height: auto; }
-  .b-ai-visual      { display: none; }
-  .b-ai-content     { padding: 24px; }
-  .b-cmp-layout     { padding: 24px; }
-  .b-cmp-split      { display: none; }
-  .b-pdf-layout     { padding: 24px; }
-  .b-pdf-doc        { display: none; }
-  .b-stat-layout    { padding: 24px; }
-  .b-stat-num       { font-size: clamp(44px, 11vw, 64px); letter-spacing: -3px; }
-  .b-sig-layout     { padding: 24px; }
-  .b-pwa-layout     { padding: 24px; flex-wrap: wrap; gap: 20px; }
-  .b-wl-layout      { grid-template-columns: 1fr; }
-  .b-wl-content     { padding: 24px; }
-  .b-wl-preview     { display: none; }
-  .b-team-layout    { padding: 24px; }
-  .b-lease-layout   { grid-template-columns: 1fr; gap: 20px; padding: 28px 24px; }
-  .b-lease-timeline { display: none; }
   .bento-card       { border-radius: 20px; }
 
   /* Testimonials */
@@ -5133,372 +4734,110 @@ footer {
       <h2 class="section-title">Everything you need.<br>Nothing you don't.</h2>
       <p class="section-sub">A complete inspection toolkit built for Dubai's rental market, from first photo to signed PDF.</p>
     </div>
-
     <div class="bento">
 
-      <!-- ══ AI — MOMENT FORT ══ -->
+      <!-- ══ AI — hero ══ -->
       <div class="bento-card b-ai reveal">
-        <div class="b-ai-layout">
-          <div class="b-ai-content">
-            <div>
-              <div class="bento-icon bi-p">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <!-- Cerveau gauche -->
-                  <path d="M9.5 4.5C7.5 4.5 6 6 6 8c0 .8.2 1.5.6 2.1C5.6 10.6 5 11.7 5 13c0 1.5.8 2.8 2 3.5-.1.3-.1.7-.1 1 0 1.4 1.1 2.5 2.5 2.5.4 0 .8-.1 1.1-.3"/>
-                  <!-- Cerveau droit -->
-                  <path d="M14.5 4.5c2 0 3.5 1.5 3.5 3.5 0 .8-.2 1.5-.6 2.1.9.5 1.6 1.6 1.6 2.9 0 1.5-.8 2.8-2 3.5.1.3.1.7.1 1 0 1.4-1.1 2.5-2.5 2.5-.4 0-.8-.1-1.1-.3"/>
-                  <!-- Sillon central -->
-                  <path d="M12 4v16"/>
-                  <!-- Sillons gauche -->
-                  <path d="M9 8.5c-.8.3-1.5 1-1.5 2"/>
-                  <path d="M8 13.5c-.5.4-.8 1-.8 1.6"/>
-                  <!-- Sillons droit -->
-                  <path d="M15 8.5c.8.3 1.5 1 1.5 2"/>
-                  <path d="M16 13.5c.5.4.8 1 .8 1.6"/>
-                </svg>
-              </div>
-              <div class="bc-eyebrow">Core Feature</div>
-              <h3>AI-Powered Photo Analysis</h3>
-              <p>Photograph any room and let Claude AI detect scratches, stains, paint wear, and damage — automatically tagged and described before you leave the property.</p>
-            </div>
-            <div class="b-ai-rooms">
-              <div class="b-ai-room-row">
-                <span class="b-ai-room-lbl">Living Rm</span>
-                <div class="b-ai-room-bar"><div class="b-ai-room-fill" style="width:88%;background:var(--green)"></div></div>
-                <span class="b-ai-badge badge-good">Good</span>
-              </div>
-              <div class="b-ai-room-row">
-                <span class="b-ai-room-lbl">Kitchen</span>
-                <div class="b-ai-room-bar"><div class="b-ai-room-fill" style="width:55%;background:var(--jasmine)"></div></div>
-                <span class="b-ai-badge badge-fair">Fair</span>
-              </div>
-              <div class="b-ai-room-row">
-                <span class="b-ai-room-lbl">Bedroom</span>
-                <div class="b-ai-room-bar"><div class="b-ai-room-fill" style="width:92%;background:var(--green)"></div></div>
-                <span class="b-ai-badge badge-good">Good</span>
-              </div>
-            </div>
-          </div>
-          <div class="b-ai-visual">
-            <div class="b-ai-scan"></div>
-            <div class="b-ai-pin">
-              <div class="b-ai-pin-dot"></div>
-              <div class="b-ai-pin-lbl">Wall scratch</div>
-            </div>
-            <div class="b-ai-pin">
-              <div class="b-ai-pin-dot"></div>
-              <div class="b-ai-pin-lbl">Paint wear</div>
-            </div>
+        <div class="bc-icon bc-ic-purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/></svg>
+        </div>
+        <div class="bc-eyebrow">Core feature</div>
+        <h3>AI-powered photo analysis</h3>
+        <p>Photograph any room and let Claude AI detect scratches, stains, paint wear and damage — automatically, in seconds. No manual note-taking.</p>
+        <div class="bc-mock bc-mock-dark">
+          <div class="bcm-scan"></div>
+          <div class="bcm-pin" style="top:24%;left:20%">!</div>
+          <div class="bcm-pin" style="top:52%;left:66%;animation-delay:.6s">!</div>
+          <div class="bcm-bars">
+            <div class="bcm-bar"><i style="width:82%;background:var(--green)"></i></div>
+            <div class="bcm-bar"><i style="width:54%;background:var(--jasmine)"></i></div>
+            <div class="bcm-bar"><i style="width:38%;background:var(--red)"></i></div>
           </div>
         </div>
       </div>
 
       <!-- ══ COMPARE ══ -->
       <div class="bento-card b-cmp reveal reveal-delay-1">
-        <div class="b-cmp-layout">
-          <div class="bc-eyebrow">Check-in vs Check-out</div>
-          <h3>Room-by-room comparison</h3>
-          <p>Move-out photos stack next to move-in shots. New damage surfaces automatically.</p>
-          <div class="b-cmp-split">
-            <div class="b-cmp-col">
-              <div class="b-cmp-col-label lbl-in">
-                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-                Move-in
-              </div>
-              <div class="b-cmp-photo b-cmp-photo-in"></div>
-              <span class="b-cmp-tag tag-neutral">No damage</span>
-            </div>
-            <div class="b-cmp-divider"></div>
-            <div class="b-cmp-col">
-              <div class="b-cmp-col-label lbl-out">
-                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/></svg>
-                Move-out
-              </div>
-              <div class="b-cmp-photo b-cmp-photo-out"></div>
-              <span class="b-cmp-tag tag-diff">Scratch detected</span>
-            </div>
+        <div class="bc-icon bc-ic-purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3"/><path d="M16 3h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3"/><path d="M12 3v18"/></svg>
+        </div>
+        <div class="bc-eyebrow">Comparison</div>
+        <h3>Check-in vs check-out</h3>
+        <p>Move-out photos stack next to move-in shots. New damage surfaces automatically.</p>
+        <div class="bc-mock">
+          <div class="bcm-split">
+            <div class="bcm-ph bcm-ph-in">Move-in</div>
+            <div class="bcm-ph bcm-ph-out">Move-out</div>
           </div>
-        </div>
-      </div>
-
-      <!-- ══ PDF ══ -->
-      <div class="bento-card b-pdf reveal">
-        <div class="b-pdf-layout">
-          <div class="bc-eyebrow">Output</div>
-          <h3>SHA-256 verified PDF</h3>
-          <p>One tap — a tamper-proof report with QR code and digital fingerprint, ready to email or submit to court.</p>
-          <div class="b-pdf-doc">
-            <div class="b-pdf-doc-top">
-              <div class="b-pdf-doc-brand">
-                <div class="b-pdf-logo"></div>
-                <div class="b-pdf-lines">
-                  <div class="b-pdf-line" style="width:64px"></div>
-                  <div class="b-pdf-line" style="width:40px;margin-top:3px"></div>
-                </div>
-              </div>
-              <!-- QR code SVG réaliste avec logo centré -->
-              <svg width="58" height="58" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
-                <rect width="110" height="110" fill="#0E0E10" rx="6"/>
-                <rect x="6" y="6" width="28" height="28" rx="3" fill="white"/>
-                <rect x="10" y="10" width="20" height="20" rx="2" fill="#0E0E10"/>
-                <rect x="14" y="14" width="12" height="12" rx="1" fill="white"/>
-                <rect x="76" y="6" width="28" height="28" rx="3" fill="white"/>
-                <rect x="80" y="10" width="20" height="20" rx="2" fill="#0E0E10"/>
-                <rect x="84" y="14" width="12" height="12" rx="1" fill="white"/>
-                <rect x="6" y="76" width="28" height="28" rx="3" fill="white"/>
-                <rect x="10" y="80" width="20" height="20" rx="2" fill="#0E0E10"/>
-                <rect x="14" y="84" width="12" height="12" rx="1" fill="white"/>
-                <rect x="40" y="6" width="4" height="4" fill="white"/><rect x="48" y="6" width="4" height="4" fill="white"/><rect x="56" y="6" width="4" height="4" fill="white"/><rect x="64" y="6" width="4" height="4" fill="white"/>
-                <rect x="40" y="14" width="4" height="4" fill="white"/><rect x="52" y="14" width="4" height="4" fill="white"/><rect x="60" y="14" width="4" height="4" fill="white"/>
-                <rect x="44" y="22" width="4" height="4" fill="white"/><rect x="56" y="22" width="4" height="4" fill="white"/><rect x="64" y="22" width="4" height="4" fill="white"/>
-                <rect x="6" y="40" width="4" height="4" fill="white"/><rect x="6" y="48" width="4" height="4" fill="white"/><rect x="6" y="56" width="4" height="4" fill="white"/><rect x="6" y="64" width="4" height="4" fill="white"/>
-                <rect x="14" y="44" width="4" height="4" fill="white"/><rect x="14" y="52" width="4" height="4" fill="white"/><rect x="14" y="60" width="4" height="4" fill="white"/>
-                <rect x="22" y="40" width="4" height="4" fill="white"/><rect x="22" y="56" width="4" height="4" fill="white"/><rect x="22" y="64" width="4" height="4" fill="white"/>
-                <rect x="40" y="40" width="4" height="4" fill="white"/><rect x="64" y="40" width="4" height="4" fill="white"/>
-                <rect x="48" y="44" width="4" height="4" fill="white"/><rect x="60" y="44" width="4" height="4" fill="white"/>
-                <rect x="40" y="64" width="4" height="4" fill="white"/><rect x="48" y="64" width="4" height="4" fill="white"/><rect x="64" y="64" width="4" height="4" fill="white"/>
-                <rect x="44" y="68" width="4" height="4" fill="white"/><rect x="60" y="68" width="4" height="4" fill="white"/>
-                <rect x="76" y="40" width="4" height="4" fill="white"/><rect x="84" y="40" width="4" height="4" fill="white"/><rect x="100" y="40" width="4" height="4" fill="white"/>
-                <rect x="80" y="48" width="4" height="4" fill="white"/><rect x="92" y="48" width="4" height="4" fill="white"/>
-                <rect x="76" y="56" width="4" height="4" fill="white"/><rect x="88" y="56" width="4" height="4" fill="white"/><rect x="100" y="56" width="4" height="4" fill="white"/>
-                <rect x="84" y="64" width="4" height="4" fill="white"/><rect x="96" y="64" width="4" height="4" fill="white"/>
-                <rect x="40" y="76" width="4" height="4" fill="white"/><rect x="52" y="76" width="4" height="4" fill="white"/><rect x="64" y="76" width="4" height="4" fill="white"/>
-                <rect x="44" y="84" width="4" height="4" fill="white"/><rect x="56" y="84" width="4" height="4" fill="white"/><rect x="68" y="84" width="4" height="4" fill="white"/>
-                <rect x="40" y="92" width="4" height="4" fill="white"/><rect x="48" y="92" width="4" height="4" fill="white"/><rect x="60" y="92" width="4" height="4" fill="white"/>
-                <rect x="44" y="100" width="4" height="4" fill="white"/><rect x="56" y="100" width="4" height="4" fill="white"/><rect x="64" y="100" width="4" height="4" fill="white"/>
-                <rect x="76" y="76" width="4" height="4" fill="white"/><rect x="88" y="76" width="4" height="4" fill="white"/><rect x="100" y="76" width="4" height="4" fill="white"/>
-                <rect x="80" y="84" width="4" height="4" fill="white"/><rect x="96" y="84" width="4" height="4" fill="white"/>
-                <rect x="76" y="92" width="4" height="4" fill="white"/><rect x="84" y="92" width="4" height="4" fill="white"/><rect x="100" y="92" width="4" height="4" fill="white"/>
-                <rect x="88" y="100" width="4" height="4" fill="white"/><rect x="100" y="100" width="4" height="4" fill="white"/>
-                <rect x="36" y="36" width="38" height="38" rx="7" fill="#0E0E10"/>
-                <rect x="37" y="37" width="36" height="36" rx="6" fill="#1A1A22"/>
-                <g transform="translate(42,42) scale(0.037)">
-                  <path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z" fill="#9A88FD"/>
-                  <path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z" fill="#9A88FD"/>
-                </g>
-              </svg>
-            </div>
-            <div class="b-pdf-doc-body">
-              <div class="b-pdf-hash">SHA-256: a4f2c8e1b903d7…</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ══ STAT speed ══ -->
-      <div class="bento-card b-spd reveal reveal-delay-1">
-        <div class="b-stat-layout">
-          <div class="bc-eyebrow">Speed</div>
-          <div class="b-stat-num" style="color:var(--purple)">20×</div>
-          <div class="b-stat-sub">faster than a paper inspection on average</div>
-        </div>
-      </div>
-
-      <!-- ══ STAT RERA ══ -->
-      <div class="bento-card b-rera reveal reveal-delay-2">
-        <div class="b-stat-layout">
-          <div class="bc-eyebrow">Compliance</div>
-          <div class="b-stat-num">100%</div>
-          <div class="b-stat-sub">RERA &amp; DLD compliant out of the box</div>
         </div>
       </div>
 
       <!-- ══ SIGNATURE ══ -->
       <div class="bento-card b-sig reveal">
-        <div class="b-sig-layout">
-          <div class="bc-eyebrow">Legal</div>
-          <h3>Digital signatures</h3>
-          <p>Both parties sign on-screen or remotely by email. Reminder sent at J+1, J+3. Refusal is documented and legally binding.</p>
-          <div class="b-sig-canvas">
-            <div class="b-sig-label">Tenant signature</div>
-            <svg class="b-sig-svg" viewBox="0 0 320 56">
-              <!-- Signature réelle tracée : boucle initiale + corps + trait terminal -->
-              <path class="b-sig-path" id="bento-sig-path"
-                d="M8 40
-                   C6 28, 5 16, 14 11
-                   C22 7, 32 16, 28 30
-                   C24 40, 12 44, 16 34
-                   C20 24, 34 20, 38 28
-                   C42 36, 38 46, 46 38
-                   C54 30, 62 14, 72 17
-                   C80 20, 78 34, 86 30
-                   C94 26, 98 14, 110 17
-                   C120 20, 118 32, 128 30
-                   C140 26, 158 10, 176 13
-                   C192 16, 198 28, 210 26
-                   C224 22, 242 14, 258 16"
-                fill="none" stroke="var(--purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div class="b-sig-confirmed">
-              <div class="b-sig-check-icon">
-                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              Signed · March 25, 2025 · 11:47 AM
-            </div>
-          </div>
+        <div class="bc-icon bc-ic-green">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
         </div>
+        <div class="bc-eyebrow">Legal</div>
+        <h3>Digital signatures</h3>
+        <p>Both parties sign on-screen or remotely by email.</p>
+        <div class="bc-mock">
+          <svg class="bcm-sig" viewBox="0 0 120 40"><path d="M10 28 Q20 8 30 24 T52 22 Q62 10 72 26 T104 18"/></svg>
+        </div>
+      </div>
+
+      <!-- ══ PDF ══ -->
+      <div class="bento-card b-pdf reveal reveal-delay-1">
+        <div class="bc-icon bc-ic-purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v5h5"/><path d="m9 15 2 2 4-4"/></svg>
+        </div>
+        <div class="bc-eyebrow">Output</div>
+        <h3>SHA-256 verified PDF</h3>
+        <p>One tap — a tamper-proof report with QR code and a unique digital fingerprint.</p>
+        <div class="bc-mock"><div class="bcm-qr"></div></div>
       </div>
 
       <!-- ══ PWA ══ -->
-      <div class="bento-card b-pwa reveal reveal-delay-1">
-        <div class="b-pwa-layout">
-          <div class="b-pwa-phone">
-            <div class="b-pwa-notch"></div>
-            <div class="b-pwa-screen-row"></div>
-            <div class="b-pwa-screen-row accent"></div>
-            <div class="b-pwa-screen-row"></div>
-            <div class="b-pwa-screen-row" style="width:70%"></div>
-            <div class="b-pwa-screen-row accent" style="width:50%"></div>
-            <div class="b-pwa-offline">Offline ✓</div>
-          </div>
-          <div class="b-pwa-text">
-            <div class="bc-eyebrow">Platform</div>
-            <h3>Mobile-first PWA</h3>
-            <p>Works on any phone, installs like a native app, functions offline on-site.</p>
-            <div class="b-pwa-pills">
-              <span class="b-pwa-pill">iOS</span>
-              <span class="b-pwa-pill">Android</span>
-              <span class="b-pwa-pill">Offline</span>
-            </div>
-            <!-- Home screen install strip -->
-            <div class="b-pwa-install">
-              <div class="b-pwa-install-bar">
-                <div class="b-pwa-install-icon">
-                  <svg width="18" height="18" viewBox="0 0 700 700" fill="#FCFCFC">
-                    <path d="M 485.977 349.973 v 118.175 L 357.375 596.746 H 232.219 L 106.332 470.863 l -2.813 -2.715 V 349.973 h 110.457 v 72.472 l 80.774 80.672 l 80.722 -80.672 V 349.973 Z"/>
-                    <path d="M 596.48 231.852 v 118.125 H 485.973 v -72.473 l -21.191 -21.156 v -44.047 h -31.098 v 12.957 l -28.426 -28.383 l -80.773 80.629 v 72.473 H 213.984 V 231.852 l 128.641 -128.598 h 125.113 l 125.879 125.883 Z"/>
-                  </svg>
-                </div>
-                <div class="b-pwa-install-info">
-                  <span class="b-pwa-install-name">Snagify</span>
-                  <span class="b-pwa-install-sub">snagify.net</span>
-                </div>
-                <div class="b-pwa-install-btn">Add</div>
-              </div>
-              <div class="b-pwa-homescreen">
-                <div class="b-pwa-hs-icon" style="background:#9A88FD">
-                  <svg width="14" height="14" viewBox="0 0 700 700" fill="#fff">
-                    <path d="M 485.977 349.973 v 118.175 L 357.375 596.746 H 232.219 L 106.332 470.863 l -2.813 -2.715 V 349.973 h 110.457 v 72.472 l 80.774 80.672 l 80.722 -80.672 V 349.973 Z"/>
-                    <path d="M 596.48 231.852 v 118.125 H 485.973 v -72.473 l -21.191 -21.156 v -44.047 h -31.098 v 12.957 l -28.426 -28.383 l -80.773 80.629 v 72.473 H 213.984 V 231.852 l 128.641 -128.598 h 125.113 l 125.879 125.883 Z"/>
-                  </svg>
-                </div>
-                <div class="b-pwa-hs-icon" style="background:#FEDE80"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0E0E10" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
-                <div class="b-pwa-hs-icon" style="background:#CAFE87"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0E0E10" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-                <div class="b-pwa-hs-icon" style="background:#0E0E10"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3"/></svg></div>
-                <span class="b-pwa-hs-label">Snagify</span>
-              </div>
-            </div>
-          </div>
+      <div class="bento-card b-pwa reveal reveal-delay-2">
+        <div class="bc-icon bc-ic-purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></svg>
         </div>
+        <div class="bc-eyebrow">Platform</div>
+        <h3>Mobile-first PWA</h3>
+        <p>Installs like a native app, works offline on-site.</p>
+        <div class="bc-mock"><div class="bcm-phone"><i></i><i></i><i></i></div></div>
       </div>
 
-      <!-- ══ WHITE-LABEL PRO — MOMENT FORT jasmine ══ -->
+      <!-- ══ WHITE-LABEL PRO ══ -->
       <div class="bento-card b-wl reveal">
-        <div class="b-wl-layout">
-          <div class="b-wl-content">
-            <div>
-              <div class="bc-eyebrow">Branding <span class="bc-pro-badge">Pro</span></div>
-              <h3>Full white-label reports</h3>
-              <p>Your logo, your agency colors, your RERA number: on every single PDF. Clients see your brand, not ours.</p>
-            </div>
-            <div style="margin-top:20px;font-size:13px;font-weight:600;color:#FCFCFC;display:flex;align-items:center;gap:6px">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              Your brand. Your identity.
-            </div>
-          </div>
-          <div class="b-wl-preview">
-            <div class="b-wl-report-header">
-              <div class="b-wl-agency-logo">
-                <div class="b-wl-logo-box"></div>
-                <div>
-                  <div class="b-wl-agency-name">Prestige Real Estate</div>
-                  <div class="b-wl-agency-sub">RERA #12345 · Dubai Marina</div>
-                </div>
-              </div>
-              <div class="b-wl-report-type">Inspection<br>Report</div>
-            </div>
-            <div class="b-wl-row w80"></div>
-            <div class="b-wl-row w55"></div>
-            <div class="b-wl-rooms">
-              <div class="b-wl-room-card"></div>
-              <div class="b-wl-room-card"></div>
-              <div class="b-wl-room-card"></div>
-              <div class="b-wl-room-card"></div>
-            </div>
-            <div class="b-wl-sig-row">
-              <div class="b-wl-sig-block">
-                <div class="b-wl-sig-line"></div>
-                <div class="b-wl-sig-lbl">Landlord</div>
-              </div>
-              <div class="b-wl-sig-block">
-                <div class="b-wl-sig-line"></div>
-                <div class="b-wl-sig-lbl">Tenant</div>
-              </div>
-            </div>
+        <div class="bc-icon bc-ic-jasmine">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
+        </div>
+        <div class="bc-eyebrow bc-pro">Branding</div>
+        <h3>Full white-label reports</h3>
+        <p>Your logo, your agency colours, your RERA number on every report you send.</p>
+        <div class="bc-mock">
+          <div class="bcm-wl">
+            <div class="bcm-wl-logo"></div>
+            <div class="bcm-wl-line" style="width:80%"></div>
+            <div class="bcm-wl-line" style="width:60%"></div>
           </div>
         </div>
       </div>
 
-      <!-- ══ TEAM PRO dark ══ -->
+      <!-- ══ TEAM PRO ══ -->
       <div class="bento-card b-team reveal reveal-delay-1">
-        <div class="b-team-layout">
-          <div class="bc-eyebrow">
-            Team
-            <span class="bc-pro-badge">Pro</span>
-          </div>
-          <h3>Team management</h3>
-          <p>Up to 15 inspectors share a credit pool. Full activity visibility.</p>
-          <div class="b-team-avatars">
-            <div class="b-team-av" style="background:rgba(154,136,253,.2);color:var(--purple-l)">KA</div>
-            <div class="b-team-av" style="background:rgba(202,254,135,.15);color:var(--green)">SM</div>
-            <div class="b-team-av" style="background:rgba(254,222,128,.15);color:var(--jasmine)">RH</div>
-            <div class="b-team-av b-team-av-more">+4</div>
-          </div>
-          <div class="b-team-pool">
-            <div class="b-team-pool-label">
-              <span class="b-team-pool-lbl">Shared credits</span>
-              <span class="b-team-pool-num">18 / 30</span>
-            </div>
-            <div class="b-team-pool-bar">
-              <div class="b-team-pool-fill"></div>
-            </div>
-          </div>
+        <div class="bc-icon bc-ic-jasmine">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
-      </div>
-
-      <!-- ══ LEASE PRO dark WIDE ══ -->
-      <div class="bento-card b-lease reveal">
-        <div class="b-lease-layout">
-          <div class="b-lease-content">
-            <div class="bc-eyebrow">
-              Retention
-              <span class="bc-pro-badge">Pro</span>
-            </div>
-            <h3>Lease renewal alerts</h3>
-            <p>Automatic reminder at J-100 before lease expiry, so you reach the tenant before the competition does.</p>
-          </div>
-          <div class="b-lease-timeline">
-            <div class="b-lease-line"></div>
-            <div class="b-lease-progress"></div>
-            <div class="b-lease-callout">Renew now</div>
-            <div class="b-lease-markers">
-              <div class="b-lease-marker start">
-                <div class="b-lease-dot active"></div>
-                <div class="b-lease-marker-lbl">Move-in<span class="sublbl">Mar 2024</span></div>
-              </div>
-              <div class="b-lease-marker today">
-                <div class="b-lease-dot active"></div>
-                <div class="b-lease-marker-lbl">Today<span class="sublbl">Mar 2025</span></div>
-              </div>
-              <div class="b-lease-marker warn">
-                <div class="b-lease-dot warn"></div>
-                <div class="b-lease-marker-lbl">J-100<span class="sublbl">Alert sent</span></div>
-              </div>
-              <div class="b-lease-marker end">
-                <div class="b-lease-dot"></div>
-                <div class="b-lease-marker-lbl">Expiry<span class="sublbl">Mar 2026</span></div>
-              </div>
-            </div>
+        <div class="bc-eyebrow bc-pro">Team</div>
+        <h3>Team management &amp; lease alerts</h3>
+        <p>Up to 15 inspectors share a credit pool, with renewal reminders built in.</p>
+        <div class="bc-mock">
+          <div class="bcm-avatars">
+            <span class="bcm-av" style="background:var(--purple)">KA</span>
+            <span class="bcm-av" style="background:var(--jasmine);color:var(--ink)">SM</span>
+            <span class="bcm-av" style="background:var(--green);color:var(--ink)">RH</span>
+            <span class="bcm-av" style="background:var(--ink-25);color:var(--ink)">+4</span>
           </div>
         </div>
       </div>
@@ -5506,6 +4845,7 @@ footer {
     </div>
   </div>
 </section>
+
 <!-- ╔══ TESTIMONIALS ══╗ -->
 <section class="testi">
   <div class="section-wrap">
@@ -6309,7 +5649,6 @@ function triggerSigOnScroll(pathId) {
   }, { threshold: 0.55 });
   obs.observe(path.closest('.b-sig-canvas') || path.closest('.hiw-phone') || path);
 }
-triggerSigOnScroll('bento-sig-path');
 triggerSigOnScroll('hiw-sig-path');
 
 // ── CURSOR (desktop uniquement) ──
