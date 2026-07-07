@@ -44,13 +44,13 @@ const articleJsonLd = {
   "publisher": {
     "@type": "Organization",
     "name": "Snagify",
-    "logo": { "@type": "ImageObject", "url": "https://snagify.net/og-image.png" }
+    "logo": { "@type": "ImageObject", "url": "https://snagify.net/og-image.jpg" }
   },
   "datePublished": "2026-04-25",
   "dateModified": "2026-04-25",
   "inLanguage": inLanguage,
   "mainEntityOfPage": canonicalBase,
-  "image": "https://snagify.net/og-image.png"
+  "image": "https://snagify.net/og-image.jpg"
 };
 ---
 <!DOCTYPE html>
@@ -76,14 +76,14 @@ const articleJsonLd = {
 <meta property="og:title" content={persona.metaTitle}>
 <meta property="og:description" content={persona.metaDescription}>
 <meta property="og:url" content={`https://snagify.net/for/${persona.slug}`}>
-<meta property="og:image" content="https://snagify.net/og-image.png">
+<meta property="og:image" content="https://snagify.net/og-image.jpg">
 <meta property="og:site_name" content="Snagify">
 <meta property="og:locale" content={ogLocale}>
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content={persona.metaTitle}>
 <meta name="twitter:description" content={persona.metaDescription}>
-<meta name="twitter:image" content="https://snagify.net/og-image.png">
+<meta name="twitter:image" content="https://snagify.net/og-image.jpg">
 
 <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
 <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
