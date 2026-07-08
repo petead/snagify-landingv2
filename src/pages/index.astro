@@ -569,8 +569,9 @@ div#nav-drawer a {
 .iphone-shot-hiw { --iphone-w: 196px; }
 .iphone-shot-sm { --iphone-w: 128px; }
 .b-ai .iphone-shot-sm { --iphone-w: 200px; }
-.b-sig .iphone-shot-sm { --iphone-w: 200px; }
+.b-ghost .iphone-shot-sm,
 .b-contract .iphone-shot-sm,
+.b-cmp .iphone-shot-sm,
 .b-inventory .iphone-shot-sm { --iphone-w: 200px; }
 .bento-card .iphone-shot-screen img {
   object-fit: contain;
@@ -827,16 +828,15 @@ div#nav-drawer a {
 .bc-ic-green   { background: var(--green-bg); }  .bc-ic-green svg   { stroke: #5FA82E; }
 .bc-ic-jasmine { background: var(--jasmine-bg); }.bc-ic-jasmine svg { stroke: #B08900; }
 
-/* ── Grid spans (hierarchical bento) ── */
-.b-ai   { grid-column: span 7; }
-.b-cmp  { grid-column: span 5; }
-.b-sig  { grid-column: span 4; }
-.b-pdf  { grid-column: span 4; }
-.b-pwa  { grid-column: span 4; }
+/* ── Grid spans (deck-aligned bento) ── */
+.b-ai        { grid-column: span 7; }
+.b-ghost     { grid-column: span 5; }
 .b-contract  { grid-column: span 6; }
+.b-report    { grid-column: span 6; }
+.b-cmp       { grid-column: span 6; }
 .b-inventory { grid-column: span 6; }
-.b-wl   { grid-column: span 6; }
-.b-team { grid-column: span 6; }
+.b-wl        { grid-column: span 6; }
+.b-team      { grid-column: span 6; }
 
 /* ── Mockup shell ── */
 .bc-mock {
@@ -845,8 +845,10 @@ div#nav-drawer a {
   border: 1px solid var(--ink-08); position: relative; overflow: hidden;
 }
 .b-ai .bc-mock-shot { min-height: 220px; }
-.b-sig .bc-mock-shot { min-height: 220px; }
+.b-ghost .bc-mock-shot,
 .b-contract .bc-mock-shot,
+.b-report .bc-mock-sha,
+.b-cmp .bc-mock-shot,
 .b-inventory .bc-mock-shot { min-height: 200px; }
 .bc-mock-dark { background: linear-gradient(160deg, #1c1928, #141120); border-color: rgba(255,255,255,.06); }
 .bc-mock-shot {
@@ -964,11 +966,11 @@ div#nav-drawer a {
 /* ── Responsive ── */
 @media (max-width: 1100px) {
   .b-ai, .b-wl, .b-team { grid-column: span 12; }
-  .b-cmp, .b-sig, .b-pdf, .b-pwa, .b-contract, .b-inventory { grid-column: span 6; }
+  .b-ghost, .b-contract, .b-report, .b-cmp, .b-inventory { grid-column: span 6; }
 }
 @media (max-width: 768px) {
   .bento { gap: 12px; }
-  .b-ai, .b-cmp, .b-sig, .b-pdf, .b-pwa, .b-contract, .b-inventory, .b-wl, .b-team { grid-column: span 12; }
+  .b-ai, .b-ghost, .b-contract, .b-report, .b-cmp, .b-inventory, .b-wl, .b-team { grid-column: span 12; }
   .bento-card { padding: 24px; }
 }
 
@@ -4570,18 +4572,19 @@ footer {
     <div class="section-header reveal">
       <div class="section-eyebrow">Features</div>
       <h2 class="section-title">Everything you need.<br>Nothing you don't.</h2>
-      <p class="section-sub">A complete inspection toolkit built for Dubai's rental market, from first photo to signed PDF.</p>
+      <h2 class="section-title">Everything you need.<br>Nothing you don't.</h2>
+      <p class="section-sub">Six core capabilities — from AI photo capture to a signed, tamper-proof PDF.</p>
     </div>
     <div class="bento">
 
-      <!-- ══ AI — hero ══ -->
+      <!-- ══ 02 AI Photo Analysis ══ -->
       <div class="bento-card b-ai reveal">
         <div class="bc-icon bc-ic-purple">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/></svg>
         </div>
-        <div class="bc-eyebrow">Core feature</div>
-        <h3>AI-powered photo analysis</h3>
-        <p>Photograph any room and let AI detect scratches, stains, paint wear and damage — automatically, in seconds. No manual note-taking.</p>
+        <div class="bc-eyebrow">AI Photo Analysis</div>
+        <h3>AI catches what you'd miss</h3>
+        <p>AI flags every defect the moment you capture — cracks, damp, stains — and writes a clean description you can accept, edit or dismiss in one tap.</p>
         <div class="bc-mock bc-mock-shot bc-mock-dark">
           <div class="iphone-shot iphone-shot-sm">
             <div class="iphone-shot-screen">
@@ -4591,14 +4594,14 @@ footer {
         </div>
       </div>
 
-      <!-- ══ COMPARE ══ -->
-      <div class="bento-card b-cmp reveal reveal-delay-1">
+      <!-- ══ 03 Ghost Mode ══ -->
+      <div class="bento-card b-ghost reveal reveal-delay-1">
         <div class="bc-icon bc-ic-purple">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3"/><path d="M16 3h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3"/><path d="M12 3v18"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         </div>
-        <div class="bc-eyebrow">Ghost Mode</div>
-        <h3>Same angle on check-out</h3>
-        <p>Shoot check-in once. Snagify helps you reuse the exact framing for check-out, keeping your comparisons consistent.</p>
+        <div class="bc-eyebrow">Ghost Mode · Check-out</div>
+        <h3>Re-shoot the exact same angle</h3>
+        <p>At check-out, the original check-in photo is overlaid on the live camera as a ghost, so you re-shoot the exact same angle. New damage stands out instantly.</p>
         <div class="bc-mock bc-mock-shot bc-mock-ghost">
           <div class="bcm-ghost-row">
             <div class="iphone-shot iphone-shot-sm">
@@ -4615,61 +4618,14 @@ footer {
         </div>
       </div>
 
-      <!-- ══ SIGNATURE ══ -->
-      <div class="bento-card b-sig reveal">
-        <div class="bc-icon bc-ic-green">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-        </div>
-        <div class="bc-eyebrow">Legal</div>
-        <h3>Digital signatures</h3>
-        <p>Both parties sign on-screen or remotely by email.</p>
-        <div class="bc-mock bc-mock-shot">
-          <div class="iphone-shot iphone-shot-sm">
-            <div class="iphone-shot-screen">
-              <img src="/screenshots/feat-signature-legal.png" alt="Snagify tenant digital signature with SHA-256 verification" width="390" height="844" loading="lazy" decoding="async">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ══ PDF ══ -->
-      <div class="bento-card b-pdf reveal reveal-delay-1">
-        <div class="bc-icon bc-ic-purple">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v5h5"/><path d="m9 15 2 2 4-4"/></svg>
-        </div>
-        <div class="bc-eyebrow">Output</div>
-        <h3>SHA-256 verified PDF</h3>
-        <p>One tap — a tamper-proof report with QR code and a unique digital fingerprint.</p>
-        <div class="bc-mock bc-mock-sha">
-          <img src="/screenshots/feat-sha-output.png" alt="Document integrity SHA-256 hash and dual signatures on Snagify PDF" width="900" height="480" loading="lazy" decoding="async">
-        </div>
-      </div>
-
-      <!-- ══ PWA ══ -->
-      <div class="bento-card b-pwa reveal reveal-delay-2">
-        <div class="bc-icon bc-ic-purple">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></svg>
-        </div>
-        <div class="bc-eyebrow">Platform</div>
-        <h3>Mobile-first PWA</h3>
-        <p>Installs like a native app, works offline on-site.</p>
-        <div class="bc-mock bc-mock-shot">
-          <div class="iphone-shot iphone-shot-sm">
-            <div class="iphone-shot-screen">
-              <img src="/screenshots/feat-mobile.png" alt="Snagify mobile room selection screen" width="390" height="844" loading="lazy" decoding="async">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ══ AI CONTRACT READING ══ -->
+      <!-- ══ 04 AI Contract Reading ══ -->
       <div class="bento-card b-contract reveal">
         <div class="bc-icon bc-ic-purple">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13l2 2 4-4"/></svg>
         </div>
-        <div class="bc-eyebrow">Contract AI</div>
-        <h3>AI reads the tenancy contract</h3>
-        <p>Upload the Ejari or RERA contract and AI auto-fills tenant, dates and property — a ready inspection in under 30 seconds, no typing.</p>
+        <div class="bc-eyebrow">AI Contract Reading</div>
+        <h3>Upload the contract. AI fills in the rest.</h3>
+        <p>Upload the tenancy contract and AI reads Ejari and RERA documents natively, auto-filling tenant, dates and property in under 30 seconds.</p>
         <div class="bc-mock bc-mock-shot">
           <div class="iphone-shot iphone-shot-sm">
             <div class="iphone-shot-screen">
@@ -4679,14 +4635,44 @@ footer {
         </div>
       </div>
 
-      <!-- ══ SMART INVENTORY ══ -->
+      <!-- ══ 05 The Signed Report ══ -->
+      <div class="bento-card b-report reveal reveal-delay-1">
+        <div class="bc-icon bc-ic-green">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v5h5"/><path d="m9 15 2 2 4-4"/></svg>
+        </div>
+        <div class="bc-eyebrow">The Signed Report</div>
+        <h3>Tamper-proof PDF, signed by both parties</h3>
+        <p>A tamper-proof PDF signed by landlord and tenant, in person or by email link, SHA-256 verified with a scan-to-verify QR code.</p>
+        <div class="bc-mock bc-mock-sha">
+          <img src="/screenshots/feat-sha-output.png" alt="Snagify signed PDF with dual signatures, QR code and SHA-256 verification" width="900" height="480" loading="lazy" decoding="async">
+        </div>
+      </div>
+
+      <!-- ══ 06 Check-out Comparison ══ -->
+      <div class="bento-card b-cmp reveal">
+        <div class="bc-icon bc-ic-purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3"/><path d="M16 3h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3"/><path d="M12 3v18"/></svg>
+        </div>
+        <div class="bc-eyebrow">Check-out Comparison</div>
+        <h3>Exactly what changed, room by room</h3>
+        <p>The check-out report shows exactly what changed room by room, with clear verdicts — no change or new damage — so nothing slips through.</p>
+        <div class="bc-mock bc-mock-shot">
+          <div class="iphone-shot iphone-shot-sm">
+            <div class="iphone-shot-screen">
+              <img src="/screenshots/feat-compare.png" alt="Snagify check-in vs check-out room comparison with verdicts" width="390" height="844" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ 07 Smart Inventory ══ -->
       <div class="bento-card b-inventory reveal reveal-delay-1">
         <div class="bc-icon bc-ic-purple">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg>
         </div>
-        <div class="bc-eyebrow">Inventory</div>
+        <div class="bc-eyebrow">Smart Inventory</div>
         <h3>Every item tracked, every change flagged</h3>
-        <p>AI auto-detects furniture and appliances, then flags any condition change from check-in to check-out — Good to Damaged, caught automatically.</p>
+        <p>AI auto-detects inventory from each photo, flags condition changes from Good to Damaged automatically, and builds deposit-ready evidence.</p>
         <div class="bc-mock bc-mock-shot">
           <div class="iphone-shot iphone-shot-sm">
             <div class="iphone-shot-screen">
