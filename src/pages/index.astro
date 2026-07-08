@@ -864,6 +864,19 @@ div#nav-drawer a {
   object-position: bottom center;
 }
 
+/* Ghost mode mockup (2 screenshots) */
+.bc-mock-ghost {
+  min-height: 190px;
+}
+.bcm-ghost-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 4px 0;
+}
+
 /* AI scan + pins + bars */
 .bcm-scan {
   position: absolute; left: 0; right: 0; height: 2px;
@@ -4570,13 +4583,20 @@ footer {
         <div class="bc-icon bc-ic-purple">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3"/><path d="M16 3h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3"/><path d="M12 3v18"/></svg>
         </div>
-        <div class="bc-eyebrow">Comparison</div>
-        <h3>Check-in vs check-out</h3>
-        <p>Move-out photos stack next to move-in shots. New damage surfaces automatically.</p>
-        <div class="bc-mock bc-mock-shot">
-          <div class="iphone-shot iphone-shot-sm">
-            <div class="iphone-shot-screen">
-              <img src="/screenshots/feat-compare.png" alt="Snagify check-in vs check-out room comparison" width="390" height="844" loading="lazy" decoding="async">
+        <div class="bc-eyebrow">Ghost Mode</div>
+        <h3>Same angle on check-out</h3>
+        <p>Shoot check-in once. Snagify helps you reuse the exact framing for check-out, keeping your comparisons consistent.</p>
+        <div class="bc-mock bc-mock-shot bc-mock-ghost">
+          <div class="bcm-ghost-row">
+            <div class="iphone-shot iphone-shot-sm">
+              <div class="iphone-shot-screen">
+                <img src="/screenshots/feat-ghost-mode.png" alt="Snagify ghost mode overlay for check-out matching angle" width="390" height="844" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <div class="iphone-shot iphone-shot-sm">
+              <div class="iphone-shot-screen">
+                <img src="/screenshots/feat-ghost-checkout.png" alt="Snagify reuses the same shooting angle at check-out" width="390" height="844" loading="lazy" decoding="async">
+              </div>
             </div>
           </div>
         </div>
