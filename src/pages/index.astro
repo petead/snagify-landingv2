@@ -568,7 +568,13 @@ div#nav-drawer a {
 }
 .iphone-shot-hiw { --iphone-w: 196px; }
 .iphone-shot-sm { --iphone-w: 128px; }
-.b-ai .iphone-shot-sm { --iphone-w: 142px; }
+.b-ai .iphone-shot-sm { --iphone-w: 200px; }
+.b-sig .iphone-shot-sm { --iphone-w: 200px; }
+.bento-card .iphone-shot-screen img {
+  object-fit: contain;
+  object-position: center top;
+  background: #0e0e10;
+}
 
 /* Card header */
 .ic-header {
@@ -834,7 +840,8 @@ div#nav-drawer a {
   background: linear-gradient(160deg, var(--purple-bg), #E4DEFB);
   border: 1px solid var(--ink-08); position: relative; overflow: hidden;
 }
-.b-ai .bc-mock-shot { min-height: 170px; }
+.b-ai .bc-mock-shot { min-height: 220px; }
+.b-sig .bc-mock-shot { min-height: 220px; }
 .bc-mock-dark { background: linear-gradient(160deg, #1c1928, #141120); border-color: rgba(255,255,255,.06); }
 .bc-mock-shot {
   display: flex;
@@ -4572,7 +4579,7 @@ footer {
         <div class="bc-mock bc-mock-shot bc-mock-dark">
           <div class="iphone-shot iphone-shot-sm">
             <div class="iphone-shot-screen">
-              <img src="/screenshots/feat-ai.png" alt="Snagify photo details with AI-generated description" width="390" height="844" loading="lazy" decoding="async">
+              <img src="/screenshots/feat-ai-analysis.png" alt="Snagify photo details with AI-generated description" width="390" height="844" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -4613,7 +4620,7 @@ footer {
         <div class="bc-mock bc-mock-shot">
           <div class="iphone-shot iphone-shot-sm">
             <div class="iphone-shot-screen">
-              <img src="/screenshots/feat-signature.png" alt="Snagify tenant digital signature with SHA-256 verification" width="390" height="844" loading="lazy" decoding="async">
+              <img src="/screenshots/feat-signature-legal.png" alt="Snagify tenant digital signature with SHA-256 verification" width="390" height="844" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
