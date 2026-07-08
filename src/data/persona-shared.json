@@ -75,7 +75,7 @@
     },
     "data-secure": {
       "question": "Is my data secure?",
-      "answer": "Reports, photos, and signatures are stored on encrypted servers. Photos are analysed by Claude AI and then discarded. Only the final report is retained. SHA-256 hashes detect any tampering. Your data is never sold, shared, or used for AI training."
+      "answer": "Reports, photos, and signatures are stored on encrypted servers. Photos are analysed by AI and then discarded. Only the final report is retained. SHA-256 hashes detect any tampering. Your data is never sold, shared, or used for AI training."
     },
     "cancel-anytime": {
       "question": "Can I cancel my subscription anytime?",
