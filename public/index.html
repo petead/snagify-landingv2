@@ -520,6 +520,55 @@ div#nav-drawer a {
   50% { transform: rotate(-2deg) translateY(-14px); }
 }
 
+/* iPhone screenshot frame */
+.iphone-shot {
+  --iphone-w: 220px;
+  position: relative;
+  width: var(--iphone-w);
+  margin: 0 auto;
+  background: linear-gradient(155deg, #35353d, #101014);
+  border-radius: calc(var(--iphone-w) * 0.17);
+  padding: calc(var(--iphone-w) * 0.038);
+  box-shadow:
+    0 28px 70px rgba(14,14,16,.22),
+    0 8px 20px rgba(14,14,16,.12),
+    inset 0 0 0 1px rgba(255,255,255,.1);
+}
+.iphone-shot::before {
+  content: '';
+  position: absolute;
+  top: calc(var(--iphone-w) * 0.028);
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(var(--iphone-w) * 0.34);
+  height: calc(var(--iphone-w) * 0.062);
+  background: #101014;
+  border-radius: 0 0 12px 12px;
+  z-index: 3;
+}
+.iphone-shot-screen {
+  border-radius: calc(var(--iphone-w) * 0.13);
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 390 / 844;
+}
+.iphone-shot-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.iphone-shot-hero { --iphone-w: 292px; transform: rotate(-2deg); }
+.hero-phone-wrap {
+  position: relative;
+  z-index: 2;
+  animation: cardFloat 7s ease-in-out infinite .5s;
+}
+.iphone-shot-hiw { --iphone-w: 196px; }
+.iphone-shot-sm { --iphone-w: 128px; }
+.b-ai .iphone-shot-sm { --iphone-w: 142px; }
+
 /* Card header */
 .ic-header {
   display: flex; align-items: flex-start; justify-content: space-between;
@@ -784,8 +833,20 @@ div#nav-drawer a {
   background: linear-gradient(160deg, var(--purple-bg), #E4DEFB);
   border: 1px solid var(--ink-08); position: relative; overflow: hidden;
 }
-.b-ai .bc-mock { height: 170px; }
+.b-ai .bc-mock-shot { min-height: 170px; }
 .bc-mock-dark { background: linear-gradient(160deg, #1c1928, #141120); border-color: rgba(255,255,255,.06); }
+.bc-mock-shot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  min-height: 140px;
+  padding: 14px;
+  background: linear-gradient(160deg, var(--cream-2), var(--purple-bg));
+}
+.bc-mock-shot.bc-mock-dark {
+  background: linear-gradient(160deg, #1c1928, #141120);
+}
 
 /* AI scan + pins + bars */
 .bcm-scan {
@@ -990,161 +1051,17 @@ div#nav-drawer a {
 /* Mini phone mockup per step */
 .hiw-phone {
   width: 100%;
-  min-height: 220px;
-  background: rgba(255,255,255,.07);
-  border: 1px solid rgba(255,255,255,.13);
-  border-radius: 20px;
-  overflow: hidden;
+  min-height: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
   margin-bottom: 24px;
   position: relative;
-  box-shadow: 0 8px 32px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.08);
+  box-shadow: none;
   display: flex;
-  flex-direction: column;
-}
-.hiw-phone .hiw-phone-body {
-  flex: 1;
-}
-.hiw-phone-notch {
-  width: 60px; height: 14px;
-  background: rgba(255,255,255,.08);
-  border-radius: 0 0 8px 8px;
-  margin: 0 auto;
-}
-.hiw-phone-body {
-  padding: 12px 14px 16px;
-}
-
-/* Step 1: property form */
-.hiw-s1-field {
-  height: 28px;
-  background: rgba(255,255,255,.08);
-  border-radius: 8px;
-  margin-bottom: 8px;
-  position: relative;
-  overflow: hidden;
-}
-.hiw-s1-field::before {
-  content: '';
-  position: absolute;
-  left: 10px; top: 50%; transform: translateY(-50%);
-  width: 60%; height: 6px;
-  background: rgba(255,255,255,.12);
-  border-radius: 4px;
-}
-.hiw-s1-field.short::before { width: 35%; }
-.hiw-s1-btn {
-  height: 28px;
-  background: var(--purple);
-  border-radius: 8px;
-  margin-top: 12px;
-  opacity: .8;
-}
-
-/* Step 2: room capture */
-.hiw-s2-photo {
-  height: 72px;
-  background: linear-gradient(135deg, rgba(154,136,253,.2), rgba(202,254,135,.1));
-  border-radius: 10px;
-  margin-bottom: 8px;
-  position: relative;
-  overflow: hidden;
-}
-.hiw-s2-photo::after {
-  content: '';
-  position: absolute;
-  bottom: 6px; left: 6px;
-  display: flex; align-items: center;
-  width: 56px; height: 16px;
-  background: rgba(14,14,16,.6);
-  border-radius: 5px;
-}
-.hiw-s2-ai-bar {
-  display: flex; align-items: center; gap: 5px;
-  position: absolute; top: 7px; left: 7px;
-  background: rgba(14,14,16,.65);
-  border-radius: 5px; padding: 3px 7px;
-  font-size: 9px; font-weight: 600; color: var(--green);
-}
-.hiw-s2-ai-dot {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--green);
-  animation: eyePulse 1.2s infinite;
-}
-.hiw-s2-tag {
-  display: inline-flex; align-items: center; gap: 4px;
-  background: rgba(255,82,82,.2);
-  border: 1px solid rgba(255,82,82,.3);
-  border-radius: 999px; padding: 3px 8px;
-  font-size: 9px; font-weight: 600; color: #FF8080;
-  margin-top: 2px;
-}
-.hiw-s2-rooms {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 5px; margin-top: 7px;
-}
-.hiw-s2-room {
-  height: 24px;
-  background: rgba(255,255,255,.06);
-  border-radius: 6px;
-  border: 1px solid rgba(255,255,255,.08);
-}
-
-/* Step 3: sign & PDF */
-.hiw-s3-sig {
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 10px;
-  padding: 10px 12px;
-  margin-bottom: 8px;
-}
-.hiw-s3-sig-label {
-  font-size: 9px; text-transform: uppercase;
-  letter-spacing: 1.5px; color: rgba(255,255,255,.35);
-  font-weight: 600; margin-bottom: 6px;
-}
-.hiw-s3-sig-wave {
-  height: 36px;
-  position: relative;
-  overflow: visible;
-}
-.hiw-s3-sig-svg {
-  width: 100%;
-  height: 36px;
-  overflow: visible;
-}
-.hiw-s3-sig-path {
-  stroke-dasharray: 700;
-  stroke-dashoffset: 700;
-  filter: url(#ink-filter);
-  transition: none;
-}
-.hiw-s3-sig-path.sig-animate {
-  animation: traceHiwSig 2.4s cubic-bezier(.4,0,.2,1) forwards;
-}
-@keyframes traceHiwSig {
-  to { stroke-dashoffset: 0; }
-}
-.hiw-s3-pdf-btn {
-  display: flex; align-items: center; justify-content: center;
-  gap: 6px;
-  height: 30px;
-  background: var(--purple);
-  border-radius: 8px;
-  font-size: 10px; font-weight: 700;
-  color: var(--ink);
-  opacity: .85;
-}
-.hiw-s3-check {
-  display: flex; align-items: center; gap: 6px;
-  margin-top: 8px;
-  font-size: 9px; font-weight: 600; color: var(--green);
-}
-.hiw-s3-check-dot {
-  width: 14px; height: 14px; border-radius: 50%;
-  background: rgba(202,254,135,.15);
-  border: 1px solid rgba(202,254,135,.3);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
+  justify-content: center;
+  padding: 0;
 }
 
 /* Step text */
@@ -3418,6 +3335,7 @@ footer {
   .btn-ink, .btn-ghost { padding: 13px 24px; font-size: 14px; width: 100%; justify-content: center; }
   .hero-cta-group { flex-direction: column; width: 100%; }
   .hero-ph img { height: 44px; }
+  .hero-phone-wrap, .iphone-shot-hero { transform: none !important; animation: none !important; }
   .insp-card        { transform: rotate(0deg) !important; animation: none !important; }
   .insp-card-back   { display: none; }
 
@@ -4001,74 +3919,10 @@ footer {
 
       <div class="insp-card-back"></div>
 
-      <div class="insp-card">
-        <div class="ic-header">
-          <div>
-            <div class="ic-prop-name">Marina Heights · Unit 1204</div>
-            <div class="ic-prop-sub">
-              JBR, Dubai
-              <span class="ic-dot"></span>
-              March 25, 2025
-            </div>
-          </div>
-          <div class="ic-badge">
-            <span class="ic-badge-dot"></span>
-            Check-In
-          </div>
-        </div>
-
-        <div class="ic-photo">
-          <div class="ic-photo-texture"></div>
-          <div class="ic-ai-bar">
-            <span class="ic-ai-blink"></span>
-            AI Analysis Active
-          </div>
-          <div class="ic-pin ic-pin-1">
-            <div class="ic-pin-dot"></div>
-            <div class="ic-pin-label">Wall scratch</div>
-          </div>
-          <div class="ic-pin ic-pin-2">
-            <div class="ic-pin-dot"></div>
-            <div class="ic-pin-label">Paint wear</div>
-          </div>
-        </div>
-
-        <div class="ic-rooms">
-          <div class="ic-rooms-title">Room Conditions</div>
-          <div class="ic-room-row">
-            <div class="ic-room-icon ri-purple">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M2 11a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/><path d="M4 16v2M20 16v2"/></svg>
-            </div>
-            <span class="ic-room-name">Living Room</span>
-            <div class="ic-room-bar-wrap"><div class="ic-room-bar"><div class="ic-room-bar-fill bar-good"></div></div></div>
-            <span class="ic-room-badge bdg-good">Good</span>
-          </div>
-          <div class="ic-room-row">
-            <div class="ic-room-icon ri-yellow">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>
-            </div>
-            <span class="ic-room-name">Kitchen</span>
-            <div class="ic-room-bar-wrap"><div class="ic-room-bar"><div class="ic-room-bar-fill bar-fair"></div></div></div>
-            <span class="ic-room-badge bdg-fair">Fair</span>
-          </div>
-          <div class="ic-room-row">
-            <div class="ic-room-icon ri-green">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
-            </div>
-            <span class="ic-room-name">Bedroom</span>
-            <div class="ic-room-bar-wrap"><div class="ic-room-bar"><div class="ic-room-bar-fill bar-good"></div></div></div>
-            <span class="ic-room-badge bdg-good">Good</span>
-          </div>
-        </div>
-
-        <div class="ic-footer">
-          <div class="ic-progress">
-            <span class="ic-progress-text">5 / 7 rooms completed</span>
-            <div class="ic-progress-bar"><div class="ic-progress-fill"></div></div>
-          </div>
-          <div class="ic-gen-btn">
-            Generate PDF
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <div class="hero-phone-wrap">
+        <div class="iphone-shot iphone-shot-hero">
+          <div class="iphone-shot-screen">
+            <img src="/screenshots/hero-photo-details.png" alt="Snagify app — AI photo inspection with damage tagging" width="390" height="844" loading="eager" decoding="async">
           </div>
         </div>
       </div>
@@ -4502,41 +4356,12 @@ footer {
       <div class="hiw-step reveal">
         <div class="hiw-step-inner">
 
-          <!-- Mini phone mockup -->
+          <!-- App screenshot -->
           <div class="hiw-phone">
-            <div class="hiw-phone-notch"></div>
-            <div class="hiw-phone-body">
-              <div style="font-size:9px;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px">New Inspection</div>
-
-              <!-- Champ adresse avec valeur visible -->
-              <div class="hiw-s1-field" style="position:relative;background:rgba(154,136,253,.12);border:1px solid rgba(154,136,253,.25)">
-                <span style="position:absolute;left:8px;top:50%;transform:translateY(-50%);font-size:9px;font-weight:600;color:rgba(154,136,253,.9);white-space:nowrap">Marina Heights · Unit 1204</span>
+            <div class="iphone-shot iphone-shot-hiw">
+              <div class="iphone-shot-screen">
+                <img src="/screenshots/hiw-01-contract.png" alt="Snagify — AI contract analysis during check-in setup" width="390" height="844" loading="lazy" decoding="async">
               </div>
-
-              <!-- Type + Emirate -->
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:7px">
-                <div class="hiw-s1-field" style="margin:0;position:relative">
-                  <span style="position:absolute;left:7px;top:50%;transform:translateY(-50%);font-size:8px;color:rgba(255,255,255,.35)">Apartment</span>
-                </div>
-                <div class="hiw-s1-field" style="margin:0;position:relative">
-                  <span style="position:absolute;left:7px;top:50%;transform:translateY(-50%);font-size:8px;color:rgba(255,255,255,.35)">Dubai Marina</span>
-                </div>
-              </div>
-
-              <!-- Contrat Ejari -->
-              <div class="hiw-s1-field" style="background:rgba(202,254,135,.07);border:1px solid rgba(202,254,135,.15);position:relative;margin-bottom:10px">
-                <span style="position:absolute;left:8px;top:50%;transform:translateY(-50%);font-size:8px;font-weight:600;color:var(--green);white-space:nowrap">
-                  ✓ Ejari #DXB-2025-48921 detected
-                </span>
-              </div>
-
-              <!-- Type inspection pills -->
-              <div style="display:flex;gap:5px;margin-bottom:10px">
-                <div style="flex:1;height:24px;background:var(--purple);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;color:var(--ink)">Check-In</div>
-                <div style="flex:1;height:24px;background:rgba(255,255,255,.06);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:8px;color:rgba(255,255,255,.3)">Check-Out</div>
-              </div>
-
-              <div class="hiw-s1-btn" style="display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--ink)">Start Inspection →</div>
             </div>
           </div>
 
@@ -4562,49 +4387,11 @@ footer {
       <div class="hiw-step reveal reveal-delay-1">
         <div class="hiw-step-inner">
 
-          <!-- Mini phone mockup -->
+          <!-- App screenshot -->
           <div class="hiw-phone">
-            <div class="hiw-phone-notch"></div>
-            <div class="hiw-phone-body">
-              <!-- Photo zone avec pin de damage -->
-              <div class="hiw-s2-photo" style="position:relative;overflow:hidden">
-                <div class="hiw-s2-ai-bar">
-                  <div class="hiw-s2-ai-dot"></div>
-                  AI Scanning
-                </div>
-                <!-- Scan line animée -->
-                <div style="position:absolute;left:0;right:0;height:1.5px;background:linear-gradient(90deg,transparent,rgba(154,136,253,.7),transparent);animation:aiScan 2.5s ease-in-out infinite;z-index:2"></div>
-                <!-- Pin damage -->
-                <div style="position:absolute;top:36px;left:48%;display:flex;align-items:center;gap:4px;z-index:3;animation:pinPop .4s cubic-bezier(.34,1.56,.64,1) forwards .9s;opacity:0">
-                  <div style="width:10px;height:10px;border-radius:50%;background:rgba(255,82,82,.9);border:1.5px solid white;flex-shrink:0"></div>
-                  <div style="background:rgba(14,14,16,.75);backdrop-filter:blur(6px);color:white;font-size:8px;font-weight:600;padding:2px 6px;border-radius:4px;white-space:nowrap">Paint wear</div>
-                </div>
-              </div>
-
-              <!-- Tag détection -->
-              <div class="hiw-s2-tag" style="margin-bottom:6px">
-                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                Wall scratch · Paint wear detected
-              </div>
-
-              <!-- Rooms nommées avec condition -->
-              <div class="hiw-s2-rooms" style="grid-template-columns:1fr 1fr;gap:5px">
-                <div class="hiw-s2-room" style="display:flex;align-items:center;justify-content:space-between;padding:0 7px">
-                  <span style="font-size:8px;color:rgba(255,255,255,.4)">Living Rm</span>
-                  <span style="font-size:8px;font-weight:700;color:var(--green)">Good</span>
-                </div>
-                <div class="hiw-s2-room" style="display:flex;align-items:center;justify-content:space-between;padding:0 7px;border:1px solid rgba(254,222,128,.2)">
-                  <span style="font-size:8px;color:rgba(255,255,255,.4)">Kitchen</span>
-                  <span style="font-size:8px;font-weight:700;color:var(--jasmine)">Fair</span>
-                </div>
-                <div class="hiw-s2-room" style="display:flex;align-items:center;justify-content:space-between;padding:0 7px">
-                  <span style="font-size:8px;color:rgba(255,255,255,.4)">Bedroom</span>
-                  <span style="font-size:8px;font-weight:700;color:var(--green)">Good</span>
-                </div>
-                <div class="hiw-s2-room" style="display:flex;align-items:center;justify-content:space-between;padding:0 7px">
-                  <span style="font-size:8px;color:rgba(255,255,255,.4)">Bathroom</span>
-                  <span style="font-size:8px;font-weight:700;color:var(--green)">Good</span>
-                </div>
+            <div class="iphone-shot iphone-shot-hiw">
+              <div class="iphone-shot-screen">
+                <img src="/screenshots/hiw-02-photo.png" alt="Snagify — photo details with AI-generated description" width="390" height="844" loading="lazy" decoding="async">
               </div>
             </div>
           </div>
@@ -4631,62 +4418,11 @@ footer {
       <div class="hiw-step reveal reveal-delay-2">
         <div class="hiw-step-inner">
 
-          <!-- Mini phone mockup -->
+          <!-- App screenshot -->
           <div class="hiw-phone">
-            <div class="hiw-phone-notch"></div>
-            <div class="hiw-phone-body">
-              <!-- Landlord sig -->
-              <div class="hiw-s3-sig" style="margin-bottom:6px">
-                <div class="hiw-s3-sig-label" style="display:flex;align-items:center;justify-content:space-between">
-                  <span>Landlord</span>
-                  <span style="font-size:8px;color:var(--green);font-weight:600">✓ Signed</span>
-                </div>
-                <div class="hiw-s3-sig-wave">
-                  <svg class="hiw-s3-sig-svg" id="hiw-sig-svg" viewBox="0 0 220 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path class="hiw-s3-sig-path" id="hiw-sig-path"
-                      d="M6 26
-                         C5 19, 4 12, 10 9
-                         C16 6, 22 13, 19 22
-                         C16 28, 8 30, 11 23
-                         C14 17, 22 14, 25 19
-                         C28 24, 25 30, 30 25
-                         C35 20, 40 11, 46 13
-                         C52 15, 50 24, 56 21
-                         C62 18, 66 10, 74 12
-                         C80 14, 78 22, 84 20
-                         C90 18, 94 10, 102 12
-                         C110 14, 114 22, 122 20
-                         C132 17, 148 8, 164 10
-                         C176 12, 182 20, 192 18
-                         C202 16, 212 11, 218 10"
-                      stroke="var(--purple)"
-                      stroke-width="1.6"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      fill="none"
-                    />
-                  </svg>
-                </div>
-              </div>
-
-              <!-- Tenant sig (ligne vide — en attente) -->
-              <div class="hiw-s3-sig" style="margin-bottom:8px;opacity:.55">
-                <div class="hiw-s3-sig-label" style="display:flex;align-items:center;justify-content:space-between">
-                  <span>Tenant</span>
-                  <span style="font-size:8px;color:rgba(255,255,255,.3)">Pending…</span>
-                </div>
-                <div style="height:20px;border-bottom:1px dashed rgba(255,255,255,.15);margin-top:4px"></div>
-              </div>
-
-              <div class="hiw-s3-pdf-btn">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                Generate PDF Report
-              </div>
-              <div class="hiw-s3-check">
-                <div class="hiw-s3-check-dot">
-                  <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-                </div>
-                RDC Valid · Both parties signed
+            <div class="iphone-shot iphone-shot-hiw">
+              <div class="iphone-shot-screen">
+                <img src="/screenshots/hiw-03-signature.png" alt="Snagify — send for signature, in person or remote" width="390" height="844" loading="lazy" decoding="async">
               </div>
             </div>
           </div>
@@ -4736,14 +4472,11 @@ footer {
         <div class="bc-eyebrow">Core feature</div>
         <h3>AI-powered photo analysis</h3>
         <p>Photograph any room and let Claude AI detect scratches, stains, paint wear and damage — automatically, in seconds. No manual note-taking.</p>
-        <div class="bc-mock bc-mock-dark">
-          <div class="bcm-scan"></div>
-          <div class="bcm-pin" style="top:24%;left:20%">!</div>
-          <div class="bcm-pin" style="top:52%;left:66%;animation-delay:.6s">!</div>
-          <div class="bcm-bars">
-            <div class="bcm-bar"><i style="width:82%;background:var(--green)"></i></div>
-            <div class="bcm-bar"><i style="width:54%;background:var(--jasmine)"></i></div>
-            <div class="bcm-bar"><i style="width:38%;background:var(--red)"></i></div>
+        <div class="bc-mock bc-mock-shot bc-mock-dark">
+          <div class="iphone-shot iphone-shot-sm">
+            <div class="iphone-shot-screen">
+              <img src="/screenshots/feat-ai.png" alt="Snagify AI damage detection on a room photo" width="390" height="844" loading="lazy" decoding="async">
+            </div>
           </div>
         </div>
       </div>
@@ -4756,10 +4489,11 @@ footer {
         <div class="bc-eyebrow">Comparison</div>
         <h3>Check-in vs check-out</h3>
         <p>Move-out photos stack next to move-in shots. New damage surfaces automatically.</p>
-        <div class="bc-mock">
-          <div class="bcm-split">
-            <div class="bcm-ph bcm-ph-in">Move-in</div>
-            <div class="bcm-ph bcm-ph-out">Move-out</div>
+        <div class="bc-mock bc-mock-shot">
+          <div class="iphone-shot iphone-shot-sm">
+            <div class="iphone-shot-screen">
+              <img src="/screenshots/feat-compare.png" alt="Snagify check-in vs check-out room comparison" width="390" height="844" loading="lazy" decoding="async">
+            </div>
           </div>
         </div>
       </div>
@@ -4772,8 +4506,12 @@ footer {
         <div class="bc-eyebrow">Legal</div>
         <h3>Digital signatures</h3>
         <p>Both parties sign on-screen or remotely by email.</p>
-        <div class="bc-mock">
-          <svg class="bcm-sig" viewBox="0 0 120 40"><path d="M10 28 Q20 8 30 24 T52 22 Q62 10 72 26 T104 18"/></svg>
+        <div class="bc-mock bc-mock-shot">
+          <div class="iphone-shot iphone-shot-sm">
+            <div class="iphone-shot-screen">
+              <img src="/screenshots/feat-signature.png" alt="Snagify digital signature flow" width="390" height="844" loading="lazy" decoding="async">
+            </div>
+          </div>
         </div>
       </div>
 
@@ -4785,7 +4523,13 @@ footer {
         <div class="bc-eyebrow">Output</div>
         <h3>SHA-256 verified PDF</h3>
         <p>One tap — a tamper-proof report with QR code and a unique digital fingerprint.</p>
-        <div class="bc-mock"><div class="bcm-qr"></div></div>
+        <div class="bc-mock bc-mock-shot">
+          <div class="iphone-shot iphone-shot-sm">
+            <div class="iphone-shot-screen">
+              <img src="/screenshots/feat-pdf.png" alt="Snagify verified PDF report with signatures" width="390" height="844" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- ══ PWA ══ -->
@@ -4796,7 +4540,13 @@ footer {
         <div class="bc-eyebrow">Platform</div>
         <h3>Mobile-first PWA</h3>
         <p>Installs like a native app, works offline on-site.</p>
-        <div class="bc-mock"><div class="bcm-phone"><i></i><i></i><i></i></div></div>
+        <div class="bc-mock bc-mock-shot">
+          <div class="iphone-shot iphone-shot-sm">
+            <div class="iphone-shot-screen">
+              <img src="/screenshots/feat-mobile.png" alt="Snagify mobile room selection screen" width="390" height="844" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- ══ WHITE-LABEL PRO ══ -->
@@ -5641,7 +5391,6 @@ function triggerSigOnScroll(pathId) {
   }, { threshold: 0.55 });
   obs.observe(path.closest('.b-sig-canvas') || path.closest('.hiw-phone') || path);
 }
-triggerSigOnScroll('hiw-sig-path');
 
 // ── CURSOR (desktop uniquement) ──
 const cur = document.getElementById('cur');
