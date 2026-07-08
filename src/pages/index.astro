@@ -570,6 +570,8 @@ div#nav-drawer a {
 .iphone-shot-sm { --iphone-w: 128px; }
 .b-ai .iphone-shot-sm { --iphone-w: 200px; }
 .b-sig .iphone-shot-sm { --iphone-w: 200px; }
+.b-contract .iphone-shot-sm,
+.b-inventory .iphone-shot-sm { --iphone-w: 200px; }
 .bento-card .iphone-shot-screen img {
   object-fit: contain;
   object-position: center top;
@@ -831,6 +833,8 @@ div#nav-drawer a {
 .b-sig  { grid-column: span 4; }
 .b-pdf  { grid-column: span 4; }
 .b-pwa  { grid-column: span 4; }
+.b-contract  { grid-column: span 6; }
+.b-inventory { grid-column: span 6; }
 .b-wl   { grid-column: span 6; }
 .b-team { grid-column: span 6; }
 
@@ -842,6 +846,8 @@ div#nav-drawer a {
 }
 .b-ai .bc-mock-shot { min-height: 220px; }
 .b-sig .bc-mock-shot { min-height: 220px; }
+.b-contract .bc-mock-shot,
+.b-inventory .bc-mock-shot { min-height: 200px; }
 .bc-mock-dark { background: linear-gradient(160deg, #1c1928, #141120); border-color: rgba(255,255,255,.06); }
 .bc-mock-shot {
   display: flex;
@@ -958,11 +964,11 @@ div#nav-drawer a {
 /* ── Responsive ── */
 @media (max-width: 1100px) {
   .b-ai, .b-wl, .b-team { grid-column: span 12; }
-  .b-cmp, .b-sig, .b-pdf, .b-pwa { grid-column: span 6; }
+  .b-cmp, .b-sig, .b-pdf, .b-pwa, .b-contract, .b-inventory { grid-column: span 6; }
 }
 @media (max-width: 768px) {
   .bento { gap: 12px; }
-  .b-ai, .b-cmp, .b-sig, .b-pdf, .b-pwa, .b-wl, .b-team { grid-column: span 12; }
+  .b-ai, .b-cmp, .b-sig, .b-pdf, .b-pwa, .b-contract, .b-inventory, .b-wl, .b-team { grid-column: span 12; }
   .bento-card { padding: 24px; }
 }
 
@@ -4651,6 +4657,40 @@ footer {
           <div class="iphone-shot iphone-shot-sm">
             <div class="iphone-shot-screen">
               <img src="/screenshots/feat-mobile.png" alt="Snagify mobile room selection screen" width="390" height="844" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ AI CONTRACT READING ══ -->
+      <div class="bento-card b-contract reveal">
+        <div class="bc-icon bc-ic-purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13l2 2 4-4"/></svg>
+        </div>
+        <div class="bc-eyebrow">Contract AI</div>
+        <h3>AI reads the tenancy contract</h3>
+        <p>Upload the Ejari or RERA contract and AI auto-fills tenant, dates and property — a ready inspection in under 30 seconds, no typing.</p>
+        <div class="bc-mock bc-mock-shot">
+          <div class="iphone-shot iphone-shot-sm">
+            <div class="iphone-shot-screen">
+              <img src="/screenshots/feat-contract.png" alt="Snagify AI analyzing a tenancy contract and auto-filling the check-in" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ SMART INVENTORY ══ -->
+      <div class="bento-card b-inventory reveal reveal-delay-1">
+        <div class="bc-icon bc-ic-purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg>
+        </div>
+        <div class="bc-eyebrow">Inventory</div>
+        <h3>Every item tracked, every change flagged</h3>
+        <p>AI auto-detects furniture and appliances, then flags any condition change from check-in to check-out — Good to Damaged, caught automatically.</p>
+        <div class="bc-mock bc-mock-shot">
+          <div class="iphone-shot iphone-shot-sm">
+            <div class="iphone-shot-screen">
+              <img src="/screenshots/feat-inventory.png" alt="Snagify auto-detected inventory flagging a Good to Damaged condition change" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
