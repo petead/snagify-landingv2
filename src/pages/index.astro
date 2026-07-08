@@ -410,12 +410,6 @@ div#nav-drawer a {
   gap: 12px;
   flex-wrap: wrap;
 }
-.hero-cta-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
 .hero-actions {
   display: flex;
   flex-direction: column;
@@ -427,11 +421,12 @@ div#nav-drawer a {
 .hero-ph {
   display: inline-flex;
   align-items: center;
-  flex-shrink: 0;
+  align-self: center;
+  margin-top: 6px;
   transition: transform .25s ease;
 }
 .hero-ph:hover { transform: translateY(-2px); }
-.hero-ph img { display: block; width: auto; height: 44px; }
+.hero-ph img { display: block; width: auto; height: 48px; }
 .hero-sample-link {
   display: inline-flex;
   align-items: center;
@@ -3429,10 +3424,8 @@ footer {
   .hero-desc        { font-size: 15px; margin-bottom: 32px; }
   .hero-actions     { gap: 10px; width: 100%; }
   .btn-ink, .btn-ghost { padding: 13px 24px; font-size: 14px; width: 100%; justify-content: center; }
-  .hero-cta-group { flex-direction: column; width: 100%; align-items: stretch; }
-  .hero-cta-row { justify-content: center; flex-wrap: wrap; gap: 10px; }
-  .hero-cta-row .btn-ghost { width: auto; }
-  .hero-ph img { height: 40px; }
+  .hero-cta-group { flex-direction: column; width: 100%; }
+  .hero-ph img { height: 44px; }
   .insp-card        { transform: rotate(0deg) !important; animation: none !important; }
   .insp-card-back   { display: none; }
 
@@ -3986,15 +3979,13 @@ footer {
             I'm a Professional
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <div class="hero-cta-row">
           <a href="#for-private" class="btn-ghost">
             I'm a Landlord / Tenant
           </a>
-          <a class="hero-ph" href="https://www.producthunt.com/products/snagify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-snagify" target="_blank" rel="noopener noreferrer">
-            <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1191014&theme=light" alt="Snagify - Dispute-proof rental inspections, signed in 20 minutes | Product Hunt" width="250" height="54" loading="lazy">
-          </a>
-          </div>
         </div>
+        <a class="hero-ph" href="https://www.producthunt.com/products/snagify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-snagify" target="_blank" rel="noopener noreferrer">
+          <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1191014&theme=light" alt="Snagify - Dispute-proof rental inspections, signed in 20 minutes | Product Hunt" width="250" height="54" loading="lazy">
+        </a>
       </div>
 
     </div>
