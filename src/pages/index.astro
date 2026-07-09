@@ -343,7 +343,7 @@ div#nav-drawer a {
 .hero-inner {
   max-width: 1360px; margin: 0 auto; width: 100%;
   display: grid; grid-template-columns: 1fr 1fr;
-  gap: 80px; align-items: flex-start;
+  gap: 80px; align-items: center;
   position: relative; z-index: 2;
 }
 
@@ -379,15 +379,18 @@ div#nav-drawer a {
 .hero h1 .line-wrap:nth-child(3) .line-inner { animation-delay: .32s; }
 @keyframes lineUp { to { transform: translateY(0); } }
 
-.hero-ph--below {
+.hero-ph--card {
   display: inline-flex;
-  margin: 20px 0 0;
+  align-self: flex-end;
+  margin-top: 24px;
+  margin-right: 56px;
   opacity: 0;
-  animation: fadeIn .55s ease 1.15s forwards;
+  animation: fadeIn .55s ease 1.1s forwards;
   transition: transform .25s ease;
 }
-.hero-ph--below:hover { transform: translateY(-2px); }
-.hero-ph--below img { display: block; width: auto; height: clamp(40px, 5vw, 53px); }
+.hero-ph--card:hover { transform: translateY(-2px); }
+.hero-ph--card img { display: block; width: auto; height: clamp(40px, 5vw, 53px); }
+.hero-ph--mobile { display: none; }
 
 /* Live counter strip */
 .hero-stats {
@@ -484,11 +487,16 @@ div#nav-drawer a {
 
 /* ── Right: Inspection Card Visual ── */
 .hero-right {
-  position: relative; display: flex; align-items: flex-start; justify-content: flex-end;
-  opacity: 0; animation: cardReveal 1s cubic-bezier(.16,1,.3,1) .35s forwards;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  opacity: 0;
+  animation: cardReveal 1s cubic-bezier(.16,1,.3,1) .35s forwards;
   padding-right: 60px;
   padding-left: 20px;
-  margin-top: -8px;
+  margin-top: 24px;
 }
 @keyframes cardReveal { from{opacity:0;transform:translateY(24px) rotate(-3deg)} to{opacity:1;transform:translateY(0) rotate(-2deg)} }
 
@@ -3498,7 +3506,8 @@ footer {
   /* Hero */
   .hero             { padding: 120px 32px 80px; }
   .hero-inner       { grid-template-columns: 1fr; gap: 60px; }
-  .hero-right       { justify-content: center; padding: 0 !important; }
+  .hero-right       { flex-direction: column; align-items: center; justify-content: center; padding: 0 !important; margin-top: 0; }
+  .hero-ph--card    { align-self: center; margin-right: 0; }
   .hero-right::before { display: none; }
   .hero-watermark   { display: none; }
   .hero-tag         { display: none; }
@@ -3585,8 +3594,14 @@ footer {
   .hero-actions     { gap: 10px; width: 100%; }
   .btn-ink, .btn-ghost { padding: 13px 24px; font-size: 14px; width: 100%; justify-content: center; }
   .hero-cta-group { flex-direction: column; width: 100%; }
-  .hero-ph--below { margin-top: 16px; }
-  .hero-ph--below img { height: 44px; }
+  .hero-ph--card { display: none; }
+  .hero-ph--mobile {
+    display: inline-flex;
+    margin-top: 16px;
+    opacity: 0;
+    animation: fadeIn .55s ease 1.15s forwards;
+  }
+  .hero-ph--mobile img { height: 44px; }
   .insp-card        { transform: rotate(0deg) !important; animation: none !important; }
   .insp-card-back   { display: none; }
 
@@ -4146,7 +4161,7 @@ footer {
         </div>
       </div>
 
-      <a class="hero-ph hero-ph--below" href="https://www.producthunt.com/products/snagify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-snagify" target="_blank" rel="noopener noreferrer">
+      <a class="hero-ph hero-ph--mobile" href="https://www.producthunt.com/products/snagify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-snagify" target="_blank" rel="noopener noreferrer">
         <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1191014&theme=light" alt="Snagify on Product Hunt" width="250" height="54" loading="lazy">
       </a>
 
@@ -4246,6 +4261,10 @@ footer {
           </div>
         </div>
       </div>
+
+      <a class="hero-ph hero-ph--card" href="https://www.producthunt.com/products/snagify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-snagify" target="_blank" rel="noopener noreferrer">
+        <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1191014&theme=light" alt="Snagify on Product Hunt" width="250" height="54" loading="lazy">
+      </a>
     </div>
 
   </div>
