@@ -180,9 +180,9 @@ a.mob-link.mob-cta:hover { color: #0E0E10 !important; }
   transition: transform .3s ease, opacity .3s ease, width .3s ease;
   transform-origin: center;
 }
-.nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.nav-burger.open span:nth-child(2) { opacity: 0; }
-.nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-burger.is-open span:nth-child(2) { opacity: 0; }
+.nav-burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ── MOBILE DRAWER ── */
 .nav-drawer {
@@ -4112,7 +4112,7 @@ footer {
   </ul>
 
   <!-- Hamburger button (mobile) -->
-  <button class="nav-burger" id="nav-burger" aria-label="Open menu">
+  <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
     <span></span><span></span><span></span>
   </button>
 
@@ -6039,17 +6039,21 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     function open() {
       drawer.classList.add('is-open');
       drawer.setAttribute('aria-hidden', 'false');
+      drawer.removeAttribute('inert');
       drawer.style.opacity = '1';
       drawer.style.visibility = 'visible';
       burger.classList.add('is-open');
+      burger.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
     }
     function close() {
       drawer.classList.remove('is-open');
       drawer.setAttribute('aria-hidden', 'true');
+      drawer.setAttribute('inert', '');
       drawer.style.opacity = '0';
       drawer.style.visibility = 'hidden';
       burger.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     }
 
@@ -6186,7 +6190,7 @@ window.setBilling = setBilling;
 window.toggleBilling = toggleBilling;
 </script>
   <!-- ══ MOBILE DRAWER (hors nav, niveau body) ══ -->
-  <div id="nav-drawer" class="nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation" aria-hidden="true" style="
+  <div id="nav-drawer" class="nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation" aria-hidden="true" inert style="
     display:flex;
     flex-direction:column;
     align-items:center;
