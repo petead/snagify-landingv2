@@ -5,7 +5,7 @@ export default defineConfig({
   output: 'static',
   build: {
     format: 'file',
-    inlineStylesheets: 'auto',
+    inlineStylesheets: 'always',
   },
   trailingSlash: 'never',
   compressHTML: false,

@@ -23,10 +23,28 @@ const currentPath = Astro.url.pathname;
 <meta http-equiv="content-language" content="en-AE">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"></noscript>
+<link rel="preload" href="/fonts/poppins-latin-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/poppins-latin-800-italic.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('/fonts/poppins-latin-800.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 800;
+  font-display: swap;
+  src: url('/fonts/poppins-latin-800-italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"></noscript>
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -3698,373 +3716,6 @@ footer {
 }
 
 </style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Is a Snagify report actually accepted by the Dubai Rental Dispute Center (RDC)? (for professionals)",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Every Snagify report includes the evidence the RDC looks for: timestamped entries, dual signatures, photos with metadata, and a SHA-256 hash proving the file hasn't been altered after signature. You submit the PDF as-is. No notarisation, no reformatting. Your agency name, logo, and RERA number appear on every page."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What happens if the tenant refuses to sign? (for professionals)",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You document the refusal inside the report. A dedicated field logs the refusal with timestamp and optional reason. The report stays legally valid. A documented refusal is strong evidence that your agency followed due process, which protects both you and your landlord client if the case reaches the RDC."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is Snagify certified by RERA?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "RERA regulates brokers, not software. Snagify follows RERA's inspection guidelines (room by room breakdown, dual signatures, photo documentation) and our report format matches the criteria RERA applies when reviewing disputes. Your RERA broker number appears on every report."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use a Snagify report as evidence in court?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. The RDC and Dubai civil courts accept digitally signed documents with verifiable timestamps. The SHA-256 hash on every PDF is cryptographic proof that the file hasn't been tampered with. A lawyer can verify it in under a minute if challenged."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I need to train my inspectors?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Most inspectors are productive on their first real inspection. The flow is guided step by step: add property, walk room by room, photograph, tag, sign. Every inspector follows the same process, so reports stay consistent across your whole agency."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long does an inspection actually take?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Around 20 minutes for a 1 bedroom apartment. 30 to 40 minutes for a villa with 4 or more rooms. First time setup adds 2 to 3 minutes for the address and rooms. Once a property is in the system, every check-out reuses the check-in template, which makes it much faster."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does it work offline on-site?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Snagify is a PWA, so it installs on your phone and runs offline once loaded. Photos and AI tagging queue locally and sync when you're back online. You can start in a basement with no signal, finish on the rooftop, and nothing is lost."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I bill my client for inspections?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, and most agencies already do. Move-in and move-out fees are standard practice in Dubai property management. Snagify gives you a branded, RDC-valid report that justifies the fee and positions inspection as a premium service. Typical rates range from 150 to 300 AED per inspection. The ROI calculator above shows what this looks like at your volume."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do credits work on Pro plans? Can my team share them?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Each inspection, check-in or check-out, uses 1 credit. Your plan's credits refresh monthly, and unused credits roll over while your subscription is active. All inspectors in your team share one credit pool, so no one runs out while another has extras. Extra credits beyond your plan cost 16 to 28 AED each depending on your tier."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I cancel my subscription anytime?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Monthly plans cancel in one click. No fees, no questions. You keep access until the end of your billing period, and every report you've ever generated stays accessible forever."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Where is my data stored? Is it secure?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reports, photos, and signatures are stored on encrypted servers. Photos are analysed by AI and then discarded. Only the final report is retained. SHA-256 hashes detect any tampering. Your data is never sold, shared, or used for AI training."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I keep my reports if I stop my subscription?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Forever. Every PDF you've generated stays in your account, downloadable anytime. If you cancel, you keep read-only access to all past reports. You just can't create new ones until you reactivate."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is a Snagify report actually accepted by the Dubai Rental Dispute Center (RDC)? (for landlords and tenants)",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Every Snagify report includes the evidence the RDC looks for: timestamped entries, dual signatures, photos with metadata, and a SHA-256 hash proving the file hasn't been altered after signature. If a dispute reaches the RDC, you submit the PDF as-is. No notarisation, no reformatting."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What if the landlord or tenant refuses to sign?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You document the refusal inside the report. A dedicated field logs the refusal with timestamp and optional reason. The report stays legally valid. A documented refusal is strong evidence that you made every effort to agree on the property's condition. In practice, most people sign once they see the report is balanced and photo backed, because it protects them too."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use a Snagify report as evidence in court? (for landlords and tenants)",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. The RDC and Dubai civil courts accept digitally signed documents with verifiable timestamps. The SHA-256 hash on every PDF is cryptographic proof that the file hasn't been tampered with. A lawyer can verify it in under a minute if challenged."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why are check-ins free?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "An undocumented move-in is the single biggest cause of lost deposits in Dubai. We want every landlord and tenant to have that baseline protection, whether you pay us later or not. You only spend credits when you do a check-out, to prove what the property looked like originally."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long does an inspection take?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Around 20 minutes for a 1 bedroom apartment. 30 to 40 minutes for a villa with 4 or more rooms. First time, add the address and rooms in 2 to 3 minutes. At check-out, the check-in template is pre-filled, so you just compare room by room."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does Snagify work offline on-site?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Snagify works on any phone. Install it like an app from your browser, and it runs offline once loaded. Photos sync when you're back online. You can do an inspection in a parking basement and nothing is lost."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do my credit packs expire?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Credit packs for landlords and tenants never expire. Buy 6 credits today, use them in 3 years if you want. They stay in your account indefinitely. Check-ins are always free, so you only spend credits when you actually do a check-out."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is my data safe?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reports, photos, and signatures are stored on encrypted servers. Photos are analysed by AI and then discarded. Only the final report is retained. SHA-256 hashes detect any tampering. Your data is never sold, shared, or used for AI training."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I keep my PDFs forever?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Every report you've generated stays in your account, downloadable anytime. No subscription required, no time limit. Even if you don't use Snagify for years, your reports are still there when you need them."
-      }
-    }
-  ]
-}
-
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://snagify.net/#organization",
-  "name": "Snagify",
-  "alternateName": ["Snagify by MULKEEF", "MULKEEF"],
-  "url": "https://snagify.net/",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://snagify.net/logo.png",
-    "width": 512,
-    "height": 512
-  },
-  "description": "Snagify is Dubai's property inspection app for landlords, tenants, agents and property managers. RDC-valid PDF reports, AI-powered photo analysis, and dual digital signatures.",
-  "foundingDate": "2024",
-  "founders": [
-    {
-      "@type": "Person",
-      "name": "Pierre Adam",
-      "jobTitle": "Founder",
-      "worksFor": { "@id": "https://snagify.net/#organization" }
-    }
-  ],
-  "parentOrganization": {
-    "@type": "Organization",
-    "name": "MULKEEF"
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Dubai",
-    "addressRegion": "Dubai",
-    "addressCountry": "AE"
-  },
-  "areaServed": [
-    { "@type": "City", "name": "Dubai" },
-    { "@type": "Country", "name": "United Arab Emirates" }
-  ],
-  "contactPoint": [
-    {
-      "@type": "ContactPoint",
-      "contactType": "customer support",
-      "email": "hello@snagify.net",
-      "availableLanguage": ["English", "Arabic", "French"],
-      "areaServed": "AE"
-    }
-  ],
-  "sameAs": [
-    "https://www.linkedin.com/company/snagify",
-    "https://twitter.com/snagifyapp",
-    "https://www.instagram.com/snagifyapp"
-  ],
-  "knowsAbout": [
-    "Property Inspection",
-    "Rental Dispute Resolution",
-    "Dubai Real Estate",
-    "RERA Compliance",
-    "RDC Procedures",
-    "Ejari Registration",
-    "Tenancy Contracts",
-    "Property Management",
-    "Move-In Inspections",
-    "Move-Out Inspections"
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://snagify.net/#localbusiness",
-  "name": "Snagify",
-  "image": "https://snagify.net/og-image.jpg",
-  "url": "https://snagify.net/",
-  "priceRange": "AED 49 - AED 374",
-  "telephone": "+971585169329",
-  "email": "hello@snagify.net",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Business Bay",
-    "addressLocality": "Dubai",
-    "addressRegion": "Dubai",
-    "postalCode": "00000",
-    "addressCountry": "AE"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "25.1862",
-    "longitude": "55.2767"
-  },
-  "areaServed": [
-    { "@type": "City", "name": "Dubai" },
-    { "@type": "Country", "name": "United Arab Emirates" }
-  ],
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      "opens": "00:00",
-      "closes": "23:59",
-      "description": "24/7 — Snagify is a SaaS platform, accessible at any time."
-    }
-  ],
-  "currenciesAccepted": "AED",
-  "paymentAccepted": "Credit Card, Debit Card",
-  "hasMap": "https://maps.google.com/?q=Business+Bay+Dubai"
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "@id": "https://snagify.net/#software",
-  "name": "Snagify",
-  "applicationCategory": "BusinessApplication",
-  "applicationSubCategory": "Property Inspection Software",
-  "operatingSystem": "Web, iOS, Android",
-  "url": "https://app.snagify.net",
-  "downloadUrl": "https://app.snagify.net",
-  "softwareVersion": "2026.1",
-  "description": "Property inspection PWA for Dubai landlords, tenants, agents, and property managers. AI-powered damage detection, RDC-valid PDF reports, dual digital signatures, RERA-aligned format.",
-  "offers": [
-    {
-      "@type": "Offer",
-      "name": "Starter Plan",
-      "price": "149",
-      "priceCurrency": "AED",
-      "priceValidUntil": "2027-12-31",
-      "availability": "https://schema.org/InStock"
-    },
-    {
-      "@type": "Offer",
-      "name": "Growth Plan",
-      "price": "249",
-      "priceCurrency": "AED",
-      "priceValidUntil": "2027-12-31",
-      "availability": "https://schema.org/InStock"
-    },
-    {
-      "@type": "Offer",
-      "name": "Agency Plan",
-      "price": "374",
-      "priceCurrency": "AED",
-      "priceValidUntil": "2027-12-31",
-      "availability": "https://schema.org/InStock"
-    }
-  ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "47",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
-  "featureList": [
-    "AI-powered damage detection",
-    "RDC-valid PDF reports",
-    "Dual digital signatures",
-    "RERA-aligned format",
-    "Ejari auto-detection",
-    "Offline PWA inspection",
-    "Team credit pool sharing",
-    "White-label branded reports",
-    "SHA-256 cryptographic verification",
-    "Push notifications for signature events"
-  ],
-  "screenshot": "https://snagify.net/og-image.jpg",
-  "publisher": { "@id": "https://snagify.net/#organization" }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": "https://snagify.net/#website",
-  "url": "https://snagify.net/",
-  "name": "Snagify",
-  "description": "Dubai's property inspection app for RDC-valid reports.",
-  "publisher": { "@id": "https://snagify.net/#organization" },
-  "inLanguage": "en-AE",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": "https://snagify.net/?q={search_term_string}"
-    },
-    "query-input": "required name=search_term_string"
-  }
-}
-</script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Snagify">
 <meta property="og:title" content="Snagify · Dubai's Property Inspection App · RERA &amp; RDC Compliant">
@@ -6509,6 +6160,376 @@ window.toggleBilling = toggleBilling;
   calc();
 })();
 </script>
+
+<!-- Structured data (moved out of head for faster first paint) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is a Snagify report actually accepted by the Dubai Rental Dispute Center (RDC)? (for professionals)",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Every Snagify report includes the evidence the RDC looks for: timestamped entries, dual signatures, photos with metadata, and a SHA-256 hash proving the file hasn't been altered after signature. You submit the PDF as-is. No notarisation, no reformatting. Your agency name, logo, and RERA number appear on every page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if the tenant refuses to sign? (for professionals)",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You document the refusal inside the report. A dedicated field logs the refusal with timestamp and optional reason. The report stays legally valid. A documented refusal is strong evidence that your agency followed due process, which protects both you and your landlord client if the case reaches the RDC."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Snagify certified by RERA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RERA regulates brokers, not software. Snagify follows RERA's inspection guidelines (room by room breakdown, dual signatures, photo documentation) and our report format matches the criteria RERA applies when reviewing disputes. Your RERA broker number appears on every report."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use a Snagify report as evidence in court?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The RDC and Dubai civil courts accept digitally signed documents with verifiable timestamps. The SHA-256 hash on every PDF is cryptographic proof that the file hasn't been tampered with. A lawyer can verify it in under a minute if challenged."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to train my inspectors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Most inspectors are productive on their first real inspection. The flow is guided step by step: add property, walk room by room, photograph, tag, sign. Every inspector follows the same process, so reports stay consistent across your whole agency."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does an inspection actually take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Around 20 minutes for a 1 bedroom apartment. 30 to 40 minutes for a villa with 4 or more rooms. First time setup adds 2 to 3 minutes for the address and rooms. Once a property is in the system, every check-out reuses the check-in template, which makes it much faster."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work offline on-site?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Snagify is a PWA, so it installs on your phone and runs offline once loaded. Photos and AI tagging queue locally and sync when you're back online. You can start in a basement with no signal, finish on the rooftop, and nothing is lost."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I bill my client for inspections?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and most agencies already do. Move-in and move-out fees are standard practice in Dubai property management. Snagify gives you a branded, RDC-valid report that justifies the fee and positions inspection as a premium service. Typical rates range from 150 to 300 AED per inspection. The ROI calculator above shows what this looks like at your volume."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do credits work on Pro plans? Can my team share them?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each inspection, check-in or check-out, uses 1 credit. Your plan's credits refresh monthly, and unused credits roll over while your subscription is active. All inspectors in your team share one credit pool, so no one runs out while another has extras. Extra credits beyond your plan cost 16 to 28 AED each depending on your tier."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I cancel my subscription anytime?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Monthly plans cancel in one click. No fees, no questions. You keep access until the end of your billing period, and every report you've ever generated stays accessible forever."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is my data stored? Is it secure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reports, photos, and signatures are stored on encrypted servers. Photos are analysed by AI and then discarded. Only the final report is retained. SHA-256 hashes detect any tampering. Your data is never sold, shared, or used for AI training."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I keep my reports if I stop my subscription?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Forever. Every PDF you've generated stays in your account, downloadable anytime. If you cancel, you keep read-only access to all past reports. You just can't create new ones until you reactivate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a Snagify report actually accepted by the Dubai Rental Dispute Center (RDC)? (for landlords and tenants)",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Every Snagify report includes the evidence the RDC looks for: timestamped entries, dual signatures, photos with metadata, and a SHA-256 hash proving the file hasn't been altered after signature. If a dispute reaches the RDC, you submit the PDF as-is. No notarisation, no reformatting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if the landlord or tenant refuses to sign?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You document the refusal inside the report. A dedicated field logs the refusal with timestamp and optional reason. The report stays legally valid. A documented refusal is strong evidence that you made every effort to agree on the property's condition. In practice, most people sign once they see the report is balanced and photo backed, because it protects them too."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use a Snagify report as evidence in court? (for landlords and tenants)",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The RDC and Dubai civil courts accept digitally signed documents with verifiable timestamps. The SHA-256 hash on every PDF is cryptographic proof that the file hasn't been tampered with. A lawyer can verify it in under a minute if challenged."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are check-ins free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An undocumented move-in is the single biggest cause of lost deposits in Dubai. We want every landlord and tenant to have that baseline protection, whether you pay us later or not. You only spend credits when you do a check-out, to prove what the property looked like originally."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does an inspection take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Around 20 minutes for a 1 bedroom apartment. 30 to 40 minutes for a villa with 4 or more rooms. First time, add the address and rooms in 2 to 3 minutes. At check-out, the check-in template is pre-filled, so you just compare room by room."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Snagify work offline on-site?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Snagify works on any phone. Install it like an app from your browser, and it runs offline once loaded. Photos sync when you're back online. You can do an inspection in a parking basement and nothing is lost."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do my credit packs expire?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Credit packs for landlords and tenants never expire. Buy 6 credits today, use them in 3 years if you want. They stay in your account indefinitely. Check-ins are always free, so you only spend credits when you actually do a check-out."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reports, photos, and signatures are stored on encrypted servers. Photos are analysed by AI and then discarded. Only the final report is retained. SHA-256 hashes detect any tampering. Your data is never sold, shared, or used for AI training."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I keep my PDFs forever?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Every report you've generated stays in your account, downloadable anytime. No subscription required, no time limit. Even if you don't use Snagify for years, your reports are still there when you need them."
+      }
+    }
+  ]
+}
+
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://snagify.net/#organization",
+  "name": "Snagify",
+  "alternateName": ["Snagify by MULKEEF", "MULKEEF"],
+  "url": "https://snagify.net/",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://snagify.net/logo.png",
+    "width": 512,
+    "height": 512
+  },
+  "description": "Snagify is Dubai's property inspection app for landlords, tenants, agents and property managers. RDC-valid PDF reports, AI-powered photo analysis, and dual digital signatures.",
+  "foundingDate": "2024",
+  "founders": [
+    {
+      "@type": "Person",
+      "name": "Pierre Adam",
+      "jobTitle": "Founder",
+      "worksFor": { "@id": "https://snagify.net/#organization" }
+    }
+  ],
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "MULKEEF"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Dubai",
+    "addressRegion": "Dubai",
+    "addressCountry": "AE"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Dubai" },
+    { "@type": "Country", "name": "United Arab Emirates" }
+  ],
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "hello@snagify.net",
+      "availableLanguage": ["English", "Arabic", "French"],
+      "areaServed": "AE"
+    }
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/company/snagify",
+    "https://twitter.com/snagifyapp",
+    "https://www.instagram.com/snagifyapp"
+  ],
+  "knowsAbout": [
+    "Property Inspection",
+    "Rental Dispute Resolution",
+    "Dubai Real Estate",
+    "RERA Compliance",
+    "RDC Procedures",
+    "Ejari Registration",
+    "Tenancy Contracts",
+    "Property Management",
+    "Move-In Inspections",
+    "Move-Out Inspections"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://snagify.net/#localbusiness",
+  "name": "Snagify",
+  "image": "https://snagify.net/og-image.jpg",
+  "url": "https://snagify.net/",
+  "priceRange": "AED 49 - AED 374",
+  "telephone": "+971585169329",
+  "email": "hello@snagify.net",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Business Bay",
+    "addressLocality": "Dubai",
+    "addressRegion": "Dubai",
+    "postalCode": "00000",
+    "addressCountry": "AE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "25.1862",
+    "longitude": "55.2767"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Dubai" },
+    { "@type": "Country", "name": "United Arab Emirates" }
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "00:00",
+      "closes": "23:59",
+      "description": "24/7 — Snagify is a SaaS platform, accessible at any time."
+    }
+  ],
+  "currenciesAccepted": "AED",
+  "paymentAccepted": "Credit Card, Debit Card",
+  "hasMap": "https://maps.google.com/?q=Business+Bay+Dubai"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "https://snagify.net/#software",
+  "name": "Snagify",
+  "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "Property Inspection Software",
+  "operatingSystem": "Web, iOS, Android",
+  "url": "https://app.snagify.net",
+  "downloadUrl": "https://app.snagify.net",
+  "softwareVersion": "2026.1",
+  "description": "Property inspection PWA for Dubai landlords, tenants, agents, and property managers. AI-powered damage detection, RDC-valid PDF reports, dual digital signatures, RERA-aligned format.",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Starter Plan",
+      "price": "149",
+      "priceCurrency": "AED",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "Growth Plan",
+      "price": "249",
+      "priceCurrency": "AED",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "Agency Plan",
+      "price": "374",
+      "priceCurrency": "AED",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "47",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "featureList": [
+    "AI-powered damage detection",
+    "RDC-valid PDF reports",
+    "Dual digital signatures",
+    "RERA-aligned format",
+    "Ejari auto-detection",
+    "Offline PWA inspection",
+    "Team credit pool sharing",
+    "White-label branded reports",
+    "SHA-256 cryptographic verification",
+    "Push notifications for signature events"
+  ],
+  "screenshot": "https://snagify.net/og-image.jpg",
+  "publisher": { "@id": "https://snagify.net/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://snagify.net/#website",
+  "url": "https://snagify.net/",
+  "name": "Snagify",
+  "description": "Dubai's property inspection app for RDC-valid reports.",
+  "publisher": { "@id": "https://snagify.net/#organization" },
+  "inLanguage": "en-AE",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://snagify.net/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
 </body>
 </html>
 
