@@ -16,6 +16,8 @@
 <meta http-equiv="content-language" content="en-AE">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"></noscript>
 <style>
@@ -1919,6 +1921,8 @@ div#nav-drawer a {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .hero h1 .line-inner { transform: none !important; animation: none !important; }
+  .insp-card, .hero-right, .hero-tag, .ic-pin { animation: none !important; opacity: 1 !important; }
   .pricing-toggle-glider,
   .billing-pill-glider,
   .price-card {
@@ -3592,6 +3596,10 @@ footer {
   .hero-right       { display: none; }
   .hero-right::before { display: none; }
   .hero h1          { font-size: clamp(46px, 11vw, 62px); letter-spacing: -2px; }
+  .hero h1 .line-inner {
+    transform: none !important;
+    animation: none !important;
+  }
   .hero-eyebrow     { flex-wrap: wrap; gap: 4px; font-size: 10px; letter-spacing: 2.5px; }
   .hero-watermark   { display: none; }
   .hero-tag         { display: none; }
@@ -4163,7 +4171,7 @@ footer {
             I'm a Landlord / Tenant
           </a>
           <a class="hero-ph--cta" href="https://www.producthunt.com/products/snagify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-snagify" target="_blank" rel="noopener noreferrer">
-            <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1191014&theme=light" alt="Snagify on Product Hunt" width="250" height="54" loading="lazy">
+            <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1191014&theme=light" alt="Snagify on Product Hunt" width="250" height="54" loading="eager">
           </a>
         </div>
       </div>
