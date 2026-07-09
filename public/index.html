@@ -372,19 +372,22 @@ div#nav-drawer a {
 .hero h1 .line-wrap:nth-child(3) .line-inner { animation-delay: .32s; }
 @keyframes lineUp { to { transform: translateY(0); } }
 
-.hero-ph--card {
+.hero-cta-row {
   display: inline-flex;
-  align-self: flex-end;
-  margin-top: 24px;
-  margin-right: 56px;
+  align-items: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.hero-ph--cta {
+  display: inline-flex;
+  flex-shrink: 0;
+  transform: translateY(6px);
   opacity: 0;
-  animation: fadeIn .55s ease 1.1s forwards;
+  animation: fadeIn .55s ease 1.15s forwards;
   transition: transform .25s ease;
 }
-.hero-ph--card:hover { transform: translateY(-2px); }
-.hero-ph--card img { display: block; width: auto; height: clamp(40px, 5vw, 53px); }
-.hero-ph--mobile { display: none; }
-
+.hero-ph--cta:hover { transform: translateY(4px); }
+.hero-ph--cta img { display: block; width: auto; height: clamp(38px, 4.5vw, 50px); }
 /* Live counter strip */
 .hero-stats {
   display: flex;
@@ -479,17 +482,16 @@ div#nav-drawer a {
 .btn-ghost:hover { border-color: var(--ink); transform: translateY(-3px); }
 
 /* ── Right: Inspection Card Visual ── */
+/* ── Right: Inspection Card Visual ── */
 .hero-right {
   position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: flex-end;
   opacity: 0;
   animation: cardReveal 1s cubic-bezier(.16,1,.3,1) .35s forwards;
   padding-right: 60px;
   padding-left: 20px;
-  margin-top: 24px;
 }
 @keyframes cardReveal { from{opacity:0;transform:translateY(24px) rotate(-3deg)} to{opacity:1;transform:translateY(0) rotate(-2deg)} }
 
@@ -3498,8 +3500,7 @@ footer {
   /* Hero */
   .hero             { padding: 120px 32px 80px; }
   .hero-inner       { grid-template-columns: 1fr; gap: 60px; }
-  .hero-right       { flex-direction: column; align-items: center; justify-content: center; padding: 0 !important; margin-top: 0; }
-  .hero-ph--card    { align-self: center; margin-right: 0; }
+  .hero-right       { justify-content: center; padding: 0 !important; }
   .hero-right::before { display: none; }
   .hero-watermark   { display: none; }
   .hero-tag         { display: none; }
@@ -3585,15 +3586,11 @@ footer {
   .hero-desc        { font-size: 15px; margin-bottom: 32px; }
   .hero-actions     { gap: 10px; width: 100%; }
   .btn-ink, .btn-ghost { padding: 13px 24px; font-size: 14px; width: 100%; justify-content: center; }
-  .hero-cta-group { flex-direction: column; width: 100%; }
-  .hero-ph--card { display: none; }
-  .hero-ph--mobile {
-    display: inline-flex;
-    margin-top: 16px;
-    opacity: 0;
-    animation: fadeIn .55s ease 1.15s forwards;
-  }
-  .hero-ph--mobile img { height: 44px; }
+  .hero-cta-group { flex-direction: column; width: 100%; align-items: stretch; }
+  .hero-cta-row { width: 100%; align-items: flex-end; justify-content: flex-start; gap: 8px; }
+  .hero-cta-row .btn-ghost { width: auto; flex: 1 1 auto; }
+  .hero-ph--cta { transform: translateY(4px); }
+  .hero-ph--cta img { height: 40px; }
   .insp-card        { transform: rotate(0deg) !important; animation: none !important; }
   .insp-card-back   { display: none; }
 
@@ -4143,15 +4140,16 @@ footer {
             I'm a Professional
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="#for-private" class="btn-ghost">
-            I'm a Landlord / Tenant
-          </a>
+          <div class="hero-cta-row">
+            <a href="#for-private" class="btn-ghost">
+              I'm a Landlord / Tenant
+            </a>
+            <a class="hero-ph hero-ph--cta" href="https://www.producthunt.com/products/snagify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-snagify" target="_blank" rel="noopener noreferrer">
+              <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1191014&theme=light" alt="Snagify on Product Hunt" width="250" height="54" loading="lazy">
+            </a>
+          </div>
         </div>
       </div>
-
-      <a class="hero-ph hero-ph--mobile" href="https://www.producthunt.com/products/snagify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-snagify" target="_blank" rel="noopener noreferrer">
-        <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1191014&theme=light" alt="Snagify on Product Hunt" width="250" height="54" loading="lazy">
-      </a>
 
     </div>
 
@@ -4250,9 +4248,6 @@ footer {
         </div>
       </div>
 
-      <a class="hero-ph hero-ph--card" href="https://www.producthunt.com/products/snagify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-snagify" target="_blank" rel="noopener noreferrer">
-        <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1191014&theme=light" alt="Snagify on Product Hunt" width="250" height="54" loading="lazy">
-      </a>
     </div>
 
   </div>
