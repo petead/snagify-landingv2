@@ -200,6 +200,9 @@ const showEnOnlyColumns = locale === 'en';
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         {t.brandBadge}
       </div>
+      <a class="site-foot-ph" href="https://www.producthunt.com/products/snagify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-snagify" target="_blank" rel="noopener noreferrer">
+        <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1191014&theme=dark" alt="Snagify on Product Hunt" width="250" height="54" loading="lazy">
+      </a>
     </div>
 
     <div class="site-foot-col">
@@ -328,6 +331,13 @@ const showEnOnlyColumns = locale === 'en';
   color: rgba(252,252,252,0.8);
   width: fit-content;
 }
+.site-foot-ph {
+  display: inline-flex;
+  margin-top: 2px;
+  transition: transform .25s ease, opacity .25s ease;
+}
+.site-foot-ph:hover { transform: translateY(-2px); opacity: .92; }
+.site-foot-ph img { display: block; width: auto; height: 44px; }
 .site-foot-col h4 {
   font-family: 'Poppins', sans-serif; font-weight: 700;
   font-size: 13px;

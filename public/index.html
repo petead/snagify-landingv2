@@ -341,9 +341,7 @@ div#nav-drawer a {
 }
 
 /* ── Left content ── */
-.hero-left { position: relative; }
-
-.hero-eyebrow {
+.hero-left { position: relative; overflow: visible; }
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 11px; text-transform: uppercase; letter-spacing: 3.5px; font-weight: 500;
   color: var(--ink-60); margin-bottom: 20px;
@@ -375,18 +373,26 @@ div#nav-drawer a {
 .hero-cta-group {
   display: flex;
   align-items: flex-end;
-  gap: 10px 12px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hero-cta-row {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 10px;
   flex-wrap: nowrap;
 }
 .hero-ph--cta {
   display: inline-flex;
   flex-shrink: 0;
-  transform: translateY(6px);
+  position: relative;
+  z-index: 4;
+  transform: translate(clamp(28px, 5vw, 88px), 6px);
   opacity: 0;
   animation: fadeIn .55s ease 1.15s forwards;
   transition: transform .25s ease;
 }
-.hero-ph--cta:hover { transform: translateY(4px); }
+.hero-ph--cta:hover { transform: translate(clamp(28px, 5vw, 88px), 4px); }
 .hero-ph--cta img { display: block; width: auto; height: clamp(38px, 4.5vw, 50px); }
 /* Live counter strip */
 .hero-stats {
@@ -419,6 +425,7 @@ div#nav-drawer a {
   flex-direction: column;
   gap: 14px;
   align-items: flex-start;
+  overflow: visible;
   opacity: 0;
   animation: fadeIn .7s ease 1.1s forwards;
 }
@@ -2258,6 +2265,13 @@ footer {
   background: var(--purple); color: var(--ink);
   border-color: var(--purple);
 }
+.foot-ph {
+  display: inline-flex;
+  margin-top: 4px;
+  transition: transform .25s ease, opacity .25s ease;
+}
+.foot-ph:hover { transform: translateY(-2px); opacity: .92; }
+.foot-ph img { display: block; width: auto; height: 44px; }
 
 @media(max-width: 1100px) {
   .footer-top { grid-template-columns: 1fr 1fr; }
@@ -3579,11 +3593,12 @@ footer {
   .hstat-lbl        { font-size: 10px; letter-spacing: 1.5px; }
   .hero-desc        { font-size: 15px; margin-bottom: 32px; }
   .hero-actions     { gap: 10px; width: 100%; }
-  .btn-ink, .btn-ghost { padding: 13px 24px; font-size: 14px; justify-content: center; }
-  .hero-cta-group { flex-wrap: wrap; width: 100%; align-items: flex-end; }
-  .btn-ink { width: 100%; flex-basis: 100%; }
-  .btn-ghost { width: auto; flex: 1 1 auto; min-width: 0; }
-  .hero-ph--cta { transform: translateY(4px); flex-shrink: 0; }
+  .btn-ink, .btn-ghost { padding: 13px 24px; font-size: 14px; width: 100%; justify-content: center; }
+  .hero-cta-group { flex-direction: column; width: 100%; align-items: stretch; }
+  .hero-cta-row { width: 100%; align-items: flex-end; justify-content: flex-start; gap: 8px; }
+  .hero-cta-row .btn-ghost { width: auto; flex: 1 1 auto; }
+  .hero-ph--cta { transform: translate(8px, 4px); flex-shrink: 0; }
+  .hero-ph--cta:hover { transform: translate(8px, 2px); }
   .hero-ph--cta img { height: 40px; }
   .insp-card        { transform: rotate(0deg) !important; animation: none !important; }
   .insp-card-back   { display: none; }
@@ -4134,12 +4149,14 @@ footer {
             I'm a Professional
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="#for-private" class="btn-ghost">
-            I'm a Landlord / Tenant
-          </a>
-          <a class="hero-ph hero-ph--cta" href="https://www.producthunt.com/products/snagify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-snagify" target="_blank" rel="noopener noreferrer">
-            <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1191014&theme=light" alt="Snagify on Product Hunt" width="250" height="54" loading="lazy">
-          </a>
+          <div class="hero-cta-row">
+            <a href="#for-private" class="btn-ghost">
+              I'm a Landlord / Tenant
+            </a>
+            <a class="hero-ph hero-ph--cta" href="https://www.producthunt.com/products/snagify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-snagify" target="_blank" rel="noopener noreferrer">
+              <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1191014&theme=light" alt="Snagify on Product Hunt" width="250" height="54" loading="lazy">
+            </a>
+          </div>
         </div>
       </div>
 
@@ -5742,6 +5759,9 @@ footer {
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         RERA Compliant · RDC Valid · Dubai
       </div>
+      <a class="foot-ph" href="https://www.producthunt.com/products/snagify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-snagify" target="_blank" rel="noopener noreferrer">
+        <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1191014&theme=dark" alt="Snagify on Product Hunt" width="250" height="54" loading="lazy">
+      </a>
     </div>
 
     <div class="foot-col">
