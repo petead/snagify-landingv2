@@ -354,18 +354,35 @@ div#nav-drawer a {
 .hero h1 {
   font-family: 'Poppins', sans-serif; font-weight: 800;
   font-size: clamp(56px, 6vw, 88px);
-  line-height: .93; letter-spacing: -3.5px;
+  line-height: 1.02; letter-spacing: -3.5px;
   margin-bottom: 28px;
 }
 .hero h1 em { font-style: italic; color: var(--purple); }
 
 /* Line-by-line animation */
-.line-wrap { overflow: hidden; }
+.line-wrap { overflow: hidden; padding-bottom: 0.14em; margin-bottom: -0.06em; }
+.hero h1 .line-wrap:last-child { padding-bottom: 0.22em; margin-bottom: 0; }
 .line-inner {
   display: inline-block;
   transform: translateY(110%);
   animation: lineUp .9s cubic-bezier(.16,1,.3,1) forwards;
 }
+.hero-headline-accent {
+  display: inline-flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+}
+.hero-ph--inline {
+  display: inline-flex;
+  flex-shrink: 0;
+  margin-top: 0;
+  align-self: auto;
+  transform: translateY(8px);
+  transition: transform .25s ease;
+}
+.hero-ph--inline:hover { transform: translateY(6px); }
+.hero-ph--inline img { display: block; width: auto; height: clamp(34px, 4.2vw, 46px); }
 .hero h1 .line-wrap:nth-child(1) .line-inner { animation-delay: .1s; }
 .hero h1 .line-wrap:nth-child(2) .line-inner { animation-delay: .22s; }
 .hero h1 .line-wrap:nth-child(3) .line-inner { animation-delay: .32s; }
@@ -3565,7 +3582,8 @@ footer {
   .hero-actions     { gap: 10px; width: 100%; }
   .btn-ink, .btn-ghost { padding: 13px 24px; font-size: 14px; width: 100%; justify-content: center; }
   .hero-cta-group { flex-direction: column; width: 100%; }
-  .hero-ph img { height: 44px; }
+  .hero-ph--inline { transform: translateY(4px); }
+  .hero-ph--inline img { height: 38px; }
   .insp-card        { transform: rotate(0deg) !important; animation: none !important; }
   .insp-card-back   { display: none; }
 
@@ -4085,7 +4103,7 @@ footer {
       <h1>
         <div class="line-wrap"><span class="line-inner">Inspection reports</span></div>
         <div class="line-wrap"><span class="line-inner">done in 20 min.</span></div>
-        <div class="line-wrap"><span class="line-inner"><em>No deposit fights.</em></span></div>
+        <div class="line-wrap"><span class="line-inner hero-headline-accent"><em>No deposit fights.</em><a class="hero-ph hero-ph--inline" href="https://www.producthunt.com/products/snagify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-snagify" target="_blank" rel="noopener noreferrer"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1191014&theme=light" alt="Snagify on Product Hunt" width="250" height="54" loading="lazy"></a></span></div>
       </h1>
 
       <!-- Stats strip — social proof juste après le titre -->
@@ -4119,9 +4137,6 @@ footer {
             I'm a Landlord / Tenant
           </a>
         </div>
-        <a class="hero-ph" href="https://www.producthunt.com/products/snagify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-snagify" target="_blank" rel="noopener noreferrer">
-          <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1191014&theme=light" alt="Snagify - Dispute-proof rental inspections, signed in 20 minutes | Product Hunt" width="250" height="54" loading="lazy">
-        </a>
       </div>
 
     </div>
