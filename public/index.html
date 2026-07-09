@@ -294,7 +294,7 @@ div#nav-drawer a {
 .hero {
   min-height: 100vh;
   display: flex; align-items: center;
-  padding: 120px 48px 80px;
+  padding: 104px 48px 80px;
   position: relative; overflow: hidden;
 }
 
@@ -346,7 +346,7 @@ div#nav-drawer a {
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 11px; text-transform: uppercase; letter-spacing: 3.5px; font-weight: 500;
-  color: var(--ink-60); margin-bottom: 28px;
+  color: var(--ink-60); margin-bottom: 20px;
 }
 .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--purple); animation: eyePulse 2s ease-in-out infinite; }
 @keyframes eyePulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(0.7)} }
@@ -355,7 +355,7 @@ div#nav-drawer a {
   font-family: 'Poppins', sans-serif; font-weight: 800;
   font-size: clamp(56px, 6vw, 88px);
   line-height: 1.02; letter-spacing: -3.5px;
-  margin-bottom: 28px;
+  margin-bottom: 10px;
 }
 .hero h1 em { font-style: italic; color: var(--purple); }
 
@@ -367,26 +367,20 @@ div#nav-drawer a {
   transform: translateY(110%);
   animation: lineUp .9s cubic-bezier(.16,1,.3,1) forwards;
 }
-.hero-headline-accent {
-  display: inline-flex;
-  align-items: flex-end;
-  flex-wrap: wrap;
-  gap: 8px 14px;
-}
-.hero-ph--inline {
-  display: inline-flex;
-  flex-shrink: 0;
-  margin-top: 0;
-  align-self: auto;
-  transform: translateY(8px);
-  transition: transform .25s ease;
-}
-.hero-ph--inline:hover { transform: translateY(6px); }
-.hero-ph--inline img { display: block; width: auto; height: clamp(34px, 4.2vw, 46px); }
 .hero h1 .line-wrap:nth-child(1) .line-inner { animation-delay: .1s; }
 .hero h1 .line-wrap:nth-child(2) .line-inner { animation-delay: .22s; }
 .hero h1 .line-wrap:nth-child(3) .line-inner { animation-delay: .32s; }
 @keyframes lineUp { to { transform: translateY(0); } }
+
+.hero-ph--below {
+  display: inline-flex;
+  margin: 4px 0 22px;
+  opacity: 0;
+  animation: fadeIn .55s ease .78s forwards;
+  transition: transform .25s ease;
+}
+.hero-ph--below:hover { transform: translateY(-2px); }
+.hero-ph--below img { display: block; width: auto; height: clamp(37px, 4.6vw, 51px); }
 
 /* Live counter strip */
 .hero-stats {
@@ -3582,8 +3576,7 @@ footer {
   .hero-actions     { gap: 10px; width: 100%; }
   .btn-ink, .btn-ghost { padding: 13px 24px; font-size: 14px; width: 100%; justify-content: center; }
   .hero-cta-group { flex-direction: column; width: 100%; }
-  .hero-ph--inline { transform: translateY(4px); }
-  .hero-ph--inline img { height: 38px; }
+  .hero-ph--below img { height: 42px; }
   .insp-card        { transform: rotate(0deg) !important; animation: none !important; }
   .insp-card-back   { display: none; }
 
@@ -4103,8 +4096,12 @@ footer {
       <h1>
         <div class="line-wrap"><span class="line-inner">Inspection reports</span></div>
         <div class="line-wrap"><span class="line-inner">done in 20 min.</span></div>
-        <div class="line-wrap"><span class="line-inner hero-headline-accent"><em>No deposit fights.</em><a class="hero-ph hero-ph--inline" href="https://www.producthunt.com/products/snagify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-snagify" target="_blank" rel="noopener noreferrer"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1191014&theme=light" alt="Snagify on Product Hunt" width="250" height="54" loading="lazy"></a></span></div>
+        <div class="line-wrap"><span class="line-inner"><em>No deposit fights.</em></span></div>
       </h1>
+
+      <a class="hero-ph hero-ph--below" href="https://www.producthunt.com/products/snagify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-snagify" target="_blank" rel="noopener noreferrer">
+        <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1191014&theme=light" alt="Snagify on Product Hunt" width="250" height="54" loading="lazy">
+      </a>
 
       <!-- Stats strip — social proof juste après le titre -->
       <div class="hero-stats">
