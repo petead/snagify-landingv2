@@ -5,6 +5,7 @@ export default defineConfig({
   output: 'static',
   build: {
     format: 'file',
+    inlineStylesheets: 'auto',
   },
   trailingSlash: 'never',
   compressHTML: false,
@@ -17,8 +18,8 @@ export default defineConfig({
   },
   vite: {
     build: {
-      cssCodeSplit: false,
-      minify: false,
+      cssCodeSplit: true,
+      cssMinify: true,
     },
   },
 });
