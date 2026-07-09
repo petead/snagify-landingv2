@@ -373,28 +373,29 @@ div#nav-drawer a {
 @keyframes lineUp { to { transform: translateY(0); } }
 
 .hero-cta-group {
-  display: flex;
-  align-items: flex-end;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.hero-cta-row {
   display: inline-flex;
-  align-items: flex-end;
-  gap: 10px;
+  align-items: center;
+  gap: 12px;
   flex-wrap: nowrap;
+  position: relative;
+}
+.hero-cta-group .btn-ink,
+.hero-cta-group .btn-ghost {
+  width: auto;
+  flex: 0 0 auto;
 }
 .hero-ph--cta {
   display: inline-flex;
-  flex-shrink: 0;
+  flex: 0 0 auto;
   position: relative;
   z-index: 4;
-  transform: translate(clamp(28px, 5vw, 88px), 6px);
+  align-self: flex-end;
+  transform: translate(clamp(32px, 6vw, 110px), 5px);
   opacity: 0;
   animation: fadeIn .55s ease 1.15s forwards;
   transition: transform .25s ease;
 }
-.hero-ph--cta:hover { transform: translate(clamp(28px, 5vw, 88px), 4px); }
+.hero-ph--cta:hover { transform: translate(clamp(32px, 6vw, 110px), 3px); }
 .hero-ph--cta img { display: block; width: auto; height: clamp(38px, 4.5vw, 50px); }
 /* Live counter strip */
 .hero-stats {
@@ -3595,12 +3596,12 @@ footer {
   .hstat-lbl        { font-size: 10px; letter-spacing: 1.5px; }
   .hero-desc        { font-size: 15px; margin-bottom: 32px; }
   .hero-actions     { gap: 10px; width: 100%; }
-  .btn-ink, .btn-ghost { padding: 13px 24px; font-size: 14px; width: 100%; justify-content: center; }
-  .hero-cta-group { flex-direction: column; width: 100%; align-items: stretch; }
-  .hero-cta-row { width: 100%; align-items: flex-end; justify-content: flex-start; gap: 8px; }
-  .hero-cta-row .btn-ghost { width: auto; flex: 1 1 auto; }
-  .hero-ph--cta { transform: translate(8px, 4px); flex-shrink: 0; }
-  .hero-ph--cta:hover { transform: translate(8px, 2px); }
+  .btn-ink, .btn-ghost { padding: 13px 24px; font-size: 14px; justify-content: center; }
+  .hero-cta-group { display: flex; flex-direction: column; width: 100%; align-items: stretch; }
+  .hero-cta-group .btn-ink,
+  .hero-cta-group .btn-ghost { padding: 13px 24px; font-size: 14px; width: 100%; justify-content: center; }
+  .hero-ph--cta { align-self: flex-start; transform: translate(0, 0); flex-shrink: 0; }
+  .hero-ph--cta:hover { transform: translate(0, -2px); }
   .hero-ph--cta img { height: 40px; }
   .insp-card        { transform: rotate(0deg) !important; animation: none !important; }
   .insp-card-back   { display: none; }
@@ -4151,14 +4152,12 @@ footer {
             I'm a Professional
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <div class="hero-cta-row">
-            <a href="#for-private" class="btn-ghost">
-              I'm a Landlord / Tenant
-            </a>
-            <a class="hero-ph hero-ph--cta" href="https://www.producthunt.com/products/snagify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-snagify" target="_blank" rel="noopener noreferrer">
-              <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1191014&theme=light" alt="Snagify on Product Hunt" width="250" height="54" loading="lazy">
-            </a>
-          </div>
+          <a href="#for-private" class="btn-ghost">
+            I'm a Landlord / Tenant
+          </a>
+          <a class="hero-ph hero-ph--cta" href="https://www.producthunt.com/products/snagify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-snagify" target="_blank" rel="noopener noreferrer">
+            <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1191014&theme=light" alt="Snagify on Product Hunt" width="250" height="54" loading="lazy">
+          </a>
         </div>
       </div>
 
