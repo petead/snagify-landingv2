@@ -386,16 +386,14 @@ div#nav-drawer a {
 }
 .hero-ph--cta {
   display: inline-flex;
+  align-items: center;
   flex: 0 0 auto;
-  position: relative;
-  z-index: 4;
-  align-self: flex-end;
-  transform: translate(clamp(32px, 6vw, 110px), 5px);
+  margin-right: clamp(-72px, -7vw, -28px);
   opacity: 0;
   animation: fadeIn .55s ease 1.15s forwards;
-  transition: transform .25s ease;
+  transition: transform .3s cubic-bezier(.16,1,.3,1);
 }
-.hero-ph--cta:hover { transform: translate(clamp(32px, 6vw, 110px), 3px); }
+.hero-ph--cta:hover { transform: translateY(-3px); }
 .hero-ph--cta img { display: block; width: auto; height: clamp(38px, 4.5vw, 50px); }
 /* Live counter strip */
 .hero-stats {
@@ -3600,8 +3598,8 @@ footer {
   .hero-cta-group { display: flex; flex-direction: column; width: 100%; align-items: stretch; }
   .hero-cta-group .btn-ink,
   .hero-cta-group .btn-ghost { padding: 13px 24px; font-size: 14px; width: 100%; justify-content: center; }
-  .hero-ph--cta { align-self: flex-start; transform: translate(0, 0); flex-shrink: 0; }
-  .hero-ph--cta:hover { transform: translate(0, -2px); }
+  .hero-ph--cta { margin-right: 0; align-self: flex-start; }
+  .hero-ph--cta:hover { transform: translateY(-2px); }
   .hero-ph--cta img { height: 40px; }
   .insp-card        { transform: rotate(0deg) !important; animation: none !important; }
   .insp-card-back   { display: none; }
@@ -4155,7 +4153,7 @@ footer {
           <a href="#for-private" class="btn-ghost">
             I'm a Landlord / Tenant
           </a>
-          <a class="hero-ph hero-ph--cta" href="https://www.producthunt.com/products/snagify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-snagify" target="_blank" rel="noopener noreferrer">
+          <a class="hero-ph--cta" href="https://www.producthunt.com/products/snagify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-snagify" target="_blank" rel="noopener noreferrer">
             <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1191014&theme=light" alt="Snagify on Product Hunt" width="250" height="54" loading="lazy">
           </a>
         </div>
