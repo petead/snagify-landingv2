@@ -2117,6 +2117,67 @@ div#nav-drawer a {
   max-width: 420px;
 }
 
+/* Stay informed — email capture */
+.stay-informed {
+  margin-top: 28px;
+  max-width: 420px;
+}
+.stay-informed-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,.35);
+  margin: 0 0 12px;
+}
+.stay-informed-row {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+.stay-informed-input {
+  flex: 1;
+  min-width: 0;
+  padding: 13px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color .2s, background .2s;
+}
+.stay-informed-input::placeholder { color: rgba(255,255,255,.35); }
+.stay-informed-input:focus {
+  border-color: rgba(154,136,253,.55);
+  background: rgba(255,255,255,.09);
+}
+.stay-informed-btn {
+  flex-shrink: 0;
+  padding: 13px 18px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: var(--purple);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  transition: transform .2s, box-shadow .2s, opacity .2s;
+}
+.stay-informed-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(154,136,253,.35);
+}
+.stay-informed-btn:disabled { opacity: .6; cursor: wait; }
+.stay-informed-msg {
+  margin: 10px 0 0;
+  font-size: 13px;
+  line-height: 1.4;
+  min-height: 1.2em;
+}
+
 /* Côté droit : CTA stack + sceau */
 .cta-right {
   display: flex; flex-direction: column; gap: 16px;
@@ -3722,6 +3783,9 @@ footer {
   .cta-ghost-doc    { display: none; }
   .cta-inner h2     { font-size: clamp(38px, 9.5vw, 56px); letter-spacing: -2.5px; line-height: 1; }
   .cta-sub          { font-size: 15px; }
+  .stay-informed    { max-width: 100%; }
+  .stay-informed-row { flex-direction: column; }
+  .stay-informed-btn { width: 100%; justify-content: center; }
   .cta-seal         { grid-template-columns: 1fr 1fr; gap: 10px; padding: 14px; }
   .cta-seal-title   { font-size: 11px; }
   .cta-pulse-ring   { display: none; }
@@ -5373,6 +5437,14 @@ footer {
         <em>20 minutes.</em>
       </h2>
       <p class="cta-sub">From your phone. On-site. No paperwork, no back-and-forth. Just a report both parties trust, and keep forever.</p>
+      <div class="stay-informed">
+        <p class="stay-informed-label">Stay in the loop</p>
+        <div class="stay-informed-row">
+          <input type="email" id="si-email" class="stay-informed-input" placeholder="you@email.com" aria-label="Email address" autocomplete="email">
+          <button type="button" id="si-btn" class="stay-informed-btn">Notify me</button>
+        </div>
+        <p class="stay-informed-msg" id="si-msg" aria-live="polite"></p>
+      </div>
     </div>
 
     <!-- ── Droite : CTA stack + sceau ── -->
@@ -5935,6 +6007,52 @@ window.toggleBilling = toggleBilling;
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
+<script is:inline>
+(function() {
+  var btn = document.getElementById('si-btn');
+  var input = document.getElementById('si-email');
+  var msg = document.getElementById('si-msg');
+  if (!btn || !input) return;
+
+  async function submit() {
+    var email = (input.value || '').trim();
+    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!re.test(email)) {
+      msg.textContent = 'Please enter a valid email.';
+      msg.style.color = '#FF5252';
+      return;
+    }
+    btn.disabled = true;
+    var original = btn.textContent;
+    btn.textContent = '...';
+    try {
+      var r = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email }),
+      });
+      if (r.ok) {
+        msg.textContent = "You're on the list — we'll be in touch.";
+        msg.style.color = '#9A88FD';
+        input.value = '';
+      } else {
+        msg.textContent = 'Something went wrong. Try again.';
+        msg.style.color = '#FF5252';
+      }
+    } catch (e) {
+      msg.textContent = 'Network error. Try again.';
+      msg.style.color = '#FF5252';
+    }
+    btn.disabled = false;
+    btn.textContent = original;
+  }
+
+  btn.addEventListener('click', submit);
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') submit();
+  });
+})();
+</script>
 <script>
 // FAQ v2 — persona toggle + category tabs + accordion
 (function(){
