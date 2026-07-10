@@ -126,6 +126,7 @@ body { min-height: 100vh; }
 .success-icon svg { width:24px;height:24px;color:#3A7A00; }
 .form-success h3 { font-family:'Poppins',sans-serif;font-weight:800;font-size:20px;letter-spacing:-.5px;margin-bottom:8px; }
 .form-success p { font-size:14px;color:var(--ink-60);line-height:1.7; }
+.cf-error { margin-top: 12px; color: #FF5252; font-size: 14px; }
 
 @media(max-width:1100px) {
   .main { grid-template-columns:1fr; }
@@ -231,20 +232,20 @@ body { min-height: 100vh; }
         <div class="form-row">
           <div class="form-group">
             <label>First name</label>
-            <input type="text" placeholder="Ahmed" required>
+            <input type="text" id="cf-firstname" placeholder="Ahmed" required>
           </div>
           <div class="form-group">
             <label>Last name</label>
-            <input type="text" placeholder="Al-Rashid" required>
+            <input type="text" id="cf-lastname" placeholder="Al-Rashid" required>
           </div>
         </div>
         <div class="form-group">
           <label>Email</label>
-          <input type="email" placeholder="you@example.com" required>
+          <input type="email" id="cf-email" placeholder="you@example.com" required>
         </div>
         <div class="form-group">
           <label>I am a</label>
-          <select required>
+          <select id="cf-role" required>
             <option value="">Select...</option>
             <option>Property agent / agency</option>
             <option>Individual landlord</option>
@@ -255,7 +256,7 @@ body { min-height: 100vh; }
         </div>
         <div class="form-group">
           <label>Subject</label>
-          <select>
+          <select id="cf-subject">
             <option>General question</option>
             <option>Technical support</option>
             <option>Billing or refund</option>
@@ -265,12 +266,13 @@ body { min-height: 100vh; }
         </div>
         <div class="form-group">
           <label>Message</label>
-          <textarea placeholder="Tell us what's on your mind..." required></textarea>
+          <textarea id="cf-message" placeholder="Tell us what's on your mind..." required></textarea>
         </div>
         <button type="submit" class="btn-submit">
           Send message
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
+        <p id="cf-error" class="cf-error" aria-live="polite" style="display:none;"></p>
       </form>
     </div>
 
@@ -286,10 +288,50 @@ body { min-height: 100vh; }
 </div>
 
 <script is:inline slot="scripts">
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault();
-  document.getElementById('form-main').classList.add('hide');
-  document.getElementById('form-success').classList.add('show');
+  var errEl = document.getElementById('cf-error');
+  var btn = document.querySelector('#contact-form .btn-submit');
+  errEl.style.display = 'none';
+
+  var payload = {
+    firstName: (document.getElementById('cf-firstname')?.value || '').trim(),
+    lastName: (document.getElementById('cf-lastname')?.value || '').trim(),
+    email: (document.getElementById('cf-email')?.value || '').trim(),
+    role: (document.getElementById('cf-role')?.value || '').trim(),
+    subject: (document.getElementById('cf-subject')?.value || '').trim(),
+    message: (document.getElementById('cf-message')?.value || '').trim(),
+  };
+
+  var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!payload.firstName || !payload.lastName || !payload.email || !payload.message || !re.test(payload.email)) {
+    errEl.textContent = 'Please fill in all required fields with a valid email.';
+    errEl.style.display = 'block';
+    return;
+  }
+
+  var original = btn ? btn.textContent : '';
+  if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+
+  try {
+    var r = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    if (r.ok) {
+      document.getElementById('form-main').classList.add('hide');
+      document.getElementById('form-success').classList.add('show');
+    } else {
+      errEl.textContent = 'Something went wrong. Please try again or email hello@snagify.net.';
+      errEl.style.display = 'block';
+      if (btn) { btn.disabled = false; btn.textContent = original; }
+    }
+  } catch (err) {
+    errEl.textContent = 'Network error. Please try again or email hello@snagify.net.';
+    errEl.style.display = 'block';
+    if (btn) { btn.disabled = false; btn.textContent = original; }
+  }
 }
 </script>
 </LegalLayout>
