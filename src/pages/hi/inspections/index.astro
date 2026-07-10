@@ -1,6 +1,7 @@
 ---
 import SiteHeader from '../../../components/SiteHeader.astro';
 import SiteFooter from '../../../components/SiteFooter.astro';
+import CrispChat from '../../../components/CrispChat.astro';
 import neighborhoodsDataHI from '../../../data/neighborhoods.hi.json';
 
 const all = Object.values(neighborhoodsDataHI);
@@ -108,6 +109,7 @@ body {
   .grid { grid-template-columns: 1fr 1fr; }
 }
 </style>
+<CrispChat />
 </head>
 <body>
 

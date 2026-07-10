@@ -24,6 +24,7 @@ const altRu = `https://snagify.net/ru/for/${persona.slug}`;
 const altHi = `https://snagify.net/hi/for/${persona.slug}`;
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import CrispChat from '../components/CrispChat.astro';
 const testimonials = persona.testimonialIds.map(id => shared.testimonials[id]).filter(Boolean);
 const faqs = persona.faqIds.map(id => shared.faqs[id]).filter(Boolean);
 const faqJsonLd = {
@@ -359,6 +360,7 @@ body {
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   </>
 )}
+<CrispChat />
 </head>
 <body>
 

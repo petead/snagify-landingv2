@@ -2,6 +2,7 @@
 import neighborhoodsData from '../data/neighborhoods.json';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import CrispChat from '../components/CrispChat.astro';
 
 const { neighborhood, locale = 'en' } = Astro.props;
 const isRTL = locale === 'ar';
@@ -397,6 +398,7 @@ body {
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   </>
 )}
+<CrispChat />
 </head>
 <body>
 

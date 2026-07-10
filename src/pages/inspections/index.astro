@@ -1,5 +1,6 @@
 ---
 import neighborhoodsData from '../../data/neighborhoods.json';
+import CrispChat from '../../components/CrispChat.astro';
 
 const all = Object.values(neighborhoodsData);
 const tier1 = all.filter(n => n.tier === 1).sort((a, b) => a.label.localeCompare(b.label));
@@ -121,6 +122,7 @@ footer.site-footer { background: var(--ink); color: var(--white); padding: 48px 
   .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
 }
 </style>
+<CrispChat />
 </head>
 <body>
 

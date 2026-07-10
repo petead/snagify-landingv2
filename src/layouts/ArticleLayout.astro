@@ -12,6 +12,7 @@ const altEn = `https://snagify.net/${article.slug}`;
 const altAr = `https://snagify.net/ar/${article.slug}`;
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import CrispChat from '../components/CrispChat.astro';
 
 const articleJsonLd = {
   "@context": "https://schema.org",
@@ -364,6 +365,7 @@ body {
     <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
   </>
 )}
+<CrispChat />
 </head>
 <body>
 

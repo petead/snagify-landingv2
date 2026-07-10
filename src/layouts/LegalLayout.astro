@@ -3,6 +3,7 @@ const { title, description, slug, ogDescription } = Astro.props;
 const canonical = `https://snagify.net/${slug}`;
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import CrispChat from '../components/CrispChat.astro';
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -66,6 +67,7 @@ body {
 }
 </style>
 <slot name="styles" />
+<CrispChat />
 </head>
 <body>
 

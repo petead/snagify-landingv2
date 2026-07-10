@@ -24,6 +24,7 @@ const altRu = `https://snagify.net/ru/${usecase.slug}`;
 const altHi = `https://snagify.net/hi/${usecase.slug}`;
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import CrispChat from '../components/CrispChat.astro';
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -345,6 +346,7 @@ body {
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   </>
 )}
+<CrispChat />
 </head>
 <body>
 
