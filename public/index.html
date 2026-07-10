@@ -3185,44 +3185,18 @@ footer {
 .for-pros .section-title em { color: var(--purple); }
 .for-pros .section-sub { color: rgba(255,255,255,.45); }
 
-/* Features list en version dark */
-.pros-features {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  margin: 32px 0;
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 16px;
-  overflow: hidden;
-  background: rgba(255,255,255,.02);
-}
-.pros-feat {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  padding: 18px 20px;
-  border-bottom: 1px solid rgba(255,255,255,.07);
-  transition: background .25s, border-color .25s;
-}
-.pros-feat:last-child { border-bottom: none; }
-.pros-feat:hover {
-  background: rgba(255,255,255,.05);
-  border-color: rgba(255,255,255,.12);
-}
-
-.pros-feat-icon {
-  width: 36px; height: 36px;
-  border-radius: 9px;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.pros-feat-icon svg { width: 16px; height: 16px; }
-.pros-feat h4 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700; font-size: 14px;
-  margin-bottom: 2px; color: var(--white);
-}
-.pros-feat p { font-size: 13px; color: rgba(255,255,255,.4); line-height: 1.5; }
+/* Features list — one-liners */
+.pros-features { display:flex; flex-direction:column; margin:36px 0 40px; }
+.pros-feat { display:flex; gap:16px; align-items:center; padding:18px 0; border-bottom:1px solid rgba(255,255,255,.08); }
+.pros-feat:first-child { padding-top:0; }
+.pros-feat:last-child { border-bottom:none; }
+.pros-feat-icon { width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.pros-feat-icon svg { width:18px; height:18px; }
+.pfi-purple { background:rgba(154,136,253,.12); color:var(--purple); }
+.pfi-green { background:rgba(202,254,135,.1); color:var(--green); }
+.pfi-jasmine { background:rgba(254,222,128,.1); color:var(--jasmine); }
+.pros-feat-line { font-size:15.5px; line-height:1.5; color:rgba(255,255,255,.6); }
+.pros-feat-line strong { color:var(--white); font-weight:600; font-family:'Poppins',sans-serif; letter-spacing:-.2px; }
 
 .pros-cta {
   display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
@@ -3237,85 +3211,60 @@ footer {
   border-color: var(--purple);
 }
 
-/* Dashboard card — version dark enhanced */
-.pros-card {
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.14);
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 32px 80px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.1);
-}
-.pros-card-header {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 18px 22px;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-}
-.pros-card-title {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700; font-size: 14px; color: var(--white);
-}
-.pros-card-badge {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 10px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 1.5px;
-  padding: 4px 10px; border-radius: 999px;
-  background: rgba(202,254,135,.12); color: var(--green);
-  border: 1px solid rgba(202,254,135,.2);
-}
-.pros-card-badge::before {
-  content: ''; width: 5px; height: 5px; border-radius: 50%;
-  background: var(--green); animation: eyePulse 1.5s infinite;
-}
-.pros-metrics {
-  display: flex; align-items: center;
-  padding: 20px 22px; gap: 0;
-  background: rgba(255,255,255,.02);
-}
-.pros-metric { flex: 1; text-align: center; display: flex; flex-direction: column; gap: 4px; }
-.pros-metric-num {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800; font-size: 38px; letter-spacing: -2.5px; line-height: 1;
-  color: var(--white);
-}
-.pros-metric-lbl { font-size: 10px; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
-.pros-metric-delta { font-size: 11px; font-weight: 600; }
-.pros-metric-delta.up { color: var(--green); }
-.pros-metric-divider { width: 1px; height: 44px; background: rgba(255,255,255,.08); flex-shrink: 0; }
-
-.pros-recent { padding: 0 22px 18px; }
-.pros-recent-label {
-  font-size: 9px; text-transform: uppercase; letter-spacing: 2px;
-  color: rgba(255,255,255,.25); font-weight: 600; padding: 14px 0 10px;
-}
-.pros-recent-item {
-  display: flex; align-items: center; gap: 10px;
-  padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.06);
-  font-size: 12px;
-}
-.pros-recent-item:last-child { border-bottom: none; }
-.pros-recent-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-.pros-recent-name { flex: 1; font-weight: 500; color: rgba(255,255,255,.7); }
-.pros-recent-time { font-size: 11px; color: rgba(255,255,255,.25); }
-.pros-recent-status {
-  font-size: 10px; font-weight: 700; padding: 3px 8px;
-  border-radius: 999px; flex-shrink: 0;
-}
-.pros-recent-status.ok { background: rgba(202,254,135,.1); color: var(--green); border: 1px solid rgba(202,254,135,.15); }
-.pros-recent-status.pending { background: rgba(254,222,128,.1); color: var(--jasmine); border: 1px solid rgba(254,222,128,.15); }
-
-.pros-card-footer {
-  padding: 14px 22px;
-  background: rgba(0,0,0,.2);
-  border-top: 1px solid rgba(255,255,255,.06);
-}
-.pros-credits { display: flex; align-items: center; gap: 10px; }
-.pros-credits-lbl { font-size: 12px; color: rgba(255,255,255,.3); flex-shrink: 0; }
-.pros-credits-bar { flex: 1; height: 4px; background: rgba(255,255,255,.08); border-radius: 9px; overflow: hidden; }
-.pros-credits-fill { height: 100%; width: 70%; background: var(--purple); border-radius: 9px; }
-.pros-credits-num { font-size: 12px; font-weight: 700; color: rgba(255,255,255,.5); flex-shrink: 0; }
+/* Branded triptych */
+.pros-trip { position:relative; width:100%; max-width:470px; height:720px; margin:0 auto; }
+.trip-card { position:absolute; width:360px; background:rgba(22,20,31,.85); border:1px solid rgba(255,255,255,.08); border-radius:20px; backdrop-filter:blur(12px); box-shadow:0 28px 70px rgba(0,0,0,.5); overflow:hidden; }
+.trip-1 { top:0; left:0; transform:rotate(-2.5deg); z-index:1; }
+.trip-2 { top:236px; left:110px; transform:rotate(1.8deg); z-index:2; }
+.trip-3 { top:490px; left:10px; transform:rotate(-1.2deg); z-index:3; }
+.trip-accent { height:3px; width:100%; }
+.trip-acc-purple { background:linear-gradient(90deg,var(--purple),transparent 70%); }
+.trip-acc-green { background:linear-gradient(90deg,var(--green),transparent 70%); }
+.trip-acc-jasmine { background:linear-gradient(90deg,var(--jasmine),transparent 70%); }
+.trip-pad { padding:20px 24px 22px; }
+.trip-label { font-size:9.5px; text-transform:uppercase; letter-spacing:2.2px; font-weight:600; margin-bottom:12px; }
+.trip-lbl-purple { color:var(--purple); }
+.trip-lbl-green { color:var(--green); }
+.trip-lbl-jasmine { color:var(--jasmine); }
+.trip-title { font-family:'Poppins',sans-serif; font-weight:700; font-size:16px; color:var(--white); letter-spacing:-.2px; margin-bottom:14px; }
+/* mini report */
+.trip-minirep { background:#FDFDFC; border-radius:12px; overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,.35); }
+.tmr-head { background:#1B3A5C; padding:12px 15px; display:flex; align-items:center; justify-content:space-between; }
+.tmr-brand { display:flex; align-items:center; gap:8px; }
+.tmr-logo { width:24px; height:24px; border-radius:6px; background:var(--white); display:flex; align-items:center; justify-content:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:11px; color:#1B3A5C; }
+.tmr-name { font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; color:var(--white); }
+.tmr-sub { font-size:8px; color:rgba(255,255,255,.5); letter-spacing:.8px; text-transform:uppercase; }
+.tmr-type { font-size:8px; letter-spacing:1.2px; text-transform:uppercase; color:rgba(255,255,255,.65); border:1px solid rgba(255,255,255,.25); padding:3px 8px; border-radius:999px; }
+.tmr-body { padding:10px 15px; display:flex; flex-direction:column; gap:6px; }
+.tmr-line { height:6px; border-radius:3px; background:rgba(14,14,16,.08); }
+.trip-brandfoot { display:flex; align-items:center; gap:9px; margin-top:12px; }
+.trip-sw { width:18px; height:18px; border-radius:5px; background:#1B3A5C; box-shadow:0 0 0 2px rgba(255,255,255,.25); }
+.trip-hex { font-size:11px; color:rgba(255,255,255,.4); font-family:monospace; letter-spacing:.3px; }
+/* team */
+.trip-team { display:flex; flex-direction:column; gap:9px; }
+.trip-agent { display:flex; align-items:center; gap:11px; padding:8px 12px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.05); border-radius:11px; }
+.trip-av { width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Poppins',sans-serif; font-weight:700; font-size:9.5px; flex-shrink:0; }
+.trip-av-p { background:var(--purple); color:var(--ink); }
+.trip-av-j { background:var(--jasmine); color:var(--ink); }
+.trip-av-g { background:var(--green); color:var(--ink); }
+.trip-agname { font-size:12.5px; color:var(--white); font-weight:500; flex:1; }
+.trip-agmeta { font-size:10.5px; color:rgba(255,255,255,.4); }
+/* signatures */
+.trip-sigs { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:13px; }
+.trip-sig svg { height:32px; width:100%; }
+.trip-sig svg path { stroke:var(--white); stroke-width:1.5; fill:none; stroke-linecap:round; opacity:.9; }
+.trip-signame { display:flex; justify-content:space-between; font-size:9.5px; color:rgba(255,255,255,.4); border-top:1px solid rgba(255,255,255,.08); padding-top:5px; margin-top:4px; }
+.trip-sigtime { color:rgba(255,255,255,.28); }
+.trip-sigfoot { display:flex; align-items:center; justify-content:space-between; background:rgba(202,254,135,.06); border:1px solid rgba(202,254,135,.16); border-radius:10px; padding:9px 13px; }
+.trip-verified { display:inline-flex; align-items:center; gap:6px; font-size:10.5px; font-weight:600; color:var(--green); }
+.trip-verified svg { width:12px; height:12px; }
+.trip-hash { font-size:9px; color:rgba(255,255,255,.4); font-family:monospace; letter-spacing:.3px; }
 
 @media(max-width: 1100px) {
   .for-pros-grid { grid-template-columns: 1fr; gap: 60px; }
+  .pros-trip { height:auto; max-width:420px; }
+  .trip-card { position:static; width:100%; transform:none; margin-bottom:14px; }
+  .trip-card:last-child { margin-bottom:0; }
 }
 
 /* ══ FOR PRIVATE ══ */
@@ -3620,13 +3569,9 @@ footer {
 
   /* For Pros */
   .for-pros-grid    { grid-template-columns: 1fr; gap: 32px; }
-  .for-pros-right   { display: none; }
-  .pros-features    { gap: 16px; margin: 24px 0; }
-  .pros-metric-num  { font-size: 26px; }
-  .pros-metrics     { padding: 14px 16px; gap: 0; }
+  .pros-features    { margin: 24px 0 32px; }
   .pros-cta         { flex-direction: column; align-items: stretch; gap: 12px; }
   .pros-cta .btn-pros-primary { width: 100%; justify-content: center; }
-  .pros-card        { border-radius: 20px; }
 
   /* For Private */
   .for-private-grid { grid-template-columns: 1fr; gap: 44px; }
@@ -4363,44 +4308,26 @@ footer {
       <div class="for-pros-left">
         <div class="section-eyebrow reveal">For Professionals</div>
         <h2 class="section-title reveal reveal-delay-1">Built for agencies<br>that can't afford<br><span class="title-underline">mistakes.</span></h2>
-        <p class="section-sub reveal reveal-delay-2">Whether you manage 10 or 200 units, every inspection needs to be consistent, documented, and legally solid. Snagify gives your whole team one standard: yours.</p>
+        <p class="section-sub reveal reveal-delay-2">One standard for your whole team: yours.</p>
 
-        <div class="pros-features reveal reveal-delay-2">
+        <div class="pros-features reveal reveal-delay-1">
           <div class="pros-feat">
-            <div class="pros-feat-icon" style="background:var(--purple-bg);color:var(--purple)">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+            <div class="pros-feat-icon pfi-purple">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
             </div>
-            <div>
-              <h4>Clients see your brand, not ours</h4>
-              <p>Every PDF carries your logo and colors. You look like a full operation, even if it's just you.</p>
-            </div>
+            <p class="pros-feat-line"><strong>Your brand on every report</strong> — logo, colors, RERA number included.</p>
           </div>
           <div class="pros-feat">
-            <div class="pros-feat-icon" style="background:var(--green-bg);color:#4A8A00">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <div class="pros-feat-icon pfi-green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
-            <div>
-              <h4>Every inspector, same standard</h4>
-              <p>No more inconsistent reports between team members. One process, every time, across every property.</p>
-            </div>
+            <p class="pros-feat-line"><strong>One standard across the team</strong> — same process, every agent, every property.</p>
           </div>
           <div class="pros-feat">
-            <div class="pros-feat-icon" style="background:var(--jasmine-bg);color:#8A6000">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <div class="pros-feat-icon pfi-jasmine">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13l2 2 4-4"/></svg>
             </div>
-            <div>
-              <h4>Disputes stop before they start</h4>
-              <p>A timestamped, signed Snagify report ends arguments in court. It prevents most from ever getting there.</p>
-            </div>
-          </div>
-          <div class="pros-feat">
-            <div class="pros-feat-icon" style="background:var(--purple-bg);color:var(--purple)">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            </div>
-            <div>
-              <h4>Pay only for what you use</h4>
-              <p>Busy month? Use more. Quiet period? Scale down. No wasted budget, no annual lock-in.</p>
-            </div>
+            <p class="pros-feat-line"><strong>Disputes end before court</strong> — timestamped, signed, undeniable.</p>
           </div>
         </div>
 
@@ -4416,61 +4343,70 @@ footer {
         </div>
       </div>
 
-      <!-- ── Right: metrics card ── -->
+      <!-- ── Right: branded triptych ── -->
       <div class="for-pros-right reveal reveal-delay-2">
-        <div class="pros-card">
-          <div class="pros-card-header">
-            <span class="pros-card-title">Agency Overview</span>
-            <span class="pros-card-badge">Live</span>
-          </div>
-          <div class="pros-metrics">
-            <div class="pros-metric">
-              <span class="pros-metric-num">47</span>
-              <span class="pros-metric-lbl">Inspections this month</span>
-              <span class="pros-metric-delta up">+12%</span>
-            </div>
-            <div class="pros-metric-divider"></div>
-            <div class="pros-metric">
-              <span class="pros-metric-num">3</span>
-              <span class="pros-metric-lbl">Active inspectors</span>
-            </div>
-            <div class="pros-metric-divider"></div>
-            <div class="pros-metric">
-              <span class="pros-metric-num">0</span>
-              <span class="pros-metric-lbl">Disputes this quarter</span>
-              <span class="pros-metric-delta up">↓ vs last year</span>
-            </div>
-          </div>
-          <div class="pros-recent">
-            <div class="pros-recent-label">Recent reports</div>
-            <div class="pros-recent-item">
-              <div class="pros-recent-dot" style="background:var(--green)"></div>
-              <span class="pros-recent-name">Downtown · Unit 802</span>
-              <span class="pros-recent-time">2 min ago</span>
-              <span class="pros-recent-status ok">Signed</span>
-            </div>
-            <div class="pros-recent-item">
-              <div class="pros-recent-dot" style="background:var(--purple)"></div>
-              <span class="pros-recent-name">JVC · Villa 14B</span>
-              <span class="pros-recent-time">1h ago</span>
-              <span class="pros-recent-status ok">Signed</span>
-            </div>
-            <div class="pros-recent-item">
-              <div class="pros-recent-dot" style="background:var(--jasmine)"></div>
-              <span class="pros-recent-name">Marina Heights · 1204</span>
-              <span class="pros-recent-time">3h ago</span>
-              <span class="pros-recent-status pending">In progress</span>
-            </div>
-          </div>
-          <div class="pros-card-footer">
-            <div class="pros-credits">
-              <span class="pros-credits-lbl">Credits remaining</span>
-              <div class="pros-credits-bar">
-                <div class="pros-credits-fill"></div>
+        <div class="pros-trip">
+
+          <div class="trip-card trip-1">
+            <div class="trip-accent trip-acc-purple"></div>
+            <div class="trip-pad">
+              <div class="trip-label trip-lbl-purple">Branding</div>
+              <div class="trip-title">Your logo. Your color.</div>
+              <div class="trip-minirep">
+                <div class="tmr-head">
+                  <div class="tmr-brand">
+                    <div class="tmr-logo">H</div>
+                    <div><div class="tmr-name">Horizon Properties</div><div class="tmr-sub">Dubai · RERA 12845</div></div>
+                  </div>
+                  <span class="tmr-type">Check-in</span>
+                </div>
+                <div class="tmr-body">
+                  <div class="tmr-line" style="width:80%"></div>
+                  <div class="tmr-line" style="width:60%"></div>
+                </div>
               </div>
-              <span class="pros-credits-num">14 / 20</span>
+              <div class="trip-brandfoot">
+                <span class="trip-sw"></span>
+                <span class="trip-hex">Navy · #1B3A5C</span>
+              </div>
             </div>
           </div>
+
+          <div class="trip-card trip-2">
+            <div class="trip-accent trip-acc-green"></div>
+            <div class="trip-pad">
+              <div class="trip-label trip-lbl-green">Team</div>
+              <div class="trip-title">Same template, every agent.</div>
+              <div class="trip-team">
+                <div class="trip-agent"><span class="trip-av trip-av-p">SM</span><span class="trip-agname">Sarah M.</span><span class="trip-agmeta">14 reports</span></div>
+                <div class="trip-agent"><span class="trip-av trip-av-j">KA</span><span class="trip-agname">Khalid A.</span><span class="trip-agmeta">21 reports</span></div>
+                <div class="trip-agent"><span class="trip-av trip-av-g">RH</span><span class="trip-agname">Rami H.</span><span class="trip-agmeta">12 reports</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="trip-card trip-3">
+            <div class="trip-accent trip-acc-jasmine"></div>
+            <div class="trip-pad">
+              <div class="trip-label trip-lbl-jasmine">Signatures</div>
+              <div class="trip-title">Signed by both parties.</div>
+              <div class="trip-sigs">
+                <div class="trip-sig">
+                  <svg viewBox="0 0 130 34"><path d="M8 24 C 10 8, 20 4, 18 13 C 16 20, 10 24, 17 22 C 26 19, 30 10, 36 14 C 40 17, 38 22, 44 19 C 52 15, 56 9, 63 13 C 68 16, 72 12, 79 11 C 88 10, 96 14, 106 10 C 112 8, 118 11, 122 9"/><path d="M14 29 C 40 33, 80 31, 112 27" opacity=".6"/></svg>
+                  <div class="trip-signame"><span>Landlord</span><span class="trip-sigtime">09:41</span></div>
+                </div>
+                <div class="trip-sig">
+                  <svg viewBox="0 0 130 34"><path d="M10 22 C 8 10, 16 5, 20 11 C 23 16, 18 23, 26 20 C 33 17, 34 11, 41 13 C 47 15, 45 20, 52 17 C 60 13, 64 8, 70 12 C 75 15, 80 11, 88 12 C 95 13, 100 9, 108 11 C 114 12, 119 8, 124 10"/><path d="M30 27 C 55 30, 85 28, 115 24" opacity=".5"/></svg>
+                  <div class="trip-signame"><span>Tenant</span><span class="trip-sigtime">09:44</span></div>
+                </div>
+              </div>
+              <div class="trip-sigfoot">
+                <span class="trip-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Digitally signed &amp; verified</span>
+                <span class="trip-hash">SHA-256 · 8f3a…c21e</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
