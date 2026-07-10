@@ -57,4 +57,4 @@ User-agent: DotBot
 Disallow: /
 
 # Sitemap location
-Sitemap: https://snagify.net/sitemap.xml
+Sitemap: https://snagify.net/sitemap-index.xml
