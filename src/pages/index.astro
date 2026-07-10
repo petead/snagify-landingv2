@@ -1948,7 +1948,7 @@ div#nav-drawer a {
 
 @media (prefers-reduced-motion: reduce) {
   .hero h1 .line-inner { transform: none !important; animation: none !important; }
-  .insp-card, .hero-right, .hero-tag, .ic-pin { animation: none !important; opacity: 1 !important; }
+  .insp-card, .hero-right, .hero-tag, .ic-pin, .trip-card { animation: none !important; opacity: 1 !important; }
   .pricing-toggle-glider,
   .billing-pill-glider,
   .price-card {
@@ -3239,10 +3239,22 @@ footer {
 
 /* Branded triptych */
 .pros-trip { position:relative; width:100%; max-width:470px; height:720px; margin:0 auto; }
-.trip-card { position:absolute; width:360px; background:rgba(22,20,31,.85); border:1px solid rgba(255,255,255,.08); border-radius:20px; backdrop-filter:blur(12px); box-shadow:0 28px 70px rgba(0,0,0,.5); overflow:hidden; }
-.trip-1 { top:0; left:0; transform:rotate(-2.5deg); z-index:1; }
-.trip-2 { top:236px; left:110px; transform:rotate(1.8deg); z-index:2; }
-.trip-3 { top:490px; left:10px; transform:rotate(-1.2deg); z-index:3; }
+.trip-card { position:absolute; width:360px; background:rgba(22,20,31,.85); border:1px solid rgba(255,255,255,.08); border-radius:20px; backdrop-filter:blur(12px); box-shadow:0 28px 70px rgba(0,0,0,.5); overflow:hidden; will-change:transform; }
+.trip-1 { top:0; left:0; transform:rotate(-2.5deg); z-index:1; animation:tripFloat1 7s ease-in-out infinite; }
+.trip-2 { top:236px; left:110px; transform:rotate(1.8deg); z-index:2; animation:tripFloat2 8s ease-in-out infinite 1.2s; }
+.trip-3 { top:490px; left:10px; transform:rotate(-1.2deg); z-index:3; animation:tripFloat3 6.5s ease-in-out infinite 2.4s; }
+@keyframes tripFloat1 {
+  0%,100% { transform:rotate(-2.5deg) translateY(0); }
+  50% { transform:rotate(-2.5deg) translateY(-8px); }
+}
+@keyframes tripFloat2 {
+  0%,100% { transform:rotate(1.8deg) translateY(0); }
+  50% { transform:rotate(1.8deg) translateY(-10px); }
+}
+@keyframes tripFloat3 {
+  0%,100% { transform:rotate(-1.2deg) translateY(0); }
+  50% { transform:rotate(-1.2deg) translateY(-7px); }
+}
 .trip-accent { height:3px; width:100%; }
 .trip-acc-purple { background:linear-gradient(90deg,var(--purple),transparent 70%); }
 .trip-acc-green { background:linear-gradient(90deg,var(--green),transparent 70%); }
@@ -3289,7 +3301,7 @@ footer {
 @media(max-width: 1100px) {
   .for-pros-grid { grid-template-columns: 1fr; gap: 60px; }
   .pros-trip { height:auto; max-width:420px; }
-  .trip-card { position:static; width:100%; transform:none; margin-bottom:14px; }
+  .trip-card { position:static; width:100%; transform:none; margin-bottom:14px; animation:none !important; will-change:auto; }
   .trip-card:last-child { margin-bottom:0; }
 }
 
