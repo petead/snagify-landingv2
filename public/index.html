@@ -3048,9 +3048,9 @@ footer {
 /* Top : chiffre centré seul — il respire */
 .pain-top {
   text-align: center;
-  padding-bottom: 80px;
-  border-bottom: 1px solid rgba(255,255,255,.06);
-  margin-bottom: 80px;
+  padding-bottom: 48px;
+  margin-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
 .pain-big-label {
@@ -3107,99 +3107,36 @@ footer {
   font-size: 18px;
   color: rgba(255,255,255,.4);
   line-height: 1.5;
-  max-width: 400px;
-  margin: 24px auto 0;
+  max-width: 520px;
+  margin: 0 auto;
   font-style: italic;
 }
 
-/* Bottom : texte en deux colonnes */
-.pain-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: start;
+.pain-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
-
 .pain-headline {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  font-size: clamp(20px, 2.2vw, 26px);
-  line-height: 1.35;
-  letter-spacing: -.5px;
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.3;
+  letter-spacing: -.6px;
   color: var(--white);
-  margin-bottom: 16px;
+  max-width: 720px;
 }
-.pain-headline strong { color: var(--red); }
-
-.pain-body {
-  font-size: 15px;
-  color: rgba(255,255,255,.5);
-  line-height: 1.8;
-  margin-bottom: 0;
-}
-
-/* Colonne droite : pills + stat mini */
-.pain-right {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.pain-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.pain-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 14px;
-  background: rgba(202,254,135,.07);
-  border: 1px solid rgba(202,254,135,.14);
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--green);
-  transition: background .25s, border-color .25s;
-}
-.pain-pill:hover {
-  background: rgba(202,254,135,.12);
-  border-color: rgba(202,254,135,.25);
-}
-.pain-pill svg { flex-shrink: 0; }
-
-/* Stat mini : ~120min wasted */
-.pain-stat-mini {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 16px 20px;
-  background: rgba(255,82,82,.05);
-  border: 1px solid rgba(255,82,82,.1);
-  border-radius: 16px;
-}
-.pain-stat-num {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800;
-  font-size: 28px;
-  letter-spacing: -1.5px;
-  color: var(--red);
-  flex-shrink: 0;
-  line-height: 1;
-}
-.pain-stat-lbl {
-  font-size: 13px;
-  color: rgba(255,255,255,.4);
-  line-height: 1.4;
-}
+.pain-headline strong { color: #FF8A65; font-weight: 700; }
 
 @media(max-width: 768px) {
   .pain-section { padding: 100px 0 120px; }
   .pain-inner { padding: 0 20px; }
-  .pain-top { padding-bottom: 56px; margin-bottom: 56px; }
-  .pain-grid { grid-template-columns: 1fr; gap: 40px; }
+  .pain-top { padding-bottom: 40px; margin-bottom: 40px; }
   .pain-watermark { display: none; }
+}
+@media (max-width: 480px) {
+  .pain-headline br { display: none; }
 }
 
 /* Bouton primaire sur fond dark */
@@ -3605,11 +3542,7 @@ footer {
   @keyframes cardReveal { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
 
   /* Pain */
-  .pain-grid        { grid-template-columns: 1fr; gap: 40px; }
-  .pain-divider     { display: none; }
-  .pain-big         { text-align: left; padding-right: 0; }
   .pain-big-sub     { margin-left: 0; }
-  .pain-text        { padding-left: 0; }
 
   /* For Pros */
   .for-pros-grid    { grid-template-columns: 1fr; gap: 60px; }
@@ -3697,15 +3630,9 @@ footer {
   .insp-card-back   { display: none; }
 
   /* Pain */
-  .pain-grid        { grid-template-columns: 1fr; gap: 36px; }
-  .pain-divider     { display: none; }
-  .pain-big         { text-align: left; padding-right: 0; }
   .pain-big-sub     { margin-left: 0; max-width: 100%; }
   .pain-big-num     { font-size: clamp(42px, 11vw, 56px); letter-spacing: -2px; }
-  .pain-text        { padding-left: 0; }
-  .pain-headline    { font-size: 18px; }
-  .pain-body        { font-size: 14px; }
-  .pain-pills       { gap: 6px; }
+  .pain-headline    { font-size: clamp(20px, 5.5vw, 26px); }
 
   /* For Pros */
   .for-pros-grid    { grid-template-columns: 1fr; gap: 32px; }
@@ -4431,53 +4358,14 @@ footer {
 
   <div class="pain-inner">
 
-    <!-- ── Chiffre — centré, il respire ── -->
     <div class="pain-top reveal">
-      <div class="pain-big-label">
-        Average deposit in Dubai
-      </div>
+      <div class="pain-big-label">Average deposit in Dubai</div>
       <div class="pain-big-num">AED 12,000</div>
-      <p class="pain-big-sub">gone. No signed inspection report, no case in court.</p>
+      <p class="pain-big-sub">gone. No report, no case in court.</p>
     </div>
 
-    <!-- ── Deux colonnes d'explication ── -->
-    <div class="pain-grid">
-
-      <div class="reveal">
-        <p class="pain-headline">Without a signed, timestamped inspection report, <strong>the courts rule against you.</strong> Every time.</p>
-        <p class="pain-body">Dubai's rental courts require documented proof of property condition at both move-in and move-out. A WhatsApp photo and a handwritten checklist won't hold up. A Snagify report will.</p>
-      </div>
-
-      <div class="pain-right reveal reveal-delay-1">
-        <div class="pain-pills">
-          <span class="pain-pill">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Timestamped
-          </span>
-          <span class="pain-pill">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Digitally signed
-          </span>
-          <span class="pain-pill">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            RDC-accepted
-          </span>
-          <span class="pain-pill">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Photo evidence included
-          </span>
-          <span class="pain-pill">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            SHA-256 verified
-          </span>
-        </div>
-
-        <div class="pain-stat-mini">
-          <span class="pain-stat-num">120 min</span>
-          <span class="pain-stat-lbl">wasted per manual inspection on average — time that compounds across every property you manage.</span>
-        </div>
-      </div>
-
+    <div class="pain-bottom reveal reveal-delay-1">
+      <p class="pain-headline">In a deposit dispute, <strong>evidence wins.</strong><br>Not memory. Not WhatsApp photos.</p>
     </div>
 
   </div>
