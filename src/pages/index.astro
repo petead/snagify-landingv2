@@ -1949,6 +1949,7 @@ div#nav-drawer a {
 @media (prefers-reduced-motion: reduce) {
   .hero h1 .line-inner { transform: none !important; animation: none !important; }
   .insp-card, .hero-right, .hero-tag, .ic-pin, .trip-card { animation: none !important; opacity: 1 !important; }
+  .pros-stars::before, .pros-stars::after { animation: none !important; opacity: .45 !important; }
   .pricing-toggle-glider,
   .billing-pill-glider,
   .price-card {
@@ -3192,6 +3193,72 @@ footer {
   pointer-events: none;
 }
 
+/* Starfield / glitter — subtle twinkle behind content */
+.pros-stars {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.pros-stars::before,
+.pros-stars::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 2px; height: 2px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.9);
+  box-shadow:
+    8vw 12% 0 0 rgba(255,255,255,.55),
+    18vw 28% 0 0 rgba(154,136,253,.7),
+    27vw 8% 0 0 rgba(255,255,255,.35),
+    36vw 42% 0 0 rgba(202,254,135,.45),
+    44vw 18% 0 0 rgba(255,255,255,.6),
+    52vw 55% 0 0 rgba(154,136,253,.5),
+    61vw 22% 0 0 rgba(255,255,255,.4),
+    69vw 48% 0 0 rgba(254,222,128,.4),
+    78vw 14% 0 0 rgba(255,255,255,.65),
+    86vw 38% 0 0 rgba(154,136,253,.55),
+    12vw 62% 0 0 rgba(255,255,255,.3),
+    22vw 78% 0 0 rgba(202,254,135,.35),
+    33vw 68% 0 0 rgba(255,255,255,.5),
+    48vw 82% 0 0 rgba(154,136,253,.4),
+    58vw 72% 0 0 rgba(255,255,255,.45),
+    74vw 66% 0 0 rgba(255,255,255,.35),
+    91vw 58% 0 0 rgba(202,254,135,.4),
+    6vw 40% 0 0 rgba(255,255,255,.25),
+    95vw 24% 0 0 rgba(255,255,255,.5),
+    41vw 6% 0 0 rgba(154,136,253,.45);
+  animation: starTwinkle 5.5s ease-in-out infinite;
+}
+.pros-stars::after {
+  width: 1px; height: 1px;
+  box-shadow:
+    14vw 20% 0 0 rgba(255,255,255,.7),
+    24vw 46% 0 0 rgba(154,136,253,.6),
+    39vw 32% 0 0 rgba(255,255,255,.4),
+    55vw 12% 0 0 rgba(202,254,135,.5),
+    67vw 36% 0 0 rgba(255,255,255,.55),
+    81vw 52% 0 0 rgba(254,222,128,.45),
+    4vw 74% 0 0 rgba(255,255,255,.35),
+    29vw 88% 0 0 rgba(154,136,253,.4),
+    46vw 64% 0 0 rgba(255,255,255,.5),
+    63vw 86% 0 0 rgba(255,255,255,.3),
+    72vw 8% 0 0 rgba(202,254,135,.45),
+    88vw 76% 0 0 rgba(255,255,255,.55),
+    16vw 54% 0 0 rgba(154,136,253,.35),
+    50vw 44% 0 0 rgba(255,255,255,.65),
+    93vw 42% 0 0 rgba(254,222,128,.35);
+  animation: starTwinkle 4.2s ease-in-out infinite 1.4s;
+  opacity: .85;
+}
+@keyframes starTwinkle {
+  0%, 100% { opacity: .35; }
+  40% { opacity: 1; }
+  70% { opacity: .55; }
+}
+
 .for-pros-inner {
   position: relative; z-index: 2;
   padding: 120px 0;
@@ -3610,6 +3677,7 @@ footer {
   .pros-features    { margin: 24px 0 32px; }
   .pros-cta         { flex-direction: column; align-items: stretch; gap: 12px; }
   .pros-cta .btn-pros-primary { width: 100%; justify-content: center; }
+  .pros-stars       { opacity: .55; }
 
   /* For Private */
   .for-private-grid { grid-template-columns: 1fr; gap: 44px; }
@@ -3935,6 +4003,7 @@ footer {
 
 <!-- ╔══ POUR LES PROS ══╗ -->
 <section class="for-pros" id="for-pros">
+  <div class="pros-stars" aria-hidden="true"></div>
   <div class="for-pros-inner">
   <div class="section-wrap">
 
