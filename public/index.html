@@ -3019,30 +3019,13 @@ footer {
   pointer-events: none;
 }
 
-/* Watermark AED géant en fond */
-.pain-watermark {
-  position: absolute;
-  left: 50%; top: 50%;
-  transform: translate(-50%, -50%);
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800;
-  font-size: clamp(160px, 20vw, 280px);
-  line-height: 1;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255,82,82,.06);
-  letter-spacing: -8px;
-  pointer-events: none;
-  user-select: none;
-  white-space: nowrap;
-  z-index: 0;
-}
-
 .pain-inner {
   position: relative;
-  z-index: 2;
-  max-width: 1360px;
+  z-index: 1;
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 48px;
+  text-align: center;
 }
 
 /* Top : chiffre centré seul — il respire */
@@ -3108,7 +3091,8 @@ footer {
   color: rgba(255,255,255,.4);
   line-height: 1.5;
   max-width: 520px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   font-style: italic;
 }
 
@@ -3126,6 +3110,7 @@ footer {
   letter-spacing: -.6px;
   color: var(--white);
   max-width: 720px;
+  margin: 0 auto;
 }
 .pain-headline strong { color: #FF8A65; font-weight: 700; }
 
@@ -3133,7 +3118,6 @@ footer {
   .pain-section { padding: 100px 0 120px; }
   .pain-inner { padding: 0 20px; }
   .pain-top { padding-bottom: 40px; margin-bottom: 40px; }
-  .pain-watermark { display: none; }
 }
 @media (max-width: 480px) {
   .pain-headline br { display: none; }
@@ -3542,7 +3526,7 @@ footer {
   @keyframes cardReveal { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
 
   /* Pain */
-  .pain-big-sub     { margin-left: 0; }
+  .pain-big-sub     { max-width: 100%; }
 
   /* For Pros */
   .for-pros-grid    { grid-template-columns: 1fr; gap: 60px; }
@@ -3630,7 +3614,7 @@ footer {
   .insp-card-back   { display: none; }
 
   /* Pain */
-  .pain-big-sub     { margin-left: 0; max-width: 100%; }
+  .pain-big-sub     { max-width: 100%; }
   .pain-big-num     { font-size: clamp(42px, 11vw, 56px); letter-spacing: -2px; }
   .pain-headline    { font-size: clamp(20px, 5.5vw, 26px); }
 
@@ -4353,9 +4337,6 @@ footer {
 <section class="pain-section">
   <div class="pain-section-bridge"></div>
 
-  <!-- Watermark fond -->
-  <div class="pain-watermark">AED</div>
-
   <div class="pain-inner">
 
     <div class="pain-top reveal">
@@ -4365,7 +4346,7 @@ footer {
     </div>
 
     <div class="pain-bottom reveal reveal-delay-1">
-      <p class="pain-headline">In a deposit dispute, <strong>evidence wins.</strong><br>Not memory. Not WhatsApp photos.</p>
+      <p class="pain-headline">In a deposit dispute, <strong>evidence wins.</strong><br>Not memory. <strong>Not WhatsApp photos.</strong></p>
     </div>
 
   </div>
