@@ -1,7 +1,8 @@
 <script is:inline type="text/javascript">
   window.$crisp=[];
   window.CRISP_WEBSITE_ID="a444906d-fd47-4560-8faf-0757f31b6b5c";
-  window.$crisp.push(["config", "color:theme", ["purple"]]);
+  // Color is set in Crisp dashboard (Advanced Chatbox Customization → #9A88FD).
+  // Do not force color:theme here — named themes override custom brand colors.
   window.$crisp.push(["config", "layout:theme", ["colorized"]]);
   window.openCrispChat = function () {
     if (window.$crisp) window.$crisp.push(["do", "chat:open"]);
