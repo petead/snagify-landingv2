@@ -62,7 +62,8 @@ const labels = {
       { label: "RERA Compliance", href: "/rera" },
       { label: "Contact", href: "/contact" }
     ],
-    copyright: "© 2026 Snagify. All rights reserved."
+    copyright: "© 2026 Snagify. All rights reserved.",
+    chatLabel: "Chat with us"
   },
   ar: {
     brandTagline: "فحوصات العقارات الرقمية لسوق الإيجار في دبي. مدعومة بالذكاء الاصطناعي، معتمدة لدى RDC، ومصمَّمة للمحترفين والملاك على حدّ سواء.",
@@ -100,7 +101,8 @@ const labels = {
       { label: "فحص التسليم", href: `${prefix}/check-out-inspection-dubai` },
       { label: "فحص العيوب", href: `${prefix}/snagging-inspection-dubai` }
     ],
-    copyright: "© 2026 Snagify. جميع الحقوق محفوظة."
+    copyright: "© 2026 Snagify. جميع الحقوق محفوظة.",
+    chatLabel: "دردشة معنا"
   },
   ru: {
     brandTagline: "Цифровые осмотры недвижимости для рынка аренды в Дубае. С искусственным интеллектом, действительные в RDC, созданные для профессионалов и арендодателей.",
@@ -138,7 +140,8 @@ const labels = {
       { label: "Осмотр при выезде", href: `${prefix}/check-out-inspection-dubai` },
       { label: "Осмотр дефектов", href: `${prefix}/snagging-inspection-dubai` }
     ],
-    copyright: "© 2026 Snagify. Все права защищены."
+    copyright: "© 2026 Snagify. Все права защищены.",
+    chatLabel: "Написать нам"
   },
   hi: {
     brandTagline: "दुबई के किराये के बाज़ार के लिए डिजिटल संपत्ति निरीक्षण। AI-संचालित, RDC में मान्य, और पेशेवरों तथा मकान मालिकों दोनों के लिए बनाया गया।",
@@ -176,7 +179,8 @@ const labels = {
       { label: "चेक-आउट निरीक्षण", href: `${prefix}/check-out-inspection-dubai` },
       { label: "स्नैगिंग निरीक्षण", href: `${prefix}/snagging-inspection-dubai` }
     ],
-    copyright: "© 2026 Snagify. सर्वाधिकार सुरक्षित।"
+    copyright: "© 2026 Snagify. सर्वाधिकार सुरक्षित।",
+    chatLabel: "हमसे चैट करें"
   }
 };
 
@@ -277,6 +281,10 @@ const showEnOnlyColumns = locale === 'en';
   <div class="site-footer-bottom">
     <p>{t.copyright}</p>
     <div class="site-foot-socials">
+      <button type="button" class="site-foot-chat-btn" onclick="openCrispChat()" aria-label={t.chatLabel}>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
+        {t.chatLabel}
+      </button>
       <a href="https://instagram.com/snagifyapp" target="_blank" rel="noopener" aria-label="Instagram">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
       </a>
@@ -363,7 +371,7 @@ const showEnOnlyColumns = locale === 'en';
   color: rgba(252,252,252,0.5);
   flex-wrap: wrap; gap: 16px;
 }
-.site-foot-socials { display: flex; gap: 8px; }
+.site-foot-socials { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 .site-foot-socials a {
   display: inline-flex; align-items: center; justify-content: center;
   width: 32px; height: 32px;
@@ -374,6 +382,17 @@ const showEnOnlyColumns = locale === 'en';
   transition: background 0.2s, color 0.2s;
 }
 .site-foot-socials a:hover { background: rgba(154,136,253,0.2); color: #9A88FD; }
+.site-foot-chat-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 16px; border-radius: 999px; border: none; cursor: pointer;
+  background: #9A88FD; color: #0E0E10;
+  font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600;
+  transition: transform .2s, box-shadow .2s;
+}
+.site-foot-chat-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(154,136,253,.35);
+}
 .site-hreflang-links { display: none; }
 .site-hreflang-link { display: none; }
 

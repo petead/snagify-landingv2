@@ -2289,7 +2289,7 @@ footer {
   border-top: 1px solid rgba(255,255,255,.06);
 }
 .footer-bottom p { font-size: 13px; color: rgba(255,255,255,.6); }
-.foot-socials { display: flex; gap: 8px; }
+.foot-socials { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 .foot-socials a {
   width: 40px; height: 40px; border-radius: 10px;
   background: rgba(255,255,255,.05);
@@ -2301,6 +2301,17 @@ footer {
 .foot-socials a:hover {
   background: var(--purple); color: var(--ink);
   border-color: var(--purple);
+}
+.foot-chat-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 16px; border-radius: 999px; border: none; cursor: pointer;
+  background: var(--purple); color: var(--ink);
+  font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600;
+  transition: transform .2s, box-shadow .2s;
+}
+.foot-chat-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(154,136,253,.35);
 }
 .foot-ph {
   display: flex;
@@ -2518,7 +2529,10 @@ footer {
 .faq-btn {
   padding: 12px 20px;
   border-radius: 999px;
+  border: none;
+  cursor: pointer;
   text-decoration: none;
+  font-family: 'DM Sans', sans-serif;
   font-size: 13px;
   font-weight: 700;
   display: inline-flex;
@@ -2529,6 +2543,8 @@ footer {
 .faq-btn:hover { transform: translateY(-2px); }
 .faq-btn-wa { background: #25D366; color: var(--white); }
 .faq-btn-wa:hover { box-shadow: 0 8px 20px rgba(37,211,102,.3); }
+.faq-btn-chat { background: var(--purple); color: var(--ink); }
+.faq-btn-chat:hover { box-shadow: 0 8px 20px rgba(154,136,253,.4); }
 .faq-btn-mail { background: var(--ink); color: var(--white); }
 .faq-btn-mail:hover { box-shadow: 0 8px 20px rgba(14,14,16,.3); }
 
@@ -5295,6 +5311,10 @@ footer {
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.93 11.93 0 0012.06 0C5.45 0 .1 5.35.1 11.96c0 2.11.55 4.17 1.6 5.99L0 24l6.24-1.64a11.96 11.96 0 005.82 1.48h.01c6.6 0 11.96-5.35 11.96-11.96a11.9 11.9 0 00-3.51-8.4zM12.07 21.79h-.01a9.84 9.84 0 01-5.02-1.38l-.36-.21-3.71.97.99-3.61-.23-.37a9.86 9.86 0 01-1.51-5.24c0-5.46 4.44-9.9 9.9-9.9 2.64 0 5.13 1.03 7 2.9a9.83 9.83 0 012.9 7c0 5.46-4.44 9.9-9.9 9.9zm5.44-7.42c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51H8.5c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.1 4.49.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35z"/></svg>
           WhatsApp
         </a>
+        <button type="button" class="faq-btn faq-btn-chat" onclick="openCrispChat()" aria-label="Chat with us">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
+          Chat with us
+        </button>
         <a href="mailto:hello@snagify.net" class="faq-btn faq-btn-mail" aria-label="Email us">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2 7 12 14 22 7"/></svg>
           Email us
@@ -5515,6 +5535,10 @@ footer {
   <div class="footer-bottom">
     <p>© 2026 Snagify. All rights reserved.</p>
     <div class="foot-socials">
+      <button type="button" class="foot-chat-btn" onclick="openCrispChat()" aria-label="Chat with us">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
+        Chat with us
+      </button>
       <a href="https://instagram.com/snagifyapp" target="_blank" rel="noopener" aria-label="Instagram">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
       </a>
