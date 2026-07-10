@@ -25,6 +25,7 @@ const altHi = `https://snagify.net/hi/for/${persona.slug}`;
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import CrispChat from '../components/CrispChat.astro';
+import Clarity from '../components/Clarity.astro';
 const testimonials = persona.testimonialIds.map(id => shared.testimonials[id]).filter(Boolean);
 const faqs = persona.faqIds.map(id => shared.faqs[id]).filter(Boolean);
 const faqJsonLd = {
@@ -361,6 +362,7 @@ body {
   </>
 )}
 <CrispChat />
+<Clarity />
 </head>
 <body>
 

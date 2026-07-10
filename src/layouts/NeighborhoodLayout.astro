@@ -3,6 +3,7 @@ import neighborhoodsData from '../data/neighborhoods.json';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import CrispChat from '../components/CrispChat.astro';
+import Clarity from '../components/Clarity.astro';
 
 const { neighborhood, locale = 'en' } = Astro.props;
 const isRTL = locale === 'ar';
@@ -399,6 +400,7 @@ body {
   </>
 )}
 <CrispChat />
+<Clarity />
 </head>
 <body>
 

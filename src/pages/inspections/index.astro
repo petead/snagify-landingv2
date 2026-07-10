@@ -1,6 +1,7 @@
 ---
 import neighborhoodsData from '../../data/neighborhoods.json';
 import CrispChat from '../../components/CrispChat.astro';
+import Clarity from '../../components/Clarity.astro';
 
 const all = Object.values(neighborhoodsData);
 const tier1 = all.filter(n => n.tier === 1).sort((a, b) => a.label.localeCompare(b.label));
@@ -123,6 +124,7 @@ footer.site-footer { background: var(--ink); color: var(--white); padding: 48px 
 }
 </style>
 <CrispChat />
+<Clarity />
 </head>
 <body>
 
