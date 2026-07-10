@@ -31,57 +31,47 @@ body { min-height: 100vh; }
 .page-hero h1 em { font-style:italic;color:var(--purple); }
 .page-hero p { font-size:17px;color:var(--ink-60);max-width:480px;margin:0 auto;line-height:1.75;position:relative;z-index:1; }
 
-/* Main layout */
-.main { max-width:1200px;margin:0 auto;padding:0 48px 100px;display:grid;grid-template-columns:1fr 400px;gap:48px;align-items:start; }
+/* Channels + wide form */
+.contact-main{max-width:1160px;margin:0 auto;padding:8px 48px 90px;}
 
-/* Cards grid left */
-.contact-cards { display:flex;flex-direction:column;gap:16px; }
-.contact-card {
-  background:var(--white);border:1px solid var(--ink-25);border-radius:24px;
-  padding:36px;display:flex;gap:24px;align-items:flex-start;
-  transition:transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s;
-}
-.contact-card:hover { transform:translateY(-4px);box-shadow:0 16px 48px rgba(14,14,16,.09); }
-.cc-icon {
-  width:52px;height:52px;border-radius:16px;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-}
-.cc-icon svg { width:24px;height:24px; }
-.ci-p { background:var(--purple-bg);color:var(--purple); }
-.ci-g { background:var(--green-bg);color:#3A7A00; }
-.ci-j { background:#FFF8DC;color:#7A5A00; }
-.cc-content {}
-.cc-label { font-size:10px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;color:var(--ink-60);margin-bottom:6px; }
-.cc-title { font-family:'Poppins',sans-serif;font-weight:700;font-size:18px;letter-spacing:-.3px;margin-bottom:6px; }
-.cc-desc { font-size:14px;color:var(--ink-60);line-height:1.65;margin-bottom:16px; }
-.cc-link {
-  display:inline-flex;align-items:center;gap:7px;
-  padding:10px 20px;border-radius:999px;
-  font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;
-  text-decoration:none;transition:all .3s;
-}
-.cc-link-primary { background:var(--ink);color:var(--white); }
-.cc-link-primary:hover { background:var(--purple);color:var(--ink); }
-.cc-link-outline { background:transparent;border:1.5px solid var(--ink-25);color:var(--ink); }
-.cc-link-outline:hover { border-color:var(--ink); }
-.cc-response { display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-60);margin-top:10px; }
-.cc-response-dot { width:6px;height:6px;border-radius:50%;background:#3A7A00;flex-shrink:0; }
+.channels{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;}
+.channel{background:var(--white);border:1px solid var(--ink-25);border-radius:22px;padding:28px;display:flex;flex-direction:column;transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s;}
+.channel:hover{transform:translateY(-4px);box-shadow:0 16px 44px rgba(14,14,16,.09);}
+.channel.feature{background:var(--ink);color:var(--white);border-color:var(--ink);}
+.ch-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
+.ch-icon svg{width:22px;height:22px;}
+.ch-i-purple{background:var(--purple-bg);color:var(--purple);}
+.ch-i-jasmine{background:var(--jasmine-bg);color:#7A5A00;}
+.ch-i-onink{background:rgba(255,255,255,.12);color:var(--purple-l);}
+.ch-label{font-size:10px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;color:var(--ink-60);margin-bottom:7px;}
+.channel.feature .ch-label{color:var(--purple-l);}
+.ch-title{font-family:'Poppins',sans-serif;font-weight:700;font-size:19px;letter-spacing:-.3px;margin-bottom:8px;}
+.ch-desc{font-size:14px;color:var(--ink-60);line-height:1.6;margin-bottom:20px;flex:1;}
+.channel.feature .ch-desc{color:rgba(255,255,255,.7);}
+.ch-cta{display:inline-flex;align-items:center;gap:7px;padding:11px 20px;border-radius:999px;font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;text-decoration:none;transition:all .3s;align-self:flex-start;cursor:pointer;border:none;}
+.ch-cta-primary{background:var(--purple);color:var(--ink);}
+.ch-cta-primary:hover{background:var(--purple-l);}
+.ch-cta-dark{background:var(--ink);color:var(--white);}
+.ch-cta-dark:hover{background:var(--purple);color:var(--ink);}
+.ch-cta-outline{background:transparent;border:1.5px solid var(--ink-25);color:var(--ink);}
+.ch-cta-outline:hover{border-color:var(--ink);}
+.ch-meta{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-60);margin-top:14px;}
+.channel.feature .ch-meta{color:rgba(255,255,255,.55);}
+.ch-meta-dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;}
+
+.form-wide{background:var(--white);border:1px solid var(--ink-25);border-radius:28px;padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-bottom:40px;}
+.fw-intro h2{font-family:'Poppins',sans-serif;font-weight:800;font-size:26px;letter-spacing:-.6px;margin-bottom:12px;}
+.fw-intro p{font-size:15px;color:var(--ink-60);line-height:1.7;margin-bottom:24px;}
+.fw-points{list-style:none;display:flex;flex-direction:column;gap:14px;}
+.fw-point{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--ink-60);line-height:1.5;}
+.fw-point svg{width:18px;height:18px;color:var(--purple);flex-shrink:0;margin-top:1px;}
 
 /* FAQ quick */
-.faq-quick { background:var(--white);border:1px solid var(--ink-25);border-radius:24px;padding:32px;margin-top:16px; }
+.faq-quick { background:var(--white);border:1px solid var(--ink-25);border-radius:24px;padding:32px; }
 .faq-quick h3 { font-family:'Poppins',sans-serif;font-weight:700;font-size:17px;margin-bottom:20px; }
 .faq-item { padding:14px 0;border-bottom:1px solid var(--ink-25);font-size:14px;color:var(--ink-60); }
 .faq-item:last-child { border-bottom:none;padding-bottom:0; }
 .faq-item strong { display:block;color:var(--ink);font-weight:600;margin-bottom:4px;font-size:14px; }
-
-/* Form panel */
-.form-panel {
-  background:var(--white);border:1px solid var(--ink-25);
-  border-radius:28px;padding:40px;
-  position:sticky;top:88px;
-}
-.form-panel h2 { font-family:'Poppins',sans-serif;font-weight:800;font-size:22px;letter-spacing:-.5px;margin-bottom:6px; }
-.form-panel p { font-size:14px;color:var(--ink-60);margin-bottom:28px;line-height:1.6; }
 
 .form-group { margin-bottom:18px; }
 .form-group label { display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--ink-60);margin-bottom:8px; }
@@ -128,160 +118,154 @@ body { min-height: 100vh; }
 .form-success p { font-size:14px;color:var(--ink-60);line-height:1.7; }
 .cf-error { margin-top: 12px; color: #FF5252; font-size: 14px; }
 
-@media(max-width:1100px) {
-  .main { grid-template-columns:1fr; }
-  .form-panel { position:static; }
+@media(max-width:900px){
+  .contact-main{padding:8px 20px 60px;}
+  .channels{grid-template-columns:1fr;}
+  .form-wide{grid-template-columns:1fr;gap:28px;padding:32px 24px;}
 }
 @media(max-width:768px) {
   .page-hero { padding:60px 20px 48px; }
-  .main { padding:0 20px 60px; }
-  .contact-card { flex-direction:column;gap:16px;padding:24px; }
   .form-row { grid-template-columns:1fr; }
-  .form-panel { padding:28px 24px; }
 }
 </style>
 
 <div class="page-hero">
   <div class="page-eyebrow">Get in touch</div>
-  <h1>We're here<br>to <em>help.</em></h1>
-  <p>Whether you have a question about the product, pricing, or a technical issue, we'll get back to you fast.</p>
+  <h1>Let's <em>talk</em>.</h1>
+  <p>A question about the product, a partnership, or a technical issue — pick the channel that suits you. We reply fast.</p>
 </div>
 
-<div class="main">
-  <div>
-    <div class="contact-cards">
+<div class="contact-main">
 
-      <div class="contact-card">
-        <div class="cc-icon ci-p">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </div>
-        <div class="cc-content">
-          <div class="cc-label">General inquiries</div>
-          <div class="cc-title">Send us an email</div>
-          <div class="cc-desc">For product questions, feedback, or anything else. We read every message.</div>
-          <a href="mailto:hello@snagify.net" class="cc-link cc-link-primary">
-            hello@snagify.net
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <div class="cc-response"><div class="cc-response-dot"></div>Typical response time: under 24 hours</div>
-        </div>
+  <div class="channels">
+    <div class="channel feature">
+      <div class="ch-icon ch-i-onink">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       </div>
-
-      <div class="contact-card">
-        <div class="cc-icon ci-g">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
-        <div class="cc-content">
-          <div class="cc-label">Partnerships</div>
-          <div class="cc-title">Work with us</div>
-          <div class="cc-desc">Real estate agencies, property management companies, and proptech platforms — let's talk.</div>
-          <a href="mailto:hello@snagify.net?subject=Partnership inquiry" class="cc-link cc-link-outline">
-            Get in touch
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <div class="cc-response"><div class="cc-response-dot"></div>We'll respond within 2 business days</div>
-        </div>
-      </div>
-
-      <div class="contact-card">
-        <div class="cc-icon ci-j">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        </div>
-        <div class="cc-content">
-          <div class="cc-label">Support</div>
-          <div class="cc-title">Technical help</div>
-          <div class="cc-desc">Having trouble with your account, a report, or a payment? Describe the issue and we'll sort it out.</div>
-          <a href="mailto:hello@snagify.net?subject=Support request" class="cc-link cc-link-outline">
-            Report an issue
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <div class="cc-response"><div class="cc-response-dot"></div>Priority support for Pro plan users</div>
-        </div>
-      </div>
-
+      <div class="ch-label">Fastest</div>
+      <div class="ch-title">Chat with us live</div>
+      <div class="ch-desc">Quick question? Get an answer in real time from our team, right here.</div>
+      <button type="button" class="ch-cta ch-cta-primary" onclick="openCrispChat()">Open chat →</button>
+      <div class="ch-meta"><span class="ch-meta-dot"></span>Usually replies in minutes</div>
     </div>
+    <div class="channel">
+      <div class="ch-icon ch-i-purple">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div class="ch-label">Detailed</div>
+      <div class="ch-title">Send an email</div>
+      <div class="ch-desc">For anything that needs detail — feedback, questions, or documents.</div>
+      <a href="mailto:hello@snagify.net" class="ch-cta ch-cta-dark">hello@snagify.net →</a>
+      <div class="ch-meta"><span class="ch-meta-dot"></span>Under 24 hours</div>
+    </div>
+    <div class="channel">
+      <div class="ch-icon ch-i-jasmine">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="ch-label">Agencies</div>
+      <div class="ch-title">Work with us</div>
+      <div class="ch-desc">Real estate agencies, property managers &amp; proptech — let's partner.</div>
+      <a href="#contact-form-wrap" class="ch-cta ch-cta-outline">Use the form →</a>
+      <div class="ch-meta"><span class="ch-meta-dot"></span>Within 2 business days</div>
+    </div>
+  </div>
 
-    <div class="faq-quick">
-      <h3>Quick answers</h3>
-      <div class="faq-item">
-        <strong>Is check-in really free?</strong>
-        Yes. Check-in inspections for individual landlords and tenants are free. No credits needed, no card required.
+  <div class="form-wide" id="contact-form-wrap">
+    <div class="fw-intro">
+      <h2>Send a message</h2>
+      <p>Prefer to write it all down? Fill in the form and we'll get back to you within one business day.</p>
+      <ul class="fw-points">
+        <li class="fw-point">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Direct line to the founder, not a ticket queue.
+        </li>
+        <li class="fw-point">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          We read and reply to every single message.
+        </li>
+        <li class="fw-point">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Priority handling for agencies and Pro users.
+        </li>
+      </ul>
+    </div>
+    <div class="fw-fields">
+      <div class="form-main" id="form-main">
+        <form id="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First name</label>
+              <input type="text" id="cf-firstname" placeholder="Ahmed" required>
+            </div>
+            <div class="form-group">
+              <label>Last name</label>
+              <input type="text" id="cf-lastname" placeholder="Al-Rashid" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="cf-email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label>I am a</label>
+            <select id="cf-role" required>
+              <option value="">Select...</option>
+              <option>Property agent / agency</option>
+              <option>Individual landlord</option>
+              <option>Tenant</option>
+              <option>Property manager</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Subject</label>
+            <select id="cf-subject">
+              <option>General question</option>
+              <option>Technical support</option>
+              <option>Billing or refund</option>
+              <option>Partnership</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea id="cf-message" placeholder="Tell us what's on your mind..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">
+            Send message
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <p id="cf-error" class="cf-error" aria-live="polite" style="display:none;"></p>
+        </form>
       </div>
-      <div class="faq-item">
-        <strong>Can I get a refund?</strong>
-        Credit packs are refundable before any credit is used. Annual subscriptions are refundable within 14 days of purchase. Email us.
-      </div>
-      <div class="faq-item">
-        <strong>Do you offer agency or volume pricing?</strong>
-        Yes. For teams doing more than 50 inspections per month, contact us for a custom plan.
-      </div>
-      <div class="faq-item">
-        <strong>How do I delete my account?</strong>
-        Go to Settings in the app, or email us and we'll handle it within 48 hours.
+
+      <div class="form-success" id="form-success">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Message sent!</h3>
+        <p>Thanks for reaching out. We'll get back to you at your email address within one business day.</p>
       </div>
     </div>
   </div>
 
-  <!-- Form -->
-  <div class="form-panel">
-    <div class="form-main" id="form-main">
-      <h2>Send a message</h2>
-      <p>Fill in the form and we'll get back to you within one business day.</p>
-
-      <form id="contact-form" onsubmit="handleSubmit(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label>First name</label>
-            <input type="text" id="cf-firstname" placeholder="Ahmed" required>
-          </div>
-          <div class="form-group">
-            <label>Last name</label>
-            <input type="text" id="cf-lastname" placeholder="Al-Rashid" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" id="cf-email" placeholder="you@example.com" required>
-        </div>
-        <div class="form-group">
-          <label>I am a</label>
-          <select id="cf-role" required>
-            <option value="">Select...</option>
-            <option>Property agent / agency</option>
-            <option>Individual landlord</option>
-            <option>Tenant</option>
-            <option>Property manager</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Subject</label>
-          <select id="cf-subject">
-            <option>General question</option>
-            <option>Technical support</option>
-            <option>Billing or refund</option>
-            <option>Partnership</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea id="cf-message" placeholder="Tell us what's on your mind..." required></textarea>
-        </div>
-        <button type="submit" class="btn-submit">
-          Send message
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
-        <p id="cf-error" class="cf-error" aria-live="polite" style="display:none;"></p>
-      </form>
+  <div class="faq-quick">
+    <h3>Quick answers</h3>
+    <div class="faq-item">
+      <strong>Is check-in really free?</strong>
+      Yes. Check-in inspections for individual landlords and tenants are free. No credits needed, no card required.
     </div>
-
-    <div class="form-success" id="form-success">
-      <div class="success-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-      </div>
-      <h3>Message sent!</h3>
-      <p>Thanks for reaching out. We'll get back to you at your email address within one business day.</p>
+    <div class="faq-item">
+      <strong>Can I get a refund?</strong>
+      Credit packs are refundable before any credit is used. Annual subscriptions are refundable within 14 days of purchase. Email us.
+    </div>
+    <div class="faq-item">
+      <strong>Do you offer agency or volume pricing?</strong>
+      Yes. For teams doing more than 50 inspections per month, contact us for a custom plan.
+    </div>
+    <div class="faq-item">
+      <strong>How do I delete my account?</strong>
+      Go to Settings in the app, or email us and we'll handle it within 48 hours.
     </div>
   </div>
 
