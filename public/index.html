@@ -1051,15 +1051,17 @@ div#nav-drawer a {
 .bc-ic-jasmine { background: var(--jasmine-bg); }.bc-ic-jasmine svg { stroke: #B08900; }
 
 /* ── Grid spans (pro bento) ── */
-.b-wl   { grid-column: span 6; }
-.b-team { grid-column: span 6; }
+.b-brand, .b-teamx, .b-alerts { grid-column: span 4; }
 
 /* ── Mockup shell ── */
 .bc-mock {
-  margin-top: 18px; border-radius: 14px; height: 140px;
-  background: linear-gradient(160deg, var(--purple-bg), #E4DEFB);
+  margin-top: 18px; border-radius: 14px; min-height: 150px; height: auto; padding: 18px;
+  display: flex; flex-direction: column; justify-content: center;
   border: 1px solid var(--ink-08); position: relative; overflow: hidden;
 }
+.bcm-tint-purple { background:linear-gradient(150deg,#EDE9FE,#F6F4FF 70%); }
+.bcm-tint-green { background:linear-gradient(150deg,#EEFAD5,#F3FBE4 70%); }
+.bcm-tint-jasmine { background:linear-gradient(150deg,#FFF8DC,#FFFBEF 70%); }
 .b-ai .bc-mock-shot { min-height: 220px; }
 .b-ghost .bc-mock-shot,
 .b-contract .bc-mock-shot,
@@ -1164,13 +1166,8 @@ div#nav-drawer a {
 .bcm-phone i { height: 9px; border-radius: 3px; background: var(--ink-08); display: block; }
 .bcm-phone i:first-child { background: var(--purple); width: 62%; }
 
-/* White-label preview */
-.bcm-wl { padding: 18px; }
-.bcm-wl-logo { width: 42px; height: 13px; border-radius: 4px; background: var(--jasmine); margin-bottom: 10px; }
-.bcm-wl-line { height: 7px; border-radius: 4px; background: var(--ink-08); margin-bottom: 7px; }
-
 /* Avatars */
-.bcm-avatars { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); display: flex; }
+.bcm-avatars { display: flex; }
 .bcm-av {
   width: 36px; height: 36px; border-radius: 50%; margin-left: -8px;
   display: flex; align-items: center; justify-content: center;
@@ -1179,13 +1176,46 @@ div#nav-drawer a {
 }
 .bcm-av:first-child { margin-left: 0; }
 
+/* mini branded report */
+.bcm-rep { background:var(--white); border-radius:12px; overflow:hidden; box-shadow:0 10px 26px rgba(14,14,16,.12); transform:rotate(-1.2deg); }
+.bcm-rep-head { background:#1B3A5C; padding:11px 14px; display:flex; align-items:center; justify-content:space-between; }
+.bcm-rep-brand { display:flex; align-items:center; gap:8px; }
+.bcm-rep-logo { width:22px; height:22px; border-radius:6px; background:var(--white); display:flex; align-items:center; justify-content:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:10px; color:#1B3A5C; }
+.bcm-rep-name { font-family:'Poppins',sans-serif; font-weight:700; font-size:11px; color:var(--white); }
+.bcm-rep-sub { font-size:7.5px; color:rgba(255,255,255,.55); letter-spacing:.8px; text-transform:uppercase; }
+.bcm-rep-type { font-size:7.5px; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.65); border:1px solid rgba(255,255,255,.25); padding:3px 7px; border-radius:999px; }
+.bcm-rep-body { padding:10px 14px; display:flex; flex-direction:column; gap:6px; }
+.bcm-rep-line { height:5px; border-radius:3px; background:rgba(14,14,16,.08); }
+.bcm-brand-foot { display:flex; align-items:center; gap:8px; margin-top:14px; }
+.bcm-sw { width:15px; height:15px; border-radius:5px; background:#1B3A5C; box-shadow:0 0 0 2px rgba(14,14,16,.12); }
+.bcm-hex { font-size:10.5px; color:rgba(14,14,16,.4); font-family:monospace; }
+
+/* credit pool */
+.bcm-pool { background:var(--white); border-radius:12px; padding:13px 16px; box-shadow:0 8px 22px rgba(14,14,16,.08); margin-top:14px; }
+.bcm-pool-head { display:flex; justify-content:space-between; font-size:11px; margin-bottom:8px; }
+.bcm-pool-lbl { color:rgba(14,14,16,.6); font-weight:600; }
+.bcm-pool-n { font-family:'Poppins',sans-serif; font-weight:800; }
+.bcm-pool-bar { height:7px; border-radius:99px; background:rgba(14,14,16,.07); overflow:hidden; }
+.bcm-pool-fill { height:100%; width:70%; border-radius:99px; background:linear-gradient(90deg,var(--green),#A8E063); }
+.bcm-tint-green .bcm-avatars { justify-content:center; margin-bottom:0; }
+
+/* notifications */
+.bcm-notif { background:var(--white); border-radius:14px; padding:12px 14px; box-shadow:0 10px 26px rgba(14,14,16,.1); display:flex; gap:11px; align-items:flex-start; transform:rotate(.8deg); }
+.bcm-notif-2 { margin-top:10px; transform:rotate(-.6deg); opacity:.55; scale:.96; }
+.bcm-notif-ico { width:32px; height:32px; border-radius:10px; background:var(--jasmine); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--ink); }
+.bcm-notif-ico svg { width:16px; height:16px; }
+.bcm-notif-ico-ok { background:var(--green); }
+.bcm-notif-title { font-family:'Poppins',sans-serif; font-weight:700; font-size:12px; margin-bottom:2px; }
+.bcm-notif-sub { font-size:11px; color:rgba(14,14,16,.6); line-height:1.4; }
+.bcm-notif-time { font-size:9.5px; color:rgba(14,14,16,.4); margin-left:auto; flex-shrink:0; }
+
 /* ── Responsive ── */
 @media (max-width: 1100px) {
-  .b-wl, .b-team { grid-column: span 12; }
+  .b-brand, .b-teamx, .b-alerts { grid-column: span 12; }
 }
 @media (max-width: 768px) {
   .bento { gap: 12px; }
-  .b-wl, .b-team { grid-column: span 12; }
+  .b-brand, .b-teamx, .b-alerts { grid-column: span 12; }
   .bento-card { padding: 24px; }
 }
 
@@ -4822,36 +4852,90 @@ footer {
     </div>
 
     <div class="bento bento-pro">
-      <div class="bento-card b-wl reveal">
+      <!-- ══ BRANDING PRO ══ -->
+      <div class="bento-card b-brand reveal">
         <div class="bc-icon bc-ic-jasmine">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
         </div>
         <div class="bc-eyebrow bc-pro">Branding</div>
         <h3>Full white-label reports</h3>
-        <p>Your logo, your agency colours, your RERA number on every report you send.</p>
-        <div class="bc-mock">
-          <div class="bcm-wl">
-            <div class="bcm-wl-logo"></div>
-            <div class="bcm-wl-line" style="width:80%"></div>
-            <div class="bcm-wl-line" style="width:60%"></div>
+        <p>Your logo, your agency colours, your RERA number on every report.</p>
+        <div class="bc-mock bcm-tint-purple">
+          <div class="bcm-rep">
+            <div class="bcm-rep-head">
+              <div class="bcm-rep-brand">
+                <div class="bcm-rep-logo">H</div>
+                <div>
+                  <div class="bcm-rep-name">Horizon Properties</div>
+                  <div class="bcm-rep-sub">Dubai · RERA 12845</div>
+                </div>
+              </div>
+              <span class="bcm-rep-type">Check-in</span>
+            </div>
+            <div class="bcm-rep-body">
+              <div class="bcm-rep-line" style="width:78%"></div>
+              <div class="bcm-rep-line" style="width:56%"></div>
+            </div>
+          </div>
+          <div class="bcm-brand-foot">
+            <span class="bcm-sw"></span>
+            <span class="bcm-hex">Navy · #1B3A5C</span>
           </div>
         </div>
       </div>
 
       <!-- ══ TEAM PRO ══ -->
-      <div class="bento-card b-team reveal reveal-delay-1">
+      <div class="bento-card b-teamx reveal reveal-delay-1">
         <div class="bc-icon bc-ic-jasmine">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
         <div class="bc-eyebrow bc-pro">Team</div>
-        <h3>Team management &amp; lease alerts</h3>
-        <p>Up to 15 inspectors share a credit pool, with renewal reminders built in.</p>
-        <div class="bc-mock">
+        <h3>One credit pool, whole team</h3>
+        <p>Up to 15 agents share credits. Everyone inspects, you stay in control.</p>
+        <div class="bc-mock bcm-tint-green">
           <div class="bcm-avatars">
             <span class="bcm-av" style="background:var(--purple)">KA</span>
             <span class="bcm-av" style="background:var(--jasmine);color:var(--ink)">SM</span>
             <span class="bcm-av" style="background:var(--green);color:var(--ink)">RH</span>
-            <span class="bcm-av" style="background:var(--ink-25);color:var(--ink)">+4</span>
+            <span class="bcm-av" style="background:var(--ink);color:var(--white)">+4</span>
+          </div>
+          <div class="bcm-pool">
+            <div class="bcm-pool-head">
+              <span class="bcm-pool-lbl">Shared credits</span>
+              <span class="bcm-pool-n">14 / 20</span>
+            </div>
+            <div class="bcm-pool-bar"><div class="bcm-pool-fill"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ ALERTS PRO ══ -->
+      <div class="bento-card b-alerts reveal reveal-delay-2">
+        <div class="bc-icon bc-ic-jasmine">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </div>
+        <div class="bc-eyebrow bc-pro">Alerts</div>
+        <h3>Never miss a lease renewal</h3>
+        <p>Automatic reminders before every lease ends. Book the check-out on time.</p>
+        <div class="bc-mock bcm-tint-jasmine">
+          <div class="bcm-notif">
+            <div class="bcm-notif-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            </div>
+            <div>
+              <div class="bcm-notif-title">Lease ends in 30 days</div>
+              <div class="bcm-notif-sub">Marina Gate T2 · Unit 1204</div>
+            </div>
+            <span class="bcm-notif-time">now</span>
+          </div>
+          <div class="bcm-notif bcm-notif-2">
+            <div class="bcm-notif-ico bcm-notif-ico-ok">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <div>
+              <div class="bcm-notif-title">Check-out booked</div>
+              <div class="bcm-notif-sub">JVC · Villa 14B · 28 Mar, 10:00</div>
+            </div>
           </div>
         </div>
       </div>
