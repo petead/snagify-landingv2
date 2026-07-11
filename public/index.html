@@ -3307,7 +3307,7 @@ footer {
   position: relative;
   overflow: hidden;
 }
-/* Identité : grand chiffre AED en watermark + lumière verte rassurante */
+/* Identité : lumière verte / jasmine rassurante */
 .for-private::before {
   content: '';
   position: absolute; inset: 0;
@@ -3318,151 +3318,45 @@ footer {
   pointer-events: none;
 }
 
-/* Layout révisé : centré, chiffre AED en hero, pas de card stack */
-.for-private-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
+.fp-head { text-align:center; max-width:640px; margin:0 auto 72px; }
+.fp-head .section-sub { max-width:none; margin-left:auto; margin-right:auto; }
+.fp-head .section-sub strong { color:var(--ink); font-weight:600; }
 
-/* Côté gauche : chiffre editorial + deposit hero */
-.for-private-left {
-  position: relative;
-}
-.private-deposit-hero {
-  position: relative;
-  padding: 48px 40px 40px;
-  background: var(--white);
-  border-radius: 32px;
-  border: 1px solid var(--ink-25);
-  box-shadow: 0 24px 60px rgba(14,14,16,.07);
-  overflow: hidden;
-  text-align: left;
-  margin-top: 20px;
-}
-.private-card-eyebrow {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--ink-60);
-  margin-bottom: 16px;
-}
-.private-card-hero { margin-bottom: 20px; }
-.private-hero-free {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800;
-  font-size: clamp(48px, 12vw, 72px);
-  line-height: 0.92;
-  letter-spacing: -3px;
-  color: var(--ink);
-}
-.private-hero-always {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800;
-  font-size: clamp(24px, 6vw, 30px);
-  line-height: 0.92;
-  letter-spacing: -1px;
-  color: var(--ink);
-  margin-top: 4px;
-}
-.private-card-body {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 15px;
-  color: var(--ink-60);
-  line-height: 1.7;
-  max-width: 330px;
-  margin-bottom: 24px;
-}
-.private-card-body strong { color: var(--ink); font-weight: 700; }
-.private-card-divider {
-  height: 1px;
-  background: var(--ink-25);
-  margin-bottom: 24px;
-}
-.private-benefits {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.private-benefit {
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-}
-.private-benefit-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  background: var(--purple-bg);
-  color: var(--purple);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.private-benefit-icon svg { width: 18px; height: 18px; }
-.private-benefit-title {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 2px;
-  line-height: 1.35;
-}
-.private-benefit-sub {
-  font-size: 13px;
-  color: var(--ink-60);
-  line-height: 1.5;
-}
+.fp-timeline { display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; position:relative; margin-bottom:58px; }
+.fp-line { position:absolute; top:26px; left:14%; right:14%; height:2px; z-index:0;
+  background:linear-gradient(90deg, var(--green) 0%, rgba(14,14,16,.1) 35%, rgba(14,14,16,.1) 65%, var(--jasmine) 100%); }
+.fp-chev { position:absolute; top:26px; transform:translate(-50%,-50%); width:26px; height:26px; border-radius:50%;
+  background:var(--cream); display:flex; align-items:center; justify-content:center; color:rgba(14,14,16,.4); z-index:1; }
+.fp-chev svg { width:14px; height:14px; }
 
-/* Free badge on card */
-.private-free-float {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 7px 18px;
-  background: var(--green);
-  border-radius: 999px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800; font-size: 11px;
-  letter-spacing: 1.5px; text-transform: uppercase;
-  color: var(--ink);
-  box-shadow: 0 8px 20px rgba(202,254,135,.35);
-  white-space: nowrap;
-  margin-bottom: 18px;
-}
+.fp-step { position:relative; z-index:1; text-align:center; padding:0 10px; }
+.fp-dot { width:52px; height:52px; border-radius:50%; margin:0 auto 22px; display:flex; align-items:center; justify-content:center;
+  background:var(--white); border:2px solid rgba(14,14,16,.1); box-shadow:0 6px 20px rgba(14,14,16,.06);
+  font-family:'Poppins',sans-serif; font-weight:800; font-size:18px; }
+.fp-dot-1 { background:var(--green); border-color:var(--green); color:var(--ink); }
+.fp-dot-2 { color:var(--ink); border-color:rgba(14,14,16,.18); }
+.fp-dot-3 { background:var(--ink); border-color:var(--ink); color:var(--jasmine); }
+.fp-when { font-size:10.5px; text-transform:uppercase; letter-spacing:2.6px; font-weight:700; color:rgba(14,14,16,.4); margin-bottom:9px; }
+.fp-title { font-family:'Poppins',sans-serif; font-weight:700; font-size:22px; letter-spacing:-.5px; margin-bottom:9px; }
+.fp-desc { font-size:14.5px; color:rgba(14,14,16,.6); line-height:1.55; max-width:250px; margin:0 auto 16px; }
+.fp-tag { display:inline-flex; align-items:center; gap:6px; padding:8px 16px; border-radius:999px;
+  font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; }
+.fp-tag-free { background:var(--green); color:var(--ink); }
+.fp-tag-price { background:var(--white); border:1.5px solid rgba(14,14,16,.14); color:var(--ink); }
+.fp-tag-fair { background:var(--jasmine); color:var(--ink); }
 
-/* Features list privé : icônes check vert, plus aérées */
-.private-features {
-  display: flex; flex-direction: column;
-  gap: 20px; margin: 32px 0;
-}
-.priv-feat {
-  display: flex; gap: 14px; align-items: flex-start;
-}
-.priv-feat-check {
-  width: 30px; height: 30px;
-  border-radius: 9px;
-  background: var(--green-bg);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; color: #3A7A00;
-  border: 1px solid rgba(202,254,135,.3);
-}
-.priv-feat-check svg { width: 13px; height: 13px; }
-.priv-feat h4 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700; font-size: 15px; margin-bottom: 3px;
-}
-.priv-feat p { font-size: 13px; color: var(--ink-60); line-height: 1.6; }
+.fp-ctas { display:flex; align-items:center; justify-content:center; gap:20px; }
+.fp-cta-note { font-size:14px; color:rgba(14,14,16,.6); }
 
-.private-cta {
-  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+@media (max-width: 900px) {
+  .fp-timeline { grid-template-columns:1fr; gap:40px; }
+  .fp-line, .fp-chev { display:none; }
+  .fp-desc { max-width:320px; }
 }
-.private-cta-note { font-size: 13px; color: var(--ink-60); }
-
-@media(max-width: 1100px) {
-  .for-private-grid { grid-template-columns: 1fr; gap: 60px; }
-  .for-private-left { order: 2; }
-  .for-private-right { order: 1; }
+@media (max-width: 768px) {
+  .fp-head { margin-bottom:48px; }
+  .fp-ctas { flex-direction:column; gap:12px; }
+  .fp-ctas .btn-ink { width:100%; justify-content:center; }
 }
 
 /* ══ FEATURES SECTION ══ */
@@ -3512,11 +3406,6 @@ footer {
 
   /* For Pros */
   .for-pros-grid    { grid-template-columns: 1fr; gap: 60px; }
-
-  /* For Private */
-  .for-private-grid { grid-template-columns: 1fr; gap: 60px; }
-  .for-private-left { order: 2; }
-  .for-private-right{ order: 1; }
 
   /* HIW */
   .hiw-grid         { grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -3606,17 +3495,6 @@ footer {
   .pros-cta         { flex-direction: column; align-items: stretch; gap: 12px; }
   .pros-cta .btn-pros-primary { width: 100%; justify-content: center; }
   .pros-stars       { opacity: .55; }
-
-  /* For Private */
-  .for-private-grid { grid-template-columns: 1fr; gap: 44px; }
-  .for-private-left { order: 2; }
-  .for-private-right{ order: 1; }
-  .private-deposit-hero { padding: 32px 24px; }
-  .private-hero-free { font-size: clamp(40px, 14vw, 72px); letter-spacing: -2px; }
-  .private-hero-always { font-size: clamp(22px, 6vw, 30px); }
-  .private-features { gap: 14px; margin: 24px 0; }
-  .private-cta      { flex-direction: column; align-items: stretch; gap: 10px; }
-  .private-cta .btn-ink { width: 100%; justify-content: center; }
 
   /* HIW */
   .hiw-grid         { grid-template-columns: 1fr; gap: 14px; }
@@ -4531,109 +4409,47 @@ footer {
 <section class="for-private" id="for-private">
   <div class="section-wrap">
 
-    <div class="for-private-grid">
+    <div class="fp-head reveal">
+      <div class="section-eyebrow">For Landlords &amp; Tenants</div>
+      <h2 class="section-title">Keep what's <span class="title-pain">yours.</span></h2>
+      <p class="section-sub"><strong>One free inspection today.</strong> No disputes tomorrow.</p>
+    </div>
 
-      <!-- ── Left: free check-in hero card ── -->
-      <div class="for-private-left reveal">
-        <div class="private-deposit-hero">
-          <div class="private-card-eyebrow">Every move-in inspection</div>
-          <div class="private-card-hero">
-            <div class="private-hero-free">Free.</div>
-            <div class="private-hero-always">Always.</div>
-          </div>
-          <div class="private-free-float">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            No card · No credits
-          </div>
-          <p class="private-card-body">Document your property the day you move in. Both parties sign, the condition is on record, and you only ever pay if you do a <strong>check-out</strong> later.</p>
-          <div class="private-card-divider"></div>
-          <div class="private-benefits">
-            <div class="private-benefit">
-              <div class="private-benefit-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              </div>
-              <div>
-                <div class="private-benefit-title">Ready in 20 minutes</div>
-                <div class="private-benefit-sub">The whole check-in, done on-site from your phone</div>
-              </div>
-            </div>
-            <div class="private-benefit">
-              <div class="private-benefit-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-              </div>
-              <div>
-                <div class="private-benefit-title">Both parties sign on the spot</div>
-                <div class="private-benefit-sub">Landlord and tenant, on the same screen</div>
-              </div>
-            </div>
-            <div class="private-benefit">
-              <div class="private-benefit-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-              </div>
-              <div>
-                <div class="private-benefit-title">RDC valid, kept forever</div>
-                <div class="private-benefit-sub">Your report stays in your account for good</div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="fp-timeline reveal reveal-delay-1">
+      <div class="fp-line"></div>
+      <div class="fp-chev" style="left:33.3%;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></div>
+      <div class="fp-chev" style="left:66.6%;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></div>
+
+      <div class="fp-step">
+        <div class="fp-dot fp-dot-1">1</div>
+        <div class="fp-when">Move-in day</div>
+        <h3 class="fp-title">Check in, free</h3>
+        <p class="fp-desc">20 minutes on your phone. Both parties sign the condition report.</p>
+        <span class="fp-tag fp-tag-free">Free · No card</span>
       </div>
 
-<!-- ── Right: content ── -->
-      <div class="for-private-right">
-        <div class="section-eyebrow reveal">For Landlords & Tenants</div>
-        <h2 class="section-title reveal reveal-delay-1">Get your full<br>deposit back.<br><span class="title-pain">In one week.</span></h2>
-        <p class="section-sub reveal reveal-delay-2">A free 20-minute check-in is all it takes. Both parties sign, the property condition is documented, and your deposit is protected from the day you move in to the day you leave. No disputes, no stress, no lost money.</p>
+      <div class="fp-step">
+        <div class="fp-dot fp-dot-2">2</div>
+        <div class="fp-when">Move-out day</div>
+        <h3 class="fp-title">Check out, compare</h3>
+        <p class="fp-desc">Every room, side by side with day one. Signed again by both.</p>
+        <span class="fp-tag fp-tag-price">From AED 49</span>
+      </div>
 
-        <div class="private-features reveal reveal-delay-2">
-          <div class="priv-feat">
-            <div class="priv-feat-check">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div>
-              <h4>Check-in is always free</h4>
-              <p>Document the property condition at move-in at no cost. Ever.</p>
-            </div>
-          </div>
-          <div class="priv-feat">
-            <div class="priv-feat-check">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div>
-              <h4>No subscription needed</h4>
-              <p>Buy credits when you need them. Pay only for check-outs.</p>
-            </div>
-          </div>
-          <div class="priv-feat">
-            <div class="priv-feat-check">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div>
-              <h4>RDC Valid reports</h4>
-              <p>If a dispute reaches court, your Snagify report stands as admissible evidence.</p>
-            </div>
-          </div>
-          <div class="priv-feat">
-            <div class="priv-feat-check">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div>
-              <h4>Done from your phone</h4>
-              <p>No training needed. Walk through each room, snap photos, sign and done.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="private-cta reveal reveal-delay-3">
-          <a href="#pricing-particulier" class="btn-ink" onclick="if(typeof switchPricing==='function'){switchPricing('private')}">
-            See Credit Packs
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <span class="private-cta-note">Sign up for free — no credit card</span>
-        </div>
-
+      <div class="fp-step">
+        <div class="fp-dot fp-dot-3">3</div>
+        <div class="fp-when">Settlement</div>
+        <h3 class="fp-title">A fair outcome</h3>
+        <p class="fp-desc">Signed evidence decides. Nothing to argue about.</p>
+        <span class="fp-tag fp-tag-fair">No unfair cuts</span>
       </div>
     </div>
+
+    <div class="fp-ctas reveal reveal-delay-2">
+      <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="btn-ink">Start free check-in →</a>
+      <span class="fp-cta-note">No credit card needed</span>
+    </div>
+
   </div>
 </section>
 
