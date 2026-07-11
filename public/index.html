@@ -999,10 +999,24 @@ div#nav-drawer a {
   .deck-phone--left { margin-right: -8px; }
   .deck-phone--right { margin-left: -8px; }
 }
-@media (max-width: 520px) {
-  .deck-phones { transform: scale(.92); transform-origin: center top; }
-  .deck-subcard { padding: 14px; gap: 12px; }
-  .deck-subcard-ico { width: 38px; height: 38px; }
+@media (max-width: 768px) {
+  .deck-slide,
+  .deck-slide--reverse { padding: 28px 20px; }
+
+  /* Sub-cards: slim one-liner rows, descriptions hidden */
+  .deck-subcards { gap: 8px; margin-top: 20px; }
+  .deck-subcard { padding: 10px 14px; align-items: center; }
+  .deck-subcard p { display: none; }
+  .deck-subcard h4 { font-size: 14px; margin: 0; }
+  .deck-subcard-ico { width: 32px; height: 32px; }
+  .deck-subcard-ico svg { width: 15px; height: 15px; }
+
+  /* Phones: smaller floor, kill the transform hack */
+  .deck-phones { transform: none; }
+  .deck-phone { --deck-phone-w: 126px; }
+
+  /* Lead a touch tighter */
+  .deck-slide-lead { font-size: 15px; }
 }
 
 /* ══ FEATURES BENTO (pro extras) ══ */
