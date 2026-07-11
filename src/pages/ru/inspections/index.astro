@@ -3,6 +3,7 @@ import SiteHeader from '../../../components/SiteHeader.astro';
 import SiteFooter from '../../../components/SiteFooter.astro';
 import CrispChat from '../../../components/CrispChat.astro';
 import Clarity from '../../../components/Clarity.astro';
+import GoogleAnalytics from '../../../components/GoogleAnalytics.astro';
 import neighborhoodsDataRU from '../../../data/neighborhoods.ru.json';
 
 const all = Object.values(neighborhoodsDataRU);
@@ -15,6 +16,7 @@ const altRu = 'https://snagify.net/ru/inspections';
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
 <head>
+<GoogleAnalytics />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Осмотры недвижимости в Дубае · Покрываемые районы · Snagify</title>

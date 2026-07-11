@@ -3,6 +3,7 @@ import SiteHeader from '../../../components/SiteHeader.astro';
 import SiteFooter from '../../../components/SiteFooter.astro';
 import CrispChat from '../../../components/CrispChat.astro';
 import Clarity from '../../../components/Clarity.astro';
+import GoogleAnalytics from '../../../components/GoogleAnalytics.astro';
 import neighborhoodsDataHI from '../../../data/neighborhoods.hi.json';
 
 const all = Object.values(neighborhoodsDataHI);
@@ -16,6 +17,7 @@ const altHi = 'https://snagify.net/hi/inspections';
 <!DOCTYPE html>
 <html lang="hi" dir="ltr">
 <head>
+<GoogleAnalytics />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>दुबई में संपत्ति निरीक्षण · कवर किए गए क्षेत्र · Snagify</title>

@@ -26,6 +26,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import CrispChat from '../components/CrispChat.astro';
 import Clarity from '../components/Clarity.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -58,6 +59,7 @@ const articleJsonLd = {
 <!DOCTYPE html>
 <html lang={htmlLang} dir={htmlDir}>
 <head>
+<GoogleAnalytics />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
