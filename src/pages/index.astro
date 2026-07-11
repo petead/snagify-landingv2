@@ -3524,8 +3524,8 @@ footer {
   .hero-eyebrow     { flex-wrap: wrap; gap: 4px; font-size: 10px; letter-spacing: 2.5px; }
   .hero-watermark   { display: none; }
   .hero-tag         { display: none; }
-  .hero-stats       { gap: 14px; flex-wrap: wrap; }
-  .hero-stats .hstat-div:last-of-type { display: none; }
+  .hero-stats       { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: start; }
+  .hero-stats .hstat-div { display: none; }
   .hstat-num        { font-size: 20px; }
   .hstat-lbl        { font-size: 10px; letter-spacing: 1.5px; }
   .hero-desc        { font-size: 15px; margin-bottom: 32px; }
@@ -3857,7 +3857,7 @@ footer {
     </div>
 
     <div class="pain-bottom reveal reveal-delay-1">
-      <p class="pain-headline">In a deposit dispute, <strong>evidence wins.</strong><br>Not memory. <strong>Not WhatsApp photos.</strong></p>
+      <p class="pain-headline">In a deposit dispute, <strong>evidence wins.</strong><br> Not memory. <strong>Not WhatsApp photos.</strong></p>
     </div>
 
   </div>
