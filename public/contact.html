@@ -10,6 +10,19 @@
 
   gtag('config', 'G-CR2PTLC7YS');
 </script>
+<!-- Meta Pixel Code — set META_PIXEL_ID to the same value as PUBLIC_META_PIXEL_ID / META_PIXEL_ID -->
+<script>
+  var META_PIXEL_ID = '968283019499604';
+  if (META_PIXEL_ID) {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', META_PIXEL_ID);
+    fbq('track', 'PageView');
+  }
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -380,11 +393,21 @@ async function handleSubmit(e) {
   if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
 
   try {
+    var eventId = (window.crypto && window.crypto.randomUUID)
+      ? window.crypto.randomUUID()
+      : String(Date.now()) + Math.random().toString(16).slice(2);
+    payload.eventId = eventId;
+    payload.eventSourceUrl = window.location.href;
+
     var r = await fetch('/api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     });
+
+    if (r.ok && typeof window.fbq === 'function') {
+      window.fbq('track', 'Lead', { content_name: 'contact_form' }, { eventID: eventId });
+    }
     if (r.ok) {
       document.getElementById('form-main').classList.add('hide');
       document.getElementById('form-success').classList.add('show');

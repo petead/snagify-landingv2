@@ -3,6 +3,7 @@ import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import CrispChat from '../components/CrispChat.astro';
 import Clarity from '../components/Clarity.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import MetaPixel from '../components/MetaPixel.astro';
 
 const currentLocale = Astro.currentLocale || 'en';
 const currentPath = Astro.url.pathname;
@@ -12,6 +13,7 @@ const currentPath = Astro.url.pathname;
 <html lang="en" dir="ltr">
 <head>
 <GoogleAnalytics />
+<MetaPixel />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -5773,11 +5775,23 @@ window.toggleBilling = toggleBilling;
     var original = btn.textContent;
     btn.textContent = '...';
     try {
+      var eventId = (window.crypto && window.crypto.randomUUID)
+        ? window.crypto.randomUUID()
+        : String(Date.now()) + Math.random().toString(16).slice(2);
+
       var r = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email }),
+        body: JSON.stringify({
+          email: email,
+          eventId: eventId,
+          eventSourceUrl: window.location.href,
+        }),
       });
+
+      if (r.ok && typeof window.fbq === 'function') {
+        window.fbq('track', 'Lead', { content_name: 'newsletter' }, { eventID: eventId });
+      }
       if (r.ok) {
         msg.textContent = "You're on the list — we'll be in touch.";
         msg.style.color = '#9A88FD';

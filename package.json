@@ -13,5 +13,9 @@
     "@astrojs/sitemap": "^3.7.3",
     "astro": "^5.18.1",
     "resend": "^6.17.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "typescript": "^5.9.3"
   }
 }

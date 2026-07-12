@@ -1,4 +1,5 @@
 import { Resend } from 'resend';
+import { sendMetaEvent, readMetaCookies } from './_meta';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -16,6 +17,8 @@ export default async function handler(req: any, res: any) {
     const role = (body?.role || '').trim();
     const subject = (body?.subject || 'General question').trim();
     const message = (body?.message || '').trim();
+    const eventId = body?.eventId;
+    const eventSourceUrl = body?.eventSourceUrl;
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!firstName || !lastName || !email || !message || !emailRegex.test(email)) {
@@ -40,6 +43,25 @@ export default async function handler(req: any, res: any) {
         `Subject: ${subject}\n\n` +
         `Message:\n${message}\n`,
     });
+
+    if (eventId) {
+      const cookieHeader = req.headers?.cookie as string | undefined;
+      const { fbp, fbc } = readMetaCookies(cookieHeader);
+      const forwarded = (req.headers?.['x-forwarded-for'] as string | undefined) || '';
+      const clientIp = forwarded.split(',')[0]?.trim() || null;
+
+      await sendMetaEvent({
+        eventName: 'Lead',
+        eventId,
+        eventSourceUrl,
+        email,
+        fbp,
+        fbc,
+        clientIp,
+        clientUserAgent: (req.headers?.['user-agent'] as string | undefined) || null,
+        customData: { content_name: 'contact_form' },
+      });
+    }
 
     return res.status(200).json({ ok: true });
   } catch (err: any) {
