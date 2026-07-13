@@ -237,14 +237,14 @@
 
   .hiw2-stage {
     width: 100%;
-    max-width: 380px;
-    aspect-ratio: 2 / 3;
+    max-width: 960px;
+    aspect-ratio: 16 / 10;
     position: relative;
   }
 
   .hiw2-under {
     width: 100%;
-    max-width: 380px;
+    max-width: 960px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -299,6 +299,17 @@
     display: none;
   }
 
+  @media (max-width: 900px) {
+    .hiw2-stage,
+    .hiw2-under {
+      max-width: 720px;
+    }
+
+    .hiw2-stage {
+      aspect-ratio: 16 / 11;
+    }
+  }
+
   @media (max-width: 520px) {
     .hiw2 {
       padding: 80px 0;
@@ -318,6 +329,17 @@
     .hiw2-stage,
     .hiw2-under {
       max-width: 100%;
+    }
+
+    .hiw2-stage {
+      aspect-ratio: 3 / 4;
+      max-width: 360px;
+      margin-inline: auto;
+    }
+
+    .hiw2-under {
+      max-width: 360px;
+      margin-inline: auto;
     }
 
     .hiw2-title {
