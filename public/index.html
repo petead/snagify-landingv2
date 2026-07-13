@@ -1486,11 +1486,11 @@ div#nav-drawer a {
   z-index: 2;
   max-width: none;
   margin: 0;
-  border-radius: 24px;
+  border-radius: 20px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,.1);
-  background: #16141f;
-  box-shadow: 0 28px 80px rgba(0,0,0,.45);
+  background: transparent;
+  border: none;
+  box-shadow: none;
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -1499,9 +1499,11 @@ div#nav-drawer a {
   position: relative;
   width: 100%;
   flex: 1;
-  min-height: 440px;
+  min-height: 480px;
   aspect-ratio: 16 / 10;
-  background: #0e0e10;
+  background: transparent;
+  border-radius: 20px;
+  overflow: hidden;
 }
 .hiw-demo-frame iframe {
   position: absolute;
@@ -1510,37 +1512,6 @@ div#nav-drawer a {
   height: 100%;
   border: 0;
 }
-.hiw-demo-label {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 12px 18px;
-  background: rgba(255,255,255,.03);
-  border-bottom: 1px solid rgba(255,255,255,.06);
-  flex-shrink: 0;
-}
-.hiw-demo-label span {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.45);
-}
-.hiw-demo-label button {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  border: none;
-  background: transparent;
-  color: var(--purple);
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 13px;
-  cursor: pointer;
-  padding: 0;
-}
-.hiw-demo-label button:hover { color: var(--white); }
 
 /* Responsive */
 @media(max-width: 1100px) {
@@ -4642,13 +4613,6 @@ footer {
 
     <div class="hiw-body">
     <div class="hiw-demo reveal">
-      <div class="hiw-demo-label">
-        <span>Interactive product tour</span>
-        <button type="button" onclick="Supademo.open('cmritt3p707ubqmeq7y0sx805')">
-          Open fullscreen
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-        </button>
-      </div>
       <div class="hiw-demo-frame">
         <iframe
           src="https://app.supademo.com/embed/cmritt3p707ubqmeq7y0sx805?embed_v=2"
