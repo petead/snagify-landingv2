@@ -1341,6 +1341,11 @@ div#nav-drawer a {
 .hiw-header .section-title { color: var(--white); }
 .hiw-header .section-title em { color: var(--purple); }
 .hiw-header .section-sub { color: rgba(255,255,255,.45); margin: 0 auto; }
+.hiw-min-short { display: none; }
+@media(max-width: 768px) {
+  .hiw-min-full { display: none; }
+  .hiw-min-short { display: inline; }
+}
 
 /* Full-width Supademo tour */
 .hiw-body {
@@ -4482,47 +4487,6 @@ footer {
   </div>
 </section>
 
-<!-- ╔══ HOW IT WORKS ══╗ -->
-<section class="hiw" id="process">
-  <div class="hiw-top-bridge"></div>
-
-  <div class="section-wrap">
-    <div class="hiw-header reveal">
-      <div class="section-eyebrow" style="justify-content:center">See it in action</div>
-      <h2 class="section-title" style="text-align:center">From front door to<br>signed report in <span class="title-white-italic">20 minutes.</span></h2>
-      <p class="section-sub" style="text-align:center">Watch a full inspection unfold — no training, no paperwork, just your phone.</p>
-    </div>
-
-    <div class="hiw-body">
-    <div class="hiw-demo reveal">
-      <div class="hiw-demo-frame">
-        <iframe
-          src="https://app.supademo.com/embed/cmritt3p707ubqmeq7y0sx805?embed_v=2"
-          title="Snagify interactive product tour"
-          loading="lazy"
-          allow="clipboard-write"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
-    </div>
-
-    <!-- Bottom CTA -->
-    <div class="hiw-cta reveal">
-      <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="btn-ink" style="background:var(--purple);color:var(--ink)">
-        Start your first inspection
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <button type="button" class="hiw-cta-demo" onclick="Supademo.open('cmritt3p707ubqmeq7y0sx805')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        Try the interactive tour
-      </button>
-      <span class="hiw-cta-sub">Check-in free · No credit card · 2 min setup</span>
-    </div>
-
-  </div>
-</section>
-
 <!-- ╔══ FEATURES ══╗ -->
 <section class="features" id="features">
   <div class="section-wrap">
@@ -4866,6 +4830,47 @@ footer {
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- ╔══ HOW IT WORKS ══╗ -->
+<section class="hiw" id="process">
+  <div class="hiw-top-bridge"></div>
+
+  <div class="section-wrap">
+    <div class="hiw-header reveal">
+      <div class="section-eyebrow" style="justify-content:center">How it works</div>
+      <h2 class="section-title" style="text-align:center">From front door to<br>signed report in <span class="title-white-italic">20 <span class="hiw-min-full">minutes.</span><span class="hiw-min-short">min.</span></span></h2>
+      <p class="section-sub" style="text-align:center">Watch a full inspection unfold — no training, no paperwork, just your phone.</p>
+    </div>
+
+    <div class="hiw-body">
+    <div class="hiw-demo reveal">
+      <div class="hiw-demo-frame">
+        <iframe
+          src="https://app.supademo.com/embed/cmritt3p707ubqmeq7y0sx805?embed_v=2"
+          title="Snagify interactive product tour"
+          loading="lazy"
+          allow="clipboard-write"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="hiw-cta reveal">
+      <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="btn-ink" style="background:var(--purple);color:var(--ink)">
+        Start your first inspection
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <button type="button" class="hiw-cta-demo" onclick="Supademo.open('cmritt3p707ubqmeq7y0sx805')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Try the interactive tour
+      </button>
+      <span class="hiw-cta-sub">Check-in free · No credit card · 2 min setup</span>
+    </div>
+
   </div>
 </section>
 
