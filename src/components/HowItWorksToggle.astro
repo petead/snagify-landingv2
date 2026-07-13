@@ -1,0 +1,675 @@
+---
+/** Interactive Check-in / Check-out Supademo toggle with facade pattern. */
+---
+
+<section
+  class="hiw hiw2"
+  id="process"
+  data-theme="in"
+  style="--accent:#9A88FD; --accent-soft:rgba(154,136,253,.14); --accent-glow:rgba(154,136,253,.28);"
+>
+  <div class="hiw-top-bridge" aria-hidden="true"></div>
+
+  <div class="section-wrap hiw2-wrap">
+    <div class="hiw2-header reveal">
+      <div class="hiw2-eyebrow">
+        <span class="hiw2-eyebrow-dot" aria-hidden="true"></span>
+        How it works
+      </div>
+      <h2 class="hiw2-title">
+        Two inspections. One <span class="shift">deposit</span>, settled.
+      </h2>
+      <p class="hiw2-sub">
+        Click through the real app. Day one on the left tab, move-out on the right. Same flat, twelve months apart.
+      </p>
+    </div>
+
+    <div
+      class="hiw2-toggle"
+      role="tablist"
+      aria-label="Inspection type"
+      data-hiw-tabs
+    >
+      <span class="hiw2-pill" data-hiw-pill aria-hidden="true"></span>
+      <button
+        type="button"
+        class="hiw2-tab is-active"
+        role="tab"
+        id="hiw-tab-in"
+        aria-selected="true"
+        aria-controls="hiw-panel"
+        data-tab="in"
+      >
+        Check-in · DAY 1
+      </button>
+      <button
+        type="button"
+        class="hiw2-tab"
+        role="tab"
+        id="hiw-tab-out"
+        aria-selected="false"
+        aria-controls="hiw-panel"
+        data-tab="out"
+        tabindex="-1"
+      >
+        Check-out · MOVE-OUT
+      </button>
+    </div>
+
+    <div class="hiw2-stage" id="hiw-panel" role="tabpanel" aria-labelledby="hiw-tab-in" data-hiw-stage>
+      <!-- Facade / iframe injected by script (is:global styles below) -->
+    </div>
+
+    <div class="hiw2-under">
+      <p class="hiw2-note">
+        <span class="hiw2-note-dot" aria-hidden="true"></span>
+        No signup. Real app.
+      </p>
+      <button type="button" class="hiw2-back" data-hiw-back hidden>
+        ← Back to cover
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hiw2 {
+    --accent: #9A88FD;
+    --accent-soft: rgba(154, 136, 253, 0.14);
+    --accent-glow: rgba(154, 136, 253, 0.28);
+    padding: 120px 0;
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+    transition:
+      --accent 0.4s ease,
+      --accent-soft 0.4s ease,
+      --accent-glow 0.4s ease;
+  }
+
+  .hiw2::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 55% 45% at 50% 42%, var(--accent-glow) 0%, transparent 68%),
+      radial-gradient(ellipse 40% 40% at 8% 78%, rgba(202, 254, 135, 0.04) 0%, transparent 50%),
+      radial-gradient(ellipse 35% 35% at 92% 18%, rgba(254, 222, 128, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    transition: background 0.4s ease;
+  }
+
+  .hiw2 .hiw-top-bridge {
+    position: absolute;
+    top: -56px;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: linear-gradient(to bottom, transparent, var(--ink));
+    pointer-events: none;
+    z-index: 4;
+  }
+
+  .hiw2::after {
+    content: '';
+    position: absolute;
+    bottom: -56px;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: linear-gradient(to bottom, var(--ink), transparent);
+    pointer-events: none;
+    z-index: 4;
+  }
+
+  .hiw2-wrap {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hiw2-header {
+    text-align: center;
+    max-width: 640px;
+    margin-bottom: 40px;
+  }
+
+  .hiw2-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 18px;
+  }
+
+  .hiw2-eyebrow-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #cafe87;
+    box-shadow: 0 0 12px rgba(202, 254, 135, 0.55);
+    flex-shrink: 0;
+  }
+
+  .hiw2-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 4.2vw, 44px);
+    letter-spacing: -1.2px;
+    line-height: 1.15;
+    color: var(--white);
+    margin: 0 0 16px;
+  }
+
+  .hiw2-title .shift {
+    color: var(--accent);
+    font-style: italic;
+    transition: color 0.4s ease;
+  }
+
+  .hiw2-sub {
+    font-size: 16px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0 auto;
+    max-width: 520px;
+  }
+
+  .hiw2-toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    padding: 5px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 36px;
+  }
+
+  .hiw2-pill {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    height: calc(100% - 10px);
+    border-radius: 999px;
+    background: var(--accent);
+    transition:
+      transform 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+      width 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+      background 0.4s ease;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hiw2-tab {
+    position: relative;
+    z-index: 1;
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.55);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.2px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.25s ease;
+  }
+
+  .hiw2-tab.is-active {
+    color: var(--ink);
+  }
+
+  .hiw2-tab:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .hiw2-stage {
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 2 / 3;
+    position: relative;
+  }
+
+  .hiw2-under {
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 18px;
+    min-height: 28px;
+  }
+
+  .hiw2-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .hiw2-note-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #cafe87;
+    flex-shrink: 0;
+  }
+
+  .hiw2-back {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.45);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 4px 0;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.25s ease;
+  }
+
+  .hiw2-back:hover {
+    color: var(--white);
+  }
+
+  .hiw2-back:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .hiw2-back[hidden] {
+    display: none;
+  }
+
+  @media (max-width: 520px) {
+    .hiw2 {
+      padding: 80px 0;
+    }
+
+    .hiw2-toggle {
+      width: 100%;
+    }
+
+    .hiw2-tab {
+      flex: 1;
+      padding: 12px 10px;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .hiw2-stage,
+    .hiw2-under {
+      max-width: 100%;
+    }
+
+    .hiw2-title {
+      letter-spacing: -0.8px;
+    }
+  }
+</style>
+
+<!-- Injected markup must be globally styled (Astro scoping would miss it) -->
+<style is:global>
+  .hiw2-stage .hiw2-facade {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 1.5px solid rgba(255, 255, 255, 0.12);
+    border-radius: 22px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: left;
+    color: inherit;
+    font: inherit;
+    /* TODO: add /public/images/demo-checkin-poster.webp and demo-checkout-poster.webp */
+    background:
+      linear-gradient(180deg, transparent 35%, rgba(14, 14, 16, 0.88) 78%, rgba(14, 14, 16, 0.96) 100%),
+      radial-gradient(ellipse 80% 60% at 50% 28%, var(--accent-soft) 0%, transparent 70%),
+      linear-gradient(155deg, #1a1a22 0%, #0e0e10 55%, #16141f 100%);
+    background-size: cover, cover, cover;
+    background-position: center;
+    transition:
+      border-color 0.35s ease,
+      transform 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+
+  .hiw2-stage .hiw2-facade[data-poster='in'] {
+    background-image:
+      linear-gradient(180deg, transparent 35%, rgba(14, 14, 16, 0.88) 78%, rgba(14, 14, 16, 0.96) 100%),
+      url('/images/demo-checkin-poster.webp'),
+      radial-gradient(ellipse 80% 60% at 50% 28%, var(--accent-soft) 0%, transparent 70%),
+      linear-gradient(155deg, #1a1a22 0%, #0e0e10 55%, #16141f 100%);
+  }
+
+  .hiw2-stage .hiw2-facade[data-poster='out'] {
+    background-image:
+      linear-gradient(180deg, transparent 35%, rgba(14, 14, 16, 0.88) 78%, rgba(14, 14, 16, 0.96) 100%),
+      url('/images/demo-checkout-poster.webp'),
+      radial-gradient(ellipse 80% 60% at 50% 28%, var(--accent-soft) 0%, transparent 70%),
+      linear-gradient(155deg, #1a1a22 0%, #0e0e10 55%, #221811 100%);
+  }
+
+  .hiw2-stage .hiw2-facade:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent-glow), 0 24px 48px rgba(0, 0, 0, 0.35);
+    transform: translateY(-2px);
+  }
+
+  .hiw2-stage .hiw2-facade:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+  }
+
+  .hiw2-stage .hiw2-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: grid;
+    place-items: center;
+    box-shadow: 0 8px 28px var(--accent-glow);
+    transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+  }
+
+  .hiw2-stage .hiw2-facade:hover .hiw2-play {
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+
+  .hiw2-stage .hiw2-play::before {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    opacity: 0.55;
+    animation: hiw2-pulse 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  .hiw2-stage .hiw2-play svg {
+    width: 22px;
+    height: 22px;
+    margin-left: 3px;
+    fill: var(--ink);
+    position: relative;
+    z-index: 1;
+  }
+
+  .hiw2-stage .hiw2-meta {
+    position: relative;
+    z-index: 1;
+    padding: 20px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hiw2-stage .hiw2-meta-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: -0.3px;
+    color: var(--white);
+    margin: 0;
+  }
+
+  .hiw2-stage .hiw2-meta-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .hiw2-stage .hiw2-meta-sub {
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .hiw2-stage .hiw2-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    transition: background 0.4s ease, color 0.4s ease;
+  }
+
+  .hiw2-stage .hiw2-chip::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 8px currentColor;
+  }
+
+  .hiw2-stage .hiw2-iframe-wrap {
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    overflow: hidden;
+    border: 1.5px solid var(--accent);
+    box-shadow: 0 0 0 1px var(--accent-glow);
+    background: #0e0e10;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .hiw2-stage .hiw2-iframe-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  @keyframes hiw2-pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.55;
+    }
+    70% {
+      transform: scale(1.35);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1.35);
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  const DEMOS = {
+    in: {
+      url: 'https://app.supademo.com/embed/cmritt3p707ubqmeq7y0sx805?embed_v=2',
+      title: 'Walk through a check-in',
+      sub: '~2 min · click through it yourself',
+      accent: '#9A88FD',
+      soft: 'rgba(154,136,253,.14)',
+      glow: 'rgba(154,136,253,.28)',
+      aria: 'Play check-in interactive demo',
+      tabId: 'hiw-tab-in',
+    },
+    out: {
+      url: 'https://app.supademo.com/embed/cmrj7jzmt131nqmeqkquioivoa?embed_v=2',
+      title: 'Walk through a check-out',
+      sub: '~2 min · ghost mode included',
+      accent: '#FF8A65',
+      soft: 'rgba(255,138,101,.14)',
+      glow: 'rgba(255,138,101,.28)',
+      aria: 'Play check-out interactive demo',
+      tabId: 'hiw-tab-out',
+    },
+  } as const;
+
+  type DemoKey = keyof typeof DEMOS;
+
+  const section = document.getElementById('process');
+  const stage = document.querySelector<HTMLElement>('[data-hiw-stage]');
+  const tabsRoot = document.querySelector<HTMLElement>('[data-hiw-tabs]');
+  const pill = document.querySelector<HTMLElement>('[data-hiw-pill]');
+  const backBtn = document.querySelector<HTMLButtonElement>('[data-hiw-back]');
+  const panel = document.getElementById('hiw-panel');
+
+  if (!section || !stage || !tabsRoot || !pill || !backBtn || !panel) {
+    // Section missing — abort init
+  } else {
+    let active: DemoKey = 'in';
+    let mounted = false;
+
+    function applyTheme(key: DemoKey) {
+      const d = DEMOS[key];
+      section!.dataset.theme = key;
+      section!.style.setProperty('--accent', d.accent);
+      section!.style.setProperty('--accent-soft', d.soft);
+      section!.style.setProperty('--accent-glow', d.glow);
+    }
+
+    function movePill(tab: HTMLElement) {
+      const rootRect = tabsRoot!.getBoundingClientRect();
+      const tabRect = tab.getBoundingClientRect();
+      // getBoundingClientRect works correctly in RTL (unlike offsetLeft alone)
+      const left = tabRect.left - rootRect.left;
+      pill!.style.width = `${tabRect.width}px`;
+      pill!.style.transform = `translateX(${left}px)`;
+    }
+
+    function renderFacade() {
+      const d = DEMOS[active];
+      mounted = false;
+      backBtn!.hidden = true;
+      stage!.innerHTML = `
+        <button
+          type="button"
+          class="hiw2-facade"
+          data-poster="${active}"
+          aria-label="${d.aria}"
+        >
+          <span class="hiw2-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="8 5 20 12 8 19 8 5"/></svg>
+          </span>
+          <span class="hiw2-meta">
+            <span class="hiw2-meta-title">${d.title}</span>
+            <span class="hiw2-meta-row">
+              <span class="hiw2-meta-sub">${d.sub}</span>
+              <span class="hiw2-chip">Live</span>
+            </span>
+          </span>
+        </button>
+      `;
+      stage!.querySelector('.hiw2-facade')?.addEventListener('click', mountIframe);
+    }
+
+    function mountIframe() {
+      const d = DEMOS[active];
+      mounted = true;
+      backBtn!.hidden = false;
+      stage!.innerHTML = `
+        <div class="hiw2-iframe-wrap">
+          <iframe
+            src="${d.url}"
+            title="Snagify interactive demo"
+            loading="lazy"
+            allow="clipboard-write"
+            allowfullscreen
+          ></iframe>
+        </div>
+      `;
+    }
+
+    function selectTab(key: DemoKey, focusTab = false) {
+      active = key;
+      applyTheme(key);
+
+      const buttons = tabsRoot!.querySelectorAll<HTMLButtonElement>('[role="tab"]');
+      buttons.forEach((btn) => {
+        const on = btn.dataset.tab === key;
+        btn.classList.toggle('is-active', on);
+        btn.setAttribute('aria-selected', on ? 'true' : 'false');
+        btn.tabIndex = on ? 0 : -1;
+        if (on) {
+          movePill(btn);
+          panel!.setAttribute('aria-labelledby', btn.id);
+          if (focusTab) btn.focus();
+        }
+      });
+
+      // Always tear down iframe on tab change
+      renderFacade();
+    }
+
+    tabsRoot.addEventListener('click', (e) => {
+      const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('[role="tab"]');
+      if (!btn?.dataset.tab) return;
+      const key = btn.dataset.tab as DemoKey;
+      if (key === active && !mounted) return;
+      selectTab(key);
+    });
+
+    tabsRoot.addEventListener('keydown', (e) => {
+      const keys = ['ArrowLeft', 'ArrowRight', 'Home', 'End'];
+      if (!keys.includes(e.key)) return;
+      e.preventDefault();
+      const buttons = Array.from(tabsRoot!.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
+      const idx = buttons.findIndex((b) => b.dataset.tab === active);
+      let next = idx;
+      const rtl = getComputedStyle(tabsRoot!).direction === 'rtl';
+      if (e.key === 'Home') next = 0;
+      else if (e.key === 'End') next = buttons.length - 1;
+      else if (e.key === 'ArrowRight') next = rtl ? idx - 1 : idx + 1;
+      else if (e.key === 'ArrowLeft') next = rtl ? idx + 1 : idx - 1;
+      next = (next + buttons.length) % buttons.length;
+      const key = buttons[next].dataset.tab as DemoKey;
+      selectTab(key, true);
+    });
+
+    backBtn.addEventListener('click', () => {
+      if (mounted) renderFacade();
+    });
+
+    // Init
+    applyTheme('in');
+    const initial = tabsRoot.querySelector<HTMLElement>('[data-tab="in"]');
+    if (initial) movePill(initial);
+    renderFacade();
+
+    window.addEventListener('resize', () => {
+      const current = tabsRoot!.querySelector<HTMLElement>('[aria-selected="true"]');
+      if (current) movePill(current);
+    });
+  }
+</script>
