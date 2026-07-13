@@ -1349,29 +1349,49 @@ div#nav-drawer a {
 .hiw-header .section-title em { color: var(--purple); }
 .hiw-header .section-sub { color: rgba(255,255,255,.45); margin: 0 auto; }
 
-/* Steps grid */
-.hiw-grid {
+/* Steps + demo body (desktop: demo left, steps right) */
+.hiw-body {
   display: grid;
-  grid-template-columns: 1fr 40px 1fr 40px 1fr;
-  gap: 0;
-  align-items: start;
-  position: relative; z-index: 2;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 40px;
+  align-items: stretch;
+  position: relative;
+  z-index: 2;
 }
 
-/* Connector arrow */
+/* Steps stack */
+.hiw-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: stretch;
+  position: relative;
+  z-index: 2;
+  justify-content: center;
+}
+
+/* Connector arrow (vertical between stacked steps) */
 .hiw-arrow {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding-top: 28px;
+  justify-content: flex-start;
+  padding: 6px 0 6px 18px;
   color: rgba(255,255,255,.15);
 }
-.hiw-arrow svg { width: 20px; height: 20px; flex-shrink: 0; }
+.hiw-arrow svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  transform: rotate(90deg);
+}
 
 /* Each step card */
 .hiw-step {
   position: relative;
-  padding: 0 16px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.07);
 }
 
 
@@ -1471,17 +1491,22 @@ div#nav-drawer a {
 .hiw-demo {
   position: relative;
   z-index: 2;
-  max-width: 960px;
-  margin: 0 auto 56px;
+  max-width: none;
+  margin: 0;
   border-radius: 24px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,.1);
   background: #16141f;
   box-shadow: 0 28px 80px rgba(0,0,0,.45);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 .hiw-demo-frame {
   position: relative;
   width: 100%;
+  flex: 1;
+  min-height: 440px;
   aspect-ratio: 16 / 10;
   background: #0e0e10;
 }
@@ -1500,6 +1525,7 @@ div#nav-drawer a {
   padding: 12px 18px;
   background: rgba(255,255,255,.03);
   border-bottom: 1px solid rgba(255,255,255,.06);
+  flex-shrink: 0;
 }
 .hiw-demo-label span {
   font-size: 12px;
@@ -1525,22 +1551,22 @@ div#nav-drawer a {
 
 /* Responsive */
 @media(max-width: 1100px) {
-  .hiw-grid {
+  .hiw-body {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 28px;
   }
   .hiw-arrow { display: none; }
-  .hiw-step { padding: 0; }
+  .hiw-step { padding: 16px 18px; }
   .hiw-step-num { font-size: 80px; }
   .hiw-phone { max-width: 320px; }
-  .hiw-demo { margin-bottom: 40px; }
+  .hiw-demo-frame { min-height: 360px; }
 }
 @media(max-width: 768px) {
   .hiw-cta { flex-direction: column; gap: 12px; text-align: center; align-items: stretch; }
   .hiw-cta .btn-ink,
   .hiw-cta .hiw-cta-demo { width: 100%; justify-content: center; }
   .hiw-demo { border-radius: 18px; }
-  .hiw-demo-frame { aspect-ratio: 4 / 5; }
+  .hiw-demo-frame { aspect-ratio: 4 / 5; min-height: 0; }
 }
 
 /* ══ TESTIMONIALS ══ */
@@ -3565,7 +3591,7 @@ footer {
   .for-pros-grid    { grid-template-columns: 1fr; gap: 60px; }
 
   /* HIW */
-  .hiw-grid         { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .hiw-grid         { gap: 12px; }
   .hiw-connector    { display: none; }
 
   /* Bento — spans handled in FEATURES BENTO block */
@@ -3654,9 +3680,9 @@ footer {
   .pros-stars       { opacity: .55; }
 
   /* HIW */
-  .hiw-grid         { grid-template-columns: 1fr; gap: 14px; }
+  .hiw-grid         { gap: 12px; }
   .hiw-connector    { display: none; }
-  .hiw-step         { padding: 0; }
+  .hiw-step         { padding: 16px 18px; }
 
   /* Bento */
   .bento-card       { border-radius: 20px; }
@@ -4220,6 +4246,7 @@ footer {
       <p class="section-sub" style="text-align:center">Three steps. From your phone. No training needed. Try the interactive tour below.</p>
     </div>
 
+    <div class="hiw-body">
     <div class="hiw-demo reveal">
       <div class="hiw-demo-label">
         <span>Interactive product tour</span>
@@ -4299,6 +4326,7 @@ footer {
         </div>
       </div>
 
+    </div>
     </div>
 
     <!-- Bottom CTA -->
