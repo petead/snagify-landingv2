@@ -1,13 +1,11 @@
-import type { PricingCatalog } from './pricing';
-
 type FaqQ = {
   '@type': 'Question';
   name: string;
   acceptedAnswer: { '@type': 'Answer'; text: string };
 };
 
-/** Static FAQPage entities + live credit answers from PricingCatalog.faq */
-export function buildFaqPageLd(pricingFaq: PricingCatalog['faq']) {
+/** FAQPage JSON-LD for the homepage */
+export function buildFaqPageLd() {
   const mainEntity: FaqQ[] = [
     {
       '@type': 'Question',
@@ -54,7 +52,8 @@ export function buildFaqPageLd(pricingFaq: PricingCatalog['faq']) {
       name: 'How do credits work on Pro plans? Can my team share them?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: pricingFaq.pro?.summary ?? pricingFaq.proCredits,
+        text:
+          'One shared wallet for the whole team. Every inspection, check-in or check-out, draws from the same pool. The price depends on the property, not on the report type. Apartment (up to 2 bedrooms): 1 credit. Villa or 3BR+: 2 credits. Furnished inventory module: +1 credit. Credits refresh every month and roll over while you stay subscribed.',
       },
     },
     {
@@ -94,7 +93,8 @@ export function buildFaqPageLd(pricingFaq: PricingCatalog['faq']) {
       name: 'How much does a check-out cost?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: pricingFaq.individual?.summary ?? pricingFaq.individualCheckout,
+        text:
+          'Check-in is always free, whatever the property. You only pay when you lock the check-out report. Check-out apartment: 2 credits. Check-out villa or 3BR+: 4 credits. Furnished inventory module: +2 credits. Credits never expire. A traditional inspection company charges AED 1,200 or more for the same report.',
       },
     },
     {

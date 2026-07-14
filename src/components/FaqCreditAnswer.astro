@@ -1,59 +1,176 @@
 ---
-import type { FaqCreditBlock } from '../lib/pricing';
-
 interface Props {
-  block: FaqCreditBlock;
-  switchLabel: string;
-  switchHash: string;
-  switchPersona: 'pros' | 'landlords';
+  variant: 'pro' | 'individual';
 }
 
-const { block, switchLabel, switchHash, switchPersona } = Astro.props;
+const { variant } = Astro.props;
 ---
 
-<div class="faq-credit">
-  <p class="faq-credit-intro">{block.intro}</p>
+{variant === 'pro' ? (
+  <div class="faqx">
+    <span class="faqx-kicker faqx-pro"><span class="faqx-dot"></span>Pro plans</span>
+    <p class="faqx-lede">One shared wallet for the whole team. Every inspection,
+    check-in or check-out, draws from the same pool.
+    <strong>The price depends on the property, not on the report type.</strong></p>
 
-  <div class="faq-credit-table-wrap">
-    <table class="faq-credit-table">
-      <thead>
-        <tr>
-          <th scope="col">What you do</th>
-          <th scope="col">Unfurnished</th>
-          <th scope="col">Furnished</th>
-        </tr>
-      </thead>
-      <tbody>
-        {block.rows.map((row) => (
-          <tr>
-            <th scope="row">{row.label}</th>
-            <td>{row.unfurnished}</td>
-            <td>{row.furnished}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <div class="faqx-calc" id="faqxCalcPro">
+      <div class="faqx-controls">
+        <div>
+          <div class="faqx-clabel">Property</div>
+          <div class="faqx-segment" data-role="type">
+            <button type="button" class="on" data-base="1">Apartment<small>up to 2 bedrooms</small></button>
+            <button type="button" data-base="2">Villa / 3BR+<small>3 bedrooms or more</small></button>
+          </div>
+        </div>
+        <div class="faqx-furn" data-role="furn">
+          <div>
+            <div class="faqx-tlabel">Furnished with inventory</div>
+            <div class="faqx-tsub">Item-by-item furniture tracking</div>
+          </div>
+          <div class="faqx-switch"></div>
+        </div>
+      </div>
+      <div class="faqx-result">
+        <div class="faqx-breakdown" data-role="breakdown"></div>
+        <div class="faqx-total">
+          <div class="faqx-num" data-role="num">1</div>
+          <div class="faqx-unit" data-role="unit">credit / inspection</div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="faqx-sheet">
+      <li><span class="faqx-what"><span class="faqx-tag faqx-in"></span>Apartment, check-in or check-out</span><span class="faqx-pill">1 credit</span></li>
+      <li><span class="faqx-what"><span class="faqx-tag faqx-out"></span>Villa or 3BR+, check-in or check-out</span><span class="faqx-pill">2 credits</span></li>
+      <li><span class="faqx-what"><span class="faqx-tag faqx-add"></span>Furnished inventory module</span><span class="faqx-pill faqx-plus">+1 credit</span></li>
+    </ul>
+
+    <p class="faqx-fine">Bedrooms are counted from the rooms your inspector selects
+    in the app. Credits refresh every month and roll over while you stay subscribed.</p>
+
+    <button type="button" class="faqx-cta" data-faq-switch="individual">You're an individual? See landlord pricing <span class="faqx-arr">→</span></button>
   </div>
+) : (
+  <div class="faqx">
+    <span class="faqx-kicker faqx-indiv"><span class="faqx-dot"></span>Landlords &amp; tenants</span>
+    <p class="faqx-lede"><strong>Check-in is always free,</strong> whatever the
+    property. You only pay when you lock the check-out report, the one that
+    protects your deposit.</p>
 
-  <p class="faq-credit-examples-label">Quick examples</p>
-  <ul class="faq-credit-examples">
-    {block.examples.map((ex) => (
-      <li>
-        <span class="faq-ex-title">{ex.title}</span>
-        <span class="faq-ex-detail">{ex.detail}</span>
-        <span class="faq-ex-total">{ex.total}</span>
-      </li>
-    ))}
-  </ul>
+    <div class="faqx-calc" id="faqxCalcIndiv">
+      <div class="faqx-controls">
+        <div>
+          <div class="faqx-clabel">Your property</div>
+          <div class="faqx-segment" data-role="type">
+            <button type="button" class="on" data-base="2">Apartment<small>up to 2 bedrooms</small></button>
+            <button type="button" data-base="4">Villa / 3BR+<small>3 bedrooms or more</small></button>
+          </div>
+        </div>
+        <div class="faqx-furn" data-role="furn">
+          <div>
+            <div class="faqx-tlabel">Furnished with inventory</div>
+            <div class="faqx-tsub">Item-by-item furniture tracking</div>
+          </div>
+          <div class="faqx-switch"></div>
+        </div>
+      </div>
+      <div class="faqx-result">
+        <div class="faqx-breakdown" data-role="breakdown"></div>
+        <div class="faqx-total">
+          <div class="faqx-num" data-role="num">2</div>
+          <div class="faqx-unit" data-role="unit">credits</div>
+          <div class="faqx-aed" data-role="aed"></div>
+        </div>
+      </div>
+    </div>
 
-  <p class="faq-credit-note">{block.note}</p>
+    <ul class="faqx-sheet">
+      <li><span class="faqx-what"><span class="faqx-tag faqx-in"></span>Check-in, any home</span><span class="faqx-pill faqx-free">Free</span></li>
+      <li><span class="faqx-what"><span class="faqx-tag faqx-out"></span>Check-out, apartment</span><span class="faqx-pill">2 credits</span></li>
+      <li><span class="faqx-what"><span class="faqx-tag faqx-out"></span>Check-out, villa or 3BR+</span><span class="faqx-pill">4 credits</span></li>
+      <li><span class="faqx-what"><span class="faqx-tag faqx-add"></span>Furnished inventory module</span><span class="faqx-pill faqx-plus">+2 credits</span></li>
+    </ul>
 
-  <button
-    type="button"
-    class="faq-audience-switch"
-    data-faq-switch={switchPersona}
-    data-faq-hash={switchHash}
-  >
-    {switchLabel}
-  </button>
-</div>
+    <div class="faqx-anchor">
+      <span class="faqx-mark">10×</span>
+      <span>A traditional inspection company charges <b>AED 1,200 or more</b> for
+      the same report. Your average deposit at stake: <b>AED 12,000</b>.</span>
+    </div>
+
+    <p class="faqx-fine">Bedrooms are counted from the rooms you select in the app.
+    Credits never expire.</p>
+
+    <button type="button" class="faqx-cta" data-faq-switch="pro">You're a pro? See team plans <span class="faqx-arr">→</span></button>
+  </div>
+)}
+
+<style is:global>
+.faqx{--fq-purple:#9A88FD;--fq-purple-soft:#EFEBFF;--fq-coral:#FF8A65;
+--fq-coral-soft:#FFEFEA;--fq-gold:#F5C24A;--fq-gold-soft:#FBF3DF;
+--fq-ink:#0A0810;--fq-ink60:#5B5566;--fq-ink40:#8B86A3;--fq-cream:#F8F7F4;
+--fq-line:#E7E4DC}
+.faqx-kicker{display:inline-flex;align-items:center;gap:7px;font-size:.7rem;
+font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;
+border-radius:100px;margin-bottom:16px}
+.faqx-pro{background:var(--fq-purple-soft);color:#6B57E8}
+.faqx-indiv{background:var(--fq-coral-soft);color:#E0603A}
+.faqx-dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+.faqx-lede{color:var(--fq-ink60);font-size:1.02rem;line-height:1.55;max-width:46ch;margin-bottom:24px}
+.faqx-lede strong{color:var(--fq-ink)}
+.faqx-calc{border:1px solid var(--fq-line);border-radius:16px;overflow:hidden;margin-bottom:22px}
+.faqx-controls{padding:18px;display:flex;flex-direction:column;gap:14px;background:var(--fq-cream)}
+.faqx-clabel{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--fq-ink40);margin-bottom:8px}
+.faqx-segment{display:flex;background:#EDEBE4;border-radius:12px;padding:4px;gap:4px}
+.faqx-segment button{flex:1;border:none;background:transparent;cursor:pointer;
+font-weight:700;font-size:.9rem;color:var(--fq-ink60);padding:11px 8px;
+border-radius:9px;transition:all .18s ease;line-height:1.25;font-family:inherit}
+.faqx-segment button small{display:block;font-weight:500;font-size:.72rem;color:var(--fq-ink40);margin-top:2px}
+.faqx-segment button.on{background:var(--fq-ink);color:#fff}
+.faqx-segment button.on small{color:rgba(255,255,255,.6)}
+.faqx-furn{display:flex;align-items:center;justify-content:space-between;
+background:#fff;border:1px solid var(--fq-line);border-radius:12px;
+padding:13px 16px;cursor:pointer;user-select:none;transition:border-color .18s ease}
+.faqx-furn.on{border-color:var(--fq-gold);background:var(--fq-gold-soft)}
+.faqx-tlabel{font-weight:700;font-size:.92rem}
+.faqx-tsub{font-size:.78rem;color:var(--fq-ink40);margin-top:1px}
+.faqx-switch{width:44px;height:26px;border-radius:100px;background:#DDD9CF;
+position:relative;flex-shrink:0;transition:background .18s ease}
+.faqx-switch::after{content:"";position:absolute;top:3px;left:3px;width:20px;
+height:20px;border-radius:50%;background:#fff;transition:transform .18s ease;
+box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.faqx-furn.on .faqx-switch{background:var(--fq-gold)}
+.faqx-furn.on .faqx-switch::after{transform:translateX(18px)}
+.faqx-result{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px;background:#fff}
+.faqx-breakdown{font-size:.85rem;color:var(--fq-ink60);line-height:1.5}
+.faqx-breakdown b{color:var(--fq-ink)}
+.faqx-total{text-align:right;flex-shrink:0}
+.faqx-num{font-family:Poppins,sans-serif;font-weight:800;font-size:2.4rem;line-height:1}
+.faqx-unit{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--fq-ink40)}
+.faqx-aed{font-size:.82rem;color:var(--fq-ink60);margin-top:4px}
+.faqx-aed b{color:var(--fq-ink)}
+.faqx-sheet{list-style:none;margin:0 0 22px;padding:0}
+.faqx-sheet li{display:flex;align-items:center;justify-content:space-between;
+gap:12px;padding:12px 4px;border-bottom:1px solid var(--fq-line);font-size:.95rem}
+.faqx-sheet li:last-child{border-bottom:none}
+.faqx-what{display:flex;align-items:center;gap:10px;font-weight:500}
+.faqx-tag{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.faqx-in{background:var(--fq-purple)}
+.faqx-out{background:var(--fq-coral)}
+.faqx-add{background:var(--fq-gold)}
+.faqx-pill{font-weight:700;font-size:.85rem;white-space:nowrap;padding:5px 12px;
+border-radius:100px;background:var(--fq-cream);border:1px solid var(--fq-line)}
+.faqx-free{background:var(--fq-purple-soft);border-color:transparent;color:#6B57E8}
+.faqx-plus{background:var(--fq-gold-soft);border-color:transparent;color:#B3841A}
+.faqx-anchor{display:flex;gap:12px;align-items:flex-start;background:var(--fq-cream);
+border-radius:14px;padding:16px 18px;font-size:.9rem;color:var(--fq-ink60);
+line-height:1.5;margin-bottom:22px}
+.faqx-anchor b{color:var(--fq-ink)}
+.faqx-mark{font-family:Poppins,sans-serif;font-weight:800;color:var(--fq-coral);font-size:1.1rem;line-height:1.3;flex-shrink:0}
+.faqx-fine{font-size:.82rem;color:var(--fq-ink40);line-height:1.55;margin-bottom:24px}
+.faqx-cta{display:inline-flex;align-items:center;gap:8px;font-weight:700;
+font-size:.92rem;color:var(--fq-ink);background:transparent;cursor:pointer;
+padding:12px 20px;border:1.5px solid var(--fq-ink);border-radius:100px;
+transition:all .18s ease;font-family:inherit}
+.faqx-cta:hover{background:var(--fq-ink);color:#fff;gap:12px}
+@media(max-width:520px){.faqx-result{flex-direction:column;align-items:flex-start}.faqx-total{text-align:left}}
+</style>
