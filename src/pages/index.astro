@@ -6,9 +6,69 @@ import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import MetaPixel from '../components/MetaPixel.astro';
 import Supademo from '../components/Supademo.astro';
 import HowItWorksToggle from '../components/HowItWorksToggle.astro';
+import { fetchPricingCatalog, formatAed, toRoiPlans } from '../lib/pricing';
 
 const currentLocale = Astro.currentLocale || 'en';
 const currentPath = Astro.url.pathname;
+
+const pricing = await fetchPricingCatalog();
+const { packs, plans, priceRangeLabel } = pricing;
+const roiPlans = toRoiPlans(plans);
+const maxProCredits = plans.length ? Math.max(...plans.map((p) => p.creditsPerMonth)) : 50;
+
+function rollLabel(n: number) {
+  return Number.isInteger(n) ? String(n) : String(n);
+}
+
+const localBusinessLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': 'https://snagify.net/#localbusiness',
+  name: 'Snagify',
+  image: 'https://snagify.net/og-image.jpg',
+  url: 'https://snagify.net/',
+  priceRange: priceRangeLabel,
+  telephone: '+971585169329',
+  email: 'hello@snagify.net',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Business Bay',
+    addressLocality: 'Dubai',
+    addressRegion: 'Dubai',
+    postalCode: '00000',
+    addressCountry: 'AE',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: '25.1862',
+    longitude: '55.2767',
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Dubai' },
+    { '@type': 'Country', name: 'United Arab Emirates' },
+  ],
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      opens: '00:00',
+      closes: '23:59',
+      description: '24/7 — Snagify is a SaaS platform, accessible at any time.',
+    },
+  ],
+  currenciesAccepted: 'AED',
+  paymentAccepted: 'Credit Card, Debit Card',
+  hasMap: 'https://maps.google.com/?q=Business+Bay+Dubai',
+};
+
+const softwareOffersLd = plans.map((p) => ({
+  '@type': 'Offer',
+  name: `${p.name} Plan`,
+  price: String(Math.round(p.priceMonthlyAnnual)),
+  priceCurrency: 'AED',
+  priceValidUntil: '2027-12-31',
+  availability: 'https://schema.org/InStock',
+}));
 ---
 <!-- BEGIN: bit-perfect copy of original index.html -->
 <!DOCTYPE html>
@@ -4439,17 +4499,21 @@ footer {
 
     <div class="pricing-panel" id="panel-private">
       <div class="pricing-grid">
-
-        <div class="price-card">
-          <div class="price-plan price-name">Solo</div>
+        {packs.map((pack) => (
+        <div class={`price-card${pack.popular ? ' price-card-popular' : ''}`}>
+          {pack.popular && <span class="price-corner">★ Most Popular</span>}
+          <div class="price-plan price-name">{pack.name}</div>
           <div class="price-top">
             <div class="price-top-row">
-              <div class="price-num">49 <span class="price-suffix">AED</span></div>
+              <div class="price-num">{formatAed(pack.priceAed)} <span class="price-suffix">AED</span></div>
+              {pack.savePct != null && pack.savePct > 0 && (
+                <span class="price-save">Save {pack.savePct}%</span>
+              )}
             </div>
           </div>
           <div class="metric solo">
             <div class="m-row">
-              <span class="m-credits">2 credits</span>
+              <span class="m-credits">{pack.credits} credits</span>
             </div>
             <a href="#faq-checkout-cost" class="price-faq-link metric-faq"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How much is a check-out?</a>
           </div>
@@ -4461,66 +4525,11 @@ footer {
             <li>Digital signatures</li>
           </ul>
           <div class="price-card-spacer"></div>
-          <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-outline">
+          <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class={`price-btn ${pack.popular ? 'price-btn-purple' : 'price-btn-outline'}`}>
             Sign up &amp; buy in-app →
           </a>
         </div>
-
-        <div class="price-card price-card-popular">
-          <span class="price-corner">★ Most Popular</span>
-          <div class="price-plan price-name">Essential</div>
-          <div class="price-top">
-            <div class="price-top-row">
-              <div class="price-num">119 <span class="price-suffix">AED</span></div>
-              <span class="price-save">Save 19%</span>
-            </div>
-          </div>
-          <div class="metric solo">
-            <div class="m-row">
-              <span class="m-credits">6 credits</span>
-            </div>
-            <a href="#faq-checkout-cost" class="price-faq-link metric-faq"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How much is a check-out?</a>
-          </div>
-          <ul class="price-feats">
-            <li><b>Check in always FREE</b></li>
-            <li>Up to <b>3 properties</b></li>
-            <li>AI photo analysis</li>
-            <li>PDF report generation</li>
-            <li>Digital signatures</li>
-          </ul>
-          <div class="price-card-spacer"></div>
-          <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-purple">
-            Sign up &amp; buy in-app →
-          </a>
-        </div>
-
-        <div class="price-card">
-          <div class="price-plan price-name">Professional</div>
-          <div class="price-top">
-            <div class="price-top-row">
-              <div class="price-num">189 <span class="price-suffix">AED</span></div>
-              <span class="price-save">Save 36%</span>
-            </div>
-          </div>
-          <div class="metric solo">
-            <div class="m-row">
-              <span class="m-credits">12 credits</span>
-            </div>
-            <a href="#faq-checkout-cost" class="price-faq-link metric-faq"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How much is a check-out?</a>
-          </div>
-          <ul class="price-feats">
-            <li><b>Check in always FREE</b></li>
-            <li>Up to <b>3 properties</b></li>
-            <li>AI photo analysis</li>
-            <li>PDF report generation</li>
-            <li>Digital signatures</li>
-          </ul>
-          <div class="price-card-spacer"></div>
-          <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-outline">
-            Sign up &amp; buy in-app →
-          </a>
-        </div>
-
+        ))}
       </div>
       <div class="pricing-note">
         <p>Check-in is free. Credits for check-out only. Credits never expire.</p>
@@ -4530,129 +4539,57 @@ footer {
 
     <div class="pricing-panel hidden billing-annual" id="panel-pro">
       <div class="pricing-grid">
-
-        <div class="price-card">
-          <div class="price-plan price-name">Starter</div>
+        {plans.map((plan) => (
+        <div class={`price-card${plan.popular ? ' price-card-popular' : ''}`}>
+          {plan.popular && <span class="price-corner">★ Most Popular</span>}
+          <div class="price-plan price-name">{plan.name}</div>
           <div class="price-top">
             <div class="price-num">
-              <span class="price-monthly">179 <span class="price-suffix">AED/month</span></span>
-              <span class="price-annual">149 <span class="price-suffix">AED/month</span></span>
+              <span class="price-monthly">{formatAed(plan.priceMonthlyBilling)} <span class="price-suffix">AED/month</span></span>
+              <span class="price-annual">{formatAed(plan.priceMonthlyAnnual)} <span class="price-suffix">AED/month</span></span>
             </div>
             <div class="price-billed">
-              <div class="price-annual-sub">1,788 AED billed annually · <strong>Save 360 AED</strong></div>
+              <div class="price-annual-sub">{formatAed(plan.priceAnnualTotal)} AED billed annually{plan.annualSaveAed > 0 && (
+                <> · <strong>Save {formatAed(plan.annualSaveAed)} AED</strong></>
+              )}</div>
             </div>
           </div>
           <div class="metric duo">
             <div class="duo-row">
               <div class="m-cell">
-                <span class="m-val">15</span>
+                <span class="m-val">{plan.creditsPerMonth}</span>
                 <span class="m-lbl">credits/month</span>
               </div>
+              {plan.maxUsers != null && (
               <div class="m-cell">
-                <span class="m-val">2</span>
+                <span class="m-val">{plan.maxUsers}</span>
                 <span class="m-lbl">users</span>
               </div>
+              )}
             </div>
             <a href="#faq-credits-pro" class="price-faq-link metric-faq"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How do credits work on Pro plans?</a>
           </div>
           <p class="price-includes-line">Everything in Individual <span class="price-includes-plus">+</span></p>
           <ul class="price-feats">
             <li class="price-feat-highlight">Unlimited properties</li>
-            <li><b>Your logo on every PDF</b></li>
-            <li>Credit rollover <b>×1</b></li>
+            {plan.whiteLabel && <li><b>Your logo on every PDF</b></li>}
+            <li>Credit rollover <b>×{rollLabel(plan.rollMaxMultiplier)}</b></li>
             <li>Shared team credit pool</li>
             <li>Priority support</li>
           </ul>
-          <div class="price-extra">Extra credit: <strong>28 AED each</strong></div>
+          {plan.extraCreditAed != null && (
+            <div class="price-extra">Extra credit: <strong>{formatAed(plan.extraCreditAed)} AED each</strong></div>
+          )}
           <div class="price-card-spacer"></div>
-          <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-outline">
-            Create free account →
+          <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class={`price-btn ${plan.popular ? 'price-btn-purple' : 'price-btn-outline'}`}>
+            {plan.popular ? 'Start free, upgrade in-app →' : 'Create free account →'}
           </a>
         </div>
-
-        <div class="price-card price-card-popular">
-          <span class="price-corner">★ Most Popular</span>
-          <div class="price-plan price-name">Growth</div>
-          <div class="price-top">
-            <div class="price-num">
-              <span class="price-monthly">299 <span class="price-suffix">AED/month</span></span>
-              <span class="price-annual">249 <span class="price-suffix">AED/month</span></span>
-            </div>
-            <div class="price-billed">
-              <div class="price-annual-sub">2,988 AED billed annually · <strong>Save 600 AED</strong></div>
-            </div>
-          </div>
-          <div class="metric duo">
-            <div class="duo-row">
-              <div class="m-cell">
-                <span class="m-val">30</span>
-                <span class="m-lbl">credits/month</span>
-              </div>
-              <div class="m-cell">
-                <span class="m-val">5</span>
-                <span class="m-lbl">users</span>
-              </div>
-            </div>
-            <a href="#faq-credits-pro" class="price-faq-link metric-faq"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How do credits work on Pro plans?</a>
-          </div>
-          <p class="price-includes-line">Everything in Individual <span class="price-includes-plus">+</span></p>
-          <ul class="price-feats">
-            <li class="price-feat-highlight">Unlimited properties</li>
-            <li><b>Your logo on every PDF</b></li>
-            <li>Credit rollover <b>×1.5</b></li>
-            <li>Shared team credit pool</li>
-            <li>Priority support</li>
-          </ul>
-          <div class="price-extra">Extra credit: <strong>22 AED each</strong></div>
-          <div class="price-card-spacer"></div>
-          <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-purple">
-            Start free, upgrade in-app →
-          </a>
-        </div>
-
-        <div class="price-card">
-          <div class="price-plan price-name">Agency</div>
-          <div class="price-top">
-            <div class="price-num">
-              <span class="price-monthly">449 <span class="price-suffix">AED/month</span></span>
-              <span class="price-annual">374 <span class="price-suffix">AED/month</span></span>
-            </div>
-            <div class="price-billed">
-              <div class="price-annual-sub">4,488 AED billed annually · <strong>Save 900 AED</strong></div>
-            </div>
-          </div>
-          <div class="metric duo">
-            <div class="duo-row">
-              <div class="m-cell">
-                <span class="m-val">50</span>
-                <span class="m-lbl">credits/month</span>
-              </div>
-              <div class="m-cell">
-                <span class="m-val">15</span>
-                <span class="m-lbl">users</span>
-              </div>
-            </div>
-            <a href="#faq-credits-pro" class="price-faq-link metric-faq"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>How do credits work on Pro plans?</a>
-          </div>
-          <p class="price-includes-line">Everything in Individual <span class="price-includes-plus">+</span></p>
-          <ul class="price-feats">
-            <li class="price-feat-highlight">Unlimited properties</li>
-            <li><b>Your logo on every PDF</b></li>
-            <li>Credit rollover <b>×2</b></li>
-            <li>Shared team credit pool</li>
-            <li>Priority support</li>
-          </ul>
-          <div class="price-extra">Extra credit: <strong>16 AED each</strong></div>
-          <div class="price-card-spacer"></div>
-          <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="price-btn price-btn-outline">
-            Create free account →
-          </a>
-        </div>
-
+        ))}
       </div>
       <div class="pricing-note">
         <p>Free account to start. Choose your plan inside the app. No card required.</p>
-        <p>Need more than 50 inspections/month? <a href="mailto:hello@snagify.net">Contact us</a> for a custom plan.</p>
+        <p>Need more than {maxProCredits} inspections/month? <a href="mailto:hello@snagify.net">Contact us</a> for a custom plan.</p>
       </div>
     </div>
 
@@ -5680,6 +5617,7 @@ window.toggleBilling = toggleBilling;
   }
 })();
 </script>
+<script type="application/json" id="roi-plans-data" set:html={JSON.stringify(roiPlans)} />
 <script>
 (function(){
   const sInsp = document.getElementById('roi-insp');
@@ -5702,16 +5640,16 @@ window.toggleBilling = toggleBilling;
   const mathBox = document.getElementById('roi-math-box');
   const mathContent = document.getElementById('roi-math-content');
 
-  const plans = {
-    starter: { name: 'Starter', credits: 15, cost: 1788, extra: 28 },
-    growth:  { name: 'Growth',  credits: 30, cost: 2988, extra: 22 },
-    agency:  { name: 'Agency',  credits: 50, cost: 4488, extra: 16 }
-  };
+  const plansData = document.getElementById('roi-plans-data');
+  const plans = plansData ? JSON.parse(plansData.textContent || '{}') : {};
+  const planList = Object.values(plans).sort((a, b) => a.credits - b.credits);
 
   function pickPlan(insp){
-    if (insp <= 15) return plans.starter;
-    if (insp <= 30) return plans.growth;
-    return plans.agency;
+    if (!planList.length) return { name: 'Growth', credits: 25, cost: 7188, extra: 22 };
+    for (const p of planList) {
+      if (insp <= p.credits) return p;
+    }
+    return planList[planList.length - 1];
   }
 
   function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
@@ -6039,142 +5977,74 @@ window.toggleBilling = toggleBilling;
   ]
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://snagify.net/#localbusiness",
-  "name": "Snagify",
-  "image": "https://snagify.net/og-image.jpg",
-  "url": "https://snagify.net/",
-  "priceRange": "AED 49 - AED 374",
-  "telephone": "+971585169329",
-  "email": "hello@snagify.net",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Business Bay",
-    "addressLocality": "Dubai",
-    "addressRegion": "Dubai",
-    "postalCode": "00000",
-    "addressCountry": "AE"
+<script type="application/ld+json" set:html={JSON.stringify(localBusinessLd)} />
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  '@id': 'https://snagify.net/#software',
+  name: 'Snagify',
+  applicationCategory: 'BusinessApplication',
+  applicationSubCategory: 'Property Inspection Software',
+  operatingSystem: 'Web, iOS, Android',
+  url: 'https://app.snagify.net',
+  downloadUrl: 'https://app.snagify.net',
+  softwareVersion: '2026.1',
+  description: 'Property inspection PWA for Dubai landlords, tenants, agents, and property managers. AI-powered damage detection, RDC-valid PDF reports, dual digital signatures, RERA-aligned format.',
+  offers: softwareOffersLd,
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5.0',
+    reviewCount: '5',
+    bestRating: '5',
+    worstRating: '1',
   },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "25.1862",
-    "longitude": "55.2767"
-  },
-  "areaServed": [
-    { "@type": "City", "name": "Dubai" },
-    { "@type": "Country", "name": "United Arab Emirates" }
+  review: [
+    {
+      '@type': 'Review',
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      author: { '@type': 'Person', name: 'Benjamin Laroche' },
+      reviewBody: 'I had a great experience using this app for my property inspection in the UAE. It gave me real peace of mind and helped protect me from unfair charges at the end of the tenancy.',
+    },
+    {
+      '@type': 'Review',
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      author: { '@type': 'Person', name: 'Yasmine' },
+      reviewBody: "I'm a tenant, not a tech person, and this was genuinely easy to use. You walk room to room taking photos and it flags anything off by itself. Seeing my check-in and check-out photos side by side at the end made everything obvious — got my deposit back with zero drama.",
+    },
+    {
+      '@type': 'Review',
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      author: { '@type': 'Person', name: 'Khalid A.' },
+      reviewBody: "Honestly I resisted switching for months — we had our own Word template and I thought it was fine. Then a tenant contested damage at move-out and we had nothing solid to show. After that I tried Snagify. We now do 60+ inspections a month and I'd never go back. The reports are just on a different level.",
+    },
+    {
+      '@type': 'Review',
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      author: { '@type': 'Person', name: 'Sara M.' },
+      reviewBody: "We lost an RDC case last year because our inspection photos were on someone's personal phone and the checklist was handwritten. It cost us the client relationship too. Since Snagify, every report is signed on the spot. We've had three potential disputes since, and none of them went anywhere.",
+    },
+    {
+      '@type': 'Review',
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      author: { '@type': 'Person', name: 'Rami H.' },
+      reviewBody: "I was worried it would be too complicated for my inspectors. It took them about 10 minutes to figure out. Now every report that goes to a client looks like it came from a serious firm. One client actually asked if we had an in-house legal team. It's just us and Snagify.",
+    },
   ],
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      "opens": "00:00",
-      "closes": "23:59",
-      "description": "24/7 — Snagify is a SaaS platform, accessible at any time."
-    }
+  featureList: [
+    'AI-powered damage detection',
+    'RDC-valid PDF reports',
+    'Dual digital signatures',
+    'RERA-aligned format',
+    'Ejari auto-detection',
+    'Offline PWA inspection',
+    'Team credit pool sharing',
+    'White-label branded reports',
+    'SHA-256 cryptographic verification',
+    'Push notifications for signature events',
   ],
-  "currenciesAccepted": "AED",
-  "paymentAccepted": "Credit Card, Debit Card",
-  "hasMap": "https://maps.google.com/?q=Business+Bay+Dubai"
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "@id": "https://snagify.net/#software",
-  "name": "Snagify",
-  "applicationCategory": "BusinessApplication",
-  "applicationSubCategory": "Property Inspection Software",
-  "operatingSystem": "Web, iOS, Android",
-  "url": "https://app.snagify.net",
-  "downloadUrl": "https://app.snagify.net",
-  "softwareVersion": "2026.1",
-  "description": "Property inspection PWA for Dubai landlords, tenants, agents, and property managers. AI-powered damage detection, RDC-valid PDF reports, dual digital signatures, RERA-aligned format.",
-  "offers": [
-    {
-      "@type": "Offer",
-      "name": "Starter Plan",
-      "price": "149",
-      "priceCurrency": "AED",
-      "priceValidUntil": "2027-12-31",
-      "availability": "https://schema.org/InStock"
-    },
-    {
-      "@type": "Offer",
-      "name": "Growth Plan",
-      "price": "249",
-      "priceCurrency": "AED",
-      "priceValidUntil": "2027-12-31",
-      "availability": "https://schema.org/InStock"
-    },
-    {
-      "@type": "Offer",
-      "name": "Agency Plan",
-      "price": "374",
-      "priceCurrency": "AED",
-      "priceValidUntil": "2027-12-31",
-      "availability": "https://schema.org/InStock"
-    }
-  ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "reviewCount": "5",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
-  "review": [
-    {
-      "@type": "Review",
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-      "author": { "@type": "Person", "name": "Benjamin Laroche" },
-      "reviewBody": "I had a great experience using this app for my property inspection in the UAE. It gave me real peace of mind and helped protect me from unfair charges at the end of the tenancy."
-    },
-    {
-      "@type": "Review",
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-      "author": { "@type": "Person", "name": "Yasmine" },
-      "reviewBody": "I'm a tenant, not a tech person, and this was genuinely easy to use. You walk room to room taking photos and it flags anything off by itself. Seeing my check-in and check-out photos side by side at the end made everything obvious — got my deposit back with zero drama."
-    },
-    {
-      "@type": "Review",
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-      "author": { "@type": "Person", "name": "Khalid A." },
-      "reviewBody": "Honestly I resisted switching for months — we had our own Word template and I thought it was fine. Then a tenant contested damage at move-out and we had nothing solid to show. After that I tried Snagify. We now do 60+ inspections a month and I'd never go back. The reports are just on a different level."
-    },
-    {
-      "@type": "Review",
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-      "author": { "@type": "Person", "name": "Sara M." },
-      "reviewBody": "We lost an RDC case last year because our inspection photos were on someone's personal phone and the checklist was handwritten. It cost us the client relationship too. Since Snagify, every report is signed on the spot. We've had three potential disputes since, and none of them went anywhere."
-    },
-    {
-      "@type": "Review",
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-      "author": { "@type": "Person", "name": "Rami H." },
-      "reviewBody": "I was worried it would be too complicated for my inspectors. It took them about 10 minutes to figure out. Now every report that goes to a client looks like it came from a serious firm. One client actually asked if we had an in-house legal team. It's just us and Snagify."
-    }
-  ],
-  "featureList": [
-    "AI-powered damage detection",
-    "RDC-valid PDF reports",
-    "Dual digital signatures",
-    "RERA-aligned format",
-    "Ejari auto-detection",
-    "Offline PWA inspection",
-    "Team credit pool sharing",
-    "White-label branded reports",
-    "SHA-256 cryptographic verification",
-    "Push notifications for signature events"
-  ],
-  "screenshot": "https://snagify.net/og-image.jpg",
-  "publisher": { "@id": "https://snagify.net/#organization" }
-}
-</script>
+  screenshot: 'https://snagify.net/og-image.jpg',
+  publisher: { '@id': 'https://snagify.net/#organization' },
+})} />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
