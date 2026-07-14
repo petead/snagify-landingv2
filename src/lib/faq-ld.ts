@@ -54,7 +54,7 @@ export function buildFaqPageLd(pricingFaq: PricingCatalog['faq']) {
       name: 'How do credits work on Pro plans? Can my team share them?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: pricingFaq.proCredits,
+        text: pricingFaq.pro?.summary ?? pricingFaq.proCredits,
       },
     },
     {
@@ -94,7 +94,7 @@ export function buildFaqPageLd(pricingFaq: PricingCatalog['faq']) {
       name: 'How much does a check-out cost?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: pricingFaq.individualCheckout,
+        text: pricingFaq.individual?.summary ?? pricingFaq.individualCheckout,
       },
     },
     {

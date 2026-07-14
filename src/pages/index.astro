@@ -6,6 +6,7 @@ import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import MetaPixel from '../components/MetaPixel.astro';
 import Supademo from '../components/Supademo.astro';
 import HowItWorksToggle from '../components/HowItWorksToggle.astro';
+import FaqCreditAnswer from '../components/FaqCreditAnswer.astro';
 import { fetchPricingCatalog, formatAed, toRoiPlans } from '../lib/pricing';
 import { buildFaqPageLd } from '../lib/faq-ld';
 
@@ -2515,10 +2516,139 @@ footer {
   transition: max-height .5s cubic-bezier(.16,1,.3,1);
 }
 .faq-a-inner { padding: 0 0 28px; max-width: 680px; }
+.faq-a-inner:has(.faq-credit) { max-width: 760px; }
 .faq-a p {
   font-size: 16px;
   line-height: 1.7;
   color: var(--ink-60);
+}
+
+.faq-credit-intro {
+  margin: 0 0 16px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink-60);
+}
+.faq-credit-table-wrap {
+  overflow-x: auto;
+  margin: 0 0 20px;
+  border: 1px solid var(--ink-25);
+  border-radius: 14px;
+}
+.faq-credit-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.faq-credit-table th,
+.faq-credit-table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--ink-25);
+  white-space: nowrap;
+}
+.faq-credit-table thead th {
+  font-size: 11px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+  font-weight: 700;
+  background: rgba(14, 14, 16, .03);
+}
+.faq-credit-table tbody th {
+  font-weight: 600;
+  color: var(--ink);
+  white-space: normal;
+  min-width: 140px;
+}
+.faq-credit-table tbody td {
+  color: var(--ink-60);
+  font-variant-numeric: tabular-nums;
+}
+.faq-credit-table tbody tr:last-child th,
+.faq-credit-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.faq-credit-examples-label {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+}
+.faq-credit-examples {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.faq-credit-examples li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 16px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(154, 136, 253, .08);
+}
+.faq-ex-title {
+  grid-column: 1;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink);
+}
+.faq-ex-detail {
+  grid-column: 1;
+  font-size: 13px;
+  color: var(--ink-60);
+}
+.faq-ex-total {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.faq-credit-note {
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-60);
+}
+.faq-audience-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--ink-25);
+  background: transparent;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color .2s, background .2s, color .2s;
+}
+.faq-audience-switch:hover {
+  border-color: var(--purple);
+  background: rgba(154, 136, 253, .12);
+  color: var(--ink);
+}
+@media (max-width: 560px) {
+  .faq-credit-examples li {
+    grid-template-columns: 1fr;
+  }
+  .faq-ex-total {
+    grid-column: 1;
+    grid-row: auto;
+    margin-top: 2px;
+  }
 }
 
 .faq-bottom {
@@ -4681,7 +4811,14 @@ footer {
 
           <div class="faq-item" id="faq-credits-pro">
             <button class="faq-q" type="button">How do credits work on Pro plans? Can my team share them?<span class="faq-icon">+</span></button>
-            <div class="faq-a"><div class="faq-a-inner"><p>{pricingFaq.proCredits}</p></div></div>
+            <div class="faq-a"><div class="faq-a-inner">
+              <FaqCreditAnswer
+                block={pricingFaq.pro}
+                switchLabel="You're an individual. →"
+                switchHash="faq-checkout-cost"
+                switchPersona="landlords"
+              />
+            </div></div>
           </div>
 
           <div class="faq-item">
@@ -4708,8 +4845,8 @@ footer {
 
       <div class="faq-tabs">
         <button class="faq-tab active" data-tab="legal" type="button">Legal &amp; RDC <span class="faq-tab-count">3</span></button>
-        <button class="faq-tab" data-tab="start" type="button">Getting Started <span class="faq-tab-count">4</span></button>
-        <button class="faq-tab" data-tab="pricing" type="button">Pricing &amp; Data <span class="faq-tab-count">3</span></button>
+        <button class="faq-tab" data-tab="start" type="button">Getting Started <span class="faq-tab-count">3</span></button>
+        <button class="faq-tab" data-tab="pricing" type="button">Pricing &amp; Data <span class="faq-tab-count">4</span></button>
       </div>
 
       <div class="faq-panel active" data-panel="legal">
@@ -4741,11 +4878,6 @@ footer {
             <div class="faq-a"><div class="faq-a-inner"><p>An undocumented move-in is the single biggest cause of lost deposits in Dubai. We want every landlord and tenant to have that baseline protection, whether you pay us later or not. You only spend credits when you do a check-out, to prove what the property looked like originally.</p></div></div>
           </div>
 
-          <div class="faq-item" id="faq-checkout-cost">
-            <button class="faq-q" type="button">How much does a check-out cost?<span class="faq-icon">+</span></button>
-            <div class="faq-a"><div class="faq-a-inner"><p>{pricingFaq.individualCheckout}</p></div></div>
-          </div>
-
           <div class="faq-item">
             <button class="faq-q" type="button">How long does an inspection take?<span class="faq-icon">+</span></button>
             <div class="faq-a"><div class="faq-a-inner"><p>Around 20 minutes for a 1 bedroom apartment. 30 to 40 minutes for a villa with 4 or more rooms. First time, add the address and rooms in 2 to 3 minutes. At check-out, the check-in template is pre-filled, so you just compare room by room.</p></div></div>
@@ -4761,6 +4893,18 @@ footer {
 
       <div class="faq-panel" data-panel="pricing">
         <div class="faq-list">
+
+          <div class="faq-item" id="faq-checkout-cost">
+            <button class="faq-q" type="button">How much does a check-out cost?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><div class="faq-a-inner">
+              <FaqCreditAnswer
+                block={pricingFaq.individual}
+                switchLabel="You are a pro. →"
+                switchHash="faq-credits-pro"
+                switchPersona="pros"
+              />
+            </div></div>
+          </div>
 
           <div class="faq-item">
             <button class="faq-q" type="button">Do my credit packs expire?<span class="faq-icon">+</span></button>
@@ -5576,7 +5720,7 @@ window.toggleBilling = toggleBilling;
 
     if (hash === '#faq-checkout-cost') {
       activateFaqPersona('landlords');
-      activateFaqTab('landlords', 'start');
+      activateFaqTab('landlords', 'pricing');
     } else if (hash === '#faq-credits-pro') {
       activateFaqPersona('pros');
       activateFaqTab('pros', 'pricing');
@@ -5607,6 +5751,20 @@ window.toggleBilling = toggleBilling;
       e.preventDefault();
       if (window.location.hash !== href) {
         window.location.hash = href;
+      } else {
+        openFaqFromHash();
+      }
+    });
+  });
+
+  document.querySelectorAll('.faq-audience-switch').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const hash = '#' + (btn.getAttribute('data-faq-hash') || '');
+      const persona = btn.getAttribute('data-faq-switch');
+      if (!hash || hash === '#') return;
+      if (persona) activateFaqPersona(persona);
+      if (window.location.hash !== hash) {
+        window.location.hash = hash;
       } else {
         openFaqFromHash();
       }

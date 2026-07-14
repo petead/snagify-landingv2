@@ -1,0 +1,59 @@
+---
+import type { FaqCreditBlock } from '../lib/pricing';
+
+interface Props {
+  block: FaqCreditBlock;
+  switchLabel: string;
+  switchHash: string;
+  switchPersona: 'pros' | 'landlords';
+}
+
+const { block, switchLabel, switchHash, switchPersona } = Astro.props;
+---
+
+<div class="faq-credit">
+  <p class="faq-credit-intro">{block.intro}</p>
+
+  <div class="faq-credit-table-wrap">
+    <table class="faq-credit-table">
+      <thead>
+        <tr>
+          <th scope="col">What you do</th>
+          <th scope="col">Unfurnished</th>
+          <th scope="col">Furnished</th>
+        </tr>
+      </thead>
+      <tbody>
+        {block.rows.map((row) => (
+          <tr>
+            <th scope="row">{row.label}</th>
+            <td>{row.unfurnished}</td>
+            <td>{row.furnished}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <p class="faq-credit-examples-label">Quick examples</p>
+  <ul class="faq-credit-examples">
+    {block.examples.map((ex) => (
+      <li>
+        <span class="faq-ex-title">{ex.title}</span>
+        <span class="faq-ex-detail">{ex.detail}</span>
+        <span class="faq-ex-total">{ex.total}</span>
+      </li>
+    ))}
+  </ul>
+
+  <p class="faq-credit-note">{block.note}</p>
+
+  <button
+    type="button"
+    class="faq-audience-switch"
+    data-faq-switch={switchPersona}
+    data-faq-hash={switchHash}
+  >
+    {switchLabel}
+  </button>
+</div>
