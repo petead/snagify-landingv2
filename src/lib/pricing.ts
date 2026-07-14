@@ -299,9 +299,11 @@ export async function fetchPricingCatalog(): Promise<PricingCatalog> {
     if (i > 0 && basePerCredit > 0 && ppc < basePerCredit) {
       savePct = Math.round(((basePerCredit - ppc) / basePerCredit) * 100);
     }
+    const rawName = String(row.name);
     return {
       id: String(row.id),
-      name: String(row.name),
+      // Legacy name collided with Pro audience
+      name: rawName.trim().toLowerCase() === 'professional' ? 'Max' : rawName,
       credits,
       priceAed,
       pricePerCreditAed: ppc,
