@@ -7,13 +7,15 @@ import MetaPixel from '../components/MetaPixel.astro';
 import Supademo from '../components/Supademo.astro';
 import HowItWorksToggle from '../components/HowItWorksToggle.astro';
 import { fetchPricingCatalog, formatAed, toRoiPlans } from '../lib/pricing';
+import { buildFaqPageLd } from '../lib/faq-ld';
 
 const currentLocale = Astro.currentLocale || 'en';
 const currentPath = Astro.url.pathname;
 
 const pricing = await fetchPricingCatalog();
-const { packs, plans, priceRangeLabel } = pricing;
+const { packs, plans, priceRangeLabel, faq: pricingFaq } = pricing;
 const roiPlans = toRoiPlans(plans);
+const faqPageLd = buildFaqPageLd(pricingFaq);
 const maxProCredits = plans.length ? Math.max(...plans.map((p) => p.creditsPerMonth)) : 50;
 
 function rollLabel(n: number) {
@@ -4679,7 +4681,7 @@ footer {
 
           <div class="faq-item" id="faq-credits-pro">
             <button class="faq-q" type="button">How do credits work on Pro plans? Can my team share them?<span class="faq-icon">+</span></button>
-            <div class="faq-a"><div class="faq-a-inner"><p>Each inspection, check-in or check-out, uses 1 credit. Your plan's credits refresh monthly, and unused credits roll over while your subscription is active. All inspectors in your team share one credit pool, so no one runs out while another has extras. Extra credits beyond your plan cost 16 to 28 AED each depending on your tier.</p></div></div>
+            <div class="faq-a"><div class="faq-a-inner"><p>{pricingFaq.proCredits}</p></div></div>
           </div>
 
           <div class="faq-item">
@@ -4741,7 +4743,7 @@ footer {
 
           <div class="faq-item" id="faq-checkout-cost">
             <button class="faq-q" type="button">How much does a check-out cost?<span class="faq-icon">+</span></button>
-            <div class="faq-a"><div class="faq-a-inner"><p>Check-ins are always free. You only spend credits on a check-out. Right now one check-out uses 2 credits, so the cost depends on the pack you buy: from 15.8 AED per credit on the Professional pack up to 24.5 AED per credit on the Solo pack. Credits never expire, and you can buy more anytime inside the app.</p></div></div>
+            <div class="faq-a"><div class="faq-a-inner"><p>{pricingFaq.individualCheckout}</p></div></div>
           </div>
 
           <div class="faq-item">
@@ -5734,182 +5736,7 @@ window.toggleBilling = toggleBilling;
 </script>
 
 <!-- Structured data (moved out of head for faster first paint) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Is a Snagify report actually accepted by the Dubai Rental Dispute Center (RDC)? (for professionals)",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Every Snagify report includes the evidence the RDC looks for: timestamped entries, dual signatures, photos with metadata, and a SHA-256 hash proving the file hasn't been altered after signature. You submit the PDF as-is. No notarisation, no reformatting. Your agency name, logo, and RERA number appear on every page."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What happens if the tenant refuses to sign? (for professionals)",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You document the refusal inside the report. A dedicated field logs the refusal with timestamp and optional reason. The report stays legally valid. A documented refusal is strong evidence that your agency followed due process, which protects both you and your landlord client if the case reaches the RDC."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is Snagify certified by RERA?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "RERA regulates brokers, not software. Snagify follows RERA's inspection guidelines (room by room breakdown, dual signatures, photo documentation) and our report format matches the criteria RERA applies when reviewing disputes. Your RERA broker number appears on every report."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use a Snagify report as evidence in court?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. The RDC and Dubai civil courts accept digitally signed documents with verifiable timestamps. The SHA-256 hash on every PDF is cryptographic proof that the file hasn't been tampered with. A lawyer can verify it in under a minute if challenged."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I need to train my inspectors?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Most inspectors are productive on their first real inspection. The flow is guided step by step: add property, walk room by room, photograph, tag, sign. Every inspector follows the same process, so reports stay consistent across your whole agency."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long does an inspection actually take?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Around 20 minutes for a 1 bedroom apartment. 30 to 40 minutes for a villa with 4 or more rooms. First time setup adds 2 to 3 minutes for the address and rooms. Once a property is in the system, every check-out reuses the check-in template, which makes it much faster."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does it work offline on-site?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Snagify is a PWA, so it installs on your phone and runs offline once loaded. Photos and AI tagging queue locally and sync when you're back online. You can start in a basement with no signal, finish on the rooftop, and nothing is lost."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I bill my client for inspections?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, and most agencies already do. Move-in and move-out fees are standard practice in Dubai property management. Snagify gives you a branded, RDC-valid report that justifies the fee and positions inspection as a premium service. Typical rates range from 150 to 300 AED per inspection. The ROI calculator above shows what this looks like at your volume."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do credits work on Pro plans? Can my team share them?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Each inspection, check-in or check-out, uses 1 credit. Your plan's credits refresh monthly, and unused credits roll over while your subscription is active. All inspectors in your team share one credit pool, so no one runs out while another has extras. Extra credits beyond your plan cost 16 to 28 AED each depending on your tier."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I cancel my subscription anytime?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Monthly plans cancel in one click. No fees, no questions. You keep access until the end of your billing period, and every report you've ever generated stays accessible forever."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Where is my data stored? Is it secure?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reports, photos, and signatures are stored on encrypted servers. Photos are analysed by AI and then discarded. Only the final report is retained. SHA-256 hashes detect any tampering. Your data is never sold, shared, or used for AI training."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I keep my reports if I stop my subscription?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Forever. Every PDF you've generated stays in your account, downloadable anytime. If you cancel, you keep read-only access to all past reports. You just can't create new ones until you reactivate."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is a Snagify report actually accepted by the Dubai Rental Dispute Center (RDC)? (for landlords and tenants)",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Every Snagify report includes the evidence the RDC looks for: timestamped entries, dual signatures, photos with metadata, and a SHA-256 hash proving the file hasn't been altered after signature. If a dispute reaches the RDC, you submit the PDF as-is. No notarisation, no reformatting."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What if the landlord or tenant refuses to sign?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You document the refusal inside the report. A dedicated field logs the refusal with timestamp and optional reason. The report stays legally valid. A documented refusal is strong evidence that you made every effort to agree on the property's condition. In practice, most people sign once they see the report is balanced and photo backed, because it protects them too."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use a Snagify report as evidence in court? (for landlords and tenants)",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. The RDC and Dubai civil courts accept digitally signed documents with verifiable timestamps. The SHA-256 hash on every PDF is cryptographic proof that the file hasn't been tampered with. A lawyer can verify it in under a minute if challenged."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why are check-ins free?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "An undocumented move-in is the single biggest cause of lost deposits in Dubai. We want every landlord and tenant to have that baseline protection, whether you pay us later or not. You only spend credits when you do a check-out, to prove what the property looked like originally."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long does an inspection take?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Around 20 minutes for a 1 bedroom apartment. 30 to 40 minutes for a villa with 4 or more rooms. First time, add the address and rooms in 2 to 3 minutes. At check-out, the check-in template is pre-filled, so you just compare room by room."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does Snagify work offline on-site?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Snagify works on any phone. Install it like an app from your browser, and it runs offline once loaded. Photos sync when you're back online. You can do an inspection in a parking basement and nothing is lost."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do my credit packs expire?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Credit packs for landlords and tenants never expire. Buy 6 credits today, use them in 3 years if you want. They stay in your account indefinitely. Check-ins are always free, so you only spend credits when you actually do a check-out."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is my data safe?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reports, photos, and signatures are stored on encrypted servers. Photos are analysed by AI and then discarded. Only the final report is retained. SHA-256 hashes detect any tampering. Your data is never sold, shared, or used for AI training."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I keep my PDFs forever?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Every report you've generated stays in your account, downloadable anytime. No subscription required, no time limit. Even if you don't use Snagify for years, your reports are still there when you need them."
-      }
-    }
-  ]
-}
-
+<script type="application/ld+json" set:html={JSON.stringify(faqPageLd)} />
 </script>
 <script type="application/ld+json">
 {

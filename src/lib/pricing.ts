@@ -27,10 +27,24 @@ export type SubscriptionPlan = {
   sortOrder: number;
 };
 
+export type CreditCost = {
+  action: string;
+  accountType: 'individual' | 'pro' | string;
+  credits: number;
+  creditsLarge: number;
+  furnishedAddon: number;
+  description: string | null;
+};
+
 export type PricingCatalog = {
   packs: CreditPack[];
   plans: SubscriptionPlan[];
+  costs: CreditCost[];
   priceRangeLabel: string;
+  faq: {
+    individualCheckout: string;
+    proCredits: string;
+  };
 };
 
 function num(v: unknown, fallback = 0): number {
@@ -44,6 +58,11 @@ function boolish(v: unknown): boolean {
 
 export function formatAed(n: number): string {
   return Math.round(n).toLocaleString('en-US');
+}
+
+function formatPpc(n: number): string {
+  const rounded = Math.round(n * 10) / 10;
+  return Number.isInteger(rounded) ? String(rounded) : rounded.toFixed(1);
 }
 
 async function supabaseGet<T>(path: string): Promise<T> {
@@ -72,17 +91,68 @@ async function supabaseGet<T>(path: string): Promise<T> {
   return res.json() as Promise<T>;
 }
 
-/** Fetch active credit packs + subscription plans from Supabase (build-time REST). */
+function buildFaqCopy(packs: CreditPack[], plans: SubscriptionPlan[], costs: CreditCost[]) {
+  const indCheckout = costs.find((c) => c.action === 'individual_checkout');
+  const indCheckin = costs.find((c) => c.action === 'individual_checkin');
+  const proCheckout = costs.find((c) => c.action === 'pro_checkout');
+  const proCheckin = costs.find((c) => c.action === 'pro_checkin');
+
+  const checkoutCredits = indCheckout?.credits ?? 2;
+  const checkoutLarge = indCheckout?.creditsLarge ?? checkoutCredits * 2;
+
+  const ppcs = packs
+    .map((p) => p.pricePerCreditAed)
+    .filter((v): v is number => v != null && v > 0);
+  const minPpc = ppcs.length ? Math.min(...ppcs) : 0;
+  const maxPpc = ppcs.length ? Math.max(...ppcs) : 0;
+
+  const individualCheckout =
+    `For landlords and tenants: check-in is free (${indCheckin?.credits ?? 0} credits). ` +
+    `A standard check-out uses ${checkoutCredits} credits` +
+    (checkoutLarge > checkoutCredits ? ` (${checkoutLarge} for larger homes)` : '') +
+    `. ` +
+    (minPpc && maxPpc
+      ? `Buy a credit pack in-app — roughly ${formatPpc(minPpc)}–${formatPpc(maxPpc)} AED per credit, depending on the pack. `
+      : '') +
+    `Credits never expire.`;
+
+  const extras = plans
+    .filter((p) => p.extraCreditAed != null)
+    .map((p) => `${p.name} ${formatAed(p.extraCreditAed!)} AED`)
+    .join(' · ');
+
+  const proIn = proCheckin?.credits ?? 1;
+  const proOut = proCheckout?.credits ?? 1;
+  const proInLarge = proCheckin?.creditsLarge ?? proIn;
+  const proOutLarge = proCheckout?.creditsLarge ?? proOut;
+
+  const proCredits =
+    `For professionals: check-in costs ${proIn} credit` +
+    (proInLarge !== proIn ? ` (${proInLarge} for larger properties)` : '') +
+    `; check-out costs ${proOut} credit` +
+    (proOutLarge !== proOut ? ` (${proOutLarge} for larger properties)` : '') +
+    `. ` +
+    `Your plan credits refresh every month and roll over while subscribed. One shared pool for the whole team. ` +
+    (extras ? `Extra credits if you run out: ${extras}.` : '');
+
+  return { individualCheckout, proCredits };
+}
+
+/** Fetch active credit packs + subscription plans + credit costs from Supabase (build-time REST). */
 export async function fetchPricingCatalog(): Promise<PricingCatalog> {
   type PackRow = Record<string, unknown>;
   type PlanRow = Record<string, unknown>;
+  type CostRow = Record<string, unknown>;
 
-  const [packRows, planRows] = await Promise.all([
+  const [packRows, planRows, costRows] = await Promise.all([
     supabaseGet<PackRow[]>(
       'credit_packs?is_active=eq.true&order=sort_order.asc&select=id,name,credits,price_aed,price_per_credit_aed,sort_order',
     ),
     supabaseGet<PlanRow[]>(
       'subscription_plans?is_active=eq.true&order=sort_order.asc&select=id,slug,name,description,price_aed_monthly,price_aed_annual,price_aed_monthly_billing,credits_per_month,max_users,extra_credit_price_aed,roll_max_multiplier,white_label,highlight,sort_order',
+    ),
+    supabaseGet<CostRow[]>(
+      'credit_costs?is_active=eq.true&order=sort_order.asc&select=action,account_type,credits,credits_large,furnished_addon,description',
     ),
   ]);
 
@@ -142,6 +212,15 @@ export async function fetchPricingCatalog(): Promise<PricingCatalog> {
     };
   });
 
+  const costs: CreditCost[] = costRows.map((row) => ({
+    action: String(row.action),
+    accountType: String(row.account_type),
+    credits: Math.round(num(row.credits)),
+    creditsLarge: Math.round(num(row.credits_large, num(row.credits))),
+    furnishedAddon: Math.round(num(row.furnished_addon)),
+    description: row.description != null ? String(row.description) : null,
+  }));
+
   const packMin = packs.length ? Math.min(...packs.map((p) => p.priceAed)) : 0;
   const planMaxAnnual = plans.length
     ? Math.max(...plans.map((p) => p.priceMonthlyAnnual))
@@ -151,7 +230,13 @@ export async function fetchPricingCatalog(): Promise<PricingCatalog> {
       ? `AED ${formatAed(packMin)} - AED ${formatAed(planMaxAnnual)}`
       : 'AED';
 
-  return { packs, plans, priceRangeLabel };
+  return {
+    packs,
+    plans,
+    costs,
+    priceRangeLabel,
+    faq: buildFaqCopy(packs, plans, costs),
+  };
 }
 
 /** ROI calculator annual plans derived from subscription_plans. */
