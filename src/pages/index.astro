@@ -5658,21 +5658,14 @@ window.toggleBilling = toggleBilling;
     const furn = root.querySelector('[data-role="furn"]');
     const num = root.querySelector('[data-role="num"]');
     const unit = root.querySelector('[data-role="unit"]');
-    const breakdown = root.querySelector('[data-role="breakdown"]');
-    const aed = root.querySelector('[data-role="aed"]');
     let base = parseInt(root.querySelector('[data-role="type"] button.on').dataset.base, 10);
     let furnished = false;
     function render() {
-      const addon = furnished ? opts.addon : 0;
-      const total = base + addon;
+      const total = base + (furnished ? opts.addon : 0);
       num.textContent = total;
-      if (unit) unit.textContent = (total === 1 ? 'credit' : 'credits') + (opts.perInspection ? ' / inspection' : '');
-      let bd = opts.freeCheckin
-        ? 'Check-in <b>Free</b> · Check-out base <b>' + base + '</b>'
-        : (base === opts.baseSmall ? 'Apartment' : 'Villa / 3BR+') + ' base <b>' + base + '</b>';
-      if (furnished) bd += ' · Furnished <b>+' + addon + '</b>';
-      breakdown.innerHTML = bd;
-      if (aed) aed.innerHTML = '≈ <b>' + Math.round(total * 41.5) + ' AED</b> with the 6-credit pack';
+      num.classList.add('pop');
+      setTimeout(function () { num.classList.remove('pop'); }, 150);
+      unit.textContent = (total === 1 ? 'credit' : 'credits') + (opts.each ? ' each' : '');
       faqxRefreshFaqHeight(root);
     }
     typeBtns.forEach(function (btn) {
@@ -5690,8 +5683,8 @@ window.toggleBilling = toggleBilling;
     });
     render();
   }
-  faqxWire('faqxCalcPro', { addon: 1, perInspection: true, freeCheckin: false, baseSmall: 1 });
-  faqxWire('faqxCalcIndiv', { addon: 2, perInspection: false, freeCheckin: true, baseSmall: 2 });
+  faqxWire('faqxCalcPro', { addon: 1, each: true });
+  faqxWire('faqxCalcIndiv', { addon: 2, each: false });
 
   window.addEventListener('hashchange', openFaqFromHash);
   if (window.location.hash === '#faq-checkout-cost' || window.location.hash === '#faq-credits-pro') {

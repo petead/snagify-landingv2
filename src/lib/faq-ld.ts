@@ -53,7 +53,7 @@ export function buildFaqPageLd() {
       acceptedAnswer: {
         '@type': 'Answer',
         text:
-          'One shared wallet for the whole team. Every inspection, check-in or check-out, draws from the same pool. The price depends on the property, not on the report type. Apartment (up to 2 bedrooms): 1 credit. Villa or 3BR+: 2 credits. Furnished inventory module: +1 credit. Credits refresh every month and roll over while you stay subscribed.',
+          'One shared wallet for the whole team. The property sets the price, not the report type. Apartment (up to 2 bedrooms): 1 credit each for check-in or check-out. Villa or 3BR+: 2 credits each. Furnished with inventory: +1 credit. Credits refresh monthly and roll over while you are subscribed.',
       },
     },
     {
@@ -94,7 +94,7 @@ export function buildFaqPageLd() {
       acceptedAnswer: {
         '@type': 'Answer',
         text:
-          'Check-in is always free, whatever the property. You only pay when you lock the check-out report. Check-out apartment: 2 credits. Check-out villa or 3BR+: 4 credits. Furnished inventory module: +2 credits. Credits never expire. A traditional inspection company charges AED 1,200 or more for the same report.',
+          'Check-in is always free. You only pay to lock the check-out report. Check-out apartment: 2 credits. Check-out villa or 3BR+: 4 credits. Furnished with inventory: +2 credits. 10x cheaper than a traditional inspection company (AED 1,200+). Credits never expire.',
       },
     },
     {
