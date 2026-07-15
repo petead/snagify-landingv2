@@ -1,6 +1,11 @@
 ---
 import LanguageSwitcher from './LanguageSwitcher.astro';
 
+interface Props {
+  hideLanguageSwitcher?: boolean;
+}
+
+const { hideLanguageSwitcher = false } = Astro.props;
 const currentLocale = Astro.currentLocale || 'en';
 const currentPath = Astro.url.pathname;
 
@@ -22,9 +27,11 @@ const currentPath = Astro.url.pathname;
     <li><a href="/#features">Features</a></li>
     <li><a href="/#pricing">Pricing</a></li>
     <li><a href="/#faq">FAQ</a></li>
-    <li class="site-header-lang-li">
-      <LanguageSwitcher currentLocale={currentLocale} currentPath={currentPath} />
-    </li>
+    {!hideLanguageSwitcher && (
+      <li class="site-header-lang-li">
+        <LanguageSwitcher currentLocale={currentLocale} currentPath={currentPath} />
+      </li>
+    )}
     <li>
       <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="site-header-pill">
         <span class="site-header-pill-dot"></span>

@@ -7,7 +7,7 @@ export async function GET(context) {
     title: 'Snagify Blog',
     description:
       'Deposits, inspections and RDC disputes, explained by people who build inspection software in Dubai.',
-    site: context.site ?? 'https://snagify.net',
+    site: context.site ?? 'https://www.snagify.net',
     items: posts.map((post) => ({
       title: post.data.title,
       description: post.data.description,

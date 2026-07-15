@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://snagify.net',
+  site: 'https://www.snagify.net',
   output: 'static',
 
   build: {

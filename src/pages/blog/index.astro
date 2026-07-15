@@ -8,10 +8,12 @@ import MetaPixel from '../../components/MetaPixel.astro';
 import { formatBlogDate, getPublishedBlogPosts, readingTimeMinutes } from '../../lib/blog';
 
 const posts = await getPublishedBlogPosts();
-const title = 'Blog — Snagify';
+const site = Astro.site?.origin ?? 'https://www.snagify.net';
+const title = 'Blog | Snagify';
 const description =
   'Deposits, inspections and RDC disputes, explained by people who build inspection software in Dubai.';
-const canonical = 'https://snagify.net/blog';
+const canonical = `${site}/blog`;
+const ogImage = `${site}/og-image.jpg`;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -27,11 +29,12 @@ const canonical = 'https://snagify.net/blog';
 <meta property="og:title" content={title}>
 <meta property="og:description" content={description}>
 <meta property="og:url" content={canonical}>
-<meta property="og:image" content="https://snagify.net/og-image.jpg">
+<meta property="og:image" content={ogImage}>
 <meta property="og:site_name" content="Snagify">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content={title}>
 <meta name="twitter:description" content={description}>
+<meta name="twitter:image" content={ogImage}>
 <link rel="alternate" type="application/rss+xml" title="Snagify Blog" href="/rss.xml">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -137,7 +140,7 @@ a { cursor: pointer; }
 <Clarity />
 </head>
 <body>
-<SiteHeader />
+<SiteHeader hideLanguageSwitcher />
 <main class="blog-index">
   <header class="blog-index-head">
     <p class="blog-index-eyebrow">Blog</p>

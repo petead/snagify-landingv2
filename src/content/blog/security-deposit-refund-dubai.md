@@ -44,7 +44,7 @@ Here is what most tenants only learn once a dispute has already started: deposit
 
 That single principle drives everything in this guide. A landlord who wants to keep your deposit must prove two things: that the damage exists, and that it did not exist when you moved in. Without a documented baseline from the start of the tenancy, that second part is nearly impossible to establish.
 
-This cuts both ways. If you are reading this at the start of a tenancy, the single most valuable thing you can do is lock in a signed, time-stamped record of the property's condition on day one. It protects you from being billed for the previous tenant's scratches, and it removes the ambiguity that turns handovers into arguments. A signed check-in report is the difference between a five-minute handover and a five-month dispute.
+This cuts both ways. If you are reading this at the start of a tenancy, the single most valuable thing you can do is lock in [a signed, time-stamped record of the property's condition](/check-in-inspection-dubai) on day one. It protects you from being billed for the previous tenant's scratches, and it removes the ambiguity that turns handovers into arguments. A signed check-in report is the difference between a five-minute handover and a five-month dispute.
 
 If you are reading this at the end of a tenancy with no check-in report, do not panic. The burden of proof still works in your favor. But your next moves matter, so follow the sequence below.
 
@@ -70,15 +70,15 @@ This letter does two jobs. It often unlocks payment on its own, because landlord
 
 If the landlord responds with claimed deductions, ask for itemized proof: repair invoices, quotes, photos of the alleged damage. Vague claims of "cleaning and maintenance" without documentation do not hold up at the RDC.
 
-## Step 3. Filing at the Rental Disputes Center
+## Step 3. Filing at the [Rental Disputes Center](https://rdc.gov.ae/en/)
 
-If the demand goes nowhere, the RDC is the competent authority for deposit disputes in Dubai. Not RERA, which sets the rules, and not the DLD's violations channel, which explicitly cannot order refunds. The RDC.
+If the demand goes nowhere, [the RDC is the competent authority](/dubai-rental-dispute-center-guide) for deposit disputes in Dubai. Not RERA, which sets the rules, and not the DLD's violations channel, which explicitly cannot order refunds. The RDC.
 
 What it costs. Filing fees are approximately 3.5% of the annual rent, plus small administrative fees. On a AED 100,000 rent, expect around AED 3,500 to file. This number surprises people, and it is exactly why prevention and early settlement beat litigation for smaller claims.
 
 The two routes. The RDC offers an amicable settlement track, a mediated process designed to resolve disputes quickly before formal litigation, and a first-instance lawsuit for cases that need a judgment. Many deposit disputes settle at the mediation stage once both sides have to put their evidence on the table.
 
-What you need to file. Your Ejari-registered tenancy contract, Emirates ID, the deposit payment proof, your written demand and the landlord's responses, your condition evidence, and final utility bills. Note that documents submitted to the RDC must be in Arabic or legally translated into Arabic, and filings are electronic.
+What you need to file. Your [Ejari-registered tenancy contract](/deposit-protection-dubai), Emirates ID, the deposit payment proof, your written demand and the landlord's responses, your condition evidence, and final utility bills. Note that documents submitted to the RDC must be in Arabic or legally translated into Arabic, and filings are electronic.
 
 Timelines. The RDC aims to resolve straightforward cases within about 15 days of filing, though contested cases take longer. Track your case through the RDC portal or the Dubai REST app.
 
@@ -90,4 +90,4 @@ What loses cases is ambiguity. No condition record from move-in. Photos without 
 
 The entire fight is avoidable with twenty minutes of documentation at the right moments: a signed condition report when you move in, and another when you move out. That is the difference between evidence and opinion, and at the RDC, only one of those two gets deposits returned.
 
-If your next tenancy starts soon, start it properly: document the condition on day one, get it signed by both parties, and keep the report for the life of the contract. Your deposit will thank you in twelve months.
+If your next tenancy starts soon, start it properly: [document the condition on day one](/check-in-inspection-dubai), get it signed by both parties, and keep the report for the life of the contract. Your deposit will thank you in twelve months.

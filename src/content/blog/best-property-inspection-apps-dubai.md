@@ -34,7 +34,7 @@ Local context. AED pricing, tenancy-contract awareness, Arabic support for a mar
 
 Accessibility for one unit. Dubai has hundreds of thousands of individual landlords and tenants with exactly one property to document. Software priced for 500-unit portfolios is irrelevant to them.
 
-One thing to clear up immediately, because some vendors let the ambiguity linger: the RDC does not certify apps. No tool is "RDC approved," ours included. What matters is whether the report the tool produces meets the evidence standard judges expect. Keep that in mind whenever marketing copy suggests otherwise.
+One thing to clear up immediately, because some vendors let the ambiguity linger: the RDC does not certify apps. No tool is "RDC approved," ours included. To be precise about our own wording too: when we describe reports as RDC-valid, we mean they are built to meet the evidence standard the RDC expects, timestamped, signed by both parties, tamper-evident. No software, ours included, is certified or approved by the RDC itself, and any vendor implying otherwise is misleading you.
 
 ## The contenders
 
