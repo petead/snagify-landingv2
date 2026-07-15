@@ -1,0 +1,173 @@
+---
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import CrispChat from '../../components/CrispChat.astro';
+import Clarity from '../../components/Clarity.astro';
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
+import MetaPixel from '../../components/MetaPixel.astro';
+import { formatBlogDate, getPublishedBlogPosts, readingTimeMinutes } from '../../lib/blog';
+
+const posts = await getPublishedBlogPosts();
+const title = 'Blog — Snagify';
+const description =
+  'Deposits, inspections and RDC disputes, explained by people who build inspection software in Dubai.';
+const canonical = 'https://snagify.net/blog';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<GoogleAnalytics />
+<MetaPixel />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title}</title>
+<meta name="description" content={description}>
+<link rel="canonical" href={canonical}>
+<meta property="og:type" content="website">
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:url" content={canonical}>
+<meta property="og:image" content="https://snagify.net/og-image.jpg">
+<meta property="og:site_name" content="Snagify">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content={title}>
+<meta name="twitter:description" content={description}>
+<link rel="alternate" type="application/rss+xml" title="Snagify Blog" href="/rss.xml">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --cream: #F3F1EB;
+  --white: #FCFCFC;
+  --ink: #0E0E10;
+  --ink-60: rgba(14,14,16,0.6);
+  --ink-25: rgba(14,14,16,0.1);
+  --purple: #9A88FD;
+}
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+a { cursor: pointer; }
+.blog-index {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 72px 24px 96px;
+}
+.blog-index-head { margin-bottom: 48px; max-width: 40rem; }
+.blog-index-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+  margin-bottom: 14px;
+}
+.blog-index h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: clamp(32px, 5vw, 46px);
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.blog-index-sub {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink-60);
+}
+.blog-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--ink-25);
+}
+.blog-card {
+  display: block;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--ink-25);
+  text-decoration: none;
+  color: inherit;
+  transition: opacity .2s;
+}
+.blog-card:hover { opacity: 0.85; }
+.blog-card:hover .blog-card-title { color: var(--purple); }
+.blog-card-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: -0.4px;
+  line-height: 1.25;
+  margin-bottom: 10px;
+  transition: color .2s;
+}
+.blog-card-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-60);
+  margin-bottom: 12px;
+  max-width: 58ch;
+}
+.blog-card-meta {
+  font-size: 13px;
+  color: var(--ink-60);
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.blog-empty {
+  padding: 40px 0;
+  color: var(--ink-60);
+  font-size: 16px;
+}
+@media (max-width: 640px) {
+  .blog-index { padding: 48px 20px 72px; }
+}
+</style>
+<CrispChat />
+<Clarity />
+</head>
+<body>
+<SiteHeader />
+<main class="blog-index">
+  <header class="blog-index-head">
+    <p class="blog-index-eyebrow">Blog</p>
+    <h1>The Snagify Guide to Dubai Rentals &amp; Inspections</h1>
+    <p class="blog-index-sub">Deposits, inspections and RDC disputes, explained by people who build inspection software in Dubai.</p>
+  </header>
+
+  {posts.length === 0 ? (
+    <p class="blog-empty">New guides are on the way. Check back soon.</p>
+  ) : (
+    <ul class="blog-list">
+      {posts.map((post) => {
+        const minutes = readingTimeMinutes(post.body);
+        return (
+          <li>
+            <a class="blog-card" href={`/blog/${post.slug}`}>
+              <h2 class="blog-card-title">{post.data.title}</h2>
+              <p class="blog-card-desc">{post.data.description}</p>
+              <div class="blog-card-meta">
+                <time datetime={post.data.pubDate.toISOString()}>{formatBlogDate(post.data.pubDate)}</time>
+                <span aria-hidden="true">·</span>
+                <span>{minutes} min read</span>
+              </div>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  )}
+</main>
+<SiteFooter />
+</body>
+</html>
