@@ -22,7 +22,7 @@ Now, the actual question. If you manage handovers in Dubai, as an agency, a prop
 
 ## What actually matters in Dubai
 
-Most inspection software comparisons are written for the US market and rank tools on features that do not decide anything here. In Dubai, an inspection report has one job above all others: holding up when a deposit is contested at the Rental Disputes Center (RDC).
+Most inspection software comparisons are written for the US market and rank tools on features that do not decide anything here. In Dubai, an inspection report has one job above all others: holding up when a deposit is contested at the [Rental Disputes Center (RDC)](https://rdc.gov.ae/en/).
 
 That changes the evaluation criteria:
 

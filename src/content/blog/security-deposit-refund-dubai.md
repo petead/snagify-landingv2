@@ -26,7 +26,7 @@ This guide covers what the law actually says, what landlords can and cannot dedu
 
 ## What Dubai law says about your deposit
 
-The legal foundation is Dubai Law No. 26 of 2007, amended by Law No. 33 of 2008, which regulates the relationship between landlords and tenants in the Emirate.
+The legal foundation is [Dubai Law No. 26 of 2007](https://dubailand.gov.ae/en/), amended by Law No. 33 of 2008, which regulates the relationship between landlords and tenants in the Emirate.
 
 The key points:
 
@@ -34,7 +34,7 @@ The deposit must be returned. Article 20 of the law is explicit: at the end of t
 
 Deductions have narrow legal grounds. A landlord may only deduct for damage beyond normal wear and tear, unpaid rent or contractual penalties, and unpaid utility bills such as an outstanding DEWA balance.
 
-Normal wear and tear is not damage. Faded paint, minor scuffs, small nail holes, worn grout: these are the ordinary consequences of living in a home, and they are not valid grounds for keeping your money. The RDC's own guidance goes further: routine repainting between tenancies is the owner's responsibility, not the tenant's.
+Normal wear and tear is not damage. Faded paint, minor scuffs, small nail holes, worn grout: these are the ordinary consequences of living in a home, and they are not valid grounds for keeping your money. [The RDC's own guidance](https://rdc.gov.ae/en/frequently-asked-questions/) goes further: routine repainting between tenancies is the owner's responsibility, not the tenant's.
 
 In practice, deposits in Dubai typically run around 5% of annual rent for unfurnished properties and 10% for furnished ones. On a AED 100,000 tenancy, that is AED 5,000 to 10,000 sitting in someone else's account, waiting on your ability to prove you deserve it back.
 
@@ -54,7 +54,7 @@ Do this before your final walkthrough, not after:
 
 Document the property's exit condition, room by room. Photograph every wall, floor, appliance, and fixture. Capture the electricity and water meters. If you can produce a structured, time-stamped condition report rather than a camera roll of loose photos, do it: organized evidence reads very differently in front of a judge than 200 unsorted images.
 
-Clear your bills and keep the receipts. Final DEWA bill, cooling, gas, internet. Unpaid utilities are one of the few fully legitimate deductions, so remove the excuse.
+Clear your bills and keep the receipts. [Final DEWA bill](https://www.dewa.gov.ae/), cooling, gas, internet. Unpaid utilities are one of the few fully legitimate deductions, so remove the excuse.
 
 Request a joint check-out inspection. Ask the landlord or agent to walk the property with you and sign off on its condition. If they decline, confirm the handover by email so you have a dated record that the keys were returned and no issues were raised on the spot.
 
@@ -80,7 +80,7 @@ The two routes. The RDC offers an amicable settlement track, a mediated process 
 
 What you need to file. Your [Ejari-registered tenancy contract](/deposit-protection-dubai), Emirates ID, the deposit payment proof, your written demand and the landlord's responses, your condition evidence, and final utility bills. Note that documents submitted to the RDC must be in Arabic or legally translated into Arabic, and filings are electronic.
 
-Timelines. The RDC aims to resolve straightforward cases within about 15 days of filing, though contested cases take longer. Track your case through the RDC portal or the Dubai REST app.
+Timelines. The RDC aims to resolve straightforward cases within about 15 days of filing, though contested cases take longer. Track your case through the RDC portal or the [Dubai REST app](https://dubailand.gov.ae/en/).
 
 ## What actually wins these cases
 
