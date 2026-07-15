@@ -3086,6 +3086,27 @@ footer {
   transform: translateY(-4px);
   box-shadow: 0 16px 40px rgba(154,136,253,.4);
 }
+.btn-pros-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 30px;
+  background: transparent;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1.5px solid rgba(255,255,255,0.28);
+  cursor: pointer;
+  transition: border-color .15s, background .15s, transform .12s;
+}
+.btn-pros-secondary:hover {
+  border-color: rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.04);
+  transform: translateY(-1px);
+}
 
 /* ══ FOR PROS ══ */
 .for-pros {
@@ -3480,7 +3501,8 @@ footer {
   .for-pros-grid    { grid-template-columns: 1fr; gap: 32px; }
   .pros-features    { margin: 24px 0 32px; }
   .pros-cta         { flex-direction: column; align-items: stretch; gap: 12px; }
-  .pros-cta .btn-pros-primary { width: 100%; justify-content: center; }
+  .pros-cta .btn-pros-primary,
+  .pros-cta .btn-pros-secondary { width: 100%; justify-content: center; }
   .pros-stars       { opacity: .55; }
 
   /* Bento */
@@ -3829,8 +3851,8 @@ footer {
             See Pro Plans
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="/sample-report.pdf" target="_blank" class="hero-sample-link">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+          <a href="/sample-report.pdf" target="_blank" rel="noopener" class="btn-pros-secondary">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
             View sample report
           </a>
         </div>
