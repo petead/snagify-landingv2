@@ -9,6 +9,11 @@
   gtag('js', new Date());
 
   gtag('config', 'G-CR2PTLC7YS');
+  // Hardcoded Ads destination (static mirrors). Sync with PUBLIC_GOOGLE_ADS_ID.
+  var GOOGLE_ADS_ID = '';
+  if (GOOGLE_ADS_ID) {
+    gtag('config', GOOGLE_ADS_ID, { allow_enhanced_conversions: true });
+  }
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">

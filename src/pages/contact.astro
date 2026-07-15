@@ -1,5 +1,8 @@
 ---
 import LegalLayout from '../layouts/LegalLayout.astro';
+
+const GOOGLE_ADS_ID = (import.meta.env.PUBLIC_GOOGLE_ADS_ID as string | undefined)?.trim() || '';
+const GOOGLE_ADS_LEAD_LABEL = (import.meta.env.PUBLIC_GOOGLE_ADS_LEAD_LABEL as string | undefined)?.trim() || '';
 ---
 <LegalLayout
   title="Contact — Snagify"
@@ -272,7 +275,7 @@ body { min-height: 100vh; }
 
 </div>
 
-<script is:inline slot="scripts">
+<script is:inline slot="scripts" define:vars={{ GOOGLE_ADS_ID, GOOGLE_ADS_LEAD_LABEL }}>
 async function handleSubmit(e) {
   e.preventDefault();
   var errEl = document.getElementById('cf-error');
@@ -313,6 +316,13 @@ async function handleSubmit(e) {
 
     if (r.ok && typeof window.fbq === 'function') {
       window.fbq('track', 'Lead', { content_name: 'contact_form' }, { eventID: eventId });
+    }
+    if (r.ok && typeof window.gtag === 'function' && GOOGLE_ADS_ID && GOOGLE_ADS_LEAD_LABEL) {
+      window.gtag('set', 'user_data', { email: payload.email });
+      window.gtag('event', 'conversion', {
+        send_to: GOOGLE_ADS_ID + '/' + GOOGLE_ADS_LEAD_LABEL,
+        transaction_id: eventId,
+      });
     }
     if (r.ok) {
       document.getElementById('form-main').classList.add('hide');

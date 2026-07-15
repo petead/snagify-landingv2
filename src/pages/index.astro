@@ -18,6 +18,8 @@ const { packs, plans, priceRangeLabel } = pricing;
 const roiPlans = toRoiPlans(plans);
 const faqPageLd = buildFaqPageLd();
 const maxProCredits = plans.length ? Math.max(...plans.map((p) => p.creditsPerMonth)) : 50;
+const GOOGLE_ADS_ID = (import.meta.env.PUBLIC_GOOGLE_ADS_ID as string | undefined)?.trim() || '';
+const GOOGLE_ADS_LEAD_LABEL = (import.meta.env.PUBLIC_GOOGLE_ADS_LEAD_LABEL as string | undefined)?.trim() || '';
 
 function rollLabel(n: number) {
   return Number.isInteger(n) ? String(n) : String(n);
@@ -5428,7 +5430,7 @@ window.toggleBilling = toggleBilling;
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
-<script is:inline>
+<script is:inline define:vars={{ GOOGLE_ADS_ID, GOOGLE_ADS_LEAD_LABEL }}>
 (function() {
   var btn = document.getElementById('si-btn');
   var input = document.getElementById('si-email');
@@ -5463,6 +5465,13 @@ window.toggleBilling = toggleBilling;
 
       if (r.ok && typeof window.fbq === 'function') {
         window.fbq('track', 'Lead', { content_name: 'newsletter' }, { eventID: eventId });
+      }
+      if (r.ok && typeof window.gtag === 'function' && GOOGLE_ADS_ID && GOOGLE_ADS_LEAD_LABEL) {
+        window.gtag('set', 'user_data', { email: email });
+        window.gtag('event', 'conversion', {
+          send_to: GOOGLE_ADS_ID + '/' + GOOGLE_ADS_LEAD_LABEL,
+          transaction_id: eventId,
+        });
       }
       if (r.ok) {
         msg.textContent = "You're on the list — we'll be in touch.";
