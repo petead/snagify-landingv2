@@ -1,15 +1,10 @@
 ---
-const { article, locale = 'en' } = Astro.props;
-const isRTL = locale === 'ar';
-const htmlLang = locale === 'ar' ? 'ar' : 'en';
-const htmlDir = isRTL ? 'rtl' : 'ltr';
-const ogLocale = locale === 'ar' ? 'ar_AE' : 'en_AE';
-const inLanguage = locale === 'ar' ? 'ar-AE' : 'en-AE';
-const canonicalBase = locale === 'ar'
-  ? `https://snagify.net/ar/${article.slug}`
-  : `https://snagify.net/${article.slug}`;
-const altEn = `https://snagify.net/${article.slug}`;
-const altAr = `https://snagify.net/ar/${article.slug}`;
+const { article } = Astro.props;
+const htmlLang = 'en';
+const htmlDir = 'ltr';
+const ogLocale = 'en_AE';
+const inLanguage = 'en-AE';
+const canonicalBase = `https://snagify.net/${article.slug}`;
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import CrispChat from '../components/CrispChat.astro';
@@ -84,9 +79,6 @@ const breadcrumbJsonLd = {
 <meta name="description" content={article.metaDescription}>
 <meta name="keywords" content={article.keywords}>
 <link rel="canonical" href={canonicalBase}>
-<link rel="alternate" hreflang="en" href={altEn}>
-<link rel="alternate" hreflang="ar" href={altAr}>
-<link rel="alternate" hreflang="x-default" href={altEn}>
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Snagify · MULKEEF">
 <meta http-equiv="content-language" content={inLanguage}>
@@ -362,14 +354,6 @@ body {
   .final-cta { padding: 40px 24px; }
 }
 </style>
-{isRTL && <link rel="stylesheet" href="/src/styles/rtl.css">}
-{isRTL && (
-  <>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-  </>
-)}
 <CrispChat />
 <Clarity />
 </head>

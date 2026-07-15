@@ -725,11 +725,11 @@
       const buttons = Array.from(tabsRoot!.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
       const idx = buttons.findIndex((b) => b.dataset.tab === active);
       let next = idx;
-      const rtl = getComputedStyle(tabsRoot!).direction === 'rtl';
+      const isRtlDir = getComputedStyle(tabsRoot!).direction === 'rtl';
       if (e.key === 'Home') next = 0;
       else if (e.key === 'End') next = buttons.length - 1;
-      else if (e.key === 'ArrowRight') next = rtl ? idx - 1 : idx + 1;
-      else if (e.key === 'ArrowLeft') next = rtl ? idx + 1 : idx - 1;
+      else if (e.key === 'ArrowRight') next = isRtlDir ? idx - 1 : idx + 1;
+      else if (e.key === 'ArrowLeft') next = isRtlDir ? idx + 1 : idx - 1;
       next = (next + buttons.length) % buttons.length;
       const key = buttons[next].dataset.tab as DemoKey;
       selectTab(key, true);

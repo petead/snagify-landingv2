@@ -14,14 +14,6 @@ export default defineConfig({
   trailingSlash: 'never',
   compressHTML: false,
 
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'ar', 'ru', 'hi'],
-    routing: {
-      prefixDefaultLocale: false,
-    },
-  },
-
   vite: {
     build: {
       cssCodeSplit: true,
@@ -29,17 +21,5 @@ export default defineConfig({
     },
   },
 
-  integrations: [
-    sitemap({
-      i18n: {
-        defaultLocale: 'en',
-        locales: {
-          en: 'en',
-          ar: 'ar',
-          ru: 'ru',
-          hi: 'hi',
-        },
-      },
-    }),
-  ],
+  integrations: [sitemap()],
 });

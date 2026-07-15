@@ -1,27 +1,10 @@
 ---
-const { usecase, locale = 'en' } = Astro.props;
-const isRTL = locale === 'ar';
-const htmlLang = locale === 'ar' ? 'ar'
-  : (locale === 'ru' ? 'ru'
-  : (locale === 'hi' ? 'hi' : 'en'));
-const htmlDir = isRTL ? 'rtl' : 'ltr';
-const ogLocale = locale === 'ar' ? 'ar_AE'
-  : (locale === 'ru' ? 'ru_AE'
-  : (locale === 'hi' ? 'hi_AE' : 'en_AE'));
-const inLanguage = locale === 'ar' ? 'ar-AE'
-  : (locale === 'ru' ? 'ru-AE'
-  : (locale === 'hi' ? 'hi-AE' : 'en-AE'));
-const canonicalBase = locale === 'ar'
-  ? `https://snagify.net/ar/${usecase.slug}`
-  : (locale === 'ru'
-    ? `https://snagify.net/ru/${usecase.slug}`
-    : (locale === 'hi'
-      ? `https://snagify.net/hi/${usecase.slug}`
-      : `https://snagify.net/${usecase.slug}`));
-const altEn = `https://snagify.net/${usecase.slug}`;
-const altAr = `https://snagify.net/ar/${usecase.slug}`;
-const altRu = `https://snagify.net/ru/${usecase.slug}`;
-const altHi = `https://snagify.net/hi/${usecase.slug}`;
+const { usecase } = Astro.props;
+const htmlLang = 'en';
+const htmlDir = 'ltr';
+const ogLocale = 'en_AE';
+const inLanguage = 'en-AE';
+const canonicalBase = `https://snagify.net/${usecase.slug}`;
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import CrispChat from '../components/CrispChat.astro';
@@ -69,11 +52,6 @@ const articleJsonLd = {
 <meta name="description" content={usecase.metaDescription}>
 <meta name="keywords" content={usecase.keywords}>
 <link rel="canonical" href={canonicalBase}>
-<link rel="alternate" hreflang="en" href={altEn}>
-<link rel="alternate" hreflang="ar" href={altAr}>
-<link rel="alternate" hreflang="ru" href={altRu}>
-<link rel="alternate" hreflang="hi" href={altHi}>
-<link rel="alternate" hreflang="x-default" href={altEn}>
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Snagify · MULKEEF">
 <meta http-equiv="content-language" content={inLanguage}>
@@ -104,21 +82,9 @@ const articleJsonLd = {
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-/* -- Defensive LTR protection: anything that is NOT Arabic is LTR -- */
-html[lang="en"], html[lang="en"] body,
-html[lang="ru"], html[lang="ru"] body,
-html[lang="hi"], html[lang="hi"] body,
-html[lang="fr"], html[lang="fr"] body {
+html[lang="en"], html[lang="en"] body {
   direction: ltr !important;
   text-align: left;
-}
-
-/* Catch-all: any html that is not [lang="ar"] is forced to LTR */
-html:not([lang="ar"]) {
-  direction: ltr !important;
-}
-html:not([lang="ar"]) body {
-  direction: ltr !important;
 }
 
 * { cursor: auto; }
@@ -336,21 +302,6 @@ body {
   .final-cta { padding: 48px 24px; }
 }
 </style>
-{isRTL && <link rel="stylesheet" href="/src/styles/rtl.css">}
-{isRTL && (
-  <>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-  </>
-)}
-{locale === 'hi' && (
-  <>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  </>
-)}
 <CrispChat />
 <Clarity />
 </head>

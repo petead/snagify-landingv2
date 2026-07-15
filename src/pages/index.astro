@@ -1,5 +1,4 @@
 ---
-import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import CrispChat from '../components/CrispChat.astro';
 import Clarity from '../components/Clarity.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
@@ -10,9 +9,6 @@ import FaqCreditAnswer from '../components/FaqCreditAnswer.astro';
 import { fetchPricingCatalog, formatAed, toRoiPlans } from '../lib/pricing';
 import { buildFaqPageLd } from '../lib/faq-ld';
 import { getPublishedBlogPosts } from '../lib/blog';
-
-const currentLocale = Astro.currentLocale || 'en';
-const currentPath = Astro.url.pathname;
 
 const pricing = await fetchPricingCatalog();
 const { packs, plans, priceRangeLabel } = pricing;
@@ -3556,8 +3552,6 @@ footer {
 <meta property="og:image:height" content="760">
 <meta property="og:image:alt" content="Snagify — Dubai property inspection app, RDC valid reports, 20 minutes per inspection.">
 <meta property="og:locale" content="en_AE">
-<meta property="og:locale:alternate" content="en_US">
-<meta property="og:locale:alternate" content="ar_AE">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@snagifyapp">
 <meta name="twitter:creator" content="@snagifyapp">
@@ -3591,9 +3585,6 @@ footer {
     <li><a href="#roi">ROI</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#faq">FAQ</a></li>
-    <li>
-      <LanguageSwitcher currentLocale={currentLocale} currentPath={currentPath} />
-    </li>
     <li>
       <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="nav-pill nav-app-btn">
         <span class="nav-pill-dot"></span>
