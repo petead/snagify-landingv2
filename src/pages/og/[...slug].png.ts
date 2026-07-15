@@ -13,6 +13,8 @@ const poppinsExtraBold = fs.readFileSync(
 const dmSansRegular = fs.readFileSync(
   path.join(process.cwd(), 'src/assets/fonts/DMSans-Regular.ttf'),
 );
+const logoPng = fs.readFileSync(path.join(process.cwd(), 'src/assets/og/logo.png'));
+const logoDataUri = `data:image/png;base64,${logoPng.toString('base64')}`;
 
 function formatOgDate(date: Date): string {
   return date.toLocaleDateString('en-GB', {
@@ -54,25 +56,54 @@ export const GET: APIRoute = async ({ props }) => {
             props: {
               style: {
                 display: 'flex',
-                alignItems: 'flex-start',
+                alignItems: 'center',
+                gap: '16px',
               },
-              children: {
-                type: 'div',
-                props: {
-                  style: {
-                    display: 'flex',
-                    alignItems: 'center',
-                    background: 'rgba(202,254,135,0.12)',
-                    borderRadius: '999px',
-                    padding: '10px 20px',
-                    color: '#CAFE87',
-                    fontFamily: 'DM Sans',
-                    fontSize: 28,
-                    fontWeight: 400,
+              children: [
+                {
+                  type: 'img',
+                  props: {
+                    src: logoDataUri,
+                    width: 48,
+                    height: 48,
+                    style: {
+                      width: 48,
+                      height: 48,
+                      borderRadius: 10,
+                    },
                   },
-                  children: 'Snagify · Dubai Rentals Guide',
                 },
-              },
+                {
+                  type: 'div',
+                  props: {
+                    style: {
+                      display: 'flex',
+                      color: '#FFFFFF',
+                      fontFamily: 'Poppins',
+                      fontSize: 32,
+                      fontWeight: 800,
+                    },
+                    children: 'Snagify',
+                  },
+                },
+                {
+                  type: 'div',
+                  props: {
+                    style: {
+                      display: 'flex',
+                      alignItems: 'center',
+                      color: '#CAFE87',
+                      fontFamily: 'DM Sans',
+                      fontSize: 24,
+                      fontWeight: 400,
+                      border: '1px solid #CAFE87',
+                      borderRadius: 100,
+                      padding: '8px 16px',
+                    },
+                    children: 'Dubai Rentals Guide',
+                  },
+                },
+              ],
             },
           },
           {
