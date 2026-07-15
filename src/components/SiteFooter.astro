@@ -1,4 +1,6 @@
 ---
+import { getPublishedBlogPosts } from '../lib/blog';
+
 const pathname = Astro.url.pathname;
 
 let locale = 'en';
@@ -8,6 +10,8 @@ else if (/^\/hi(?:\/|$|\.html$)/.test(pathname)) locale = 'hi';
 
 const prefix = locale === 'en' ? '' : `/${locale}`;
 const isRTL = locale === 'ar';
+
+const blogPosts = (await getPublishedBlogPosts()).slice(0, 4);
 
 const labels = {
   en: {
@@ -51,9 +55,10 @@ const labels = {
       { label: "Deposit protection", href: "/deposit-protection-dubai" },
       { label: "Dilapidations", href: "/dilapidations-dubai" }
     ],
+    blogCol: "Blog",
+    blogAllLink: { label: "All articles →", href: "/blog" },
     guidesCol: "Guides",
     guidesLinks: [
-      { label: "Blog", href: "/blog" },
       { label: "Dubai RDC Guide", href: "/dubai-rental-dispute-center-guide" }
     ],
     legalCol: "Legal",
@@ -257,6 +262,18 @@ const showEnOnlyColumns = locale === 'en';
 
     {showEnOnlyColumns && (
       <div class="site-foot-col">
+        <h4>{labels.en.blogCol}</h4>
+        <ul>
+          {blogPosts.map((post) => (
+            <li><a href={`/blog/${post.slug}`}>{post.data.title}</a></li>
+          ))}
+          <li><a href={labels.en.blogAllLink.href}>{labels.en.blogAllLink.label}</a></li>
+        </ul>
+      </div>
+    )}
+
+    {showEnOnlyColumns && (
+      <div class="site-foot-col">
         <h4>{labels.en.guidesCol}</h4>
         <ul>
           {labels.en.guidesLinks.map(link => (
@@ -311,8 +328,8 @@ const showEnOnlyColumns = locale === 'en';
 .site-footer-top {
   max-width: 1280px; margin: 0 auto;
   display: grid;
-  grid-template-columns: 2fr repeat(6, 1fr);
-  gap: 32px;
+  grid-template-columns: 2fr repeat(7, 1fr);
+  gap: 28px;
   padding-bottom: 36px;
   border-bottom: 1px solid rgba(252,252,252,0.1);
 }
@@ -361,6 +378,11 @@ const showEnOnlyColumns = locale === 'en';
   font-size: 13px; color: rgba(252,252,252,0.6);
   text-decoration: none; cursor: pointer;
   transition: color 0.2s;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .site-foot-col a:hover { color: #9A88FD; }
 

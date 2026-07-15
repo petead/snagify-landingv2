@@ -9,6 +9,7 @@ import HowItWorksToggle from '../components/HowItWorksToggle.astro';
 import FaqCreditAnswer from '../components/FaqCreditAnswer.astro';
 import { fetchPricingCatalog, formatAed, toRoiPlans } from '../lib/pricing';
 import { buildFaqPageLd } from '../lib/faq-ld';
+import { getPublishedBlogPosts } from '../lib/blog';
 
 const currentLocale = Astro.currentLocale || 'en';
 const currentPath = Astro.url.pathname;
@@ -20,6 +21,7 @@ const faqPageLd = buildFaqPageLd();
 const maxProCredits = plans.length ? Math.max(...plans.map((p) => p.creditsPerMonth)) : 50;
 const GOOGLE_ADS_ID = (import.meta.env.PUBLIC_GOOGLE_ADS_ID as string | undefined)?.trim() || '';
 const GOOGLE_ADS_LEAD_LABEL = (import.meta.env.PUBLIC_GOOGLE_ADS_LEAD_LABEL as string | undefined)?.trim() || '';
+const footerBlogPosts = (await getPublishedBlogPosts()).slice(0, 4);
 
 function rollLabel(n: number) {
   return Number.isInteger(n) ? String(n) : String(n);
@@ -2271,8 +2273,8 @@ footer {
 }
 .footer-top {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 60px; margin-bottom: 56px;
+  grid-template-columns: 2fr repeat(7, 1fr);
+  gap: 28px; margin-bottom: 56px;
 }
 .foot-brand {
   display: flex;
@@ -2305,6 +2307,8 @@ footer {
 .foot-col a {
   color: rgba(255,255,255,.6); text-decoration: none;
   font-size: 14px; transition: color .25s;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .foot-col a:hover { color: var(--purple); }
 .footer-bottom {
@@ -5006,6 +5010,16 @@ footer {
         <li><a href="/snagging-inspection-dubai">Property snagging</a></li>
         <li><a href="/deposit-protection-dubai">Deposit protection</a></li>
         <li><a href="/dilapidations-dubai">Dilapidations</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Blog</h4>
+      <ul>
+        {footerBlogPosts.map((post) => (
+          <li><a href={`/blog/${post.slug}`}>{post.data.title}</a></li>
+        ))}
+        <li><a href="/blog">All articles →</a></li>
       </ul>
     </div>
 
