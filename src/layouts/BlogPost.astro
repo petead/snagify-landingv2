@@ -15,7 +15,7 @@ interface Props {
 const { post } = Astro.props;
 const { title, description, pubDate, updatedDate, author, faq, tags } = post.data;
 const slug = post.slug;
-const site = Astro.site?.origin ?? 'https://www.snagify.net';
+const site = Astro.site?.origin ?? 'https://snagify.net';
 const canonical = `${site}/blog/${slug}`;
 const ogImage = `${site}/og/${slug}.png`;
 const pageTitle = `${title} | Snagify`;

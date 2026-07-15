@@ -8,7 +8,7 @@ import MetaPixel from '../../components/MetaPixel.astro';
 import { formatBlogDate, getPublishedBlogPosts, readingTimeMinutes } from '../../lib/blog';
 
 const posts = await getPublishedBlogPosts();
-const site = Astro.site?.origin ?? 'https://www.snagify.net';
+const site = Astro.site?.origin ?? 'https://snagify.net';
 const title = 'Blog | Snagify';
 const description =
   'Deposits, inspections and RDC disputes, explained by people who build inspection software in Dubai.';
