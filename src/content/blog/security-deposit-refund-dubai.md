@@ -2,6 +2,7 @@
 title: "How to Get Your Security Deposit Back in Dubai (2026 Guide)"
 description: "What Dubai law actually says about deposit refunds, what landlords can deduct, and the exact steps to recover your money, including RDC fees and timelines."
 pubDate: 2026-07-15
+updatedDate: 2026-07-15
 author: "Pierre Adam"
 tags: ["deposits", "rdc", "tenant-rights"]
 faq:
@@ -10,7 +11,7 @@ faq:
   - question: "Can my landlord deduct for repainting and normal wear and tear?"
     answer: "No. Deductions are only allowed for damage beyond normal wear and tear, unpaid rent, or unpaid bills. The RDC's own guidance treats repainting between tenancies as the owner's responsibility, not the tenant's."
   - question: "How much does it cost to file a deposit case at the RDC?"
-    answer: "Filing fees are approximately 3.5% of your annual rent, plus small administrative fees. On a AED 100,000 rent, that is around AED 3,500, which is why documenting everything early is far cheaper than litigating later."
+    answer: "For a financial claim like a deposit recovery, the fee is 3.5% of the claimed amount, with a minimum of AED 500 and a maximum of AED 15,000. The 3.5% of annual rent basis applies to contract cases such as evictions, not deposit claims. Courts commonly order the losing party to bear the fees."
   - question: "What evidence does the RDC accept in a deposit dispute?"
     answer: "The strongest evidence is a signed, time-stamped condition report from move-in and move-out, alongside your Ejari contract, payment receipts, final DEWA bills, and written communication with the landlord. Loose photos without dates or signatures carry far less weight."
   - question: "Do I need a lawyer to file at the RDC?"
@@ -74,7 +75,7 @@ If the landlord responds with claimed deductions, ask for itemized proof: repair
 
 If the demand goes nowhere, [the RDC is the competent authority](/dubai-rental-dispute-center-guide) for deposit disputes in Dubai. Not RERA, which sets the rules, and not the DLD's violations channel, which explicitly cannot order refunds. The RDC.
 
-What it costs. Filing fees are approximately 3.5% of the annual rent, plus small administrative fees. On a AED 100,000 rent, expect around AED 3,500 to file. This number surprises people, and it is exactly why prevention and early settlement beat litigation for smaller claims.
+What it costs. For a deposit claim, the fee is 3.5% of the amount you are claiming, with a minimum of AED 500 and a maximum of AED 15,000. The widely repeated 3.5% of annual rent figure applies to contract cases such as evictions and renewals, not to a pure financial claim like a deposit recovery. On a AED 5,500 deposit, that means the AED 500 minimum plus small administrative charges. Courts commonly order the losing party to bear the fees, and a dispute settled at the conciliation stage gets half the base fee refunded. Filing is far more affordable than most tenants believe: the real cost of litigation is time, not money.
 
 The two routes. The RDC offers an amicable settlement track, a mediated process designed to resolve disputes quickly before formal litigation, and a first-instance lawsuit for cases that need a judgment. Many deposit disputes settle at the mediation stage once both sides have to put their evidence on the table.
 
