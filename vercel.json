@@ -1,6 +1,8 @@
 {
   "cleanUrls": true,
   "redirects": [
+    { "source": "/fr", "destination": "/", "permanent": true },
+    { "source": "/fr/:path*", "destination": "/:path*", "permanent": true },
     { "source": "/ar", "destination": "/", "permanent": true },
     { "source": "/ar/:path*", "destination": "/:path*", "permanent": true },
     { "source": "/ru", "destination": "/", "permanent": true },
