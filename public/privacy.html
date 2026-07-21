@@ -22,7 +22,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" href="/favicon.ico">
 <title>Privacy Policy — Snagify</title>
-<meta name="description" content="Snagify's privacy policy. We don't sell your data, don't run ads, and store only what's necessary to deliver the inspection service.">
+<meta name="description" content="Snagify's privacy policy — what we collect, how we use it, retention, analytics, and your rights under UAE PDPL.">
 <meta property="og:title" content="Privacy Policy — Snagify">
 <meta property="og:url" content="https://snagify.net/privacy">
 <link rel="canonical" href="https://snagify.net/privacy">
@@ -94,10 +94,17 @@ nav {
 .content-section p:last-child { margin-bottom:0; }
 .content-section ul { padding-left:0; list-style:none; display:flex;flex-direction:column;gap:8px; margin-bottom:14px; }
 .content-section ul li {
-  display:flex;align-items:flex-start;gap:10px;
+  position: relative;
+  padding-left: 18px;
   font-size:15px;color:var(--ink-60);line-height:1.7;
 }
-.content-section ul li::before { content:'·'; color:var(--purple);font-weight:800;flex-shrink:0;margin-top:1px; }
+.content-section ul li::before {
+  content:'·';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color:var(--purple);font-weight:800;
+}
 .content-section h3 { font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;margin:20px 0 10px; }
 
 .highlight-box {
@@ -125,6 +132,9 @@ footer { background:var(--ink);padding:40px 48px;display:flex;align-items:center
 .foot-links { display:flex;gap:20px; }
 .foot-links a { font-size:13px;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s; }
 .foot-links a:hover { color:#9A88FD; }
+
+.content-section a { color:var(--purple);text-decoration:none;font-weight:600; }
+.content-section a:hover { text-decoration:underline; }
 
 @media(max-width:768px) {
   nav { padding:14px 20px; }
@@ -154,9 +164,9 @@ footer { background:var(--ink);padding:40px 48px;display:flex;align-items:center
   <div class="page-meta">
     <span>
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      Last updated: March 2025
+      Last updated: 10 January 2026
     </span>
-    <span>Applies to snagify.net and the Snagify mobile app</span>
+    <span>Applies to snagify.net and the Snagify app</span>
   </div>
 </div>
 
@@ -164,114 +174,151 @@ footer { background:var(--ink);padding:40px 48px;display:flex;align-items:center
   <aside class="toc">
     <div class="toc-title">On this page</div>
     <ul class="toc-list">
-      <li><a href="#intro">Overview</a></li>
-      <li><a href="#collect">What we collect</a></li>
-      <li><a href="#use">How we use it</a></li>
-      <li><a href="#store">Storage & security</a></li>
-      <li><a href="#share">Who we share with</a></li>
-      <li><a href="#rights">Your rights</a></li>
-      <li><a href="#cookies">Cookies</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#overview">1. Overview</a></li>
+      <li><a href="#collect">2. What we collect</a></li>
+      <li><a href="#signatories">3. Signatories</a></li>
+      <li><a href="#use">4. How we use it</a></li>
+      <li><a href="#ai">5. AI processing</a></li>
+      <li><a href="#analytics">6. Analytics &amp; ads</a></li>
+      <li><a href="#storage">7. Storage &amp; security</a></li>
+      <li><a href="#retention">8. Retention</a></li>
+      <li><a href="#share">9. Who we share with</a></li>
+      <li><a href="#rights">10. Your rights</a></li>
+      <li><a href="#cookies">11. Cookies</a></li>
+      <li><a href="#breach">12. Data breach</a></li>
+      <li><a href="#children">13. Children</a></li>
+      <li><a href="#changes">14. Changes</a></li>
+      <li><a href="#contact">15. Contact</a></li>
     </ul>
   </aside>
 
   <main class="content">
 
-    <section class="content-section" id="intro">
-      <h2>Overview</h2>
-      <div class="highlight-box">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Snagify does not sell your personal data. We do not run ads. We store only what is necessary to deliver the inspection service.
-      </div>
-      <p>Snagify is operated by Snagify (the "Company", "we", "us"). This Privacy Policy explains what personal information we collect when you use Snagify, how we use it, and the choices you have regarding your information.</p>
-      <p>By using Snagify, you agree to the practices described in this policy. If you do not agree, please do not use the service.</p>
+    <section class="content-section" id="overview">
+      <h2>1. Overview</h2>
+      <p>We do not sell your personal data, and we do not display third-party advertising inside Snagify. We collect what is needed to deliver the inspection service, to secure it, and to grow it — and this policy tells you exactly what that means.</p>
+      <p>Snagify is operated by INNOVADATA ANALYSIS SERVICES - FZCO (Trade License No. 72335, IFZA, Dubai Silicon Oasis, Dubai, UAE) ("the Company", "we", "us"), acting as the data controller for the processing described here. We process personal data in accordance with UAE Federal Decree-Law No. 45 of 2021 on the Protection of Personal Data (PDPL) and other applicable UAE law.</p>
+      <p>This policy covers account holders and people who interact with Snagify without an account — in particular tenants and landlords who sign inspection reports (see <a href="#signatories">Section 3</a>).</p>
     </section>
 
     <section class="content-section" id="collect">
-      <h2>What we collect</h2>
-      <h3>Account information</h3>
-      <ul>
-        <li>Name and email address when you create an account</li>
-        <li>Professional details you choose to add (company name, RERA number, job title)</li>
-        <li>Profile photo and digital signature image (optional)</li>
-      </ul>
-      <h3>Inspection data</h3>
-      <ul>
-        <li>Property details you enter (address, unit number, type)</li>
-        <li>Photos taken during inspections, stored in your account</li>
-        <li>Room condition assessments and tags</li>
-        <li>Signatures collected from you and other parties</li>
-        <li>Timestamps and GPS metadata attached to photos</li>
-      </ul>
-      <h3>Usage data</h3>
-      <ul>
-        <li>Device type, operating system, and browser version</li>
-        <li>Pages visited and actions taken in the app</li>
-        <li>Error logs for debugging purposes</li>
-      </ul>
-      <h3>Payment data</h3>
-      <p>Payments are processed by a third-party provider. We do not store credit card numbers or full payment details on our servers.</p>
+      <h2>2. What we collect</h2>
+      <p>Account information — name and email when you create an account; professional details you choose to add (company name, RERA number, job title); optional profile photo and saved signature image; the date you accepted our Terms.</p>
+      <p>Inspection data — property details you enter (building, unit, type); photos taken during inspections; condition assessments, damage tags, and evolution assessments; notes and descriptions (including AI-drafted text you validate); signatures collected during the signing process; timestamps and, where enabled, GPS metadata attached to photos.</p>
+      <p>Timestamps and location metadata exist to strengthen the evidential value of reports and appear in generated documents.</p>
+      <p>Usage data — device type, operating system, browser version; pages visited and in-app actions; error logs (kept with our hosting provider for debugging).</p>
+      <p>Analytics and advertising identifiers — see <a href="#analytics">Section 6</a>. We are transparent about this: measurement and advertising tools are used on our website and app.</p>
+      <p>Payment data — payments are processed by Stripe. We do not store card numbers on our servers; we retain billing records (plan, invoices, transaction status) linked to your account.</p>
+    </section>
+
+    <section class="content-section" id="signatories">
+      <h2>3. If you sign a report without an account</h2>
+      <p>Inspection reports are signed by parties who may not hold a Snagify account (typically tenants and landlords). For these signatories we process: name, email address and/or phone number (for identity verification and delivery of the signed report), the signature image, signing timestamps, and verification codes.</p>
+      <p>This data is processed to execute the inspection and signature process initiated by the inspecting user, and to preserve the integrity and verifiability of the signed report for all signing parties. Signed reports and associated signatures are retained as described in <a href="#retention">Section 8</a>.</p>
+      <p>The inspecting user (agency or individual) is responsible for ensuring they have the right to enter another person's details into the Service. If you signed a report and have questions about your data, contact us (<a href="#contact">Section 15</a>) — your rights under <a href="#rights">Section 10</a> apply to you as well.</p>
     </section>
 
     <section class="content-section" id="use">
-      <h2>How we use it</h2>
+      <h2>4. How we use personal data</h2>
       <ul>
-        <li>To generate, store, and deliver your inspection reports</li>
-        <li>To power AI photo analysis via third-party AI services</li>
-        <li>To send you inspection-related notifications and reminders</li>
-        <li>To process payments and manage your subscription or credits</li>
-        <li>To improve the product and fix bugs</li>
-        <li>To comply with applicable UAE law and respond to legal requests</li>
+        <li>To generate, store, deliver, and enable verification of inspection reports (performance of the service);</li>
+        <li>to power AI-assisted analysis and drafting (<a href="#ai">Section 5</a>);</li>
+        <li>to send inspection-related notifications, signature requests, and reminders;</li>
+        <li>to process payments and manage subscriptions and credits (via Stripe);</li>
+        <li>to measure and improve the product, fix bugs, and secure the Service;</li>
+        <li>to measure our own marketing and acquisition campaigns (<a href="#analytics">Section 6</a>);</li>
+        <li>to comply with UAE law and respond to valid legal requests.</li>
       </ul>
-      <p>We do not use your data for advertising or share it with marketing platforms.</p>
     </section>
 
-    <section class="content-section" id="store">
-      <h2>Storage & security</h2>
-      <p>Your data is stored on Supabase infrastructure, hosted in secure data centers. Inspection reports are retained for as long as your account is active. Photos and PDFs are stored in isolated per-user buckets.</p>
-      <p>We use industry-standard encryption in transit (TLS) and at rest. Inspection PDFs are signed with a SHA-256 hash that makes any post-submission alteration detectable.</p>
-      <p>If you delete an inspection, associated photos and PDF files are permanently removed from storage. If you close your account, all personal data is deleted within 30 days.</p>
+    <section class="content-section" id="ai">
+      <h2>5. AI processing</h2>
+      <p>Photos and related inspection context are sent to Anthropic (Claude models) to generate draft descriptions, suggested tags, suggested evolution assessments, and report summaries. This processing happens under Anthropic's commercial API data terms: inputs and outputs are not used to train Anthropic's models, and are handled per Anthropic's usage and retention policies (see <a href="https://www.anthropic.com/legal" target="_blank" rel="noopener noreferrer">anthropic.com/legal</a>). AI outputs are drafts subject to human validation, as described in our <a href="/terms">Terms of Service</a>.</p>
+    </section>
+
+    <section class="content-section" id="analytics">
+      <h2>6. Analytics &amp; advertising measurement</h2>
+      <p>We use the following tools on snagify.net and, where indicated, in the app:</p>
+      <ul>
+        <li>Google Analytics 4 — audience measurement across our website and app (cross-domain), so we understand how Snagify is used.</li>
+        <li>Meta Pixel and Conversions API — measurement and attribution of our own advertising campaigns (e.g. knowing that a signup followed one of our ads). Event data may include hashed identifiers (such as a hashed email) shared with Meta for deduplication and attribution.</li>
+        <li>Microsoft Clarity — session analytics (interaction patterns such as clicks and scrolls) to improve usability.</li>
+        <li>Google Ads — conversion measurement for our own campaigns.</li>
+      </ul>
+      <p>These tools help us measure our product and our own marketing. We do not sell your data, and we do not permit these providers to use it for their own independent advertising purposes beyond what their terms provide. Each provider processes data under its own privacy policy. You can limit collection through browser settings, tracker-blocking tools, and the opt-outs each provider offers.</p>
+    </section>
+
+    <section class="content-section" id="storage">
+      <h2>7. Storage, security &amp; international transfers</h2>
+      <p>Your data is stored on Supabase infrastructure hosted in the Asia-South (Mumbai, India) region, with photos and PDFs in access-controlled storage buckets. Because we operate from the UAE and use international providers, personal data is transferred to and processed in other jurisdictions — including India (hosting), the United States and/or the EU (Vercel, Anthropic, Stripe, Google, Meta, Microsoft, Resend) — under each provider's safeguards and data processing terms, as permitted by the PDPL.</p>
+      <p>We use encryption in transit (TLS) and at rest. Signed inspection reports carry a SHA-256 content hash making post-signature alteration detectable. Access to production data is restricted and logged.</p>
+      <p>No system is perfectly secure; we encourage you to use a strong, unique password and to keep copies of downloaded reports.</p>
+    </section>
+
+    <section class="content-section" id="retention">
+      <h2>8. Retention</h2>
+      <ul>
+        <li>Active accounts — inspection data is retained while your account is active.</li>
+        <li>Signed reports — signed reports, their verification hashes, and associated signatures are retained for five (5) years from the date of signature, including after the creating account is closed, because they serve as records for all signing parties (see <a href="/terms#document-integrity">Terms of Service, Section 8</a>).</li>
+        <li>Account closure — other personal data (drafts, unsigned inspections, account data) is deleted within 30 days of closure, except where law requires longer retention.</li>
+        <li>Deleted inspections — if you delete an unsigned inspection, its photos and files are permanently removed from storage.</li>
+        <li>Payment suspension — after a failed-payment suspension, account data is retained for 90 days.</li>
+      </ul>
     </section>
 
     <section class="content-section" id="share">
-      <h2>Who we share with</h2>
-      <p>We share data only with the following categories of third parties, strictly to operate the service:</p>
+      <h2>9. Who we share with</h2>
+      <p>Only with providers needed to operate the Service, each under its own data processing terms:</p>
       <ul>
-        <li><strong>Supabase</strong> — database and file storage</li>
-        <li><strong>Anthropic</strong> — AI photo analysis (photos sent for analysis are not retained by Anthropic beyond the request)</li>
-        <li><strong>Resend</strong> — transactional email delivery</li>
-        <li><strong>Vercel</strong> — application hosting</li>
-        <li><strong>Payment processor</strong> — billing and subscription management</li>
+        <li>Supabase — database, authentication, and file storage (hosted in Mumbai, India)</li>
+        <li>Vercel — application hosting and logs</li>
+        <li>Anthropic — AI analysis and drafting (<a href="#ai">Section 5</a>)</li>
+        <li>Stripe — payments, subscriptions, invoicing</li>
+        <li>Resend — transactional email delivery</li>
+        <li>Google — analytics (GA4) and ads conversion measurement</li>
+        <li>Meta — advertising measurement (Pixel / Conversions API)</li>
+        <li>Microsoft — Clarity session analytics</li>
       </ul>
-      <p>We may disclose data if required by UAE law, a court order, or a valid government request.</p>
+      <p>We may disclose data where required by UAE law, a court order, or a valid request from a competent authority, and in connection with a merger, acquisition, or sale of assets (with notice, and under equivalent protections).</p>
     </section>
 
     <section class="content-section" id="rights">
-      <h2>Your rights</h2>
-      <p>You have the right to:</p>
-      <ul>
-        <li>Access the personal data we hold about you</li>
-        <li>Correct inaccurate information in your profile</li>
-        <li>Delete your account and all associated data</li>
-        <li>Export your inspection reports at any time</li>
-        <li>Withdraw consent for optional data uses</li>
-      </ul>
-      <p>To exercise any of these rights, contact us at <a href="mailto:hello@snagify.net" style="color:var(--purple);font-weight:600">hello@snagify.net</a>. We will respond within 14 days.</p>
+      <h2>10. Your rights</h2>
+      <p>Subject to the PDPL, you have the right to: access the personal data we hold about you; correct inaccurate data; request deletion of your account and associated data (subject to the signed-report retention in <a href="#retention">Section 8</a>); receive a copy of your inspection reports at any time; object to or restrict certain processing; and withdraw consent where processing is based on consent.</p>
+      <p>To exercise any right, email <a href="mailto:hello@snagify.net">hello@snagify.net</a> with the subject "Privacy Request". We respond within 14 business days. We may need to verify your identity before acting on a request. If you are not satisfied with our response, you may lodge a complaint with the UAE Data Office or other competent authority.</p>
     </section>
 
     <section class="content-section" id="cookies">
-      <h2>Cookies</h2>
-      <p>Snagify uses a minimal number of cookies required for authentication and session management. We do not use tracking cookies, advertising cookies, or third-party analytics that profile your behavior.</p>
-      <p>You can disable cookies in your browser settings, but this will prevent you from staying logged in.</p>
+      <h2>11. Cookies</h2>
+      <p>Snagify uses:</p>
+      <ul>
+        <li>Essential cookies — authentication and session management (required; disabling them prevents login);</li>
+        <li>Analytics and measurement cookies/identifiers — set by the tools listed in <a href="#analytics">Section 6</a>.</li>
+      </ul>
+      <p>You can control non-essential cookies through your browser settings and the providers' opt-out mechanisms.</p>
+    </section>
+
+    <section class="content-section" id="breach">
+      <h2>12. Data breach notification</h2>
+      <p>If a personal data breach occurs that is likely to result in a risk to your rights, we will notify the competent UAE authority and, where required, the affected individuals, in accordance with the PDPL.</p>
+    </section>
+
+    <section class="content-section" id="children">
+      <h2>13. Children</h2>
+      <p>Snagify is not directed at individuals under 18, and we do not knowingly collect data from them. Account holders must be at least 18 (see <a href="/terms">Terms of Service</a>).</p>
+    </section>
+
+    <section class="content-section" id="changes">
+      <h2>14. Changes to this policy</h2>
+      <p>We may update this policy as the Service evolves. Material changes will be notified (email or in-app) before taking effect. The "Last updated" date reflects the current version.</p>
     </section>
 
     <section class="content-section" id="contact">
-      <h2>Contact</h2>
-      <p>For any privacy-related questions or data requests:</p>
+      <h2>15. Contact</h2>
       <div class="contact-box">
-        <h3>Snagify Privacy</h3>
-        <p>Email: <a href="mailto:hello@snagify.net">hello@snagify.net</a><br>
-        Subject line: "Privacy Request"<br>
+        <h3>Privacy inquiries</h3>
+        <p>INNOVADATA ANALYSIS SERVICES - FZCO — IFZA Properties, Dubai Silicon Oasis, Dubai, UAE.<br>
+        Privacy inquiries and data requests: <a href="mailto:hello@snagify.net">hello@snagify.net</a> — subject "Privacy Request".<br>
         We respond within 14 business days.</p>
       </div>
     </section>
