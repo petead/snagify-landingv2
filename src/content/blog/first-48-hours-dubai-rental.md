@@ -1,6 +1,6 @@
 ---
 title: "Just Got Your Keys? Your First 48 Hours in a Dubai Rental"
-description: "The practical playbook for your first two days in a new Dubai rental: DEWA, Ejari, move-in permits, and the one 20-minute task that protects your deposit for the whole tenancy."
+description: "Your first 48 hours in a Dubai rental: DEWA, Ejari, move-in permits, and the 20-minute task that protects your deposit for the whole tenancy."
 pubDate: 2026-07-29
 author: "Pierre Adam"
 tags: ["move-in", "checklist", "expats"]

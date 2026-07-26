@@ -1,6 +1,6 @@
 ---
 title: "Photos vs Signed Reports: What Counts as Evidence at the Dubai RDC"
-description: "WhatsApp photos, camera rolls, signed condition reports: what the Rental Disputes Center actually weighs in a deposit case, and why most tenant evidence fails before it is even read."
+description: "WhatsApp photos vs signed reports: what the Dubai RDC weighs in deposit cases, and why most tenant evidence fails before it is even read."
 pubDate: 2026-07-27
 author: "Pierre Adam"
 tags: ["rdc", "evidence", "deposits"]
