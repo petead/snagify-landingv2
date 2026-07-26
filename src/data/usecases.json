@@ -87,7 +87,7 @@
     ],
     "finalCta": {
       "headline": "Document your move-in.",
-      "subheadline": "Free check-in. RDC valid. No credit card.",
+      "subheadline": "Free check-in. RDC-ready. No credit card.",
       "buttonLabel": "Start free check-in →"
     }
   },
@@ -184,7 +184,7 @@
     ],
     "finalCta": {
       "headline": "End your tenancy with proof.",
-      "subheadline": "20 minutes. RDC valid. One credit.",
+      "subheadline": "20 minutes. RDC-ready. One credit.",
       "buttonLabel": "Run a check-out →"
     }
   },
@@ -470,7 +470,7 @@
     ],
     "finalCta": {
       "headline": "Don't move in without it.",
-      "subheadline": "Free guided checklist. RDC valid. 20 minutes.",
+      "subheadline": "Free guided checklist. RDC-ready. 20 minutes.",
       "buttonLabel": "Start your free move-in →"
     }
   },
@@ -567,7 +567,7 @@
     ],
     "finalCta": {
       "headline": "End your tenancy with proof.",
-      "subheadline": "Auto-compares to your check-in. RDC valid.",
+      "subheadline": "Auto-compares to your check-in. RDC-ready.",
       "buttonLabel": "Start your move-out →"
     }
   },
