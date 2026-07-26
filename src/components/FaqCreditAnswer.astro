@@ -8,9 +8,6 @@ const { variant } = Astro.props;
 
 {variant === 'pro' ? (
   <div class="faqx">
-    <p class="faqx-lede">One shared wallet for the whole team.
-    <strong>The property sets the price,</strong> not the report type.</p>
-
     <div class="faqx-calc" id="faqxCalcPro">
       <div class="faqx-controls">
         <div class="faqx-segment" data-role="type">
@@ -31,16 +28,10 @@ const { variant } = Astro.props;
       </div>
     </div>
 
-    <p class="faqx-fine">Bedrooms are counted from the rooms selected in the app.
-    Credits refresh monthly and roll over while you're subscribed.</p>
-
     <button type="button" class="faqx-cta" data-faq-switch="individual">You're an individual? →</button>
   </div>
 ) : (
   <div class="faqx">
-    <p class="faqx-lede"><strong>Check-in is always free.</strong> You only pay to
-    lock the check-out report, the one that protects your deposit.</p>
-
     <div class="faqx-calc" id="faqxCalcIndiv">
       <div class="faqx-controls">
         <div class="faqx-segment" data-role="type">
@@ -61,9 +52,6 @@ const { variant } = Astro.props;
         </div>
       </div>
     </div>
-
-    <p class="faqx-fine"><b>10× cheaper</b> than a traditional inspection company
-    (AED 1,200+). Credits never expire.</p>
 
     <button type="button" class="faqx-cta" data-faq-switch="pro">You're a pro? →</button>
   </div>
