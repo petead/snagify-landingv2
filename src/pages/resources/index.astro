@@ -37,10 +37,48 @@ const breadcrumbs = [
 
   <div class="rh-filters" role="tablist" aria-label="Filter resources">
     <button type="button" class="rh-chip is-active" data-filter="all" role="tab" aria-selected="true">All</button>
-    <button type="button" class="rh-chip" data-filter="guide" role="tab" aria-selected="false">Guides</button>
-    <button type="button" class="rh-chip" data-filter="blog" role="tab" aria-selected="false">Blog</button>
     <button type="button" class="rh-chip" data-filter="tutorial" role="tab" aria-selected="false">Tutorials</button>
+    <button type="button" class="rh-chip" data-filter="blog" role="tab" aria-selected="false">Blog</button>
+    <button type="button" class="rh-chip" data-filter="guide" role="tab" aria-selected="false">Guides</button>
   </div>
+
+  <section class="rh-section" data-section="tutorial" aria-labelledby="rh-tutorials-heading">
+    <div class="rh-section-head">
+      <h2 class="rh-section-title" id="rh-tutorials-heading">
+        <span class="rh-dot rh-dot-tutorial" aria-hidden="true"></span>
+        Tutorials
+      </h2>
+      <a class="rh-view-all" href="/resources/tutorials">View all →</a>
+    </div>
+    {tutorialCards.length === 0 ? (
+      <p class="rh-empty">Tutorials are on the way — check back soon.</p>
+    ) : (
+      <div class="rh-grid">
+        {tutorialCards.map((card) => (
+          <ResourceCard card={card} />
+        ))}
+      </div>
+    )}
+  </section>
+
+  <section class="rh-section" data-section="blog" aria-labelledby="rh-blog-heading">
+    <div class="rh-section-head">
+      <h2 class="rh-section-title" id="rh-blog-heading">
+        <span class="rh-dot rh-dot-blog" aria-hidden="true"></span>
+        Blog
+      </h2>
+      <a class="rh-view-all" href="/resources/blog">View all →</a>
+    </div>
+    {blogCards.length === 0 ? (
+      <p class="rh-empty">Articles coming soon.</p>
+    ) : (
+      <div class="rh-grid">
+        {blogCards.slice(0, 6).map((card) => (
+          <ResourceCard card={card} />
+        ))}
+      </div>
+    )}
+  </section>
 
   {featured && (
     <a class="rh-featured" href={featured.href} data-category="guide" data-rh-featured>
@@ -70,44 +108,6 @@ const breadcrumbs = [
     ) : (
       <div class="rh-grid">
         {guidesRest.map((card) => (
-          <ResourceCard card={card} />
-        ))}
-      </div>
-    )}
-  </section>
-
-  <section class="rh-section" data-section="blog" aria-labelledby="rh-blog-heading">
-    <div class="rh-section-head">
-      <h2 class="rh-section-title" id="rh-blog-heading">
-        <span class="rh-dot rh-dot-blog" aria-hidden="true"></span>
-        Blog
-      </h2>
-      <a class="rh-view-all" href="/resources/blog">View all →</a>
-    </div>
-    {blogCards.length === 0 ? (
-      <p class="rh-empty">Articles coming soon.</p>
-    ) : (
-      <div class="rh-grid">
-        {blogCards.slice(0, 6).map((card) => (
-          <ResourceCard card={card} />
-        ))}
-      </div>
-    )}
-  </section>
-
-  <section class="rh-section" data-section="tutorial" aria-labelledby="rh-tutorials-heading">
-    <div class="rh-section-head">
-      <h2 class="rh-section-title" id="rh-tutorials-heading">
-        <span class="rh-dot rh-dot-tutorial" aria-hidden="true"></span>
-        Tutorials
-      </h2>
-      <a class="rh-view-all" href="/resources/tutorials">View all →</a>
-    </div>
-    {tutorialCards.length === 0 ? (
-      <p class="rh-empty">Tutorials are on the way — check back soon.</p>
-    ) : (
-      <div class="rh-grid">
-        {tutorialCards.map((card) => (
           <ResourceCard card={card} />
         ))}
       </div>

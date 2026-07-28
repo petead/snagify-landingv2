@@ -2,7 +2,7 @@ import { defineCollection, z } from 'astro:content';
 
 const resourceSchema = z.object({
   title: z.string(),
-  description: z.string().max(160),
+  description: z.string().max(200),
   pubDate: z.coerce.date(),
   updatedDate: z.coerce.date().optional(),
   author: z.string().default('Pierre Adam'),

@@ -1,7 +1,11 @@
 ---
 title: "How to Do a Property Check-In in Dubai: A Perfect Report in 20 Minutes"
 description: "Step-by-step tutorial for a defensible move-in inspection in Dubai: room order, photo technique, findings, key handover, and on-site signatures. Free with Snagify."
+pubDate: 2026-08-01
+author: "Pierre Adam"
+tags: ["check-in", "tutorial", "inspections"]
 category: tutorial
+featured: false
 readingMinutes: 8
 draft: true
 # flip draft to false once screenshots are added
@@ -29,7 +33,7 @@ Walk the property once, phone in pocket. Decide your route: entrance first, then
 
 ## Step 3: Photograph each room, wide then detail (8 to 10 minutes)
 
-This is the heart of the report, and one technique covers it: **wide shot first, detail shots second.**
+This is the heart of the report, and one technique covers it: [the wide-then-detail technique](/resources/tutorials/photographing-findings) (**wide shot first, detail shots second**).
 
 Start each room with one or two wide photos from the corners, capturing walls, floor, ceiling and windows in context. Then move close to anything worth recording: a scratch on the wall, a stain on the ceiling, a crack near the window. One detail photo per finding, close enough that the finding is unmistakable.
 

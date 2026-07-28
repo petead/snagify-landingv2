@@ -13,7 +13,7 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { title, description, pubDate, updatedDate, author, howToSteps } = post.data;
+const { title, description, pubDate, updatedDate, author, howToSteps: howToFromFm } = post.data;
 const slug = post.slug;
 const site = Astro.site?.origin ?? 'https://snagify.net';
 const canonical = `${site}/resources/tutorials/${slug}`;
@@ -22,6 +22,40 @@ const minutes = readingTimeMinutes(post.body, post.data.readingMinutes);
 const datePublished = pubDate.toISOString();
 const dateModified = (updatedDate ?? pubDate).toISOString();
 const ogImage = `${site}/og-image.jpg`;
+
+/** Prefer numbered ## Step N headings in the body; fall back to frontmatter howToSteps. */
+function extractHowToStepsFromBody(body: string): { name: string; text: string }[] {
+  const lines = body.split('\n');
+  const steps: { name: string; text: string }[] = [];
+  for (let i = 0; i < lines.length; i++) {
+    const m = lines[i].match(/^## (Step \d+:\s*.+)$/);
+    if (!m) continue;
+    const name = m[1].trim();
+    const chunks: string[] = [];
+    for (let j = i + 1; j < lines.length; j++) {
+      const line = lines[j];
+      if (/^## /.test(line)) break;
+      if (line.startsWith('>')) continue;
+      if (!line.trim()) {
+        if (chunks.length) break;
+        continue;
+      }
+      // stop at list-only blocks after a paragraph started? keep first paragraph
+      if (/^[-*] /.test(line) || /^\d+\. /.test(line)) {
+        if (chunks.length) break;
+        chunks.push(line.replace(/^[-*] |\d+\. /, '').trim());
+        break;
+      }
+      chunks.push(line.trim());
+    }
+    steps.push({ name, text: chunks.join(' ') || name });
+  }
+  return steps;
+}
+
+const howToStepsBody = extractHowToStepsFromBody(post.body);
+const howToSteps =
+  howToStepsBody.length > 0 ? howToStepsBody : (howToFromFm ?? []);
 
 const breadcrumbLd = {
   '@context': 'https://schema.org',
@@ -35,7 +69,7 @@ const breadcrumbLd = {
 };
 
 const howToLd =
-  howToSteps && howToSteps.length > 0
+  howToSteps.length > 0
     ? {
         '@context': 'https://schema.org',
         '@type': 'HowTo',
