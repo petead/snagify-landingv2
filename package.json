@@ -6,6 +6,8 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
+    "postbuild": "node scripts/indexnow-ping.mjs || true",
+    "indexnow": "node scripts/indexnow-ping.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
