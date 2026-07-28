@@ -1,0 +1,33 @@
+---
+import ResourcesLayout from '../../../layouts/ResourcesLayout.astro';
+import ResourceCard from '../../../components/ResourceCard.astro';
+import { guideToHubCard, hubGuides } from '../../../lib/resources';
+
+const site = Astro.site?.origin ?? 'https://snagify.net';
+const title = 'Guides | Snagify Resources';
+const description =
+  'Long-form Dubai rental guides — RDC process, evidence standards, and deposit protection.';
+const canonical = `${site}/resources/guides`;
+const cards = hubGuides.map(guideToHubCard);
+const breadcrumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Resources', href: '/resources' },
+  { name: 'Guides' },
+];
+---
+<ResourcesLayout title={title} description={description} canonical={canonical} breadcrumbs={breadcrumbs}>
+  <header class="rh-head">
+    <p class="rh-eyebrow">Guides</p>
+    <h1>Deep-dive guides</h1>
+    <p class="rh-sub">Pillar references for Dubai rental disputes, evidence, and inspections.</p>
+  </header>
+  {cards.length === 0 ? (
+    <p class="rh-empty">Guides coming soon.</p>
+  ) : (
+    <div class="rh-grid">
+      {cards.map((card) => (
+        <ResourceCard card={card} featured={card.featured} />
+      ))}
+    </div>
+  )}
+</ResourcesLayout>

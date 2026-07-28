@@ -1,0 +1,19 @@
+---
+import { render } from 'astro:content';
+import TutorialLayout from '../../../layouts/TutorialLayout.astro';
+import { getRoutableResources } from '../../../lib/resources';
+
+export async function getStaticPaths() {
+  const tutorials = await getRoutableResources('tutorial');
+  return tutorials.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+<TutorialLayout post={post}>
+  <Content />
+</TutorialLayout>

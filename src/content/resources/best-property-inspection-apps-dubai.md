@@ -14,6 +14,9 @@ faq:
   - question: "Do inspection apps work for a single rental unit?"
     answer: "Most professional platforms are priced for portfolios, which makes them impractical for one unit. For a single tenancy in Dubai, look for per-report pricing: Snagify offers a free check-in report and paid check-out reports, with no subscription required."
 draft: false
+category: blog
+featured: false
+readingMinutes: 6
 ---
 
 Disclosure first: we build Snagify, one of the apps in this comparison. We would rather tell you that in the first line than pretend to be a neutral review site. What we can promise is an honest comparison, including the cases where a competitor is the better choice for you.

@@ -16,6 +16,9 @@ faq:
   - question: "What if I find damage after I have already moved in?"
     answer: "Document it immediately in writing to the landlord or agent, with dated photos, and ask for it to be added to your condition record. The sooner a defect is reported after handover, the harder it is to attribute to you later. Silence is what converts the previous tenant's damage into your bill."
 draft: false
+category: blog
+featured: false
+readingMinutes: 5
 ---
 
 Congratulations, the keys are in your hand. The next 48 hours are a strange window: everything feels urgent, movers, internet, that first grocery run, and yet almost everything on your list can slip a day without consequence.

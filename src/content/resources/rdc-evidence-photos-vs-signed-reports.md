@@ -16,6 +16,9 @@ faq:
   - question: "Does evidence need to be in Arabic for the RDC?"
     answer: "Yes. RDC proceedings are conducted in Arabic, and documents in other languages must be legally translated. This is one more reason a clean, structured report beats a folder of screenshots: it is a single document to translate, not two hundred."
 draft: false
+category: blog
+featured: false
+readingMinutes: 5
 ---
 
 Every deposit dispute in Dubai ends the same way: two versions of the apartment's condition, and a judge deciding which one is proven. Not which one is told better, not which party seems more honest. Proven.

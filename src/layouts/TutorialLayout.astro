@@ -1,0 +1,161 @@
+---
+import type { ResourceEntry } from '../lib/resources';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import CrispChat from '../components/CrispChat.astro';
+import Clarity from '../components/Clarity.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import MetaPixel from '../components/MetaPixel.astro';
+import { formatBlogDate, readingTimeMinutes } from '../lib/resources';
+
+interface Props {
+  post: ResourceEntry;
+}
+
+const { post } = Astro.props;
+const { title, description, pubDate, updatedDate, author, howToSteps } = post.data;
+const slug = post.slug;
+const site = Astro.site?.origin ?? 'https://snagify.net';
+const canonical = `${site}/resources/tutorials/${slug}`;
+const pageTitle = `${title} | Snagify Tutorials`;
+const minutes = readingTimeMinutes(post.body, post.data.readingMinutes);
+const datePublished = pubDate.toISOString();
+const dateModified = (updatedDate ?? pubDate).toISOString();
+const ogImage = `${site}/og-image.jpg`;
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${site}/` },
+    { '@type': 'ListItem', position: 2, name: 'Resources', item: `${site}/resources` },
+    { '@type': 'ListItem', position: 3, name: 'Tutorials', item: `${site}/resources/tutorials` },
+    { '@type': 'ListItem', position: 4, name: title, item: canonical },
+  ],
+};
+
+const howToLd =
+  howToSteps && howToSteps.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: title,
+        description,
+        totalTime: `PT${minutes}M`,
+        step: howToSteps.map((s, i) => ({
+          '@type': 'HowToStep',
+          position: i + 1,
+          name: s.name,
+          text: s.text,
+        })),
+      }
+    : null;
+
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished,
+  dateModified,
+  author: { '@type': 'Person', name: author },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Snagify',
+    logo: { '@type': 'ImageObject', url: 'https://app.snagify.net/icon-512x512.png' },
+  },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+};
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<GoogleAnalytics />
+<MetaPixel />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{pageTitle}</title>
+<meta name="description" content={description}>
+<link rel="canonical" href={canonical}>
+<meta property="og:type" content="article">
+<meta property="og:title" content={pageTitle}>
+<meta property="og:description" content={description}>
+<meta property="og:url" content={canonical}>
+<meta property="og:image" content={ogImage}>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content={pageTitle}>
+<meta name="twitter:description" content={description}>
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
+<script type="application/ld+json" set:html={JSON.stringify(articleLd)} />
+{howToLd && <script type="application/ld+json" set:html={JSON.stringify(howToLd)} />}
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --cream: #F3F1EB; --white: #FCFCFC; --ink: #0E0E10;
+  --ink-60: rgba(14,14,16,0.6); --ink-25: rgba(14,14,16,0.1);
+  --purple: #9A88FD; --coral: #FF8F6B;
+}
+body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); -webkit-font-smoothing: antialiased; }
+.tu-wrap { max-width: 720px; margin: 0 auto; padding: 56px 24px 96px; }
+.tu-crumbs { font-size: 13px; color: var(--ink-60); margin-bottom: 24px; display: flex; flex-wrap: wrap; gap: 8px; }
+.tu-crumbs a { color: var(--ink-60); text-decoration: none; }
+.tu-crumbs a:hover { color: var(--purple); }
+.tu-badge {
+  display: inline-flex; font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 4px 9px; border-radius: 999px;
+  background: rgba(255,143,107,.2); color: #8a3a22; margin-bottom: 14px;
+}
+.tu-title {
+  font-family: 'Poppins', sans-serif; font-weight: 800;
+  font-size: clamp(28px, 4vw, 40px); letter-spacing: -1.2px; line-height: 1.15;
+  margin-bottom: 14px;
+}
+.tu-meta { font-size: 14px; color: var(--ink-60); display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 36px; }
+.tu-prose { font-size: 17px; line-height: 1.7; }
+.tu-prose :global(h1) { display: none; }
+.tu-prose :global(h2) {
+  font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.35rem;
+  letter-spacing: -0.3px; margin: 2rem 0 0.75rem;
+}
+.tu-prose :global(h3) { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
+.tu-prose :global(p), .tu-prose :global(li) { margin-bottom: 0.9rem; color: var(--ink); }
+.tu-prose :global(ul), .tu-prose :global(ol) { padding-left: 1.25rem; margin-bottom: 1rem; }
+.tu-prose :global(blockquote) {
+  border-left: 3px solid var(--coral); padding: 8px 0 8px 16px;
+  color: var(--ink-60); margin: 1.25rem 0;
+}
+.tu-prose :global(strong) { font-weight: 600; }
+@media (max-width: 640px) { .tu-wrap { padding: 40px 18px 72px; } }
+</style>
+<CrispChat />
+<Clarity />
+</head>
+<body>
+<SiteHeader />
+<article class="tu-wrap">
+  <nav class="tu-crumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a><span aria-hidden="true">/</span>
+    <a href="/resources">Resources</a><span aria-hidden="true">/</span>
+    <a href="/resources/tutorials">Tutorials</a><span aria-hidden="true">/</span>
+    <span aria-current="page">{title}</span>
+  </nav>
+  <span class="tu-badge">Tutorial</span>
+  <h1 class="tu-title">{title}</h1>
+  <div class="tu-meta">
+    <time datetime={datePublished}>{formatBlogDate(pubDate)}</time>
+    <span aria-hidden="true">·</span>
+    <span>{minutes} min read</span>
+    <span aria-hidden="true">·</span>
+    <span>{author}</span>
+  </div>
+  <div class="tu-prose">
+    <slot />
+  </div>
+</article>
+<SiteFooter />
+</body>
+</html>

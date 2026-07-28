@@ -21,5 +21,9 @@ export default defineConfig({
     },
   },
 
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => page !== 'https://snagify.net/blog',
+    }),
+  ],
 });

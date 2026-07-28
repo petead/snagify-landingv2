@@ -14,6 +14,9 @@ faq:
   - question: "Can I do my own move-in inspection in Dubai?"
     answer: "Yes, there is no legal requirement to use a professional. What matters at the Rental Disputes Center is the quality of the evidence: room-by-room coverage, dates tied to the tenancy, and ideally both parties' signatures. A structured self-inspection meeting that standard beats an expensive report that arrives unsigned."
 draft: false
+category: blog
+featured: false
+readingMinutes: 4
 ---
 
 The price of a property inspection in Dubai depends entirely on which of three markets you are shopping in, and most people do not realize they are three different markets until they see the quotes.

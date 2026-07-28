@@ -16,6 +16,9 @@ faq:
   - question: "What happens in a deposit dispute if there is no check-in report?"
     answer: "The Rental Disputes Center decides on evidence, and the landlord claiming damage must prove the original condition. Without a baseline, damage claims usually fail, but the tenant still loses months waiting for the deposit while the case runs. Nobody wins, one party just loses more slowly."
 draft: false
+category: blog
+featured: false
+readingMinutes: 5
 ---
 
 If you just rented in Dubai and you are wondering when the official move-in inspection happens, this article is for you. The short answer will surprise you if you come from Europe: it does not happen. Nobody is coming.

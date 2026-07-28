@@ -16,6 +16,9 @@ faq:
   - question: "Is it worth filing at the RDC for a AED 5,000 deposit?"
     answer: "More often than people think. For a financial claim like a deposit recovery, the fee is 3.5% of the claimed amount with a minimum of AED 500, not 3.5% of the annual rent. On a AED 5,500 claim that means the AED 500 minimum, courts commonly order the losing party to bear the fees, and a settlement at conciliation refunds half the base fee. The real cost is time: budget several months, not several thousand dirhams."
 draft: false
+category: blog
+featured: false
+readingMinutes: 5
 ---
 
 Most of what is written about Dubai deposit disputes is theory: what the law says, what the process looks like on paper. This is not that. A few years ago I sat through a Rental Disputes Center case as a tenant, over my own deposit, and watched a judge decide it in front of me. What I learned that day is the reason Snagify exists, and it is worth more than any legal summary I have read since.

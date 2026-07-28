@@ -17,6 +17,9 @@ faq:
   - question: "Do I need a lawyer to file at the RDC?"
     answer: "No. The RDC is designed to be accessible without legal representation, and many tenants file successfully on their own. A lawyer helps in complex or high-value cases, but for a straightforward deposit claim, organized evidence matters more than representation."
 draft: false
+category: blog
+featured: false
+readingMinutes: 7
 ---
 
 Your security deposit is not a fee. It is your money, held temporarily by your landlord as insurance against damage and unpaid bills. Under Dubai law, it must come back to you when the tenancy ends, minus only justified, documented deductions.

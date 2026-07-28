@@ -2,6 +2,7 @@
   "cleanUrls": true,
   "redirects": [
     { "source": "/:path+/", "destination": "/:path+", "statusCode": 308 },
+    { "source": "/blog", "destination": "/resources", "statusCode": 308 },
     { "source": "/fr", "destination": "/", "permanent": true },
     { "source": "/fr/:path*", "destination": "/:path*", "permanent": true },
     { "source": "/ar", "destination": "/", "permanent": true },

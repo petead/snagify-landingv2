@@ -16,6 +16,9 @@ faq:
   - question: "How much does it cost to take a deposit dispute to the RDC?"
     answer: "For a financial claim like a deposit recovery, the fee is 3.5% of the claimed amount with a minimum of AED 500 and a maximum of AED 15,000, not 3.5% of the annual rent, which applies to contract cases like evictions. Courts commonly order the losing party to bear the fees."
 draft: false
+category: blog
+featured: false
+readingMinutes: 5
 ---
 
 Short answer: almost never legally.

@@ -1,0 +1,33 @@
+---
+import type { HubCard, ResourceCategory } from '../lib/resources';
+import { formatBlogDate } from '../lib/resources';
+
+interface Props {
+  card: HubCard;
+  /** Larger featured treatment */
+  featured?: boolean;
+}
+
+const { card, featured = false } = Astro.props;
+
+const catLabel: Record<ResourceCategory, string> = {
+  guide: 'Guide',
+  blog: 'Blog',
+  tutorial: 'Tutorial',
+};
+---
+
+<a class:list={['rh-card', featured && 'rh-card-featured']} href={card.href} data-category={card.category}>
+  {featured ? (
+    <span class="rh-card-badge rh-badge-featured">Featured guide</span>
+  ) : (
+    <span class:list={['rh-card-badge', `rh-badge-${card.category}`]}>{catLabel[card.category]}</span>
+  )}
+  <h3 class="rh-card-title">{card.title}</h3>
+  <p class="rh-card-desc">{card.description}</p>
+  <div class="rh-card-meta">
+    <time datetime={card.pubDate.toISOString()}>{formatBlogDate(card.pubDate)}</time>
+    <span aria-hidden="true">·</span>
+    <span>{card.readingMinutes} min read</span>
+  </div>
+</a>

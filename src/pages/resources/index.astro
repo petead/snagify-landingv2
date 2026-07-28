@@ -1,0 +1,143 @@
+---
+import ResourcesLayout from '../../layouts/ResourcesLayout.astro';
+import ResourceCard from '../../components/ResourceCard.astro';
+import {
+  getPublishedResources,
+  guideToHubCard,
+  hubGuides,
+  toHubCard,
+  formatBlogDate,
+} from '../../lib/resources';
+
+const site = Astro.site?.origin ?? 'https://snagify.net';
+const title = 'Resources · Guides, Blog & Tutorials | Snagify';
+const description =
+  'Dubai rental inspections, RDC evidence, and deposit protection — guides, articles, and step-by-step tutorials from Snagify.';
+const canonical = `${site}/resources`;
+
+const blogCards = (await getPublishedResources('blog')).map(toHubCard);
+const tutorialCards = (await getPublishedResources('tutorial')).map(toHubCard);
+const guideCards = hubGuides.map(guideToHubCard);
+const featured = guideCards.find((g) => g.featured) ?? guideCards[0];
+const guidesRest = guideCards.filter((g) => g !== featured);
+
+const breadcrumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Resources' },
+];
+---
+<ResourcesLayout title={title} description={description} canonical={canonical} breadcrumbs={breadcrumbs}>
+  <header class="rh-head">
+    <p class="rh-eyebrow">Resources</p>
+    <h1>Guides, articles &amp; how-tos for Dubai rentals</h1>
+    <p class="rh-sub">
+      Evidence standards at the RDC, deposit playbooks, and practical inspection tutorials — built by people who ship the product.
+    </p>
+  </header>
+
+  <div class="rh-filters" role="tablist" aria-label="Filter resources">
+    <button type="button" class="rh-chip is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+    <button type="button" class="rh-chip" data-filter="guide" role="tab" aria-selected="false">Guides</button>
+    <button type="button" class="rh-chip" data-filter="blog" role="tab" aria-selected="false">Blog</button>
+    <button type="button" class="rh-chip" data-filter="tutorial" role="tab" aria-selected="false">Tutorials</button>
+  </div>
+
+  {featured && (
+    <a class="rh-featured" href={featured.href} data-category="guide" data-rh-featured>
+      <span class="rh-card-badge rh-badge-featured">Featured guide</span>
+      <h2 class="rh-card-title">{featured.title}</h2>
+      <p class="rh-card-desc">{featured.description}</p>
+      <div class="rh-card-meta">
+        <time datetime={featured.pubDate.toISOString()}>{formatBlogDate(featured.pubDate)}</time>
+        <span aria-hidden="true">·</span>
+        <span>{featured.readingMinutes} min read</span>
+      </div>
+    </a>
+  )}
+
+  <section class="rh-section" data-section="guide" aria-labelledby="rh-guides-heading">
+    <div class="rh-section-head">
+      <h2 class="rh-section-title" id="rh-guides-heading">
+        <span class="rh-dot rh-dot-guide" aria-hidden="true"></span>
+        Guides
+      </h2>
+      <a class="rh-view-all" href="/resources/guides">View all →</a>
+    </div>
+    {guideCards.length === 0 ? (
+      <p class="rh-empty">Guides coming soon.</p>
+    ) : guidesRest.length === 0 ? (
+      <p class="rh-empty">See the featured guide above — more guides coming soon.</p>
+    ) : (
+      <div class="rh-grid">
+        {guidesRest.map((card) => (
+          <ResourceCard card={card} />
+        ))}
+      </div>
+    )}
+  </section>
+
+  <section class="rh-section" data-section="blog" aria-labelledby="rh-blog-heading">
+    <div class="rh-section-head">
+      <h2 class="rh-section-title" id="rh-blog-heading">
+        <span class="rh-dot rh-dot-blog" aria-hidden="true"></span>
+        Blog
+      </h2>
+      <a class="rh-view-all" href="/resources/blog">View all →</a>
+    </div>
+    {blogCards.length === 0 ? (
+      <p class="rh-empty">Articles coming soon.</p>
+    ) : (
+      <div class="rh-grid">
+        {blogCards.slice(0, 6).map((card) => (
+          <ResourceCard card={card} />
+        ))}
+      </div>
+    )}
+  </section>
+
+  <section class="rh-section" data-section="tutorial" aria-labelledby="rh-tutorials-heading">
+    <div class="rh-section-head">
+      <h2 class="rh-section-title" id="rh-tutorials-heading">
+        <span class="rh-dot rh-dot-tutorial" aria-hidden="true"></span>
+        Tutorials
+      </h2>
+      <a class="rh-view-all" href="/resources/tutorials">View all →</a>
+    </div>
+    {tutorialCards.length === 0 ? (
+      <p class="rh-empty">Tutorials are on the way — check back soon.</p>
+    ) : (
+      <div class="rh-grid">
+        {tutorialCards.map((card) => (
+          <ResourceCard card={card} />
+        ))}
+      </div>
+    )}
+  </section>
+</ResourcesLayout>
+
+<script>
+  const chips = document.querySelectorAll('.rh-chip');
+  const sections = document.querySelectorAll('[data-section]');
+  const featured = document.querySelector('[data-rh-featured]');
+
+  function applyFilter(filter) {
+    chips.forEach((chip) => {
+      const on = chip.getAttribute('data-filter') === filter;
+      chip.classList.toggle('is-active', on);
+      chip.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    sections.forEach((section) => {
+      const cat = section.getAttribute('data-section');
+      section.hidden = filter !== 'all' && filter !== cat;
+    });
+    if (featured instanceof HTMLElement) {
+      featured.hidden = filter !== 'all' && filter !== 'guide';
+    }
+  }
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      applyFilter(chip.getAttribute('data-filter') || 'all');
+    });
+  });
+</script>

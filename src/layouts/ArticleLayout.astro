@@ -62,8 +62,9 @@ const breadcrumbJsonLd = {
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://snagify.net/" },
-    { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://snagify.net/" },
-    { "@type": "ListItem", "position": 3, "name": article.title, "item": `https://snagify.net/${article.slug}` }
+    { "@type": "ListItem", "position": 2, "name": "Resources", "item": "https://snagify.net/resources" },
+    { "@type": "ListItem", "position": 3, "name": "Guides", "item": "https://snagify.net/resources/guides" },
+    { "@type": "ListItem", "position": 4, "name": article.title, "item": `https://snagify.net/${article.slug}` }
   ]
 };
 ---
@@ -370,7 +371,9 @@ body {
   <nav class="breadcrumb" aria-label="Breadcrumb">
     <a href="/">Home</a>
     <span class="breadcrumb-sep">›</span>
-    <span>Guides</span>
+    <a href="/resources">Resources</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/resources/guides">Guides</a>
     <span class="breadcrumb-sep">›</span>
     <span>RDC Guide</span>
   </nav>
