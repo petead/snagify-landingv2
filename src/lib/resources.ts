@@ -52,7 +52,7 @@ export async function getPublishedResources(
   return sortByDateDesc(posts);
 }
 
-/** Routable entries — drafts only outside production builds. */
+/** Routable entries, drafts only outside production builds. */
 export async function getRoutableResources(
   category?: ResourceCategory
 ): Promise<ResourceEntry[]> {

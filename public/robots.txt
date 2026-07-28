@@ -7,7 +7,7 @@ Disallow: /hero-video.html
 Disallow: /api/
 Disallow: /*.json$
 
-# Major search engines — explicit allow
+# Major search engines, explicit allow
 User-agent: Googlebot
 Allow: /
 Disallow: /hero-video.html
@@ -27,7 +27,7 @@ Allow: /
 User-agent: DuckDuckBot
 Allow: /
 
-# AI training crawlers — opt in (helps brand visibility in LLM answers)
+# AI training crawlers, opt in (helps brand visibility in LLM answers)
 User-agent: GPTBot
 Allow: /
 
@@ -43,7 +43,7 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-# Aggressive scrapers — block
+# Aggressive scrapers, block
 User-agent: AhrefsBot
 Disallow: /
 

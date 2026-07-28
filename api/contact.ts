@@ -34,7 +34,7 @@ export default async function handler(req: any, res: any) {
       from: 'Snagify Contact <contact@snagify.net>',
       to: ['hello@snagify.net'],
       replyTo: email,
-      subject: `[Contact] ${subject} — ${firstName} ${lastName}`,
+      subject: `[Contact] ${subject}: ${firstName} ${lastName}`,
       text:
         `New contact form submission\n\n` +
         `Name: ${firstName} ${lastName}\n` +

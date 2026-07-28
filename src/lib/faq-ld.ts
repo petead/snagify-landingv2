@@ -6,7 +6,7 @@ type FaqQ = {
   acceptedAnswer: { '@type': 'Answer'; text: string };
 };
 
-/** FAQPage JSON-LD for the homepage — single shared legal core, no duplicate Qs. */
+/** FAQPage JSON-LD for the homepage, single shared legal core, no duplicate Qs. */
 export function buildFaqPageLd() {
   const mainEntity: FaqQ[] = allFaqForLd().map((item) => ({
     '@type': 'Question',

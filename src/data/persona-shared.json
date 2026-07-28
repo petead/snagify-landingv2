@@ -5,7 +5,7 @@
       "role": "Head of Leasing · Prestige Properties",
       "initials": "KA",
       "color": "purple",
-      "quote": "Honestly I resisted switching for months, we had our own Word template and I thought it was fine. We now do 60+ inspections a month and I'd never go back."
+      "quote": "Honestly I resisted switching for months. We had our own Word template and I thought it was fine. We now do 60+ inspections a month and I'd never go back."
     },
     "sara": {
       "name": "Sara M.",
@@ -47,7 +47,7 @@
     },
     "rdc-valid-pro": {
       "question": "Are Snagify reports accepted by the Dubai RDC?",
-      "answer": "Yes. Reports include timestamped entries, dual signatures, photo metadata, and a SHA-256 hash. Your agency name, logo, and RERA broker number appear on every page. Submit the PDF as-is, no notarisation needed."
+      "answer": "Yes. Reports include timestamped entries, dual signatures, photo metadata, and a SHA-256 hash. Your agency name, logo, and RERA broker number appear on every page. Submit the PDF as-is: no notarisation needed."
     },
     "tenant-refuses-sign": {
       "question": "What if the tenant refuses to sign?",

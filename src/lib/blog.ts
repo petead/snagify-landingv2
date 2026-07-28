@@ -1,5 +1,5 @@
 /**
- * Blog helpers — thin re-exports from the unified resources module.
+ * Blog helpers, thin re-exports from the unified resources module.
  * Blog posts remain at /blog/{slug}; collection is now `resources`.
  */
 export {

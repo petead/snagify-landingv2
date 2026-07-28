@@ -11,7 +11,7 @@ import {
 const site = Astro.site?.origin ?? 'https://snagify.net';
 const title = 'Resources · Guides, Blog & Tutorials | Snagify';
 const description =
-  'Dubai rental inspections, RDC evidence, and deposit protection — guides, articles, and step-by-step tutorials from Snagify.';
+  'Dubai rental inspections, RDC evidence, and deposit protection, guides, articles, and step-by-step tutorials from Snagify.';
 const canonical = `${site}/resources`;
 
 const blogCards = (await getPublishedResources('blog')).map(toHubCard);
@@ -30,7 +30,7 @@ const breadcrumbs = [
     <p class="rh-eyebrow">Resources</p>
     <h1>Guides, articles &amp; tutorials for Dubai rentals</h1>
     <p class="rh-sub">
-      Evidence standards at the RDC, deposit playbooks, and practical inspection tutorials — built by people who ship the product.
+      Evidence standards at the RDC, deposit playbooks, and practical inspection tutorials, built by people who ship the product.
     </p>
   </header>
 
@@ -50,7 +50,7 @@ const breadcrumbs = [
       <a class="rh-view-all" href="/resources/tutorials">View all →</a>
     </div>
     {tutorialCards.length === 0 ? (
-      <p class="rh-empty">Tutorials are on the way — check back soon.</p>
+      <p class="rh-empty">Tutorials are on the way. Check back soon.</p>
     ) : (
       <div class="rh-grid">
         {tutorialCards.map((card) => (
@@ -103,7 +103,7 @@ const breadcrumbs = [
     {guideCards.length === 0 ? (
       <p class="rh-empty">Guides coming soon.</p>
     ) : guidesRest.length === 0 ? (
-      <p class="rh-empty">See the featured guide above — more guides coming soon.</p>
+      <p class="rh-empty">See the featured guide above. More guides coming soon.</p>
     ) : (
       <div class="rh-grid">
         {guidesRest.map((card) => (

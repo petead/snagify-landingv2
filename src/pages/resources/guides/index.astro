@@ -6,7 +6,7 @@ import { getAllGuideCards } from '../../../lib/resources';
 const site = Astro.site?.origin ?? 'https://snagify.net';
 const title = 'Guides | Snagify Resources';
 const description =
-  'Long-form Dubai rental guides — RDC process, evidence standards, and deposit protection.';
+  'Long-form Dubai rental guides: RDC process, evidence standards, and deposit protection.';
 const canonical = `${site}/resources/guides`;
 const cards = await getAllGuideCards();
 const breadcrumbs = [

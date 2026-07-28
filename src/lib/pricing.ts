@@ -185,11 +185,11 @@ function buildFaqCopy(packs: CreditPack[], plans: SubscriptionPlan[], costs: Cre
     (indFurn ? ` (+${indFurn} if furnished)` : '') +
     `; larger homes use ${creditLabel(indOutLarge)}` +
     (indFurn ? ` (+${indFurn} furnished)` : '') +
-    `. Credits never expire — buy packs in the app.`;
+    `. Credits never expire. Buy packs in the app.`;
 
   const individual: FaqCreditBlock = {
     intro:
-      'Deposit drama, meet simple math. Check-in is always free — you only spend when you lock the check-out report.',
+      'Deposit drama, meet simple math. Check-in is always free. You only spend when you lock the check-out report.',
     rows: individualRows,
     examples: individualExamples,
     note:

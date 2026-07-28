@@ -6,7 +6,7 @@ import { getPublishedResources, toHubCard } from '../../../lib/resources';
 const site = Astro.site?.origin ?? 'https://snagify.net';
 const title = 'Blog | Snagify Resources';
 const description =
-  'Deposits, inspections and RDC disputes — articles from people who build inspection software in Dubai.';
+  'Deposits, inspections and RDC disputes, articles from people who build inspection software in Dubai.';
 const canonical = `${site}/resources/blog`;
 const cards = (await getPublishedResources('blog')).map(toHubCard);
 const breadcrumbs = [

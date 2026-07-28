@@ -8,7 +8,7 @@
  *   npm run indexnow
  *   npm run build  → also runs via postbuild (Vercel/npm lifecycle)
  *
- * Never exits non-zero — safe for CI / postbuild.
+ * Never exits non-zero, safe for CI / postbuild.
  */
 
 import { readFileSync, existsSync } from 'node:fs';

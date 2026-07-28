@@ -58,7 +58,7 @@ export default async function handler(req: any, res: any) {
 
     return res.status(200).json({ ok: true });
   } catch (err: any) {
-    // Resend returns an error if contact already exists — treat as success
+    // Resend returns an error if contact already exists, treat as success
     const msg = err?.message || '';
     if (msg.toLowerCase().includes('already')) {
       try {

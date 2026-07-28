@@ -1,200 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-astro-cid-dpidqgiz>
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CR2PTLC7YS"></script>
-<script>
+<!-- Google tag (gtag.js): GA4 + optional Google Ads destination --><script async src="https://www.googletagmanager.com/gtag/js?id=G-CR2PTLC7YS"></script>
+<script>(function(){const GA_ID = "G-CR2PTLC7YS";
+const ADS_ID = "";
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-CR2PTLC7YS');
-  // Hardcoded Ads destination (static mirrors cannot read Astro env).
-  // Keep in sync with PUBLIC_GOOGLE_ADS_ID / PUBLIC_GOOGLE_ADS_LEAD_LABEL.
-  var GOOGLE_ADS_ID = '';
-  var GOOGLE_ADS_LEAD_LABEL = '';
-  if (GOOGLE_ADS_ID) {
-    gtag('config', GOOGLE_ADS_ID, { allow_enhanced_conversions: true });
+  gtag('config', GA_ID);
+  if (ADS_ID) {
+    gtag('config', ADS_ID, { allow_enhanced_conversions: true });
   }
-</script>
-<!-- Meta Pixel Code — set META_PIXEL_ID to the same value as PUBLIC_META_PIXEL_ID / META_PIXEL_ID -->
-<script>
-  var META_PIXEL_ID = '968283019499604';
-  if (META_PIXEL_ID) {
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', META_PIXEL_ID);
-    fbq('track', 'PageView');
-  }
-</script>
+})();</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact | Snagify</title>
+<meta name="description" content="Get in touch with Snagify for product questions, partnerships, or technical support. We respond in under 24 hours.">
+<meta property="og:title" content="Contact | Snagify">
+<meta property="og:description" content="Get in touch with Snagify for product questions, partnerships, or technical support. We respond in under 24 hours.">
+<meta property="og:url" content="https://snagify.net/contact">
+<link rel="canonical" href="https://snagify.net/contact">
+
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" href="/favicon.ico">
-<title>Contact — Snagify</title>
-<meta name="description" content="Get in touch with Snagify — product questions, partnerships, or technical support. We respond in under 24 hours.">
-<meta property="og:title" content="Contact — Snagify">
-<meta property="og:url" content="https://snagify.net/contact">
-<link rel="canonical" href="https://snagify.net/contact">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-:root {
-  --cream: #F3F1EB; --cream-2: #EAE8E0; --white: #FCFCFC;
-  --ink: #0E0E10; --ink-60: rgba(14,14,16,0.6); --ink-25: rgba(14,14,16,0.1); --ink-08: rgba(14,14,16,0.05);
-  --purple: #9A88FD; --purple-l: #C4B9FE; --purple-bg: #EDE9FE;
-  --green: #CAFE87; --green-bg: #EEFAD5; --jasmine: #FEDE80; --jasmine-bg: #FFF8DC;
-}
-html { scroll-behavior: smooth; }
-body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); -webkit-font-smoothing: antialiased; min-height: 100vh; }
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
 
-nav {
-  position: sticky; top: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 20px 48px;
-  background: rgba(243,241,235,.92); backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--ink-25);
-}
-.nav-logo { display:flex;align-items:center;gap:9px;text-decoration:none; }
-.nav-logo span { font-family:'Poppins',sans-serif;font-weight:800;font-size:20px;color:var(--ink); }
-.nav-back { display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--ink-60);text-decoration:none;transition:color .2s; }
-.nav-back:hover { color:var(--ink); }
-.nav-back:hover svg { transform:translateX(-3px); }
-.nav-back svg { transition:transform .2s; }
 
-/* Hero */
-.page-hero {
-  padding: 80px 48px 72px;
-  text-align: center;
-  position: relative; overflow: hidden;
-}
-.page-hero::before {
-  content:''; position:absolute; inset:0;
-  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(154,136,253,.07) 0%, transparent 65%);
-  pointer-events:none;
-}
-.page-eyebrow { display:inline-flex;align-items:center;gap:8px;font-size:11px;text-transform:uppercase;letter-spacing:3.5px;font-weight:600;color:var(--ink-60);margin-bottom:20px; }
-.page-eyebrow::before { content:'';width:20px;height:1.5px;background:var(--ink-60); }
-.page-eyebrow::after { content:'';width:20px;height:1.5px;background:var(--ink-60); }
-.page-hero h1 { font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(44px,5vw,68px);letter-spacing:-3px;line-height:.95;margin-bottom:16px;position:relative;z-index:1; }
-.page-hero h1 em { font-style:italic;color:var(--purple); }
-.page-hero p { font-size:17px;color:var(--ink-60);max-width:480px;margin:0 auto;line-height:1.75;position:relative;z-index:1; }
 
-/* Channels + wide form */
-.contact-main{max-width:1160px;margin:0 auto;padding:8px 48px 90px;}
-
-.channels{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;}
-.channel{background:var(--white);border:1px solid var(--ink-25);border-radius:22px;padding:28px;display:flex;flex-direction:column;transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s;}
-.channel:hover{transform:translateY(-4px);box-shadow:0 16px 44px rgba(14,14,16,.09);}
-.channel.feature{background:var(--ink);color:var(--white);border-color:var(--ink);}
-.ch-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
-.ch-icon svg{width:22px;height:22px;}
-.ch-i-purple{background:var(--purple-bg);color:var(--purple);}
-.ch-i-jasmine{background:var(--jasmine-bg);color:#7A5A00;}
-.ch-i-onink{background:rgba(255,255,255,.12);color:var(--purple-l);}
-.ch-label{font-size:10px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;color:var(--ink-60);margin-bottom:7px;}
-.channel.feature .ch-label{color:var(--purple-l);}
-.ch-title{font-family:'Poppins',sans-serif;font-weight:700;font-size:19px;letter-spacing:-.3px;margin-bottom:8px;}
-.ch-desc{font-size:14px;color:var(--ink-60);line-height:1.6;margin-bottom:20px;flex:1;}
-.channel.feature .ch-desc{color:rgba(255,255,255,.7);}
-.ch-cta{display:inline-flex;align-items:center;gap:7px;padding:11px 20px;border-radius:999px;font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;text-decoration:none;transition:all .3s;align-self:flex-start;cursor:pointer;border:none;}
-.ch-cta-primary{background:var(--purple);color:var(--ink);}
-.ch-cta-primary:hover{background:var(--purple-l);}
-.ch-cta-dark{background:var(--ink);color:var(--white);}
-.ch-cta-dark:hover{background:var(--purple);color:var(--ink);}
-.ch-cta-outline{background:transparent;border:1.5px solid var(--ink-25);color:var(--ink);}
-.ch-cta-outline:hover{border-color:var(--ink);}
-.ch-meta{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-60);margin-top:14px;}
-.channel.feature .ch-meta{color:rgba(255,255,255,.55);}
-.ch-meta-dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;}
-
-.form-wide{background:var(--white);border:1px solid var(--ink-25);border-radius:28px;padding:44px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start;margin-bottom:40px;}
-.fw-intro,.fw-fields{min-width:0;}
-.fw-intro h2{font-family:'Poppins',sans-serif;font-weight:800;font-size:26px;letter-spacing:-.6px;margin-bottom:12px;}
-.fw-intro p{font-size:15px;color:var(--ink-60);line-height:1.7;margin-bottom:24px;}
-.fw-points{list-style:none;display:flex;flex-direction:column;gap:14px;padding:0;margin:0;}
-.fw-point{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--ink-60);line-height:1.5;}
-.fw-point svg{width:18px;height:18px;color:var(--purple);flex-shrink:0;margin-top:1px;}
-
-/* FAQ quick */
-.faq-quick { background:var(--white);border:1px solid var(--ink-25);border-radius:24px;padding:32px; }
-.faq-quick h3 { font-family:'Poppins',sans-serif;font-weight:700;font-size:17px;margin-bottom:20px; }
-.faq-item { padding:14px 0;border-bottom:1px solid var(--ink-25);font-size:14px;color:var(--ink-60); }
-.faq-item:last-child { border-bottom:none;padding-bottom:0; }
-.faq-item strong { display:block;color:var(--ink);font-weight:600;margin-bottom:4px;font-size:14px; }
-
-.form-group { margin-bottom:18px; min-width:0; }
-.form-group label { display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--ink-60);margin-bottom:8px; }
-.form-group input, .form-group select, .form-group textarea {
-  display:block;width:100%;max-width:100%;padding:13px 16px;
-  background:var(--cream);border:1.5px solid var(--ink-25);
-  border-radius:12px;font-family:'DM Sans',sans-serif;
-  font-size:15px;color:var(--ink);
-  transition:border-color .25s, background .25s;
-  outline:none;box-sizing:border-box;
-}
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-  border-color:var(--purple);background:var(--white);
-}
-.form-group textarea { resize:vertical;min-height:110px; }
-.form-group select { cursor:pointer;appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2.5' stroke-linecap='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat:no-repeat;background-position:right 14px center; }
-
-.form-row { display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;min-width:0; }
-
-.btn-submit {
-  width:100%;padding:15px;
-  background:var(--ink);color:var(--white);
-  font-family:'Poppins',sans-serif;font-weight:700;font-size:15px;
-  border-radius:12px;border:none;cursor:pointer;
-  transition:background .3s,transform .3s;
-  display:flex;align-items:center;justify-content:center;gap:10px;
-  margin-top:4px;
-}
-.btn-submit:hover { background:var(--purple);color:var(--ink);transform:translateY(-2px); }
-
-.form-success {
-  display:none;text-align:center;padding:32px 0;
-}
-.form-success.show { display:block; }
-.form-main.hide { display:none; }
-.success-icon {
-  width:56px;height:56px;border-radius:50%;
-  background:var(--green-bg);border:2px solid rgba(202,254,135,.4);
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto 16px;
-}
-.success-icon svg { width:24px;height:24px;color:#3A7A00; }
-.form-success h3 { font-family:'Poppins',sans-serif;font-weight:800;font-size:20px;letter-spacing:-.5px;margin-bottom:8px; }
-.form-success p { font-size:14px;color:var(--ink-60);line-height:1.7; }
-.cf-error { margin-top: 12px; color: #FF5252; font-size: 14px; }
-
-footer { background:var(--ink);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px; }
-.foot-copy { font-size:13px;color:rgba(255,255,255,.3); }
-.foot-links { display:flex;gap:20px; }
-.foot-links a { font-size:13px;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s; }
-.foot-links a:hover { color:#9A88FD; }
-
-@media(max-width:900px){
-  .contact-main{padding:8px 20px 60px;}
-  .channels{grid-template-columns:1fr;}
-  .form-wide{grid-template-columns:1fr;gap:28px;padding:32px 24px;}
-  .form-row{grid-template-columns:1fr;}
-}
-@media(max-width:768px) {
-  nav { padding:14px 20px; }
-  .page-hero { padding:60px 20px 48px; }
-  footer { padding:32px 20px;flex-direction:column; }
-}
-</style>
 <script type="text/javascript">
   window.$crisp=[];
   window.CRISP_WEBSITE_ID="a444906d-fd47-4560-8faf-0757f31b6b5c";
+  // Color is set in Crisp dashboard (Advanced Chatbox Customization → #9A88FD).
+  // Do not force color:theme here, named themes override custom brand colors.
   window.$crisp.push(["config", "layout:theme", ["colorized"]]);
   window.openCrispChat = function () {
     if (window.$crisp) window.$crisp.push(["do", "chat:open"]);
@@ -207,173 +53,311 @@ footer { background:var(--ink);padding:40px 48px;display:flex;align-items:center
     d.getElementsByTagName("head")[0].appendChild(s);
   })();
 </script>
-</head>
-<body>
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "xk7vugm9n6");
+</script>
+<style>body{min-height:100vh}:root{--ink-08: rgba(14,14,16,.05);--purple-l: #C4B9FE}.page-hero[data-astro-cid-uw5kdbxl]{padding:80px 48px 72px;text-align:center;position:relative;overflow:hidden}.page-hero[data-astro-cid-uw5kdbxl]:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(154,136,253,.07) 0%,transparent 65%);pointer-events:none}.page-eyebrow[data-astro-cid-uw5kdbxl]{display:inline-flex;align-items:center;gap:8px;font-size:11px;text-transform:uppercase;letter-spacing:3.5px;font-weight:600;color:var(--ink-60);margin-bottom:20px}.page-eyebrow[data-astro-cid-uw5kdbxl]:before{content:"";width:20px;height:1.5px;background:var(--ink-60)}.page-eyebrow[data-astro-cid-uw5kdbxl]:after{content:"";width:20px;height:1.5px;background:var(--ink-60)}.page-hero[data-astro-cid-uw5kdbxl] h1[data-astro-cid-uw5kdbxl]{font-family:Poppins,sans-serif;font-weight:800;font-size:clamp(44px,5vw,68px);letter-spacing:-3px;line-height:.95;margin-bottom:16px;position:relative;z-index:1}.page-hero[data-astro-cid-uw5kdbxl] h1[data-astro-cid-uw5kdbxl] em[data-astro-cid-uw5kdbxl]{font-style:italic;color:var(--purple)}.page-hero[data-astro-cid-uw5kdbxl] p[data-astro-cid-uw5kdbxl]{font-size:17px;color:var(--ink-60);max-width:480px;margin:0 auto;line-height:1.75;position:relative;z-index:1}.contact-main[data-astro-cid-uw5kdbxl]{max-width:1160px;margin:0 auto;padding:8px 48px 90px}.channels[data-astro-cid-uw5kdbxl]{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px}.channel[data-astro-cid-uw5kdbxl]{background:var(--white);border:1px solid var(--ink-25);border-radius:22px;padding:28px;display:flex;flex-direction:column;transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s}.channel[data-astro-cid-uw5kdbxl]:hover{transform:translateY(-4px);box-shadow:0 16px 44px #0e0e1017}.channel[data-astro-cid-uw5kdbxl].feature{background:var(--ink);color:var(--white);border-color:var(--ink)}.ch-icon[data-astro-cid-uw5kdbxl]{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}.ch-icon[data-astro-cid-uw5kdbxl] svg[data-astro-cid-uw5kdbxl]{width:22px;height:22px}.ch-i-purple[data-astro-cid-uw5kdbxl]{background:var(--purple-bg);color:var(--purple)}.ch-i-jasmine[data-astro-cid-uw5kdbxl]{background:var(--jasmine-bg);color:#7a5a00}.ch-i-onink[data-astro-cid-uw5kdbxl]{background:#ffffff1f;color:var(--purple-l)}.ch-label[data-astro-cid-uw5kdbxl]{font-size:10px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;color:var(--ink-60);margin-bottom:7px}.channel[data-astro-cid-uw5kdbxl].feature .ch-label[data-astro-cid-uw5kdbxl]{color:var(--purple-l)}.ch-title[data-astro-cid-uw5kdbxl]{font-family:Poppins,sans-serif;font-weight:700;font-size:19px;letter-spacing:-.3px;margin-bottom:8px}.ch-desc[data-astro-cid-uw5kdbxl]{font-size:14px;color:var(--ink-60);line-height:1.6;margin-bottom:20px;flex:1}.channel[data-astro-cid-uw5kdbxl].feature .ch-desc[data-astro-cid-uw5kdbxl]{color:#ffffffb3}.ch-cta[data-astro-cid-uw5kdbxl]{display:inline-flex;align-items:center;gap:7px;padding:11px 20px;border-radius:999px;font-family:Poppins,sans-serif;font-weight:700;font-size:13px;text-decoration:none;transition:all .3s;align-self:flex-start;cursor:pointer;border:none}.ch-cta-primary[data-astro-cid-uw5kdbxl]{background:var(--purple);color:var(--ink)}.ch-cta-primary[data-astro-cid-uw5kdbxl]:hover{background:var(--purple-l)}.ch-cta-dark[data-astro-cid-uw5kdbxl]{background:var(--ink);color:var(--white)}.ch-cta-dark[data-astro-cid-uw5kdbxl]:hover{background:var(--purple);color:var(--ink)}.ch-cta-outline[data-astro-cid-uw5kdbxl]{background:transparent;border:1.5px solid var(--ink-25);color:var(--ink)}.ch-cta-outline[data-astro-cid-uw5kdbxl]:hover{border-color:var(--ink)}.ch-meta[data-astro-cid-uw5kdbxl]{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-60);margin-top:14px}.channel[data-astro-cid-uw5kdbxl].feature .ch-meta[data-astro-cid-uw5kdbxl]{color:#ffffff8c}.ch-meta-dot[data-astro-cid-uw5kdbxl]{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0}.form-wide[data-astro-cid-uw5kdbxl]{background:var(--white);border:1px solid var(--ink-25);border-radius:28px;padding:44px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start;margin-bottom:40px}.fw-intro[data-astro-cid-uw5kdbxl],.fw-fields[data-astro-cid-uw5kdbxl]{min-width:0}.fw-intro[data-astro-cid-uw5kdbxl] h2[data-astro-cid-uw5kdbxl]{font-family:Poppins,sans-serif;font-weight:800;font-size:26px;letter-spacing:-.6px;margin-bottom:12px}.fw-intro[data-astro-cid-uw5kdbxl] p[data-astro-cid-uw5kdbxl]{font-size:15px;color:var(--ink-60);line-height:1.7;margin-bottom:24px}.fw-points[data-astro-cid-uw5kdbxl]{list-style:none;display:flex;flex-direction:column;gap:14px;padding:0;margin:0}.fw-point[data-astro-cid-uw5kdbxl]{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--ink-60);line-height:1.5}.fw-point[data-astro-cid-uw5kdbxl] svg[data-astro-cid-uw5kdbxl]{width:18px;height:18px;color:var(--purple);flex-shrink:0;margin-top:1px}.faq-quick[data-astro-cid-uw5kdbxl]{background:var(--white);border:1px solid var(--ink-25);border-radius:24px;padding:32px}.faq-quick[data-astro-cid-uw5kdbxl] h3[data-astro-cid-uw5kdbxl]{font-family:Poppins,sans-serif;font-weight:700;font-size:17px;margin-bottom:20px}.faq-item[data-astro-cid-uw5kdbxl]{padding:14px 0;border-bottom:1px solid var(--ink-25);font-size:14px;color:var(--ink-60)}.faq-item[data-astro-cid-uw5kdbxl]:last-child{border-bottom:none;padding-bottom:0}.faq-item[data-astro-cid-uw5kdbxl] strong[data-astro-cid-uw5kdbxl]{display:block;color:var(--ink);font-weight:600;margin-bottom:4px;font-size:14px}.form-group[data-astro-cid-uw5kdbxl]{margin-bottom:18px;min-width:0}.form-group[data-astro-cid-uw5kdbxl] label[data-astro-cid-uw5kdbxl]{display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--ink-60);margin-bottom:8px}.form-group[data-astro-cid-uw5kdbxl] input[data-astro-cid-uw5kdbxl],.form-group[data-astro-cid-uw5kdbxl] select[data-astro-cid-uw5kdbxl],.form-group[data-astro-cid-uw5kdbxl] textarea[data-astro-cid-uw5kdbxl]{display:block;width:100%;max-width:100%;padding:13px 16px;background:var(--cream);border:1.5px solid var(--ink-25);border-radius:12px;font-family:DM Sans,sans-serif;font-size:15px;color:var(--ink);transition:border-color .25s,background .25s;outline:none;box-sizing:border-box}.form-group[data-astro-cid-uw5kdbxl] input[data-astro-cid-uw5kdbxl]:focus,.form-group[data-astro-cid-uw5kdbxl] select[data-astro-cid-uw5kdbxl]:focus,.form-group[data-astro-cid-uw5kdbxl] textarea[data-astro-cid-uw5kdbxl]:focus{border-color:var(--purple);background:var(--white)}.form-group[data-astro-cid-uw5kdbxl] textarea[data-astro-cid-uw5kdbxl]{resize:vertical;min-height:110px}.form-group[data-astro-cid-uw5kdbxl] select[data-astro-cid-uw5kdbxl]{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2.5' stroke-linecap='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}.form-row[data-astro-cid-uw5kdbxl]{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;min-width:0}.btn-submit[data-astro-cid-uw5kdbxl]{width:100%;padding:15px;background:var(--ink);color:var(--white);font-family:Poppins,sans-serif;font-weight:700;font-size:15px;border-radius:12px;border:none;cursor:pointer;transition:background .3s,transform .3s;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:4px}.btn-submit[data-astro-cid-uw5kdbxl]:hover{background:var(--purple);color:var(--ink);transform:translateY(-2px)}.form-success[data-astro-cid-uw5kdbxl]{display:none;text-align:center;padding:32px 0}.form-success[data-astro-cid-uw5kdbxl].show{display:block}.form-main[data-astro-cid-uw5kdbxl].hide{display:none}.success-icon[data-astro-cid-uw5kdbxl]{width:56px;height:56px;border-radius:50%;background:var(--green-bg);border:2px solid rgba(202,254,135,.4);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}.success-icon[data-astro-cid-uw5kdbxl] svg[data-astro-cid-uw5kdbxl]{width:24px;height:24px;color:#3a7a00}.form-success[data-astro-cid-uw5kdbxl] h3[data-astro-cid-uw5kdbxl]{font-family:Poppins,sans-serif;font-weight:800;font-size:20px;letter-spacing:-.5px;margin-bottom:8px}.form-success[data-astro-cid-uw5kdbxl] p[data-astro-cid-uw5kdbxl]{font-size:14px;color:var(--ink-60);line-height:1.7}.cf-error[data-astro-cid-uw5kdbxl]{margin-top:12px;color:#ff5252;font-size:14px}@media(max-width:900px){.contact-main[data-astro-cid-uw5kdbxl]{padding:8px 20px 60px}.channels[data-astro-cid-uw5kdbxl]{grid-template-columns:1fr}.form-wide[data-astro-cid-uw5kdbxl]{grid-template-columns:1fr;gap:28px;padding:32px 24px}.form-row[data-astro-cid-uw5kdbxl]{grid-template-columns:1fr}}@media(max-width:768px){.page-hero[data-astro-cid-uw5kdbxl]{padding:60px 20px 48px}}
+#site-header[data-astro-cid-ctg3m53h]{position:sticky;top:0;z-index:100;background:#f3f1ebeb;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(14,14,16,.08);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;cursor:auto}.site-header-logo[data-astro-cid-ctg3m53h]{display:flex;align-items:center;gap:10px;text-decoration:none;cursor:pointer}.site-header-logo[data-astro-cid-ctg3m53h] span[data-astro-cid-ctg3m53h]{font-family:Poppins,sans-serif;font-weight:800;font-size:20px;letter-spacing:-.5px;color:#0e0e10}.site-header-links[data-astro-cid-ctg3m53h]{display:flex;align-items:center;gap:8px;list-style:none;margin:0;padding:0}.site-header-links[data-astro-cid-ctg3m53h] a[data-astro-cid-ctg3m53h]{display:inline-block;padding:8px 14px;border-radius:999px;font-family:DM Sans,system-ui,sans-serif;font-weight:500;font-size:14px;color:#0e0e10b3;text-decoration:none;cursor:pointer;transition:color .2s,background .2s}.site-header-links[data-astro-cid-ctg3m53h] a[data-astro-cid-ctg3m53h]:hover{color:#0e0e10;background:#0e0e100a}.site-header-pill[data-astro-cid-ctg3m53h]{display:inline-flex!important;align-items:center;gap:8px;padding:9px 16px!important;background:#0e0e10!important;color:#fcfcfc!important;font-family:Poppins,sans-serif!important;font-weight:700!important;font-size:13px!important;border-radius:999px!important;cursor:pointer;transition:transform .25s,box-shadow .25s}.site-header-pill[data-astro-cid-ctg3m53h]:hover{background:#0e0e10!important;color:#fcfcfc!important;transform:translateY(-1px);box-shadow:0 8px 20px #0e0e1033}.site-header-pill-dot[data-astro-cid-ctg3m53h]{width:6px;height:6px;border-radius:50%;background:#cafe87;animation:site-header-pulse 2s infinite}@keyframes site-header-pulse{0%,to{opacity:1}50%{opacity:.5}}.site-header-burger[data-astro-cid-ctg3m53h]{display:none;background:none;border:none;cursor:pointer;width:32px;height:32px;flex-direction:column;justify-content:center;gap:5px;padding:0}.site-header-burger[data-astro-cid-ctg3m53h] span[data-astro-cid-ctg3m53h]{display:block;width:22px;height:2px;background:#0e0e10;border-radius:2px;transition:transform .3s,opacity .3s}.site-header-burger[data-astro-cid-ctg3m53h].is-open span[data-astro-cid-ctg3m53h]:nth-child(1){transform:translateY(7px) rotate(45deg)}.site-header-burger[data-astro-cid-ctg3m53h].is-open span[data-astro-cid-ctg3m53h]:nth-child(2){opacity:0}.site-header-burger[data-astro-cid-ctg3m53h].is-open span[data-astro-cid-ctg3m53h]:nth-child(3){transform:translateY(-7px) rotate(-45deg)}@media(max-width:768px){#site-header[data-astro-cid-ctg3m53h]{padding:12px 18px}.site-header-links[data-astro-cid-ctg3m53h]{position:fixed;top:60px;left:0;right:0;background:#f3f1ebfa;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);flex-direction:column;align-items:stretch;gap:4px;padding:16px;border-bottom:1px solid rgba(14,14,16,.08);transform:translateY(-130%);transition:transform .3s cubic-bezier(.16,1,.3,1)}.site-header-links[data-astro-cid-ctg3m53h].is-open{transform:translateY(0)}.site-header-links[data-astro-cid-ctg3m53h] a[data-astro-cid-ctg3m53h]{padding:14px 16px;font-size:16px}.site-header-pill[data-astro-cid-ctg3m53h]{justify-content:center}.site-header-burger[data-astro-cid-ctg3m53h]{display:flex}}.site-footer-full[data-astro-cid-gcn2mc3v]{background:#0e0e10;color:#fcfcfc;padding:56px 32px 28px;cursor:auto}.site-footer-top[data-astro-cid-gcn2mc3v]{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr repeat(7,1fr);gap:28px;padding-bottom:36px;border-bottom:1px solid rgba(252,252,252,.1)}.site-foot-brand[data-astro-cid-gcn2mc3v]{display:flex;flex-direction:column;gap:16px}.site-foot-logo[data-astro-cid-gcn2mc3v]{display:flex;align-items:center;gap:10px;text-decoration:none;cursor:pointer}.site-foot-logo[data-astro-cid-gcn2mc3v] span[data-astro-cid-gcn2mc3v]{font-family:Poppins,sans-serif;font-weight:800;font-size:20px;color:#fcfcfc}.site-foot-brand[data-astro-cid-gcn2mc3v] p[data-astro-cid-gcn2mc3v]{font-size:13px;line-height:1.6;color:#fcfcfc99;max-width:280px}.site-foot-badge[data-astro-cid-gcn2mc3v]{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;background:#fcfcfc0f;border:1px solid rgba(252,252,252,.1);border-radius:999px;font-size:11px;font-weight:600;color:#fcfcfccc;width:fit-content}.site-foot-ph[data-astro-cid-gcn2mc3v]{display:flex;margin-top:14px;transition:transform .25s ease,opacity .25s ease}.site-foot-ph[data-astro-cid-gcn2mc3v]:hover{transform:translateY(-2px);opacity:.92}.site-foot-ph[data-astro-cid-gcn2mc3v] img[data-astro-cid-gcn2mc3v]{display:block;width:auto;height:53px}.site-foot-col[data-astro-cid-gcn2mc3v] h4[data-astro-cid-gcn2mc3v]{font-family:Poppins,sans-serif;font-weight:700;font-size:13px;color:#fcfcfc;text-transform:uppercase;letter-spacing:.6px;margin-bottom:14px}.site-foot-col[data-astro-cid-gcn2mc3v] ul[data-astro-cid-gcn2mc3v]{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}.site-foot-col[data-astro-cid-gcn2mc3v] a[data-astro-cid-gcn2mc3v]{font-family:DM Sans,system-ui,sans-serif;font-size:13px;color:#fcfcfc99;text-decoration:none;cursor:pointer;transition:color .2s;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.site-foot-col[data-astro-cid-gcn2mc3v] a[data-astro-cid-gcn2mc3v]:hover{color:#9a88fd}.site-footer-bottom[data-astro-cid-gcn2mc3v]{max-width:1280px;margin:0 auto;padding-top:28px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#fcfcfc80;flex-wrap:wrap;gap:16px}.site-foot-socials[data-astro-cid-gcn2mc3v]{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.site-foot-socials[data-astro-cid-gcn2mc3v] a[data-astro-cid-gcn2mc3v]{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#fcfcfc0f;color:#fcfcfcb3;text-decoration:none;cursor:pointer;transition:background .2s,color .2s}.site-foot-socials[data-astro-cid-gcn2mc3v] a[data-astro-cid-gcn2mc3v]:hover{background:#9a88fd33;color:#9a88fd}.site-foot-chat-btn[data-astro-cid-gcn2mc3v]{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:none;cursor:pointer;background:#9a88fd;color:#0e0e10;font-family:DM Sans,sans-serif;font-size:13px;font-weight:600;transition:transform .2s,box-shadow .2s}.site-foot-chat-btn[data-astro-cid-gcn2mc3v]:hover{transform:translateY(-2px);box-shadow:0 8px 20px #9a88fd59}@media(max-width:1100px){.site-footer-top[data-astro-cid-gcn2mc3v]{grid-template-columns:1fr 1fr 1fr}.site-foot-brand[data-astro-cid-gcn2mc3v]{grid-column:1 / -1;max-width:480px}}@media(max-width:720px){.site-footer-full[data-astro-cid-gcn2mc3v]{padding:40px 18px 20px}.site-footer-top[data-astro-cid-gcn2mc3v]{grid-template-columns:1fr 1fr;gap:28px}.site-foot-brand[data-astro-cid-gcn2mc3v]{grid-column:1 / -1}.site-footer-bottom[data-astro-cid-gcn2mc3v]{flex-direction:column;align-items:flex-start}}
+html[lang=en],html[lang=en] body{direction:ltr!important;text-align:left}[data-astro-cid-dpidqgiz]{cursor:auto}a[data-astro-cid-dpidqgiz],button[data-astro-cid-dpidqgiz],[data-astro-cid-dpidqgiz][role=button],.faq-q[data-astro-cid-dpidqgiz],.toc-list[data-astro-cid-dpidqgiz] a[data-astro-cid-dpidqgiz],.btn-ink[data-astro-cid-dpidqgiz],.btn-ghost[data-astro-cid-dpidqgiz],.btn-cta[data-astro-cid-dpidqgiz],.btn-cta-outline[data-astro-cid-dpidqgiz],.btn-submit[data-astro-cid-dpidqgiz],.cc-link[data-astro-cid-dpidqgiz],.ch-cta[data-astro-cid-dpidqgiz]{cursor:pointer}input[data-astro-cid-dpidqgiz],textarea[data-astro-cid-dpidqgiz],select[data-astro-cid-dpidqgiz]{cursor:text}input[data-astro-cid-dpidqgiz][type=checkbox],input[data-astro-cid-dpidqgiz][type=radio]{cursor:pointer}[data-astro-cid-dpidqgiz],[data-astro-cid-dpidqgiz]:before,[data-astro-cid-dpidqgiz]:after{margin:0;padding:0;box-sizing:border-box}:root{--cream: #F3F1EB;--cream-2: #EAE8E0;--white: #FCFCFC;--ink: #0E0E10;--ink-60: rgba(14,14,16,.6);--ink-25: rgba(14,14,16,.1);--purple: #9A88FD;--purple-bg: #EDE9FE;--green: #CAFE87;--green-bg: #EEFAD5;--jasmine: #FEDE80;--jasmine-bg: #FFF8DC}html{scroll-behavior:smooth}body{font-family:DM Sans,sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased}
+</style></head>
+<body data-astro-cid-dpidqgiz>
 
-<nav>
-  <a href="/" class="nav-logo">
-    <svg width="32" height="32" viewBox="0 0 700 700" fill="#9A88FD"><path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z"/><path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z"/></svg>
-    <span>Snagify</span>
+<nav id="site-header" data-astro-cid-ctg3m53h>
+  <a href="/" class="site-header-logo" aria-label="Snagify home" data-astro-cid-ctg3m53h>
+    <svg width="40" height="40" viewBox="0 0 700 700" fill="#9A88FD" data-astro-cid-ctg3m53h>
+      <path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z" data-astro-cid-ctg3m53h></path>
+      <path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z" data-astro-cid-ctg3m53h></path>
+    </svg>
+    <span data-astro-cid-ctg3m53h>Snagify</span>
   </a>
-  <a href="/" class="nav-back">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-    Back to home
-  </a>
+
+  <ul class="site-header-links" data-astro-cid-ctg3m53h>
+    <li data-astro-cid-ctg3m53h><a href="/#features" data-astro-cid-ctg3m53h>Features</a></li>
+    <li data-astro-cid-ctg3m53h><a href="/#pricing" data-astro-cid-ctg3m53h>Pricing</a></li>
+    <li data-astro-cid-ctg3m53h><a href="/#faq" data-astro-cid-ctg3m53h>FAQ</a></li>
+    <li data-astro-cid-ctg3m53h><a href="/resources" data-astro-cid-ctg3m53h>Resources</a></li>
+    <li data-astro-cid-ctg3m53h><a href="/contact" data-astro-cid-ctg3m53h>Contact</a></li>
+    <li data-astro-cid-ctg3m53h>
+      <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="site-header-pill" data-astro-cid-ctg3m53h>
+        <span class="site-header-pill-dot" data-astro-cid-ctg3m53h></span>
+        Open App
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" data-astro-cid-ctg3m53h><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" data-astro-cid-ctg3m53h></path><polyline points="15 3 21 3 21 9" data-astro-cid-ctg3m53h></polyline><line x1="10" y1="14" x2="21" y2="3" data-astro-cid-ctg3m53h></line></svg>
+      </a>
+    </li>
+  </ul>
+
+  <button class="site-header-burger" id="site-header-burger" aria-label="Open menu" data-astro-cid-ctg3m53h>
+    <span data-astro-cid-ctg3m53h></span><span data-astro-cid-ctg3m53h></span><span data-astro-cid-ctg3m53h></span>
+  </button>
 </nav>
 
-<div class="page-hero">
-  <div class="page-eyebrow">Get in touch</div>
-  <h1>Let's <em>talk</em>.</h1>
-  <p>A question about the product, a partnership, or a technical issue — pick the channel that suits you. We reply fast.</p>
+
+
+<script type="module">const e=document.getElementById("site-header-burger"),s=document.querySelector(".site-header-links");e&&s&&(e.addEventListener("click",()=>{e.classList.toggle("is-open"),s.classList.toggle("is-open")}),s.querySelectorAll("a").forEach(t=>{t.addEventListener("click",()=>{e.classList.remove("is-open"),s.classList.remove("is-open")})}));</script>
+
+
+
+
+<div class="page-hero" data-astro-cid-uw5kdbxl>
+  <div class="page-eyebrow" data-astro-cid-uw5kdbxl>Get in touch</div>
+  <h1 data-astro-cid-uw5kdbxl>Let's <em data-astro-cid-uw5kdbxl>talk</em>.</h1>
+  <p data-astro-cid-uw5kdbxl>A question about the product, a partnership, or a technical issue, pick the channel that suits you. We reply fast.</p>
 </div>
 
-<div class="contact-main">
+<div class="contact-main" data-astro-cid-uw5kdbxl>
 
-  <div class="channels">
-    <div class="channel feature">
-      <div class="ch-icon ch-i-onink">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  <div class="channels" data-astro-cid-uw5kdbxl>
+    <div class="channel feature" data-astro-cid-uw5kdbxl>
+      <div class="ch-icon ch-i-onink" data-astro-cid-uw5kdbxl>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-uw5kdbxl><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" data-astro-cid-uw5kdbxl></path></svg>
       </div>
-      <div class="ch-label">Fastest</div>
-      <div class="ch-title">Chat with us live</div>
-      <div class="ch-desc">Quick question? Get an answer in real time from our team, right here.</div>
-      <button type="button" class="ch-cta ch-cta-primary" onclick="openCrispChat()">Open chat →</button>
-      <div class="ch-meta"><span class="ch-meta-dot"></span>Usually replies in minutes</div>
+      <div class="ch-label" data-astro-cid-uw5kdbxl>Fastest</div>
+      <div class="ch-title" data-astro-cid-uw5kdbxl>Chat with us live</div>
+      <div class="ch-desc" data-astro-cid-uw5kdbxl>Quick question? Get an answer in real time from our team, right here.</div>
+      <button type="button" class="ch-cta ch-cta-primary" onclick="openCrispChat()" data-astro-cid-uw5kdbxl>Open chat →</button>
+      <div class="ch-meta" data-astro-cid-uw5kdbxl><span class="ch-meta-dot" data-astro-cid-uw5kdbxl></span>Usually replies in minutes</div>
     </div>
-    <div class="channel">
-      <div class="ch-icon ch-i-purple">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    <div class="channel" data-astro-cid-uw5kdbxl>
+      <div class="ch-icon ch-i-purple" data-astro-cid-uw5kdbxl>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-uw5kdbxl><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" data-astro-cid-uw5kdbxl></path><polyline points="22,6 12,13 2,6" data-astro-cid-uw5kdbxl></polyline></svg>
       </div>
-      <div class="ch-label">Detailed</div>
-      <div class="ch-title">Send an email</div>
-      <div class="ch-desc">For anything that needs detail — feedback, questions, or documents.</div>
-      <a href="mailto:hello@snagify.net" class="ch-cta ch-cta-dark">hello@snagify.net →</a>
-      <div class="ch-meta"><span class="ch-meta-dot"></span>Under 24 hours</div>
+      <div class="ch-label" data-astro-cid-uw5kdbxl>Detailed</div>
+      <div class="ch-title" data-astro-cid-uw5kdbxl>Send an email</div>
+      <div class="ch-desc" data-astro-cid-uw5kdbxl>For anything that needs detail, feedback, questions, or documents.</div>
+      <a href="mailto:hello@snagify.net" class="ch-cta ch-cta-dark" data-astro-cid-uw5kdbxl>hello@snagify.net →</a>
+      <div class="ch-meta" data-astro-cid-uw5kdbxl><span class="ch-meta-dot" data-astro-cid-uw5kdbxl></span>Under 24 hours</div>
     </div>
-    <div class="channel">
-      <div class="ch-icon ch-i-jasmine">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    <div class="channel" data-astro-cid-uw5kdbxl>
+      <div class="ch-icon ch-i-jasmine" data-astro-cid-uw5kdbxl>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-uw5kdbxl><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" data-astro-cid-uw5kdbxl></path><circle cx="9" cy="7" r="4" data-astro-cid-uw5kdbxl></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87" data-astro-cid-uw5kdbxl></path><path d="M16 3.13a4 4 0 0 1 0 7.75" data-astro-cid-uw5kdbxl></path></svg>
       </div>
-      <div class="ch-label">Agencies</div>
-      <div class="ch-title">Work with us</div>
-      <div class="ch-desc">Real estate agencies, property managers &amp; proptech — let's partner.</div>
-      <a href="#contact-form-wrap" class="ch-cta ch-cta-outline">Use the form →</a>
-      <div class="ch-meta"><span class="ch-meta-dot"></span>Within 2 business days</div>
+      <div class="ch-label" data-astro-cid-uw5kdbxl>Agencies</div>
+      <div class="ch-title" data-astro-cid-uw5kdbxl>Work with us</div>
+      <div class="ch-desc" data-astro-cid-uw5kdbxl>Real estate agencies, property managers &amp; proptech, let's partner.</div>
+      <a href="#contact-form-wrap" class="ch-cta ch-cta-outline" data-astro-cid-uw5kdbxl>Use the form →</a>
+      <div class="ch-meta" data-astro-cid-uw5kdbxl><span class="ch-meta-dot" data-astro-cid-uw5kdbxl></span>Within 2 business days</div>
     </div>
   </div>
 
-  <div class="form-wide" id="contact-form-wrap">
-    <div class="fw-intro">
-      <h2>Send a message</h2>
-      <p>Prefer to write it all down? Fill in the form and we'll get back to you within one business day.</p>
-      <ul class="fw-points">
-        <li class="fw-point">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+  <div class="form-wide" id="contact-form-wrap" data-astro-cid-uw5kdbxl>
+    <div class="fw-intro" data-astro-cid-uw5kdbxl>
+      <h2 data-astro-cid-uw5kdbxl>Send a message</h2>
+      <p data-astro-cid-uw5kdbxl>Prefer to write it all down? Fill in the form and we'll get back to you within one business day.</p>
+      <ul class="fw-points" data-astro-cid-uw5kdbxl>
+        <li class="fw-point" data-astro-cid-uw5kdbxl>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-uw5kdbxl><polyline points="20 6 9 17 4 12" data-astro-cid-uw5kdbxl></polyline></svg>
           Direct line to the founder, not a ticket queue.
         </li>
-        <li class="fw-point">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <li class="fw-point" data-astro-cid-uw5kdbxl>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-uw5kdbxl><polyline points="20 6 9 17 4 12" data-astro-cid-uw5kdbxl></polyline></svg>
           We read and reply to every single message.
         </li>
-        <li class="fw-point">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <li class="fw-point" data-astro-cid-uw5kdbxl>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-uw5kdbxl><polyline points="20 6 9 17 4 12" data-astro-cid-uw5kdbxl></polyline></svg>
           Priority handling for agencies and Pro users.
         </li>
       </ul>
     </div>
-    <div class="fw-fields">
-      <div class="form-main" id="form-main">
-        <form id="contact-form" onsubmit="handleSubmit(event)">
-          <div class="form-row">
-            <div class="form-group">
-              <label>First name</label>
-              <input type="text" id="cf-firstname" placeholder="Ahmed" required>
+    <div class="fw-fields" data-astro-cid-uw5kdbxl>
+      <div class="form-main" id="form-main" data-astro-cid-uw5kdbxl>
+        <form id="contact-form" onsubmit="handleSubmit(event)" data-astro-cid-uw5kdbxl>
+          <div class="form-row" data-astro-cid-uw5kdbxl>
+            <div class="form-group" data-astro-cid-uw5kdbxl>
+              <label data-astro-cid-uw5kdbxl>First name</label>
+              <input type="text" id="cf-firstname" placeholder="Ahmed" required data-astro-cid-uw5kdbxl>
             </div>
-            <div class="form-group">
-              <label>Last name</label>
-              <input type="text" id="cf-lastname" placeholder="Al-Rashid" required>
+            <div class="form-group" data-astro-cid-uw5kdbxl>
+              <label data-astro-cid-uw5kdbxl>Last name</label>
+              <input type="text" id="cf-lastname" placeholder="Al-Rashid" required data-astro-cid-uw5kdbxl>
             </div>
           </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" id="cf-email" placeholder="you@example.com" required>
+          <div class="form-group" data-astro-cid-uw5kdbxl>
+            <label data-astro-cid-uw5kdbxl>Email</label>
+            <input type="email" id="cf-email" placeholder="you@example.com" required data-astro-cid-uw5kdbxl>
           </div>
-          <div class="form-group">
-            <label>I am a</label>
-            <select id="cf-role" required>
-              <option value="">Select...</option>
-              <option>Property agent / agency</option>
-              <option>Individual landlord</option>
-              <option>Tenant</option>
-              <option>Property manager</option>
-              <option>Other</option>
+          <div class="form-group" data-astro-cid-uw5kdbxl>
+            <label data-astro-cid-uw5kdbxl>I am a</label>
+            <select id="cf-role" required data-astro-cid-uw5kdbxl>
+              <option value="" data-astro-cid-uw5kdbxl>Select...</option>
+              <option data-astro-cid-uw5kdbxl>Property agent / agency</option>
+              <option data-astro-cid-uw5kdbxl>Individual landlord</option>
+              <option data-astro-cid-uw5kdbxl>Tenant</option>
+              <option data-astro-cid-uw5kdbxl>Property manager</option>
+              <option data-astro-cid-uw5kdbxl>Other</option>
             </select>
           </div>
-          <div class="form-group">
-            <label>Subject</label>
-            <select id="cf-subject">
-              <option>General question</option>
-              <option>Technical support</option>
-              <option>Billing or refund</option>
-              <option>Partnership</option>
-              <option>Other</option>
+          <div class="form-group" data-astro-cid-uw5kdbxl>
+            <label data-astro-cid-uw5kdbxl>Subject</label>
+            <select id="cf-subject" data-astro-cid-uw5kdbxl>
+              <option data-astro-cid-uw5kdbxl>General question</option>
+              <option data-astro-cid-uw5kdbxl>Technical support</option>
+              <option data-astro-cid-uw5kdbxl>Billing or refund</option>
+              <option data-astro-cid-uw5kdbxl>Partnership</option>
+              <option data-astro-cid-uw5kdbxl>Other</option>
             </select>
           </div>
-          <div class="form-group">
-            <label>Message</label>
-            <textarea id="cf-message" placeholder="Tell us what's on your mind..." required></textarea>
+          <div class="form-group" data-astro-cid-uw5kdbxl>
+            <label data-astro-cid-uw5kdbxl>Message</label>
+            <textarea id="cf-message" placeholder="Tell us what's on your mind..." required data-astro-cid-uw5kdbxl></textarea>
           </div>
-          <button type="submit" class="btn-submit">
+          <button type="submit" class="btn-submit" data-astro-cid-uw5kdbxl>
             Send message
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" data-astro-cid-uw5kdbxl><path d="M5 12h14M12 5l7 7-7 7" data-astro-cid-uw5kdbxl></path></svg>
           </button>
-          <p id="cf-error" class="cf-error" aria-live="polite" style="display:none;"></p>
+          <p id="cf-error" class="cf-error" aria-live="polite" style="display:none;" data-astro-cid-uw5kdbxl></p>
         </form>
       </div>
 
-      <div class="form-success" id="form-success">
-        <div class="success-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <div class="form-success" id="form-success" data-astro-cid-uw5kdbxl>
+        <div class="success-icon" data-astro-cid-uw5kdbxl>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" data-astro-cid-uw5kdbxl><polyline points="20 6 9 17 4 12" data-astro-cid-uw5kdbxl></polyline></svg>
         </div>
-        <h3>Message sent!</h3>
-        <p>Thanks for reaching out. We'll get back to you at your email address within one business day.</p>
+        <h3 data-astro-cid-uw5kdbxl>Message sent!</h3>
+        <p data-astro-cid-uw5kdbxl>Thanks for reaching out. We'll get back to you at your email address within one business day.</p>
       </div>
     </div>
   </div>
 
-  <div class="faq-quick">
-    <h3>Quick answers</h3>
-    <div class="faq-item">
-      <strong>Is check-in really free?</strong>
+  <div class="faq-quick" data-astro-cid-uw5kdbxl>
+    <h3 data-astro-cid-uw5kdbxl>Quick answers</h3>
+    <div class="faq-item" data-astro-cid-uw5kdbxl>
+      <strong data-astro-cid-uw5kdbxl>Is check-in really free?</strong>
       Yes. Check-in inspections for individual landlords and tenants are free. No credits needed, no card required.
     </div>
-    <div class="faq-item">
-      <strong>Can I get a refund?</strong>
+    <div class="faq-item" data-astro-cid-uw5kdbxl>
+      <strong data-astro-cid-uw5kdbxl>Can I get a refund?</strong>
       Credit packs are refundable before any credit is used. Annual subscriptions are refundable within 14 days of purchase. Email us.
     </div>
-    <div class="faq-item">
-      <strong>Do you offer agency or volume pricing?</strong>
+    <div class="faq-item" data-astro-cid-uw5kdbxl>
+      <strong data-astro-cid-uw5kdbxl>Do you offer agency or volume pricing?</strong>
       Yes. For teams doing more than 50 inspections per month, contact us for a custom plan.
     </div>
-    <div class="faq-item">
-      <strong>How do I delete my account?</strong>
+    <div class="faq-item" data-astro-cid-uw5kdbxl>
+      <strong data-astro-cid-uw5kdbxl>How do I delete my account?</strong>
       Go to Settings in the app, or email us and we'll handle it within 48 hours.
     </div>
   </div>
 
 </div>
 
-<footer>
-  <span class="foot-copy">© 2025 Snagify. All rights reserved.</span>
-  <div class="foot-links">
-    <a href="/privacy">Privacy</a>
-    <a href="/terms">Terms</a>
-    <a href="/rera">RERA Compliance</a>
-    <a href="/contact">Contact</a>
+
+
+
+<footer class="site-footer-full" data-astro-cid-gcn2mc3v>
+  <div class="site-footer-top" data-astro-cid-gcn2mc3v>
+
+    <div class="site-foot-brand" data-astro-cid-gcn2mc3v>
+      <a href="/" class="site-foot-logo" data-astro-cid-gcn2mc3v>
+        <svg width="28" height="28" viewBox="0 0 700 700" fill="#9A88FD" data-astro-cid-gcn2mc3v>
+          <path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z" data-astro-cid-gcn2mc3v></path>
+          <path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z" data-astro-cid-gcn2mc3v></path>
+        </svg>
+        <span data-astro-cid-gcn2mc3v>Snagify</span>
+      </a>
+      <p data-astro-cid-gcn2mc3v>Digital property inspections for Dubai&#39;s rental market. AI-powered, RDC-ready, and built for professionals and landlords alike.</p>
+      <div class="site-foot-badge" data-astro-cid-gcn2mc3v>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" data-astro-cid-gcn2mc3v><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" data-astro-cid-gcn2mc3v></path></svg>
+        Evidence-grade · RDC-ready · Dubai
+      </div>
+      <a class="site-foot-ph" href="https://www.producthunt.com/products/snagify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-snagify" target="_blank" rel="noopener noreferrer" data-astro-cid-gcn2mc3v>
+        <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1191014&theme=light" alt="Snagify on Product Hunt" width="300" height="65" loading="lazy" data-astro-cid-gcn2mc3v>
+      </a>
+    </div>
+
+    <div class="site-foot-col" data-astro-cid-gcn2mc3v>
+      <h4 data-astro-cid-gcn2mc3v>Product</h4>
+      <ul data-astro-cid-gcn2mc3v>
+        <li data-astro-cid-gcn2mc3v>
+            <a href="/#for-pros" data-astro-cid-gcn2mc3v>For Professionals</a>
+          </li><li data-astro-cid-gcn2mc3v>
+            <a href="/#for-private" data-astro-cid-gcn2mc3v>For Landlords &amp; Tenants</a>
+          </li><li data-astro-cid-gcn2mc3v>
+            <a href="/#features" data-astro-cid-gcn2mc3v>Features</a>
+          </li><li data-astro-cid-gcn2mc3v>
+            <a href="/#pricing" data-astro-cid-gcn2mc3v>Pricing</a>
+          </li><li data-astro-cid-gcn2mc3v>
+            <a href="/sample-report.pdf" target="_blank" data-astro-cid-gcn2mc3v>Sample Report</a>
+          </li>
+      </ul>
+    </div>
+
+    <div class="site-foot-col" data-astro-cid-gcn2mc3v>
+      <h4 data-astro-cid-gcn2mc3v>Built for</h4>
+      <ul data-astro-cid-gcn2mc3v>
+        <li data-astro-cid-gcn2mc3v><a href="/for/landlords" data-astro-cid-gcn2mc3v>Landlords</a></li><li data-astro-cid-gcn2mc3v><a href="/for/tenants" data-astro-cid-gcn2mc3v>Tenants</a></li><li data-astro-cid-gcn2mc3v><a href="/for/property-managers" data-astro-cid-gcn2mc3v>Property Managers</a></li><li data-astro-cid-gcn2mc3v><a href="/for/real-estate-agencies" data-astro-cid-gcn2mc3v>Real Estate Agencies</a></li><li data-astro-cid-gcn2mc3v><a href="/for/holiday-homes" data-astro-cid-gcn2mc3v>Holiday Homes</a></li><li data-astro-cid-gcn2mc3v><a href="/for/property-investors" data-astro-cid-gcn2mc3v>Property Investors</a></li><li data-astro-cid-gcn2mc3v><a href="/for/expats" data-astro-cid-gcn2mc3v>Expats</a></li>
+      </ul>
+    </div>
+
+    <div class="site-foot-col" data-astro-cid-gcn2mc3v>
+      <h4 data-astro-cid-gcn2mc3v>Areas covered</h4>
+      <ul data-astro-cid-gcn2mc3v>
+        <li data-astro-cid-gcn2mc3v><a href="/inspections" data-astro-cid-gcn2mc3v>All 60 neighborhoods →</a></li>
+        <li data-astro-cid-gcn2mc3v><a href="/inspections/dubai-marina" data-astro-cid-gcn2mc3v>Dubai Marina</a></li><li data-astro-cid-gcn2mc3v><a href="/inspections/downtown-dubai" data-astro-cid-gcn2mc3v>Downtown Dubai</a></li><li data-astro-cid-gcn2mc3v><a href="/inspections/business-bay" data-astro-cid-gcn2mc3v>Business Bay</a></li><li data-astro-cid-gcn2mc3v><a href="/inspections/jvc" data-astro-cid-gcn2mc3v>JVC</a></li><li data-astro-cid-gcn2mc3v><a href="/inspections/palm-jumeirah" data-astro-cid-gcn2mc3v>Palm Jumeirah</a></li>
+      </ul>
+    </div>
+
+    <div class="site-foot-col" data-astro-cid-gcn2mc3v>
+      <h4 data-astro-cid-gcn2mc3v>Use cases</h4>
+      <ul data-astro-cid-gcn2mc3v>
+        <li data-astro-cid-gcn2mc3v><a href="/check-in-inspection-dubai" data-astro-cid-gcn2mc3v>Check-in inspection</a></li><li data-astro-cid-gcn2mc3v><a href="/check-out-inspection-dubai" data-astro-cid-gcn2mc3v>Check-out inspection</a></li><li data-astro-cid-gcn2mc3v><a href="/snagging-inspection-dubai" data-astro-cid-gcn2mc3v>Property snagging</a></li><li data-astro-cid-gcn2mc3v><a href="/handover-inspection-dubai" data-astro-cid-gcn2mc3v>Handover inspection</a></li><li data-astro-cid-gcn2mc3v><a href="/deposit-protection-dubai" data-astro-cid-gcn2mc3v>Deposit protection</a></li><li data-astro-cid-gcn2mc3v><a href="/dilapidations-dubai" data-astro-cid-gcn2mc3v>Dilapidations</a></li>
+      </ul>
+    </div>
+
+    <div class="site-foot-col" data-astro-cid-gcn2mc3v>
+      <h4 data-astro-cid-gcn2mc3v>Resources</h4>
+      <ul data-astro-cid-gcn2mc3v>
+        <li data-astro-cid-gcn2mc3v><a href="/blog/first-48-hours-dubai-rental" data-astro-cid-gcn2mc3v>Just Got Your Keys? Your First 48 Hours in a Dubai Rental</a></li><li data-astro-cid-gcn2mc3v><a href="/blog/property-inspection-cost-dubai" data-astro-cid-gcn2mc3v>How Much Does a Property Inspection Cost in Dubai? (2026 Prices)</a></li><li data-astro-cid-gcn2mc3v><a href="/blog/rdc-evidence-photos-vs-signed-reports" data-astro-cid-gcn2mc3v>Photos vs Signed Reports: What Counts as Evidence at the Dubai RDC</a></li><li data-astro-cid-gcn2mc3v><a href="/blog/is-check-in-report-mandatory-dubai" data-astro-cid-gcn2mc3v>Is a Check-in Report Mandatory in Dubai? (What Expats Get Wrong)</a></li>
+        <li data-astro-cid-gcn2mc3v><a href="/resources" data-astro-cid-gcn2mc3v>All resources →</a></li>
+      </ul>
+    </div>
+
+    <div class="site-foot-col" data-astro-cid-gcn2mc3v>
+      <h4 data-astro-cid-gcn2mc3v>Tutorials</h4>
+      <ul data-astro-cid-gcn2mc3v>
+        <li data-astro-cid-gcn2mc3v><a href="/resources/tutorials/perfect-check-in-20-minutes" data-astro-cid-gcn2mc3v>How to Do a Property Check-In in Dubai: A Perfect Report in 20 Minutes</a></li><li data-astro-cid-gcn2mc3v><a href="/resources/tutorials/checkout-comparison" data-astro-cid-gcn2mc3v>How to Do a Check-Out Inspection in Dubai: Comparing Against Your Baseline</a></li><li data-astro-cid-gcn2mc3v><a href="/resources/tutorials/photographing-findings" data-astro-cid-gcn2mc3v>How to Photograph Property Findings for an Inspection Report (The Right Way)</a></li><li data-astro-cid-gcn2mc3v><a href="/resources/tutorials/when-they-wont-sign" data-astro-cid-gcn2mc3v>Tenant or Landlord Won&#39;t Sign the Inspection Report? Here&#39;s What to Do</a></li>
+        <li data-astro-cid-gcn2mc3v><a href="/resources/tutorials" data-astro-cid-gcn2mc3v>All tutorials →</a></li>
+      </ul>
+    </div>
+
+    <div class="site-foot-col" data-astro-cid-gcn2mc3v>
+      <h4 data-astro-cid-gcn2mc3v>Legal</h4>
+      <ul data-astro-cid-gcn2mc3v>
+        <li data-astro-cid-gcn2mc3v><a href="/privacy" data-astro-cid-gcn2mc3v>Privacy Policy</a></li><li data-astro-cid-gcn2mc3v><a href="/terms" data-astro-cid-gcn2mc3v>Terms of Service</a></li><li data-astro-cid-gcn2mc3v><a href="/rera" data-astro-cid-gcn2mc3v>RERA Compliance</a></li><li data-astro-cid-gcn2mc3v><a href="/contact" data-astro-cid-gcn2mc3v>Contact</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="site-footer-bottom" data-astro-cid-gcn2mc3v>
+    <p data-astro-cid-gcn2mc3v>© 2026 Snagify. All rights reserved.</p>
+    <div class="site-foot-socials" data-astro-cid-gcn2mc3v>
+      <button type="button" class="site-foot-chat-btn" onclick="openCrispChat()" aria-label="Chat with us" data-astro-cid-gcn2mc3v>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-astro-cid-gcn2mc3v><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" data-astro-cid-gcn2mc3v></path></svg>
+        Chat with us
+      </button>
+      <a href="https://instagram.com/snagifyapp" target="_blank" rel="noopener" aria-label="Instagram" data-astro-cid-gcn2mc3v>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" data-astro-cid-gcn2mc3v><rect x="2" y="2" width="20" height="20" rx="5" data-astro-cid-gcn2mc3v></rect><circle cx="12" cy="12" r="4" data-astro-cid-gcn2mc3v></circle><circle cx="17.5" cy="6.5" r=".5" fill="currentColor" data-astro-cid-gcn2mc3v></circle></svg>
+      </a>
+      <a href="https://www.facebook.com/snagify/" target="_blank" rel="noopener" aria-label="Facebook" data-astro-cid-gcn2mc3v>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" data-astro-cid-gcn2mc3v><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" data-astro-cid-gcn2mc3v></path></svg>
+      </a>
+      <a href="https://www.linkedin.com/company/snagify/" target="_blank" rel="noopener" aria-label="LinkedIn" data-astro-cid-gcn2mc3v>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" data-astro-cid-gcn2mc3v><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" data-astro-cid-gcn2mc3v></path><circle cx="4" cy="4" r="2" data-astro-cid-gcn2mc3v></circle></svg>
+      </a>
+      <a href="https://www.tiktok.com/@snagifyapp" target="_blank" rel="noopener" aria-label="TikTok" data-astro-cid-gcn2mc3v>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" data-astro-cid-gcn2mc3v><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.13a8.16 8.16 0 0 0 4.77 1.52V7.2a4.85 4.85 0 0 1-1-.51z" data-astro-cid-gcn2mc3v></path></svg>
+      </a>
+    </div>
   </div>
 </footer>
 
-<script>
+<script>(function(){const GOOGLE_ADS_ID = "";
+const GOOGLE_ADS_LEAD_LABEL = "";
+
 async function handleSubmit(e) {
   e.preventDefault();
   var errEl = document.getElementById('cf-error');
@@ -436,10 +420,6 @@ async function handleSubmit(e) {
     if (btn) { btn.disabled = false; btn.textContent = original; }
   }
 }
-</script>
-  <script>
-    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-  </script>
-  <script defer src="/_vercel/insights/script.js"></script>
-</body>
-</html>
+})();</script>
+
+</body></html>
