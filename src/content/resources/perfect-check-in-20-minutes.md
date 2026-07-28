@@ -7,8 +7,8 @@ tags: ["check-in", "tutorial", "inspections"]
 category: tutorial
 featured: false
 readingMinutes: 8
-draft: true
-# flip draft to false once screenshots are added
+draft: false
+# screenshots still placeholders
 ---
 
 # A perfect check-in in 20 minutes

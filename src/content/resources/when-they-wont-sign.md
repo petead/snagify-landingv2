@@ -7,8 +7,8 @@ tags: ["signatures", "tutorial", "remote"]
 category: tutorial
 featured: false
 readingMinutes: 7
-draft: true
-# flip draft to false once screenshots are added
+draft: false
+# screenshots still placeholders
 ---
 
 # What to do when the other party won't sign

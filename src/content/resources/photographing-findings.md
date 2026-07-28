@@ -7,8 +7,8 @@ tags: ["photos", "tutorial", "evidence"]
 category: tutorial
 featured: false
 readingMinutes: 7
-draft: true
-# flip draft to false once photos are added
+draft: false
+# photos still placeholders
 ---
 
 # Photographing findings the right way

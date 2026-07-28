@@ -7,8 +7,8 @@ tags: ["check-out", "tutorial", "comparison"]
 category: tutorial
 featured: false
 readingMinutes: 8
-draft: true
-# flip draft to false once screenshots are added
+draft: false
+# screenshots still placeholders
 ---
 
 # The check-out: comparing against your baseline
