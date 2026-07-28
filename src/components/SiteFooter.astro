@@ -1,7 +1,9 @@
 ---
 import { getPublishedBlogPosts } from '../lib/blog';
+import { getPublishedResources, resourceHref } from '../lib/resources';
 
 const blogPosts = (await getPublishedBlogPosts()).slice(0, 4);
+const tutorialPosts = (await getPublishedResources('tutorial')).slice(0, 4);
 
 const t = {
   brandTagline: "Digital property inspections for Dubai's rental market. AI-powered, RDC-ready, and built for professionals and landlords alike.",
@@ -44,12 +46,8 @@ const t = {
   ],
   blogCol: "Resources",
   blogAllLink: { label: "All resources →", href: "/resources" },
-  guidesCol: "Guides",
-  guidesLinks: [
-    { label: "Dubai RDC Guide", href: "/dubai-rental-dispute-center-guide" },
-    { label: "Security Deposit Refund", href: "/blog/security-deposit-refund-dubai" },
-    { label: "All guides →", href: "/resources/guides" }
-  ],
+  tutorialsCol: "Tutorials",
+  tutorialsAllLink: { label: "All tutorials →", href: "/resources/tutorials" },
   legalCol: "Legal",
   legalLinks: [
     { label: "Privacy Policy", href: "/privacy" },
@@ -136,11 +134,12 @@ const t = {
     </div>
 
     <div class="site-foot-col">
-      <h4>{t.guidesCol}</h4>
+      <h4>{t.tutorialsCol}</h4>
       <ul>
-        {t.guidesLinks.map(link => (
-          <li><a href={link.href}>{link.label}</a></li>
+        {tutorialPosts.map((post) => (
+          <li><a href={resourceHref(post)}>{post.data.title}</a></li>
         ))}
+        <li><a href={t.tutorialsAllLink.href}>{t.tutorialsAllLink.label}</a></li>
       </ul>
     </div>
 

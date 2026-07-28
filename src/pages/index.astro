@@ -16,6 +16,7 @@ import {
   individualPricingData,
 } from '../lib/faq-content';
 import { getPublishedBlogPosts } from '../lib/blog';
+import { getPublishedResources, resourceHref } from '../lib/resources';
 
 const pricing = await fetchPricingCatalog();
 const { packs, plans, priceRangeLabel } = pricing;
@@ -25,6 +26,7 @@ const maxProCredits = plans.length ? Math.max(...plans.map((p) => p.creditsPerMo
 const GOOGLE_ADS_ID = (import.meta.env.PUBLIC_GOOGLE_ADS_ID as string | undefined)?.trim() || '';
 const GOOGLE_ADS_LEAD_LABEL = (import.meta.env.PUBLIC_GOOGLE_ADS_LEAD_LABEL as string | undefined)?.trim() || '';
 const footerBlogPosts = (await getPublishedBlogPosts()).slice(0, 4);
+const footerTutorials = (await getPublishedResources('tutorial')).slice(0, 4);
 
 function rollLabel(n: number) {
   return Number.isInteger(n) ? String(n) : String(n);
@@ -4995,9 +4997,12 @@ footer {
     </div>
 
     <div class="foot-col">
-      <h4>Guides</h4>
+      <h4>Tutorials</h4>
       <ul>
-        <li><a href="/dubai-rental-dispute-center-guide">Dubai RDC Guide</a></li>
+        {footerTutorials.map((post) => (
+          <li><a href={resourceHref(post)}>{post.data.title}</a></li>
+        ))}
+        <li><a href="/resources/tutorials">All tutorials →</a></li>
       </ul>
     </div>
 
