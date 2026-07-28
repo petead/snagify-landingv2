@@ -1,0 +1,59 @@
+---
+/**
+ * Shared category badge (hub cards + content heads).
+ * Grammar: lime Guides / purple Blog / coral Tutorials.
+ */
+import type { ResourceCategory } from '../lib/resources';
+
+interface Props {
+  category: ResourceCategory;
+  /** Override label (e.g. Featured guide) */
+  label?: string;
+  /** Use solid lime featured treatment */
+  featured?: boolean;
+}
+
+const { category, label, featured = false } = Astro.props;
+
+const defaultLabel: Record<ResourceCategory, string> = {
+  guide: 'Guide',
+  blog: 'Blog',
+  tutorial: 'Tutorial',
+};
+
+const text = label ?? defaultLabel[category];
+const className = featured
+  ? 'rh-card-badge rh-badge-featured'
+  : `rh-card-badge rh-badge-${category}`;
+---
+
+<span class={className}>{text}</span>
+
+<style is:global>
+.rh-card-badge {
+  display: inline-flex;
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 999px;
+}
+.rh-badge-guide {
+  background: rgba(202, 254, 135, 0.45);
+  color: #1a2e0a;
+}
+.rh-badge-blog {
+  background: rgba(154, 136, 253, 0.18);
+  color: #4a3d9e;
+}
+.rh-badge-tutorial {
+  background: rgba(255, 143, 107, 0.2);
+  color: #8a3a22;
+}
+.rh-badge-featured {
+  background: #cafe87;
+  color: #1a2e0a;
+}
+</style>

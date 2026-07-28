@@ -1,0 +1,101 @@
+---
+/**
+ * End-of-content CTA: muted back link + dark final-cta block.
+ */
+---
+
+<div class="resource-cta-wrap">
+  <a class="resource-back" href="/resources">← All Resources</a>
+  <aside class="resource-cta" aria-label="Call to action">
+    <h2>Your first check-in is free.</h2>
+    <p>
+      Twenty minutes, room by room, and your property&apos;s condition becomes a signed
+      record.
+    </p>
+    <a class="resource-cta-btn" href="https://app.snagify.net/inspection/new">
+      Start your free check-in
+    </a>
+  </aside>
+</div>
+
+<style>
+.resource-cta-wrap {
+  margin-top: 56px;
+}
+.resource-back {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(14, 14, 16, 0.55);
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+.resource-back:hover {
+  color: #9a88fd;
+}
+.resource-cta {
+  background: #0e0e10;
+  color: #fcfcfc;
+  border-radius: 28px;
+  padding: 56px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.resource-cta::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: rgba(154, 136, 253, 0.18);
+  filter: blur(60px);
+  pointer-events: none;
+}
+.resource-cta h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: clamp(26px, 3.5vw, 38px);
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin-bottom: 14px;
+  position: relative;
+  color: #fcfcfc;
+}
+.resource-cta p {
+  font-size: 16px;
+  color: rgba(252, 252, 252, 0.7);
+  margin-bottom: 28px;
+  position: relative;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.55;
+}
+.resource-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 30px;
+  background: #9a88fd;
+  color: #0e0e10;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  border-radius: 999px;
+  text-decoration: none;
+  position: relative;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.resource-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(154, 136, 253, 0.35);
+}
+@media (max-width: 720px) {
+  .resource-cta {
+    padding: 40px 24px;
+  }
+}
+</style>

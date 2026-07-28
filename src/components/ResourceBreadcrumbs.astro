@@ -1,0 +1,51 @@
+---
+/**
+ * Visible breadcrumbs matching hub rh-crumbs grammar.
+ * JSON-LD stays in the page layout (unchanged).
+ */
+interface Crumb {
+  name: string;
+  href?: string;
+}
+
+interface Props {
+  crumbs: Crumb[];
+}
+
+const { crumbs } = Astro.props;
+---
+
+<nav class="rh-crumbs" aria-label="Breadcrumb">
+  {crumbs.map((c, i) => (
+    <>
+      {i > 0 && <span aria-hidden="true">/</span>}
+      {c.href && i < crumbs.length - 1 ? (
+        <a href={c.href}>{c.name}</a>
+      ) : (
+        <span aria-current={i === crumbs.length - 1 ? 'page' : undefined}>{c.name}</span>
+      )}
+    </>
+  ))}
+</nav>
+
+<style is:global>
+.rh-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+  color: rgba(14, 14, 16, 0.6);
+  margin-bottom: 28px;
+}
+.rh-crumbs a {
+  color: rgba(14, 14, 16, 0.6);
+  text-decoration: none;
+}
+.rh-crumbs a:hover {
+  color: #9a88fd;
+}
+.rh-crumbs span[aria-hidden] {
+  opacity: 0.5;
+}
+</style>

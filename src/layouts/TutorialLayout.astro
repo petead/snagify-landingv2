@@ -6,7 +6,17 @@ import CrispChat from '../components/CrispChat.astro';
 import Clarity from '../components/Clarity.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import MetaPixel from '../components/MetaPixel.astro';
-import { formatBlogDate, readingTimeMinutes } from '../lib/resources';
+import ResourceBreadcrumbs from '../components/ResourceBreadcrumbs.astro';
+import CategoryBadge from '../components/CategoryBadge.astro';
+import NextTutorial from '../components/NextTutorial.astro';
+import ResourceCta from '../components/ResourceCta.astro';
+import SupademoEmbed from '../components/SupademoEmbed.astro';
+import {
+  formatBlogDate,
+  readingTimeMinutes,
+  getNextTutorialCard,
+  truncateCrumbTitle,
+} from '../lib/resources';
 
 interface Props {
   post: ResourceEntry;
@@ -22,6 +32,15 @@ const minutes = readingTimeMinutes(post.body, post.data.readingMinutes);
 const datePublished = pubDate.toISOString();
 const dateModified = (updatedDate ?? pubDate).toISOString();
 const ogImage = `${site}/og-image.jpg`;
+const showCheckInDemo = slug === 'perfect-check-in-20-minutes';
+const nextTutorial = await getNextTutorialCard(slug);
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Resources', href: '/resources' },
+  { name: 'Tutorials', href: '/resources/tutorials' },
+  { name: truncateCrumbTitle(title) },
+];
 
 /** Prefer numbered ## Step N headings in the body; fall back to frontmatter howToSteps. */
 function extractHowToStepsFromBody(body: string): { name: string; text: string }[] {
@@ -40,7 +59,6 @@ function extractHowToStepsFromBody(body: string): { name: string; text: string }
         if (chunks.length) break;
         continue;
       }
-      // stop at list-only blocks after a paragraph started? keep first paragraph
       if (/^[-*] /.test(line) || /^\d+\. /.test(line)) {
         if (chunks.length) break;
         chunks.push(line.replace(/^[-*] |\d+\. /, '').trim());
@@ -138,14 +156,7 @@ const articleLd = {
 }
 body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); -webkit-font-smoothing: antialiased; }
 .tu-wrap { max-width: 720px; margin: 0 auto; padding: 56px 24px 96px; }
-.tu-crumbs { font-size: 13px; color: var(--ink-60); margin-bottom: 24px; display: flex; flex-wrap: wrap; gap: 8px; }
-.tu-crumbs a { color: var(--ink-60); text-decoration: none; }
-.tu-crumbs a:hover { color: var(--purple); }
-.tu-badge {
-  display: inline-flex; font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
-  text-transform: uppercase; padding: 4px 9px; border-radius: 999px;
-  background: rgba(255,143,107,.2); color: #8a3a22; margin-bottom: 14px;
-}
+.tu-badge { display: block; margin-bottom: 14px; }
 .tu-title {
   font-family: 'Poppins', sans-serif; font-weight: 800;
   font-size: clamp(28px, 4vw, 40px); letter-spacing: -1.2px; line-height: 1.15;
@@ -166,6 +177,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
   color: var(--ink-60); margin: 1.25rem 0;
 }
 .tu-prose :global(strong) { font-weight: 600; }
+.tu-supademo-slot { margin: 0 0 1.5rem; }
 @media (max-width: 640px) { .tu-wrap { padding: 40px 18px 72px; } }
 </style>
 <CrispChat />
@@ -174,13 +186,10 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
 <body>
 <SiteHeader />
 <article class="tu-wrap">
-  <nav class="tu-crumbs" aria-label="Breadcrumb">
-    <a href="/">Home</a><span aria-hidden="true">/</span>
-    <a href="/resources">Resources</a><span aria-hidden="true">/</span>
-    <a href="/resources/tutorials">Tutorials</a><span aria-hidden="true">/</span>
-    <span aria-current="page">{title}</span>
-  </nav>
-  <span class="tu-badge">Tutorial</span>
+  <ResourceBreadcrumbs crumbs={crumbs} />
+  <div class="tu-badge">
+    <CategoryBadge category="tutorial" />
+  </div>
   <h1 class="tu-title">{title}</h1>
   <div class="tu-meta">
     <time datetime={datePublished}>{formatBlogDate(pubDate)}</time>
@@ -189,10 +198,30 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
     <span aria-hidden="true">·</span>
     <span>{author}</span>
   </div>
-  <div class="tu-prose">
+  <div class="tu-prose" data-tu-prose>
     <slot />
   </div>
+  {showCheckInDemo && (
+    <div class="tu-supademo-slot" data-tu-supademo hidden>
+      <SupademoEmbed demoId="cmritt3p707ubqmeq7y0sx805" label="Watch the full flow · 2 min" />
+    </div>
+  )}
+  {nextTutorial && <NextTutorial card={nextTutorial} />}
+  <ResourceCta />
 </article>
 <SiteFooter />
+{showCheckInDemo && (
+  <script>
+    const prose = document.querySelector('[data-tu-prose]');
+    const slot = document.querySelector('[data-tu-supademo]');
+    const firstP = prose?.querySelector(':scope > p');
+    if (prose && slot && firstP) {
+      firstP.after(slot);
+      slot.hidden = false;
+    } else if (slot) {
+      slot.hidden = false;
+    }
+  </script>
+)}
 </body>
 </html>

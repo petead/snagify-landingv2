@@ -1,16 +1,35 @@
 ---
-const { article } = Astro.props;
-const htmlLang = 'en';
-const htmlDir = 'ltr';
-const ogLocale = 'en_AE';
-const inLanguage = 'en-AE';
-const canonicalBase = `https://snagify.net/${article.slug}`;
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import CrispChat from '../components/CrispChat.astro';
 import Clarity from '../components/Clarity.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import MetaPixel from '../components/MetaPixel.astro';
+import ResourceBreadcrumbs from '../components/ResourceBreadcrumbs.astro';
+import CategoryBadge from '../components/CategoryBadge.astro';
+import RelatedResources from '../components/RelatedResources.astro';
+import ResourceCta from '../components/ResourceCta.astro';
+import { getRelatedResourceCards, truncateCrumbTitle } from '../lib/resources';
+
+const { article } = Astro.props;
+const htmlLang = 'en';
+const htmlDir = 'ltr';
+const ogLocale = 'en_AE';
+const inLanguage = 'en-AE';
+const canonicalBase = `https://snagify.net/${article.slug}`;
+
+const related = await getRelatedResourceCards({
+  category: 'guide',
+  excludeHref: `/${article.slug}`,
+  limit: 3,
+});
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Resources', href: '/resources' },
+  { name: 'Guides', href: '/resources/guides' },
+  { name: truncateCrumbTitle(article.title) },
+];
 
 const articleJsonLd = {
   "@context": "https://schema.org",
@@ -120,7 +139,7 @@ html[lang="en"], html[lang="en"] body {
 }
 
 * { cursor: auto; }
-a, button, [role="button"], .faq-q, .nearby-card, .pricing-cta, .hero-cta, .final-cta-btn, .cta-strip-btn, .area-card, .toc-list a { cursor: pointer; }
+a, button, [role="button"], .faq-q, .nearby-card, .pricing-cta, .hero-cta, .cta-strip-btn, .area-card, .toc-list a, .resource-cta-btn { cursor: pointer; }
 input, textarea, select { cursor: text; }
 input[type="checkbox"], input[type="radio"] { cursor: pointer; }
 
@@ -159,23 +178,12 @@ body {
 
 .article-main { padding: 56px 0; max-width: 760px; }
 
-.breadcrumb {
-  font-size: 13px; color: var(--ink-60); margin-bottom: 28px; font-weight: 500;
-}
-.breadcrumb a { color: var(--ink-70); text-decoration: none; }
-.breadcrumb a:hover { color: var(--purple); }
-.breadcrumb-sep { padding: 0 6px; opacity: 0.4; }
-
 .article-meta {
   display: flex; gap: 16px; flex-wrap: wrap; align-items: center;
   font-size: 13px; color: var(--ink-60); margin-bottom: 24px;
   font-family: 'JetBrains Mono', monospace;
 }
-.article-meta-pill {
-  padding: 4px 10px; background: var(--ink-05); border-radius: 999px;
-  font-size: 11px; font-weight: 600; color: var(--ink-70);
-  text-transform: uppercase; letter-spacing: 0.5px;
-}
+.article-badge { display: flex; align-items: center; }
 
 .article-title {
   font-family: 'Poppins', sans-serif; font-weight: 800;
@@ -315,44 +323,11 @@ body {
 .faq-a-inner { padding: 0 0 24px; }
 .faq-a p { font-size: 15px; line-height: 1.7; color: var(--ink-70); }
 
-.final-cta {
-  background: var(--ink); color: var(--white);
-  border-radius: 28px;
-  padding: 56px 40px; text-align: center;
-  position: relative; overflow: hidden;
-  margin: 64px 0;
-}
-.final-cta::before {
-  content: ''; position: absolute;
-  top: -80px; right: -80px;
-  width: 320px; height: 320px; border-radius: 50%;
-  background: rgba(154,136,253,0.18); filter: blur(60px); pointer-events: none;
-}
-.final-cta h2 {
-  font-family: 'Poppins', sans-serif; font-weight: 800;
-  font-size: clamp(26px, 3.5vw, 38px); line-height: 1.15;
-  letter-spacing: -1px; margin-bottom: 14px; position: relative; color: var(--white);
-}
-.final-cta p {
-  font-size: 16px; color: rgba(252,252,252,0.7);
-  margin-bottom: 28px; position: relative;
-}
-.final-cta-btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 16px 30px;
-  background: var(--purple); color: var(--ink);
-  font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 15px;
-  border-radius: 999px; text-decoration: none; position: relative;
-  transition: transform 0.25s, box-shadow 0.25s;
-}
-.final-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(154,136,253,0.35); }
-
 @media (max-width: 720px) {
   .layout { padding: 0 18px; }
   .article-main { padding: 36px 0; }
   .article-body { font-size: 16px; line-height: 1.75; }
   .howto-card { padding: 24px; }
-  .final-cta { padding: 40px 24px; }
 }
 </style>
 <CrispChat />
@@ -368,18 +343,10 @@ body {
 
 <article class="article-main">
 
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">Home</a>
-    <span class="breadcrumb-sep">›</span>
-    <a href="/resources">Resources</a>
-    <span class="breadcrumb-sep">›</span>
-    <a href="/resources/guides">Guides</a>
-    <span class="breadcrumb-sep">›</span>
-    <span>RDC Guide</span>
-  </nav>
+  <ResourceBreadcrumbs crumbs={crumbs} />
 
   <div class="article-meta">
-    <span class="article-meta-pill">Guide</span>
+    <span class="article-badge"><CategoryBadge category="guide" /></span>
     <span>Updated April 2026</span>
     <span>·</span>
     <span>{Math.ceil(article.wordCount / 230)} min read</span>
@@ -390,11 +357,8 @@ body {
 
   <div class="article-body" set:html={article.body} />
 
-  <div class="final-cta">
-    <h2>Inspections that hold up at the RDC.</h2>
-    <p>RDC-valid PDF reports, AI photo analysis, dual digital signatures. Free at check-in.</p>
-    <a href="https://app.snagify.net" class="final-cta-btn">Try Snagify free →</a>
-  </div>
+  <RelatedResources cards={related} />
+  <ResourceCta />
 
 </article>
 

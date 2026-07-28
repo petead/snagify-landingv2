@@ -8,6 +8,7 @@ import CrispChat from '../components/CrispChat.astro';
 import Clarity from '../components/Clarity.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import MetaPixel from '../components/MetaPixel.astro';
+import ResourceBreadcrumbs from '../components/ResourceBreadcrumbs.astro';
 
 interface Crumb {
   name: string;
@@ -89,14 +90,6 @@ a { cursor: pointer; }
   margin: 0 auto;
   padding: 56px 24px 96px;
 }
-.rh-crumbs {
-  display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
-  font-size: 13px; color: var(--ink-60); margin-bottom: 28px;
-}
-.rh-crumbs a { color: var(--ink-60); text-decoration: none; }
-.rh-crumbs a:hover { color: var(--purple); }
-.rh-crumbs span[aria-hidden] { opacity: 0.5; }
-
 .rh-head { margin-bottom: 36px; max-width: 40rem; }
 .rh-eyebrow {
   font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
@@ -187,15 +180,7 @@ a { cursor: pointer; }
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(14,14,16,.06);
 }
-.rh-card-badge {
-  display: inline-flex; align-self: flex-start;
-  font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
-  text-transform: uppercase; padding: 4px 9px; border-radius: 999px;
-}
-.rh-badge-guide { background: rgba(202,254,135,.45); color: var(--lime-ink); }
-.rh-badge-blog { background: rgba(154,136,253,.18); color: #4a3d9e; }
-.rh-badge-tutorial { background: rgba(255,143,107,.2); color: #8a3a22; }
-.rh-badge-featured { background: var(--lime); color: var(--lime-ink); }
+/* Badge styles live in CategoryBadge.astro (single source). */
 .rh-card-title {
   font-family: 'Poppins', sans-serif; font-weight: 700;
   font-size: 1.05rem; letter-spacing: -0.3px; line-height: 1.3;
@@ -222,18 +207,7 @@ a { cursor: pointer; }
 <body>
 <SiteHeader />
 <main class="rh-wrap">
-  <nav class="rh-crumbs" aria-label="Breadcrumb">
-    {breadcrumbs.map((c, i) => (
-      <>
-        {i > 0 && <span aria-hidden="true">/</span>}
-        {c.href && i < breadcrumbs.length - 1 ? (
-          <a href={c.href}>{c.name}</a>
-        ) : (
-          <span aria-current={i === breadcrumbs.length - 1 ? 'page' : undefined}>{c.name}</span>
-        )}
-      </>
-    ))}
-  </nav>
+  <ResourceBreadcrumbs crumbs={breadcrumbs} />
   <slot />
 </main>
 <SiteFooter />

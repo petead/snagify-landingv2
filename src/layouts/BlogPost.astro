@@ -6,7 +6,16 @@ import CrispChat from '../components/CrispChat.astro';
 import Clarity from '../components/Clarity.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import MetaPixel from '../components/MetaPixel.astro';
-import { formatBlogDate, readingTimeMinutes } from '../lib/blog';
+import ResourceBreadcrumbs from '../components/ResourceBreadcrumbs.astro';
+import CategoryBadge from '../components/CategoryBadge.astro';
+import RelatedResources from '../components/RelatedResources.astro';
+import ResourceCta from '../components/ResourceCta.astro';
+import {
+  formatBlogDate,
+  readingTimeMinutes,
+  getRelatedResourceCards,
+  truncateCrumbTitle,
+} from '../lib/resources';
 
 interface Props {
   post: ResourceEntry;
@@ -26,8 +35,22 @@ const faqItems = faq ?? [];
 const isGuide = category === 'guide';
 const sectionLabel = isGuide ? 'Guides' : 'Blog';
 const sectionHref = isGuide ? '/resources/guides' : '/resources/blog';
+const badgeCategory = isGuide ? 'guide' : 'blog';
 const authorBio =
   'Founder of Snagify. Builds inspection software in Dubai and has personally litigated a deposit case at the Dubai RDC.';
+
+const related = await getRelatedResourceCards({
+  category: isGuide ? 'guide' : 'blog',
+  excludeHref: `/blog/${slug}`,
+  limit: 3,
+});
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Resources', href: '/resources' },
+  { name: sectionLabel, href: sectionHref },
+  { name: truncateCrumbTitle(title) },
+];
 
 const articleLd = {
   '@context': 'https://schema.org',
@@ -137,7 +160,6 @@ const breadcrumbLd = {
   --ink-60: rgba(14,14,16,0.6);
   --ink-25: rgba(14,14,16,0.1);
   --purple: #9A88FD;
-  --purple-bg: #EDE9FE;
 }
 html { scroll-behavior: smooth; }
 body {
@@ -153,19 +175,10 @@ a, button { cursor: pointer; }
   margin: 0 auto;
   padding: 72px 24px 96px;
 }
-.blog-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-60);
-  margin-bottom: 18px;
-  text-decoration: none;
+.blog-badge {
+  display: block;
+  margin-bottom: 14px;
 }
-.blog-kicker:hover { color: var(--ink); }
 .blog-title {
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
@@ -296,45 +309,6 @@ a, button { cursor: pointer; }
   color: var(--ink-60);
 }
 
-.blog-cta {
-  margin-top: 56px;
-  padding: 32px 28px;
-  background: var(--purple-bg);
-  border: 1px solid rgba(154,136,253,0.3);
-  border-radius: 22px;
-}
-.blog-cta h2 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800;
-  font-size: 1.35rem;
-  letter-spacing: -0.5px;
-  margin-bottom: 8px;
-}
-.blog-cta p {
-  font-size: 15px;
-  color: var(--ink-60);
-  margin-bottom: 20px;
-  line-height: 1.55;
-}
-.blog-cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 22px;
-  border-radius: 999px;
-  background: var(--ink);
-  color: var(--white);
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  text-decoration: none;
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-.blog-cta-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(14,14,16,.18);
-}
-
 @media (max-width: 640px) {
   .blog-wrap { padding: 48px 20px 72px; }
 }
@@ -347,11 +321,10 @@ a, button { cursor: pointer; }
 <SiteHeader />
 
 <article class="blog-wrap">
-  <nav class="blog-kicker" aria-label="Breadcrumb" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
-    <a href="/resources">Resources</a>
-    <span aria-hidden="true">/</span>
-    <a href={sectionHref}>{sectionLabel}</a>
-  </nav>
+  <ResourceBreadcrumbs crumbs={crumbs} />
+  <div class="blog-badge">
+    <CategoryBadge category={badgeCategory} />
+  </div>
   <h1 class="blog-title">{title}</h1>
   <div class="blog-meta">
     <time datetime={datePublished}>{formatBlogDate(pubDate)}</time>
@@ -389,11 +362,8 @@ a, button { cursor: pointer; }
     </div>
   </aside>
 
-  <aside class="blog-cta" aria-label="Call to action">
-    <h2>Protect your deposit from day one</h2>
-    <p>Free check-in report, 20 minutes, court-ready PDF.</p>
-    <a class="blog-cta-btn" href="https://app.snagify.net/signup">Start free →</a>
-  </aside>
+  <RelatedResources cards={related} />
+  <ResourceCta />
 </article>
 
 <SiteFooter />

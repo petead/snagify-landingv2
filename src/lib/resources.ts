@@ -148,3 +148,69 @@ export async function getAllGuideCards(): Promise<HubCard[]> {
     (a, b) => b.pubDate.valueOf() - a.pubDate.valueOf()
   );
 }
+
+/** Fixed tutorial sequence for "Next up" (wraps). */
+export const TUTORIAL_ORDER = [
+  'perfect-check-in-20-minutes',
+  'photographing-findings',
+  'when-they-wont-sign',
+  'checkout-comparison',
+] as const;
+
+export async function getNextTutorialCard(currentSlug: string): Promise<HubCard | null> {
+  const idx = (TUTORIAL_ORDER as readonly string[]).indexOf(currentSlug);
+  if (idx < 0) return null;
+  const nextSlug = TUTORIAL_ORDER[(idx + 1) % TUTORIAL_ORDER.length];
+  const tutorials = await getPublishedResources('tutorial');
+  const next = tutorials.find((t) => t.slug === nextSlug);
+  return next ? toHubCard(next) : null;
+}
+
+/**
+ * Related hub cards: same category first (by date), then recent others.
+ * Excludes the current page by href.
+ */
+export async function getRelatedResourceCards(opts: {
+  category: ResourceCategory;
+  excludeHref: string;
+  limit?: number;
+}): Promise<HubCard[]> {
+  const limit = opts.limit ?? 3;
+  const exclude = opts.excludeHref;
+
+  let same: HubCard[];
+  if (opts.category === 'guide') {
+    same = await getAllGuideCards();
+  } else {
+    same = (await getPublishedResources(opts.category)).map(toHubCard);
+  }
+  same = same
+    .filter((c) => c.href !== exclude)
+    .sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
+
+  const sameHrefs = new Set(same.map((c) => c.href));
+  const [blogs, tutorials, guides] = await Promise.all([
+    getPublishedResources('blog'),
+    getPublishedResources('tutorial'),
+    getAllGuideCards(),
+  ]);
+  const others = [...blogs.map(toHubCard), ...tutorials.map(toHubCard), ...guides]
+    .filter((c) => c.href !== exclude && !sameHrefs.has(c.href))
+    .sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
+
+  // Dedupe others by href (guides appear in both collection + hubGuides path)
+  const seen = new Set<string>();
+  const othersUnique = others.filter((c) => {
+    if (seen.has(c.href)) return false;
+    seen.add(c.href);
+    return true;
+  });
+
+  return [...same, ...othersUnique].slice(0, limit);
+}
+
+/** Truncate breadcrumb title for UI (JSON-LD keeps full title). */
+export function truncateCrumbTitle(title: string, max = 48): string {
+  if (title.length <= max) return title;
+  return `${title.slice(0, max - 1).trimEnd()}…`;
+}
