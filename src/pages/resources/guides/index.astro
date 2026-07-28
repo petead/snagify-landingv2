@@ -1,14 +1,14 @@
 ---
 import ResourcesLayout from '../../../layouts/ResourcesLayout.astro';
 import ResourceCard from '../../../components/ResourceCard.astro';
-import { guideToHubCard, hubGuides } from '../../../lib/resources';
+import { getAllGuideCards } from '../../../lib/resources';
 
 const site = Astro.site?.origin ?? 'https://snagify.net';
 const title = 'Guides | Snagify Resources';
 const description =
   'Long-form Dubai rental guides — RDC process, evidence standards, and deposit protection.';
 const canonical = `${site}/resources/guides`;
-const cards = hubGuides.map(guideToHubCard);
+const cards = await getAllGuideCards();
 const breadcrumbs = [
   { name: 'Home', href: '/' },
   { name: 'Resources', href: '/resources' },

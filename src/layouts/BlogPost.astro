@@ -13,7 +13,7 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { title, description, pubDate, updatedDate, author, faq, tags } = post.data;
+const { title, description, pubDate, updatedDate, author, faq, tags, category } = post.data;
 const slug = post.slug;
 const site = Astro.site?.origin ?? 'https://snagify.net';
 const canonical = `${site}/blog/${slug}`;
@@ -23,6 +23,9 @@ const minutes = readingTimeMinutes(post.body, post.data.readingMinutes);
 const datePublished = pubDate.toISOString();
 const dateModified = (updatedDate ?? pubDate).toISOString();
 const faqItems = faq ?? [];
+const isGuide = category === 'guide';
+const sectionLabel = isGuide ? 'Guides' : 'Blog';
+const sectionHref = isGuide ? '/resources/guides' : '/resources/blog';
 const authorBio =
   'Founder of Snagify. Builds inspection software in Dubai and has personally litigated a deposit case at the Dubai RDC.';
 
@@ -76,7 +79,7 @@ const breadcrumbLd = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: `${site}/` },
     { '@type': 'ListItem', position: 2, name: 'Resources', item: `${site}/resources` },
-    { '@type': 'ListItem', position: 3, name: 'Blog', item: `${site}/resources/blog` },
+    { '@type': 'ListItem', position: 3, name: sectionLabel, item: `${site}${sectionHref}` },
     { '@type': 'ListItem', position: 4, name: title, item: canonical },
   ],
 };
@@ -347,7 +350,7 @@ a, button { cursor: pointer; }
   <nav class="blog-kicker" aria-label="Breadcrumb" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
     <a href="/resources">Resources</a>
     <span aria-hidden="true">/</span>
-    <a href="/resources/blog">Blog</a>
+    <a href={sectionHref}>{sectionLabel}</a>
   </nav>
   <h1 class="blog-title">{title}</h1>
   <div class="blog-meta">

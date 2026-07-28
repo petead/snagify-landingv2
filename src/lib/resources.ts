@@ -64,13 +64,21 @@ export async function getRoutableResources(
   return sortByDateDesc(posts);
 }
 
-/** @deprecated Prefer getPublishedResources('blog') — kept for call-site clarity. */
+/** Published blog-category posts only (footer / blog index). */
 export async function getPublishedBlogPosts(): Promise<ResourceEntry[]> {
   return getPublishedResources('blog');
 }
 
+/**
+ * Entries rendered at /blog/{slug}: blog posts + collection guides.
+ * Keeps existing guide URLs stable when a post is re-categorized.
+ */
 export async function getRoutableBlogPosts(): Promise<ResourceEntry[]> {
-  return getRoutableResources('blog');
+  const posts = await getCollection('resources', ({ data }) => {
+    if (import.meta.env.PROD && data.draft === true) return false;
+    return data.category === 'blog' || data.category === 'guide';
+  });
+  return sortByDateDesc(posts);
 }
 
 export function readingTimeMinutes(body: string, override?: number): number {
@@ -91,10 +99,10 @@ export function resourceHref(entry: ResourceEntry): string {
   if (entry.data.category === 'tutorial') {
     return `/resources/tutorials/${entry.slug}`;
   }
-  if (entry.data.category === 'blog') {
+  // Blog posts and collection guides keep stable /blog/{slug} URLs.
+  if (entry.data.category === 'blog' || entry.data.category === 'guide') {
     return `/blog/${entry.slug}`;
   }
-  // Future in-collection guides would need an explicit path map.
   return `/resources/${entry.slug}`;
 }
 
@@ -130,4 +138,13 @@ export function guideToHubCard(g: HubGuide): HubCard {
     readingMinutes: g.readingMinutes,
     pubDate: g.pubDate,
   };
+}
+
+/** Hub + index guide cards: standalone registry + published collection guides. */
+export async function getAllGuideCards(): Promise<HubCard[]> {
+  const fromCollection = (await getPublishedResources('guide')).map(toHubCard);
+  const fromHub = hubGuides.map(guideToHubCard);
+  return [...fromHub, ...fromCollection].sort(
+    (a, b) => b.pubDate.valueOf() - a.pubDate.valueOf()
+  );
 }

@@ -17,7 +17,7 @@ faq:
   - question: "Do I need a lawyer to file at the RDC?"
     answer: "No. The RDC is designed to be accessible without legal representation, and many tenants file successfully on their own. A lawyer helps in complex or high-value cases, but for a straightforward deposit claim, organized evidence matters more than representation."
 draft: false
-category: blog
+category: guide
 featured: false
 readingMinutes: 7
 ---

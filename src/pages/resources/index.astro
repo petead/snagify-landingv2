@@ -3,8 +3,7 @@ import ResourcesLayout from '../../layouts/ResourcesLayout.astro';
 import ResourceCard from '../../components/ResourceCard.astro';
 import {
   getPublishedResources,
-  guideToHubCard,
-  hubGuides,
+  getAllGuideCards,
   toHubCard,
   formatBlogDate,
 } from '../../lib/resources';
@@ -17,7 +16,7 @@ const canonical = `${site}/resources`;
 
 const blogCards = (await getPublishedResources('blog')).map(toHubCard);
 const tutorialCards = (await getPublishedResources('tutorial')).map(toHubCard);
-const guideCards = hubGuides.map(guideToHubCard);
+const guideCards = await getAllGuideCards();
 const featured = guideCards.find((g) => g.featured) ?? guideCards[0];
 const guidesRest = guideCards.filter((g) => g !== featured);
 
