@@ -915,6 +915,7 @@ div#nav-drawer a {
   gap: 20px;
   margin-bottom: 48px;
 }
+.deck-carousel-chrome { display: none; }
 .deck-slide {
   --deck-accent: var(--purple);
   --deck-accent-soft: #C4B9FE;
@@ -1103,7 +1104,25 @@ div#nav-drawer a {
   .deck-phone--right { margin-left: -8px; }
 }
 @media (max-width: 768px) {
-  /* Features: swipe carousel like testimonials */
+  /* Features: swipe carousel with clear affordance */
+  .deck-carousel {
+    position: relative;
+    margin-bottom: 8px;
+  }
+  .deck-carousel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 44px;
+    width: 48px;
+    background: linear-gradient(to right, transparent, var(--cream));
+    pointer-events: none;
+    z-index: 2;
+    transition: opacity .35s ease;
+  }
+  .deck-carousel.is-end::after { opacity: 0; }
+
   .deck-prez {
     display: flex;
     flex-direction: row;
@@ -1111,16 +1130,24 @@ div#nav-drawer a {
     overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
     gap: 12px;
-    margin-bottom: 8px;
-    padding: 2px 4px 12px;
+    margin-bottom: 0;
+    padding: 4px 20px 14px 4px;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
   .deck-prez::-webkit-scrollbar { display: none; }
+  .deck-prez.is-nudge {
+    animation: deckNudge 1.4s ease-in-out 0.6s 1;
+  }
+  @keyframes deckNudge {
+    0%, 100% { transform: translateX(0); }
+    35% { transform: translateX(-18px); }
+    70% { transform: translateX(0); }
+  }
 
   .deck-slide,
   .deck-slide--reverse {
-    flex: 0 0 min(88vw, 340px);
+    flex: 0 0 min(78vw, 300px);
     scroll-snap-align: start;
     flex-direction: column;
     text-align: center;
@@ -1151,6 +1178,57 @@ div#nav-drawer a {
   .deck-phone { --deck-phone-w: 108px; }
   .deck-phone--left { margin-right: -6px; }
   .deck-phone--right { margin-left: -6px; }
+
+  .deck-carousel-chrome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 2px 4px 0;
+    min-height: 28px;
+  }
+  .deck-swipe-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-60);
+    transition: opacity .3s ease;
+  }
+  .deck-swipe-hint[hidden] { display: none; }
+  .deck-swipe-hint svg {
+    width: 16px;
+    height: 16px;
+    animation: deckHintArrow 1.2s ease-in-out infinite;
+  }
+  @keyframes deckHintArrow {
+    0%, 100% { transform: translateX(0); opacity: .55; }
+    50% { transform: translateX(4px); opacity: 1; }
+  }
+  .deck-dots {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: auto;
+  }
+  .deck-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    border: 0;
+    padding: 0;
+    background: rgba(14, 14, 16, 0.18);
+    cursor: pointer;
+    transition: width .25s ease, background .25s ease;
+  }
+  .deck-dot.is-active {
+    width: 18px;
+    background: var(--purple);
+  }
 }
 
 /* ══ FEATURES BENTO (pro extras) ══ */
@@ -4174,7 +4252,8 @@ footer {
       <h2 class="section-title">Everything you need.<br>Nothing you don't.</h2>
     </div>
 
-    <div class="deck-prez">
+    <div class="deck-carousel" data-deck-carousel>
+    <div class="deck-prez" data-deck-track>
 
       <!-- ══ 01 AI Photo Analysis ══ -->
       <article class="deck-slide reveal">
@@ -4410,6 +4489,14 @@ footer {
         </div>
       </article>
 
+    </div>
+    <div class="deck-carousel-chrome" aria-hidden="true">
+      <p class="deck-swipe-hint" data-deck-hint>
+        Swipe
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+      </p>
+      <div class="deck-dots" data-deck-dots></div>
+    </div>
     </div>
 
     <div class="bento bento-pro">
@@ -5345,6 +5432,87 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   } else {
     initHamburgerMenu();
   }
+})();
+
+// Features deck: mobile swipe affordance (dots + hint + edge fade)
+(() => {
+  const root = document.querySelector('[data-deck-carousel]');
+  const track = document.querySelector('[data-deck-track]');
+  const dotsRoot = document.querySelector('[data-deck-dots]');
+  const hint = document.querySelector('[data-deck-hint]');
+  if (!root || !track || !dotsRoot) return;
+
+  const mq = window.matchMedia('(max-width: 768px)');
+  const slides = Array.from(track.querySelectorAll('.deck-slide'));
+  if (slides.length < 2) return;
+
+  let dots = [];
+  let hintHidden = false;
+
+  function buildDots() {
+    dotsRoot.innerHTML = '';
+    dots = slides.map((_, i) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'deck-dot' + (i === 0 ? ' is-active' : '');
+      btn.setAttribute('aria-label', `Feature ${i + 1}`);
+      btn.addEventListener('click', () => {
+        slides[i].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+      });
+      dotsRoot.appendChild(btn);
+      return btn;
+    });
+  }
+
+  function activeIndex() {
+    const left = track.scrollLeft;
+    let best = 0;
+    let bestDist = Infinity;
+    slides.forEach((slide, i) => {
+      const dist = Math.abs(slide.offsetLeft - left);
+      if (dist < bestDist) {
+        bestDist = dist;
+        best = i;
+      }
+    });
+    return best;
+  }
+
+  function sync() {
+    if (!mq.matches) return;
+    const i = activeIndex();
+    dots.forEach((d, idx) => d.classList.toggle('is-active', idx === i));
+    root.classList.toggle('is-end', i >= slides.length - 1);
+    if (!hintHidden && track.scrollLeft > 12 && hint) {
+      hint.hidden = true;
+      hintHidden = true;
+      track.classList.remove('is-nudge');
+    }
+  }
+
+  function onFirstInteract() {
+    track.classList.remove('is-nudge');
+  }
+
+  buildDots();
+  sync();
+
+  track.addEventListener('scroll', () => {
+    window.requestAnimationFrame(sync);
+  }, { passive: true });
+  track.addEventListener('pointerdown', onFirstInteract, { once: true });
+  track.addEventListener('touchstart', onFirstInteract, { once: true, passive: true });
+
+  if (mq.matches) track.classList.add('is-nudge');
+  mq.addEventListener('change', (e) => {
+    if (e.matches) {
+      if (!hintHidden) track.classList.add('is-nudge');
+      sync();
+    } else {
+      track.classList.remove('is-nudge');
+      root.classList.remove('is-end');
+    }
+  });
 })();
 
 // ── BILLING + PRICING TOGGLES (exposed on window for inline onclick deep links; Astro bundles scripts as modules) ──
