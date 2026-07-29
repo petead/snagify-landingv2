@@ -1459,7 +1459,46 @@ div#nav-drawer a {
   .testi-grid-2 { grid-template-columns: 1fr; }
 }
 @media(max-width: 768px) {
-  .testi-grid { grid-template-columns: 1fr; }
+  .testi .section-header { margin-bottom: 28px; }
+  .testi-group-label { margin-bottom: 14px; }
+  .testi-grid,
+  .testi-grid-2 {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    gap: 12px;
+    margin-bottom: 8px;
+    padding: 2px 4px 12px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .testi-grid::-webkit-scrollbar,
+  .testi-grid-2::-webkit-scrollbar { display: none; }
+  .testi-card {
+    flex: 0 0 min(82vw, 300px);
+    scroll-snap-align: start;
+    padding: 20px;
+    border-radius: 18px;
+  }
+  .testi-card:hover { transform: none; }
+  .testi-stars { margin-bottom: 10px; font-size: 12px; }
+  .testi-text {
+    font-size: 13.5px;
+    line-height: 1.55;
+    margin-bottom: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .testi .testi-author {
+    margin-top: 0;
+    padding-top: 14px;
+  }
+  .testi-avatar { width: 40px; height: 40px; font-size: 13px; }
+  .testi-divider { margin: 24px 0 20px; }
 }
 
 /* ══ PRICING ══ */
@@ -3524,11 +3563,39 @@ footer {
   /* Bento */
   .bento-card       { border-radius: 20px; }
 
-  /* Testimonials */
-  .testi-grid       { grid-template-columns: 1fr; }
-  .testi-grid-2     { grid-template-columns: 1fr; }
-  .testi-divider    { margin: 36px 0 28px; }
-  .testi-card       { padding: 24px; border-radius: 20px; }
+  /* Testimonials: swipe carousel, not a tall stack */
+  .testi-grid,
+  .testi-grid-2 {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    gap: 12px;
+    margin-bottom: 8px;
+    padding: 2px 4px 12px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .testi-grid::-webkit-scrollbar,
+  .testi-grid-2::-webkit-scrollbar { display: none; }
+  .testi-card {
+    flex: 0 0 min(82vw, 300px);
+    scroll-snap-align: start;
+    padding: 20px;
+    border-radius: 18px;
+  }
+  .testi-text {
+    font-size: 13.5px;
+    line-height: 1.55;
+    margin-bottom: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .testi-divider    { margin: 24px 0 20px; }
+  .testi .testi-author { margin-top: 0; padding-top: 14px; }
 
   /* Pricing */
   .pricing-grid           { grid-template-columns: 1fr; }
