@@ -238,38 +238,27 @@ nav:not(.scrolled) {
 .nav-links a { color:var(--ink-60);text-decoration:none;font-size:14px;font-weight:500;transition:color .25s; }
 .nav-links a:hover { color:var(--ink); }
 
-/* ── PWA INSTALL STRIP ── */
 /* ── MOB DRAWER LINKS ── */
 .mob-link {
   font-family: 'Poppins', sans-serif;
-  font-weight: 800;
-  font-size: 26px;
+  font-weight: 700;
+  font-size: 18px;
   color: #0E0E10;
   text-decoration: none;
-  letter-spacing: -0.5px;
-  padding: 8px 0;
+  letter-spacing: -0.3px;
+  padding: 12px 0;
   display: block;
   transition: color .2s;
 }
 .mob-link:hover { color: #9A88FD; }
-.mob-cta {
-  margin-top: 8px;
-  padding: 14px 36px !important;
-  background: #0E0E10 !important;
-  color: #FCFCFC !important;
-  border-radius: 999px !important;
-  font-size: 16px !important;
+
+/* ── HAMBURGER + MOBILE ACTIONS ── */
+.nav-actions {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
 }
-.mob-cta:hover,
-.mob-cta:visited,
-.mob-cta:active {
-  background: #9A88FD !important;
-  color: #0E0E10 !important;
-}
-a.mob-link.mob-cta { color: #FCFCFC !important; }
-a.mob-link.mob-cta:hover { color: #0E0E10 !important; }
-/* ── HAMBURGER BUTTON ── */
-/* Hamburger */
 .nav-burger {
   display: none;
   flex-direction: column; justify-content: center; gap: 5px;
@@ -288,88 +277,130 @@ a.mob-link.mob-cta:hover { color: #0E0E10 !important; }
 
 /* ── MOBILE DRAWER ── */
 .nav-drawer {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 4px;
-  position: fixed !important;
-  top: 0 !important; left: 0 !important;
-  right: 0 !important; bottom: 0 !important;
-  width: 100% !important; height: 100% !important;
-  background-color: #F3F1EB !important;
-  background-image: none !important;
-  z-index: 10000 !important;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: #F3F1EB;
+  z-index: 10000;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: opacity .25s ease, visibility .25s ease;
+  padding: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .nav-drawer.is-open {
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: all !important;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
-/* Blindage fond drawer, neutralise nav:not(.scrolled) */
-div#nav-drawer,
-div#nav-drawer.nav-drawer,
-div#nav-drawer.is-open {
-  background-color: #F3F1EB !important;
-  background-image: none !important;
-  background: #F3F1EB !important;
+.drawer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(14,14,16,.08);
+  flex-shrink: 0;
 }
-div#nav-drawer .drawer-link,
-div#nav-drawer a {
-  color: #0E0E10 !important;
-  opacity: 1 !important;
-  visibility: visible !important;
+.drawer-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+  color: #0E0E10;
 }
-.nav-drawer .drawer-link,
-.nav-drawer a {
-  font-family: 'Poppins', sans-serif !important;
-  font-weight: 800 !important;
-  font-size: 28px !important;
-  color: #0E0E10 !important;
-  text-decoration: none !important;
+.drawer-brand span {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
   letter-spacing: -0.5px;
-  padding: 8px 0 !important;
-  transition: color .2s;
-  display: block !important;
-  opacity: 1 !important;
-  visibility: visible !important;
 }
-.nav-drawer .drawer-link:hover,
-.nav-drawer a:hover { color: #9A88FD !important; }
-.nav-drawer .drawer-divider {
-  width: 40px; height: 1.5px;
-  background: rgba(14,14,16,.12); margin: 10px 0;
-}
-.nav-drawer .drawer-cta {
-  margin-top: 20px;
-  padding: 14px 36px;
-  background: #0E0E10; color: #FCFCFC !important;
-  border-radius: 999px; font-size: 16px;
-}
-.nav-drawer .drawer-cta:hover { background: var(--purple); color: #0E0E10 !important; }
-
-/* Bouton close (X) dans le drawer */
 .drawer-close {
-  position: absolute; top: 20px; right: 20px;
   width: 40px; height: 40px;
   background: rgba(14,14,16,.07);
   border: none; border-radius: 50%;
   cursor: pointer;
   display: flex; align-items: center; justify-content: center;
   transition: background .2s;
+  flex-shrink: 0;
 }
 .drawer-close:hover { background: rgba(14,14,16,.14); }
 .drawer-close svg { pointer-events: none; }
+.drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 12px 8px 24px;
+  flex: 1;
+}
+.drawer-nav a {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.35px;
+  color: #0E0E10;
+  text-decoration: none;
+  padding: 13px 16px;
+  border-radius: 12px;
+  transition: background .2s, color .2s;
+}
+.drawer-nav a:hover,
+.drawer-nav a:active {
+  background: rgba(14,14,16,.05);
+  color: #9A88FD;
+}
+.drawer-footer {
+  padding: 16px 20px calc(20px + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid rgba(14,14,16,.08);
+  flex-shrink: 0;
+}
+.drawer-cta {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px 20px !important;
+  margin: 0 !important;
+  background: #0E0E10 !important;
+  color: #FCFCFC !important;
+  border-radius: 999px !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.2px;
+  text-decoration: none !important;
+  text-align: center;
+  transition: background .2s, transform .2s, color .2s;
+}
+.drawer-cta:hover,
+.drawer-cta:visited,
+.drawer-cta:active {
+  background: #9A88FD !important;
+  color: #0E0E10 !important;
+}
+.drawer-cta-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #CAFE87;
+  flex-shrink: 0;
+}
+
 .nav-pill {
   padding: 9px 18px;
   background: var(--ink); color: var(--white)!important;
   border-radius: 999px; font-weight: 700!important; font-size: 13px;
   transition: background .3s, transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s!important;
   display: inline-flex!important; align-items: center!important; gap: 7px!important;
+  text-decoration: none;
+  line-height: 1.2;
 }
 .nav-pill:hover {
   background: var(--purple)!important;
@@ -3620,10 +3651,18 @@ footer {
   .pricing          { padding: 72px 0; }
 
   /* Nav */
-  nav               { padding: 14px 20px; }
-  nav.scrolled      { padding: 12px 20px; top: 0; left: 0; right: 0; transform: none; width: 100%; border-radius: 0; }
+  nav               { padding: 12px 16px; }
+  nav.scrolled      { padding: 10px 16px; top: 0; left: 0; right: 0; transform: none; width: 100%; border-radius: 0; }
   .nav-links { display: none; }
+  .nav-actions { display: flex; }
   .nav-burger { display: flex; }
+  .nav-app-mobile {
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+    gap: 6px !important;
+  }
+  .nav-logo span { font-size: 17px; }
+  .nav-logo svg { width: 28px; height: 28px; }
   a.mob-link[href="#roi"] { display: none; }
 
   /* Hero */
@@ -3791,10 +3830,16 @@ footer {
     </li>
   </ul>
 
-  <!-- Hamburger button (mobile) -->
-  <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
-    <span></span><span></span><span></span>
-  </button>
+  <!-- Nav actions (mobile: Open App always visible + burger) -->
+  <div class="nav-actions">
+    <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="nav-pill nav-app-mobile">
+      <span class="nav-pill-dot"></span>
+      Open App
+    </a>
+    <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 
 </nav>
 
@@ -5397,8 +5442,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
       drawer.classList.add('is-open');
       drawer.setAttribute('aria-hidden', 'false');
       drawer.removeAttribute('inert');
-      drawer.style.opacity = '1';
-      drawer.style.visibility = 'visible';
       burger.classList.add('is-open');
       burger.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
@@ -5407,8 +5450,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
       drawer.classList.remove('is-open');
       drawer.setAttribute('aria-hidden', 'true');
       drawer.setAttribute('inert', '');
-      drawer.style.opacity = '0';
-      drawer.style.visibility = 'hidden';
       burger.classList.remove('is-open');
       burger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
@@ -5416,7 +5457,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
     burger.addEventListener('click', function(e) {
       e.stopPropagation();
-      drawer.style.opacity === '1' ? close() : open();
+      drawer.classList.contains('is-open') ? close() : open();
     });
     if (closeBtn) closeBtn.addEventListener('click', close);
     drawer.querySelectorAll('a').forEach(function(a) {
@@ -5628,53 +5669,37 @@ window.setBilling = setBilling;
 window.toggleBilling = toggleBilling;
 </script>
   <!-- ══ MOBILE DRAWER (hors nav, niveau body) ══ -->
-  <div id="nav-drawer" class="nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation" aria-hidden="true" inert style="
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:6px;
-    position:fixed;
-    top:0;left:0;right:0;bottom:0;
-    width:100vw;height:100vh;
-    background:#F3F1EB;
-    z-index:99999;
-    opacity:0;
-    visibility:hidden;
-    transition:opacity .25s ease,visibility .25s ease;
-  ">
-    <!-- Bouton X -->
-    <button id="drawer-close" aria-label="Fermer" style="
-      position:absolute;top:20px;right:20px;
-      width:44px;height:44px;
-      background:rgba(14,14,16,.08);
-      border:none;border-radius:50%;
-      cursor:pointer;
-      display:flex;align-items:center;justify-content:center;
-    ">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E0E10" stroke-width="2.5" stroke-linecap="round">
-        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-      </svg>
-    </button>
-    <!-- Logo -->
-    <div style="position:absolute;top:22px;left:24px;display:flex;align-items:center;gap:10px;">
-      <svg width="32" height="32" viewBox="0 0 700 700" fill="#9A88FD" xmlns="http://www.w3.org/2000/svg">
-        <path d="M 485.977 349.973 v 118.175 L 357.375 596.746 H 232.219 L 106.332 470.863 l -2.813 -2.715 V 349.973 h 110.457 v 72.472 l 80.774 80.672 l 80.722 -80.672 V 349.973 Z"/>
-        <path d="M 596.48 231.852 v 118.125 H 485.973 v -72.473 l -21.191 -21.156 v -44.047 h -31.098 v 12.957 l -28.426 -28.383 l -80.773 80.629 v 72.473 H 213.984 V 231.852 l 128.641 -128.598 h 125.113 l 125.879 125.883 Z"/>
-      </svg>
-      <span style="font-family:'Poppins',sans-serif;font-weight:800;font-size:18px;color:#0E0E10;letter-spacing:-0.5px;">Snagify</span>
+  <div id="nav-drawer" class="nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation" aria-hidden="true" inert>
+    <div class="drawer-top">
+      <a href="/" class="drawer-brand" aria-label="Snagify home">
+        <svg width="28" height="28" viewBox="0 0 700 700" fill="#9A88FD" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 485.977 349.973 v 118.175 L 357.375 596.746 H 232.219 L 106.332 470.863 l -2.813 -2.715 V 349.973 h 110.457 v 72.472 l 80.774 80.672 l 80.722 -80.672 V 349.973 Z"/>
+          <path d="M 596.48 231.852 v 118.125 H 485.973 v -72.473 l -21.191 -21.156 v -44.047 h -31.098 v 12.957 l -28.426 -28.383 l -80.773 80.629 v 72.473 H 213.984 V 231.852 l 128.641 -128.598 h 125.113 l 125.879 125.883 Z"/>
+        </svg>
+        <span>Snagify</span>
+      </a>
+      <button type="button" id="drawer-close" class="drawer-close" aria-label="Close menu">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E0E10" stroke-width="2.5" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
     </div>
-    <!-- Liens -->
-    <a href="#for-pros" class="mob-link">Professionals</a>
-    <a href="#for-private" class="mob-link">Landlords</a>
-    <a href="#features" class="mob-link">Features</a>
-    <a href="#process" class="mob-link">How it works</a>
-    <a href="#pricing" class="mob-link">Pricing</a>
-    <a href="#faq" class="mob-link">FAQ</a>
-    <a href="/resources" class="mob-link">Resources</a>
-    <a href="/contact" class="mob-link">Contact</a>
-    <div style="width:32px;height:1px;background:rgba(14,14,16,.15);margin:14px 0;"></div>
-    <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="mob-link mob-cta" style="color:#FCFCFC!important;">Open App →</a>
+    <nav class="drawer-nav" aria-label="Mobile">
+      <a href="#for-pros">Professionals</a>
+      <a href="#for-private">Landlords</a>
+      <a href="#features">Features</a>
+      <a href="#process">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="/resources">Resources</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <div class="drawer-footer">
+      <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="drawer-cta">
+        <span class="drawer-cta-dot" aria-hidden="true"></span>
+        Open App
+      </a>
+    </div>
   </div>
 
   <script>
