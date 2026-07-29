@@ -1103,23 +1103,54 @@ div#nav-drawer a {
   .deck-phone--right { margin-left: -8px; }
 }
 @media (max-width: 768px) {
+  /* Features: swipe carousel like testimonials */
+  .deck-prez {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    gap: 12px;
+    margin-bottom: 8px;
+    padding: 2px 4px 12px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .deck-prez::-webkit-scrollbar { display: none; }
+
   .deck-slide,
-  .deck-slide--reverse { padding: 28px 20px; }
+  .deck-slide--reverse {
+    flex: 0 0 min(88vw, 340px);
+    scroll-snap-align: start;
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 18px;
+    border-radius: 22px;
+    gap: 18px;
+  }
+  .deck-slide-copy { max-width: none; }
+  .deck-slide-label { justify-content: center; margin-bottom: 6px; }
+  .deck-slide-num { width: 36px; height: 36px; border-radius: 11px; font-size: 16px; }
+  .deck-slide-eyebrow { font-size: 11px; letter-spacing: .12em; }
+  .deck-slide-title {
+    font-size: clamp(22px, 5.8vw, 28px);
+    letter-spacing: -0.8px;
+    margin-bottom: 0;
+  }
 
   /* Sub-cards: slim one-liner rows, descriptions hidden */
-  .deck-subcards { gap: 8px; margin-top: 20px; }
-  .deck-subcard { padding: 10px 14px; align-items: center; }
+  .deck-subcards { gap: 8px; margin-top: 16px; text-align: left; }
+  .deck-subcard { padding: 10px 12px; align-items: center; }
   .deck-subcard p { display: none; }
-  .deck-subcard h4 { font-size: 14px; margin: 0; }
-  .deck-subcard-ico { width: 32px; height: 32px; }
-  .deck-subcard-ico svg { width: 15px; height: 15px; }
+  .deck-subcard h4 { font-size: 13px; margin: 0; }
+  .deck-subcard-ico { width: 30px; height: 30px; }
+  .deck-subcard-ico svg { width: 14px; height: 14px; }
 
-  /* Phones: smaller floor, kill the transform hack */
+  /* Phones: fit inside the carousel card */
   .deck-phones { transform: none; }
-  .deck-phone { --deck-phone-w: 126px; }
-
-  /* Lead a touch tighter */
-  .deck-slide-lead { font-size: 15px; }
+  .deck-phone { --deck-phone-w: 108px; }
+  .deck-phone--left { margin-right: -6px; }
+  .deck-phone--right { margin-left: -6px; }
 }
 
 /* ══ FEATURES BENTO (pro extras) ══ */
