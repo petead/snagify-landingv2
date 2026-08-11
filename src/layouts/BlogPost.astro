@@ -10,6 +10,7 @@ import ResourceBreadcrumbs from '../components/ResourceBreadcrumbs.astro';
 import CategoryBadge from '../components/CategoryBadge.astro';
 import RelatedResources from '../components/RelatedResources.astro';
 import ResourceCta from '../components/ResourceCta.astro';
+import ChecklistDownload from '../components/ChecklistDownload.astro';
 import {
   formatBlogDate,
   readingTimeMinutes,
@@ -22,7 +23,8 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { title, description, pubDate, updatedDate, author, faq, tags, category } = post.data;
+const { title, description, pubDate, updatedDate, author, faq, tags, category, download } = post.data;
+const showChecklist = download === 'move-in-checklist';
 const slug = post.slug;
 const site = Astro.site?.origin ?? 'https://snagify.net';
 const canonical = `${site}/blog/${slug}`;
@@ -353,6 +355,8 @@ a, button { cursor: pointer; }
       </ul>
     </section>
   )}
+
+  {showChecklist && <ChecklistDownload />}
 
   <aside class="blog-author" aria-label="About the author">
     <div class="blog-author-mono" aria-hidden="true">PA</div>

@@ -19,6 +19,7 @@ draft: false
 category: blog
 featured: false
 readingMinutes: 6
+download: move-in-checklist
 ---
 
 Everything in a Dubai rental is easier to fix before you sign than after. The wrong agent, the wrong price, the wrong building, all of it is a five-minute check today or a twelve-month lesson later.

@@ -29,6 +29,8 @@ const resourceSchema = z.object({
     )
     .optional(),
   draft: z.boolean().default(false),
+  /** Optional lead-magnet block rendered in the blog layout. */
+  download: z.enum(['move-in-checklist']).optional(),
 });
 
 /** Unified resources collection: blog posts + tutorials (+ future guides). */
