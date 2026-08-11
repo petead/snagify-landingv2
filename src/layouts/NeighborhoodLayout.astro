@@ -6,8 +6,11 @@ import CrispChat from '../components/CrispChat.astro';
 import Clarity from '../components/Clarity.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import MetaPixel from '../components/MetaPixel.astro';
+import FurtherReading from '../components/FurtherReading.astro';
+import { getFurtherReading } from '../lib/further-reading';
 
 const { neighborhood } = Astro.props;
+const furtherReading = getFurtherReading('neighborhood');
 const htmlLang = 'en';
 const htmlDir = 'ltr';
 const ogLocale = 'en_AE';
@@ -469,6 +472,12 @@ body {
     </div>
   </section>
 )}
+
+<section class="section">
+  <div class="container">
+    <FurtherReading items={furtherReading} />
+  </div>
+</section>
 
 <section class="container">
   <div class="final-cta">

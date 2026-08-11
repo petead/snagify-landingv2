@@ -8,8 +8,10 @@ import MetaPixel from '../components/MetaPixel.astro';
 import ResourceBreadcrumbs from '../components/ResourceBreadcrumbs.astro';
 import CategoryBadge from '../components/CategoryBadge.astro';
 import RelatedResources from '../components/RelatedResources.astro';
+import FurtherReading from '../components/FurtherReading.astro';
 import ResourceCta from '../components/ResourceCta.astro';
 import { getRelatedResourceCards, truncateCrumbTitle } from '../lib/resources';
+import { getFurtherReading } from '../lib/further-reading';
 
 const { article } = Astro.props;
 const htmlLang = 'en';
@@ -23,6 +25,7 @@ const related = await getRelatedResourceCards({
   excludeHref: `/${article.slug}`,
   limit: 3,
 });
+const furtherReading = getFurtherReading(article.slug);
 
 const crumbs = [
   { name: 'Home', href: '/' },
@@ -357,6 +360,7 @@ body {
 
   <div class="article-body" set:html={article.body} />
 
+  <FurtherReading items={furtherReading} />
   <RelatedResources cards={related} />
   <ResourceCta />
 
