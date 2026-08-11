@@ -19,6 +19,7 @@ draft: false
 category: blog
 featured: false
 readingMinutes: 5
+download: move-in-checklist
 ---
 
 Congratulations, the keys are in your hand. The next 48 hours are a strange window: everything feels urgent, movers, internet, that first grocery run, and yet almost everything on your list can slip a day without consequence.
