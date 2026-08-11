@@ -12,13 +12,13 @@
     "subheadline": "An undocumented move-in is the single biggest cause of lost deposits in Dubai. A proper check-in inspection sets the baseline that protects both landlord and tenant for the entire lease.",
     "what": [
       "A check-in inspection is a documented walk-through of a rental property the day the tenant moves in. It captures the exact condition of every room, every fixture, and every appliance before anyone has lived in the unit.",
-      "In Dubai, a check-in inspection serves one critical purpose: it creates a baseline that the Rental Dispute Center (RDC) can compare against at move-out time. Without that baseline, every scratch, stain, or damage at check-out becomes a he-said-she-said argument that almost always ends with the tenant losing their deposit.",
+      "In Dubai, a check-in inspection serves one critical purpose: it creates a baseline that the Rental Dispute Center (RDC) can compare against at move-out time. Without that baseline, every scratch, stain, or damage at check-out becomes a he-said-she-said argument that almost always ends with the tenant losing their deposit. And no, <a href=\"/blog/is-check-in-report-mandatory-dubai\">a check-in report is not mandatory in Dubai</a>, which is precisely why so many expats skip it.",
       "Snagify makes check-ins free. We want every Dubai tenant and landlord to have that protection, regardless of whether they ever use Snagify again."
     ],
     "scenarios": [
       {
         "title": "You just signed your Ejari and got the keys.",
-        "body": "The day you move in is the only chance to document the apartment in its original state. Wait two weeks and you can no longer prove what was already there before you arrived."
+        "body": "The day you move in is the only chance to document the apartment in its original state. Wait two weeks and you can no longer prove what was already there before you arrived. Follow <a href=\"/blog/first-48-hours-dubai-rental\">your first 48 hours in a Dubai rental</a> checklist while the property is still untouched."
       },
       {
         "title": "You're a landlord renting out a unit for the first time.",
@@ -104,7 +104,7 @@
     "subheadline": "Your deposit is at stake. A documented check-out, compared directly against the original check-in, settles disputes in 30 days instead of 6 months. Snagify makes the comparison automatic.",
     "what": [
       "A check-out inspection is the formal walk-through done at the end of a tenancy, comparing the property's current state to its original check-in condition. It identifies what changed during the lease and assigns responsibility for any damage beyond fair wear and tear.",
-      "In Dubai, the check-out is where deposits get fought over. Without a comparable check-in baseline, the landlord can claim almost anything was caused by the tenant. With Snagify, every check-out auto-pulls the original check-in for direct visual comparison.",
+      "In Dubai, the check-out is where deposits get fought over. Without a comparable check-in baseline, the landlord can claim almost anything was caused by the tenant. With Snagify, every check-out auto-pulls the original check-in for direct visual comparison. If you are already in a dispute, start with <a href=\"/blog/security-deposit-refund-dubai\">how to get your security deposit back in Dubai</a>.",
       "Check-outs use one credit per inspection. The report is RDC-valid, cryptographically verifiable, and accepted as evidence in Dubai civil courts."
     ],
     "scenarios": [
@@ -121,7 +121,7 @@
         "body": "A signed check-out, comparing to the check-in, gives your landlord client a defensible position. Disputes that would have taken 4 months are settled in 2 weeks."
       }
     ],
-    "approach": "Snagify pulls the original check-in inspection automatically. You walk through the same rooms, take comparable photos, and the system highlights changes between then and now. AI flags damage. Dual signatures lock the report. The PDF includes both check-in and check-out side by side.",
+    "approach": "Snagify pulls the original check-in inspection automatically. You walk through the same rooms, take comparable photos, and the system highlights changes between then and now. AI flags damage. Dual signatures lock the report. The PDF includes both check-in and check-out side by side, the kind of <a href=\"/blog/rdc-evidence-photos-vs-signed-reports\">signed evidence the RDC actually weighs</a>.",
     "steps": [
       {
         "num": "01",
@@ -585,7 +585,7 @@
     "what": [
       "A rental deposit in Dubai is typically 5% of the annual rent for unfurnished and 10% for furnished. The landlord holds it for the duration of the tenancy and is supposed to return it at move-out, minus deductions for damage beyond fair wear and tear.",
       "In practice, most landlords keep some portion of the deposit for vague reasons: 'cleaning fee', 'paint touch-up', 'deep cleaning', 'damage that wasn't documented at check-in'. Without strong tenant evidence, these claims often stand.",
-      "Deposit protection isn't a legal mechanism in Dubai (unlike the UK's tenant deposit scheme). It's a documentation discipline. Tenants and landlords who document their inspections thoroughly get their deposits handled fairly. Those who don't, fight for them."
+      "Deposit protection isn't a legal mechanism in Dubai (unlike the UK's tenant deposit scheme). It's a documentation discipline. Tenants and landlords who document their inspections thoroughly get their deposits handled fairly. Those who don't, fight for them. For the full recovery playbook, read <a href=\"/blog/security-deposit-refund-dubai\">how to get your security deposit back in Dubai</a>."
     ],
     "scenarios": [
       {
@@ -601,7 +601,7 @@
         "body": "Document everything at check-in and check-out. A signed report is your defense if the tenant tries to claim damage was already there or that the property was uninhabitable."
       }
     ],
-    "approach": "Snagify is built around deposit protection as the central use case. Free check-ins ensure no Dubai tenant ever has to skip the baseline. AI photo analysis catches damage neither party noticed. Dual signatures lock the report. SHA-256 verification proves no edits. The RDC has accepted Snagify reports as evidence in dozens of cases.",
+    "approach": "Snagify is built around deposit protection as the central use case. Free check-ins ensure no Dubai tenant ever has to skip the baseline. AI photo analysis catches damage neither party noticed. Dual signatures lock the report. SHA-256 verification proves no edits. The RDC has accepted Snagify reports as primary evidence because they match <a href=\"/blog/rdc-evidence-photos-vs-signed-reports\">what counts as evidence at the RDC</a>.",
     "steps": [
       {
         "num": "01",

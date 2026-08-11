@@ -4,11 +4,34 @@ import CrispChat from '../../components/CrispChat.astro';
 import Clarity from '../../components/Clarity.astro';
 import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
 import MetaPixel from '../../components/MetaPixel.astro';
+import FurtherReading from '../../components/FurtherReading.astro';
+import { getFurtherReading } from '../../lib/further-reading';
 
 const all = Object.values(neighborhoodsData);
 const tier1 = all.filter(n => n.tier === 1).sort((a, b) => a.label.localeCompare(b.label));
 const tier2 = all.filter(n => n.tier === 2).sort((a, b) => a.label.localeCompare(b.label));
 const tier3 = all.filter(n => n.tier === 3).sort((a, b) => a.label.localeCompare(b.label));
+const furtherReading = getFurtherReading('inspections');
+
+const pageTitle = 'Inspections across 60 Dubai neighborhoods.';
+const metaDescription = 'Snagify covers property inspections across 60 Dubai neighborhoods. RDC-valid reports, AI photo analysis, dual signatures. Free at check-in.';
+const canonicalBase = 'https://snagify.net/inspections';
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: pageTitle,
+  description: metaDescription,
+  author: { '@type': 'Organization', name: 'Snagify', url: 'https://snagify.net' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Snagify',
+    logo: { '@type': 'ImageObject', url: 'https://snagify.net/og-image.jpg' },
+  },
+  mainEntityOfPage: canonicalBase,
+  image: 'https://snagify.net/og-image.jpg',
+  inLanguage: 'en-AE',
+};
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -30,6 +53,8 @@ const tier3 = all.filter(n => n.tier === 3).sort((a, b) => a.label.localeCompare
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Property Inspections Dubai · 60 Neighborhoods · Snagify">
 <meta name="twitter:image" content="https://snagify.net/og-image.jpg">
+
+<script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
 
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -188,6 +213,12 @@ footer.site-footer { background: var(--ink); color: var(--white); padding: 48px 
         </a>
       ))}
     </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <FurtherReading items={furtherReading} />
   </div>
 </section>
 

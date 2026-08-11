@@ -11,6 +11,10 @@ import CrispChat from '../components/CrispChat.astro';
 import Clarity from '../components/Clarity.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import MetaPixel from '../components/MetaPixel.astro';
+import FurtherReading from '../components/FurtherReading.astro';
+import { getFurtherReading } from '../lib/further-reading';
+
+const furtherReading = getFurtherReading(usecase.slug);
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -155,6 +159,11 @@ body {
   max-width: 720px; margin-bottom: 18px;
 }
 .prose p:last-child { margin-bottom: 0; }
+.prose a, .scenario-body a, .approach-card a, .step-body a, .deliverable-text a {
+  color: var(--purple);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 
 .scenarios {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
@@ -322,7 +331,7 @@ body {
   <div class="container">
     <h2 class="section-title">What is a {usecase.label.toLowerCase()}?</h2>
     <div class="prose">
-      {usecase.what.map(p => <p>{p}</p>)}
+      {usecase.what.map(p => <p set:html={p} />)}
     </div>
   </div>
 </section>
@@ -335,7 +344,7 @@ body {
         <div class="scenario">
           <div class="scenario-num">{String(i + 1).padStart(2, '0')}</div>
           <h3 class="scenario-title">{s.title}</h3>
-          <p class="scenario-body">{s.body}</p>
+          <p class="scenario-body" set:html={s.body} />
         </div>
       ))}
     </div>
@@ -345,7 +354,7 @@ body {
 <section class="section">
   <div class="container">
     <h2 class="section-title">The Snagify approach.</h2>
-    <div class="approach-card">{usecase.approach}</div>
+    <div class="approach-card" set:html={usecase.approach} />
   </div>
 </section>
 
@@ -357,7 +366,7 @@ body {
         <div class="step">
           <div class="step-num">{step.num}</div>
           <h3 class="step-title">{step.title}</h3>
-          <p class="step-body">{step.body}</p>
+          <p class="step-body" set:html={step.body} />
         </div>
       ))}
     </div>
@@ -369,7 +378,7 @@ body {
     <h2 class="section-title">What you get at the end.</h2>
     <div class="deliverable-card">
       <div class="deliverable-label">Final deliverable</div>
-      <p class="deliverable-text">{usecase.deliverable}</p>
+      <p class="deliverable-text" set:html={usecase.deliverable} />
     </div>
   </div>
 </section>
@@ -388,6 +397,12 @@ body {
         </div>
       ))}
     </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <FurtherReading items={furtherReading} />
   </div>
 </section>
 
