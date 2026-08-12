@@ -8,7 +8,7 @@ faq:
   - question: "Which inspection app is accepted by the RDC in Dubai?"
     answer: "The RDC does not certify or approve software, and any tool claiming official approval is misleading you. What the RDC weighs is evidence quality: time-stamped photos, signatures from both parties, and a clear link to the tenancy. Choose an app built to produce that standard of evidence, whatever the brand."
   - question: "How much does property inspection software cost in Dubai?"
-    answer: "International platforms run from around $199 per month (SnapInspect) to enterprise per-unit pricing with 500-unit minimums (HappyCo). Dubai-focused options price in AED: Snagify subscriptions start at AED 299 per month for agencies, and individuals pay per report with a free check-in."
+    answer: "International platforms run from around $199 per month (SnapInspect) to enterprise per-unit pricing with 500-unit minimums (HappyCo). Dubai-focused options price in AED: Snagify subscriptions start from AED 299 per month billed annually for agencies, and individuals pay per report with a free check-in."
   - question: "Can I just use WhatsApp photos instead of an inspection app?"
     answer: "You can, and most people do, right up until a dispute. Loose photos without timestamps tied to the tenancy, without both signatures, and without a structured condition record carry little weight at the Rental Disputes Center. The app is not for taking photos, it is for turning photos into evidence."
   - question: "Do inspection apps work for a single rental unit?"
@@ -75,7 +75,7 @@ We are not being flippant by including it: if you never face a dispute, it costs
 
 Our product, built specifically for Dubai tenancies. The workflow follows the local handover: contract details extracted from the tenancy agreement, room-by-room photo capture with AI-written condition notes a human confirms, furniture inventory for furnished units, key handover log, and digital signatures from both parties on the spot or by remote link. Check-out reports compare directly against the check-in baseline, photo by photo.
 
-Where it fits: Dubai agencies and property managers who want court-grade reports in about 20 minutes per inspection, at AED pricing (subscriptions from AED 299 per month, roughly a third of SnapInspect's entry price). And, uniquely in this list, individuals: the check-in report is free, and a check-out report costs from AED 99, against the AED 1,200 to 2,200 a traditional inspection company charges in Dubai.
+Where it fits: Dubai agencies and property managers who want court-grade reports in about 20 minutes per inspection, at AED pricing (subscriptions from AED 299 per month billed annually, roughly a third of SnapInspect's entry price). And, uniquely in this list, individuals: the check-in report is free, and a check-out report costs from AED 99, against the AED 1,200 to 2,200 a traditional inspection company charges in Dubai.
 
 Where it does not: if you need enterprise work-order management, make-ready pipelines, or Yardi-grade integrations across a 1,000-unit portfolio, HappyCo is built for that and we are not. And if your operation is outside the UAE, our local advantages do nothing for you.
 
@@ -83,7 +83,7 @@ Where it does not: if you need enterprise work-order management, make-ready pipe
 
 | | Snagify | SnapInspect | HappyCo | Property Inspect | WhatsApp + Word |
 |---|---|---|---|---|---|
-| Entry price | Free check-in, reports from AED 99, subs from AED 299/mo | From $199/mo | Per-unit, 500-unit minimum, quote | Quote-based | Free |
+| Entry price | Free check-in, reports from AED 99, subs from AED 299/mo billed annually | From $199/mo | Per-unit, 500-unit minimum, quote | Quote-based | Free |
 | Works for a single unit | Yes | Not realistically | No | Not realistically | Yes |
 | Check-in vs check-out comparison | Built-in, photo by photo | Side-by-side reports available | Yes, at portfolio scale | Yes | Manual |
 | Signatures from both parties | On-device and remote link | Yes | Yes | Yes | No |
