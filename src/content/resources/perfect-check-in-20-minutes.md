@@ -92,4 +92,4 @@ Quality over quantity: one or two wide shots per room plus one detail photo per 
 
 ---
 
-**Ready to build your baseline?** Your first check-in is free. [Start your free check-in](https://app.snagify.net/inspection/new)
+**Ready to build your baseline?** Your first check-in is free. [Start your free check-in](https://app.snagify.net/signup)

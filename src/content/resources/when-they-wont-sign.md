@@ -75,4 +75,4 @@ No. A refusal changes the report's status to disputed and records the stated rea
 
 ---
 
-**Build the baseline before you need it.** Your first check-in is free. [Start your free check-in](https://app.snagify.net/inspection/new)
+**Build the baseline before you need it.** Your first check-in is free. [Start your free check-in](https://app.snagify.net/signup)

@@ -93,4 +93,4 @@ Ideally the tenant and the landlord or their agent, with the property empty. In 
 
 ---
 
-**The comparison starts with the baseline.** Your first check-in is free. [Start your free check-in](https://app.snagify.net/inspection/new)
+**The comparison starts with the baseline.** Your first check-in is free. [Start your free check-in](https://app.snagify.net/signup)

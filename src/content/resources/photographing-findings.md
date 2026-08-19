@@ -84,4 +84,4 @@ Some findings resist photography: faint odours, a loose hinge, low water pressur
 
 ---
 
-**Put the technique to work.** Your first check-in is free. [Start your free check-in](https://app.snagify.net/inspection/new)
+**Put the technique to work.** Your first check-in is free. [Start your free check-in](https://app.snagify.net/signup)
