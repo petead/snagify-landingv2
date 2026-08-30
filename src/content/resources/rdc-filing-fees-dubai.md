@@ -16,6 +16,8 @@ faq:
   - question: "Can I get the RDC fee refunded if we settle?"
     answer: "Settling at the RDC's conciliation stage refunds half of the base filing fee, and a judgment in your favor commonly puts the fees on the other party. Between the two mechanisms, a well-founded claim rarely ends up carrying its own filing cost."
 draft: false
+category: blog
+featured: false
 ---
 
 Ask Google what it costs to file at Dubai's Rental Disputes Center and you will get the same confident answer from a dozen property blogs: 3.5% of the annual rent. I quoted it myself once, and then I checked it against the RDC's own schedule, partly because I had actually paid the fee in a real case and the number did not match the folklore.

@@ -17,6 +17,8 @@ faq:
   - question: "How long does a proper move-in inspection take?"
     answer: "About 20 minutes for a structured, guided walkthrough of a typical apartment, longer for villas or full furnished inventories. The empty-apartment window before furniture arrives is the ideal moment, and it usually lasts a day or two."
 draft: false
+category: blog
+featured: false
 ---
 
 There is a version of your check-out, twelve months from now, where the handover takes ten minutes, the deposit comes back in days, and nobody argues about a scratch. That version is built today, in the twenty minutes before your furniture arrives.

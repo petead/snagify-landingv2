@@ -16,6 +16,8 @@ faq:
   - question: "Is it worth filing at the RDC against a tenant?"
     answer: "Run the evidence test first, not the anger test. With a signed check-in report, itemized proof and a clear delta, your position is strong and the fee is modest (3.5% of the claim, minimum AED 500, commonly borne by the loser). Without a baseline, filing usually means paying a fee to lose: judges dismiss damage claims that cannot establish the original condition."
 draft: false
+category: blog
+featured: false
 ---
 
 The honest answer is yes, sometimes, and the landlords who succeed all have one thing in common: they stopped thinking of the deposit as their money with conditions, and started treating a deduction as what it legally is, a claim they must prove.

@@ -1,6 +1,6 @@
 ---
 title: "Renting in Dubai vs France, the UK and Germany: Deposit Protection Compared"
-description: "In France the report is the law, in the UK a scheme holds your money, in Germany the deposit earns interest in a protected account. In Dubai? A country-by-country comparison of what protects your deposit, and what doesn't."
+description: "France, the UK and Germany each protect a rental deposit by law. Dubai does not. A country-by-country comparison of what actually protects your money."
 pubDate: 2026-08-31
 author: "Pierre Adam"
 tags: ["expats", "deposits", "comparison"]
@@ -16,6 +16,8 @@ faq:
   - question: "Is a move-in inspection required in Dubai like in France or Germany?"
     answer: "No. France attaches the etat des lieux to the lease by law, and the German Ubergabeprotokoll is standard practice nobody skips. Dubai has no equivalent requirement, no standard form and no obligation on either party, so the condition record only exists if you create it yourself."
 draft: false
+category: blog
+featured: false
 ---
 
 Every expat lands in Dubai with rental instincts calibrated by another country's law. The French tenant waits for the etat des lieux. The British tenant asks which scheme holds the deposit. The German tenant asks for the account details where the Kaution will sit.

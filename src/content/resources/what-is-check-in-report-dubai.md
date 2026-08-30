@@ -16,6 +16,8 @@ faq:
   - question: "What makes an inspection report valid in a Dubai court?"
     answer: "Five properties: the property and parties clearly identified and tied to the tenancy, a date that can be trusted, systematic photographic coverage, signatures from both parties (or documented delivery if one refuses), and integrity, meaning the document demonstrably has not been altered since creation. A report with these five holds up. A branded PDF without them does not."
 draft: false
+category: blog
+featured: false
 ---
 
 In my deposit hearing at the Rental Disputes Center, the judge did not open with the photos, the invoices or the arguments. He opened with a question: is there a check-in report?
