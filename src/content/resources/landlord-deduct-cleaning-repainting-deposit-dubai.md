@@ -16,6 +16,8 @@ faq:
   - question: "What is normal wear and tear on walls in Dubai?"
     answer: "Fading (accelerated by Dubai sun), minor scuffs, small nail holes from a reasonable number of frames, hairline settling cracks. All of it is wear, none of it is deductible. Damage means holes, large fixings, crayon or marker, water damage from an unreported leak, or walls repainted in unauthorized colors."
 draft: false
+category: blog
+featured: false
 ---
 
 Two deductions appear on Dubai deposit statements more than all the others combined: repainting and cleaning. They appear so often that many tenants assume they are standard, and many landlords assume they are automatic. Neither is true, and the difference is worth thousands of dirhams on a typical tenancy.

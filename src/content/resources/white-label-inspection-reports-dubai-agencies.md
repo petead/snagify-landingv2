@@ -1,6 +1,6 @@
 ---
 title: "White-Label Inspection Reports: Your Agency's Brand on Every Report"
-description: "What a white-label inspection report is, why the branded PDF that lands in your landlord's inbox is a mandate-winning asset for Dubai agencies, and what branding can and cannot do for a report's validity."
+description: "What a white-label inspection report is, why the branded PDF in a landlord's inbox is a mandate-winning asset for Dubai agencies, and what branding can and cannot do for validity."
 pubDate: 2026-09-03
 author: "Pierre Adam"
 tags: ["agencies", "white-label", "b2b"]
@@ -16,6 +16,8 @@ faq:
   - question: "Will the landlord see which software the agency used?"
     answer: "With proper white-labeling, the agency's identity dominates the document and any vendor presence is limited to a discreet footer line, or removed entirely depending on the plan. The landlord experiences a report from their agency, which is the point."
 draft: false
+category: blog
+featured: false
 ---
 
 Full transparency first: we build Snagify, and white-label reports are one of the things agencies use it for. This article explains the feature category honestly, including what branding cannot do, because a branded report that fails in court would be the worst advertisement possible.
