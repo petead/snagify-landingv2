@@ -99,7 +99,7 @@ const softwareOffersLd = plans.map((p) => ({
 <meta name="keywords" content="dubai property inspection, rdc-ready report, ejari inspection, check-in inspection dubai, check-out inspection, rental dispute dubai, snagging app dubai, property inspection software, dubai real estate tools, rera inspection">
 <link rel="canonical" href="https://snagify.net">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-<meta name="author" content="Snagify · MULKEEF">
+<meta name="author" content="Snagify · Seize Montaigne Technologies LLC">
 <meta http-equiv="content-language" content="en-AE">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2514,11 +2514,12 @@ footer {
 }
 .foot-col a:hover { color: var(--purple); }
 .footer-bottom {
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex; align-items: flex-start; justify-content: space-between;
   padding-top: 28px;
   border-top: 1px solid rgba(255,255,255,.06);
+  gap: 16px; flex-wrap: wrap;
 }
-.footer-bottom p { font-size: 13px; color: rgba(255,255,255,.6); }
+.footer-bottom p { font-size: 13px; color: rgba(255,255,255,.6); max-width: 46rem; line-height: 1.5; }
 .foot-socials { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 .foot-socials a {
   width: 40px; height: 40px; border-radius: 10px;
@@ -5273,7 +5274,7 @@ footer {
 
   <!-- Bottom bar -->
   <div class="footer-bottom">
-    <p>© 2026 Snagify. All rights reserved.</p>
+    <p>© 2026 Snagify. Seize Montaigne Technologies LLC, registered with Sharjah Media City Free Zone (Shams), Sharjah, United Arab Emirates, Business License No. 2647852.01.</p>
     <div class="foot-socials">
       <button type="button" class="foot-chat-btn" onclick="openCrispChat()" aria-label="Chat with us">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
@@ -6123,7 +6124,8 @@ window.toggleBilling = toggleBilling;
   "@type": "Organization",
   "@id": "https://snagify.net/#organization",
   "name": "Snagify",
-  "alternateName": ["Snagify by MULKEEF", "MULKEEF"],
+  "legalName": "Seize Montaigne Technologies LLC",
+  "alternateName": ["Snagify"],
   "url": "https://snagify.net/",
   "logo": {
     "@type": "ImageObject",
@@ -6143,12 +6145,13 @@ window.toggleBilling = toggleBilling;
   ],
   "parentOrganization": {
     "@type": "Organization",
-    "name": "MULKEEF"
+    "name": "Seize Montaigne Technologies LLC",
+    "legalName": "Seize Montaigne Technologies LLC"
   },
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Dubai",
-    "addressRegion": "Dubai",
+    "addressLocality": "Sharjah",
+    "addressRegion": "Sharjah",
     "addressCountry": "AE"
   },
   "areaServed": [
