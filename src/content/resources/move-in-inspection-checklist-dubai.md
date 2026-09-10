@@ -21,9 +21,9 @@ category: blog
 featured: false
 ---
 
-There is a version of your check-out, twelve months from now, where the handover takes ten minutes, the deposit comes back in days, and nobody argues about a scratch. That version is built today, in the twenty minutes before your furniture arrives.
+There is a version of [your check-out](/blog/security-deposit-refund-dubai), twelve months from now, where the handover takes ten minutes, the deposit comes back in days, and nobody argues about a scratch. That version is built today, in the twenty minutes before your furniture arrives.
 
-We have covered why the documentation is entirely your job in Dubai and where it fits in your first 48 hours. This is the how: the room-by-room checklist of what to capture, the spots everyone misses, and the two steps that turn a folder of photos into evidence.
+We have covered why the documentation is [entirely your job in Dubai](/blog/is-check-in-report-mandatory-dubai) and where it fits in your [first 48 hours](/blog/first-48-hours-dubai-rental). This is the how: the room-by-room checklist of what to capture, the spots everyone misses, and the two steps that turn a folder of photos into evidence.
 
 ## The method before the rooms
 
@@ -47,11 +47,11 @@ Everything on, everything open. Taps run, AC blows, oven heats, cupboards open. 
 
 **AC, the Dubai special.** Every unit blowing cold, photographed with its thermostat. Every remote, counted and working, they are a classic small deduction. Filters if accessible: a photo of their day-one state anchors the wear conversation a year from now. Any existing noise or weak zone: noted in writing today.
 
-**The meters.** DEWA reading, photographed with the meter number visible. Chiller meter if the tower runs district cooling. Gas meter if applicable. These numbers are the other baseline of your tenancy: the financial one.
+**The meters.** [DEWA](https://www.dewa.gov.ae/) reading, photographed with the meter number visible. Chiller meter if the tower runs district cooling. Gas meter if applicable. These numbers are the other baseline of your tenancy: the financial one.
 
 **Keys and access.** Count and photograph everything handed over: keys, access cards, parking remotes, mailbox key. Note the counts in the report. They get counted again at check-out, and the missing-remote charge is a small classic.
 
-**Furnished units: the inventory layer.** Every item with its condition: sofas (cushions lifted, stains and wear noted), beds and mattresses, tables, curtains, every included appliance, kitchenware if listed. In furnished tenancies the deposit typically runs 10% of annual rent instead of 5%, so this layer is protecting double the money.
+**Furnished units: the inventory layer.** Every item with its condition: sofas (cushions lifted, stains and wear noted), beds and mattresses, tables, curtains, every included appliance, kitchenware if listed. In [furnished tenancies the deposit](/blog/dubai-deposit-protection-vs-france-uk-germany) typically runs 10% of annual rent instead of 5%, so this layer is protecting double the money.
 
 ## The spots everyone misses
 
@@ -59,7 +59,7 @@ Ceilings (water-stain history lives there). Behind doors. Inside the oven. The w
 
 ## The two steps that turn photos into evidence
 
-A camera roll, even a thorough one, sits low on the evidence hierarchy: no structure, fragile dates, no acknowledgment from the other side. Two steps fix that.
+A camera roll, even a thorough one, sits low on the [evidence hierarchy](/blog/rdc-evidence-photos-vs-signed-reports): no structure, fragile dates, no acknowledgment from the other side. Two steps fix that.
 
 Structure and date it. Organize the record room by room into a single document, each photo tied to its location, the whole thing time-stamped and linked to the tenancy. One structured report reads, translates and files as evidence; two hundred loose images do not.
 

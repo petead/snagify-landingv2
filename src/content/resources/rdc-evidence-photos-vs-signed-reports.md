@@ -23,19 +23,19 @@ readingMinutes: 5
 
 Every deposit dispute in Dubai ends the same way: two versions of the apartment's condition, and a judge deciding which one is proven. Not which one is told better, not which party seems more honest. Proven.
 
-Most people walk into that moment with a camera roll and a WhatsApp thread, and discover that what they thought was evidence is closer to an anecdote. This article is the hierarchy of proof at the Rental Disputes Center, from weakest to strongest, and how to make sure you are at the top of it before you ever need to be.
+Most people walk into that moment with a camera roll and a WhatsApp thread, and discover that what they thought was evidence is closer to an anecdote. This article is the hierarchy of proof at the [Rental Disputes Center](https://rdc.gov.ae/en/), from weakest to strongest, and how to make sure you are at the top of it before you ever need to be.
 
 ## What the RDC actually looks at
 
-Deposit cases at the RDC are financial claims decided on documents. The center's process is electronic: you file online, upload your evidence as clear scans, and everything must be in Arabic or legally translated. Evidence is submitted before the hearing, and the system does not accept new documents during the judgment session. There is no dramatic courtroom reveal: if it is not in the file, properly dated and readable, it does not exist.
+Deposit cases at the RDC are financial claims decided on documents. The center's process is electronic: you file online, upload your evidence as clear scans, and everything [must be in Arabic](https://rdc.gov.ae/en/frequently-asked-questions/) or legally translated. Evidence is submitted before the hearing, and the system does not accept new documents during the judgment session. There is no dramatic courtroom reveal: if it is not in the file, properly dated and readable, it does not exist.
 
-The standard bundle in a deposit case: the Ejari-registered tenancy contract, deposit payment proof, final utility bills, the written correspondence between the parties, and, when they exist, condition photos and inspection reports.
+The standard bundle in a deposit case: the [Ejari-registered tenancy contract](/blog/ejari-explained-dubai), deposit payment proof, final utility bills, the written correspondence between the parties, and, when they exist, condition photos and inspection reports.
 
 That last category is where cases are won and lost, because the entire dispute reduces to one question: what condition was the property in at move-in, and what changed by move-out? Everything else is accounting. The condition question is where the hierarchy of evidence takes over.
 
 ## The hierarchy of proof, from bottom to top
 
-**Level zero: memory.** "The walls were freshly painted when he moved in." Testimony with no documents behind it. This is what most Dubai tenancies run on, and at the RDC it is worth what it costs to produce: nothing. I watched a judge dismiss an AED 4,000 damage claim built entirely on this level, in one sentence, because no record of the original condition existed.
+**Level zero: memory.** "The walls were freshly painted when he moved in." Testimony with no documents behind it. This is what most Dubai tenancies run on, and at the RDC it is worth what it costs to produce: nothing. I [watched a judge dismiss](/blog/rdc-deposit-dispute-no-checkin-report) an AED 4,000 damage claim built entirely on this level, in one sentence, because no record of the original condition existed.
 
 **Level one: loose photos.** A camera roll, a WhatsApp thread with the agent. Better than memory, and still structurally weak, for reasons most people learn too late. WhatsApp compresses every image and strips its metadata, the embedded data that proves when a photo was taken. What survives is a picture of a wall, with no reliable date, no link to your tenancy, no indication of which room, and no acknowledgment from the other side. It proves the wall existed. It does not prove when it looked like that, and a dispute is entirely about when.
 
@@ -51,7 +51,7 @@ Tenants lose time in this system. Landlords lose money, and the asymmetry is bru
 
 Under Dubai law, the party claiming damage carries the burden of proving it, which means proving two things: that the damage exists, and that the property was in better condition at move-in. A landlord can arrive with perfect move-out photos, genuine damage, itemized repair invoices, and still lose entirely, because level-three evidence of the damage means nothing without level-three evidence of the baseline. No signed check-in report, no provable delta, no deduction. Every tenancy an agency starts on WhatsApp photos is a tenancy where the owner absorbs 100% of whatever happens to the unit.
 
-This is why serious property managers are moving to signed reports as standard practice: not as paperwork, but as the only thing that makes a deposit clause enforceable at all.
+This is why [serious property managers](/blog/white-label-inspection-reports-dubai-agencies) are moving to signed reports as standard practice: not as paperwork, but as the only thing that makes a deposit clause enforceable at all.
 
 ## How to be at level three before you need it
 
@@ -59,6 +59,6 @@ At move-in, document every room before the furniture arrives, get the record str
 
 At move-out, repeat the exercise against the same baseline, same rooms, same angles, so the comparison is direct.
 
-And if you are reading this with a dispute already underway and only level-one evidence in hand, do not despair: organize what you have into a dated, room-by-room document now, pull your correspondence into a clean chronological thread, and lean on the burden of proof, which sits with whoever is claiming money. Our step-by-step deposit recovery guide covers the filing itself.
+And if you are reading this with a dispute already underway and only level-one evidence in hand, do not despair: organize what you have into a dated, room-by-room document now, pull your correspondence into a clean chronological thread, and lean on the burden of proof, which sits with whoever is claiming money. Our [step-by-step deposit recovery guide](/blog/security-deposit-refund-dubai) covers the filing itself.
 
 The RDC does not reward the better story. It rewards the better file. Build yours on day one, when it costs twenty minutes, not in month four of a dispute, when it is too late to build at all.

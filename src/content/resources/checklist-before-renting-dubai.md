@@ -28,7 +28,7 @@ This is the verification checklist, not the inspiration checklist. Every item be
 
 ## Verify the agent
 
-Every legitimate broker in Dubai is licensed by RERA and carries a BRN, a Broker Registration Number. Before you get emotionally attached to any apartment, verify the human selling it to you: the Dubai REST app and the Dubai Brokers app, both from the Dubai Land Department, let you look up a broker by name or BRN for free and see whether the card is valid.
+Every legitimate broker in Dubai is licensed by RERA and carries a BRN, a Broker Registration Number. Before you get emotionally attached to any apartment, verify the human selling it to you: the [Dubai REST app](https://dubailand.gov.ae/en/) and the Dubai Brokers app, both from the Dubai Land Department, let you look up a broker by name or BRN for free and see whether the card is valid.
 
 This single check filters out most rental fraud in Dubai, because the classic scam is not a fake apartment, it is a real apartment marketed by someone with no right to market it, collecting deposits on a unit they do not control. No verifiable BRN, no deal, whatever the listing looks like and however friendly the WhatsApp conversation has been.
 
@@ -54,7 +54,7 @@ Round out the building checks with the practical ones: which parking spot is you
 
 ## Verify the money
 
-Know the full move-in cost before you commit, because it is much more than the first cheque: the agency commission (typically 5% of annual rent), the security deposit (usually 5% unfurnished, 10% furnished), the Ejari registration, the DEWA deposit (AED 2,000 for an apartment, AED 4,000 for a villa), and the cooling registration where applicable. On a AED 100,000 tenancy, the day-one outlay commonly lands between AED 15,000 and 20,000.
+Know the full move-in cost before you commit, because it is much more than the first cheque: the agency commission (typically 5% of annual rent), the security deposit (usually 5% unfurnished, 10% furnished), the [Ejari](/blog/ejari-explained-dubai) registration, the DEWA deposit (AED 2,000 for an apartment, AED 4,000 for a villa), and the cooling registration where applicable. On a AED 100,000 tenancy, the day-one outlay commonly lands between AED 15,000 and 20,000.
 
 The cheque structure, one to four cheques is the common range now, is negotiable: fewer cheques often buy a small rent discount, more cheques buy cash-flow room. Whatever you agree, it goes in the contract with exact dates and amounts.
 
@@ -62,10 +62,10 @@ And the rule that outranks every other item on this page: **never transfer money
 
 ## Verify the contract
 
-Before signing, read for the clauses that cost tenants money: the maintenance threshold (who pays for repairs below and above a figure, AED 500 is a common line), the early-termination penalty, any repainting-on-exit clause (routine repainting is the owner's responsibility, whatever the template says), and exactly how the deposit's return is worded. Confirm the contract will be registered in Ejari, because without Ejari you have no DEWA activation and no standing at the Rental Disputes Center if anything ever goes wrong.
+Before signing, read for the clauses that cost tenants money: the maintenance threshold (who pays for repairs below and above a figure, AED 500 is a common line), the early-termination penalty, any repainting-on-exit clause (routine repainting is the owner's responsibility, whatever the template says), and exactly how the deposit's return is worded. Confirm the contract will be registered in Ejari, because without Ejari you have no DEWA activation and no standing at the [Rental Disputes Center](https://rdc.gov.ae/en/) if anything ever goes wrong.
 
 ## And the day you get the keys
 
-The checklist above protects you up to the signature. From the signature onward, a different clock starts: Dubai has no mandatory check-in report, nobody will document the property's condition for you, and that documentation is what your entire deposit rests on twelve months from now. We wrote the full first-48-hours playbook for that moment, and the short version fits in one line: before the furniture arrives, create a structured, dated, signed record of the condition of every room.
+The checklist above protects you up to the signature. From the signature onward, a different clock starts: Dubai has [no mandatory check-in report](/blog/is-check-in-report-mandatory-dubai), nobody will document the property's condition for you, and that documentation is what your entire deposit rests on twelve months from now. We wrote the full [first-48-hours playbook](/blog/first-48-hours-dubai-rental) for that moment, and the short version fits in one line: before the furniture arrives, create a structured, dated, signed record of the condition of every room.
 
 Verify before you sign. Document before you unpack. Those two habits, borrowed from markets where the law imposes them, are the entire difference between renting in Dubai on evidence and renting on hope.

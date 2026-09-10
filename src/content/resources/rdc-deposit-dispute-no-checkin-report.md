@@ -21,7 +21,7 @@ featured: false
 readingMinutes: 5
 ---
 
-Most of what is written about Dubai deposit disputes is theory: what the law says, what the process looks like on paper. This is not that. A few years ago I sat through a Rental Disputes Center case as a tenant, over my own deposit, and watched a judge decide it in front of me. What I learned that day is the reason Snagify exists, and it is worth more than any legal summary I have read since.
+Most of what is written about Dubai deposit disputes is theory: what the law says, what the process looks like on paper. This is not that. A few years ago I sat through a [Rental Disputes Center](https://rdc.gov.ae/en/) case as a tenant, over my own deposit, and watched a judge decide it in front of me. What I learned that day is the reason Snagify exists, and it is worth more than any legal summary I have read since.
 
 The details that could identify anyone have been left out. Everything else is exactly as it happened.
 
@@ -37,7 +37,7 @@ If you have ever wondered what happens at the RDC in that exact situation, and i
 
 ## Filing
 
-I refused the deduction, the discussion went nowhere, and I filed directly with the Rental Disputes Center, first instance. A detail worth knowing here, because even many Dubai blogs get it wrong: for a pure financial claim like a deposit recovery, the RDC fee is 3.5% of the amount you are claiming, not of the annual rent, with a minimum of AED 500 and a cap of AED 15,000. The annual-rent basis applies to contract cases like evictions and renewals. On my AED 5,500 claim, 3.5% falls below the floor, so the fee was the AED 500 minimum plus small administrative charges.
+I refused the deduction, the discussion went nowhere, and I filed directly with the Rental Disputes Center, first instance. A detail worth knowing here, because even many Dubai blogs get it wrong: for a pure financial claim like a deposit recovery, the RDC fee is [3.5% of the amount you are claiming](/blog/rdc-filing-fees-dubai), not of the annual rent, with a minimum of AED 500 and a cap of AED 15,000. The annual-rent basis applies to contract cases like evictions and renewals. On my AED 5,500 claim, 3.5% falls below the floor, so the fee was the AED 500 minimum plus small administrative charges.
 
 That makes filing far more accessible than most tenants assume. And the courts commonly order the losing party to bear the fees in the judgment, while a dispute settled at the conciliation stage gets half the base fee refunded. The money barrier is largely a myth. The real cost, as I was about to learn, is measured in months.
 
@@ -69,9 +69,9 @@ So when people say a tenant with no check-in report is safe because the landlord
 
 ## What each side should take from this
 
-If you are a landlord or property manager, this case is your warning. Without a signed check-in report, your deposit clause is decoration. Any deduction you attempt, legitimate or not, dies the moment a judge asks for the baseline. I watched it happen in one sentence. Every tenancy you start without documented, signed condition evidence is a tenancy where you absorb 100% of whatever happens to the unit.
+If you are a [landlord or property manager](/blog/can-i-keep-tenant-deposit-dubai), this case is your warning. Without a [signed check-in report](/blog/what-is-check-in-report-dubai), your deposit clause is decoration. Any deduction you attempt, legitimate or not, dies the moment a judge asks for the baseline. I watched it happen in one sentence. Every tenancy you start without documented, signed condition evidence is a tenancy where you absorb 100% of whatever happens to the unit.
 
-If you are a tenant, the burden of proof protects your money, eventually. But the four months were real, and they were entirely avoidable. A signed check-in report does not just protect you from being billed for the previous tenant's scratches: it removes the ambiguity that lets a dispute start at all. The landlord who knows a signed, time-stamped condition record exists does not try the AED 4,000 repainting claim in the first place, because he knows exactly how that hearing ends.
+[If you are a tenant](/blog/security-deposit-refund-dubai), the burden of proof protects your money, eventually. But the four months were real, and they were entirely avoidable. A signed check-in report does not just protect you from being billed for the previous tenant's scratches: it removes the ambiguity that lets a dispute start at all. The landlord who knows a signed, time-stamped condition record exists does not try the AED 4,000 repainting claim in the first place, because he knows exactly how that hearing ends.
 
 That is the real function of a check-in report. It is not paperwork for the file. It is the document that makes the fight not worth starting, for either side.
 

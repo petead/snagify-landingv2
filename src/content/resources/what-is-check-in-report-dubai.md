@@ -20,7 +20,7 @@ category: blog
 featured: false
 ---
 
-In my deposit hearing at the Rental Disputes Center, the judge did not open with the photos, the invoices or the arguments. He opened with a question: is there a check-in report?
+In [my deposit hearing](/blog/rdc-deposit-dispute-no-checkin-report) at the [Rental Disputes Center](https://rdc.gov.ae/en/), the judge did not open with the photos, the invoices or the arguments. He opened with a question: is there a check-in report?
 
 There was not, and the case effectively ended there. Since then I have understood why that question comes first, and why it will come first in every deposit dispute this city hears: the check-in report is not one piece of evidence among others. It is the threshold document that decides whether the rest of the file means anything.
 
@@ -36,9 +36,9 @@ That is why the question comes first. If the baseline exists, the dispute become
 
 Strip away branding and formats, and a complete check-in report has six organs:
 
-**The identity block.** Property address, landlord, tenant, tenancy dates, and the link to the contract, ideally the Ejari number. A condition record that cannot be attached to a specific tenancy proves a wall existed somewhere, once.
+**The identity block.** Property address, landlord, tenant, tenancy dates, and the link to the contract, ideally the [Ejari number](/blog/ejari-explained-dubai). A condition record that cannot be attached to a specific tenancy proves a wall existed somewhere, once.
 
-**The dated, room-by-room condition record.** Every room, systematically: walls, ceilings, floors, doors, windows, fixtures, each with photographs, wide shots for context, close-ups for anything notable. The full documentation method is its own article; the principle is coverage, because the one undocumented wall is where next year's dispute lives.
+**The dated, room-by-room condition record.** Every room, systematically: walls, ceilings, floors, doors, windows, fixtures, each with photographs, wide shots for context, close-ups for anything notable. The [full documentation method](/blog/move-in-inspection-checklist-dubai) is its own article; the principle is coverage, because the one undocumented wall is where next year's dispute lives.
 
 **The appliance and systems record.** AC units, kitchen appliances, water heaters, tested and noted, with existing defects flagged in writing.
 
@@ -46,11 +46,11 @@ Strip away branding and formats, and a complete check-in report has six organs:
 
 **The inventories.** Keys, access cards, remotes, counted. In furnished units, every item with its condition, protecting a deposit that typically runs double.
 
-**The signatures.** Both parties, at handover. This is the organ that changes the document's species: signed, it stops being one side's version and becomes an agreed fact that neither can later dispute. If one party will not sign, the fallback is documented delivery, the full report emailed the same day, refusal noted, because a delivered, unobjected-to record still carries real weight, and the refusal tends to burden the refuser.
+**The signatures.** Both parties, at handover. This is the organ that changes the document's species: signed, it stops being one side's version and becomes an agreed fact that neither can later dispute. If one party will not sign, the fallback is [documented delivery](/blog/rdc-evidence-photos-vs-signed-reports), the full report emailed the same day, refusal noted, because a delivered, unobjected-to record still carries real weight, and the refusal tends to burden the refuser.
 
 ## What "valid" actually means, and the myths around it
 
-Here is the part that surprises almost everyone: there is no official form. Neither the RDC, RERA nor the Dubai Land Department publishes a mandatory template, no law prescribes a layout, and, as we have covered, no rule requires the report to exist at all. Which dissolves the three most common myths at once:
+Here is the part that surprises almost everyone: there is no official form. Neither the RDC, RERA nor the Dubai Land Department publishes a mandatory template, no law prescribes a layout, and, [as we have covered](/blog/is-check-in-report-mandatory-dubai), no rule requires the report to exist at all. Which dissolves the three most common myths at once:
 
 "It must be done by a professional company." No. Validity has no professional gatekeeper; a landlord, tenant or agent can produce a fully court-grade report. What a AED 1,500 inspection firm sells is labor and habit, not legal standing.
 

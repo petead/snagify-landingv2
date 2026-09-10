@@ -27,7 +27,7 @@ Dubai law draws this line clearly in principle and leaves it blurry in practice.
 
 ## The principle: rent already paid for the wear
 
-Under Dubai's tenancy law, a landlord may deduct from a deposit only for deterioration beyond normal wear and tear. The logic underneath is worth stating, because it decides the grey cases: ordinary aging of a property is not a loss the tenant inflicted, it is the very thing the rent purchased. Twelve months of careful living leaves traces, and those traces belong to the landlord's cost of doing business, priced into every rent cheque.
+Under [Dubai's tenancy law](https://dubailand.gov.ae/en/), a landlord may deduct from a deposit only for deterioration beyond normal wear and tear. The logic underneath is worth stating, because it decides the grey cases: ordinary aging of a property is not a loss the tenant inflicted, it is the very thing the rent purchased. Twelve months of careful living leaves traces, and those traces belong to the landlord's cost of doing business, priced into every rent cheque.
 
 Damage is different in kind, not just degree: it is harm that careful, ordinary use would not have produced. A wall dulled by sunlight is wear. A wall with a doorknob-shaped hole is damage. Nobody needed a law degree for that pair; the fights live in the middle, so let's go there.
 
@@ -45,7 +45,7 @@ Two yeses out of three, and you are almost certainly looking at wear. Now the sp
 
 ## Room by room, the Dubai version
 
-**Walls and paint.** Fading, minor scuffs, hairline settling cracks, small nail holes from a reasonable number of frames: wear, all of it, amplified by Dubai's sun. Holes, large fixings, crayon murals, and repainting in unauthorized colors: damage. And the big one, because it appears in half of all disputes: routine repainting between tenancies is the owner's responsibility. I watched an AED 4,000 repainting claim die at the RDC on exactly this point.
+**Walls and paint.** Fading, minor scuffs, hairline settling cracks, small nail holes from a reasonable number of frames: wear, all of it, amplified by Dubai's sun. Holes, large fixings, crayon murals, and repainting in unauthorized colors: damage. And the big one, because it appears in half of all disputes: [routine repainting](/blog/landlord-deduct-cleaning-repainting-deposit-dubai) between tenancies is the owner's responsibility. I watched an [AED 4,000 repainting claim die at the RDC](/blog/rdc-deposit-dispute-no-checkin-report) on exactly this point.
 
 **Floors.** Traffic patterns, uniform dulling of polish, minor superficial scratches: wear. Burns, deep gouges, cracked tiles from impact, water damage from an unreported leak, pet scratching: damage. Note the "unreported" in that list: a leak you reported in writing and the landlord ignored is his problem; the same leak silently left to spread can become yours.
 
@@ -63,6 +63,6 @@ Between wear and damage sits neglect: deterioration that became excessive becaus
 
 ## How this actually resolves
 
-Labels do not decide these disputes; baselines do. Whether the scratch is "wear" or "damage" only matters if someone can prove when it appeared, and the burden of that proof sits with the landlord claiming money. With a signed, photo-mapped check-in report, the conversation is short in both directions: the landlord can prove the gouge is new, the tenant can prove the fading is not. Without one, as I learned across four months of my own RDC case, the claim usually fails and everyone loses time.
+Labels do not decide these disputes; baselines do. Whether the scratch is "wear" or "damage" only matters if someone can prove when it appeared, and the [burden of that proof](/blog/rdc-evidence-photos-vs-signed-reports) sits with the landlord claiming money. With a [signed, photo-mapped check-in report](/blog/what-is-check-in-report-dubai), the conversation is short in both directions: the landlord can prove the gouge is new, the tenant can prove the fading is not. Without one, as I learned across four months of my own [RDC](https://rdc.gov.ae/en/) case, the claim usually fails and everyone loses time.
 
 So treat this article as the vocabulary, and the condition report as the grammar. Learn both, and the sentence "that's damage" stops being an opening bid and becomes what it should be: a checkable fact.

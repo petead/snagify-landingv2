@@ -114,6 +114,7 @@ export type HubCard = {
   featured?: boolean;
   readingMinutes: number;
   pubDate: Date;
+  tags: string[];
 };
 
 export function toHubCard(entry: ResourceEntry): HubCard {
@@ -125,6 +126,7 @@ export function toHubCard(entry: ResourceEntry): HubCard {
     featured: entry.data.featured,
     readingMinutes: readingTimeMinutes(entry.body, entry.data.readingMinutes),
     pubDate: entry.data.pubDate,
+    tags: entry.data.tags ?? [],
   };
 }
 
@@ -137,6 +139,7 @@ export function guideToHubCard(g: HubGuide): HubCard {
     featured: g.featured,
     readingMinutes: g.readingMinutes,
     pubDate: g.pubDate,
+    tags: [],
   };
 }
 
@@ -166,9 +169,15 @@ export async function getNextTutorialCard(currentSlug: string): Promise<HubCard 
   return next ? toHubCard(next) : null;
 }
 
+function sharedTagCount(a: string[], b: string[]): number {
+  if (a.length === 0 || b.length === 0) return 0;
+  const set = new Set(a.map((t) => t.toLowerCase()));
+  return b.reduce((n, t) => n + (set.has(t.toLowerCase()) ? 1 : 0), 0);
+}
+
 /**
- * Related hub cards: same category first (by date), then recent others.
- * Excludes the current page by href.
+ * Related hub cards: score other published posts by shared tags, then
+ * fill remaining slots with most recent. Excludes the current page by href.
  */
 export async function getRelatedResourceCards(opts: {
   category: ResourceCategory;
@@ -178,35 +187,52 @@ export async function getRelatedResourceCards(opts: {
   const limit = opts.limit ?? 3;
   const exclude = opts.excludeHref;
 
-  let same: HubCard[];
-  if (opts.category === 'guide') {
-    same = await getAllGuideCards();
-  } else {
-    same = (await getPublishedResources(opts.category)).map(toHubCard);
-  }
-  same = same
-    .filter((c) => c.href !== exclude)
-    .sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
-
-  const sameHrefs = new Set(same.map((c) => c.href));
   const [blogs, tutorials, guides] = await Promise.all([
     getPublishedResources('blog'),
     getPublishedResources('tutorial'),
     getAllGuideCards(),
   ]);
-  const others = [...blogs.map(toHubCard), ...tutorials.map(toHubCard), ...guides]
-    .filter((c) => c.href !== exclude && !sameHrefs.has(c.href))
-    .sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
 
-  // Dedupe others by href (guides appear in both collection + hubGuides path)
   const seen = new Set<string>();
-  const othersUnique = others.filter((c) => {
-    if (seen.has(c.href)) return false;
-    seen.add(c.href);
-    return true;
+  const pool: HubCard[] = [];
+  for (const card of [...blogs.map(toHubCard), ...tutorials.map(toHubCard), ...guides]) {
+    if (seen.has(card.href)) continue;
+    seen.add(card.href);
+    pool.push(card);
+  }
+
+  const current = pool.find((c) => c.href === exclude);
+  const currentTags = current?.tags ?? [];
+  const others = pool.filter((c) => c.href !== exclude);
+
+  others.sort((a, b) => {
+    const scoreA = sharedTagCount(currentTags, a.tags);
+    const scoreB = sharedTagCount(currentTags, b.tags);
+    if (scoreB !== scoreA) return scoreB - scoreA;
+    return b.pubDate.valueOf() - a.pubDate.valueOf();
   });
 
-  return [...same, ...othersUnique].slice(0, limit);
+  const picked: HubCard[] = [];
+  const pickedHrefs = new Set<string>();
+  for (const card of others) {
+    if (picked.length >= limit) break;
+    if (sharedTagCount(currentTags, card.tags) > 0) {
+      picked.push(card);
+      pickedHrefs.add(card.href);
+    }
+  }
+
+  if (picked.length < limit) {
+    const byDate = [...others].sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
+    for (const card of byDate) {
+      if (picked.length >= limit) break;
+      if (pickedHrefs.has(card.href)) continue;
+      picked.push(card);
+      pickedHrefs.add(card.href);
+    }
+  }
+
+  return picked;
 }
 
 /** Truncate breadcrumb title for UI (JSON-LD keeps full title). */

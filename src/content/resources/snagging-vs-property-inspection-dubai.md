@@ -28,7 +28,7 @@ Here is the clean distinction, the table, and the honest answer to which one you
 
 Snagging is the defect inspection of a property being handed over new, by a developer, to its first owner. The purpose is precise: find everything wrong before the developer's liability window closes, so that it is fixed at the developer's cost.
 
-That purpose shapes everything about it. The scope is engineering: hundreds of checkpoints across finishes, tiling, doors and windows, plumbing pressure, electrical points, AC performance, often with moisture meters and thermal imaging to find what the eye cannot. The output is a snag list, and the legal frame is the defects liability period, typically twelve months from handover as set in the sale agreement, sitting on top of the ten-year structural liability that UAE law places on developers and contractors.
+That purpose shapes everything about it. The scope is engineering: hundreds of checkpoints across finishes, tiling, doors and windows, plumbing pressure, electrical points, AC performance, often with moisture meters and thermal imaging to find what the eye cannot. The output is a snag list, and the legal frame is the defects liability period, typically twelve months from handover as set in the sale agreement, sitting on top of the ten-year structural liability that [UAE law places on developers](https://dubailand.gov.ae/en/) and contractors.
 
 A snagging inspection is worth its four-figure price precisely because every defect it finds is someone else's bill. Miss the window, and it becomes yours.
 
@@ -36,7 +36,7 @@ A snagging inspection is worth its four-figure price precisely because every def
 
 A property inspection in the rental sense, more accurately a condition report, does something different. It records the state of an existing property at the moment a tenancy starts or ends: every room, every surface, every appliance, meter readings, keys, furnishings, dated, photographed and signed by both parties.
 
-The purpose is evidentiary, not engineering. Nobody is going to fix the scuffed wall under warranty; the point is to establish that the scuff existed on day one, so that twelve months later the deposit conversation is a comparison rather than an argument. At the Rental Disputes Center, the question is never "were there defects?" but "what was the condition at move-in?", and only this document answers it.
+The purpose is evidentiary, not engineering. Nobody is going to fix the scuffed wall under warranty; the point is to establish that the scuff existed on day one, so that twelve months later the deposit conversation is a comparison rather than an argument. At the [Rental Disputes Center](https://rdc.gov.ae/en/), the question is never "were there defects?" but "[what was the condition at move-in](/blog/what-is-check-in-report-dubai)?", and only this document answers it.
 
 Which is why the equipment is a phone and the skill is coverage: a condition report needs no thermal camera, but it does need the one wall nobody photographed.
 
@@ -50,7 +50,7 @@ Which is why the equipment is a phone and the skill is coverage: a condition rep
 | Output | Snag list for rectification | Signed, dated, photo-mapped report |
 | Legal frame | Defects liability period, structural liability | Tenancy law, RDC burden of proof |
 | Who orders it | The buyer | Landlord, agent or tenant, either side |
-| Typical cost | AED 1,500 to 3,000+ professional | Free to a few hundred dirhams app-assisted; AED 1,200+ via firms |
+| Typical cost | AED 1,500 to 3,000+ professional | Free to a few hundred dirhams app-assisted; [AED 1,200+](/blog/property-inspection-cost-dubai) via firms |
 | Time | Half a day plus report | About 20 minutes |
 
 ## Where the vocabulary overlaps, legitimately
@@ -65,7 +65,7 @@ And since the question comes up constantly: yes, our product is called Snagify, 
 
 Receiving keys from a developer? Snagging, professional, with the equipment, inside the liability window. Every defect found is money the developer spends instead of you.
 
-Moving into or out of a rental? A condition report. Signed, dated, room by room. Its value is measured at the RDC, not at the developer's office, and the full method for producing one is here.
+Moving into or out of a rental? A condition report. Signed, dated, room by room. Its value is measured at the RDC, not at the developer's office, and the [full method for producing one is here](/blog/move-in-inspection-checklist-dubai).
 
 Buying on the secondary market? Neither, exactly: a pre-purchase survey, which borrows snagging's engineering scope without the warranty, because the seller owes you nothing after completion.
 

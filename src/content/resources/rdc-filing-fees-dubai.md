@@ -20,7 +20,7 @@ category: blog
 featured: false
 ---
 
-Ask Google what it costs to file at Dubai's Rental Disputes Center and you will get the same confident answer from a dozen property blogs: 3.5% of the annual rent. I quoted it myself once, and then I checked it against the RDC's own schedule, partly because I had actually paid the fee in a real case and the number did not match the folklore.
+Ask Google what it costs to file at Dubai's [Rental Disputes Center](https://rdc.gov.ae/en/) and you will get the same confident answer from a dozen property blogs: 3.5% of the annual rent. I quoted it myself once, and then I checked it against the [RDC's own schedule](https://rdc.gov.ae/en/frequently-asked-questions/), partly because I had actually paid the fee in a real case and the number did not match the folklore.
 
 The folklore is wrong, or rather, half right, and the half that is wrong overstates the cost of a deposit claim several times over. Here is the real schedule.
 
@@ -44,7 +44,7 @@ Even a large AED 40,000 commercial-grade claim comes to AED 1,400. The cap of AE
 
 The filing fee is the headline, not the whole invoice. Three more lines belong in your budget:
 
-**Translation.** RDC proceedings run in Arabic, and documents in other languages must be legally translated. If your tenancy contract, demand letters and evidence bundle are in English, translation is a real cost that scales with volume, one more argument for a single structured condition report over two hundred loose screenshots, since one document translates for a fraction of the price of a folder.
+**Translation.** RDC proceedings run in Arabic, and documents in other languages must be legally translated. If your tenancy contract, demand letters and evidence bundle are in English, translation is a real cost that scales with volume, one more argument for a single [structured condition report](/blog/what-is-check-in-report-dubai) over two hundred loose screenshots, since one document translates for a fraction of the price of a folder.
 
 **Small fixed charges.** Court filings carry modest administrative fees on top of the base percentage, a few tens of dirhams, not a budget line that changes any decision.
 
@@ -60,10 +60,10 @@ First, judgments commonly order the losing party to bear the fees. Win, and the 
 
 Second, the conciliation stage: settle there, before full litigation, and half of the base filing fee is refunded. Combined with the speed advantage, it is why the mediated route deserves a genuine attempt even when you are confident.
 
-The corollary cuts the other way, and landlords should read it twice: filing a damage claim you cannot prove, no signed check-in report, no baseline, means paying the fee, waiting the months, and then very likely paying the other side's costs too when the claim is dismissed. The fee schedule is friendly to the party with the evidence and expensive for the party with the grievance.
+The corollary cuts the other way, and landlords should read it twice: filing a damage claim you cannot prove, [no signed check-in report, no baseline](/blog/can-i-keep-tenant-deposit-dubai), means paying the fee, waiting the months, and then very likely paying the other side's costs too when the claim is dismissed. The fee schedule is friendly to the party with the evidence and expensive for the party with the grievance.
 
 ## The real cost is the calendar
 
 Put the corrected numbers together and the money barrier to the RDC largely evaporates: AED 500 in, commonly refunded on victory, half back on settlement. What does not evaporate is the time. My own deposit case ran about four months from filing to funds, money frozen throughout, and that timeline, not the fee, is the true price of arriving at the RDC without the evidence that would have prevented the dispute.
 
-The full filing process, documents and sequence are in the step-by-step deposit guide, and the account of how a judge actually decides one of these cases is here. The cheapest RDC case remains the one your paperwork made unnecessary.
+The full filing process, documents and sequence are in the [step-by-step deposit guide](/blog/security-deposit-refund-dubai), and the account of [how a judge actually decides](/blog/rdc-deposit-dispute-no-checkin-report) one of these cases is here. The cheapest RDC case remains the one your paperwork made unnecessary.

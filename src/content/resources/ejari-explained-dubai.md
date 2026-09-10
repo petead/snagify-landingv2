@@ -26,13 +26,13 @@ Here is the practical guide: what it is, what it costs, who pays, what it unlock
 
 ## What Ejari actually is
 
-Ejari, Arabic for "my rent," is the Dubai Land Department's mandatory tenancy registration system, administered through RERA. Every lease in the emirate, residential or commercial, must be registered, and the output is the Ejari certificate: a government record of the property, the parties, the rent and the dates.
+Ejari, Arabic for "my rent," is the [Dubai Land Department](https://dubailand.gov.ae/en/)'s mandatory tenancy registration system, administered through RERA. Every lease in the emirate, residential or commercial, must be registered, and the output is the Ejari certificate: a government record of the property, the parties, the rent and the dates.
 
 It is not a formality layered on top of the contract. It is the version of your contract that the rest of the system recognizes. Government services, utilities, immigration and the courts all read the Ejari record, not the signed PDF in your email.
 
 ## What it costs, and who pays
 
-Registration runs roughly AED 120 to 220 depending on how you do it: the Dubai REST app is the cheaper self-service route, typing centers charge a service premium for doing it for you. The documents are standard: the signed tenancy contract, the landlord's title deed, both parties' ID and passport copies, the tenant's visa, and the DEWA premise number of the unit.
+Registration runs roughly AED 120 to 220 depending on how you do it: the Dubai REST app is the cheaper self-service route, typing centers charge a service premium for doing it for you. The documents are standard: the signed tenancy contract, the landlord's title deed, both parties' ID and passport copies, the tenant's visa, and the [DEWA](https://www.dewa.gov.ae/) premise number of the unit.
 
 The law does not say who pays. Dubai market practice does: the tenant, as one line among the move-in fees, alongside the agency commission and the security deposit. Agencies often handle the registration itself; if yours does, confirm in writing that it is done and ask for the certificate, because the consequences of a missing Ejari land on you, not on the agent who forgot.
 
@@ -40,21 +40,21 @@ Renewal is annual: a new registration for each contract term, at the same cost.
 
 ## What Ejari unlocks
 
-**DEWA and cooling.** No Ejari number, no DEWA account in your name, and typically no district cooling registration either. This is why Ejari sits in the first hours of any move-in checklist: everything electrical waits behind it.
+**DEWA and cooling.** No Ejari number, no DEWA account in your name, and typically no district cooling registration either. This is why Ejari sits in the first hours of any [move-in checklist](/blog/first-48-hours-dubai-rental): everything electrical waits behind it.
 
 **Residency and sponsorship.** The Ejari certificate is standard proof of address for visa applications, family sponsorship, school registrations and bank paperwork. An unregistered tenancy can quietly stall processes that have nothing to do with the apartment.
 
-**The rent framework.** The registered rent is what the Smart Rental Index and the rules on rent increases are applied against. Your protection against an arbitrary increase at renewal is anchored to the Ejari record.
+**The rent framework.** The registered rent is what the [Smart Rental Index](/blog/checklist-before-renting-dubai) and the rules on rent increases are applied against. Your protection against an arbitrary increase at renewal is anchored to the Ejari record.
 
 **The courts.** Which brings us to the reason this article exists.
 
 ## Why Ejari matters in a deposit dispute
 
-The Rental Disputes Center decides cases on documents, and the Ejari certificate is the first one it expects: it is what establishes that a tenancy of this property, between these parties, at this rent, for these dates, legally existed. Every piece of evidence you bring, the check-in report, the payment proofs, the demand letters, attaches to that record.
+The [Rental Disputes Center](https://rdc.gov.ae/en/) decides cases on documents, and the Ejari certificate is the first one it expects: it is what establishes that a tenancy of this property, between these parties, at this rent, for these dates, legally existed. Every piece of evidence you bring, the check-in report, the payment proofs, the demand letters, attaches to that record.
 
 An unregistered contract weakens both sides at once. A tenant chasing a withheld deposit on an unregistered lease is typically told to regularize before the case proceeds, adding delay to a process that already takes months. A landlord trying to enforce a deduction on an unregistered lease is in the awkward position of asking the court to recognize a tenancy he never registered. Whichever side you are on, registration is not the paperwork you do after the dispute starts; it is the precondition for having a dispute the system will hear.
 
-There is a quieter link too. A good check-in report carries an identity block tying the condition record to a specific tenancy, and the cleanest identifier is the Ejari number. A condition report attached to a registered tenancy proves the state of this unit under this lease. A condition report floating free proves that a wall existed, somewhere, once.
+There is a quieter link too. A good check-in report carries an [identity block](/blog/what-is-check-in-report-dubai) tying the condition record to a specific tenancy, and the cleanest identifier is the Ejari number. A condition report attached to a registered tenancy proves the state of this unit under this lease. A condition report floating free proves that a wall existed, somewhere, once.
 
 ## The check-out side nobody mentions
 

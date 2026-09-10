@@ -22,7 +22,7 @@ featured: false
 
 Full transparency first: we build Snagify, and white-label reports are one of the things agencies use it for. This article explains the feature category honestly, including what branding cannot do, because a branded report that fails in court would be the worst advertisement possible.
 
-Now the substance. Dubai has more than 30,000 registered brokers competing for the same landlords, and most of them document handovers the same way: a burst of WhatsApp photos, maybe a Word template, sent from a personal number. The inspection report is one of the rare moments where an agency can look structurally different, and white-labeling is how that moment gets branded.
+Now the substance. Dubai has more than [30,000 registered brokers](https://dubailand.gov.ae/en/) competing for the same landlords, and most of them document handovers the same way: a burst of WhatsApp photos, maybe a Word template, sent from a personal number. The inspection report is one of the rare moments where an agency can look structurally different, and white-labeling is how that moment gets branded.
 
 ## What a white-label report actually is
 
@@ -40,17 +40,17 @@ Three reasons, in order of value.
 
 **It wins mandates.** When a landlord compares agencies, the pitches sound alike. "Every tenancy we manage comes with a signed, court-grade condition report, under our name, in your inbox on handover day" does not sound alike, and it is a claim most competitors cannot make because they do not produce the document at all. The report becomes the visible difference between the agency that manages properties and the agency that lists them.
 
-**It is a service the agency can position, or bill for.** Traditional inspection firms charge landlords AED 1,200 or more per report in Dubai. An agency producing the same evidentiary standard under its own brand can fold it into its management fee as a differentiator, or price it as a line item, a model some agencies are already exploring and one we will cover in its own article. Either way, the branded report is what makes the service legible as the agency's, not the software's.
+**It is a service the agency can position, or bill for.** Traditional inspection firms charge landlords [AED 1,200 or more per report](/blog/property-inspection-cost-dubai) in Dubai. An agency producing the same evidentiary standard under its own brand can fold it into its management fee as a differentiator, or price it as a line item, a model some agencies are already exploring and one we will cover in its own article. Either way, the branded report is what makes the service legible as the agency's, not the software's.
 
 There is a quieter fourth reason: agent accountability. A report carrying the agency's name and the agent's name gets done properly. WhatsApp photos carry no one's name and get done casually.
 
 ## What branding cannot do
 
-Here is the honest limit, and it matters. Branding changes how the report is received; it changes nothing about whether the report holds up. At the Rental Disputes Center, validity comes from five evidentiary properties: the property and parties identified and tied to the tenancy, trusted dates, systematic photographic coverage, signatures from both parties or documented delivery, and integrity, meaning the document demonstrably has not been altered.
+Here is the honest limit, and it matters. Branding changes how the report is received; it changes nothing about whether the report holds up. At the [Rental Disputes Center](https://rdc.gov.ae/en/), validity comes from [five evidentiary properties](/blog/what-is-check-in-report-dubai): the property and parties identified and tied to the tenancy, trusted dates, systematic photographic coverage, signatures from both parties or documented delivery, and integrity, meaning the document demonstrably has not been altered.
 
 A white-label report built on those five is a court-grade document that happens to carry your logo. A white-label report that skips them, thin coverage, no timestamps, an unsigned PDF, is a brochure with your logo on it, and a judge will treat it as such. Evaluate the evidence engine first and the branding second, because a beautiful report that loses a landlord's deposit claim is the fastest way to lose the landlord.
 
-And one claim to reject wherever you hear it: no report, no app and no company is "RDC-approved." The RDC does not certify tools. What it weighs is the evidence standard above, whichever logo sits on the cover.
+And one claim to reject wherever you hear it: [no report, no app and no company is "RDC-approved."](/blog/best-property-inspection-apps-dubai) The RDC does not certify tools. What it weighs is the evidence standard above, whichever logo sits on the cover.
 
 ## The practical picture for an agency
 

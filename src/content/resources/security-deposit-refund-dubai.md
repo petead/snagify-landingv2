@@ -36,7 +36,7 @@ The key points:
 
 The deposit must be returned. Article 20 of the law is explicit: at the end of the tenancy, the landlord must return the security deposit, or whatever remains of it after justified deductions.
 
-Deductions have narrow legal grounds. A landlord may only deduct for damage beyond normal wear and tear, unpaid rent or contractual penalties, and unpaid utility bills such as an outstanding DEWA balance.
+Deductions have narrow legal grounds. A landlord may only deduct for damage beyond [normal wear and tear](/blog/normal-wear-and-tear-vs-damage-dubai), unpaid rent or contractual penalties, and unpaid utility bills such as an outstanding DEWA balance.
 
 Normal wear and tear is not damage. Faded paint, minor scuffs, small nail holes, worn grout: these are the ordinary consequences of living in a home, and they are not valid grounds for keeping your money. [The RDC's own guidance](https://rdc.gov.ae/en/frequently-asked-questions/) goes further: routine repainting between tenancies is the owner's responsibility, not the tenant's.
 
@@ -44,11 +44,11 @@ In practice, deposits in Dubai typically run around 5% of annual rent for unfurn
 
 ## The one thing that decides most disputes
 
-Here is what most tenants only learn once a dispute has already started: deposit cases at the RDC are decided on evidence of condition, and the burden of proving damage sits with the landlord making the claim.
+Here is what most tenants only learn once a dispute has already started: deposit cases at the RDC are decided on evidence of condition, and the [burden of proving damage](/blog/rdc-deposit-dispute-no-checkin-report) sits with the landlord making the claim.
 
 That single principle drives everything in this guide. A landlord who wants to keep your deposit must prove two things: that the damage exists, and that it did not exist when you moved in. Without a documented baseline from the start of the tenancy, that second part is nearly impossible to establish.
 
-This cuts both ways. If you are reading this at the start of a tenancy, the single most valuable thing you can do is lock in [a signed, time-stamped record of the property's condition](/check-in-inspection-dubai) on day one. It protects you from being billed for the previous tenant's scratches, and it removes the ambiguity that turns handovers into arguments. A signed check-in report is the difference between a five-minute handover and a five-month dispute.
+This cuts both ways. If you are reading this at the start of a tenancy, the single most valuable thing you can do is lock in [a signed, time-stamped record of the property's condition](/check-in-inspection-dubai) on day one. It protects you from being billed for the previous tenant's scratches, and it removes the ambiguity that turns handovers into arguments. A [signed check-in report](/blog/what-is-check-in-report-dubai) is the difference between a five-minute handover and a five-month dispute.
 
 If you are reading this at the end of a tenancy with no check-in report, do not panic. The burden of proof still works in your favor. But your next moves matter, so follow the sequence below.
 
@@ -66,7 +66,7 @@ Keep everything in writing. WhatsApp messages and emails are your paper trail. V
 
 ## Step 2. The formal written demand
 
-If the deposit does not arrive within a reasonable window after handover, generally two to four weeks, send a formal written demand by email. Keep it short and factual:
+If the deposit does not arrive within a reasonable window after handover, generally two to four weeks, send a [formal written demand](/blog/can-landlord-keep-full-deposit-dubai) by email. Keep it short and factual:
 
 The tenancy details: address, contract dates, Ejari number. The deposit amount paid and the payment proof. The date you vacated and returned the keys. A clear deadline, seven to fourteen days is standard. A closing line stating that you will file with the Rental Disputes Center if the deadline passes.
 
@@ -78,7 +78,7 @@ If the landlord responds with claimed deductions, ask for itemized proof: repair
 
 If the demand goes nowhere, [the RDC is the competent authority](/dubai-rental-dispute-center-guide) for deposit disputes in Dubai. Not RERA, which sets the rules, and not the DLD's violations channel, which explicitly cannot order refunds. The RDC.
 
-What it costs. For a deposit claim, the fee is 3.5% of the amount you are claiming, with a minimum of AED 500 and a maximum of AED 15,000. The widely repeated 3.5% of annual rent figure applies to contract cases such as evictions and renewals, not to a pure financial claim like a deposit recovery. On a AED 5,500 deposit, that means the AED 500 minimum plus small administrative charges. Courts commonly order the losing party to bear the fees, and a dispute settled at the conciliation stage gets half the base fee refunded. Filing is far more affordable than most tenants believe: the real cost of litigation is time, not money.
+What it costs. For a deposit claim, the fee is [3.5% of the amount you are claiming](/blog/rdc-filing-fees-dubai), with a minimum of AED 500 and a maximum of AED 15,000. The widely repeated 3.5% of annual rent figure applies to contract cases such as evictions and renewals, not to a pure financial claim like a deposit recovery. On a AED 5,500 deposit, that means the AED 500 minimum plus small administrative charges. Courts commonly order the losing party to bear the fees, and a dispute settled at the conciliation stage gets half the base fee refunded. Filing is far more affordable than most tenants believe: the real cost of litigation is time, not money.
 
 The two routes. The RDC offers an amicable settlement track, a mediated process designed to resolve disputes quickly before formal litigation, and a first-instance lawsuit for cases that need a judgment. Many deposit disputes settle at the mediation stage once both sides have to put their evidence on the table.
 

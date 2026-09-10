@@ -29,15 +29,15 @@ This article covers when a deduction is actually lawful, the red flags that tell
 
 ## The only three lawful grounds for deductions
 
-Under Dubai's tenancy framework, Law No. 26 of 2007 as amended, a landlord may deduct from a security deposit for exactly three categories:
+Under Dubai's tenancy framework, [Law No. 26 of 2007](https://dubailand.gov.ae/en/) as amended, a landlord may deduct from a security deposit for exactly three categories:
 
-Damage beyond normal wear and tear. Broken fixtures, holes in doors, burns in the countertop, a smashed tile. Not faded paint, not minor scuffs, not the ordinary traces of someone having lived in a home.
+Damage beyond [normal wear and tear](/blog/normal-wear-and-tear-vs-damage-dubai). Broken fixtures, holes in doors, burns in the countertop, a smashed tile. Not faded paint, not minor scuffs, not the ordinary traces of someone having lived in a home.
 
 Unpaid rent or contractual penalties. If you left owing rent or triggered a valid early-termination penalty written into the contract, that amount can come out of the deposit.
 
 Unpaid bills. An outstanding DEWA balance, unpaid chiller or gas charges that the contract puts on you.
 
-That is the entire list. And each item carries an evidence requirement that most landlords cannot meet: to charge you for damage, the landlord must prove both that the damage exists and that the property was in better condition when you moved in. As I learned firsthand in an RDC hearing, without a signed check-in report establishing that baseline, a damage claim collapses in one sentence.
+That is the entire list. And each item carries an evidence requirement that most landlords cannot meet: to charge you for damage, the landlord must prove both that the damage exists and that the property was in better condition when you moved in. As I [learned firsthand in an RDC hearing](/blog/rdc-deposit-dispute-no-checkin-report), without a signed check-in report establishing that baseline, a damage claim collapses in one sentence.
 
 ## The red flags that a withholding is illegal
 
@@ -45,7 +45,7 @@ If any of these describe your situation, the deduction is on weak or nonexistent
 
 No itemized breakdown. A landlord who keeps money without listing what, exactly, it covers is not making deductions, he is simply keeping your money. You are entitled to an itemized account with amounts.
 
-Repainting charges. Routine repainting between tenancies is the owner's maintenance responsibility. Charging departing tenants for a repaint is one of the most common and least defensible deductions in Dubai.
+[Repainting charges](/blog/landlord-deduct-cleaning-repainting-deposit-dubai). Routine repainting between tenancies is the owner's maintenance responsibility. Charging departing tenants for a repaint is one of the most common and least defensible deductions in Dubai.
 
 Blanket "professional cleaning" fees. Cleaning is only chargeable if the unit was left dirty beyond normal use, and that has to be evidenced, not asserted as a standard exit fee.
 
@@ -80,9 +80,9 @@ Two notes on using it. First, if the landlord has claimed specific deductions, a
 
 ## If the deadline passes: the RDC, and what it really costs
 
-If the letter changes nothing, the Rental Disputes Center is the venue, and it is more accessible than most tenants believe. For a financial claim like a deposit recovery, the filing fee is 3.5% of the amount you are claiming, with a minimum of AED 500 and a maximum of AED 15,000. Not 3.5% of your annual rent, that basis applies to contract cases like evictions. On a typical AED 5,000 to 10,000 deposit, you are at or near the AED 500 minimum, courts commonly order the losing party to bear the fees, and a settlement at the conciliation stage refunds half the base fee.
+If the letter changes nothing, the Rental Disputes Center is the venue, and it is more accessible than most tenants believe. For a financial claim like a deposit recovery, the filing fee is [3.5% of the amount you are claiming](/blog/rdc-filing-fees-dubai), with a minimum of AED 500 and a maximum of AED 15,000. Not 3.5% of your annual rent, that basis applies to contract cases like evictions. On a typical AED 5,000 to 10,000 deposit, you are at or near the AED 500 minimum, courts commonly order the losing party to bear the fees, and a settlement at the conciliation stage refunds half the base fee.
 
-The full filing process, documents and timelines are covered in our step-by-step deposit recovery guide, and if you want to see how a judge actually decides one of these cases, I wrote up my own RDC hearing, where a landlord's AED 4,000 claim collapsed on a single question about the check-in report.
+The full filing process, documents and timelines are covered in our [step-by-step deposit recovery guide](/blog/security-deposit-refund-dubai), and if you want to see how a judge actually decides one of these cases, I wrote up my own RDC hearing, where a landlord's AED 4,000 claim collapsed on a single question about the check-in report.
 
 ## The version of this article you never have to read
 

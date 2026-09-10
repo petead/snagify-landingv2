@@ -24,11 +24,11 @@ Two deductions appear on Dubai deposit statements more than all the others combi
 
 ## Repainting: no, with narrow exceptions
 
-Routine repainting between tenancies is the owner's job. The RDC's own guidance places it with the landlord's maintenance responsibilities, and the reasoning is the one that governs every deduction in Dubai: paint fades, scuffs and dulls under ordinary living, particularly under this city's sun, and ordinary living is what the rent already paid for.
+Routine repainting between tenancies is the owner's job. The [RDC's own guidance](https://rdc.gov.ae/en/frequently-asked-questions/) places it with the landlord's maintenance responsibilities, and the reasoning is the one that governs every deduction in Dubai: paint fades, scuffs and dulls under ordinary living, particularly under this city's sun, and ordinary living is what the rent already paid for.
 
 So a departing tenant does not owe the cost of freshening walls for the next one, and "the walls need repainting" is not a deduction, it is a description of what happens to walls.
 
-The exceptions are genuine damage, which is a different category: holes beyond small picture fixings, large mounts torn out, crayon or marker, water damage from a leak that was never reported, or walls repainted in colors the contract did not authorize. Those can be claimed, but only against a documented move-in condition, because the landlord must prove the walls were in better shape when the tenancy started. I watched a AED 4,000 repainting claim dismissed at the RDC on exactly that point: no check-in report, no baseline, no claim.
+The exceptions are genuine damage, which is a different category: holes beyond small picture fixings, large mounts torn out, crayon or marker, water damage from a leak that was never reported, or walls repainted in colors the contract did not authorize. Those can be claimed, but only against a documented move-in condition, because the landlord must prove the walls were in better shape when the tenancy started. I watched a [AED 4,000 repainting claim dismissed](/blog/rdc-deposit-dispute-no-checkin-report) at the RDC on exactly that point: no check-in report, no baseline, no claim.
 
 ## Cleaning: only for a proven state, never as a flat fee
 
@@ -40,16 +40,16 @@ One nuance matters here. Many Dubai contracts include a clause requiring the ten
 
 ## The test that settles the grey cases
 
-For any wall or cleaning item you are unsure about, the three questions from our wear-and-tear guide do the work: was it inevitable for any careful tenant over your tenancy length, is it gradual aging or a localized event, and does the length of the tenancy explain it? Two yeses point to wear, which is not deductible. A burn mark in the countertop fails all three. Sun-faded paint after two summers passes all three.
+For any wall or cleaning item you are unsure about, the [three questions from our wear-and-tear guide](/blog/normal-wear-and-tear-vs-damage-dubai) do the work: was it inevitable for any careful tenant over your tenancy length, is it gradual aging or a localized event, and does the length of the tenancy explain it? Two yeses point to wear, which is not deductible. A burn mark in the countertop fails all three. Sun-faded paint after two summers passes all three.
 
 ## What to do when the deduction lands
 
 Answer in writing, and ask for exactly what the law would ask for: itemized invoices or quotes per item, and dated photographs of the alleged condition. Then send your side: dated move-out photos, your cleaning receipt, and, if you were diligent at move-in, the check-in record showing the walls were already worn or the grout already stained.
 
-Vague deductions rarely survive the request for specifics. If this one does, a formal demand letter with a deadline comes next, and after that the Rental Disputes Center, where the cost is far smaller than most tenants believe: a deposit claim is charged at 3.5% of the amount, minimum AED 500, and judgments commonly put the fees on the loser. The full sequence, letter template included, is in our guide to contesting a withheld deposit.
+Vague deductions rarely survive the request for specifics. If this one does, a formal demand letter with a deadline comes next, and after that the Rental Disputes Center, where the cost is far smaller than most tenants believe: a deposit claim is charged at [3.5% of the amount](/blog/rdc-filing-fees-dubai), minimum AED 500, and judgments commonly put the fees on the loser. The full sequence, letter template included, is in our [guide to contesting a withheld deposit](/blog/can-landlord-keep-full-deposit-dubai).
 
 ## The version for landlords
 
 The same rules read from the other side. Repainting comes out of your maintenance budget, not the tenant's deposit, whatever the previous agent told you. Cleaning is claimable when the unit was genuinely returned dirty, and only with photos and an invoice, measured against a move-in record. A flat cleaning fee on every departure is not a policy, it is a future RDC dismissal.
 
-Both deductions live or die on the same document: the signed check-in report that establishes what the walls and the kitchen looked like on day one. Landlords who have it can claim what they are owed. Landlords who do not are, in practice, deciding to absorb every repaint and every clean for the life of their portfolio.
+Both deductions live or die on the same document: the [signed check-in report](/blog/what-is-check-in-report-dubai) that establishes what the walls and the kitchen looked like on day one. Landlords who have it can claim what they are owed. Landlords who do not are, in practice, deciding to absorb every repaint and every clean for the life of their portfolio.

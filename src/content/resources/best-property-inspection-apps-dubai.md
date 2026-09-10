@@ -29,7 +29,7 @@ Most inspection software comparisons are written for the US market and rank tool
 
 That changes the evaluation criteria:
 
-Court-grade evidence chain. Time-stamped photos, a structured room-by-room condition record, and signatures from both parties, tied to the tenancy. At the RDC, a signed report and a camera roll of loose photos are not the same species of evidence.
+Court-grade evidence chain. Time-stamped photos, a structured room-by-room condition record, and signatures from both parties, tied to the tenancy. At the RDC, a signed report and a camera roll of [loose photos](/blog/rdc-evidence-photos-vs-signed-reports) are not the same species of evidence.
 
 Check-in versus check-out comparison. Deposit disputes are about what changed. A tool that documents move-in and move-out as two disconnected events misses the point: you need the side-by-side.
 
@@ -75,7 +75,7 @@ We are not being flippant by including it: if you never face a dispute, it costs
 
 Our product, built specifically for Dubai tenancies. The workflow follows the local handover: contract details extracted from the tenancy agreement, room-by-room photo capture with AI-written condition notes a human confirms, furniture inventory for furnished units, key handover log, and digital signatures from both parties on the spot or by remote link. Check-out reports compare directly against the check-in baseline, photo by photo.
 
-Where it fits: Dubai agencies and property managers who want court-grade reports in about 20 minutes per inspection, at AED pricing (subscriptions from AED 299 per month billed annually, roughly a third of SnapInspect's entry price). And, uniquely in this list, individuals: the check-in report is free, and a check-out report costs from AED 99, against the AED 1,200 to 2,200 a traditional inspection company charges in Dubai.
+Where it fits: Dubai agencies and property managers who want court-grade reports in about 20 minutes per inspection, at AED pricing (subscriptions from AED 299 per month billed annually, roughly a third of SnapInspect's entry price). And, uniquely in this list, individuals: the check-in report is free, and a check-out report costs from AED 99, against the [AED 1,200 to 2,200](/blog/property-inspection-cost-dubai) a traditional inspection company charges in Dubai.
 
 Where it does not: if you need enterprise work-order management, make-ready pipelines, or Yardi-grade integrations across a 1,000-unit portfolio, HappyCo is built for that and we are not. And if your operation is outside the UAE, our local advantages do nothing for you.
 
@@ -97,6 +97,6 @@ If you operate 500+ multifamily units on Yardi or Entrata, take the HappyCo demo
 
 If you are an international property management firm inspecting at volume outside the UAE, SnapInspect earns its reputation, and its price, on customization and support.
 
-If you rent, let, or manage property in Dubai, the calculation is different. The report exists to protect a deposit in front of the RDC, the workflow needs to match a Dubai handover, and the price needs to make sense for a market where most players manage between one and a few hundred units. That is the exact gap Snagify was built to fill, by people who have sat in an RDC hearing and watched what happens to a deposit claim with no signed check-in report.
+If you rent, let, or manage property in Dubai, the calculation is different. The report exists to protect a deposit in front of the RDC, the workflow needs to match a Dubai handover, and the price needs to make sense for a market where most players manage between one and a few hundred units. That is the exact gap Snagify was built to fill, by people who have [sat in an RDC hearing](/blog/rdc-deposit-dispute-no-checkin-report) and watched what happens to a deposit claim with no signed check-in report.
 
 Try it on your next handover: the check-in report is free, takes about 20 minutes, and you will know within one inspection whether it beats your current process.

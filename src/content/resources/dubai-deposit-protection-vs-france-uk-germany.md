@@ -20,7 +20,7 @@ category: blog
 featured: false
 ---
 
-Every expat lands in Dubai with rental instincts calibrated by another country's law. The French tenant waits for the etat des lieux. The British tenant asks which scheme holds the deposit. The German tenant asks for the account details where the Kaution will sit.
+Every expat lands in Dubai with rental instincts calibrated by another country's law. The French tenant waits for the [etat des lieux](https://www.legifrance.gouv.fr/). The British tenant asks which scheme holds the deposit. The German tenant asks for the account details where the Kaution will sit.
 
 And Dubai answers all three the same way: none of that exists here.
 
@@ -34,13 +34,13 @@ The French tenant's instinct, "where is my condition report?", is a legal reflex
 
 ## The UK: a scheme holds the money
 
-England and Wales went further than anyone on custody: since 2007, a landlord must place the deposit in a government-approved tenancy deposit protection scheme within 30 days, and the cap is five weeks' rent for most tenancies. At the end, if the parties disagree, the scheme itself offers free adjudication, an evidence-based decision without a court, and the money moves only when the dispute resolves.
+England and Wales went further than anyone on custody: since 2007, a landlord must place the deposit in a government-approved [tenancy deposit protection scheme](https://www.gov.uk/tenancy-deposit-protection) within 30 days, and the cap is five weeks' rent for most tenancies. At the end, if the parties disagree, the scheme itself offers free adjudication, an evidence-based decision without a court, and the money moves only when the dispute resolves.
 
 The consequence reshaped the whole market: because adjudicators decide on evidence, the inventory and check-in report became the de facto standard. A UK landlord without one has essentially no case, so everyone has one.
 
 ## Germany: the deposit earns interest in a protected account
 
-The German Kaution is capped at three months' cold rent, and here is the detail that stuns everyone else: the landlord must keep it separate from their own assets, typically in an interest-bearing escrow account, insolvency-protected, with the interest accruing to the tenant. The handover protocol, the Ubergabeprotokoll, is not strictly mandated by statute, but it is so universal that skipping it reads as a red flag to both sides.
+The German [Kaution is capped](https://www.gesetze-im-internet.de/bgb/__551.html) at three months' cold rent, and here is the detail that stuns everyone else: the landlord must keep it separate from their own assets, typically in an interest-bearing escrow account, insolvency-protected, with the interest accruing to the tenant. The handover protocol, the Ubergabeprotokoll, is not strictly mandated by statute, but it is so universal that skipping it reads as a red flag to both sides.
 
 The German tenant's instinct, "this is my money, held in trust", is literally how the law structures it.
 
@@ -52,9 +52,9 @@ Who holds the money? The landlord, personally. No scheme, no escrow, no separate
 
 What documents the condition? Nothing, unless you create it. No mandatory check-in report, no standard form, no obligation on either party. Most Dubai tenancies begin with a handshake and end with two competing memories.
 
-What deadline applies to the return? None in statute. Market practice is two to four weeks; beyond that, your remedy is a written demand, then a filing at the Rental Disputes Center, where a deposit claim costs 3.5% of the amount claimed with a minimum of AED 500.
+What deadline applies to the return? None in statute. Market practice is two to four weeks; beyond that, your remedy is a written demand, then a filing at the [Rental Disputes Center](https://rdc.gov.ae/en/), where a deposit claim costs 3.5% of the amount claimed with a minimum of AED 500.
 
-Who decides a dispute? The RDC, on evidence, with the burden of proving damage on the landlord, including proof of the original condition. Which is exactly where the absence of a mandatory report bites both sides: the landlord usually cannot prove the baseline, so the claim fails, and the tenant usually wins, months later, with the money frozen the whole time. I have lived that timeline personally, and winning slowly is its own kind of losing.
+Who decides a dispute? The RDC, on evidence, with the burden of proving damage on the landlord, including proof of the original condition. Which is exactly where the absence of a mandatory report bites both sides: the landlord usually cannot prove the baseline, so the claim fails, and the tenant usually wins, months later, with the money frozen the whole time. I have [lived that timeline personally](/blog/rdc-deposit-dispute-no-checkin-report), and winning slowly is its own kind of losing.
 
 ## The table
 
@@ -73,4 +73,4 @@ Read the last row again, because it is the entire article: in France the law pro
 
 So the one habit worth importing is the one every one of those systems institutionalized for a reason: the signed, dated, room-by-room condition report at move-in. Europe made it mandatory because deposit disputes are unwinnable without it. Dubai kept the disputes and dropped the mandate.
 
-Twenty minutes on day one, two signatures, and you have rebuilt, privately, the protection your old system gave you by default. Here is exactly what to document, and here is why the report matters more in Dubai precisely because nobody requires it.
+Twenty minutes on day one, two signatures, and you have rebuilt, privately, the protection your old system gave you by default. Here is [exactly what to document](/blog/move-in-inspection-checklist-dubai), and here is why the report matters more in Dubai precisely because nobody requires it.

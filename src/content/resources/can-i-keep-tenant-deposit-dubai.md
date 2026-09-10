@@ -22,13 +22,13 @@ featured: false
 
 The honest answer is yes, sometimes, and the landlords who succeed all have one thing in common: they stopped thinking of the deposit as their money with conditions, and started treating a deduction as what it legally is, a claim they must prove.
 
-I have seen this from an unusual seat. I sat through a Rental Disputes Center hearing as a tenant whose landlord tried to keep AED 4,000 of my deposit, and I watched his claim collapse in one sentence. This article is everything that hearing teaches, written for the other side of the table. If you are the tenant in this situation, read the tenant version instead.
+I have seen this from an unusual seat. I sat through a [Rental Disputes Center](https://rdc.gov.ae/en/) hearing as a tenant whose landlord tried to keep AED 4,000 of my deposit, and I watched his claim [collapse in one sentence](/blog/rdc-deposit-dispute-no-checkin-report). This article is everything that hearing teaches, written for the other side of the table. If you are the tenant in this situation, [read the tenant version instead](/blog/can-landlord-keep-full-deposit-dubai).
 
 ## The three grounds, and only three
 
 Under Dubai tenancy law, a deduction from a security deposit stands on exactly three legal grounds:
 
-Damage beyond normal wear and tear. Broken fixtures, holes, burns, cracked tiles from impact, unauthorized modifications. Not faded paint, not minor scuffs, not the ordinary traces of twelve months of careful living. The line between wear and damage has its own rules, and misjudging it is the most common way landlords turn a partial win into a total loss.
+Damage beyond normal wear and tear. Broken fixtures, holes, burns, cracked tiles from impact, unauthorized modifications. Not faded paint, not minor scuffs, not the ordinary traces of twelve months of careful living. [The line between wear and damage](/blog/normal-wear-and-tear-vs-damage-dubai) has its own rules, and misjudging it is the most common way landlords turn a partial win into a total loss.
 
 Unpaid rent and valid contractual penalties. Arrears, bounced cheques, a properly drafted early-termination clause.
 
@@ -50,7 +50,7 @@ Read that carefully, because the asymmetry is brutal: perfect move-out evidence 
 
 The winning file has four layers, and they are all cheap compared to what they protect:
 
-The signed check-in report. Room-by-room, photo-mapped, time-stamped, signed by both parties at the handover. This is the baseline every future claim gets measured against, and it is the single document that separates enforceable deposit clauses from decorative ones. Twenty minutes at move-in.
+[The signed check-in report](/blog/what-is-check-in-report-dubai). Room-by-room, photo-mapped, time-stamped, signed by both parties at the handover. This is the baseline every future claim gets measured against, and it is the single document that separates enforceable deposit clauses from decorative ones. Twenty minutes at move-in.
 
 The move-out record. Same rooms, same angles, dated, ideally signed. The delta between the two documents is your claim, made visible.
 
@@ -64,6 +64,6 @@ If the tenant refuses to sign at either end, do not force it and do not skip it:
 
 If you are reading this with a dispute already brewing and no check-in report on the tenancy, here is advice that costs me nothing and saves you real money: negotiate, do not file.
 
-Your legal position on damage claims is close to zero, whatever actually happened to the unit. Filing means paying the fee (3.5% of your claim, minimum AED 500, and a judgment will commonly put fees on the loser, which without a baseline is likely you), waiting months, and handing the tenant a ruling. A reasonable settlement now, on the bills and arrears you CAN prove, beats a dismissal later. Then fix the process: the next tenancy starts with a signed report, and this article stops applying to you.
+Your legal position on damage claims is close to zero, whatever actually happened to the unit. Filing means paying the fee ([3.5% of your claim](/blog/rdc-filing-fees-dubai), minimum AED 500, and a judgment will commonly put fees on the loser, which without a baseline is likely you), waiting months, and handing the tenant a ruling. A reasonable settlement now, on the bills and arrears you CAN prove, beats a dismissal later. Then fix the process: the next tenancy starts with a signed report, and this article stops applying to you.
 
 And if you hold the signed baseline, the itemized proof, and a genuine delta? File with confidence, or more likely, do not need to: tenants who know a signed check-in report exists rarely contest legitimate deductions, because they can see how the hearing ends. That is the quiet payoff of doing this properly. The document that wins the dispute is the same document that prevents it.
