@@ -28,7 +28,7 @@ Here is the clean distinction, the table, and the honest answer to which one you
 
 Snagging is the defect inspection of a property being handed over new, by a developer, to its first owner. The purpose is precise: find everything wrong before the developer's liability window closes, so that it is fixed at the developer's cost.
 
-That purpose shapes everything about it. The scope is engineering: hundreds of checkpoints across finishes, tiling, doors and windows, plumbing pressure, electrical points, AC performance, often with moisture meters and thermal imaging to find what the eye cannot. The output is a snag list, and the legal frame is the defects liability period, typically twelve months from handover as set in the sale agreement, sitting on top of the ten-year structural liability that [UAE law places on developers](https://dubailand.gov.ae/en/) and contractors.
+That purpose shapes everything about it. The scope is engineering: hundreds of checkpoints across finishes, tiling, doors and windows, plumbing pressure, electrical points, AC performance, often with moisture meters and thermal imaging to find what the eye cannot. The output is a snag list, and the legal frame is the defects liability period, typically twelve months from handover as set in the sale agreement, sitting on top of the ten-year structural liability that [UAE law places on developers](https://u.ae/en/Services-Directory) and contractors.
 
 A snagging inspection is worth its four-figure price precisely because every defect it finds is someone else's bill. Miss the window, and it becomes yours.
 

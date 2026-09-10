@@ -30,7 +30,7 @@ This guide covers what the law actually says, what landlords can and cannot dedu
 
 ## What Dubai law says about your deposit
 
-The legal foundation is [Dubai Law No. 26 of 2007](https://dubailand.gov.ae/en/), amended by Law No. 33 of 2008, which regulates the relationship between landlords and tenants in the Emirate.
+The legal foundation is [Dubai Law No. 26 of 2007](<https://dlp.dubai.gov.ae/Legislation%20Reference/2007/Law%20No.%20(26)%20of%202007.html>), [amended by Law No. 33 of 2008](<https://dlp.dubai.gov.ae/Legislation%20Reference/2009/Law%20No.%20(33)%20of%202008%20Amending%20Law%20No.%20(26)%20of%202007.html>), which regulates the relationship between landlords and tenants in the Emirate.
 
 The key points:
 
@@ -58,7 +58,7 @@ Do this before your final walkthrough, not after:
 
 Document the property's exit condition, room by room. Photograph every wall, floor, appliance, and fixture. Capture the electricity and water meters. If you can produce a structured, time-stamped condition report rather than a camera roll of loose photos, do it: organized evidence reads very differently in front of a judge than 200 unsorted images.
 
-Clear your bills and keep the receipts. [Final DEWA bill](https://www.dewa.gov.ae/), cooling, gas, internet. Unpaid utilities are one of the few fully legitimate deductions, so remove the excuse.
+Clear your bills and keep the receipts. [Final DEWA bill](https://www.dewa.gov.ae/en/), cooling, gas, internet. Unpaid utilities are one of the few fully legitimate deductions, so remove the excuse.
 
 Request a joint check-out inspection. Ask the landlord or agent to walk the property with you and sign off on its condition. If they decline, confirm the handover by email so you have a dated record that the keys were returned and no issues were raised on the spot.
 

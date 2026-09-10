@@ -63,7 +63,7 @@ The deposit came back in full. AED 5,500, every dirham.
 
 Here is the part I want every tenant reading this to sit with: I won, and it still cost me four months.
 
-Four months of my AED 5,500 locked in someone else's account. The filing, the waiting, the hearing, the execution of the judgment, the actual transfer. The law was entirely on my side and the outcome was never really in doubt, and the process still consumed a third of a year.
+Four months of my AED 5,500 locked in someone else's account. The filing, the waiting, the hearing, the [execution of the judgment](https://dc.gov.ae/PublicServices/HomePage.aspx?lang=en), the actual transfer. The law was entirely on my side and the outcome was never really in doubt, and the process still consumed a third of a year.
 
 So when people say a tenant with no check-in report is safe because the landlord cannot prove anything, they are right about the verdict and wrong about the experience. You do not lose the case. You lose the time, the liquidity, and the dozens of hours the dispute eats. The judgment is free. The victory is not.
 

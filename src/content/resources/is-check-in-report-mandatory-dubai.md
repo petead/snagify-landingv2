@@ -37,7 +37,7 @@ So when expats from these markets sign a Dubai lease, they wait for the equivale
 
 ## What Dubai law actually says
 
-[Dubai Law No. 26 of 2007](https://dubailand.gov.ae/en/), the tenancy law, regulates the deposit itself: it must be returned at the end of the tenancy, and the landlord may only deduct for damage beyond normal wear and tear, unpaid rent, or unpaid bills, with the burden of proving any claim sitting on the party making it.
+[Dubai Law No. 26 of 2007](<https://dlp.dubai.gov.ae/Legislation%20Reference/2007/Law%20No.%20(26)%20of%202007.html>), the tenancy law, regulates the deposit itself: it must be returned at the end of the tenancy, and the landlord may only deduct for damage beyond normal wear and tear, unpaid rent, or unpaid bills, with the burden of proving any claim sitting on the party making it.
 
 What the law does not do is require any condition documentation at move-in. No mandated report, no standard form, no inspection obligation on either party. And unlike the UK, there is no deposit protection scheme: your money sits directly in the landlord's bank account for the length of the tenancy, with no third party holding it and no adjudication service attached.
 

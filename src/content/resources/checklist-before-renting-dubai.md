@@ -48,7 +48,7 @@ While you are there, look up the building's rating itself. The index now grades 
 
 Here is the check that changes the real price of the tenancy more than any negotiation: **how is the AC billed?**
 
-In many Dubai towers, cooling is not part of DEWA but a separate district cooling provider, Empower or Emicool, with its own registration, its own deposit, and its own monthly bills that peak brutally in summer. Two apartments at the same rent can differ by thousands of dirhams a year depending on whether chiller costs are included in the rent ("chiller free") or paid by the tenant on top. Ask the question explicitly, get the answer in the contract, and if the tenant pays, ask the agent for typical summer bills for the unit before you commit. An August cooling bill is not the moment to discover the answer.
+In many Dubai towers, cooling is not part of DEWA but a separate district cooling provider, [Empower](https://empower.ae) or [Emicool](https://emicool.com), with its own registration, its own deposit, and its own monthly bills that peak brutally in summer. Two apartments at the same rent can differ by thousands of dirhams a year depending on whether chiller costs are included in the rent ("chiller free") or paid by the tenant on top. Ask the question explicitly, get the answer in the contract, and if the tenant pays, ask the agent for typical summer bills for the unit before you commit. An August cooling bill is not the moment to discover the answer.
 
 Round out the building checks with the practical ones: which parking spot is yours and is it in the contract, is gas centralized with its own provider, which internet providers cover the building (many towers are single-provider), and what move-in permits the building management requires.
 

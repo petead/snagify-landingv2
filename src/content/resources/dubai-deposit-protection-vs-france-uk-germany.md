@@ -20,7 +20,7 @@ category: blog
 featured: false
 ---
 
-Every expat lands in Dubai with rental instincts calibrated by another country's law. The French tenant waits for the [etat des lieux](https://www.legifrance.gouv.fr/). The British tenant asks which scheme holds the deposit. The German tenant asks for the account details where the Kaution will sit.
+Every expat lands in Dubai with rental instincts calibrated by another country's law. The French tenant waits for the [etat des lieux](https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000509310). The British tenant asks which scheme holds the deposit. The German tenant asks for the account details where the Kaution will sit.
 
 And Dubai answers all three the same way: none of that exists here.
 
@@ -52,7 +52,7 @@ Who holds the money? The landlord, personally. No scheme, no escrow, no separate
 
 What documents the condition? Nothing, unless you create it. No mandatory check-in report, no standard form, no obligation on either party. Most Dubai tenancies begin with a handshake and end with two competing memories.
 
-What deadline applies to the return? None in statute. Market practice is two to four weeks; beyond that, your remedy is a written demand, then a filing at the [Rental Disputes Center](https://rdc.gov.ae/en/), where a deposit claim costs 3.5% of the amount claimed with a minimum of AED 500.
+What deadline applies to the return? [None in statute](<https://dlp.dubai.gov.ae/Legislation%20Reference/2007/Law%20No.%20(26)%20of%202007.html>). Market practice is two to four weeks; beyond that, your remedy is a written demand, then a filing at the [Rental Disputes Center](https://rdc.gov.ae/en/), where a deposit claim costs 3.5% of the amount claimed with a minimum of AED 500.
 
 Who decides a dispute? The RDC, on evidence, with the burden of proving damage on the landlord, including proof of the original condition. Which is exactly where the absence of a mandatory report bites both sides: the landlord usually cannot prove the baseline, so the claim fails, and the tenant usually wins, months later, with the money frozen the whole time. I have [lived that timeline personally](/blog/rdc-deposit-dispute-no-checkin-report), and winning slowly is its own kind of losing.
 

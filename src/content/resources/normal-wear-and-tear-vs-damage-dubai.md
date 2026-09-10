@@ -27,7 +27,7 @@ Dubai law draws this line clearly in principle and leaves it blurry in practice.
 
 ## The principle: rent already paid for the wear
 
-Under [Dubai's tenancy law](https://dubailand.gov.ae/en/), a landlord may deduct from a deposit only for deterioration beyond normal wear and tear. The logic underneath is worth stating, because it decides the grey cases: ordinary aging of a property is not a loss the tenant inflicted, it is the very thing the rent purchased. Twelve months of careful living leaves traces, and those traces belong to the landlord's cost of doing business, priced into every rent cheque.
+Under [Dubai's tenancy law](<https://dlp.dubai.gov.ae/Legislation%20Reference/2007/Law%20No.%20(26)%20of%202007.html>), a landlord may deduct from a deposit only for deterioration beyond normal wear and tear. The logic underneath is worth stating, because it decides the grey cases: ordinary aging of a property is not a loss the tenant inflicted, it is the very thing the rent purchased. Twelve months of careful living leaves traces, and those traces belong to the landlord's cost of doing business, priced into every rent cheque.
 
 Damage is different in kind, not just degree: it is harm that careful, ordinary use would not have produced. A wall dulled by sunlight is wear. A wall with a doorknob-shaped hole is damage. Nobody needed a law degree for that pair; the fights live in the middle, so let's go there.
 

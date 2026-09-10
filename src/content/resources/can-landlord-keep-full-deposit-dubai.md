@@ -29,7 +29,7 @@ This article covers when a deduction is actually lawful, the red flags that tell
 
 ## The only three lawful grounds for deductions
 
-Under Dubai's tenancy framework, [Law No. 26 of 2007](https://dubailand.gov.ae/en/) as amended, a landlord may deduct from a security deposit for exactly three categories:
+Under Dubai's tenancy framework, [Law No. 26 of 2007](<https://dlp.dubai.gov.ae/Legislation%20Reference/2007/Law%20No.%20(26)%20of%202007.html>) as amended, a landlord may deduct from a security deposit for exactly three categories:
 
 Damage beyond [normal wear and tear](/blog/normal-wear-and-tear-vs-damage-dubai). Broken fixtures, holes in doors, burns in the countertop, a smashed tile. Not faded paint, not minor scuffs, not the ordinary traces of someone having lived in a home.
 

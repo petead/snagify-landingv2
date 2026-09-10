@@ -1,6 +1,6 @@
 ---
 title: "Security Deposit Amounts in Dubai: 5% or 10%, and What the Law Actually Says"
-description: "The standard Dubai deposit is 5% of annual rent unfurnished and 10% furnished, but no law fixes that number. What is legal, what is negotiable, how to pay it so you can prove it, and the security-cheque trap."
+description: "Dubai deposits run 5% unfurnished and 10% furnished by convention, not by law. What is legal, what is negotiable, how to pay so you can prove it, and the security-cheque trap."
 pubDate: 2026-09-11
 author: "Pierre Adam"
 tags: ["deposits", "tenancy-contract", "tenant-rights"]
@@ -16,6 +16,8 @@ faq:
   - question: "Should I give my landlord a security cheque?"
     answer: "Be careful. An undated or open security cheque is a blank instrument in someone else's hands, and it is different from a deposit paid and receipted. If a security cheque is requested, get its exact purpose and conditions in writing in the contract, and prefer paying the deposit itself by transfer against a receipt."
 draft: false
+category: blog
+featured: false
 ---
 
 Ask any Dubai agent how much the security deposit is and you will get the same answer within a second: 5% unfurnished, 10% furnished. It is accurate as a description of the market. It is not what the law says, because the law does not say anything about the number at all.

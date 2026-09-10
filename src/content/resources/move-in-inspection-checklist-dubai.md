@@ -47,7 +47,7 @@ Everything on, everything open. Taps run, AC blows, oven heats, cupboards open. 
 
 **AC, the Dubai special.** Every unit blowing cold, photographed with its thermostat. Every remote, counted and working, they are a classic small deduction. Filters if accessible: a photo of their day-one state anchors the wear conversation a year from now. Any existing noise or weak zone: noted in writing today.
 
-**The meters.** [DEWA](https://www.dewa.gov.ae/) reading, photographed with the meter number visible. Chiller meter if the tower runs district cooling. Gas meter if applicable. These numbers are the other baseline of your tenancy: the financial one.
+**The meters.** [DEWA](https://www.dewa.gov.ae/en/) reading, photographed with the meter number visible. Chiller meter if the tower runs district cooling. Gas meter if applicable. These numbers are the other baseline of your tenancy: the financial one.
 
 **Keys and access.** Count and photograph everything handed over: keys, access cards, parking remotes, mailbox key. Note the counts in the report. They get counted again at check-out, and the missing-remote charge is a small classic.
 

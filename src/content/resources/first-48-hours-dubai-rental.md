@@ -28,7 +28,7 @@ Almost everything. One task is genuinely time-critical, most people skip it, and
 
 ## Hour zero: the empty apartment is evidence
 
-Before a single box crosses the threshold, walk the property with your phone and document everything: every wall, floor, ceiling, door, window, appliance, bathroom fixture, and the AC units. Open every cupboard. Run every tap. Photograph the [DEWA](https://www.dewa.gov.ae/) meter reading while you are at it.
+Before a single box crosses the threshold, walk the property with your phone and document everything: every wall, floor, ceiling, door, window, appliance, bathroom fixture, and the AC units. Open every cupboard. Run every tap. Photograph the [DEWA](https://www.dewa.gov.ae/en/) meter reading while you are at it.
 
 Why now and not this weekend? Because an empty apartment is the cleanest condition baseline you will ever have. Once furniture arrives, walls disappear behind sofas, floors go under rugs, and every scratch discovered later becomes ambiguous: was it there before, or did the movers do it? The empty-apartment window lasts a day or two and never comes back.
 
@@ -40,7 +40,7 @@ While you walk, keep a second list: everything that is already wrong. The scratc
 
 **DEWA.** Nothing else works without it. Apply online or through the DEWA app with your [Ejari](/blog/ejari-explained-dubai) number, Emirates ID and passport copy; the security deposit is AED 2,000 for an apartment, AED 4,000 for a villa, refundable when you close the account at the end of the tenancy. Activation usually lands within 24 hours, often same day. Photograph the opening meter reading and keep it with your condition report: it is the other baseline of your tenancy.
 
-**District cooling, if your building has it.** In many towers, AC is not DEWA but a separate provider like Empower or Emicool, with its own registration, its own deposit, and its own final bill at move-out. Ask the building management which applies. Skipping this registration is the classic reason a new tenant spends their first Dubai summer weekend without cooling.
+**District cooling, if your building has it.** In many towers, AC is not DEWA but a separate provider like [Empower](https://empower.ae) or [Emicool](https://emicool.com), with its own registration, its own deposit, and its own final bill at move-out. Ask the building management which applies. Skipping this registration is the classic reason a new tenant spends their first Dubai summer weekend without cooling.
 
 **Gas, if applicable.** Some buildings run centralized gas with providers requiring their own connection. Same reflex: ask management.
 
