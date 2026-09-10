@@ -1,6 +1,6 @@
 ---
 title: "Ejari Explained: What It Costs, Who Pays, and Why It Matters in a Dispute"
-description: "Ejari is the mandatory registration of every Dubai tenancy contract. What it costs, who pays, what it unlocks (DEWA, visas, the RDC), and why an unregistered contract weakens both sides in a deposit dispute."
+description: "Ejari is the mandatory registration of every Dubai tenancy contract. What it costs, who pays, what it unlocks, and why an unregistered contract weakens both sides in a dispute."
 pubDate: 2026-09-10
 author: "Pierre Adam"
 tags: ["ejari", "tenancy-contract", "rdc"]
@@ -16,6 +16,8 @@ faq:
   - question: "What happens to Ejari when the tenancy ends?"
     answer: "It must be cancelled so the next tenant can register and open DEWA. Get written confirmation of the cancellation at handover: an uncancelled Ejari can block the incoming tenant and leaves an obsolete record of your tenancy in the system. Ejari cancellation and deposit return belong on the same check-out checklist."
 draft: false
+category: blog
+featured: false
 ---
 
 Ejari is the document every Dubai tenant is told to get and almost nobody is told why. The short version: it is the registration that makes your tenancy officially exist, and in Dubai, a tenancy that does not officially exist cannot switch on the electricity, sponsor a visa, or be defended in court.

@@ -1,6 +1,6 @@
 ---
 title: "Snagging vs Property Inspection in Dubai: What's the Difference?"
-description: "Dubai uses 'snagging' for everything. It means one specific thing: the defect inspection of a brand-new property. Here is how it differs from a rental condition report, which one you actually need, and what each costs."
+description: "Dubai uses snagging for everything. It means the defect inspection of a brand-new property. How it differs from a rental condition report, which one you need, and what each costs."
 pubDate: 2026-09-09
 author: "Pierre Adam"
 tags: ["snagging", "inspection", "move-in"]
@@ -16,6 +16,8 @@ faq:
   - question: "What is the defects liability period in Dubai?"
     answer: "The window after handover during which the developer must fix defects reported by the buyer, commonly twelve months and set out in the sale agreement. Separately, UAE law holds developers and contractors liable for structural defects for ten years. Snagging exists to get defects onto the record inside that first window."
 draft: false
+category: blog
+featured: false
 ---
 
 In Dubai, "snagging" has become the word for any inspection of any property at any moment, which is how tenants end up googling snagging companies for a rental handover and buyers end up with a tenant's checklist for a AED 3 million villa. The two exercises share a walkthrough and nothing else.
