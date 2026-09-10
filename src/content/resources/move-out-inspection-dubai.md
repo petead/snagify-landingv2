@@ -16,6 +16,8 @@ faq:
   - question: "When should the deposit be returned after move-out?"
     answer: "Dubai law sets no fixed deadline, so agree one in writing at handover: two to four weeks after final bills clear is the common practice. If the date passes, send a formal demand, then file at the RDC, where a deposit claim costs 3.5% of the amount with a AED 500 minimum."
 draft: false
+category: blog
+featured: false
 ---
 
 Twelve months ago, on day one, you documented an empty apartment. The move-out is the day that work pays out, or, if you skipped it, the day you find out what it would have been worth.
