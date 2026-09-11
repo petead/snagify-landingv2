@@ -39,7 +39,7 @@ const articleJsonLd = {
     "logo": { "@type": "ImageObject", "url": "https://snagify.net/og-image.jpg" }
   },
   "datePublished": "2026-04-25",
-  "dateModified": "2026-04-25",
+  "dateModified": usecase.dateModified ?? "2026-04-25",
   "inLanguage": inLanguage,
   "mainEntityOfPage": canonicalBase,
   "image": "https://snagify.net/og-image.jpg"
@@ -325,7 +325,7 @@ body {
   <div class="eyebrow"><span class="eyebrow-dot"></span>{usecase.eyebrow}</div>
   <h1>{usecase.headline.replace(usecase.headlineHighlight, '')}<em>{usecase.headlineHighlight}</em></h1>
   <p class="hero-sub">{usecase.subheadline}</p>
-  <a href="https://app.snagify.net/signup" class="hero-cta">Try Snagify free →</a>
+  <a href={usecase.heroCtaHref ?? 'https://app.snagify.net/signup'} class="hero-cta">{usecase.heroCtaLabel ?? 'Try Snagify free →'}</a>
 </section>
 
 <section class="section">
@@ -354,7 +354,7 @@ body {
 
 <section class="section">
   <div class="container">
-    <h2 class="section-title">The Snagify approach.</h2>
+    <h2 class="section-title">{usecase.approachTitle ?? 'The Snagify approach.'}</h2>
     <div class="approach-card" set:html={usecase.approach} />
   </div>
 </section>
