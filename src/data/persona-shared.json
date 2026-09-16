@@ -71,7 +71,7 @@
     },
     "billable-to-client": {
       "question": "Can I bill my landlord client for inspections?",
-      "answer": "Yes, and most agencies already do. Move-in and move-out fees are standard practice. Snagify gives you a branded, RDC-valid report that justifies the fee. Typical billing range: 150 to 300 AED per inspection. Use the ROI calculator on snagify.net to see your annual margin."
+      "answer": "Yes, and most agencies already do. Move-in and move-out fees are standard practice. Snagify gives you a branded, RDC-valid report that justifies the fee. Typical billing range: 150 to 300 AED per inspection."
     },
     "data-secure": {
       "question": "Is my data secure?",

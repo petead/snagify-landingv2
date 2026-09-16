@@ -184,7 +184,7 @@
     "headlineHighlight": "Bill clients for them.",
     "subheadline": "Most agencies do inspections for free as part of management. With Snagify, you turn them into a premium service you can bill for, with reports that carry your brand and your RERA number.",
     "metaTitle": "Real Estate Agency Inspection Software Dubai · Snagify",
-    "metaDescription": "Branded RDC-valid inspection reports for Dubai real estate agencies. Your logo, your RERA number, billable as a service. ROI calculator on snagify.net.",
+    "metaDescription": "Branded RDC-valid inspection reports for Dubai real estate agencies. Your logo, your RERA number, billable as a service.",
     "keywords": "real estate agency software dubai, inspection tool for agents dubai, dubai real estate agent app, rera agency software",
     "problems": [
       {
@@ -210,8 +210,8 @@
         "body": "Move-in and move-out fees are standard practice in Dubai. Snagify gives you a justifiable, premium-looking deliverable to bill for. Typical range: 150 to 300 AED per inspection. Compare that with traditional <a href=\"/blog/property-inspection-cost-dubai\">property inspection costs in Dubai</a>."
       },
       {
-        "title": "ROI calculator built into snagify.net",
-        "body": "We've built a public calculator that shows agencies their take-home profit at any volume. Move 30 sliders, see your annual margin. Most agencies see 50,000 to 70,000 AED per year."
+        "title": "Agents finish in 20 minutes",
+        "body": "The flow is the same for every agent: rooms, photos, AI tags, signatures. A branded PDF is ready before they leave the building."
       }
     ],
     "testimonialIds": [
@@ -221,7 +221,7 @@
     "pricing": {
       "recommendedPlan": "Agency Pro",
       "reason": "75 credits per month + extra credits at 28 AED. Built for agencies doing high monthly inspection volume. White-label included. Custom training for your team.",
-      "ctaLabel": "See ROI calculator"
+      "ctaLabel": "See Pro plans"
     },
     "faqIds": [
       "rdc-valid-pro",
@@ -231,8 +231,8 @@
     ],
     "finalCta": {
       "headline": "Turn inspections into revenue.",
-      "subheadline": "Calculate your annual margin in 30 seconds.",
-      "buttonLabel": "Open ROI calculator →"
+      "subheadline": "Try Agency Pro. White-label reports, shared credits, your RERA number on every page.",
+      "buttonLabel": "Start free trial →"
     }
   },
   "holiday-homes": {

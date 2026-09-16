@@ -64,7 +64,7 @@ export const proGettingStarted: FaqItem[] = [
 export const proPricingData: FaqItem[] = [
   {
     q: 'Can I bill my client for inspections?',
-    a: 'Yes, and most agencies already do. Move-in and move-out fees are standard practice in Dubai property management. Snagify gives you a branded report that justifies the fee and positions inspection as a premium service. Typical rates range from 150 to 300 AED per inspection. The ROI calculator above shows what this looks like at your volume.',
+    a: 'Yes, and most agencies already do. Move-in and move-out fees are standard practice in Dubai property management. Snagify gives you a branded report that justifies the fee and positions inspection as a premium service. Typical rates range from 150 to 300 AED per inspection.',
   },
   {
     q: 'How do credits work on Pro plans? Can my team share them?',
