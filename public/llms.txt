@@ -1,0 +1,40 @@
+# Snagify
+
+> Snagify is a property inspection app for Dubai rentals. Landlords, tenants, real estate agents and property managers use it to create check-in and check-out condition reports with room-by-room photos, AI-drafted condition notes and digital signatures from both parties. Reports are built on the evidence criteria the Dubai Rental Dispute Center (RDC) weighs. The RDC does not pre-approve any report format.
+
+## Key facts
+
+- Category: rental condition reports (move-in and move-out inspections, inventory, key handover) for the UAE rental market.
+- Not a snagging service: Snagify does not carry out snagging or new-build handover inspections.
+- Pricing: check-in reports are free. Individuals pay per check-out with credit packs, from AED 99. Agencies and property managers use Pro plans from AED 299 per month, billed annually.
+- Signatures: electronic signatures by both parties, in person or by remote link. UAE Federal Decree-Law No. 46 of 2021 gives electronic signatures the same effect as handwritten ones.
+- Integrity: every signed report carries a SHA-256 hash and a QR code linking to its verification page.
+- Languages: reports in English and Arabic.
+- Company: Snagify is operated by Seize Montaigne Technologies LLC, Sharjah Media City Free Zone (Shams), Sharjah, United Arab Emirates, Business License No. 2647852.01. Founder: Pierre Adam.
+
+## Product
+
+- [Home](https://snagify.net/): overview, features and pricing
+- [Check-in inspection](https://snagify.net/check-in-inspection-dubai): move-in condition report
+- [Check-out inspection](https://snagify.net/check-out-inspection-dubai): move-out comparison against the check-in
+- [Sample report (PDF)](https://snagify.net/sample-report.pdf)
+
+## For
+
+- [Landlords](https://snagify.net/for/landlords)
+- [Tenants](https://snagify.net/for/tenants)
+- [Real estate agencies](https://snagify.net/for/real-estate-agencies)
+- [Property managers](https://snagify.net/for/property-managers)
+
+## Guides
+
+- [Dubai Rental Dispute Center (RDC): complete guide](https://snagify.net/dubai-rental-dispute-center-guide)
+- [How to get your security deposit back in Dubai](https://snagify.net/blog/security-deposit-refund-dubai)
+- [Normal wear and tear vs damage in Dubai](https://snagify.net/blog/normal-wear-and-tear-vs-damage-dubai)
+- [What counts as evidence at the RDC](https://snagify.net/blog/rdc-evidence-photos-vs-signed-reports)
+- [Best property inspection apps in Dubai](https://snagify.net/blog/best-property-inspection-apps-dubai)
+- [Snagging vs property inspection](https://snagify.net/blog/snagging-vs-property-inspection-dubai)
+
+## Contact
+
+- [Contact](https://snagify.net/contact): hello@snagify.net
