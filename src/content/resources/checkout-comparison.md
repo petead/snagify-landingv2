@@ -11,7 +11,7 @@ draft: false
 # screenshots still placeholders
 ---
 
-# The check-out: comparing against your baseline
+## The check-out: comparing against your baseline
 
 The check-in built your baseline. The check-out is where it pays. A move-out inspection is not a second photo shoot: it is a comparison, room by room and finding by finding, between the property today and the property both parties signed off on. Done right, it produces the one document that settles the deposit conversation before it becomes a dispute. This tutorial walks the full flow: matching photos against the check-in, judging what changed, counting the furniture and the keys, and reading the comparison report you hand to both parties.
 

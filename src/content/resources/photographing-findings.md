@@ -11,7 +11,7 @@ draft: false
 # photos still placeholders
 ---
 
-# Photographing findings the right way
+## Photographing findings the right way
 
 Two inspection reports can describe the same apartment and carry completely different weight. The difference is almost never the writing. It is the photos: whether a stranger, months later, can look at them and see exactly what was there, where, and how big. This tutorial teaches the technique in ten minutes, and it will make every report you produce harder to argue with. It also makes Snagify's AI work better for you, because the AI describes what your photos show, and better photos produce better drafts.
 

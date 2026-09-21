@@ -19,7 +19,7 @@ import { getPublishedBlogPosts } from '../lib/blog';
 import { getPublishedResources, resourceHref } from '../lib/resources';
 
 const pricing = await fetchPricingCatalog();
-const { packs, plans, priceRangeLabel } = pricing;
+const { packs, plans } = pricing;
 const faqPageLd = buildFaqPageLd();
 const maxProCredits = plans.length ? Math.max(...plans.map((p) => p.creditsPerMonth)) : 50;
 const GOOGLE_ADS_ID = (import.meta.env.PUBLIC_GOOGLE_ADS_ID as string | undefined)?.trim() || '';
@@ -30,47 +30,6 @@ const footerTutorials = (await getPublishedResources('tutorial')).slice(0, 4);
 function rollLabel(n: number) {
   return Number.isInteger(n) ? String(n) : String(n);
 }
-
-const localBusinessLd = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  '@id': 'https://snagify.net/#localbusiness',
-  name: 'Snagify',
-  image: 'https://snagify.net/og-image.jpg',
-  url: 'https://snagify.net/',
-  priceRange: priceRangeLabel,
-  telephone: '+971585169329',
-  email: 'hello@snagify.net',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Business Bay',
-    addressLocality: 'Dubai',
-    addressRegion: 'Dubai',
-    postalCode: '00000',
-    addressCountry: 'AE',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: '25.1862',
-    longitude: '55.2767',
-  },
-  areaServed: [
-    { '@type': 'City', name: 'Dubai' },
-    { '@type': 'Country', name: 'United Arab Emirates' },
-  ],
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-      opens: '00:00',
-      closes: '23:59',
-      description: '24/7. Snagify is a SaaS platform, accessible at any time.',
-    },
-  ],
-  currenciesAccepted: 'AED',
-  paymentAccepted: 'Credit Card, Debit Card',
-  hasMap: 'https://maps.google.com/?q=Business+Bay+Dubai',
-};
 
 const softwareOffersLd = plans.map((p) => ({
   '@type': 'Offer',
@@ -3623,7 +3582,7 @@ footer {
       </div>
 
       <h1>
-        <div class="line-wrap"><span class="line-inner">Full inspection</span></div>
+        <div class="line-wrap"><span class="line-inner">Dubai property inspection</span></div>
         <div class="line-wrap"><span class="line-inner">in 20 minutes.</span></div>
         <div class="line-wrap"><span class="line-inner"><em>No deposit fights.</em></span></div>
       </h1>
@@ -5726,7 +5685,6 @@ window.toggleBilling = toggleBilling;
   ]
 }
 </script>
-<script type="application/ld+json" set:html={JSON.stringify(localBusinessLd)} />
 <script type="application/ld+json" set:html={JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
@@ -5803,15 +5761,7 @@ window.toggleBilling = toggleBilling;
   "name": "Snagify",
   "description": "Dubai's property inspection app for RDC-ready reports.",
   "publisher": { "@id": "https://snagify.net/#organization" },
-  "inLanguage": "en-AE",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": "https://snagify.net/?q={search_term_string}"
-    },
-    "query-input": "required name=search_term_string"
-  }
+  "inLanguage": "en-AE"
 }
 </script>
 

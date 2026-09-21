@@ -27,7 +27,7 @@ const { title, description, pubDate, updatedDate, author, howToSteps: howToFromF
 const slug = post.slug;
 const site = Astro.site?.origin ?? 'https://snagify.net';
 const canonical = `${site}/resources/tutorials/${slug}`;
-const pageTitle = `${title} | Snagify Tutorials`;
+const pageTitle = `${title} | Snagify`;
 const minutes = readingTimeMinutes(post.body, post.data.readingMinutes);
 const datePublished = pubDate.toISOString();
 const dateModified = (updatedDate ?? pubDate).toISOString();
@@ -165,7 +165,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
 }
 .tu-meta { font-size: 14px; color: var(--ink-60); display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 36px; }
 .tu-prose { font-size: 17px; line-height: 1.7; }
-.tu-prose :global(h1) { display: none; }
+.tu-prose > :global(h2:first-child) { display: none; }
 .tu-prose :global(h2) {
   font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.35rem;
   letter-spacing: -0.3px; margin: 2rem 0 0.75rem;

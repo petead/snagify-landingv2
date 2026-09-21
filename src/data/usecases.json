@@ -3,8 +3,8 @@
     "slug": "check-in-inspection-dubai",
     "label": "Check-in inspection",
     "fileName": "check-in-inspection-dubai",
-    "metaTitle": "Check-in Inspection Dubai · Free RDC-Valid Reports · Snagify",
-    "metaDescription": "Document your Dubai apartment at move-in with a free, RDC-valid check-in inspection. AI photo analysis, dual signatures, 20 minutes. Used by 40+ Dubai agencies.",
+    "metaTitle": "Check-in Inspection Dubai · Free RDC-ready Reports · Snagify",
+    "metaDescription": "Document your Dubai apartment at move-in with a free, RDC-ready check-in inspection. AI photo analysis, dual signatures, 20 minutes. Used by 40+ Dubai agencies.",
     "keywords": "check-in inspection dubai, move-in inspection dubai, dubai check in report, rental check in dubai, ejari check in inspection",
     "eyebrow": "Use case",
     "headline": "Check-in inspection in Dubai.",
@@ -29,7 +29,7 @@
         "body": "Your landlord client expects you to protect their asset. A signed check-in inspection report, branded with your agency name, is the deliverable that justifies your management fee."
       }
     ],
-    "approach": "Snagify guides you through a standardized check-in flow that takes 20 minutes. You enter the address (Ejari is auto-detected), walk room by room, take photos that AI tags automatically for damage, and finish with dual digital signatures. The PDF report is RDC-valid, cryptographically verifiable via SHA-256, and never expires.",
+    "approach": "Snagify guides you through a standardized check-in flow that takes 20 minutes. You enter the address (Ejari is auto-detected), walk room by room, take photos that AI tags automatically for damage, and finish with dual digital signatures. The PDF report is RDC-ready, cryptographically verifiable via SHA-256, and never expires.",
     "steps": [
       {
         "num": "01",
@@ -59,10 +59,10 @@
       {
         "num": "06",
         "title": "Receive the PDF",
-        "body": "Branded RDC-valid report delivered by email to both parties within 60 seconds. Free at check-in."
+        "body": "Branded RDC-ready report delivered by email to both parties within 60 seconds. Free at check-in."
       }
     ],
-    "deliverable": "A multi-page PDF including a cover page with property details, room-by-room photo grids with AI-tagged condition notes, an issue summary, dual signatures, and a SHA-256 verification hash. Accepted as-is by the Dubai RDC and civil courts.",
+    "deliverable": "A multi-page PDF including a cover page with property details, room-by-room photo grids with AI-tagged condition notes, an issue summary, dual signatures, and a SHA-256 verification hash. Built on the evidence criteria the Dubai RDC weighs: timestamps, photos, signatures from both parties and file integrity.",
     "faqs": [
       {
         "question": "Why are check-in inspections free?",
@@ -96,7 +96,7 @@
     "label": "Check-out inspection",
     "fileName": "check-out-inspection-dubai",
     "metaTitle": "Check-out Inspection Dubai · Get Your Deposit Back · Snagify",
-    "metaDescription": "RDC-valid check-out inspection for Dubai rentals. Compare to check-in baseline, AI photo analysis, dual signatures. Settle deposits in 30 days, not 6 months.",
+    "metaDescription": "RDC-ready check-out inspection for Dubai rentals. Compare to check-in baseline, AI photo analysis, dual signatures. Settle deposits in 30 days, not 6 months.",
     "keywords": "check-out inspection dubai, move-out inspection dubai, dubai check out report, rental check out dubai, deposit return dubai",
     "eyebrow": "Use case",
     "headline": "Check-out inspection in Dubai.",
@@ -105,7 +105,7 @@
     "what": [
       "A check-out inspection is the formal walk-through done at the end of a tenancy, comparing the property's current state to its original check-in condition. It identifies what changed during the lease and assigns responsibility for any damage beyond fair wear and tear.",
       "In Dubai, the check-out is where deposits get fought over. Without a comparable check-in baseline, the landlord can claim almost anything was caused by the tenant. With Snagify, every check-out auto-pulls the original check-in for direct visual comparison. If you are already in a dispute, start with <a href=\"/blog/security-deposit-refund-dubai\">how to get your security deposit back in Dubai</a>.",
-      "Check-outs use one credit per inspection. The report is RDC-valid, cryptographically verifiable, and accepted as evidence in Dubai civil courts."
+      "Check-outs use one credit per inspection. The report is RDC-ready, cryptographically verifiable, and accepted as evidence in Dubai civil courts."
     ],
     "scenarios": [
       {
@@ -159,7 +159,7 @@
         "body": "Most disputes settle within 7 days when both parties have signed the same evidence document. No need to file at the RDC."
       }
     ],
-    "deliverable": "A multi-page PDF including the original check-in for reference, current condition photos, side-by-side comparison of any changed rooms, an issue summary with new damage flagged, dual signatures, and the SHA-256 hash. Accepted as-is by the Dubai RDC.",
+    "deliverable": "A multi-page PDF including the original check-in for reference, current condition photos, side-by-side comparison of any changed rooms, an issue summary with new damage flagged, dual signatures, and the SHA-256 hash. Built on the evidence criteria the Dubai RDC weighs: timestamps, photos, signatures from both parties and file integrity.",
     "faqs": [
       {
         "question": "Do I need to have used Snagify at check-in to do a Snagify check-out?",
@@ -385,12 +385,12 @@
     "label": "Move-in checklist",
     "fileName": "move-in-checklist-dubai",
     "metaTitle": "Move-in Checklist Dubai · Free Inspection Template · Snagify",
-    "metaDescription": "The complete Dubai move-in checklist for tenants and landlords. Room-by-room walkthrough, RDC-valid documentation, free with Snagify.",
+    "metaDescription": "The complete Dubai move-in checklist for tenants and landlords. Room-by-room walkthrough, RDC-ready documentation, free with Snagify.",
     "keywords": "move in checklist dubai, dubai move in template, rental move in dubai, ejari move in checklist, tenant move in dubai",
     "eyebrow": "Use case",
     "headline": "The Dubai move-in checklist.",
     "headlineHighlight": "checklist.",
-    "subheadline": "What you should check, room by room, the day you move into a Dubai rental. Snagify automates the entire flow into a 20-minute walk-through that produces RDC-valid evidence by default.",
+    "subheadline": "What you should check, room by room, the day you move into a Dubai rental. Snagify automates the entire flow into a 20-minute walk-through that produces RDC-ready evidence by default.",
     "what": [
       "A move-in checklist is the standardized list of every item, fixture, and condition point you should verify and document the day you take possession of a Dubai rental property. It exists because Dubai's deposit return rules favor whoever has the better documentation.",
       "A good checklist covers the obvious (walls, floors, ceilings) and the easy-to-forget (AC service date, water meter reading, key inventory, balcony lock condition). Missing any of these creates a gap an unscrupulous landlord can exploit at move-out.",
@@ -482,7 +482,7 @@
     "label": "Move-out checklist",
     "fileName": "move-out-checklist-dubai",
     "metaTitle": "Move-out Checklist Dubai · Get Your Deposit Back · Snagify",
-    "metaDescription": "Complete Dubai move-out checklist for tenants. What to clean, what to document, how to defend your deposit. RDC-valid reports with Snagify.",
+    "metaDescription": "Complete Dubai move-out checklist for tenants. What to clean, what to document, how to defend your deposit. RDC-ready reports with Snagify.",
     "keywords": "move out checklist dubai, dubai move out template, deposit return checklist, tenant move out dubai, ejari move out",
     "eyebrow": "Use case",
     "headline": "The Dubai move-out checklist.",
@@ -504,7 +504,7 @@
       },
       {
         "title": "Your landlord is making vague claims about damage.",
-        "body": "A Snagify move-out forces every claim to be documented with photos and signatures. Vague claims have no place in an RDC-valid report. Either the damage exists with evidence, or it doesn't."
+        "body": "A Snagify move-out forces every claim to be documented with photos and signatures. Vague claims have no place in an RDC-ready report. Either the damage exists with evidence, or it doesn't."
       }
     ],
     "approach": "Snagify's move-out flow auto-pulls the original check-in for side-by-side comparison. You walk the same rooms, photograph the same angles, and AI highlights changes between then and now. Pre-existing damage is excluded automatically. Only new damage is up for discussion. The PDF includes both inspections.",

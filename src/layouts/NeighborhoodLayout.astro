@@ -33,12 +33,12 @@ const dynamicFaqs = [
     answer: `Snagify works for every property type in ${neighborhood.label}: ${neighborhood.propertyMix.toLowerCase()}. The inspection adapts automatically to studio, apartment, townhouse, or villa layouts.`
   },
   {
-    question: `Are Snagify reports valid for ${neighborhood.label} disputes?`,
-    answer: `Yes. The Dubai Rental Dispute Center accepts Snagify reports as evidence regardless of where the property is located within Dubai. ${neighborhood.rdcReference}.`
+    question: `Can I use a Snagify report in a ${neighborhood.label} deposit dispute?`,
+    answer: `Yes, as evidence. The RDC does not pre-approve any report format; it weighs identification, dates, signatures from both parties, photos and integrity, which is what Snagify reports are built on. The same rules apply everywhere in Dubai. ${neighborhood.rdcReference}.`
   },
   {
     question: "Does Snagify auto-detect Ejari?",
-    answer: "Yes. When you create an inspection, Snagify auto-detects your Ejari registration based on the property address and pre-fills the report header. One less form field, one less mistake."
+    answer: "Yes. Upload the Ejari tenancy contract and Snagify reads it and pre-fills the report header: tenant, dates and property. One less form, one less mistake."
   },
   {
     question: "Are credits the same price for any neighborhood?",
@@ -70,7 +70,7 @@ const articleJsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": `Property Inspection in ${neighborhood.label} · Snagify`,
-  "description": `Property inspection app for ${neighborhood.label} apartments and villas. RDC-valid PDF reports, AI photo analysis, dual digital signatures.`,
+  "description": `Property inspection app for ${neighborhood.label} apartments and villas. RDC-ready PDF reports, AI photo analysis, dual digital signatures.`,
   "author": { "@type": "Organization", "name": "Snagify" },
   "publisher": {
     "@type": "Organization",
@@ -86,7 +86,7 @@ const articleJsonLd = {
 };
 
 const metaTitle = `Property Inspection in ${neighborhood.label} · Dubai · Snagify`;
-const metaDescription = `RDC-valid property inspection reports for ${neighborhood.label}. AI photo analysis, dual digital signatures, ${neighborhood.typicalDuration} per inspection. Free check-ins.`;
+const metaDescription = `RDC-ready property inspection reports for ${neighborhood.label}. AI photo analysis, dual digital signatures, ${neighborhood.typicalDuration} per inspection. Free check-ins.`;
 const keywords = `property inspection ${neighborhood.label.toLowerCase()}, ${neighborhood.label.toLowerCase()} inspection app, check-in inspection ${neighborhood.label.toLowerCase()}, rental inspection ${neighborhood.shortLabel.toLowerCase()} dubai, ejari inspection ${neighborhood.shortLabel.toLowerCase()}`;
 ---
 <!DOCTYPE html>
@@ -380,7 +380,7 @@ body {
 <section class="hero container">
   <div class="eyebrow"><span class="eyebrow-dot"></span>Inspections in {neighborhood.label}</div>
   <h1>Property inspection in <em>{neighborhood.label}</em>.</h1>
-  <p class="hero-sub">RDC-valid PDF reports for {neighborhood.label} apartments and villas. AI photo analysis, dual digital signatures, free at check-in.</p>
+  <p class="hero-sub">RDC-ready PDF reports for {neighborhood.label} apartments and villas. AI photo analysis, dual digital signatures, free at check-in.</p>
   <a href="https://app.snagify.net/signup" class="hero-cta">Try Snagify free →</a>
 </section>
 

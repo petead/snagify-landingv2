@@ -11,7 +11,7 @@ draft: false
 # screenshots still placeholders
 ---
 
-# What to do when the other party won't sign
+## What to do when the other party won't sign
 
 It is the moment everyone fears after an inspection: you send the report, and the other party refuses to sign. Or worse, they simply go quiet. Here is the reassurance first: **a report is not broken by a missing signature.** What matters, at the [Rental Dispute Center](/dubai-rental-dispute-center-guide) and anywhere else, is proving that the party had a fair opportunity to review and respond. Snagify documents that opportunity automatically, from the first email to the last reminder. This tutorial shows you exactly what happens, what to do, and what your report is worth at the end.
 

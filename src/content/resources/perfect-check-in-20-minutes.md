@@ -11,7 +11,7 @@ draft: false
 # screenshots still placeholders
 ---
 
-# A perfect check-in in 20 minutes
+## A perfect check-in in 20 minutes
 
 A check-in report is the single document that decides most deposit disputes in Dubai. The [Rental Dispute Center](/dubai-rental-dispute-center-guide) weighs documented evidence, and the party without a baseline loses the benefit of the doubt. The good news: building an evidence-grade baseline takes about 20 minutes with your phone. This tutorial walks you through it, step by step.
 
