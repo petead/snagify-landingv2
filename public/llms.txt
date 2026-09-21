@@ -14,6 +14,7 @@
 
 ## Product
 
+- [About Snagify](https://snagify.net/about): what Snagify is and is not, company facts
 - [Home](https://snagify.net/): overview, features and pricing
 - [Check-in inspection](https://snagify.net/check-in-inspection-dubai): move-in condition report
 - [Check-out inspection](https://snagify.net/check-out-inspection-dubai): move-out comparison against the check-in

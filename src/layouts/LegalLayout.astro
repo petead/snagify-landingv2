@@ -1,5 +1,5 @@
 ---
-const { title, description, slug, ogDescription } = Astro.props;
+const { title, description, slug, ogDescription, robots, jsonLd } = Astro.props;
 const canonical = `https://snagify.net/${slug}`;
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
@@ -25,7 +25,9 @@ import Fonts from '../components/Fonts.astro';
 <link rel="canonical" href={canonical}>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content={title}>
-<meta name="twitter:description" content={ogDescription ?? description}>
+<meta name="twitter:description" content={ogDescription ?? description}>{robots ? <meta name="robots" content={robots} /> : ''}{jsonLd ? jsonLd.map((item) => (
+<script type="application/ld+json" set:html={JSON.stringify(item)} />
+)) : ''}
 
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
