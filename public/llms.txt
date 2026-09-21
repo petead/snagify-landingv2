@@ -10,7 +10,7 @@
 - Signatures: electronic signatures by both parties, in person or by remote link. UAE Federal Decree-Law No. 46 of 2021 gives electronic signatures the same effect as handwritten ones.
 - Integrity: every signed report carries a SHA-256 hash and a QR code linking to its verification page.
 - Languages: reports in English and Arabic.
-- Company: Snagify is operated by Seize Montaigne Technologies LLC, Sharjah Media City Free Zone (Shams), Sharjah, United Arab Emirates, Business License No. 2647852.01. Founder: Pierre Adam.
+- Company: Snagify is operated by Seize Montaigne Technologies LLC, Sharjah Media City Free Zone (Shams), Sharjah, United Arab Emirates, Business License No. 2647852.01.
 
 ## Product
 

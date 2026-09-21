@@ -3,7 +3,7 @@ title: "Move-out Inspection in Dubai: Hand Over Without Losing Your Deposit"
 seoTitle: "Move-out Inspection in Dubai: Keep Your Deposit | Snagify"
 description: "Move-out day is when your deposit is decided. The week-before checklist, the walkthrough against your check-in report, and what to do about deductions."
 pubDate: 2026-09-12
-author: "Pierre Adam"
+author: "Pierre A"
 tags: ["move-out", "check-out", "deposits"]
 faq:
   - question: "What should I do before my move-out inspection in Dubai?"

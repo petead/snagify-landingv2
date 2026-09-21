@@ -3,7 +3,7 @@ title: "How Much Does a Property Inspection Cost in Dubai? (2026 Prices)"
 seoTitle: "Property Inspection Cost in Dubai (2026 Prices) | Snagify"
 description: "Traditional inspections cost AED 1,200-3,500 in Dubai. 2026 prices by property type, what you get for the money, and cheaper alternatives."
 pubDate: 2026-07-28
-author: "Pierre Adam"
+author: "Pierre A"
 tags: ["inspection-costs", "pricing", "move-in"]
 faq:
   - question: "How much does a property inspection cost in Dubai?"

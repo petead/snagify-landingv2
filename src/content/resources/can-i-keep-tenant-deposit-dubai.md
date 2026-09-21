@@ -3,7 +3,7 @@ title: "Can I Keep My Tenant's Deposit in Dubai? (What Landlords Must Prove)"
 seoTitle: "Keeping a Tenant's Deposit in Dubai: What to Prove | Snagify"
 description: "Yes, if you can prove it. The three lawful grounds for keeping a Dubai tenant's deposit, the two-part burden of proof, and when not to file."
 pubDate: 2026-08-29
-author: "Pierre Adam"
+author: "Pierre A"
 tags: ["landlords", "deposits", "rdc"]
 faq:
   - question: "Can a landlord keep a tenant's deposit in Dubai?"

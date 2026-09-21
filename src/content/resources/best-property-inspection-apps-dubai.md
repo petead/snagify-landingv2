@@ -3,7 +3,7 @@ title: "Best Property Inspection Apps in Dubai (2026 Comparison)"
 seoTitle: "Best Property Inspection Apps in Dubai (2026) | Snagify"
 description: "SnapInspect, HappyCo, Property Inspect and Snagify compared for Dubai: pricing, RDC evidence, Arabic support and who each tool fits."
 pubDate: 2026-07-16
-author: "Pierre Adam"
+author: "Pierre A"
 tags: ["inspection-apps", "comparison", "agencies"]
 faq:
   - question: "Which inspection app is accepted by the RDC in Dubai?"

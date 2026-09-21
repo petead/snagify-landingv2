@@ -3,7 +3,7 @@ title: "Can My Landlord Deduct Cleaning and Repainting From My Deposit in Dubai?
 seoTitle: "Cleaning and Repainting Deductions in Dubai | Snagify"
 description: "Repainting: no, it is the owner's cost. Cleaning: only if the unit was returned genuinely dirty, with proof. The rules, the exceptions, how to push back."
 pubDate: 2026-09-04
-author: "Pierre Adam"
+author: "Pierre A"
 tags: ["deposits", "tenant-rights", "deductions"]
 faq:
   - question: "Can a landlord in Dubai charge the tenant for repainting?"

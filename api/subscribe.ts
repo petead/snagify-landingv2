@@ -75,13 +75,13 @@ async function sendChecklistEmail(email: string) {
       `Here is your printable Dubai move-in checklist.\n\n` +
       `One A4 page, 20 checkboxes, in the order that protects your deposit.\n\n` +
       `Download: ${CHECKLIST_URL}\n\n` +
-      `Pierre\nSnagify`,
+      `Pierre A\nSnagify`,
     html:
       `<p>Here is your printable Dubai move-in checklist.</p>` +
       `<p>One A4 page, 20 checkboxes, in the order that protects your deposit.</p>` +
       `<p><a href="${CHECKLIST_URL}" style="display:inline-block;padding:12px 20px;background:#0E0E10;color:#FCFCFC;border-radius:999px;text-decoration:none;font-weight:700;">Download the PDF</a></p>` +
       `<p style="color:#666;font-size:13px;">Or open: <a href="${CHECKLIST_URL}">${CHECKLIST_URL}</a></p>` +
-      `<p>Pierre<br>Snagify</p>`,
+      `<p>Pierre A<br>Snagify</p>`,
   });
 }
 

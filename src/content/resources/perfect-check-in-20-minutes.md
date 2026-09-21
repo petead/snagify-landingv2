@@ -3,7 +3,7 @@ title: "How to Do a Property Check-In in Dubai: A Perfect Report in 20 Minutes"
 seoTitle: "How to Do a Property Check-In in Dubai | Snagify"
 description: "A defensible Dubai move-in inspection, step by step: room order, photo technique, findings, key handover and on-site signatures. Free with Snagify."
 pubDate: 2026-08-01
-author: "Pierre Adam"
+author: "Pierre A"
 tags: ["check-in", "tutorial", "inspections"]
 category: tutorial
 featured: false

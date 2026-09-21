@@ -3,7 +3,7 @@ title: "How to Do a Check-Out Inspection in Dubai: Comparing Against Your Baseli
 seoTitle: "How to Do a Check-Out Inspection in Dubai | Snagify"
 description: "The move-out inspection that settles deposits: photo matching against the check-in, change verdicts, inventory and key return, and the final report."
 pubDate: 2026-08-01
-author: "Pierre Adam"
+author: "Pierre A"
 tags: ["check-out", "tutorial", "comparison"]
 category: tutorial
 featured: false

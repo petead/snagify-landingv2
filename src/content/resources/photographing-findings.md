@@ -3,7 +3,7 @@ title: "How to Photograph Property Findings for an Inspection Report (The Right 
 seoTitle: "How to Photograph Findings for Inspections | Snagify"
 description: "Wide shot then detail, measurements in frame, honest coverage: the photo technique that makes a Dubai inspection report defensible, and how AI reads it."
 pubDate: 2026-08-01
-author: "Pierre Adam"
+author: "Pierre A"
 tags: ["photos", "tutorial", "evidence"]
 category: tutorial
 featured: false

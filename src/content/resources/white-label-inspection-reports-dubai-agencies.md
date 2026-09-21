@@ -3,7 +3,7 @@ title: "White-Label Inspection Reports: Your Agency's Brand on Every Report"
 seoTitle: "White-Label Inspection Reports for Agencies | Snagify"
 description: "What a white-label inspection report is, why a branded PDF in the landlord's inbox helps Dubai agencies win mandates, and what branding cannot do."
 pubDate: 2026-09-03
-author: "Pierre Adam"
+author: "Pierre A"
 tags: ["agencies", "white-label", "b2b"]
 faq:
   - question: "What is a white-label property inspection report?"

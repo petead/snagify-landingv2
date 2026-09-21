@@ -3,7 +3,7 @@ title: "Photos vs Signed Reports: What Counts as Evidence at the Dubai RDC"
 seoTitle: "Photos vs Signed Reports as RDC Evidence | Snagify"
 description: "WhatsApp photos vs signed reports: what the Dubai RDC weighs in deposit cases, and why most tenant evidence fails before it is even read."
 pubDate: 2026-07-27
-author: "Pierre Adam"
+author: "Pierre A"
 tags: ["rdc", "evidence", "deposits"]
 faq:
   - question: "What evidence does the RDC accept in a rental dispute?"

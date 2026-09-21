@@ -6,7 +6,7 @@ const resourceSchema = z.object({
   description: z.string().max(200),
   pubDate: z.coerce.date(),
   updatedDate: z.coerce.date().optional(),
-  author: z.string().default('Pierre Adam'),
+  author: z.string().default('Pierre A'),
   heroAlt: z.string().optional(),
   tags: z.array(z.string()).default([]),
   category: z.enum(['guide', 'blog', 'tutorial']),

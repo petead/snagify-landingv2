@@ -3,7 +3,7 @@ title: "What Is a Check-in Report and Why Dubai Judges Ask For It First"
 seoTitle: "What Is a Check-in Report in Dubai? | Snagify"
 description: "The anatomy of a check-in report, what makes one valid in a Dubai court, and why it is the first document an RDC judge looks for in every deposit dispute."
 pubDate: 2026-09-02
-author: "Pierre Adam"
+author: "Pierre A"
 tags: ["check-in", "rdc", "evidence"]
 faq:
   - question: "What is a check-in report in Dubai?"

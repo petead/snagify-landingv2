@@ -3,7 +3,7 @@ title: "Is a Check-in Report Mandatory in Dubai? (What Expats Get Wrong)"
 seoTitle: "Is a Check-in Report Mandatory in Dubai? | Snagify"
 description: "No, Dubai law does not require a check-in report, and that is why you need one. What the law says, what expats get wrong, and how to protect yourself."
 pubDate: 2026-07-26
-author: "Pierre Adam"
+author: "Pierre A"
 tags: ["check-in", "expats", "tenant-rights"]
 faq:
   - question: "Is a check-in report required by law in Dubai?"

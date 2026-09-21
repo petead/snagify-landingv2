@@ -3,7 +3,7 @@ title: "How Much Does It Cost to File a Case at the Dubai RDC? (The Real Fee Sch
 seoTitle: "Dubai RDC Filing Fees: The Real Schedule | Snagify"
 description: "The RDC fee most blogs quote is wrong for deposit cases. The real two-track fee schedule, worked examples, who ends up paying, and the hidden costs."
 pubDate: 2026-09-01
-author: "Pierre Adam"
+author: "Pierre A"
 tags: ["rdc", "fees", "deposits"]
 faq:
   - question: "How much does it cost to file a deposit case at the Dubai RDC?"

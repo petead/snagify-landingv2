@@ -3,7 +3,7 @@ title: "Normal Wear and Tear vs Damage: Where Dubai Law Draws the Line"
 seoTitle: "Normal Wear and Tear vs Damage in Dubai | Snagify"
 description: "Faded paint, scratched floors, limescale, AC filters: what counts as normal wear and tear in a Dubai rental, what counts as damage, and who decides."
 pubDate: 2026-07-31
-author: "Pierre Adam"
+author: "Pierre A"
 tags: ["wear-and-tear", "deposits", "tenant-rights"]
 faq:
   - question: "What is considered normal wear and tear in a Dubai rental?"
