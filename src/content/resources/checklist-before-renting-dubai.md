@@ -1,6 +1,7 @@
 ---
 title: "The Complete Checklist Before Renting in Dubai (Verify Before You Sign)"
-description: "How to verify the agent, the owner, the price, the building and the contract before you commit to a Dubai rental: the official tools, the chiller trap, and the scams to avoid."
+seoTitle: "Checklist Before Renting in Dubai: Verify First | Snagify"
+description: "Verify the agent, owner, price, building and contract before you sign a Dubai rental: the official tools, the chiller trap and the scams to avoid."
 pubDate: 2026-07-30
 author: "Pierre Adam"
 tags: ["renting", "checklist", "expats"]

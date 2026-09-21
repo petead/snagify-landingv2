@@ -5,6 +5,7 @@ import CrispChat from '../components/CrispChat.astro';
 import Clarity from '../components/Clarity.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import MetaPixel from '../components/MetaPixel.astro';
+import Fonts from '../components/Fonts.astro';
 import FurtherReading from '../components/FurtherReading.astro';
 import { getFurtherReading } from '../lib/further-reading';
 import {
@@ -25,6 +26,8 @@ const robots = indexable
   : 'noindex, follow';
 
 const nearby = getIndexableNearbyNeighborhoods(neighborhood);
+const localGuide = neighborhood.localGuide;
+const inspectionCount = neighborhood.snagifyInspections;
 
 // Build dynamic FAQ tailored to this neighborhood
 const dynamicFaqs = [
@@ -137,9 +140,7 @@ const keywords = `property inspection ${neighborhood.label.toLowerCase()}, ${nei
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" href="/favicon.ico">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<Fonts />
 
 <style>
 html[lang="en"], html[lang="en"] body {
@@ -390,7 +391,9 @@ body {
 <section class="hero container">
   <div class="eyebrow"><span class="eyebrow-dot"></span>Inspections in {neighborhood.label}</div>
   <h1>Property inspection in <em>{neighborhood.label}</em>.</h1>
-  <p class="hero-sub">RDC-ready PDF reports for {neighborhood.label} apartments and villas. AI photo analysis, dual digital signatures, free at check-in.</p>
+  <p class="hero-sub">RDC-ready PDF reports for {neighborhood.label} apartments and villas. AI photo analysis, dual digital signatures, free at check-in.</p>{inspectionCount && inspectionCount.count >= 10 ? (
+    <p class="hero-sub">{inspectionCount.count} Snagify inspections in {neighborhood.label} (as of {inspectionCount.asOf}).</p>
+  ) : ''}
   <a href="https://app.snagify.net/signup" class="hero-cta">Try Snagify free →</a>
 </section>
 
@@ -448,7 +451,39 @@ body {
     </div>
     <a href="https://app.snagify.net/signup" class="cta-strip-btn">Start free →</a>
   </div>
+</section>{localGuide ? (
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Renting in {neighborhood.label}: what to know</h2>
+    <p class="section-sub">{localGuide.intro}</p>
+    <h3 class="cta-strip-title">Moving in</h3>
+    <ul>
+      {localGuide.movingIn.map((item) => (
+        <li>{item}</li>
+      ))}
+    </ul>
+    <h3 class="cta-strip-title">What to document at check-in</h3>
+    <ul>
+      {localGuide.whatToDocument.map((item) => (
+        <li>{item}</li>
+      ))}
+    </ul>
+    <p class="cta-strip-sub">
+      Sources:{' '}
+      {localGuide.sources.map((source, i) => (
+        <>
+          {i > 0 && ' · '}
+          {source.url.startsWith('/') ? (
+            <a href={source.url}>{source.label}</a>
+          ) : (
+            <a href={source.url} target="_blank" rel="noopener">{source.label}</a>
+          )}
+        </>
+      ))}
+    </p>
+  </div>
 </section>
+) : ''}
 
 <section class="section">
   <div class="container">

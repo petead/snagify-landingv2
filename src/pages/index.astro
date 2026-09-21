@@ -17,6 +17,7 @@ import {
 } from '../lib/faq-content';
 import { getPublishedBlogPosts } from '../lib/blog';
 import { getPublishedResources, resourceHref } from '../lib/resources';
+import Fonts from '../components/Fonts.astro';
 
 const pricing = await fetchPricingCatalog();
 const { packs, plans } = pricing;
@@ -52,37 +53,14 @@ const softwareOffersLd = plans.map((p) => ({
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" href="/favicon.ico">
-<title>Snagify · Dubai's Property Inspection App · Evidence-Grade Reports</title>
-<meta name="description" content="Dubai's fastest property inspection app. RDC-ready PDF reports, AI photo analysis, dual digital signatures. Used by 40+ Dubai agencies. Try free.">
+<title>Dubai Property Inspection App, RDC-Ready Reports · Snagify</title>
+<meta name="description" content="Dubai's fastest property inspection app. RDC-ready PDF reports, AI photo analysis, dual digital signatures. Used by 20+ Dubai agencies. Try free.">
 <meta name="keywords" content="dubai property inspection, rdc-ready report, ejari inspection, check-in inspection dubai, check-out inspection, rental dispute dubai, snagging app dubai, property inspection software, dubai real estate tools, rera inspection">
 <link rel="canonical" href="https://snagify.net">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Snagify · Seize Montaigne Technologies LLC">
 <meta http-equiv="content-language" content="en-AE">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="/fonts/poppins-latin-800.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/poppins-latin-800-italic.woff2" as="font" type="font/woff2" crossorigin>
-<style>
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 800;
-  font-display: swap;
-  src: url('/fonts/poppins-latin-800.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Poppins';
-  font-style: italic;
-  font-weight: 800;
-  font-display: swap;
-  src: url('/fonts/poppins-latin-800-italic.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-</style>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"></noscript>
+<Fonts />
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -3499,8 +3477,8 @@ footer {
 </style>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Snagify">
-<meta property="og:title" content="Snagify · Dubai's Property Inspection App · Evidence-Grade Reports">
-<meta property="og:description" content="Dubai's fastest property inspection app. RDC-ready PDF reports, AI photo analysis, dual digital signatures. Used by 40+ Dubai agencies. Try free.">
+<meta property="og:title" content="Dubai Property Inspection App, RDC-Ready Reports · Snagify">
+<meta property="og:description" content="Dubai's fastest property inspection app. RDC-ready PDF reports, AI photo analysis, dual digital signatures. Used by 20+ Dubai agencies. Try free.">
 <meta property="og:url" content="https://snagify.net/">
 <meta property="og:image" content="https://snagify.net/og-image.jpg">
 <meta property="og:image:secure_url" content="https://snagify.net/og-image.jpg">

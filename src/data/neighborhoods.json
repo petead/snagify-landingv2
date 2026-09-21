@@ -21,7 +21,29 @@
       "bluewaters-island",
       "the-views",
       "the-greens"
-    ]
+    ],
+    "localGuide": {
+      "intro": "Dubai Marina is an Emaar master community lined with towers from many different developers, built from the early 2000s onwards. Building management, cooling arrangements and finish quality vary a lot from one tower to the next, which is why a building-specific baseline matters here.",
+      "movingIn": [
+        "Emaar requires a move-in permit for the community, requested online with your Ejari, Emirates ID and passport. Your tower may add its own move-in rules.",
+        "Cooling varies by tower: some are chiller-free, others are billed by a district cooling provider. Confirm it in your contract before signing."
+      ],
+      "whatToDocument": [
+        "Window frames, balcony railings and sliding doors exposed to sea air and humidity.",
+        "Wet areas in older towers: grout, silicone and signs of past leaks under sinks.",
+        "Every appliance switched on in front of both parties, with the result noted in the report."
+      ],
+      "sources": [
+        {
+          "label": "Empower district cooling",
+          "url": "https://www.empower.ae"
+        }
+      ]
+    },
+    "snagifyInspections": {
+      "count": 32,
+      "asOf": "September 2026"
+    }
   },
   "downtown-dubai": {
     "slug": "downtown-dubai",
@@ -45,7 +67,29 @@
       "dubai-creek-harbour",
       "city-walk",
       "al-wasl"
-    ]
+    ],
+    "localGuide": {
+      "intro": "Downtown Dubai is Emaar's master community around Burj Khalifa and The Dubai Mall, mostly high-rise apartments plus the low-rise Old Town. Its district cooling network has been majority-owned by Tabreed since 2020, so in most towers cooling is billed separately from rent unless the unit is advertised as chiller-free.",
+      "movingIn": [
+        "Emaar requires a move-in permit, requested online through Sakani or the Emaar One app with your Ejari, Emirates ID and passport.",
+        "Check in your contract whether cooling is chiller-free or billed to you, and read the cooling meter at check-in."
+      ],
+      "whatToDocument": [
+        "Full-height glazing, window seals and balcony doors: stains and failed sealant are common and easy to dispute later.",
+        "AC grilles and ceilings around the fan coil units for past condensation marks.",
+        "Premium finishes such as stone and timber: photograph chips and scratches close up with a wide shot for context."
+      ],
+      "sources": [
+        {
+          "label": "Tabreed acquires 80% of Downtown Dubai district cooling (Gulf Business)",
+          "url": "https://gulfbusiness.com/uaes-tabreed-acquires-80-stake-in-emaars-district-cooling-business/"
+        }
+      ]
+    },
+    "snagifyInspections": {
+      "count": 41,
+      "asOf": "September 2026"
+    }
   },
   "business-bay": {
     "slug": "business-bay",
@@ -69,7 +113,29 @@
       "dubai-creek-harbour",
       "al-wasl",
       "city-walk"
-    ]
+    ],
+    "localGuide": {
+      "intro": "Business Bay is a dense district of recent towers along the Dubai Water Canal. Empower runs the area's district cooling network and is building a fifth plant here, so most units come with a separate cooling account. Many buildings are recent, and small handover defects often carry into the first tenancy.",
+      "movingIn": [
+        "Your building management issues the move-in permit and access cards; ask for their list of required documents early.",
+        "Register or transfer the cooling account with the provider named in your contract."
+      ],
+      "whatToDocument": [
+        "Early-life defects in newer towers: hairline cracks, door alignment, unfinished silicone.",
+        "Kitchen and bathroom fittings, run under water to check drainage and leaks.",
+        "The cooling meter reading and AC performance in every room."
+      ],
+      "sources": [
+        {
+          "label": "Empower expands Business Bay district cooling (Dubai Media Office)",
+          "url": "https://mediaoffice.ae/en/news/2026/may/14-05/empower-continues-expanding-dubais-future-ready-district-cooling-infrastructure"
+        }
+      ]
+    },
+    "snagifyInspections": {
+      "count": 19,
+      "asOf": "September 2026"
+    }
   },
   "jlt": {
     "slug": "jlt",
@@ -93,7 +159,25 @@
       "the-greens",
       "the-views",
       "discovery-gardens"
-    ]
+    ],
+    "localGuide": {
+      "intro": "Jumeirah Lake Towers is DMCC's free zone district of towers built around artificial lakes. Empower's JLT district cooling network serves the whole area, so cooling is usually billed separately from rent.",
+      "movingIn": [
+        "Your tower's management handles move-in permits and access cards; ask them for the process and fees.",
+        "Open or transfer your cooling account with Empower using your Ejari."
+      ],
+      "whatToDocument": [
+        "Window seals and balcony doors, especially on lake-facing units.",
+        "AC performance and fan coil condition in every room.",
+        "Meter readings for DEWA and cooling on the day of check-in."
+      ],
+      "sources": [
+        {
+          "label": "Empower JLT district cooling network (Dubai Media Office)",
+          "url": "https://mediaoffice.ae/en/news/2025/february/24-02/empower-and-dmcc-sign-agreement-to-supply-next-phase-of-uptown-dubai"
+        }
+      ]
+    }
   },
   "jvc": {
     "slug": "jvc",
@@ -117,7 +201,29 @@
       "motor-city",
       "dubai-sports-city",
       "al-furjan"
-    ]
+    ],
+    "localGuide": {
+      "intro": "Jumeirah Village Circle is a Nakheel master community of mid-rise apartment buildings, townhouses and villas from dozens of different developers. Build quality and cooling arrangements change from one building to the next, so a detailed baseline is the only reliable reference at check-out.",
+      "movingIn": [
+        "A move-in permit is required in the community; your building management or the master community will tell you where to apply.",
+        "Some buildings are chiller-free and others use district cooling: confirm which one applies before you sign."
+      ],
+      "whatToDocument": [
+        "Walls and ceilings for cracks and damp patches, common in fast-built mid-rise stock.",
+        "For townhouses: garden, boundary walls, garage door and roof access.",
+        "Parking bay number and condition, and the number of access cards handed over."
+      ],
+      "sources": [
+        {
+          "label": "Empower district cooling",
+          "url": "https://www.empower.ae"
+        }
+      ]
+    },
+    "snagifyInspections": {
+      "count": 11,
+      "asOf": "September 2026"
+    }
   },
   "jbr": {
     "slug": "jbr",
@@ -165,7 +271,29 @@
       "dubai-marina",
       "bluewaters-island",
       "the-views"
-    ]
+    ],
+    "localGuide": {
+      "intro": "Palm Jumeirah, developed by Nakheel, mixes shoreline apartment buildings with villas on the fronds. Much of the island is served by Empower district cooling. Villa inspections take longer than apartments because gardens, pools and outdoor areas all need to be recorded.",
+      "movingIn": [
+        "Check with the building or community management which move-in permit and access cards apply to your unit.",
+        "Confirm in the contract who pays cooling and who maintains the pool and garden."
+      ],
+      "whatToDocument": [
+        "Outdoor metal fixtures, pool equipment and door hardware exposed to salt air.",
+        "Garden, irrigation and pool condition, photographed from fixed angles so check-out photos can match them.",
+        "Beach access doors and exterior lighting, tested on the day."
+      ],
+      "sources": [
+        {
+          "label": "Empower district cooling",
+          "url": "https://www.empower.ae"
+        }
+      ]
+    },
+    "snagifyInspections": {
+      "count": 26,
+      "asOf": "September 2026"
+    }
   },
   "arabian-ranches": {
     "slug": "arabian-ranches",
@@ -213,7 +341,26 @@
       "the-meadows",
       "al-barsha",
       "motor-city"
-    ]
+    ],
+    "localGuide": {
+      "intro": "Dubai Hills Estate is an Emaar master community of villas, townhouses and apartment buildings around the golf course, managed by Emaar Community Management (ECM).",
+      "movingIn": [
+        "A move-in permit is mandatory and access is refused without it. Apply on the Sakani portal at least one business day before the move, with your Ejari, Emirates ID and passport.",
+        "The permit cannot be issued while service fees on the unit are outstanding, so ask your landlord to confirm they are paid.",
+        "Access cards cost AED 200 each, and the number issued depends on the parking spots assigned to the unit."
+      ],
+      "whatToDocument": [
+        "For villas and townhouses: garden, irrigation, outdoor paving and the garage.",
+        "The number of access cards and keys handed over, recorded in the key handover section.",
+        "Appliances and AC, tested in front of both parties."
+      ],
+      "sources": [
+        {
+          "label": "ECM, moving in to Dubai Hills Estate",
+          "url": "https://ecm.ae/en/communities/dubai-hills-estate/lifestyle/faqs/moving-in-dubai-hills-estate"
+        }
+      ]
+    }
   },
   "the-greens": {
     "slug": "the-greens",
@@ -285,7 +432,25 @@
       "mirdif",
       "al-warqaa",
       "international-city"
-    ]
+    ],
+    "localGuide": {
+      "intro": "Dubai Silicon Oasis is a mixed-use technology park with apartment buildings and villa communities. Many apartment buildings are connected to Empower district cooling, so check how cooling is billed before you sign.",
+      "movingIn": [
+        "Your building or community management handles move-in approvals and access cards; ask for their process early.",
+        "Confirm in the contract whether cooling is included in the rent or billed to you."
+      ],
+      "whatToDocument": [
+        "Walls, ceilings and wet areas for cracks, damp and past leaks.",
+        "For villas: garden, exterior walls and the parking area.",
+        "Meter readings for DEWA and cooling on the day of check-in."
+      ],
+      "sources": [
+        {
+          "label": "Empower district cooling",
+          "url": "https://www.empower.ae"
+        }
+      ]
+    }
   },
   "mirdif": {
     "slug": "mirdif",
@@ -741,7 +906,25 @@
       "business-bay",
       "ras-al-khor",
       "deira"
-    ]
+    ],
+    "localGuide": {
+      "intro": "Dubai Creek Harbour is a newer Emaar waterfront community whose towers have been handed over in phases. In recent buildings, some defects may still fall under the developer's defects liability period, so knowing what was there on day one matters twice.",
+      "movingIn": [
+        "Emaar requires a move-in permit, requested online with your Ejari, Emirates ID and passport.",
+        "Ask the landlord whether the building is still within its defects liability period and how to report issues to the developer."
+      ],
+      "whatToDocument": [
+        "Handover-type defects: paint finish, door alignment, tiles, silicone and fixtures.",
+        "Balcony doors and glazing on creek-facing units.",
+        "Every snag the landlord agrees to fix, noted in the report with a photo."
+      ],
+      "sources": [
+        {
+          "label": "Handover inspection in Dubai (Snagify guide)",
+          "url": "/handover-inspection-dubai"
+        }
+      ]
+    }
   },
   "bluewaters-island": {
     "slug": "bluewaters-island",
@@ -837,7 +1020,25 @@
       "dubailand",
       "mirdif",
       "al-warqaa"
-    ]
+    ],
+    "localGuide": {
+      "intro": "International City is a Nakheel community of low-rise apartment buildings grouped into country-themed clusters. It is one of Dubai's most affordable areas, with older building stock where a careful check-in protects both sides.",
+      "movingIn": [
+        "Ask the building management about move-in approval and access before your moving day.",
+        "Confirm in the contract who pays for cooling and utilities, as arrangements differ between buildings."
+      ],
+      "whatToDocument": [
+        "Walls and ceilings for damp, cracks and past water damage.",
+        "Doors, locks and window fittings, tested one by one.",
+        "Kitchen and bathroom plumbing, run under water, and any signs of pests."
+      ],
+      "sources": [
+        {
+          "label": "Snagify move-in checklist",
+          "url": "/move-in-checklist-dubai"
+        }
+      ]
+    }
   },
   "mira": {
     "slug": "mira",

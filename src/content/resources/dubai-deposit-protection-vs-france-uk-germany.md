@@ -1,5 +1,6 @@
 ---
 title: "Renting in Dubai vs France, the UK and Germany: Deposit Protection Compared"
+seoTitle: "Dubai vs France, UK, Germany: Deposit Rules | Snagify"
 description: "France, the UK and Germany each protect a rental deposit by law. Dubai does not. A country-by-country comparison of what actually protects your money."
 pubDate: 2026-08-31
 author: "Pierre Adam"

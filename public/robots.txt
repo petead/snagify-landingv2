@@ -3,14 +3,12 @@
 
 User-agent: *
 Allow: /
-Disallow: /hero-video.html
 Disallow: /api/
 Disallow: /*.json$
 
 # Major search engines, explicit allow
 User-agent: Googlebot
 Allow: /
-Disallow: /hero-video.html
 
 User-agent: Googlebot-Image
 Allow: /

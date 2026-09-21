@@ -6,9 +6,30 @@ import {
 
 export { INDEXABLE_NEIGHBORHOOD_SLUGS, isIndexableNeighborhood };
 
+export type LocalGuideSource = {
+  label: string;
+  url: string;
+};
+
+export type LocalGuide = {
+  intro: string;
+  movingIn: string[];
+  whatToDocument: string[];
+  sources: LocalGuideSource[];
+};
+
+export type SnagifyInspections = {
+  count: number;
+  asOf: string;
+};
+
 type RawNeighborhood = (typeof raw)[keyof typeof raw];
 
-export type Neighborhood = RawNeighborhood & { indexable: boolean };
+export type Neighborhood = Omit<RawNeighborhood, 'localGuide' | 'snagifyInspections'> & {
+  indexable: boolean;
+  localGuide?: LocalGuide;
+  snagifyInspections?: SnagifyInspections;
+};
 
 export const neighborhoods: Record<string, Neighborhood> = Object.fromEntries(
   Object.entries(raw).map(([slug, n]) => [

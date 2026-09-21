@@ -1,5 +1,6 @@
 ---
 title: "What Happens at the RDC When There's No Check-in Report (A Real Case)"
+seoTitle: "No Check-in Report at the RDC: A Real Case | Snagify"
 description: "I went through a Dubai deposit dispute as a tenant: AED 4,000 claimed for repainting, no check-in report. Here is exactly how the RDC ruled, and why."
 pubDate: 2026-07-17
 author: "Pierre Adam"

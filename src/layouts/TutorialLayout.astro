@@ -6,6 +6,7 @@ import CrispChat from '../components/CrispChat.astro';
 import Clarity from '../components/Clarity.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import MetaPixel from '../components/MetaPixel.astro';
+import Fonts from '../components/Fonts.astro';
 import ResourceBreadcrumbs from '../components/ResourceBreadcrumbs.astro';
 import CategoryBadge from '../components/CategoryBadge.astro';
 import NextTutorial from '../components/NextTutorial.astro';
@@ -23,11 +24,11 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { title, description, pubDate, updatedDate, author, howToSteps: howToFromFm } = post.data;
+const { title, description, pubDate, updatedDate, author, howToSteps: howToFromFm, seoTitle } = post.data;
 const slug = post.slug;
 const site = Astro.site?.origin ?? 'https://snagify.net';
 const canonical = `${site}/resources/tutorials/${slug}`;
-const pageTitle = `${title} | Snagify`;
+const pageTitle = seoTitle ?? `${title} | Snagify`;
 const minutes = readingTimeMinutes(post.body, post.data.readingMinutes);
 const datePublished = pubDate.toISOString();
 const dateModified = (updatedDate ?? pubDate).toISOString();
@@ -145,9 +146,7 @@ const articleLd = {
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" href="/favicon.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<Fonts />
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {

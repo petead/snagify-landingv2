@@ -1,6 +1,7 @@
 ---
 title: "Ejari Explained: What It Costs, Who Pays, and Why It Matters in a Dispute"
-description: "Ejari is the mandatory registration of every Dubai tenancy contract. What it costs, who pays, what it unlocks, and why an unregistered contract weakens both sides in a dispute."
+seoTitle: "Ejari Explained: Cost, Who Pays, Why It Matters | Snagify"
+description: "Ejari registers every Dubai tenancy contract. What it costs, who pays, what it unlocks, and why an unregistered contract weakens you in a dispute."
 pubDate: 2026-09-10
 author: "Pierre Adam"
 tags: ["ejari", "tenancy-contract", "rdc"]

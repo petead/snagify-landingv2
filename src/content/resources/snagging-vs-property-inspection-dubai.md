@@ -1,6 +1,7 @@
 ---
 title: "Snagging vs Property Inspection in Dubai: What's the Difference?"
-description: "Dubai uses snagging for everything. It means the defect inspection of a brand-new property. How it differs from a rental condition report, which one you need, and what each costs."
+seoTitle: "Snagging vs Property Inspection in Dubai | Snagify"
+description: "Snagging is the defect check of a brand-new Dubai property. How it differs from a rental condition report, which one you need, and when each applies."
 pubDate: 2026-09-09
 author: "Pierre Adam"
 tags: ["snagging", "inspection", "move-in"]

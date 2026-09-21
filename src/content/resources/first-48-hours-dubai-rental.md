@@ -1,5 +1,6 @@
 ---
 title: "Just Got Your Keys? Your First 48 Hours in a Dubai Rental"
+seoTitle: "Your First 48 Hours in a Dubai Rental | Snagify"
 description: "Your first 48 hours in a Dubai rental: DEWA, Ejari, move-in permits, and the 20-minute task that protects your deposit for the whole tenancy."
 pubDate: 2026-07-29
 author: "Pierre Adam"

@@ -4,6 +4,7 @@ import CrispChat from '../../components/CrispChat.astro';
 import Clarity from '../../components/Clarity.astro';
 import GoogleAnalytics from '../../components/GoogleAnalytics.astro';
 import MetaPixel from '../../components/MetaPixel.astro';
+import Fonts from '../../components/Fonts.astro';
 import FurtherReading from '../../components/FurtherReading.astro';
 import { getFurtherReading } from '../../lib/further-reading';
 
@@ -62,9 +63,7 @@ const articleJsonLd = {
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" href="/favicon.ico">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<Fonts />
 
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }

@@ -1,6 +1,7 @@
 ---
 title: "How Much Does It Cost to File a Case at the Dubai RDC? (The Real Fee Schedule)"
-description: "3.5% of what, exactly? The RDC fee most blogs quote is wrong for deposit cases. The real two-track schedule, worked examples, who ends up paying, and the costs nobody mentions."
+seoTitle: "Dubai RDC Filing Fees: The Real Schedule | Snagify"
+description: "The RDC fee most blogs quote is wrong for deposit cases. The real two-track fee schedule, worked examples, who ends up paying, and the hidden costs."
 pubDate: 2026-09-01
 author: "Pierre Adam"
 tags: ["rdc", "fees", "deposits"]

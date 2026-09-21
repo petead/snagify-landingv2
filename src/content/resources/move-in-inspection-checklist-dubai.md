@@ -1,6 +1,7 @@
 ---
 title: "Move-in Inspection Checklist Dubai: What to Document on Day One"
-description: "The room-by-room documentation checklist for a Dubai move-in: what to photograph, the spots everyone misses, and how to turn a walkthrough into court-grade evidence."
+seoTitle: "Move-in Inspection Checklist Dubai: Day One | Snagify"
+description: "Room-by-room checklist for a Dubai move-in: what to photograph, the spots everyone misses, and how to turn a walkthrough into court-grade evidence."
 pubDate: 2026-08-30
 author: "Pierre Adam"
 tags: ["move-in", "checklist", "check-in"]

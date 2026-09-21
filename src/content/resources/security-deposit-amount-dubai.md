@@ -1,6 +1,7 @@
 ---
 title: "Security Deposit Amounts in Dubai: 5% or 10%, and What the Law Actually Says"
-description: "Dubai deposits run 5% unfurnished and 10% furnished by convention, not by law. What is legal, what is negotiable, how to pay so you can prove it, and the security-cheque trap."
+seoTitle: "Security Deposit Amount in Dubai: 5% or 10%? | Snagify"
+description: "Dubai deposits run 5% unfurnished and 10% furnished by convention, not by law. What is legal, what is negotiable, and how to pay so you can prove it."
 pubDate: 2026-09-11
 author: "Pierre Adam"
 tags: ["deposits", "tenancy-contract", "tenant-rights"]

@@ -1,6 +1,7 @@
 ---
 title: "Tenant or Landlord Won't Sign the Inspection Report? Here's What to Do"
-description: "Refusals and silence don't break your report. How Snagify documents the 7-day signing window, reminders, refusals and non-response, and what it means at the RDC."
+seoTitle: "Tenant or Landlord Won't Sign the Report? | Snagify"
+description: "Refusals and silence don't break your report. How Snagify handles the 7-day signing window, reminders, refusals and non-response, and what the RDC sees."
 pubDate: 2026-08-01
 author: "Pierre Adam"
 tags: ["signatures", "tutorial", "remote"]

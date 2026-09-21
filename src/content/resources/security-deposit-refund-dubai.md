@@ -1,5 +1,6 @@
 ---
 title: "How to Get Your Security Deposit Back in Dubai (2026 Guide)"
+seoTitle: "Get Your Security Deposit Back in Dubai (2026) | Snagify"
 description: "What Dubai law actually says about deposit refunds, what landlords can deduct, and the exact steps to recover your money, including RDC fees and timelines."
 pubDate: 2026-07-15
 updatedDate: 2026-07-15

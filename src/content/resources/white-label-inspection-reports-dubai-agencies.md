@@ -1,6 +1,7 @@
 ---
 title: "White-Label Inspection Reports: Your Agency's Brand on Every Report"
-description: "What a white-label inspection report is, why the branded PDF in a landlord's inbox is a mandate-winning asset for Dubai agencies, and what branding can and cannot do for validity."
+seoTitle: "White-Label Inspection Reports for Agencies | Snagify"
+description: "What a white-label inspection report is, why a branded PDF in the landlord's inbox helps Dubai agencies win mandates, and what branding cannot do."
 pubDate: 2026-09-03
 author: "Pierre Adam"
 tags: ["agencies", "white-label", "b2b"]

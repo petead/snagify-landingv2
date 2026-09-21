@@ -1,6 +1,7 @@
 ---
 title: "Move-out Inspection in Dubai: Hand Over Without Losing Your Deposit"
-description: "The move-out day is when the deposit conversation actually happens. The week-before checklist, the walkthrough that turns your check-in report into a comparison, and what to do if you never had one."
+seoTitle: "Move-out Inspection in Dubai: Keep Your Deposit | Snagify"
+description: "Move-out day is when your deposit is decided. The week-before checklist, the walkthrough against your check-in report, and what to do about deductions."
 pubDate: 2026-09-12
 author: "Pierre Adam"
 tags: ["move-out", "check-out", "deposits"]

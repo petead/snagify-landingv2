@@ -1,5 +1,6 @@
 ---
 title: "Can Your Dubai Landlord Legally Keep Your Full Deposit?"
+seoTitle: "Can Your Dubai Landlord Keep Your Full Deposit? | Snagify"
 description: "Almost never. What Dubai law lets a landlord deduct, when full withholding is illegal, and the demand letter to send, template included."
 pubDate: 2026-07-18
 author: "Pierre Adam"
