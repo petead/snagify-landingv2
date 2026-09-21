@@ -1,9 +1,9 @@
 ---
-import neighborhoodsData from '../../data/neighborhoods.json';
 import NeighborhoodLayout from '../../layouts/NeighborhoodLayout.astro';
+import { neighborhoods } from '../../data/neighborhoods';
 
 export async function getStaticPaths() {
-  return Object.values(neighborhoodsData).map(neighborhood => ({
+  return Object.values(neighborhoods).map(neighborhood => ({
     params: { slug: neighborhood.slug },
     props: { neighborhood }
   }));

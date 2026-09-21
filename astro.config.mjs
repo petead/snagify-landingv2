@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 
 import sitemap from '@astrojs/sitemap';
+import { isIndexableNeighborhood } from './src/data/neighborhood-indexable.ts';
 
 export default defineConfig({
   site: 'https://snagify.net',
@@ -23,7 +24,12 @@ export default defineConfig({
 
   integrations: [
     sitemap({
-      filter: (page) => page !== 'https://snagify.net/blog',
+      filter: (page) => {
+        if (page === 'https://snagify.net/blog') return false;
+        const match = page.match(/^https:\/\/snagify\.net\/inspections\/([^/]+?)(?:\.html)?\/?$/);
+        if (match && !isIndexableNeighborhood(match[1])) return false;
+        return true;
+      },
     }),
   ],
 });

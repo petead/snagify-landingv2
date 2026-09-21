@@ -1,5 +1,4 @@
 ---
-import neighborhoodsData from '../data/neighborhoods.json';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import CrispChat from '../components/CrispChat.astro';
@@ -8,6 +7,10 @@ import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import MetaPixel from '../components/MetaPixel.astro';
 import FurtherReading from '../components/FurtherReading.astro';
 import { getFurtherReading } from '../lib/further-reading';
+import {
+  getIndexableNearbyNeighborhoods,
+  isIndexableNeighborhood,
+} from '../data/neighborhoods';
 
 const { neighborhood } = Astro.props;
 const furtherReading = getFurtherReading('neighborhood');
@@ -16,11 +19,12 @@ const htmlDir = 'ltr';
 const ogLocale = 'en_AE';
 const inLanguage = 'en-AE';
 const canonicalBase = `https://snagify.net/inspections/${neighborhood.slug}`;
+const indexable = isIndexableNeighborhood(neighborhood.slug);
+const robots = indexable
+  ? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+  : 'noindex, follow';
 
-// Compute nearby neighborhoods (resolve slugs to full data)
-const nearby = (neighborhood.nearbyNeighborhoods || [])
-  .map(slug => neighborhoodsData[slug])
-  .filter(Boolean);
+const nearby = getIndexableNearbyNeighborhoods(neighborhood);
 
 // Build dynamic FAQ tailored to this neighborhood
 const dynamicFaqs = [
@@ -85,7 +89,13 @@ const articleJsonLd = {
   "image": "https://snagify.net/og-image.jpg"
 };
 
-const metaTitle = `Property Inspection in ${neighborhood.label} · Dubai · Snagify`;
+const fullMetaTitle = `Property Inspection in ${neighborhood.label} · Dubai · Snagify`;
+const shortMetaTitle = `Property Inspection in ${neighborhood.label} · Snagify`;
+const metaTitle = fullMetaTitle.length <= 60
+  ? fullMetaTitle
+  : shortMetaTitle.length <= 60
+    ? shortMetaTitle
+    : `Property Inspection in ${neighborhood.shortLabel} · Snagify`;
 const metaDescription = `RDC-ready property inspection reports for ${neighborhood.label}. AI photo analysis, dual digital signatures, ${neighborhood.typicalDuration} per inspection. Free check-ins.`;
 const keywords = `property inspection ${neighborhood.label.toLowerCase()}, ${neighborhood.label.toLowerCase()} inspection app, check-in inspection ${neighborhood.label.toLowerCase()}, rental inspection ${neighborhood.shortLabel.toLowerCase()} dubai, ejari inspection ${neighborhood.shortLabel.toLowerCase()}`;
 ---
@@ -101,7 +111,7 @@ const keywords = `property inspection ${neighborhood.label.toLowerCase()}, ${nei
 <meta name="description" content={metaDescription}>
 <meta name="keywords" content={keywords}>
 <link rel="canonical" href={canonicalBase}>
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="robots" content={robots}>
 <meta name="author" content="Snagify · Seize Montaigne Technologies LLC">
 <meta http-equiv="content-language" content={inLanguage}>
 
