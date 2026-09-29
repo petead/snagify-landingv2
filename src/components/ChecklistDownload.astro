@@ -230,6 +230,9 @@ const PDF_HREF = '/downloads/dubai-move-in-checklist.pdf';
             transaction_id: eventId,
           });
         }
+        if (ok && typeof window.oaiq === 'function') {
+          window.oaiq('measure', 'lead_created', { type: 'customer_action' }, { event_id: eventId });
+        }
       } catch (e) {
         ok = false;
       }

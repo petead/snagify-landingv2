@@ -324,6 +324,9 @@ async function handleSubmit(e) {
         transaction_id: eventId,
       });
     }
+    if (r.ok && typeof window.oaiq === 'function') {
+      window.oaiq('measure', 'lead_created', { type: 'customer_action' }, { event_id: eventId });
+    }
     if (r.ok) {
       document.getElementById('form-main').classList.add('hide');
       document.getElementById('form-success').classList.add('show');

@@ -87,7 +87,7 @@ body { background: var(--white); }
   <div class="page-meta">
     <span>
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      Last updated: September 22, 2026
+      Last updated: September 29, 2026
     </span>
     <span>Applies to snagify.net and the Snagify app</span>
   </div>
@@ -167,13 +167,14 @@ body { background: var(--white); }
         <li>Meta Pixel and Conversions API: measurement and attribution of our own advertising campaigns (e.g. knowing that a signup followed one of our ads). Event data may include hashed identifiers (such as a hashed email) shared with Meta for deduplication and attribution.</li>
         <li>Microsoft Clarity: session analytics (interaction patterns such as clicks and scrolls) to improve usability.</li>
         <li>Google Ads: conversion measurement for our own campaigns.</li>
+        <li>ChatGPT Ads (OpenAI): conversion measurement for our own advertising campaigns in ChatGPT.</li>
       </ul>
       <p>These tools help us measure our product and our own marketing. We do not sell your data, and we do not permit these providers to use it for their own independent advertising purposes beyond what their terms provide. Each provider processes data under its own privacy policy. You can limit collection through browser settings, tracker-blocking tools, and the opt-outs each provider offers.</p>
     </section>
 
     <section class="content-section" id="storage">
       <h2>7. Storage, security &amp; international transfers</h2>
-      <p>Your data is stored on Supabase infrastructure hosted in the Asia-South (Mumbai, India) region, with photos and PDFs in access-controlled storage buckets. Because we operate from the UAE and use international providers, personal data is transferred to and processed in other jurisdictions (including India (hosting), the United States and/or the EU (Vercel, Anthropic, Stripe, Google, Meta, Microsoft, Resend)) under each provider's safeguards and data processing terms, as permitted by the PDPL.</p>
+      <p>Your data is stored on Supabase infrastructure hosted in the Asia-South (Mumbai, India) region, with photos and PDFs in access-controlled storage buckets. Because we operate from the UAE and use international providers, personal data is transferred to and processed in other jurisdictions (including India (hosting), the United States and/or the EU (Vercel, Anthropic, Stripe, Google, Meta, Microsoft, OpenAI, Resend)) under each provider's safeguards and data processing terms, as permitted by the PDPL.</p>
       <p>We use encryption in transit (TLS) and at rest. Signed inspection reports carry a SHA-256 content hash making post-signature alteration detectable. Access to production data is restricted and logged.</p>
       <p>No system is perfectly secure; we encourage you to use a strong, unique password and to keep copies of downloaded reports.</p>
     </section>
@@ -203,6 +204,7 @@ body { background: var(--white); }
         <li>Google: analytics (GA4) and ads conversion measurement</li>
         <li>Meta: advertising measurement (Pixel / Conversions API)</li>
         <li>Microsoft: Clarity session analytics</li>
+        <li>OpenAI: ChatGPT Ads conversion measurement</li>
         <li>Trustpilot A/S (Denmark): review invitations for individual accounts.</li>
       </ul>
       <p>We may disclose data where required by UAE law, a court order, or a valid request from a competent authority, and in connection with a merger, acquisition, or sale of assets (with notice, and under equivalent protections).</p>

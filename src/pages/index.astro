@@ -3,6 +3,7 @@ import CrispChat from '../components/CrispChat.astro';
 import Clarity from '../components/Clarity.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import MetaPixel from '../components/MetaPixel.astro';
+import ChatGPTAdsPixel from '../components/ChatGPTAdsPixel.astro';
 import Supademo from '../components/Supademo.astro';
 import HowItWorksToggle from '../components/HowItWorksToggle.astro';
 import FaqCreditAnswer from '../components/FaqCreditAnswer.astro';
@@ -47,6 +48,7 @@ const softwareOffersLd = plans.map((p) => ({
 <head>
 <GoogleAnalytics />
 <MetaPixel />
+<ChatGPTAdsPixel />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -5362,6 +5364,9 @@ window.toggleBilling = toggleBilling;
           send_to: GOOGLE_ADS_ID + '/' + GOOGLE_ADS_LEAD_LABEL,
           transaction_id: eventId,
         });
+      }
+      if (r.ok && typeof window.oaiq === 'function') {
+        window.oaiq('measure', 'lead_created', { type: 'customer_action' }, { event_id: eventId });
       }
       if (r.ok) {
         msg.textContent = "You're on the list. We'll be in touch.";

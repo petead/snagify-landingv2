@@ -1,0 +1,31 @@
+---
+const PIXEL_ID = 'KySmbjq1qgZELV2tK7Smu8';
+const DEBUG = import.meta.env.DEV;
+---
+<script is:inline define:vars={{ PIXEL_ID, DEBUG }}>
+  (function (w, d, s, u) {
+    if (w.oaiq) return;
+    var q = function () {
+      q.q.push(arguments);
+    };
+    q.q = [];
+    w.oaiq = q;
+    var js = d.createElement(s);
+    js.async = true;
+    js.src = u;
+    var f = d.getElementsByTagName(s)[0];
+    f.parentNode.insertBefore(js, f);
+  })(window, document, 'script', 'https://bzrcdn.openai.com/sdk/oaiq.min.js');
+
+  oaiq('init', { pixelId: PIXEL_ID, debug: DEBUG });
+  oaiq('measure', 'page_viewed', {
+    type: 'contents',
+    contents: [
+      {
+        id: location.pathname,
+        name: document.title,
+        content_type: 'page',
+      },
+    ],
+  });
+</script>
