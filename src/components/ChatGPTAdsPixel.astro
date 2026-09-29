@@ -18,5 +18,13 @@ const DEBUG = import.meta.env.DEV;
   })(window, document, 'script', 'https://bzrcdn.openai.com/sdk/oaiq.min.js');
 
   oaiq('init', { pixelId: PIXEL_ID, debug: DEBUG });
-  oaiq('measure', 'page_viewed', { type: 'contents' });
+  oaiq('measure', 'page_viewed', {
+    type: 'contents',
+    contents: [
+      {
+        name: document.title || 'Snagify',
+        content_type: 'page',
+      },
+    ],
+  });
 </script>
