@@ -18,8 +18,11 @@ const DEBUG = import.meta.env.DEV;
   })(window, document, 'script', 'https://bzrcdn.openai.com/sdk/oaiq.min.js');
 
   oaiq('init', { pixelId: PIXEL_ID, debug: DEBUG });
-  oaiq('measure', 'page_viewed', {
-    type: 'contents',
+</script>
+<script>
+  import { measureOpenAI } from '../scripts/openaiPixel';
+
+  measureOpenAI('page_viewed', {
     contents: [
       {
         name: document.title || 'Snagify',
@@ -27,4 +30,64 @@ const DEBUG = import.meta.env.DEV;
       },
     ],
   });
+
+  function readOppref(): string {
+    try {
+      const fromQuery = new URLSearchParams(window.location.search).get('oppref');
+      if (fromQuery) return fromQuery;
+      const match = document.cookie.match(/(?:^|; )__oppref=([^;]*)/);
+      return match ? decodeURIComponent(match[1]) : '';
+    } catch {
+      return '';
+    }
+  }
+
+  function withOppref(href: string, oppref: string): string | null {
+    try {
+      const url = new URL(href, window.location.origin);
+      if (url.protocol !== 'https:' || url.hostname !== 'app.snagify.net') return null;
+      if (url.searchParams.has('oppref')) return href;
+      url.searchParams.set('oppref', oppref);
+      return url.toString();
+    } catch {
+      return null;
+    }
+  }
+
+  function forwardOppref(): void {
+    try {
+      const oppref = readOppref();
+      if (!oppref) return;
+      document.querySelectorAll('a[href]').forEach((node) => {
+        const a = node as HTMLAnchorElement;
+        const href = a.getAttribute('href');
+        if (!href) return;
+        const next = withOppref(href, oppref);
+        if (next && next !== href) a.setAttribute('href', next);
+      });
+    } catch {
+      // tracking must never break the page
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', forwardOppref);
+  } else {
+    forwardOppref();
+  }
+
+  document.addEventListener('click', (event) => {
+    try {
+      const oppref = readOppref();
+      if (!oppref) return;
+      const a = (event.target as Element | null)?.closest?.('a[href]') as HTMLAnchorElement | null;
+      if (!a) return;
+      const href = a.getAttribute('href');
+      if (!href) return;
+      const next = withOppref(href, oppref);
+      if (next && next !== href) a.setAttribute('href', next);
+    } catch {
+      // tracking must never break the page
+    }
+  }, true);
 </script>

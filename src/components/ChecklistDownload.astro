@@ -3,8 +3,6 @@
  * Soft-gate checklist lead magnet.
  * Email is requested; the PDF link is always revealed after submit.
  */
-const GOOGLE_ADS_ID = (import.meta.env.PUBLIC_GOOGLE_ADS_ID as string | undefined)?.trim() || '';
-const GOOGLE_ADS_LEAD_LABEL = (import.meta.env.PUBLIC_GOOGLE_ADS_LEAD_LABEL as string | undefined)?.trim() || '';
 const PDF_HREF = '/downloads/dubai-move-in-checklist.pdf';
 ---
 
@@ -161,14 +159,25 @@ const PDF_HREF = '/downloads/dubai-move-in-checklist.pdf';
 }
 </style>
 
-<script is:inline define:vars={{ GOOGLE_ADS_ID, GOOGLE_ADS_LEAD_LABEL, PDF_HREF }}>
-(function () {
-  var PDF = PDF_HREF;
+<script>
+import { identifyOpenAIEmail, measureOpenAI } from '../scripts/openaiPixel';
 
-  function showSuccess(root, ok) {
-    var formWrap = root.querySelector('[data-checklist-form]');
-    var success = root.querySelector('[data-checklist-success]');
-    var msg = root.querySelector('[data-checklist-success-msg]');
+const GOOGLE_ADS_ID = String(import.meta.env.PUBLIC_GOOGLE_ADS_ID ?? '').trim();
+const GOOGLE_ADS_LEAD_LABEL = String(import.meta.env.PUBLIC_GOOGLE_ADS_LEAD_LABEL ?? '').trim();
+
+type AdsWindow = Window & {
+  fbq?: (...args: unknown[]) => void;
+  gtag?: (...args: unknown[]) => void;
+  oaiq?: (...args: unknown[]) => void;
+};
+
+(function () {
+  const w = window as AdsWindow;
+
+  function showSuccess(root: HTMLElement, ok: boolean) {
+    const formWrap = root.querySelector<HTMLElement>('[data-checklist-form]');
+    const success = root.querySelector<HTMLElement>('[data-checklist-success]');
+    const msg = root.querySelector<HTMLElement>('[data-checklist-success-msg]');
     if (!formWrap || !success || !msg) return;
     formWrap.hidden = true;
     success.hidden = false;
@@ -177,13 +186,13 @@ const PDF_HREF = '/downloads/dubai-move-in-checklist.pdf';
       : "The email didn't go through, but the checklist is yours:";
   }
 
-  function wire(root) {
-    if (!root || root.dataset.checklistWired === '1') return;
+  function wire(root: HTMLElement) {
+    if (root.dataset.checklistWired === '1') return;
     root.dataset.checklistWired = '1';
-    var form = root.querySelector('[data-checklist-form-el]');
-    var input = root.querySelector('[data-checklist-email]');
-    var btn = root.querySelector('[data-checklist-btn]');
-    var err = root.querySelector('[data-checklist-error]');
+    const form = root.querySelector<HTMLFormElement>('[data-checklist-form-el]');
+    const input = root.querySelector<HTMLInputElement>('[data-checklist-email]');
+    const btn = root.querySelector<HTMLButtonElement>('[data-checklist-btn]');
+    const err = root.querySelector<HTMLElement>('[data-checklist-error]');
     if (!form || !input || !btn) return;
 
     form.addEventListener('submit', async function (e) {
@@ -220,18 +229,19 @@ const PDF_HREF = '/downloads/dubai-move-in-checklist.pdf';
         });
         ok = !!r.ok;
 
-        if (ok && typeof window.fbq === 'function') {
-          window.fbq('track', 'Lead', { content_name: 'checklist_download' }, { eventID: eventId });
+        if (ok && typeof w.fbq === 'function') {
+          w.fbq('track', 'Lead', { content_name: 'checklist_download' }, { eventID: eventId });
         }
-        if (ok && typeof window.gtag === 'function' && GOOGLE_ADS_ID && GOOGLE_ADS_LEAD_LABEL) {
-          window.gtag('set', 'user_data', { email: email });
-          window.gtag('event', 'conversion', {
+        if (ok && typeof w.gtag === 'function' && GOOGLE_ADS_ID && GOOGLE_ADS_LEAD_LABEL) {
+          w.gtag('set', 'user_data', { email: email });
+          w.gtag('event', 'conversion', {
             send_to: GOOGLE_ADS_ID + '/' + GOOGLE_ADS_LEAD_LABEL,
             transaction_id: eventId,
           });
         }
-        if (ok && typeof window.oaiq === 'function') {
-          window.oaiq('measure', 'lead_created', { type: 'customer_action' }, { event_id: eventId });
+        if (ok) {
+          await identifyOpenAIEmail(email);
+          measureOpenAI('lead_created', {}, { event_id: eventId });
         }
       } catch (e) {
         ok = false;
@@ -244,17 +254,17 @@ const PDF_HREF = '/downloads/dubai-move-in-checklist.pdf';
   }
 
   function placeCloneAfterSecondH2() {
-    var prose = document.querySelector('.blog-prose');
-    var primary = document.querySelector('[data-checklist-download]');
+    const prose = document.querySelector('.blog-prose');
+    const primary = document.querySelector<HTMLElement>('[data-checklist-download]');
     if (!prose || !primary) return;
-    var h2s = prose.querySelectorAll('h2');
+    const h2s = prose.querySelectorAll('h2');
     if (h2s.length < 2) return;
     if (document.querySelector('[data-checklist-download-mid]')) return;
-    var clone = primary.cloneNode(true);
+    const clone = primary.cloneNode(true) as HTMLElement;
     clone.setAttribute('data-checklist-download-mid', '1');
     // Re-id email input to avoid duplicate IDs
-    var emailInput = clone.querySelector('[data-checklist-email]');
-    var label = clone.querySelector('label[for="checklist-email"]');
+    const emailInput = clone.querySelector<HTMLInputElement>('[data-checklist-email]');
+    const label = clone.querySelector('label[for="checklist-email"]');
     if (emailInput) {
       emailInput.id = 'checklist-email-mid';
       if (label) label.setAttribute('for', 'checklist-email-mid');
@@ -264,7 +274,7 @@ const PDF_HREF = '/downloads/dubai-move-in-checklist.pdf';
   }
 
   function init() {
-    document.querySelectorAll('[data-checklist-download]').forEach(wire);
+    document.querySelectorAll<HTMLElement>('[data-checklist-download]').forEach(wire);
     placeCloneAfterSecondH2();
   }
 

@@ -24,8 +24,6 @@ const pricing = await fetchPricingCatalog();
 const { packs, plans } = pricing;
 const faqPageLd = buildFaqPageLd();
 const maxProCredits = plans.length ? Math.max(...plans.map((p) => p.creditsPerMonth)) : 50;
-const GOOGLE_ADS_ID = (import.meta.env.PUBLIC_GOOGLE_ADS_ID as string | undefined)?.trim() || '';
-const GOOGLE_ADS_LEAD_LABEL = (import.meta.env.PUBLIC_GOOGLE_ADS_LEAD_LABEL as string | undefined)?.trim() || '';
 const footerBlogPosts = (await getPublishedBlogPosts()).slice(0, 4);
 const footerTutorials = (await getPublishedResources('tutorial')).slice(0, 4);
 
@@ -5322,30 +5320,44 @@ window.toggleBilling = toggleBilling;
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
-<script is:inline define:vars={{ GOOGLE_ADS_ID, GOOGLE_ADS_LEAD_LABEL }}>
+<script>
+import { identifyOpenAIEmail, measureOpenAI } from '../scripts/openaiPixel';
+
+const GOOGLE_ADS_ID = String(import.meta.env.PUBLIC_GOOGLE_ADS_ID ?? '').trim();
+const GOOGLE_ADS_LEAD_LABEL = String(import.meta.env.PUBLIC_GOOGLE_ADS_LEAD_LABEL ?? '').trim();
+
+type AdsWindow = Window & {
+  fbq?: (...args: unknown[]) => void;
+  gtag?: (...args: unknown[]) => void;
+  oaiq?: (...args: unknown[]) => void;
+};
+
 (function() {
-  var btn = document.getElementById('si-btn');
-  var input = document.getElementById('si-email');
-  var msg = document.getElementById('si-msg');
+  const w = window as AdsWindow;
+  const btn = document.getElementById('si-btn') as HTMLButtonElement | null;
+  const input = document.getElementById('si-email') as HTMLInputElement | null;
+  const msg = document.getElementById('si-msg');
   if (!btn || !input) return;
 
   async function submit() {
-    var email = (input.value || '').trim();
-    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const email = (input.value || '').trim();
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!re.test(email)) {
-      msg.textContent = 'Please enter a valid email.';
-      msg.style.color = '#FF5252';
+      if (msg) {
+        msg.textContent = 'Please enter a valid email.';
+        (msg as HTMLElement).style.color = '#FF5252';
+      }
       return;
     }
     btn.disabled = true;
-    var original = btn.textContent;
+    const original = btn.textContent;
     btn.textContent = '...';
     try {
-      var eventId = (window.crypto && window.crypto.randomUUID)
+      const eventId = (window.crypto && window.crypto.randomUUID)
         ? window.crypto.randomUUID()
         : String(Date.now()) + Math.random().toString(16).slice(2);
 
-      var r = await fetch('/api/subscribe', {
+      const r = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -5355,30 +5367,35 @@ window.toggleBilling = toggleBilling;
         }),
       });
 
-      if (r.ok && typeof window.fbq === 'function') {
-        window.fbq('track', 'Lead', { content_name: 'newsletter' }, { eventID: eventId });
+      if (r.ok && typeof w.fbq === 'function') {
+        w.fbq('track', 'Lead', { content_name: 'newsletter' }, { eventID: eventId });
       }
-      if (r.ok && typeof window.gtag === 'function' && GOOGLE_ADS_ID && GOOGLE_ADS_LEAD_LABEL) {
-        window.gtag('set', 'user_data', { email: email });
-        window.gtag('event', 'conversion', {
+      if (r.ok && typeof w.gtag === 'function' && GOOGLE_ADS_ID && GOOGLE_ADS_LEAD_LABEL) {
+        w.gtag('set', 'user_data', { email: email });
+        w.gtag('event', 'conversion', {
           send_to: GOOGLE_ADS_ID + '/' + GOOGLE_ADS_LEAD_LABEL,
           transaction_id: eventId,
         });
       }
-      if (r.ok && typeof window.oaiq === 'function') {
-        window.oaiq('measure', 'lead_created', { type: 'customer_action' }, { event_id: eventId });
+      if (r.ok) {
+        await identifyOpenAIEmail(email);
+        measureOpenAI('lead_created', {}, { event_id: eventId });
       }
       if (r.ok) {
-        msg.textContent = "You're on the list. We'll be in touch.";
-        msg.style.color = '#9A88FD';
+        if (msg) {
+          msg.textContent = "You're on the list. We'll be in touch.";
+          (msg as HTMLElement).style.color = '#9A88FD';
+        }
         input.value = '';
-      } else {
+      } else if (msg) {
         msg.textContent = 'Something went wrong. Try again.';
-        msg.style.color = '#FF5252';
+        (msg as HTMLElement).style.color = '#FF5252';
       }
     } catch (e) {
-      msg.textContent = 'Network error. Try again.';
-      msg.style.color = '#FF5252';
+      if (msg) {
+        msg.textContent = 'Network error. Try again.';
+        (msg as HTMLElement).style.color = '#FF5252';
+      }
     }
     btn.disabled = false;
     btn.textContent = original;

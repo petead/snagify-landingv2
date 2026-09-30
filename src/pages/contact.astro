@@ -1,8 +1,5 @@
 ---
 import LegalLayout from '../layouts/LegalLayout.astro';
-
-const GOOGLE_ADS_ID = (import.meta.env.PUBLIC_GOOGLE_ADS_ID as string | undefined)?.trim() || '';
-const GOOGLE_ADS_LEAD_LABEL = (import.meta.env.PUBLIC_GOOGLE_ADS_LEAD_LABEL as string | undefined)?.trim() || '';
 ---
 <LegalLayout
   title="Contact Snagify | Dubai Property Inspection Support"
@@ -195,7 +192,7 @@ body { min-height: 100vh; }
     </div>
     <div class="fw-fields">
       <div class="form-main" id="form-main">
-        <form id="contact-form" onsubmit="handleSubmit(event)">
+        <form id="contact-form">
           <div class="form-row">
             <div class="form-group">
               <label>First name</label>
@@ -275,61 +272,78 @@ body { min-height: 100vh; }
 
 </div>
 
-<script is:inline slot="scripts" define:vars={{ GOOGLE_ADS_ID, GOOGLE_ADS_LEAD_LABEL }}>
-async function handleSubmit(e) {
+<script>
+import { identifyOpenAIEmail, measureOpenAI } from '../scripts/openaiPixel';
+
+const GOOGLE_ADS_ID = String(import.meta.env.PUBLIC_GOOGLE_ADS_ID ?? '').trim();
+const GOOGLE_ADS_LEAD_LABEL = String(import.meta.env.PUBLIC_GOOGLE_ADS_LEAD_LABEL ?? '').trim();
+
+type AdsWindow = Window & {
+  fbq?: (...args: unknown[]) => void;
+  gtag?: (...args: unknown[]) => void;
+  oaiq?: (...args: unknown[]) => void;
+};
+
+async function handleSubmit(e: Event) {
   e.preventDefault();
-  var errEl = document.getElementById('cf-error');
-  var btn = document.querySelector('#contact-form .btn-submit');
+  const w = window as AdsWindow;
+  const errEl = document.getElementById('cf-error');
+  const btn = document.querySelector('#contact-form .btn-submit') as HTMLButtonElement | null;
+  if (!errEl) return;
   errEl.style.display = 'none';
 
-  var payload = {
-    firstName: (document.getElementById('cf-firstname')?.value || '').trim(),
-    lastName: (document.getElementById('cf-lastname')?.value || '').trim(),
-    email: (document.getElementById('cf-email')?.value || '').trim(),
-    role: (document.getElementById('cf-role')?.value || '').trim(),
-    subject: (document.getElementById('cf-subject')?.value || '').trim(),
-    message: (document.getElementById('cf-message')?.value || '').trim(),
+  const field = (id: string) =>
+    ((document.getElementById(id) as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null)?.value || '').trim();
+
+  const payload: Record<string, string> = {
+    firstName: field('cf-firstname'),
+    lastName: field('cf-lastname'),
+    email: field('cf-email'),
+    role: field('cf-role'),
+    subject: field('cf-subject'),
+    message: field('cf-message'),
   };
 
-  var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!payload.firstName || !payload.lastName || !payload.email || !payload.message || !re.test(payload.email)) {
     errEl.textContent = 'Please fill in all required fields with a valid email.';
     errEl.style.display = 'block';
     return;
   }
 
-  var original = btn ? btn.textContent : '';
+  const original = btn ? btn.textContent : '';
   if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
 
   try {
-    var eventId = (window.crypto && window.crypto.randomUUID)
+    const eventId = (window.crypto && window.crypto.randomUUID)
       ? window.crypto.randomUUID()
       : String(Date.now()) + Math.random().toString(16).slice(2);
     payload.eventId = eventId;
     payload.eventSourceUrl = window.location.href;
 
-    var r = await fetch('/api/contact', {
+    const r = await fetch('/api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     });
 
-    if (r.ok && typeof window.fbq === 'function') {
-      window.fbq('track', 'Lead', { content_name: 'contact_form' }, { eventID: eventId });
+    if (r.ok && typeof w.fbq === 'function') {
+      w.fbq('track', 'Lead', { content_name: 'contact_form' }, { eventID: eventId });
     }
-    if (r.ok && typeof window.gtag === 'function' && GOOGLE_ADS_ID && GOOGLE_ADS_LEAD_LABEL) {
-      window.gtag('set', 'user_data', { email: payload.email });
-      window.gtag('event', 'conversion', {
+    if (r.ok && typeof w.gtag === 'function' && GOOGLE_ADS_ID && GOOGLE_ADS_LEAD_LABEL) {
+      w.gtag('set', 'user_data', { email: payload.email });
+      w.gtag('event', 'conversion', {
         send_to: GOOGLE_ADS_ID + '/' + GOOGLE_ADS_LEAD_LABEL,
         transaction_id: eventId,
       });
     }
-    if (r.ok && typeof window.oaiq === 'function') {
-      window.oaiq('measure', 'lead_created', { type: 'customer_action' }, { event_id: eventId });
+    if (r.ok) {
+      await identifyOpenAIEmail(payload.email);
+      measureOpenAI('lead_created', {}, { event_id: eventId });
     }
     if (r.ok) {
-      document.getElementById('form-main').classList.add('hide');
-      document.getElementById('form-success').classList.add('show');
+      document.getElementById('form-main')?.classList.add('hide');
+      document.getElementById('form-success')?.classList.add('show');
     } else {
       errEl.textContent = 'Something went wrong. Please try again or email hello@snagify.net.';
       errEl.style.display = 'block';
@@ -341,5 +355,7 @@ async function handleSubmit(e) {
     if (btn) { btn.disabled = false; btn.textContent = original; }
   }
 }
+
+document.getElementById('contact-form')?.addEventListener('submit', handleSubmit);
 </script>
 </LegalLayout>
