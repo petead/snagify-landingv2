@@ -16,7 +16,7 @@ draft: false
 
 The check-in built your baseline. The check-out is where it pays. A move-out inspection is not a second photo shoot: it is a comparison, room by room and finding by finding, between the property today and the property both parties signed off on. Done right, it produces the one document that settles the deposit conversation before it becomes a dispute. This tutorial walks the full flow: matching photos against the check-in, judging what changed, counting the furniture and the keys, and reading the comparison report you hand to both parties.
 
-**Before you start:** the tenancy should have a signed check-in in Snagify (that is your baseline; if yours was on paper, [you can still run a check-out](/resources/tutorials/perfect-check-in-20-minutes), the comparison is just manual). Schedule the check-out after the tenant has moved their belongings out: furniture and boxes hide exactly the surfaces you need to see.
+**Before you start:** the tenancy must have a signed check-in in Snagify. That is your baseline, and a check-out cannot be started without it. If you do not have one yet, [run a check-in first](/resources/tutorials/perfect-check-in-20-minutes). Schedule the check-out after the tenant has moved their belongings out: furniture and boxes hide exactly the surfaces you need to see.
 
 ## Step 1: Start the check-out from the tenancy (1 minute)
 
@@ -84,7 +84,7 @@ A signed comparison between two signed states of the same property: every change
 ## Frequently asked questions
 
 **Can I do a check-out without a Snagify check-in?**
-Yes. You will document the property's final condition with full photo evidence and signatures; the comparison against your paper baseline is manual. And your next tenancy can start with a free digital check-in, making the chain automatic from then on.
+No. A check-out is started from the tenancy's signed Snagify check-in and compares against it, so a paper or Word check-in cannot be used. If the tenancy is still running, do a free check-in now, then the check-out at move-out. Otherwise, start your next tenancy with a free check-in.
 
 **What if the tenant already left the keys and flew home?**
 Run the inspection anyway and send the remote signature link; it works from any country. If they never respond, the report documents the invitation, the reminders, and the closed window.

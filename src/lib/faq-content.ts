@@ -57,7 +57,7 @@ export const proGettingStarted: FaqItem[] = [
   },
   {
     q: 'We already have our own template. Is switching mid-portfolio a problem?',
-    a: 'No migration needed: start using Snagify on your next inspection. Older paper or Word check-ins remain what they are; from your first Snagify check-in onward, every check-out compares automatically against a signed digital baseline. Most agencies switch one property at a time as tenancies renew.',
+    a: 'No migration needed: start using Snagify on your next inspection. Older paper or Word check-ins cannot be imported, and a Snagify check-out needs a Snagify check-in on the same tenancy, so tenancies already running on paper finish on paper. From your first Snagify check-in onward, every check-out compares automatically against a signed digital baseline. Most agencies switch one property at a time as tenancies renew.',
   },
 ];
 
@@ -104,8 +104,8 @@ export const individualGettingStarted: FaqItem[] = [
     a: 'No. They sign on your phone on the spot, or receive an email link and sign from their own device: no account, no download needed. The link stays valid for 7 days with automatic reminders, and if they never respond, that is documented too.',
   },
   {
-    q: 'My check-in was done on paper. Can I still use Snagify for the check-out?',
-    a: 'Yes. A Snagify check-out alongside an older paper check-in still adds significant weight: dated photos, signatures, and a tamper-proof record of the property\'s final condition. The comparison against your paper baseline is just manual. And your next tenancy can start with a free digital check-in, so the full chain is automatic from then on.',
+    q: 'My check-in was done on paper. Can I use Snagify for the check-out?',
+    a: 'No. A Snagify check-out can only be started from a signed Snagify check-in on the same tenancy: the check-out is a room-by-room comparison against that baseline, and the report cites it by ID and hash. If your tenancy is still running, do a free check-in now. A baseline signed mid-tenancy carries less weight than one signed at handover, but it gives your check-out something to compare against. Otherwise, start your next tenancy with a free check-in.',
   },
   {
     q: 'Does Snagify work offline on-site?',

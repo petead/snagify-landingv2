@@ -163,7 +163,7 @@
     "faqs": [
       {
         "question": "Do I need to have used Snagify at check-in to do a Snagify check-out?",
-        "answer": "Ideally yes. A check-out inspection's main strength is comparison against a documented check-in baseline. If your original check-in was on Word or paper, you can still do a Snagify check-out, but you lose the automatic side-by-side comparison feature."
+        "answer": "Yes. A Snagify check-out can only be started from a signed Snagify check-in on the same tenancy. The check-out is a comparison against that baseline, and the report cites the check-in by ID and hash. If your check-in was on Word or paper, Snagify cannot run the check-out for that tenancy. Start your next tenancy with a free Snagify check-in so the comparison is ready at move-out."
       },
       {
         "question": "How does Snagify handle fair wear and tear?",

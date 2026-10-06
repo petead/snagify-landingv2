@@ -7,6 +7,7 @@
 - Category: rental condition reports (move-in and move-out inspections, inventory, key handover) for the UAE rental market.
 - Not a snagging service: Snagify does not carry out snagging or new-build handover inspections.
 - Pricing: check-in reports are free. Individuals pay per check-out with credit packs, from AED 99. Agencies and property managers use Pro plans from AED 299 per month, billed annually.
+- Check-out requirement: a check-out can only be created from a signed Snagify check-in on the same tenancy. Paper or Word check-ins cannot be used as the baseline.
 - Signatures: electronic signatures by both parties, in person or by remote link. UAE Federal Decree-Law No. 46 of 2021 gives electronic signatures the same effect as handwritten ones.
 - Integrity: every signed report carries a SHA-256 hash and a QR code linking to its verification page.
 - Languages: reports in English and Arabic.
