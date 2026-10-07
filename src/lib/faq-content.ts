@@ -138,6 +138,34 @@ export const individualPricingData: FaqItem[] = [
   },
 ];
 
+/** B2C homepage FAQ (UI + FAQPage JSON-LD on /). */
+export const homeFaq: FaqItem[] = [
+  {
+    q: 'Is the move-in report really free?',
+    a: 'Yes. Photograph every room, both parties sign, and you keep the PDF. You only pay if you later lock a move-out report on that same tenancy.',
+  },
+  {
+    q: 'Does the other party need an account?',
+    a: 'No. They sign on your phone, or from an email link on their own device. No download, no account. The link stays valid for 7 days, with automatic reminders.',
+  },
+  {
+    q: 'What if they refuse to sign, or never reply?',
+    a: 'The report still files. A refusal is recorded with its timestamp and reason. Silence is recorded too: when the link was sent, whether they viewed it, and that the 7-day window closed without a signature.',
+  },
+  {
+    q: 'Can I start a move-out report without a Snagify move-in report?',
+    a: 'No. A move-out report is a room-by-room comparison against a signed Snagify move-in report on the same tenancy. Paper or Word files cannot be used as that baseline. If the tenancy is still running, do a free move-in report now.',
+  },
+  {
+    q: 'How much is a move-out report?',
+    a: 'An apartment up to two bedrooms is two credits. Larger and furnished properties cost more, as shown in the app. Credits never expire. The move-in report stays free.',
+  },
+  {
+    q: 'Can you do the report at the property for me?',
+    a: 'Yes. From AED 349, a Snagify specialist comes to the property, photographs every room, and gets both signatures. Book it below, or message us on WhatsApp.',
+  },
+];
+
 /** All FAQ entries for JSON-LD: shared core once, then per-tab arrays (no duplicates of shared). */
 export function allFaqForLd(): FaqItem[] {
   return [
