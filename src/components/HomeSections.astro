@@ -11,8 +11,21 @@ const demoUrl = 'https://app.supademo.com/embed/cmritt3p707ubqmeq7y0sx805?embed_
 ---
 
 <style>
+  .hs-why,
+  .hs-how,
+  .hs-pricing,
+  .hs-faq,
+  .hs-final,
+  .hs-agencies,
+  .hs-remind,
+  .hs-bar,
+  .hs-demo {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+  }
+
   .hs-wrap {
-    max-width: 1120px;
+    max-width: 1360px;
     margin: 0 auto;
     padding: 0 48px;
   }
@@ -21,38 +34,43 @@ const demoUrl = 'https://app.supademo.com/embed/cmritt3p707ubqmeq7y0sx805?embed_
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    font-family: 'DM Sans', sans-serif;
     font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2.4px;
+    font-weight: 500;
+    letter-spacing: 3.5px;
     text-transform: uppercase;
     color: var(--ink-60);
     margin-bottom: 16px;
   }
   .hs-kicker::before {
     content: '';
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--purple);
+    width: 20px;
+    height: 1.5px;
+    background: var(--ink-60);
+    border-radius: 0;
   }
 
   .hs-h2 {
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
-    font-size: clamp(32px, 4.4vw, 56px);
-    letter-spacing: -1.8px;
-    line-height: 1.08;
+    font-size: clamp(36px, 4vw, 58px);
+    letter-spacing: -2px;
+    line-height: 1.04;
     color: var(--ink);
   }
   .hs-h2 em {
+    font-family: 'Poppins', sans-serif;
     font-style: italic;
+    font-weight: 800;
     color: var(--purple);
   }
   .hs-lead {
+    font-family: 'DM Sans', sans-serif;
     font-size: 17px;
+    font-weight: 400;
     line-height: 1.7;
     color: var(--ink-60);
-    max-width: 42rem;
+    max-width: 480px;
   }
   .hs-lead-gap { margin-top: 16px; }
   .hs-center { text-align: center; }
@@ -62,16 +80,18 @@ const demoUrl = 'https://app.supademo.com/embed/cmritt3p707ubqmeq7y0sx805?embed_
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 14px 26px;
+    gap: 10px;
+    padding: 15px 30px;
     border-radius: 999px;
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 15px;
+    letter-spacing: -0.2px;
+    line-height: 1.2;
     text-decoration: none;
     border: none;
     cursor: pointer;
-    transition: background 0.3s, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s, color 0.3s;
+    transition: background 0.35s, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s, color 0.35s;
   }
   .hs-btn-ink {
     background: var(--ink);
@@ -138,7 +158,7 @@ const demoUrl = 'https://app.supademo.com/embed/cmritt3p707ubqmeq7y0sx805?embed_
 
   /* ── Why ── */
   .hs-why {
-    padding: 100px 0 80px;
+    padding: 140px 0 80px;
     background: var(--cream);
   }
   .hs-why-grid {
@@ -161,20 +181,22 @@ const demoUrl = 'https://app.supademo.com/embed/cmritt3p707ubqmeq7y0sx805?embed_
   .hs-fact b {
     display: block;
     font-family: 'Poppins', sans-serif;
-    font-size: 22px;
+    font-size: 26px;
     font-weight: 800;
-    letter-spacing: -0.6px;
-    margin-bottom: 6px;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 8px;
   }
   .hs-fact span {
-    font-size: 14px;
-    line-height: 1.5;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
     color: var(--ink-60);
   }
 
   /* ── How ── */
   .hs-how {
-    padding: 40px 0 100px;
+    padding: 40px 0 140px;
     background: var(--cream);
   }
   .hs-how-head {
@@ -196,7 +218,7 @@ const demoUrl = 'https://app.supademo.com/embed/cmritt3p707ubqmeq7y0sx805?embed_
     flex-direction: column;
   }
   .hs-step-shot {
-    height: 220px;
+    height: 248px;
     background: var(--cream-2);
     overflow: hidden;
     position: relative;
@@ -205,17 +227,16 @@ const demoUrl = 'https://app.supademo.com/embed/cmritt3p707ubqmeq7y0sx805?embed_
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 22%;
   }
   .hs-step-shot--sign img {
-    object-position: center 82%;
+    object-position: center 78%;
   }
   .hs-step-shot--empty {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--ink-60);
-    font-size: 13px;
-    font-weight: 600;
+    background: var(--cream-2);
   }
   .hs-step-body {
     padding: 20px 20px 22px;
@@ -224,21 +245,25 @@ const demoUrl = 'https://app.supademo.com/embed/cmritt3p707ubqmeq7y0sx805?embed_
     gap: 8px;
   }
   .hs-step-n {
+    font-family: 'DM Sans', sans-serif;
     font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
+    font-weight: 500;
+    letter-spacing: 3.5px;
     text-transform: uppercase;
     color: var(--purple);
   }
   .hs-step-body h3 {
     font-family: 'Poppins', sans-serif;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 800;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.8px;
+    line-height: 1.15;
   }
   .hs-step-body p {
-    font-size: 14px;
-    line-height: 1.55;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.65;
     color: var(--ink-60);
   }
   .hs-cases {
@@ -254,20 +279,22 @@ const demoUrl = 'https://app.supademo.com/embed/cmritt3p707ubqmeq7y0sx805?embed_
   }
   .hs-case h3 {
     font-family: 'Poppins', sans-serif;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 800;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.8px;
+    line-height: 1.15;
     margin-bottom: 10px;
   }
   .hs-case p {
-    font-size: 15px;
-    line-height: 1.65;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
     color: var(--ink-60);
   }
 
   /* ── Pricing ── */
   .hs-pricing {
-    padding: 100px 0;
+    padding: 140px 0;
     background: var(--white);
   }
   .hs-price-grid {
@@ -303,19 +330,22 @@ const demoUrl = 'https://app.supademo.com/embed/cmritt3p707ubqmeq7y0sx805?embed_
   }
   .hs-price-body h3 {
     font-family: 'Poppins', sans-serif;
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 800;
-    letter-spacing: -0.7px;
+    letter-spacing: -1px;
+    line-height: 1.1;
   }
   .hs-price-amt {
     font-family: 'Poppins', sans-serif;
-    font-size: 34px;
+    font-size: 40px;
     font-weight: 800;
-    letter-spacing: -1px;
+    letter-spacing: -1.5px;
+    line-height: 1;
   }
   .hs-price-body p {
-    font-size: 15px;
-    line-height: 1.65;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
     color: var(--ink-60);
   }
   .hs-price-actions {
@@ -348,7 +378,7 @@ const demoUrl = 'https://app.supademo.com/embed/cmritt3p707ubqmeq7y0sx805?embed_
 
   /* ── FAQ ── */
   .hs-faq {
-    padding: 100px 0;
+    padding: 140px 0;
     background: var(--cream);
   }
   .hs-faq-list {
@@ -369,12 +399,15 @@ const demoUrl = 'https://app.supademo.com/embed/cmritt3p707ubqmeq7y0sx805?embed_
     list-style: none;
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    font-size: 16px;
-    padding: 18px 0;
+    font-size: 19px;
+    line-height: 1.4;
+    letter-spacing: -0.3px;
+    padding: 22px 0;
     display: flex;
     justify-content: space-between;
-    gap: 16px;
+    gap: 24px;
     align-items: center;
+    color: var(--ink);
   }
   .hs-faq summary::-webkit-details-marker {
     display: none;
@@ -394,15 +427,17 @@ const demoUrl = 'https://app.supademo.com/embed/cmritt3p707ubqmeq7y0sx805?embed_
     margin-top: 0;
   }
   .hs-faq details p {
-    padding: 0 0 20px;
-    font-size: 15px;
+    font-family: 'DM Sans', sans-serif;
+    padding: 0 0 22px;
+    font-size: 16px;
+    font-weight: 400;
     line-height: 1.7;
     color: var(--ink-60);
   }
 
   /* ── Final ── */
   .hs-final {
-    padding: 100px 0;
+    padding: 140px 0;
     background: var(--ink);
     color: var(--white);
   }
@@ -420,6 +455,8 @@ const demoUrl = 'https://app.supademo.com/embed/cmritt3p707ubqmeq7y0sx805?embed_
     align-items: center;
   }
   .hs-final-link {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
     color: var(--green);
     font-weight: 600;
     text-decoration: underline;
@@ -467,11 +504,13 @@ const demoUrl = 'https://app.supademo.com/embed/cmritt3p707ubqmeq7y0sx805?embed_
   }
   .hs-remind-form input {
     width: 100%;
-    padding: 13px 16px;
+    padding: 14px 16px;
     border-radius: 12px;
     border: 1px solid var(--ink-25);
     background: var(--cream);
-    font: inherit;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
     color: var(--ink);
   }
   .hs-remind-form input:focus {
@@ -567,6 +606,10 @@ const demoUrl = 'https://app.supademo.com/embed/cmritt3p707ubqmeq7y0sx805?embed_
   @media (max-width: 859px) {
     .hs-wrap {
       padding: 0 20px;
+    }
+    .hs-h2 {
+      font-size: clamp(28px, 7.5vw, 40px);
+      letter-spacing: -1.2px;
     }
     .hs-why,
     .hs-how,
