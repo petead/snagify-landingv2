@@ -126,9 +126,11 @@
   align-items: center;
   gap: 8px;
   list-style: none;
-  margin: 0;
+  margin: 0 0 0 28px;
   padding: 0;
+  flex: 1;
 }
+.site-header-links li:has(.site-header-login) { margin-left: auto; }
 .site-header-links a {
   display: inline-block;
   padding: 8px 14px;
@@ -165,7 +167,7 @@
   box-shadow: 0 8px 20px rgba(154,136,253,0.3);
 }
 .site-header-login {
-  font-weight: 600 !important;
+  font-weight: 800 !important;
   color: #0E0E10 !important;
 }
 .site-header-login:hover { background: rgba(14,14,16,0.04); }
