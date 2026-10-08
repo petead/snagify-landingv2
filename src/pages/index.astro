@@ -1767,6 +1767,24 @@ div#nav-drawer .mob-cta:hover {
   .fq2-plus, .fq2-btn { transition: none; }
 }
 
+/* ══ PRO STRIP ══ */
+.pro-strip { background: #EDE9FE; }
+.pro-strip-wrap { max-width: 1240px; margin: 0 auto; padding: clamp(26px, 3.2vw, 40px) clamp(20px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; }
+.pro-strip-text { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.pro-strip-text h2 { margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: clamp(20px, 2vw, 26px); letter-spacing: -0.02em; line-height: 1.2; }
+.pro-strip-text p { margin: 0; font-size: 15.5px; line-height: 1.5; color: rgba(14,14,16,0.8); }
+.pro-strip-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 26px; background: #0E0E10; color: #FCFCFC; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15px; border-radius: 999px; text-decoration: none; transition: transform .25s, background .25s, color .25s; }
+.pro-strip-btn:hover { transform: translateY(-2px); background: var(--purple); color: #0E0E10; }
+.pro-strip-btn svg { transition: transform .25s; }
+.pro-strip-btn:hover svg { transform: translateX(3px); }
+@media (max-width: 860px) {
+  .pro-strip-btn { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pro-strip-btn, .pro-strip-btn svg { transition: none; }
+  .pro-strip-btn:hover, .pro-strip-btn:hover svg { transform: none; }
+}
+
 /* ══ PRICING ══ */
 .pricing {
   padding: 120px 0;
@@ -3894,7 +3912,7 @@ footer {
       <div class="reveal">
         <article class="pr2-card">
           <div class="pr2-banner pr2-banner--app">
-            <img src="/screenshots/feat-ai-analysis.png" alt="Snagify app: a flagged issue with the note drafted by the app" width="390" height="844" loading="lazy" decoding="async">
+            <img src="/images/diy.jpg" alt="A tenant photographs a crack on move-in day" width="5504" height="3072" loading="lazy" decoding="async">
           </div>
           <span class="pr2-label">With the app</span>
           <h3 class="pr2-h3">Do it yourself.</h3>
@@ -4087,6 +4105,19 @@ footer {
         <a href="mailto:hello@snagify.net" class="fq2-btn fq2-btn--ink">Email us</a>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ╔══ PRO STRIP ══╗ -->
+<section class="pro-strip" aria-label="For professionals">
+  <div class="pro-strip-wrap reveal">
+    <div class="pro-strip-text">
+      <h2>Managing multiple properties?</h2>
+      <p>Your logo on every report, a shared team account and monthly plans.</p>
+    </div>
+    <a href="/for/real-estate-agencies" class="pro-strip-btn">See Snagify for professionals
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
   </div>
 </section>
 
