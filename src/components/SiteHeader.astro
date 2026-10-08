@@ -23,9 +23,11 @@
     <li><a href="/#faq">FAQ</a></li>
     <li><a href="/resources">Resources</a></li>
     <li><a href="/contact">Contact</a></li>
-    <li><a href="https://app.snagify.net" class="site-header-login">Log in</a></li>
-    <li><a href="https://app.snagify.net/signup?ref=header" class="site-header-pill">Start free</a></li>
   </ul>
+  <div class="site-header-account">
+    <a href="https://app.snagify.net" class="site-header-login">Log in</a>
+    <a href="https://app.snagify.net/signup?ref=header" class="site-header-pill">Start free</a>
+  </div>
 
   <div class="site-header-actions">
     <a href="https://app.snagify.net/signup?ref=header" class="site-header-pill site-header-pill-mobile">Start free</a>
@@ -126,11 +128,9 @@
   align-items: center;
   gap: 8px;
   list-style: none;
-  margin: 0 0 0 28px;
+  margin: 0;
   padding: 0;
-  flex: 1;
 }
-.site-header-links li:has(.site-header-login) { margin-left: auto; }
 .site-header-links a {
   display: inline-block;
   padding: 8px 14px;
@@ -167,10 +167,17 @@
   box-shadow: 0 8px 20px rgba(154,136,253,0.3);
 }
 .site-header-login {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 14px;
+  text-decoration: none;
   font-weight: 800 !important;
   color: #0E0E10 !important;
 }
 .site-header-login:hover { background: rgba(14,14,16,0.04); }
+.site-header-account { display: flex; align-items: center; gap: 8px; }
 .site-header-pill-dot {
   width: 6px;
   height: 6px;
@@ -313,10 +320,17 @@
   color: #0E0E10 !important;
 }
 
+@media (min-width: 769px) {
+  #site-header { display: grid; grid-template-columns: 1fr auto 1fr; }
+  .site-header-logo { justify-self: start; }
+  .site-header-links { justify-self: center; }
+  .site-header-account { justify-self: end; }
+}
 @media (max-width: 768px) {
   #site-header { padding: 16px 20px; }
   #site-header.scrolled { padding: 10px 16px; }
   .site-header-links { display: none; }
+  .site-header-account { display: none; }
   .site-header-actions { display: flex; }
   .site-header-burger { display: flex; }
   .site-header-pill-mobile {
