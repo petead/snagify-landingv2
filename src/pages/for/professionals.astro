@@ -1,0 +1,646 @@
+---
+import LegalLayout from '../../layouts/LegalLayout.astro';
+import { fetchPricingCatalog, formatAed } from '../../lib/pricing';
+
+const { plans } = await fetchPricingCatalog();
+
+const rollLabel = (m: number) =>
+  m <= 1 ? 'No rollover' : `Unused credits roll over (up to ${Number.isInteger(m) ? m : m.toFixed(1)}x)`;
+
+const calcPlans = plans.map((p) => ({
+  name: p.name,
+  annual: p.priceMonthlyAnnual,
+  credits: p.creditsPerMonth,
+  extra: p.extraCreditAed ?? 0,
+}));
+const maxCredits = plans.length ? Math.max(...plans.map((p) => p.creditsPerMonth)) : 75;
+
+const waDemo = 'https://wa.me/971585169329?text=' + encodeURIComponent('Hi Snagify, I manage properties and would like a 15-minute demo.');
+const calDemo = 'https://cal.com/snagify/15min-demo-snagify';
+
+const brands = [
+  { letter: 'H', name: 'Horizon Property Management', color: '#1B3A5C', delay: '0s' },
+  { letter: 'P', name: 'Palm & Co. Real Estate', color: '#0F7B6C', delay: '4s' },
+  { letter: 'N', name: 'Northbay Homes', color: '#B4532A', delay: '8s' },
+];
+
+const rooms = [
+  { name: 'Living room', status: 'Good', color: '#3CCB7F' },
+  { name: 'Kitchen', status: 'Good', color: '#3CCB7F' },
+  { name: 'Bedroom 1', status: 'Damaged', color: '#FF8A65' },
+  { name: 'Bathroom', status: 'Fair', color: '#F5C24A' },
+];
+
+const pains = [
+  { t: 'Every property manager, a different file.', b: "Word here, Excel there, photos on someone's phone. Nothing you can defend." },
+  { t: 'A landlord abroad, asking for proof.', b: "They can't visit. All they get is a WhatsApp thread and your word." },
+  { t: 'A dispute, and nothing solid.', b: 'No signatures, no dates, no record of what was there on day one.' },
+];
+
+const steps = [
+  { t: 'Add the unit', b: 'Pick a template, rooms are ready in a minute.' },
+  { t: 'Inspect room by room', b: 'Photos, AI flags damage and drafts the notes.' },
+  { t: 'Both parties sign', b: "On your inspector's phone, or by link within 7 days." },
+  { t: 'Send the branded PDF', b: 'Landlord and tenant get it, wherever they are. Move-out compares automatically.' },
+];
+
+const feats = [
+  { k: 'brand', t: 'Your brand on every report', b: 'Logo and colours on every page. Snagify stays invisible.' },
+  { k: 'team', t: 'One credit pool, whole team', b: 'Your inspectors share credits. You see who did what.' },
+  { k: 'ai', t: 'AI photo analysis', b: 'Flags cracks, stains and damage, and drafts the note.' },
+  { k: 'ghost', t: 'Ghost mode at move-out', b: 'The move-in photo overlays the camera: same angle, months later.' },
+  { k: 'sign', t: 'Remote signatures', b: 'Link valid 7 days, reminders on day 1 and 3, refusals recorded.' },
+  { k: 'lock', t: 'Tamper-evident PDF', b: 'A content fingerprint and a QR code on every page.' },
+  { k: 'bell', t: 'Lease-end reminders', b: 'Know a move-out is coming before the tenant calls.' },
+  { k: 'folder', t: 'Reports stay with the company', b: 'When someone leaves the team, every inspection stays with you.' },
+];
+
+const icons: Record<string, string> = {
+  brand: '<circle cx="13.5" cy="6.5" r="1"/><circle cx="17.5" cy="10.5" r="1"/><circle cx="8.5" cy="7.5" r="1"/><circle cx="6.5" cy="12.5" r="1"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.13-.29-.29-.44-.65-.44-1.13a1.64 1.64 0 0 1 1.67-1.67h2c3.05 0 5.55-2.5 5.55-5.55C21.97 6.01 17.46 2 12 2z"/>',
+  team: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  ai: '<path d="M12 3l1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2z"/><path d="M19 17l.7 2.1L22 20l-2.3.9L19 23l-.7-2.1L16 20l2.3-.9z"/>',
+  ghost: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>',
+  sign: '<path d="M3 17c3 0 4-6 7-6s2 6 5 6 3-3 6-3"/><path d="M3 21h18"/>',
+  lock: '<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
+  bell: '<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>',
+  folder: '<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
+};
+
+const faqs = [
+  { q: 'Is a Snagify report accepted by the Rental Disputes Center (RDC)?', a: 'No report format is pre-approved by the RDC, and no app can truthfully claim an official stamp. The RDC weighs the evidence: who the parties are, the dates, both signatures and the photos. Snagify reports are built on exactly that, and electronic signatures are valid under UAE law (Federal Decree-Law No. 46 of 2021).' },
+  { q: 'What if the landlord or tenant refuses to sign?', a: 'The refusal is recorded with its date and the reason given. If they never answer the link, the report shows when it was sent, whether it was opened and when the 7-day window closed.' },
+  { q: 'Who owns the reports if someone leaves the team?', a: 'The company. Reports belong to your company account, not to the person who made them. Their inspections, units and tenancies stay with you.' },
+  { q: 'Can I bill landlords for inspections?', a: 'Yes. Many property management companies and agencies in Dubai charge landlords a move-in and move-out fee. You set your own price, and the branded report is what you deliver for it.' },
+  { q: 'Our current tenancies are on paper. Can we switch?', a: 'Yes, from the next move-in. A Snagify move-out compares against a Snagify move-in, so tenancies already running on paper finish on paper. Most teams switch unit by unit as tenancies renew.' },
+  { q: 'Can I cancel anytime?', a: 'Yes. Monthly plans cancel in one click. You keep access until the end of the billing period, and every report stays in your account.' },
+];
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+
+const title = 'Inspection Software for Property Managers in Dubai · Snagify';
+const description = 'Branded move-in and move-out reports for property management companies and agencies in Dubai. Signed on site, your logo on every page, one plan for the whole team.';
+---
+<LegalLayout
+  title={title}
+  description={description}
+  slug="for/professionals"
+  robots="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+  jsonLd={[faqLd]}
+>
+
+<!-- HERO -->
+<section class="pp-hero">
+  <div class="pp-dots" aria-hidden="true"></div>
+  <div class="pp-wrap pp-hero-in">
+    <div class="pp-hero-copy">
+      <div class="pp-eb"><span class="pp-eb-dot" aria-hidden="true"></span>For property management companies and agencies</div>
+      <h1 class="pp-h1">Every unit.<br>Every inspector.<br><em>Same report.</em></h1>
+      <p class="pp-lead">Branded move-in and move-out reports with your logo on every page, signed by landlord and tenant before your team leaves the building. <strong>20 minutes per apartment.</strong></p>
+      <div class="pp-ctas">
+        <a class="pp-btn pp-btn--ink pp-shine" href="https://app.snagify.net/signup?ref=pro-hero">Start free
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a class="pp-btn pp-btn--line" href={calDemo} target="_blank" rel="noopener noreferrer">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Book a 15-min demo
+        </a>
+      </div>
+      <div class="pp-ticks">
+        <span><i aria-hidden="true">✓</i>Works on any phone</span>
+        <span><i aria-hidden="true">✓</i>No training needed</span>
+        <span><i aria-hidden="true">✓</i>Cancel anytime</span>
+      </div>
+    </div>
+    <div class="pp-hero-visual">
+      <div class="pp-report-wrap">
+        <div class="pp-report-bg" aria-hidden="true"></div>
+        <div class="pp-report" aria-label="Example of a branded move-in report">
+          <div class="pp-brands">
+            {brands.map((b) => (
+              <div class="pp-brand" style={`--d:${b.delay}`}>
+                <div class="pp-brand-row">
+                  <span class="pp-brand-logo" style={`background:${b.color}`}>{b.letter}</span>
+                  <div class="pp-brand-txt"><b>{b.name}</b><span>Property management · Dubai</span></div>
+                </div>
+                <div class="pp-brand-bar" style={`background:${b.color}`}></div>
+              </div>
+            ))}
+          </div>
+          <div class="pp-report-title"><b>Move-in report</b><span>12 Oct 2026</span></div>
+          <span class="pp-report-unit">Marina Gate T2 · Unit 1204 · 2BR</span>
+          {rooms.map((r) => (
+            <div class="pp-room"><span>{r.name}</span><span class="pp-badge" style={`background:${r.color}22`}><i style={`background:${r.color}`}></i>{r.status}</span></div>
+          ))}
+          <div class="pp-signs">
+            <div><b>Landlord</b>Signed 10:42</div>
+            <div><b>Tenant</b>Signed 10:44</div>
+          </div>
+        </div>
+        <span class="pp-stamp" aria-hidden="true">Your brand</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAINS -->
+<section class="pp-sec pp-white">
+  <div class="pp-wrap pp-stack">
+    <div class="pp-head">
+      <div class="pp-eb"><span class="pp-eb-line" aria-hidden="true"></span>Sound familiar?</div>
+      <h2 class="pp-h2">Your process is only as strong <em>as your weakest inspector.</em></h2>
+    </div>
+    <div class="pp-g3">
+      {pains.map((p) => (
+        <div class="pp-pain">
+          <span class="pp-x" aria-hidden="true">✕</span>
+          <h3>{p.t}</h3>
+          <p>{p.b}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="pp-sec pp-cream" id="how">
+  <div class="pp-wrap pp-stack">
+    <div class="pp-head">
+      <div class="pp-eb"><span class="pp-eb-line" aria-hidden="true"></span>How it works</div>
+      <h2 class="pp-h2">From keys to signed PDF, <em>in one visit.</em></h2>
+    </div>
+    <div class="pp-steps">
+      {steps.map((s, i) => (
+        <div class="pp-step">
+          <span class="pp-step-n">{i + 1}</span>
+          <h3>{s.t}</h3>
+          <p>{s.b}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="pp-sec pp-white" id="features">
+  <div class="pp-wrap pp-stack">
+    <div class="pp-head">
+      <div class="pp-eb"><span class="pp-eb-line" aria-hidden="true"></span>Features</div>
+      <h2 class="pp-h2">Built for teams, <em>not just one inspector.</em></h2>
+    </div>
+    <div class="pp-g4">
+      {feats.map((f) => (
+        <div class="pp-feat">
+          <span class="pp-fico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={icons[f.k]} /></span>
+          <h3>{f.t}</h3>
+          <p>{f.b}</p>
+        </div>
+      ))}
+    </div>
+    <a href="/features" class="pp-link">See every feature
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section class="pp-sec pp-cream" id="plans">
+  <div class="pp-wrap pp-stack">
+    <div class="pp-head">
+      <div class="pp-eb"><span class="pp-eb-line" aria-hidden="true"></span>Plans</div>
+      <h2 class="pp-h2">One plan for the team. <em>Every report branded.</em></h2>
+    </div>
+    <div class="pp-toggle" role="tablist" aria-label="Billing period" data-billing="annual">
+      <button type="button" role="tab" aria-selected="false" data-bill="monthly">Monthly</button>
+      <button type="button" role="tab" aria-selected="true" data-bill="annual" class="on">Annual <span class="pp-save">2 months free</span></button>
+    </div>
+    <div class="pp-g3 pp-plans">
+      {plans.map((p) => (
+        <article class={`pp-plan${p.popular ? ' pp-plan--pop' : ''}`}>
+          {p.popular && <span class="pp-pop">Most popular</span>}
+          <span class="pp-plan-name">{p.name}</span>
+          <div class="pp-plan-price">
+            <small>AED</small>
+            <b data-annual={formatAed(p.priceMonthlyAnnual)} data-monthly={formatAed(p.priceMonthlyBilling)}>{formatAed(p.priceMonthlyAnnual)}</b>
+            <small>/ month</small>
+          </div>
+          <span class="pp-plan-billed" data-annual={`Billed yearly: AED ${formatAed(p.priceAnnualTotal)}`} data-monthly="Billed monthly">Billed yearly: AED {formatAed(p.priceAnnualTotal)}</span>
+          <div class="pp-kpis">
+            <div class="pp-kpi"><span class="pp-kv">{p.creditsPerMonth}</span><span class="pp-kl">inspections / month</span></div>
+            <div class="pp-kpi"><span class="pp-kv">{p.maxUsers != null ? `Up to ${p.maxUsers}` : 'Unlimited'}</span><span class="pp-kl">users</span></div>
+          </div>
+          <ul class="pp-list">
+            <li><i aria-hidden="true">✓</i>Your logo on every report</li>
+            <li><i aria-hidden="true">✓</i>Unlimited properties</li>
+            <li><i aria-hidden="true">✓</i>{rollLabel(p.rollMaxMultiplier)}</li>
+            {p.extraCreditAed != null && <li><i aria-hidden="true">✓</i>Extra inspection: AED {formatAed(p.extraCreditAed)}</li>}
+          </ul>
+          <a href={`https://app.snagify.net/signup?ref=pro-${p.slug}`} class={`pp-btn ${p.popular ? 'pp-btn--purple' : 'pp-btn--ink'}`}>Start free
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+      ))}
+    </div>
+    <div class="pp-plans-note">
+      <p>1 inspection = 1 credit for an apartment up to 2 bedrooms. 3 bedrooms or villa: 2 credits. Furnished with inventory: +1.</p>
+      <p>More than {maxCredits} inspections a month? <a href={waDemo} target="_blank" rel="noopener noreferrer">Talk to us</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="pp-sec pp-white">
+  <div class="pp-wrap pp-stack">
+    <div class="pp-head">
+      <div class="pp-eb"><span class="pp-eb-line" aria-hidden="true"></span>Do the maths</div>
+      <h2 class="pp-h2">What it costs. <em>What you can bill.</em></h2>
+    </div>
+    <div class="pp-calc" id="pp-calc" data-plans={JSON.stringify(calcPlans)}>
+      <div class="pp-calc-in">
+        <label class="pp-range">
+          <span><span>Inspections per month</span><b data-out="n">30</b></span>
+          <input type="range" min="2" max="120" step="1" value="30" data-in="n" aria-label="Inspections per month">
+        </label>
+        <label class="pp-range">
+          <span><span>Your fee per inspection</span><b>AED <span data-out="fee">200</span></b></span>
+          <input type="range" min="0" max="400" step="25" value="200" data-in="fee" aria-label="Your fee per inspection in AED">
+        </label>
+        <p class="pp-calc-note">Annual billing, apartments up to 2 bedrooms, unfurnished. Many property managers charge landlords a move-in and move-out fee; you set yours.</p>
+      </div>
+      <div class="pp-calc-out">
+        <span class="pp-label">Best plan for you</span>
+        <b class="pp-calc-plan" data-out="plan">Growth</b>
+        <div class="pp-kpis">
+          <div class="pp-kpi"><span class="pp-kv">AED <span data-out="per">26</span></span><span class="pp-kl">cost per inspection</span></div>
+          <div class="pp-kpi"><span class="pp-kv">AED <span data-out="cost">769</span></span><span class="pp-kl">per month, all in</span></div>
+        </div>
+        <div class="pp-margin" data-out="box">
+          <span data-out="mlabel">Left for the company</span>
+          <b>AED <span data-out="margin">5,231</span></b>
+          <small>per month, on AED <span data-out="billed">6,000</span> billed</small>
+        </div>
+        <a href="https://app.snagify.net/signup?ref=pro-calc" class="pp-btn pp-btn--ink">Start free
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAMPLE -->
+<section class="pp-sec pp-cream">
+  <div class="pp-wrap pp-sample">
+    <div class="pp-sample-copy">
+      <div class="pp-eb"><span class="pp-eb-line" aria-hidden="true"></span>Sample report</div>
+      <h2 class="pp-h2 pp-left">See what your <em>landlords receive.</em></h2>
+      <ul class="pp-list pp-list--lg">
+        <li><i aria-hidden="true">✓</i>A cover page with your brand</li>
+        <li><i aria-hidden="true">✓</i>Every room, with photos and notes</li>
+        <li><i aria-hidden="true">✓</i>Both signatures and a verification QR code</li>
+      </ul>
+      <a href="/sample-report.pdf" target="_blank" rel="noopener" class="pp-btn pp-btn--ink pp-btn--auto">Download a sample report
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="pp-sample-visual" aria-hidden="true">
+      <div class="pp-doc-back"></div>
+      <article class="pp-doc">
+        <header class="pp-doc-cover">
+          <div class="pp-doc-brand">
+            <span class="pp-doc-mark">H</span>
+            <span class="pp-doc-brandtxt"><b>Harbour &amp; Co</b><small>Property management</small></span>
+          </div>
+          <span class="pp-doc-pill">Move-in</span>
+        </header>
+        <div class="pp-doc-body">
+          <div class="pp-doc-meta"><b>Creek Residences</b><span>Unit 2408 · 8 July 2026</span></div>
+          <div class="pp-doc-room">
+            <svg viewBox="0 0 88 64" aria-hidden="true"><rect width="88" height="64" rx="8" fill="#E7E2D6"/><rect x="10" y="8" width="30" height="22" rx="2" fill="#C5D4E6"/><rect x="14" y="12" width="22" height="14" fill="#F7FAFD"/><rect x="8" y="40" width="72" height="16" rx="5" fill="#9A88FD"/><rect x="14" y="34" width="24" height="14" rx="4" fill="#FEDE80"/></svg>
+            <div><b>Living room</b><span>Walls and floor as new</span></div>
+            <em>Good</em>
+          </div>
+          <div class="pp-doc-room">
+            <svg viewBox="0 0 88 64" aria-hidden="true"><rect width="88" height="64" rx="8" fill="#F4EFE4"/><rect x="8" y="8" width="72" height="18" rx="3" fill="#0E0E10"/><rect x="12" y="12" width="14" height="10" rx="1" fill="#FEDE80"/><rect x="30" y="12" width="14" height="10" rx="1" fill="#FCFCFC"/><rect x="48" y="12" width="14" height="10" rx="1" fill="#FCFCFC"/><rect x="8" y="32" width="72" height="8" rx="2" fill="#CAFE87"/><rect x="8" y="46" width="34" height="12" rx="3" fill="#D9D3C7"/></svg>
+            <div><b>Kitchen</b><span>Appliances working</span></div>
+            <em>Good</em>
+          </div>
+          <div class="pp-doc-room">
+            <svg viewBox="0 0 88 64" aria-hidden="true"><rect width="88" height="64" rx="8" fill="#EDE9FE"/><rect x="14" y="28" width="60" height="26" rx="6" fill="#FCFCFC"/><rect x="20" y="18" width="22" height="14" rx="4" fill="#FEDE80"/><rect x="46" y="22" width="20" height="12" rx="4" fill="#CAFE87"/><rect x="22" y="36" width="44" height="8" rx="3" fill="#E7E2D6"/></svg>
+            <div><b>Bedroom</b><span>Small mark on the door</span></div>
+            <em class="is-note">Noted</em>
+          </div>
+          <div class="pp-doc-foot">
+            <svg class="pp-doc-qr" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="6" fill="#FCFCFC"/><path fill="#0E0E10" d="M4 4h16v16H4zm4 4v8h8V8zM28 4h16v16H28zm4 4v8h8V8zM4 28h16v16H4zm4 4v8h8v-8zM28 28h4v4h-4zm8 0h8v4h-8zm-8 8h4v8h-4zm8 0h4v4h-4zm4 4h4v4h-4z"/></svg>
+            <div class="pp-doc-sig"><span>Landlord</span><svg viewBox="0 0 80 28" aria-hidden="true"><path d="M4 18c8-10 12 8 18-2s6 10 14 0 10-8 18 2 12-6 22 0" fill="none" stroke="#0E0E10" stroke-width="1.6" stroke-linecap="round"/></svg><small>Signed</small></div>
+            <div class="pp-doc-sig"><span>Tenant</span><svg viewBox="0 0 80 28" aria-hidden="true"><path d="M6 16c6-8 8 6 14 0s8 8 16-2 8 6 14-4 10 2 24 2" fill="none" stroke="#0E0E10" stroke-width="1.6" stroke-linecap="round"/></svg><small>Signed</small></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="pp-sec pp-white" id="faq">
+  <div class="pp-wrap pp-stack pp-narrow">
+    <div class="pp-head">
+      <div class="pp-eb"><span class="pp-eb-line" aria-hidden="true"></span>Questions</div>
+      <h2 class="pp-h2">What property managers <em>ask us first.</em></h2>
+    </div>
+    <div class="pp-faq">
+      {faqs.map((f, i) => (
+        <details class="pp-fq" open={i === 0}>
+          <summary>
+            <span class="pp-fqn" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{f.q}</h3>
+            <span class="pp-plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0E0E10" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="pp-final">
+  <div class="pp-final-glow" aria-hidden="true"></div>
+  <div class="pp-wrap pp-stack pp-center">
+    <h2 class="pp-final-title">Your next handover, <em>on your letterhead.</em></h2>
+    <p class="pp-final-sub">Free account. Choose your plan in the app.</p>
+    <div class="pp-ctas pp-ctas--center">
+      <a class="pp-btn pp-btn--ink pp-shine" href="https://app.snagify.net/signup?ref=pro-final">Start free
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a class="pp-btn pp-btn--white" href={calDemo} target="_blank" rel="noopener noreferrer">Book a 15-min demo</a>
+    </div>
+  </div>
+</section>
+
+<style is:global>
+:root { --purple-l: #C4B9FE; }
+body { overflow-x: hidden; }
+.pp-wrap { max-width: 1180px; margin: 0 auto; padding-left: clamp(20px, 4vw, 48px); padding-right: clamp(20px, 4vw, 48px); box-sizing: border-box; }
+.pp-stack { display: flex; flex-direction: column; gap: clamp(24px, 3vw, 40px); }
+.pp-narrow { max-width: 900px; }
+.pp-center { align-items: center; text-align: center; }
+.pp-sec { padding: clamp(56px, 6vw, 96px) 0; border-top: 1px solid rgba(14,14,16,0.08); }
+.pp-white { background: #FCFCFC; }
+.pp-cream { background: #F3F1EB; }
+.pp-head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; }
+.pp-eb { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.24em; font-weight: 500; color: rgba(14,14,16,0.66); }
+.pp-eb-line { width: 20px; height: 1.5px; background: rgba(14,14,16,0.66); }
+.pp-eb-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--purple); }
+.pp-h1 { margin: 0; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(42px, 5.2vw, 74px); line-height: 1.02; letter-spacing: -0.04em; }
+.pp-h1 em, .pp-h2 em { font-style: italic; color: var(--purple); }
+.pp-h2 { margin: 0; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(30px, 3.8vw, 52px); line-height: 1.06; letter-spacing: -0.035em; text-wrap: balance; }
+.pp-left { text-align: left; }
+.pp-lead { margin: 0; max-width: 540px; font-size: 19px; line-height: 1.55; color: rgba(14,14,16,0.72); }
+.pp-lead strong { color: #0E0E10; font-weight: 600; }
+
+.pp-btn { position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 28px; border-radius: 999px; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15.5px; text-decoration: none; transition: transform .25s, background .25s, color .25s; }
+.pp-btn:hover { transform: translateY(-3px); }
+.pp-btn--ink { background: #0E0E10; color: #FCFCFC; }
+.pp-btn--ink:hover { background: var(--purple); color: #0E0E10; }
+.pp-btn--purple { background: var(--purple); color: #0E0E10; }
+.pp-btn--purple:hover { background: #0E0E10; color: #FCFCFC; }
+.pp-btn--line { background: #FCFCFC; color: #0E0E10; border: 1.5px solid rgba(14,14,16,0.18); }
+.pp-btn--white { background: #FCFCFC; color: #0E0E10; }
+.pp-btn--auto { align-self: flex-start; }
+.pp-shine::after { content: ''; position: absolute; top: 0; bottom: 0; left: -40%; width: 30%; background: linear-gradient(100deg, transparent, rgba(255,255,255,0.55), transparent); transform: skewX(-20deg); animation: ppShine 3.6s ease-in-out infinite; }
+@keyframes ppShine { 0%, 60% { left: -40%; } 100% { left: 120%; } }
+.pp-link { align-self: center; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #0E0E10; font-weight: 700; text-decoration: underline; text-decoration-color: var(--purple); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+
+/* hero */
+.pp-hero { position: relative; overflow: hidden; background: #F3F1EB; }
+.pp-dots { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(14,14,16,0.07) 1px, transparent 1px); background-size: 28px 28px; -webkit-mask-image: radial-gradient(ellipse 100% 100% at 50% 50%, black 0%, transparent 75%); mask-image: radial-gradient(ellipse 100% 100% at 50% 50%, black 0%, transparent 75%); pointer-events: none; }
+.pp-hero-in { position: relative; display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: center; padding-top: clamp(32px, 4vw, 64px); padding-bottom: clamp(48px, 5vw, 80px); }
+.pp-hero-copy { flex: 1.1 1 min(520px, 100%); min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }
+.pp-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.pp-ctas--center { justify-content: center; }
+.pp-ticks { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; color: rgba(14,14,16,0.72); }
+.pp-ticks span { display: inline-flex; align-items: center; gap: 8px; }
+.pp-ticks i, .pp-list i { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: #CAFE87; color: #0E0E10; display: inline-flex; align-items: center; justify-content: center; font-style: normal; font-size: 11px; font-weight: 800; }
+.pp-hero-visual { flex: 1 1 min(420px, 100%); min-width: 0; display: flex; justify-content: center; }
+.pp-report-wrap { position: relative; width: 100%; max-width: 440px; animation: ppFloat 6s ease-in-out infinite; }
+@keyframes ppFloat { 50% { transform: translateY(-10px); } }
+.pp-report-bg { position: absolute; inset: 8% -6% -6% 8%; border-radius: 28px; background: #EDE9FE; transform: rotate(4deg); }
+.pp-report { position: relative; display: flex; flex-direction: column; padding: 22px; border-radius: 24px; background: #FCFCFC; border: 1px solid rgba(14,14,16,0.1); box-shadow: 0 30px 70px rgba(14,14,16,0.14); }
+.pp-brands { display: grid; }
+.pp-brand { grid-area: 1 / 1; opacity: 0; animation: ppBrand 12s infinite; animation-delay: var(--d); }
+@keyframes ppBrand { 0% { opacity: 0; transform: translateY(10px); } 3%, 30% { opacity: 1; transform: none; } 33%, 100% { opacity: 0; transform: translateY(-10px); } }
+.pp-brand-row { display: flex; align-items: center; gap: 12px; }
+.pp-brand-logo { width: 44px; height: 44px; border-radius: 12px; color: #FCFCFC; display: flex; align-items: center; justify-content: center; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 20px; }
+.pp-brand-txt { display: flex; flex-direction: column; line-height: 1.25; }
+.pp-brand-txt b { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 16px; }
+.pp-brand-txt span { font-size: 12.5px; color: rgba(14,14,16,0.6); }
+.pp-brand-bar { height: 4px; border-radius: 2px; margin-top: 14px; }
+.pp-report-title { display: flex; justify-content: space-between; align-items: baseline; margin-top: 16px; }
+.pp-report-title b { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 20px; letter-spacing: -0.02em; }
+.pp-report-title span, .pp-report-unit { font-size: 13px; color: rgba(14,14,16,0.62); }
+.pp-report-unit { padding: 2px 0 8px; }
+.pp-room { display: flex; align-items: center; justify-content: space-between; padding: 9px 0; border-top: 1px solid rgba(14,14,16,0.08); font-size: 14px; }
+.pp-badge { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+.pp-badge i { width: 7px; height: 7px; border-radius: 50%; }
+.pp-signs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+.pp-signs div { padding: 10px 12px; border-radius: 12px; background: #EEFAD5; font-size: 12.5px; }
+.pp-signs b { display: block; font-size: 13px; }
+.pp-stamp { position: absolute; top: -14px; right: -10px; padding: 8px 14px; border-radius: 999px; background: #FEDE80; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 13px; transform: rotate(6deg); box-shadow: 0 8px 20px rgba(14,14,16,0.14); }
+
+/* grids and cards */
+.pp-g3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 18px; }
+.pp-g4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 16px; }
+.pp-pain { display: flex; flex-direction: column; gap: 10px; padding: 24px; border-radius: 24px; background: #F3F1EB; border: 1px solid rgba(14,14,16,0.08); }
+.pp-x { width: 34px; height: 34px; border-radius: 50%; background: rgba(255,138,101,0.16); color: #D9480F; display: flex; align-items: center; justify-content: center; font-weight: 800; }
+.pp-pain h3, .pp-step h3, .pp-feat h3 { margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; line-height: 1.25; }
+.pp-pain h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; }
+.pp-pain p, .pp-step p, .pp-feat p { margin: 0; line-height: 1.5; color: rgba(14,14,16,0.72); }
+.pp-pain p { font-size: 15.5px; }
+.pp-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr)); gap: 16px; }
+.pp-step { display: flex; flex-direction: column; gap: 10px; padding: 24px; border-radius: 24px; background: #FCFCFC; border: 1px solid rgba(14,14,16,0.08); }
+.pp-step h3 { font-size: 18px; }
+.pp-step p { font-size: 15px; }
+.pp-step-n { width: 40px; height: 40px; border-radius: 12px; background: var(--purple); color: #0E0E10; display: flex; align-items: center; justify-content: center; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 17px; }
+.pp-feat { display: flex; flex-direction: column; gap: 10px; padding: 22px; border-radius: 22px; background: #F3F1EB; border: 1px solid rgba(14,14,16,0.06); transition: transform .25s, background .25s; }
+.pp-feat:hover { transform: translateY(-4px); background: #EDE9FE; }
+.pp-feat h3 { font-size: 17px; }
+.pp-feat p { font-size: 14.5px; }
+.pp-fico { width: 44px; height: 44px; border-radius: 14px; background: #FCFCFC; color: #7B67F0; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(154,136,253,0.35); }
+
+/* plans */
+.pp-toggle { align-self: center; display: inline-flex; padding: 5px; border-radius: 999px; background: #FCFCFC; border: 1px solid rgba(14,14,16,0.12); }
+.pp-toggle button { min-height: 42px; padding: 0 20px; border: 0; border-radius: 999px; cursor: pointer; background: transparent; color: #0E0E10; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px; }
+.pp-toggle button.on { background: #0E0E10; color: #FCFCFC; }
+.pp-save { margin-left: 6px; padding: 2px 8px; border-radius: 999px; background: #CAFE87; color: #0E0E10; font-size: 11.5px; }
+.pp-plans { align-items: stretch; }
+.pp-plan { position: relative; display: flex; flex-direction: column; gap: 10px; padding: 26px; border-radius: 28px; background: #FCFCFC; border: 1px solid rgba(14,14,16,0.1); transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s; }
+.pp-plan:hover { transform: translateY(-8px); box-shadow: 0 24px 50px rgba(14,14,16,0.14); }
+.pp-plan--pop { border: 2px solid var(--purple); box-shadow: 0 24px 60px rgba(154,136,253,0.25); }
+.pp-pop { position: absolute; top: -13px; left: 26px; padding: 4px 12px; border-radius: 999px; background: var(--purple); font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 12px; }
+.pp-plan-name { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 18px; }
+.pp-plan-price { display: flex; align-items: baseline; gap: 6px; }
+.pp-plan-price small { font-size: 14px; font-weight: 600; color: rgba(14,14,16,0.66); }
+.pp-plan-price b { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 44px; letter-spacing: -0.04em; line-height: 1; }
+.pp-plan-billed { min-height: 18px; font-size: 13px; color: rgba(14,14,16,0.62); }
+.pp-kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 6px 0; }
+.pp-kpi { display: flex; flex-direction: column; gap: 2px; padding: 12px 14px; border-radius: 16px; background: #F3F1EB; }
+.pp-kv { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.02em; }
+.pp-kl { font-size: 12.5px; color: rgba(14,14,16,0.66); }
+.pp-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 9px; font-size: 15px; line-height: 1.4; color: rgba(14,14,16,0.82); }
+.pp-list li { display: flex; gap: 10px; align-items: flex-start; }
+.pp-list--lg { font-size: 16px; }
+.pp-plan .pp-btn { margin-top: auto; }
+.pp-plans-note { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; font-size: 14px; color: rgba(14,14,16,0.72); }
+.pp-plans-note p { margin: 0; }
+.pp-plans-note a { color: #0E0E10; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+/* calculator */
+.pp-calc { display: grid; grid-template-columns: 1fr 1fr; border-radius: 30px; overflow: hidden; border: 1.5px solid var(--purple-l); box-shadow: 0 24px 60px rgba(154,136,253,0.2); }
+.pp-calc-in { display: flex; flex-direction: column; gap: 28px; padding: clamp(22px, 3vw, 40px); background: linear-gradient(160deg, #F1EDFF, #E6DFFF); }
+.pp-range { display: flex; flex-direction: column; gap: 12px; }
+.pp-range > span { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; font-size: 15.5px; }
+.pp-range b { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 28px; letter-spacing: -0.03em; }
+.pp-range input { -webkit-appearance: none; appearance: none; width: 100%; height: 8px; border-radius: 999px; background: #FCFCFC; outline: none; cursor: pointer; }
+.pp-range input::-webkit-slider-thumb { -webkit-appearance: none; width: 28px; height: 28px; border-radius: 50%; background: #0E0E10; border: 4px solid #CAFE87; box-shadow: 0 4px 12px rgba(14,14,16,0.25); }
+.pp-range input::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: #0E0E10; border: 4px solid #CAFE87; }
+.pp-range input:focus-visible { outline: 3px solid var(--purple); outline-offset: 4px; }
+.pp-calc-note { margin: 0; font-size: 13px; line-height: 1.5; color: rgba(14,14,16,0.66); }
+.pp-calc-out { display: flex; flex-direction: column; gap: 18px; padding: clamp(22px, 3vw, 40px); background: #FCFCFC; }
+.pp-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 700; color: rgba(14,14,16,0.6); }
+.pp-calc-plan { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.03em; line-height: 1; }
+.pp-margin { display: flex; flex-direction: column; gap: 4px; padding: 18px 20px; border-radius: 20px; background: #EEFAD5; transition: background .25s; }
+.pp-margin.is-neg { background: #FFE9E1; }
+.pp-margin > span { font-size: 14px; font-weight: 600; color: rgba(14,14,16,0.72); }
+.pp-margin b { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(30px, 3.4vw, 40px); letter-spacing: -0.04em; line-height: 1.1; }
+.pp-margin small { font-size: 13px; color: rgba(14,14,16,0.66); }
+
+/* sample */
+.pp-sample { display: flex; flex-wrap: wrap; align-items: center; gap: 40px 64px; }
+.pp-sample-copy { flex: 1 1 min(420px, 100%); display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
+.pp-sample-visual { position: relative; flex: 1 1 min(380px, 100%); max-width: 460px; margin: 0 auto; }
+.pp-doc-back { position: absolute; inset: 16px 4px -12px 18px; border-radius: 22px; background: #E4DFF8; transform: rotate(3.5deg); }
+.pp-doc { position: relative; display: flex; flex-direction: column; border-radius: 22px; overflow: hidden; background: #FCFCFC; border: 1px solid rgba(14,14,16,0.1); box-shadow: 0 28px 60px rgba(14,14,16,0.14); }
+.pp-doc-cover { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 18px; background: #0E0E10; color: #FCFCFC; }
+.pp-doc-brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.pp-doc-mark { flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px; background: #CAFE87; color: #0E0E10; display: flex; align-items: center; justify-content: center; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 16px; }
+.pp-doc-brandtxt { display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
+.pp-doc-brandtxt b { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px; }
+.pp-doc-brandtxt small { font-size: 11.5px; color: rgba(252,252,252,0.62); }
+.pp-doc-pill { flex-shrink: 0; padding: 4px 10px; border-radius: 999px; background: #FEDE80; color: #0E0E10; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+.pp-doc-body { display: flex; flex-direction: column; gap: 10px; padding: 16px 16px 14px; }
+.pp-doc-meta { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.pp-doc-meta b { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 16px; letter-spacing: -0.02em; }
+.pp-doc-meta span { font-size: 12px; color: rgba(14,14,16,0.55); }
+.pp-doc-room { display: grid; grid-template-columns: 88px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding-top: 10px; border-top: 1px solid rgba(14,14,16,0.08); }
+.pp-doc-room svg { width: 88px; height: 64px; display: block; }
+.pp-doc-room div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.pp-doc-room b { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px; }
+.pp-doc-room span { font-size: 12.5px; color: rgba(14,14,16,0.58); }
+.pp-doc-room em { font-style: normal; padding: 4px 9px; border-radius: 999px; background: #EEFAD5; font-size: 12px; font-weight: 700; }
+.pp-doc-room em.is-note { background: #FEF3C7; }
+.pp-doc-foot { display: grid; grid-template-columns: 52px 1fr 1fr; gap: 10px; align-items: end; margin-top: 4px; padding-top: 12px; border-top: 1px solid rgba(14,14,16,0.08); }
+.pp-doc-qr { width: 52px; height: 52px; }
+.pp-doc-sig { display: flex; flex-direction: column; gap: 1px; min-width: 0; padding: 6px 8px 4px; border-radius: 10px; background: #F6F4EE; }
+.pp-doc-sig span, .pp-doc-sig small { font-size: 11px; color: rgba(14,14,16,0.55); }
+.pp-doc-sig svg { width: 100%; height: 26px; }
+
+/* faq */
+.pp-faq { border-bottom: 1px solid rgba(14,14,16,0.14); }
+.pp-fq { border-top: 1px solid rgba(14,14,16,0.14); }
+.pp-fq summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 16px; padding: 20px 0; }
+.pp-fq summary::-webkit-details-marker { display: none; }
+.pp-fq summary:focus-visible { outline: 3px solid var(--purple); outline-offset: 3px; border-radius: 8px; }
+.pp-fq h3 { flex: 1; min-width: 0; margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.4; }
+.pp-fqn { flex-shrink: 0; width: 28px; font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; color: var(--purple); }
+.pp-plus { flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(14,14,16,0.24); display: flex; align-items: center; justify-content: center; transition: transform .3s, background .3s, border-color .3s; }
+.pp-fq[open] .pp-plus { transform: rotate(45deg); background: var(--purple); border-color: var(--purple); }
+.pp-fq p { margin: 0; padding: 0 52px 22px 44px; font-size: 16px; line-height: 1.65; color: rgba(14,14,16,0.78); }
+.pp-fq[open] p { animation: ppIn .35s ease both; }
+@keyframes ppIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+/* final */
+.pp-final { position: relative; overflow: hidden; background: var(--purple); padding: clamp(56px, 6vw, 96px) 0; }
+.pp-final-glow { position: absolute; width: 520px; height: 520px; bottom: -260px; left: -120px; border-radius: 50%; background: radial-gradient(circle, rgba(202,254,135,0.55), transparent 65%); pointer-events: none; }
+.pp-final .pp-wrap { position: relative; }
+.pp-final-title { margin: 0; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(34px, 4.4vw, 60px); line-height: 1.04; letter-spacing: -0.04em; text-wrap: balance; }
+.pp-final-title em { font-style: italic; color: #FCFCFC; }
+.pp-final-sub { margin: 0; font-size: 18px; color: rgba(14,14,16,0.8); }
+
+@media (max-width: 860px) {
+  .pp-calc { grid-template-columns: 1fr; }
+  .pp-ctas .pp-btn { width: 100%; }
+}
+@media (max-width: 600px) {
+  .pp-fq p { padding-left: 0; padding-right: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pp-report-wrap, .pp-shine::after, .pp-fq[open] p { animation: none; }
+  .pp-brand { animation: none; opacity: 0; }
+  .pp-brand:first-child { opacity: 1; }
+  .pp-btn, .pp-plan, .pp-feat { transition: none; }
+}
+</style>
+
+<script>
+// Billing toggle
+(() => {
+  const t = document.querySelector('.pp-toggle');
+  if (!t) return;
+  const set = (mode: string) => {
+    t.setAttribute('data-billing', mode);
+    t.querySelectorAll('button').forEach((b) => {
+      const on = b.getAttribute('data-bill') === mode;
+      b.classList.toggle('on', on);
+      b.setAttribute('aria-selected', String(on));
+    });
+    document.querySelectorAll<HTMLElement>('.pp-plan [data-annual]').forEach((el) => {
+      const v = el.getAttribute(mode === 'annual' ? 'data-annual' : 'data-monthly');
+      if (v != null) el.textContent = v;
+    });
+  };
+  t.querySelectorAll('button').forEach((b) => b.addEventListener('click', () => set(b.getAttribute('data-bill') || 'annual')));
+})();
+
+// Calculator
+(() => {
+  const root = document.getElementById('pp-calc');
+  if (!root) return;
+  type Plan = { name: string; annual: number; credits: number; extra: number };
+  let plans: Plan[] = [];
+  try { plans = JSON.parse(root.getAttribute('data-plans') || '[]'); } catch { plans = []; }
+  if (!plans.length) return;
+  const fmt = (x: number) => Math.round(x).toLocaleString('en-US');
+  const inN = root.querySelector<HTMLInputElement>('[data-in="n"]');
+  const inFee = root.querySelector<HTMLInputElement>('[data-in="fee"]');
+  const out = (k: string) => root.querySelector<HTMLElement>(`[data-out="${k}"]`);
+  const update = () => {
+    const n = Number(inN?.value || 30);
+    const fee = Number(inFee?.value || 200);
+    let best = { p: plans[0], cost: Infinity };
+    plans.forEach((p) => {
+      const cost = p.annual + Math.max(0, n - p.credits) * p.extra;
+      if (cost < best.cost) best = { p, cost };
+    });
+    const billed = n * fee;
+    const margin = billed - best.cost;
+    const set = (k: string, v: string) => { const el = out(k); if (el) el.textContent = v; };
+    set('n', String(n));
+    set('fee', String(fee));
+    set('plan', best.p.name);
+    set('per', fmt(best.cost / n));
+    set('cost', fmt(best.cost));
+    set('billed', fmt(billed));
+    set('margin', fmt(Math.abs(margin)));
+    set('mlabel', margin >= 0 ? 'Left for the company' : 'Cost absorbed by the company');
+    out('box')?.classList.toggle('is-neg', margin < 0);
+  };
+  inN?.addEventListener('input', update);
+  inFee?.addEventListener('input', update);
+  update();
+})();
+</script>
+
+</LegalLayout>

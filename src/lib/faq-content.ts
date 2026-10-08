@@ -138,6 +138,34 @@ export const individualPricingData: FaqItem[] = [
   },
 ];
 
+/** Homepage FAQ (UI + FAQPage JSON-LD). Six questions, plain-text answers. */
+export const homeFaq: FaqItem[] = [
+  {
+    q: 'Is a Snagify report accepted by the Rental Disputes Center (RDC)?',
+    a: 'No report format is pre-approved by the RDC, and no app can truthfully claim an official stamp. The RDC weighs the evidence: who the parties are, the dates, both signatures and the photos. Snagify reports are built on exactly that, and electronic signatures are valid under UAE law (Federal Decree-Law No. 46 of 2021).',
+  },
+  {
+    q: 'What if the other party is absent or refuses to sign?',
+    a: 'Make the report alone and send it by link: they need no account and no app. A refusal is recorded with its date and the reason given. If they never answer, the report shows when it was sent, whether it was opened and when the 7-day signing window closed.',
+  },
+  {
+    q: "I'm moving out soon. Can I use Snagify just for that?",
+    a: 'No. A move-out report compares each room with a move-in report made in Snagify. Start with your next move-in, which is free, and the comparison will be ready the day you leave.',
+  },
+  {
+    q: 'Why is the move-in report free?',
+    a: 'Because a missing move-in report is what costs people their deposit. You only pay for the move-out report, the one that settles it.',
+  },
+  {
+    q: 'Can Snagify do the report for me?',
+    a: 'Yes. A member of the Snagify team comes to the property, documents every room, takes the meter readings and collects both signatures. From AED 349 per visit, weekends included. Book on WhatsApp, with free cancellation up to 12 hours before.',
+  },
+  {
+    q: 'Is my data safe?',
+    a: 'Reports, photos and signatures are stored encrypted, with access controls. Photos sent for AI analysis are never used to train AI models. Your data is never sold, and it is only shared with the service providers needed to run Snagify, all listed in our Privacy Policy.',
+  },
+];
+
 /** All FAQ entries for JSON-LD: shared core once, then per-tab arrays (no duplicates of shared). */
 export function allFaqForLd(): FaqItem[] {
   return [

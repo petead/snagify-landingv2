@@ -1,0 +1,160 @@
+---
+/** Explainer film (16:9 on desktop, 9:16 on phones) with three steps synced to the film. */
+const steps = [
+  { at: 0,  title: 'Day one: photograph every room', text: 'The app writes the notes. About 20 minutes.' },
+  { at: 10, title: 'Both sign', text: 'On the same phone, or by link. Both keep the PDF.' },
+  { at: 16, title: 'Last day: compare, room by room', text: 'Every photo next to day one. From AED 99.' },
+];
+---
+<section class="hwf" id="how-film" aria-labelledby="hwf-title">
+  <div class="hwf-inner">
+    <div class="hwf-head">
+      <div class="hwf-eyebrow"><span aria-hidden="true"></span>How it works</div>
+      <h2 id="hwf-title">One report. <em>Two signatures. Zero arguments.</em></h2>
+    </div>
+
+    <div class="hwf-frame">
+      <video
+        class="hwf-video"
+        data-wide-src="/videos/how-it-works-16x9.mp4"
+        data-narrow-src="/videos/how-it-works-9x16.mp4"
+        data-wide-poster="/videos/how-it-works-16x9.jpg"
+        data-narrow-poster="/videos/how-it-works-9x16.jpg"
+        muted loop playsinline preload="none"
+        aria-label="Animated film: on move-in day the tenant photographs a crack and both parties sign the check-in report. Twelve months later, at move-out, the landlord questions the crack; the signed day-one photo shows it was already there, and the deposit is settled on facts."
+      ></video>
+      <div class="hwf-controls">
+        <button type="button" class="hwf-btn" data-hwf-sound aria-pressed="false" aria-label="Turn the sound on">
+          <svg class="i-muted" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4z" fill="currentColor"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/></svg>
+          <svg class="i-sound" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg>
+        </button>
+        <button type="button" class="hwf-btn" data-hwf-play aria-label="Pause the film">
+          <svg class="i-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="5" height="16" rx="1.5"/><rect x="14" y="4" width="5" height="16" rx="1.5"/></svg>
+          <svg class="i-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <ol class="hwf-steps">
+      {steps.map((s, i) => (
+        <li>
+          <button type="button" class:list={['hwf-step', { 'is-on': i === 0 }]} data-at={s.at} aria-current={i === 0 ? 'step' : 'false'}>
+            <span class="hwf-num">{i + 1}</span>
+            <span class="hwf-txt"><span class="hwf-t">{s.title}</span><span class="hwf-d">{s.text}</span></span>
+          </button>
+        </li>
+      ))}
+    </ol>
+
+    <div class="hwf-actions">
+      <a class="hwf-cta" href="https://app.snagify.net/signup?ref=home-film">
+        Start my free move-in report
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a class="hwf-link" href="/sample-report.pdf">See a sample report</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hwf { background: #0E0E10; color: #FCFCFC; scroll-margin-top: 80px; }
+  .hwf-inner { max-width: 1100px; margin: 0 auto; padding: clamp(48px, 6vw, 88px) 48px; display: flex; flex-direction: column; gap: clamp(22px, 3vw, 32px); }
+  .hwf-head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; }
+  .hwf-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; text-transform: uppercase; letter-spacing: .24em; font-weight: 500; color: rgba(252,252,252,0.7); }
+  .hwf-eyebrow span { width: 20px; height: 1.5px; background: rgba(252,252,252,0.7); }
+  .hwf h2 { margin: 0; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(30px, 3.8vw, 52px); line-height: 1.06; letter-spacing: -.035em; text-wrap: balance; color: #FCFCFC; }
+  .hwf h2 em { font-style: italic; color: var(--purple); }
+  .hwf-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; margin: 0 auto; border-radius: 30px; overflow: hidden; background: #161418; border: 1px solid rgba(252,252,252,0.12); box-shadow: 0 30px 70px rgba(0,0,0,.35); }
+  .hwf-video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hwf-controls { position: absolute; right: 14px; bottom: 14px; display: flex; gap: 8px; }
+  .hwf-btn { width: 44px; height: 44px; border-radius: 50%; border: none; padding: 0; background: rgba(14,14,16,.78); color: var(--white); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+  .hwf-btn:focus-visible, .hwf-step:focus-visible, .hwf-cta:focus-visible, .hwf-link:focus-visible { outline: 3px solid var(--purple); outline-offset: 3px; }
+  .hwf-btn .i-sound, .hwf-btn .i-play { display: none; }
+  .hwf-btn[aria-pressed="true"] .i-muted { display: none; }
+  .hwf-btn[aria-pressed="true"] .i-sound { display: block; }
+  .hwf.is-paused .i-pause { display: none; }
+  .hwf.is-paused .i-play { display: block; }
+  .hwf-steps { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .hwf-steps li { display: flex; }
+  .hwf-step { flex: 1; display: flex; align-items: flex-start; gap: 14px; padding: 16px 18px; border-radius: 20px; text-align: left; cursor: pointer; font-family: inherit; color: #FCFCFC; background: transparent; border: 1.5px solid rgba(252,252,252,0.16); transition: background .3s, border-color .3s, color .3s; }
+  .hwf-step.is-on { background: #FCFCFC; color: #0E0E10; border-color: var(--purple); }
+  .hwf-num { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 15px; background: rgba(252,252,252,0.1); color: #FCFCFC; transition: background .3s, color .3s; }
+  .hwf-step.is-on .hwf-num { background: var(--purple); color: #0E0E10; }
+  .hwf-txt { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .hwf-t { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.25; letter-spacing: -.01em; }
+  .hwf-d { font-size: 14.5px; line-height: 1.45; color: rgba(252,252,252,0.62); }
+  .hwf-step.is-on .hwf-d { color: rgba(14,14,16,0.72); }
+  .hwf-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 24px; }
+  .hwf-cta { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 28px; background: var(--purple); color: #0E0E10; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15.5px; border-radius: 999px; text-decoration: none; }
+  .hwf-link { display: inline-flex; align-items: center; min-height: 44px; color: #FCFCFC; font-size: 15px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+  @media (max-width: 859px) {
+    .hwf-inner { padding: 48px 20px; }
+    .hwf-frame { aspect-ratio: 9 / 16; max-width: 420px; border-radius: 22px; }
+    .hwf-controls { top: 14px; bottom: auto; }
+    .hwf-steps { grid-template-columns: 1fr; }
+    .hwf-cta { width: 100%; }
+  }
+</style>
+
+<script>
+  const root = document.querySelector<HTMLElement>('.hwf');
+  const video = root?.querySelector<HTMLVideoElement>('.hwf-video');
+  if (root && video) {
+    const narrowMq = window.matchMedia('(max-width: 859px)');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const soundBtn = root.querySelector<HTMLButtonElement>('[data-hwf-sound]')!;
+    const playBtn = root.querySelector<HTMLButtonElement>('[data-hwf-play]')!;
+    const stepBtns = Array.from(root.querySelectorAll<HTMLButtonElement>('.hwf-step'));
+    const starts = stepBtns.map((b) => Number(b.dataset.at || 0));
+
+    const setPaused = (paused: boolean) => {
+      root.classList.toggle('is-paused', paused);
+      playBtn.setAttribute('aria-label', paused ? 'Play the film' : 'Pause the film');
+    };
+    const tryPlay = () => { const p = video.play(); if (p) p.then(() => setPaused(false)).catch(() => setPaused(true)); };
+
+    const load = () => {
+      const narrow = narrowMq.matches;
+      const src = (narrow ? video.dataset.narrowSrc : video.dataset.wideSrc) || '';
+      video.poster = (narrow ? video.dataset.narrowPoster : video.dataset.widePoster) || '';
+      if (video.getAttribute('src') !== src) { video.src = src; video.load(); }
+    };
+
+    video.muted = true;
+    load();
+    setPaused(true);
+
+    // Start only when the section comes into view (saves data on page load).
+    const io = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !reduced && video.paused) tryPlay();
+      if (!entries[0].isIntersecting && !video.paused) { video.pause(); setPaused(true); }
+    }, { threshold: 0.35 });
+    io.observe(video);
+
+    narrowMq.addEventListener('change', () => { const wasPlaying = !video.paused; load(); if (wasPlaying) tryPlay(); });
+
+    playBtn.addEventListener('click', () => { if (video.paused) tryPlay(); else { video.pause(); setPaused(true); } });
+    soundBtn.addEventListener('click', () => {
+      video.muted = !video.muted;
+      soundBtn.setAttribute('aria-pressed', String(!video.muted));
+      soundBtn.setAttribute('aria-label', video.muted ? 'Turn the sound on' : 'Mute the film');
+      if (!video.muted && video.paused) tryPlay();
+    });
+
+    const highlight = (i: number) => stepBtns.forEach((b, j) => {
+      b.classList.toggle('is-on', j === i);
+      b.setAttribute('aria-current', j === i ? 'step' : 'false');
+    });
+    video.addEventListener('timeupdate', () => {
+      const t = video.currentTime;
+      let i = 0;
+      starts.forEach((s, j) => { if (t >= s) i = j; });
+      highlight(i);
+    });
+    stepBtns.forEach((b, i) => b.addEventListener('click', () => {
+      video.currentTime = starts[i] + 0.05;
+      highlight(i);
+      tryPlay();
+    }));
+  }
+</script>

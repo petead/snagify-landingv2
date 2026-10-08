@@ -4,8 +4,12 @@
   // Color is set in Crisp dashboard (Advanced Chatbox Customization → #9A88FD).
   // Do not force color:theme here, named themes override custom brand colors.
   window.$crisp.push(["config", "layout:theme", ["colorized"]]);
-  window.openCrispChat = function () {
-    if (window.$crisp) window.$crisp.push(["do", "chat:open"]);
+  window.openCrispChat = function (message) {
+    if (!window.$crisp) return;
+    if (typeof message === "string" && message) {
+      window.$crisp.push(["set", "message:text", [message]]);
+    }
+    window.$crisp.push(["do", "chat:open"]);
   };
   (function(){
     d=document;

@@ -1,4 +1,4 @@
-import { allFaqForLd } from './faq-content';
+import { homeFaq } from './faq-content';
 
 type FaqQ = {
   '@type': 'Question';
@@ -8,7 +8,7 @@ type FaqQ = {
 
 /** FAQPage JSON-LD for the homepage, single shared legal core, no duplicate Qs. */
 export function buildFaqPageLd() {
-  const mainEntity: FaqQ[] = allFaqForLd().map((item) => ({
+  const mainEntity: FaqQ[] = homeFaq.map((item) => ({
     '@type': 'Question',
     name: item.q,
     acceptedAnswer: {
