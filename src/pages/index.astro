@@ -1651,7 +1651,7 @@ div#nav-drawer .mob-cta:hover {
 .proof-card--old .proof-card-title { color: rgba(252,252,252,0.42); }
 .proof-card--old .proof-list li { color: rgba(252,252,252,0.38); }
 .proof-ico--old svg { opacity: 0.45; }
-.proof-card--new { position: relative; background: #FCFCFC; color: #0E0E10; animation: proofHalo 3.4s ease-in-out infinite; }
+.proof-card--new { position: relative; background: #FCFCFC; color: #0E0E10; box-shadow: 0 24px 60px rgba(154,136,253,0.22); }
 .proof-card-head { display: flex; align-items: center; gap: 12px; padding-bottom: 16px; }
 .proof-ico { flex-shrink: 0; width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
 .proof-ico--old { background: rgba(252,252,252,0.06); }
@@ -1664,14 +1664,23 @@ div#nav-drawer .mob-cta:hover {
 .proof-no, .proof-yes { flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; font-size: 13px; font-weight: 800; }
 .proof-no { background: rgba(255,138,101,0.16); color: #FF8A65; }
 .proof-yes { background: #CAFE87; color: #0E0E10; }
-.reveal.in .proof-yes { animation: proofPop .5s cubic-bezier(.3,1.5,.5,1) both; }
-.reveal.in .proof-list li:nth-child(2) .proof-yes { animation-delay: .12s; }
-.reveal.in .proof-list li:nth-child(3) .proof-yes { animation-delay: .24s; }
-.reveal.in .proof-list li:nth-child(4) .proof-yes { animation-delay: .36s; }
-@keyframes proofPop { 0% { transform: scale(0); } 70% { transform: scale(1.25); } 100% { transform: scale(1); } }
-@keyframes proofHalo {
-  0%, 100% { box-shadow: 0 0 0 1px rgba(154,136,253,0.55), 0 0 64px 16px rgba(154,136,253,0.55), 0 0 120px 28px rgba(202,254,135,0.22), 0 28px 70px rgba(154,136,253,0.35); }
-  50% { box-shadow: 0 0 0 2px rgba(202,254,135,0.85), 0 0 96px 28px rgba(154,136,253,0.85), 0 0 160px 40px rgba(202,254,135,0.38), 0 34px 90px rgba(154,136,253,0.5); }
+.proof-vs.in .proof-yes { animation: proofTick .48s cubic-bezier(.3,1.6,.4,1) both; }
+.proof-vs.in .proof-list li:nth-child(1) .proof-yes { animation-delay: .15s; }
+.proof-vs.in .proof-list li:nth-child(2) .proof-yes { animation-delay: .65s; }
+.proof-vs.in .proof-list li:nth-child(3) .proof-yes { animation-delay: 1.15s; }
+.proof-vs.in .proof-list li:nth-child(4) .proof-yes { animation-delay: 1.65s; }
+.proof-vs.in .proof-card--old { animation: proofDim 2.3s linear forwards; }
+@keyframes proofTick {
+  0% { transform: scale(0.45); background: rgba(14,14,16,0.08); color: transparent; }
+  62% { transform: scale(1.22); background: #CAFE87; color: #0E0E10; }
+  100% { transform: scale(1); background: #CAFE87; color: #0E0E10; }
+}
+@keyframes proofDim {
+  0%, 14% { opacity: 1; }
+  20%, 36% { opacity: 0.78; }
+  42%, 58% { opacity: 0.58; }
+  64%, 80% { opacity: 0.42; }
+  86%, 100% { opacity: 0.32; }
 }
 .proof-sample { margin-top: 18px; display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; min-height: 44px; color: #0E0E10; font-weight: 700; text-decoration: underline; text-decoration-color: var(--purple); text-decoration-thickness: 2px; text-underline-offset: 4px; }
 .proof-vs-badge { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 2; width: 52px; height: 52px; border-radius: 50%; background: #FEDE80; color: #0E0E10; display: flex; align-items: center; justify-content: center; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 15px; box-shadow: 0 0 0 6px #0E0E10; }
@@ -1699,23 +1708,31 @@ div#nav-drawer .mob-cta:hover {
 .proof-avatar--yellow { background: #FEDE80; }
 .proof-avatar--purple { background: var(--purple); }
 .proof-avatar--green { background: #CAFE87; }
-.proof-quotes { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 40px; }
-.proof-quote { margin: 0; display: flex; gap: 14px; align-items: flex-start; }
-.proof-quote > div { display: flex; flex-direction: column; gap: 6px; }
-.proof-quote blockquote { margin: 0; font-size: 15.5px; line-height: 1.55; color: rgba(252,252,252,0.88); }
-.proof-quote figcaption { font-size: 13.5px; color: rgba(252,252,252,0.66); }
-.proof-quote figcaption b { color: #FCFCFC; font-weight: 700; }
+.proof-quotes { display: none; }
+.proof-reel { background: #F3F1EB; overflow: hidden; }
+.proof-reel-wrap { max-width: 820px; margin: 0 auto; padding: clamp(48px, 6vw, 84px) clamp(20px, 4vw, 48px); overflow: hidden; }
+.proof-reel-track { display: flex; width: 200%; animation: proofReel 9s ease-in-out infinite; }
+.proof-reel-item { width: 50%; flex: 0 0 50%; margin: 0; display: flex; gap: 18px; align-items: flex-start; box-sizing: border-box; padding-right: 24px; }
+.proof-reel-item blockquote { margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: clamp(22px, 2.4vw, 30px); line-height: 1.25; letter-spacing: -0.03em; color: #0E0E10; }
+.proof-reel-item figcaption { margin-top: 14px; font-size: 15px; color: rgba(14,14,16,0.62); }
+.proof-reel-item figcaption b { color: #0E0E10; font-weight: 700; }
+@keyframes proofReel {
+  0%, 42% { transform: translateX(0); }
+  50%, 92% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
 @media (max-width: 860px) {
   .proof-vs { grid-template-columns: 1fr; }
-  .proof-vs-badge { position: relative; left: auto; top: auto; transform: none; justify-self: center; margin: -34px 0; }
   .proof-title em { display: block; }
-  .proof-quotes { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
   .proof-figs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .reveal.in .proof-yes, .reveal.in .proof-strike::after, .proof-card--new { animation: none; }
+  .reveal.in .proof-strike::after, .proof-vs.in .proof-yes, .proof-vs.in .proof-card--old, .proof-reel-track { animation: none; }
+  .proof-reel-track { width: 100%; }
+  .proof-reel-item { width: 100%; flex-basis: 100%; }
+  .proof-reel-item:not(:first-child) { display: none; }
 }
 
 /* ══ FAQ V2 ══ */
@@ -3974,7 +3991,7 @@ footer {
       <h2 class="proof-title">Photos aren't proof. <em>A signed report is.</em></h2>
     </div>
 
-    <div class="proof-vs">
+    <div class="proof-vs reveal">
       <div class="proof-card proof-card--old reveal">
         <div class="proof-card-head">
           <span class="proof-ico proof-ico--old" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="#25D366"><path d="M20.52 3.48A11.93 11.93 0 0012.06 0C5.45 0 .1 5.35.1 11.96c0 2.11.55 4.17 1.6 5.99L0 24l6.24-1.64a11.96 11.96 0 005.82 1.48h.01c6.6 0 11.96-5.35 11.96-11.96a11.9 11.9 0 00-3.51-8.4zM12.07 21.79h-.01a9.84 9.84 0 01-5.02-1.38l-.36-.21-3.71.97.99-3.61-.23-.37a9.86 9.86 0 01-1.51-5.24c0-5.46 4.44-9.9 9.9-9.9 2.64 0 5.13 1.03 7 2.9a9.83 9.83 0 012.9 7c0 5.46-4.44 9.9-9.9 9.9z"/></svg></span>
@@ -3988,9 +4005,7 @@ footer {
         </ul>
       </div>
 
-      <span class="proof-vs-badge" aria-hidden="true">VS</span>
-
-      <div class="proof-card proof-card--new reveal reveal-delay-1">
+      <div class="proof-card proof-card--new reveal">
         <div class="proof-card-head">
           <span class="proof-ico proof-ico--new" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 700 700" fill="#9A88FD"><path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z"/><path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z"/></svg></span>
           <span class="proof-card-title">A Snagify report</span>
@@ -4007,15 +4022,20 @@ footer {
       </div>
     </div>
 
-    <div class="proof-quotes">
-      <figure class="proof-quote reveal">
+  </div>
+</section>
+
+<section class="proof-reel" aria-label="What tenants say">
+  <div class="proof-reel-wrap">
+    <div class="proof-reel-track">
+      <figure class="proof-reel-item">
         <span class="proof-avatar proof-avatar--purple" aria-hidden="true">B</span>
         <div>
           <blockquote>"It gave me real peace of mind and protected me from unfair charges at the end of the tenancy."</blockquote>
           <figcaption><b>Benjamin</b>, tenant, UAE</figcaption>
         </div>
       </figure>
-      <figure class="proof-quote reveal reveal-delay-1">
+      <figure class="proof-reel-item">
         <span class="proof-avatar proof-avatar--green" aria-hidden="true">Y</span>
         <div>
           <blockquote>"Check-in and check-out photos side by side made everything obvious. Deposit back, zero drama."</blockquote>
@@ -4023,7 +4043,6 @@ footer {
         </div>
       </figure>
     </div>
-
   </div>
 </section>
 
