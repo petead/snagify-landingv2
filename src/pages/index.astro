@@ -1812,6 +1812,44 @@ button.pr2-btn { width: 100%; border: 0; cursor: pointer; }
   .pro-strip-btn:hover, .pro-strip-btn:hover svg { transform: none; }
 }
 
+/* ══ CTA FINAL v2 ══ */
+.cta-fine { margin: -4px 0 0; text-align: center; font-size: 14px; color: rgba(252,252,252,0.7); }
+.si-toggle { width: 100%; margin-top: 8px; border-radius: 20px; background: rgba(252,252,252,0.05); border: 1px solid rgba(252,252,252,0.12); }
+.si-toggle summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 12px; min-height: 60px; padding: 0 18px; color: #FCFCFC; font-weight: 600; font-size: 15px; }
+.si-toggle summary::-webkit-details-marker { display: none; }
+.si-toggle summary span:nth-child(2) { flex: 1; }
+.si-plus { width: 32px; height: 32px; border-radius: 50%; border: 1px solid rgba(252,252,252,0.25); display: flex; align-items: center; justify-content: center; font-size: 18px; transition: transform .25s; }
+.si-toggle[open] .si-plus { transform: rotate(45deg); }
+.si-toggle .stay-informed { padding: 0 18px 18px; margin: 0; }
+.si-toggle summary:focus-visible { outline: 3px solid var(--purple); outline-offset: 3px; border-radius: 16px; }
+
+/* ══ STICKY MOBILE CTA (home) ══ */
+.sticky-cta { display: none; }
+@media (max-width: 768px) {
+  .sticky-cta {
+    display: flex; align-items: center; gap: 10px;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 900;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    background: rgba(252,252,252,0.94);
+    -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(14,14,16,0.1);
+    box-shadow: 0 -10px 30px rgba(14,14,16,0.12);
+    transform: translateY(110%);
+    transition: transform .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .sticky-cta.is-on { transform: none; }
+  .sticky-cta-btn {
+    flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 54px; border-radius: 999px; background: #0E0E10; color: #FCFCFC;
+    font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15.5px; text-decoration: none;
+  }
+  .sticky-cta-space { flex-shrink: 0; width: 64px; height: 54px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sticky-cta { transition: none; }
+  .si-plus { transition: none; }
+}
+
 /* ══ PRICING ══ */
 .pricing {
   padding: 120px 0;
@@ -3706,6 +3744,19 @@ footer {
   .footer-bottom    { flex-direction: column; gap: 14px; text-align: center; }
 }
 
+/* ══ FOOTER ACCORDIONS (mobile) ══ */
+@media (max-width: 768px) {
+  .foot-col h4, .site-foot-col h4 { display: flex; align-items: center; justify-content: space-between; min-height: 56px; margin: 0; cursor: pointer; }
+  .foot-col h4::after, .site-foot-col h4::after { content: '+'; width: 32px; height: 32px; border-radius: 50%; border: 1px solid rgba(252,252,252,0.25); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 400; transition: transform .25s; }
+  .foot-col.is-open h4::after, .site-foot-col.is-open h4::after { transform: rotate(45deg); }
+  .foot-col, .site-foot-col { border-top: 1px solid rgba(252,252,252,0.12); }
+  .foot-col ul, .site-foot-col ul { display: none; padding-bottom: 14px; }
+  .foot-col.is-open ul, .site-foot-col.is-open ul { display: flex; }
+  .foot-col a, .site-foot-col a { display: inline-flex; align-items: center; min-height: 44px; }
+  .footer-top { gap: 0 !important; }
+  .foot-brand { margin-bottom: 24px; }
+}
+
 </style>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Snagify">
@@ -4209,7 +4260,7 @@ footer {
     <div class="cta-left reveal">
       <div class="cta-eyebrow">
         <span class="cta-eyebrow-dot"></span>
-        Your first check-in is free.
+        Your move-in report is free.
       </div>
       <h2>
         Your next<br>
@@ -4217,19 +4268,6 @@ footer {
         Signed in<br>
         <em>20 minutes.</em>
       </h2>
-      <form class="stay-informed" id="si-form">
-        <p class="stay-informed-label">Not moving in yet? We email you the day before.</p>
-        <label class="stay-informed-field">
-          <span>Move-in date</span>
-          <input type="text" id="si-date" class="stay-informed-input" inputmode="numeric" placeholder="dd/mm/yyyy" aria-label="Move-in date" autocomplete="off" required>
-        </label>
-        <label class="stay-informed-field">
-          <span>Email</span>
-          <input type="email" id="si-email" class="stay-informed-input" placeholder="you@example.com" aria-label="Email address" autocomplete="email" required>
-        </label>
-        <button type="submit" id="si-btn" class="stay-informed-btn">Remind me</button>
-        <p class="stay-informed-msg" id="si-msg" aria-live="polite"></p>
-      </form>
     </div>
 
     <!-- ── Droite : CTA stack + sceau ── -->
@@ -4239,47 +4277,28 @@ footer {
         Start my free move-in report
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <a class="cta-we" href="https://wa.me/971585169329?text=Hi%20Snagify%2C%20I%20would%20like%20you%20to%20do%20my%20report%20for%20me.%20My%20property%20(size%2C%20furnished%20or%20not)%3A%20" target="_blank" rel="noopener noreferrer">Or we do it for you</a>
-
-      <!-- Sceau de confiance 2×2 -->
-      <div class="cta-seal">
-        <div class="cta-seal-item">
-          <div class="cta-seal-icon si-green">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div class="cta-seal-text">
-            <div class="cta-seal-title">RDC-ready</div>
-            <div class="cta-seal-sub">Dubai legal standard</div>
-          </div>
-        </div>
-        <div class="cta-seal-item">
-          <div class="cta-seal-icon si-purple">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div class="cta-seal-text">
-            <div class="cta-seal-title">No credit card</div>
-            <div class="cta-seal-sub">Free to get started</div>
-          </div>
-        </div>
-        <div class="cta-seal-item">
-          <div class="cta-seal-icon si-jasmine">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <div class="cta-seal-text">
-            <div class="cta-seal-title">2 min setup</div>
-            <div class="cta-seal-sub">From phone, on-site</div>
-          </div>
-        </div>
-        <div class="cta-seal-item">
-          <div class="cta-seal-icon si-white">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          </div>
-          <div class="cta-seal-text">
-            <div class="cta-seal-title">RDC-ready</div>
-            <div class="cta-seal-sub">DLD &amp; RERA ready</div>
-          </div>
-        </div>
-      </div>
+      <p class="cta-fine">No card. No subscription.</p>
+      <a class="cta-we" href="https://wa.me/971585169329?text=Hi%20Snagify%2C%20I%20would%20like%20you%20to%20do%20my%20report%20for%20me.%20My%20property%20(size%2C%20furnished%20or%20not)%3A%20" target="_blank" rel="noopener noreferrer">Or we do it for you, from AED 349</a>
+      <details class="si-toggle">
+        <summary>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#CAFE87" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span>Not moving in yet? Get a reminder</span>
+          <span class="si-plus" aria-hidden="true">+</span>
+        </summary>
+        <form class="stay-informed" id="si-form">
+          <p class="stay-informed-label">Not moving in yet? We email you the day before.</p>
+          <label class="stay-informed-field">
+            <span>Move-in date</span>
+            <input type="text" id="si-date" class="stay-informed-input" inputmode="numeric" placeholder="dd/mm/yyyy" aria-label="Move-in date" autocomplete="off" required>
+          </label>
+          <label class="stay-informed-field">
+            <span>Email</span>
+            <input type="email" id="si-email" class="stay-informed-input" placeholder="you@example.com" aria-label="Email address" autocomplete="email" required>
+          </label>
+          <button type="submit" id="si-btn" class="stay-informed-btn">Remind me</button>
+          <p class="stay-informed-msg" id="si-msg" aria-live="polite"></p>
+        </form>
+      </details>
 
     </div>
   </div>
@@ -4287,6 +4306,13 @@ footer {
 
 
 </main>
+
+<div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+  <a href="https://app.snagify.net/signup?ref=home-sticky" class="sticky-cta-btn" tabindex="-1">Start my free move-in report
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+  <span class="sticky-cta-space" aria-hidden="true"></span>
+</div>
 
 <!-- ╔══ FOOTER ══╗ -->
 <footer>
@@ -4305,9 +4331,6 @@ footer {
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         Evidence-grade · RDC-ready · Dubai
       </div>
-      <a class="foot-ph" href="https://www.producthunt.com/products/snagify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-snagify" target="_blank" rel="noopener noreferrer">
-        <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1191014&theme=light" alt="Snagify on Product Hunt" width="300" height="65" loading="lazy">
-      </a>
     </div>
 
     <div class="foot-col">
@@ -4827,6 +4850,55 @@ type AdsWindow = Window & {
   }
 
   form.addEventListener('submit', submit);
+})();
+
+// ── STICKY MOBILE CTA ──
+(function () {
+  const bar = document.getElementById('sticky-cta');
+  const hero = document.querySelector('.hero');
+  const cta = document.getElementById('cta');
+  const foot = document.querySelector('footer');
+  if (!bar || !hero) return;
+  const link = bar.querySelector('a');
+  const state = { hero: true, end: false, typing: false };
+  const render = () => {
+    const on = !state.hero && !state.end && !state.typing;
+    bar.classList.toggle('is-on', on);
+    bar.setAttribute('aria-hidden', on ? 'false' : 'true');
+    if (link) link.tabIndex = on ? 0 : -1;
+  };
+  new IntersectionObserver(([e]) => { state.hero = e.isIntersecting; render(); }, { threshold: 0 }).observe(hero);
+  const ends = [cta, foot].filter(Boolean) as Element[];
+  const seen = new Set<Element>();
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) seen.add(e.target); else seen.delete(e.target); });
+    state.end = seen.size > 0; render();
+  }, { threshold: 0 });
+  ends.forEach((el) => io.observe(el));
+  document.addEventListener('focusin', (e) => {
+    const t = e.target as HTMLElement;
+    if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA')) { state.typing = true; render(); }
+  });
+  document.addEventListener('focusout', () => { state.typing = false; render(); });
+})();
+
+// ── FOOTER ACCORDIONS (mobile) ──
+(function () {
+  const mq = window.matchMedia('(max-width: 768px)');
+  document.querySelectorAll('.foot-col').forEach((col) => {
+    const h = col.querySelector('h4');
+    if (!h) return;
+    h.setAttribute('role', 'button');
+    h.setAttribute('tabindex', '0');
+    h.setAttribute('aria-expanded', 'false');
+    const toggle = () => {
+      if (!mq.matches) return;
+      const open = col.classList.toggle('is-open');
+      h.setAttribute('aria-expanded', String(open));
+    };
+    h.addEventListener('click', toggle);
+    h.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+  });
 })();
 </script>
 <script>

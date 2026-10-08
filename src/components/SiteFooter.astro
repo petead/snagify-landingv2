@@ -77,9 +77,6 @@ const t = {
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         {t.brandBadge}
       </div>
-      <a class="site-foot-ph" href="https://www.producthunt.com/products/snagify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-snagify" target="_blank" rel="noopener noreferrer">
-        <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1191014&theme=light" alt="Snagify on Product Hunt" width="300" height="65" loading="lazy">
-      </a>
     </div>
 
     <div class="site-foot-col">
@@ -286,4 +283,34 @@ const t = {
   .site-foot-brand { grid-column: 1 / -1; }
   .site-footer-bottom { flex-direction: column; align-items: flex-start; }
 }
+@media (max-width: 768px) {
+  .site-foot-col h4 { display: flex; align-items: center; justify-content: space-between; min-height: 56px; margin: 0; cursor: pointer; }
+  .site-foot-col h4::after { content: '+'; width: 32px; height: 32px; border-radius: 50%; border: 1px solid rgba(252,252,252,0.25); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 400; transition: transform .25s; }
+  .site-foot-col.is-open h4::after { transform: rotate(45deg); }
+  .site-foot-col { border-top: 1px solid rgba(252,252,252,0.12); }
+  .site-foot-col ul { display: none; padding-bottom: 14px; }
+  .site-foot-col.is-open ul { display: flex; }
+  .site-foot-col a { display: inline-flex; align-items: center; min-height: 44px; }
+  .site-footer-top { gap: 0 !important; }
+  .site-foot-brand { margin-bottom: 24px; }
+}
 </style>
+<script>
+(function () {
+  const mq = window.matchMedia('(max-width: 768px)');
+  document.querySelectorAll('.site-foot-col').forEach((col) => {
+    const h = col.querySelector('h4');
+    if (!h) return;
+    h.setAttribute('role', 'button');
+    h.setAttribute('tabindex', '0');
+    h.setAttribute('aria-expanded', 'false');
+    const toggle = () => {
+      if (!mq.matches) return;
+      const open = col.classList.toggle('is-open');
+      h.setAttribute('aria-expanded', String(open));
+    };
+    h.addEventListener('click', toggle);
+    h.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+  });
+})();
+</script>
