@@ -1655,6 +1655,81 @@ div#nav-drawer .mob-cta:hover {
   .reveal.in .pr2-tl-mid::before { animation: none; }
 }
 
+/* ══ PROOF ══ */
+.proof { position: relative; overflow: hidden; background: #0E0E10; color: #FCFCFC; scroll-margin-top: 80px; }
+.proof-glow { position: absolute; width: 680px; height: 680px; top: -200px; right: -220px; border-radius: 50%; background: radial-gradient(circle, rgba(154,136,253,0.30), transparent 65%); pointer-events: none; }
+.proof-wrap { position: relative; max-width: 1120px; margin: 0 auto; padding: clamp(56px, 6vw, 96px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: clamp(28px, 3.4vw, 44px); }
+.proof-head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; }
+.proof-head .section-eyebrow { margin-bottom: 0; color: rgba(252,252,252,0.7); }
+.proof-head .section-eyebrow::before { background: rgba(252,252,252,0.7); }
+.proof-title { margin: 0; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(32px, 4.2vw, 58px); line-height: 1.04; letter-spacing: -0.035em; text-wrap: balance; }
+.proof-title em { font-style: italic; color: var(--purple); }
+.proof-vs { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: stretch; }
+.proof-card { display: flex; flex-direction: column; padding: clamp(22px, 2.6vw, 32px); border-radius: 28px; }
+.proof-card--old { background: rgba(252,252,252,0.05); border: 1px dashed rgba(252,252,252,0.22); }
+.proof-card--new { background: #FCFCFC; color: #0E0E10; box-shadow: 0 30px 80px rgba(154,136,253,0.28); }
+.proof-card-head { display: flex; align-items: center; gap: 12px; padding-bottom: 16px; }
+.proof-ico { flex-shrink: 0; width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+.proof-ico--old { background: rgba(252,252,252,0.08); }
+.proof-ico--new { background: var(--purple); }
+.proof-card-title { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(19px, 1.8vw, 22px); }
+.proof-card--old .proof-card-title { font-weight: 700; color: rgba(252,252,252,0.72); }
+.proof-list { margin: 0; padding: 0; list-style: none; }
+.proof-list li { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid rgba(252,252,252,0.12); font-size: 16px; line-height: 1.35; color: rgba(252,252,252,0.62); }
+.proof-card--new .proof-list li { border-top-color: rgba(14,14,16,0.1); color: #0E0E10; font-weight: 500; }
+.proof-no, .proof-yes { flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; font-size: 13px; font-weight: 800; }
+.proof-no { background: rgba(255,138,101,0.16); color: #FF8A65; }
+.proof-yes { background: #CAFE87; color: #0E0E10; }
+.reveal.in .proof-yes { animation: proofPop .5s cubic-bezier(.3,1.5,.5,1) both; }
+.reveal.in .proof-list li:nth-child(2) .proof-yes { animation-delay: .12s; }
+.reveal.in .proof-list li:nth-child(3) .proof-yes { animation-delay: .24s; }
+.reveal.in .proof-list li:nth-child(4) .proof-yes { animation-delay: .36s; }
+@keyframes proofPop { 0% { transform: scale(0); } 70% { transform: scale(1.25); } 100% { transform: scale(1); } }
+.proof-sample { margin-top: 18px; display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; min-height: 44px; color: #0E0E10; font-weight: 700; text-decoration: underline; text-decoration-color: var(--purple); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.proof-vs-badge { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 2; width: 52px; height: 52px; border-radius: 50%; background: #FEDE80; color: #0E0E10; display: flex; align-items: center; justify-content: center; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 15px; box-shadow: 0 0 0 6px #0E0E10; }
+.proof-case { display: flex; flex-direction: column; gap: 18px; padding: clamp(22px, 2.6vw, 32px); border-radius: 28px; background: rgba(252,252,252,0.05); border: 1px solid rgba(252,252,252,0.14); }
+.proof-case-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 20px; }
+.proof-case-head h3 { margin: 0; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(21px, 2vw, 26px); letter-spacing: -0.025em; }
+.proof-case-label { font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.22em; font-weight: 700; color: rgba(252,252,252,0.66); }
+.proof-figs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 18px; }
+.proof-fig { display: flex; flex-direction: column; gap: 2px; padding: 12px 0; border-top: 1px solid rgba(252,252,252,0.14); }
+.proof-fig span { font-size: 13.5px; color: rgba(252,252,252,0.7); }
+.proof-fig b { align-self: flex-start; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(26px, 2.8vw, 36px); letter-spacing: -0.03em; line-height: 1.15; }
+.proof-fig--red { color: #FF8A65; }
+.proof-fig--yellow { color: #FEDE80; }
+.proof-strike { position: relative; }
+.proof-strike::after { content: ''; position: absolute; left: -4%; right: -4%; top: 52%; height: 3px; border-radius: 2px; background: #FF8A65; transform: rotate(-6deg) scaleX(1); transform-origin: left center; }
+.reveal.in .proof-strike::after { animation: proofStrike .7s .5s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes proofStrike { from { transform: rotate(-6deg) scaleX(0); } to { transform: rotate(-6deg) scaleX(1); } }
+.proof-case-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 28px; }
+.proof-case-foot p { margin: 0; flex: 1 1 420px; font-size: 16px; line-height: 1.6; color: rgba(252,252,252,0.84); }
+.proof-author { display: flex; align-items: center; gap: 12px; }
+.proof-author-text { display: flex; flex-direction: column; line-height: 1.3; }
+.proof-author-name { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15px; }
+.proof-author-text a { font-size: 13.5px; color: rgba(252,252,252,0.8); text-decoration: underline; text-underline-offset: 3px; }
+.proof-avatar { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; color: #0E0E10; display: flex; align-items: center; justify-content: center; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 15px; }
+.proof-avatar--yellow { background: #FEDE80; }
+.proof-avatar--purple { background: var(--purple); }
+.proof-avatar--green { background: #CAFE87; }
+.proof-quotes { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 40px; }
+.proof-quote { margin: 0; display: flex; gap: 14px; align-items: flex-start; }
+.proof-quote > div { display: flex; flex-direction: column; gap: 6px; }
+.proof-quote blockquote { margin: 0; font-size: 15.5px; line-height: 1.55; color: rgba(252,252,252,0.88); }
+.proof-quote figcaption { font-size: 13.5px; color: rgba(252,252,252,0.66); }
+.proof-quote figcaption b { color: #FCFCFC; font-weight: 700; }
+@media (max-width: 860px) {
+  .proof-vs { grid-template-columns: 1fr; }
+  .proof-vs-badge { position: relative; left: auto; top: auto; transform: none; justify-self: center; margin: -34px 0; }
+  .proof-title em { display: block; }
+  .proof-quotes { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .proof-figs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal.in .proof-yes, .reveal.in .proof-strike::after { animation: none; }
+}
+
 /* ══ PRICING ══ */
 .pricing {
   padding: 120px 0;
@@ -3768,92 +3843,6 @@ footer {
 <!-- ╔══ HOW IT WORKS FILM ══╗ -->
 <HowItWorksFilm />
 
-<!-- ╔══ TESTIMONIALS ══╗ -->
-<section class="testi">
-  <div class="section-wrap">
-
-    <div class="section-header reveal" style="text-align:center">
-      <div class="section-eyebrow" style="justify-content:center">Testimonials</div>
-      <h2 class="section-title" style="color:var(--white)">Trusted by professionals.<br><em style="color:var(--purple)">Loved by landlords.</em></h2>
-    </div>
-
-    <!-- ── Pro testimonials ── -->
-    <div class="testi-group-label reveal">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-      Property Professionals
-    </div>
-    <div class="testi-grid reveal reveal-delay-1">
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text" id="t1">"Honestly I resisted switching for months. We had our own Word template and I thought it was fine. Then a tenant contested damage at move-out and we had nothing solid to show. After that I tried Snagify. We now do 60+ inspections a month and I'd never go back. The reports are just on a different level."</p>
-        <div class="testi-author">
-          <div class="testi-avatar is-pro" role="img" aria-label="Khalid A.">KA</div>
-          <div class="testi-author-text">
-            <h4>Khalid A.</h4>
-            <p>Head of Leasing · Prestige Properties</p>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text" id="t2">"We lost an RDC case last year because our inspection photos were on someone's personal phone and the checklist was handwritten. It cost us the client relationship too. Since Snagify, every report is signed on the spot. We've had three potential disputes since, and none of them went anywhere."</p>
-        <div class="testi-author">
-          <div class="testi-avatar is-pro" role="img" aria-label="Sara M.">SM</div>
-          <div class="testi-author-text">
-            <h4>Sara M.</h4>
-            <p>Property Manager · Pinnacle Real Estate</p>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text" id="t3">"I was worried it would be too complicated for my inspectors. It took them about 10 minutes to figure out. Now every report that goes to a client looks like it came from a serious firm. One client actually asked if we had an in-house legal team. It's just us and Snagify."</p>
-        <div class="testi-author">
-          <div class="testi-avatar is-pro" role="img" aria-label="Rami H.">RH</div>
-          <div class="testi-author-text">
-            <h4>Rami H.</h4>
-            <p>Director · Elite Rentals</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── Divider ── -->
-    <div class="testi-divider reveal"></div>
-
-    <!-- ── Private testimonials ── -->
-    <div class="testi-group-label reveal">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      Landlords & Tenants
-    </div>
-    <div class="testi-grid testi-grid-2 reveal reveal-delay-1">
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text" id="t4">"I had a great experience using this app for my property inspection in the UAE. It gave me real peace of mind and helped protect me from unfair charges at the end of the tenancy."</p>
-        <div class="testi-author">
-          <div class="testi-avatar is-landlord" role="img" aria-label="Benjamin Laroche">BL</div>
-          <div class="testi-author-text">
-            <h4>Benjamin Laroche</h4>
-            <p>Tenant · UAE</p>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text" id="t5">"I'm a tenant, not a tech person, and this was genuinely easy to use. You walk room to room taking photos and it flags anything off by itself. Seeing my check-in and check-out photos side by side at the end made everything obvious. Got my deposit back with zero drama."</p>
-        <div class="testi-author">
-          <div class="testi-avatar is-landlord" role="img" aria-label="Yasmine">YA</div>
-          <div class="testi-author-text">
-            <h4>Yasmine</h4>
-            <p>Tenant</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
 <!-- ╔══ PRICING ══╗ -->
 <section class="pr2" id="pricing">
   <div class="pr2-wrap">
@@ -3937,7 +3926,94 @@ footer {
   </div>
 </section>
 
+<!-- ╔══ PROOF ══╗ -->
+<section class="proof" id="proof">
+  <div class="proof-glow" aria-hidden="true"></div>
+  <div class="proof-wrap">
+
+    <div class="proof-head reveal">
+      <div class="section-eyebrow">Proof</div>
+      <h2 class="proof-title">Photos aren't proof. <em>A signed report is.</em></h2>
+    </div>
+
+    <div class="proof-vs">
+      <div class="proof-card proof-card--old reveal">
+        <div class="proof-card-head">
+          <span class="proof-ico proof-ico--old" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(252,252,252,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/></svg></span>
+          <span class="proof-card-title">Photos on WhatsApp</span>
+        </div>
+        <ul class="proof-list">
+          <li><span class="proof-no" aria-hidden="true">✕</span>Compressed, date and time stripped</li>
+          <li><span class="proof-no" aria-hidden="true">✕</span>Nobody signed anything</li>
+          <li><span class="proof-no" aria-hidden="true">✕</span>Easy to say they were edited</li>
+          <li><span class="proof-no" aria-hidden="true">✕</span>Lost somewhere in a chat</li>
+        </ul>
+      </div>
+
+      <span class="proof-vs-badge" aria-hidden="true">VS</span>
+
+      <div class="proof-card proof-card--new reveal reveal-delay-1">
+        <div class="proof-card-head">
+          <span class="proof-ico proof-ico--new" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E0E10" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 14.5l2 2 4-4"/></svg></span>
+          <span class="proof-card-title">A Snagify report</span>
+        </div>
+        <ul class="proof-list">
+          <li><span class="proof-yes" aria-hidden="true">✓</span>Date and time on every photo</li>
+          <li><span class="proof-yes" aria-hidden="true">✓</span>Signed by both parties</li>
+          <li><span class="proof-yes" aria-hidden="true">✓</span>Locked with a digital fingerprint</li>
+          <li><span class="proof-yes" aria-hidden="true">✓</span>Room by room, in one PDF</li>
+        </ul>
+        <a href="/sample-report.pdf" target="_blank" rel="noopener" class="proof-sample">See a sample report
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="proof-case reveal">
+      <div class="proof-case-head">
+        <h3>I learned it the hard way.</h3>
+        <span class="proof-case-label">One real case in Dubai</span>
+      </div>
+      <div class="proof-figs">
+        <div class="proof-fig"><span>Landlord's claim</span><b class="proof-strike">AED 4,000</b></div>
+        <div class="proof-fig"><span>Move-in report</span><b class="proof-fig--red">None</b></div>
+        <div class="proof-fig"><span>Awarded to landlord</span><b>AED 0</b></div>
+        <div class="proof-fig"><span>Deposit back after</span><b class="proof-fig--yellow">4 months</b></div>
+      </div>
+      <div class="proof-case-foot">
+        <p>My landlord's claim failed: no report from day one. I still waited four months for my deposit.</p>
+        <div class="proof-author">
+          <span class="proof-avatar proof-avatar--yellow" aria-hidden="true">P</span>
+          <div class="proof-author-text">
+            <span class="proof-author-name">Pierre A., founder</span>
+            <a href="/blog/rdc-deposit-dispute-no-checkin-report">Read the full case</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proof-quotes">
+      <figure class="proof-quote reveal">
+        <span class="proof-avatar proof-avatar--purple" aria-hidden="true">B</span>
+        <div>
+          <blockquote>"It gave me real peace of mind and protected me from unfair charges at the end of the tenancy."</blockquote>
+          <figcaption><b>Benjamin</b>, tenant, UAE</figcaption>
+        </div>
+      </figure>
+      <figure class="proof-quote reveal reveal-delay-1">
+        <span class="proof-avatar proof-avatar--green" aria-hidden="true">Y</span>
+        <div>
+          <blockquote>"Check-in and check-out photos side by side made everything obvious. Deposit back, zero drama."</blockquote>
+          <figcaption><b>Yasmine</b>, tenant, Dubai</figcaption>
+        </div>
+      </figure>
+    </div>
+
+  </div>
+</section>
+
 <!-- ╔══ FAQ ══╗ -->
+
 <section class="faq" id="faq">
   <div class="faq-inner">
 
@@ -5018,45 +5094,6 @@ type AdsWindow = Window & {
   softwareVersion: '2026.1',
   description: 'Property inspection PWA for Dubai landlords, tenants, agents, and property managers. AI-powered damage detection, RDC-ready PDF reports, dual digital signatures, evidence-grade format.',
   offers: softwareOffersLd,
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5.0',
-    reviewCount: '5',
-    bestRating: '5',
-    worstRating: '1',
-  },
-  review: [
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      author: { '@type': 'Person', name: 'Benjamin Laroche' },
-      reviewBody: 'I had a great experience using this app for my property inspection in the UAE. It gave me real peace of mind and helped protect me from unfair charges at the end of the tenancy.',
-    },
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      author: { '@type': 'Person', name: 'Yasmine' },
-      reviewBody: "I'm a tenant, not a tech person, and this was genuinely easy to use. You walk room to room taking photos and it flags anything off by itself. Seeing my check-in and check-out photos side by side at the end made everything obvious. Got my deposit back with zero drama.",
-    },
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      author: { '@type': 'Person', name: 'Khalid A.' },
-      reviewBody: "Honestly I resisted switching for months. We had our own Word template and I thought it was fine. Then a tenant contested damage at move-out and we had nothing solid to show. After that I tried Snagify. We now do 60+ inspections a month and I'd never go back. The reports are just on a different level.",
-    },
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      author: { '@type': 'Person', name: 'Sara M.' },
-      reviewBody: "We lost an RDC case last year because our inspection photos were on someone's personal phone and the checklist was handwritten. It cost us the client relationship too. Since Snagify, every report is signed on the spot. We've had three potential disputes since, and none of them went anywhere.",
-    },
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      author: { '@type': 'Person', name: 'Rami H.' },
-      reviewBody: "I was worried it would be too complicated for my inspectors. It took them about 10 minutes to figure out. Now every report that goes to a client looks like it came from a serious firm. One client actually asked if we had an in-house legal team. It's just us and Snagify.",
-    },
-  ],
   featureList: [
     'AI-powered damage detection',
     'RDC-ready PDF reports',
