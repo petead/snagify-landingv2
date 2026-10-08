@@ -16,25 +16,19 @@
   </a>
 
   <ul class="site-header-links">
-    <li><a href="/features">Features</a></li>
+    <li><a href="/#process">How it works</a></li>
     <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/for/professionals">Professionals</a></li>
+    <li><a href="/features">Features</a></li>
     <li><a href="/#faq">FAQ</a></li>
     <li><a href="/resources">Resources</a></li>
     <li><a href="/contact">Contact</a></li>
-    <li>
-      <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="site-header-pill">
-        <span class="site-header-pill-dot"></span>
-        Open App
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      </a>
-    </li>
+    <li><a href="https://app.snagify.net" class="site-header-login">Log in</a></li>
+    <li><a href="https://app.snagify.net/signup?ref=header" class="site-header-pill">Start free</a></li>
   </ul>
 
   <div class="site-header-actions">
-    <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="site-header-pill site-header-pill-mobile">
-      <span class="site-header-pill-dot"></span>
-      Open App
-    </a>
+    <a href="https://app.snagify.net/signup?ref=header" class="site-header-pill site-header-pill-mobile">Start free</a>
     <button
       type="button"
       class="site-header-burger"
@@ -70,13 +64,16 @@
     </svg>
     <span>Snagify</span>
   </a>
-  <a href="/features" class="site-header-mob-link">Features</a>
+  <a href="/#process" class="site-header-mob-link">How it works</a>
   <a href="/#pricing" class="site-header-mob-link">Pricing</a>
+  <a href="/for/professionals" class="site-header-mob-link">Professionals</a>
+  <a href="/features" class="site-header-mob-link">Features</a>
   <a href="/#faq" class="site-header-mob-link">FAQ</a>
   <a href="/resources" class="site-header-mob-link">Resources</a>
   <a href="/contact" class="site-header-mob-link">Contact</a>
   <div class="site-header-drawer-divider" aria-hidden="true"></div>
-  <a href="https://app.snagify.net" target="_blank" rel="noopener noreferrer" class="site-header-mob-link site-header-mob-cta">Open App →</a>
+  <a href="https://app.snagify.net" class="site-header-mob-link">Log in</a>
+  <a href="https://app.snagify.net/signup?ref=header" class="site-header-mob-link site-header-mob-cta">Start free →</a>
 </div>
 
 <style is:global>
@@ -167,6 +164,11 @@
   transform: translateY(-1px);
   box-shadow: 0 8px 20px rgba(154,136,253,0.3);
 }
+.site-header-login {
+  font-weight: 600 !important;
+  color: #0E0E10 !important;
+}
+.site-header-login:hover { background: rgba(14,14,16,0.04); }
 .site-header-pill-dot {
   width: 6px;
   height: 6px;

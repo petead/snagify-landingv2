@@ -1,4 +1,5 @@
 ---
+import SiteHeader from '../../components/SiteHeader.astro';
 import neighborhoodsData from '../../data/neighborhoods.json';
 import CrispChat from '../../components/CrispChat.astro';
 import Clarity from '../../components/Clarity.astro';
@@ -159,15 +160,7 @@ footer.site-footer { background: var(--ink); color: var(--white); padding: 48px 
 </head>
 <body>
 
-<nav class="topnav">
-  <a href="/" class="topnav-brand">
-    <div class="topnav-logo">
-      <svg viewBox="0 0 700 700" fill="#FCFCFC"><path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z"/><path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z"/></svg>
-    </div>
-    <span class="topnav-name">Snagify</span>
-  </a>
-  <a href="/" class="topnav-back">← Back to home</a>
-</nav>
+<SiteHeader />
 
 <main>
 
