@@ -35,6 +35,8 @@ const datePublished = pubDate.toISOString();
 const dateModified = (updatedDate ?? pubDate).toISOString();
 const ogImage = `${site}/og-image.jpg`;
 const showCheckInDemo = slug === 'perfect-check-in-20-minutes';
+const supademoId = post.data.supademoId;
+const supademoTitle = post.data.supademoTitle;
 const nextTutorial = await getNextTutorialCard(slug);
 
 const crumbs = [
@@ -203,6 +205,11 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
   <div class="tu-prose" data-tu-prose>
     <slot />
   </div>
+  {supademoId && supademoTitle && (
+    <div class="tu-supademo-slot">
+      <SupademoEmbed demoId={supademoId} title={supademoTitle} />
+    </div>
+  )}
   {showCheckInDemo && (
     <div class="tu-supademo-slot" data-tu-supademo hidden>
       <SupademoEmbed demoId="cmritt3p707ubqmeq7y0sx805" label="Watch the full flow · 2 min" />

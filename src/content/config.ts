@@ -30,6 +30,9 @@ const resourceSchema = z.object({
     )
     .optional(),
   draft: z.boolean().default(false),
+  /** Interactive Supademo shown under the tutorial intro. */
+  supademoId: z.string().optional(),
+  supademoTitle: z.string().optional(),
   /** Optional lead-magnet block rendered in the blog layout. */
   download: z.enum(['move-in-checklist']).optional(),
 });
