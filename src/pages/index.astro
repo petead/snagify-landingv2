@@ -1653,10 +1653,24 @@ div#nav-drawer .mob-cta:hover {
 .proof-ico--old svg { opacity: 0.7; }
 .proof-vs.in .proof-card--old { transform: scale(0.9); filter: grayscale(0.85); opacity: 0.5; }
 .proof-card--new { position: relative; z-index: 1; background: #FCFCFC; color: #0E0E10; transform: translateY(26px) scale(0.96); box-shadow: 0 12px 30px rgba(14,14,16,0.18); }
-.proof-vs.in .proof-card--new { transform: translateY(-8px) scale(1.04); box-shadow: 0 28px 56px rgba(154,136,253,0.28); animation: proofHalo 4.8s ease-in-out .9s infinite; }
-@keyframes proofHalo {
-  0%, 100% { box-shadow: 0 28px 56px rgba(154,136,253,0.28), 0 0 0 1px rgba(154,136,253,0.2), 0 0 18px 0 rgba(154,136,253,0.16); }
-  50% { box-shadow: 0 32px 64px rgba(154,136,253,0.38), 0 0 0 1px rgba(202,254,135,0.55), 0 0 28px 4px rgba(154,136,253,0.32), 0 0 48px 6px rgba(202,254,135,0.14); }
+.proof-vs.in .proof-card--new { transform: translateY(-8px) scale(1.04); box-shadow: 0 36px 80px rgba(154,136,253,0.36); }
+.proof-spark { position: absolute; z-index: 3; pointer-events: none; width: 12px; height: 12px; opacity: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12 0l1.6 8.4L22 12l-8.4 1.6L12 22l-1.6-8.4L2 12l8.4-1.6z'/%3E%3C/svg%3E") center / contain no-repeat; filter: drop-shadow(0 0 4px rgba(255,255,255,0.95)); }
+.proof-spark--gold { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23FEDE80' d='M12 0l1.6 8.4L22 12l-8.4 1.6L12 22l-1.6-8.4L2 12l8.4-1.6z'/%3E%3C/svg%3E"); filter: drop-shadow(0 0 4px rgba(254,222,128,0.95)); }
+.proof-spark--1 { top: -14px; right: 16%; width: 22px; height: 22px; }
+.proof-spark--2 { top: 14%; right: -12px; width: 15px; height: 15px; }
+.proof-spark--3 { top: -10px; left: 14%; width: 13px; height: 13px; }
+.proof-spark--4 { bottom: -12px; left: 22%; width: 18px; height: 18px; }
+.proof-spark--5 { top: 48%; left: -12px; width: 14px; height: 14px; }
+.proof-vs.in .proof-spark { animation: proofSpark 3.4s ease-in-out infinite; }
+.proof-vs.in .proof-spark--1 { animation-delay: .85s; }
+.proof-vs.in .proof-spark--2 { animation-delay: 1.7s; }
+.proof-vs.in .proof-spark--3 { animation-delay: 2.35s; }
+.proof-vs.in .proof-spark--4 { animation-delay: 1.15s; }
+.proof-vs.in .proof-spark--5 { animation-delay: 2.7s; }
+@keyframes proofSpark {
+  0%, 68%, 100% { opacity: 0; transform: scale(0.2) rotate(0deg); }
+  78% { opacity: 1; transform: scale(1) rotate(16deg); }
+  88% { opacity: 0.7; transform: scale(0.55) rotate(28deg); }
 }
 .proof-card-head { display: flex; align-items: center; gap: 12px; padding-bottom: 16px; }
 .proof-ico { flex-shrink: 0; width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
@@ -1722,7 +1736,8 @@ div#nav-drawer .mob-cta:hover {
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal.in .proof-strike::after, .proof-reel-track { animation: none; }
-  .proof-card, .proof-vs.in .proof-card--old, .proof-vs.in .proof-card--new { transition: none; transform: none; filter: none; animation: none; }
+  .proof-card, .proof-vs.in .proof-card--old, .proof-vs.in .proof-card--new, .proof-spark, .proof-vs.in .proof-spark { transition: none; transform: none; filter: none; animation: none; }
+  .proof-spark { opacity: 0; }
   .proof-reel-track { width: 100%; }
   .proof-reel-item { width: 100%; flex-basis: 100%; }
   .proof-reel-item:not(:first-child) { display: none; }
@@ -3999,6 +4014,13 @@ footer {
       </div>
 
       <div class="proof-card proof-card--new reveal">
+        <div class="proof-sparks" aria-hidden="true">
+          <span class="proof-spark proof-spark--1"></span>
+          <span class="proof-spark proof-spark--2 proof-spark--gold"></span>
+          <span class="proof-spark proof-spark--3"></span>
+          <span class="proof-spark proof-spark--4 proof-spark--gold"></span>
+          <span class="proof-spark proof-spark--5"></span>
+        </div>
         <div class="proof-card-head">
           <span class="proof-ico proof-ico--new" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 700 700" fill="#9A88FD"><path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z"/><path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z"/></svg></span>
           <span class="proof-card-title">A Snagify report</span>
@@ -4039,7 +4061,7 @@ footer {
         <figure class="proof-reel-item">
           <span class="proof-avatar proof-avatar--yellow" aria-hidden="true">B</span>
           <div>
-            <blockquote>"I never used to do inspections. Then a tenant damaged one of my apartments and I couldn't keep any of the deposit. What I like most about Snagify is the e-signature and ghost mode. I recommend it to every landlord: it protects your property and makes tenants more accountable."</blockquote>
+            <blockquote>"I never used to do inspections. Then a tenant damaged one of my apartments and I couldn't keep any of the deposit. What I like most about Snagify is the e-signature and ghost mode."</blockquote>
             <figcaption><b>Benjamin</b>, landlord, Creek Harbour</figcaption>
           </div>
         </figure>
@@ -4060,7 +4082,7 @@ footer {
         <figure class="proof-reel-item" aria-hidden="true">
           <span class="proof-avatar proof-avatar--yellow">B</span>
           <div>
-            <blockquote>"I never used to do inspections. Then a tenant damaged one of my apartments and I couldn't keep any of the deposit. What I like most about Snagify is the e-signature and ghost mode. I recommend it to every landlord: it protects your property and makes tenants more accountable."</blockquote>
+            <blockquote>"I never used to do inspections. Then a tenant damaged one of my apartments and I couldn't keep any of the deposit. What I like most about Snagify is the e-signature and ghost mode."</blockquote>
             <figcaption><b>Benjamin</b>, landlord, Creek Harbour</figcaption>
           </div>
         </figure>
