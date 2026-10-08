@@ -65,7 +65,7 @@ const steps = [
   .hwf h2 { margin: 0; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(30px, 3.8vw, 52px); line-height: 1.06; letter-spacing: -.035em; text-wrap: balance; color: #FCFCFC; }
   .hwf h2 em { font-style: italic; color: var(--purple); }
   .hwf-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; margin: 0 auto; border-radius: 30px; overflow: hidden; background: #161418; border: 1px solid rgba(252,252,252,0.12); box-shadow: 0 30px 70px rgba(0,0,0,.35); }
-  .hwf-video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hwf-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
   .hwf-controls { position: absolute; right: 14px; bottom: 14px; display: flex; gap: 8px; }
   .hwf-btn { width: 44px; height: 44px; border-radius: 50%; border: none; padding: 0; background: rgba(14,14,16,.78); color: var(--white); display: flex; align-items: center; justify-content: center; cursor: pointer; }
   .hwf-btn:focus-visible, .hwf-step:focus-visible, .hwf-cta:focus-visible, .hwf-link:focus-visible { outline: 3px solid var(--purple); outline-offset: 3px; }
@@ -91,7 +91,7 @@ const steps = [
     .hwf-inner { padding: 48px 20px; }
     .hwf-frame { aspect-ratio: 9 / 16; max-width: 420px; border-radius: 22px; }
     .hwf-controls { top: 14px; bottom: auto; }
-    .hwf-steps { grid-template-columns: 1fr; }
+    .hwf-steps { display: none; }
     .hwf-cta { width: 100%; }
   }
 </style>

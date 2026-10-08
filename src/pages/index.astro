@@ -476,7 +476,7 @@ div#nav-drawer .mob-cta:hover {
 .hero-rot em { grid-area:1/1; opacity:0; animation:heroRot 11s cubic-bezier(.2,.8,.2,1) infinite backwards; animation-delay:var(--d); }
 @keyframes heroRot { 0%{opacity:0;transform:translateY(55%)} 3%,17%{opacity:1;transform:none} 20%,100%{opacity:0;transform:translateY(-55%)} }
 .hero-desc strong { color: var(--ink); font-weight: 600; white-space: nowrap; }
-.hero-service { display:inline-flex; align-items:center; flex-wrap:wrap; gap:10px; min-height:44px; color:var(--ink); font-size:15px; font-weight:600; text-decoration:none; }
+.hero-service { display:inline-flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:10px; min-height:44px; color:var(--ink); font-size:15px; font-weight:600; text-decoration:none; }
 .hero-service-txt { text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(14,14,16,.35); transition:text-decoration-color .25s; }
 .hero-service:hover .hero-service-txt { text-decoration-color: var(--purple); }
 .hero-service-arrow { display:inline-flex; transition:transform .25s; }
@@ -488,7 +488,7 @@ div#nav-drawer .mob-cta:hover {
 .hero-cta-group {
   display: inline-flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 14px;
 }
 .hero-cta-group .btn-ink,
@@ -3620,10 +3620,10 @@ footer {
   .hero-desc        { font-size: 15px; margin-bottom: 32px; }
   .hero-actions     { gap: 10px; width: 100%; }
   .btn-ink, .btn-ghost { padding: 13px 24px; font-size: 14px; justify-content: center; }
-  .hero-cta-group { display: flex; flex-direction: column; width: 100%; align-items: stretch; }
+  .hero-cta-group { display: flex; flex-direction: column; width: 100%; align-items: center; }
   .hero-cta-group .btn-ink,
   .hero-cta-group .btn-ghost { padding: 13px 24px; font-size: 14px; width: 100%; justify-content: center; }
-  .hero-service { align-self: flex-start; }
+  .hero-service { align-self: center; }
   .insp-card        { transform: rotate(0deg) !important; animation: none !important; }
   .insp-card-back   { display: none; }
 
