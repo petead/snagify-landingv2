@@ -1585,7 +1585,7 @@ div#nav-drawer .mob-cta:hover {
 .pr2-grid > .reveal { display: flex; }
 .pr2-card { flex: 1; display: flex; flex-direction: column; gap: 16px; padding: 14px 14px clamp(20px, 2.4vw, 26px); border-radius: 30px; background: #FCFCFC; border: 1px solid rgba(14,14,16,0.1); box-shadow: 0 18px 50px rgba(14,14,16,0.06); color: #0E0E10; transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s; }
 .pr2-card:hover { transform: translateY(-8px); box-shadow: 0 26px 60px rgba(14,14,16,0.12); }
-.pr2-card--lav { background: linear-gradient(160deg, #F1EDFF 0%, #E6DFFF 100%); border: 1.5px solid #C4B9FE; box-shadow: 0 18px 50px rgba(154,136,253,0.22); scroll-margin-top: 96px; }
+.pr2-card--lav { position: relative; background: linear-gradient(160deg, #F1EDFF 0%, #E6DFFF 100%); border: 1.5px solid #C4B9FE; box-shadow: 0 18px 50px rgba(154,136,253,0.22); scroll-margin-top: 96px; }
 .pr2-card--lav:hover { box-shadow: 0 26px 60px rgba(154,136,253,0.32); }
 .pr2-banner { height: 170px; border-radius: 20px; overflow: hidden; background: #EDE9FE; }
 .pr2-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; }
@@ -1595,9 +1595,9 @@ div#nav-drawer .mob-cta:hover {
 .pr2-body { display: flex; flex-direction: column; gap: 6px; padding: 0 clamp(6px, 1vw, 12px); }
 .pr2-labelrow { display: flex; align-items: center; gap: 10px; }
 .pr2-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 700; color: rgba(14,14,16,0.6); }
-.pr2-new { position: relative; overflow: hidden; display: inline-flex; padding: 2px 10px; border-radius: 999px; background: #FEDE80; color: #0E0E10; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 11.5px; }
-.pr2-new::after { content: ''; position: absolute; top: 0; bottom: 0; left: -60%; width: 45%; background: linear-gradient(100deg, transparent, rgba(255,255,255,0.85), transparent); transform: skewX(-20deg); animation: pr2Shine 4s ease-in-out infinite; }
-@keyframes pr2Shine { 0%, 70% { left: -60%; } 100% { left: 130%; } }
+.pr2-card--lav .pr2-new { position: absolute; z-index: 2; top: -16px; right: 20px; overflow: hidden; display: inline-flex; align-items: center; padding: 7px 18px; border-radius: 999px; background: #FEDE80; color: #0E0E10; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 15px; letter-spacing: 0.04em; box-shadow: 0 8px 18px rgba(254,222,128,0.55); }
+.pr2-new::after { content: ''; position: absolute; top: 0; bottom: 0; left: -70%; width: 55%; background: linear-gradient(100deg, transparent, #fff, transparent); transform: skewX(-20deg); animation: pr2Shine 2.2s ease-in-out infinite; }
+@keyframes pr2Shine { 0% { left: -70%; } 42%, 100% { left: 150%; } }
 .pr2-h3 { margin: 0; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(24px, 2.4vw, 30px); line-height: 1.1; letter-spacing: -0.03em; }
 .pr2-best { margin: 2px 0 0; font-size: 15px; line-height: 1.5; color: rgba(14,14,16,0.72); }
 .pr2-rows { padding: 0 clamp(6px, 1vw, 12px); border-bottom: 1px solid rgba(14,14,16,0.1); }
@@ -3919,6 +3919,7 @@ footer {
 
       <div class="reveal reveal-delay-1">
         <article class="pr2-card pr2-card--lav" id="on-site">
+          <span class="pr2-new">New</span>
           {bySnagifyPhoto ? (
             <div class="pr2-banner">
               <img src={bySnagifyPhoto} alt="A Snagify team member documenting an apartment" loading="lazy" decoding="async">
@@ -3929,7 +3930,7 @@ footer {
             </div>
           )}
           <div class="pr2-body">
-            <div class="pr2-labelrow"><span class="pr2-label">By Snagify</span><span class="pr2-new">New</span></div>
+            <span class="pr2-label">By Snagify</span>
             <h3 class="pr2-h3">We do it for you.</h3>
             <p class="pr2-best">You're abroad, busy, or want a neutral third party.</p>
           </div>
