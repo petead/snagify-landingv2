@@ -2,3 +2,73 @@
 <link rel="preload" href="/fonts/poppins-latin-800-italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/dm-sans-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
+<style is:global>
+  a.nav-pill[href*="signup"],
+  a.btn-ink[href*="signup"],
+  a.pr2-btn--ink[href*="signup"],
+  a.btn-cta-primary[href*="signup"],
+  a.sticky-cta-btn[href*="signup"],
+  a.mob-cta[href*="signup"],
+  a.hwf-cta[href*="signup"],
+  a.site-header-pill[href*="signup"],
+  a.site-header-mob-cta[href*="signup"],
+  a.pp-btn[href*="signup"]:not(.pp-shine),
+  a.feat-cta-btn[href*="signup"],
+  a.hero-cta[href*="signup"],
+  a.cta-strip-btn[href*="signup"],
+  a.final-cta-btn[href*="signup"],
+  a.resource-cta-btn[href*="signup"],
+  a.hiw2-cta[href*="signup"] {
+    position: relative;
+    overflow: hidden;
+  }
+  a.nav-pill[href*="signup"]::before,
+  a.btn-ink[href*="signup"]::before,
+  a.pr2-btn--ink[href*="signup"]::before,
+  a.btn-cta-primary[href*="signup"]::before,
+  a.sticky-cta-btn[href*="signup"]::before,
+  a.mob-cta[href*="signup"]::before,
+  a.hwf-cta[href*="signup"]::before,
+  a.site-header-pill[href*="signup"]::before,
+  a.site-header-mob-cta[href*="signup"]::before,
+  a.pp-btn[href*="signup"]:not(.pp-shine)::before,
+  a.feat-cta-btn[href*="signup"]::before,
+  a.hero-cta[href*="signup"]::before,
+  a.cta-strip-btn[href*="signup"]::before,
+  a.final-cta-btn[href*="signup"]::before,
+  a.resource-cta-btn[href*="signup"]::before,
+  a.hiw2-cta[href*="signup"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -55%;
+    width: 32%;
+    background: linear-gradient(100deg, transparent, rgba(255,255,255,0.55), transparent);
+    transform: skewX(-20deg);
+    pointer-events: none;
+    animation: ctaShine 4.2s ease-in-out infinite;
+  }
+  @keyframes ctaShine {
+    0%, 64% { left: -55%; }
+    100% { left: 140%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    a.nav-pill[href*="signup"]::before,
+    a.btn-ink[href*="signup"]::before,
+    a.pr2-btn--ink[href*="signup"]::before,
+    a.btn-cta-primary[href*="signup"]::before,
+    a.sticky-cta-btn[href*="signup"]::before,
+    a.mob-cta[href*="signup"]::before,
+    a.hwf-cta[href*="signup"]::before,
+    a.site-header-pill[href*="signup"]::before,
+    a.site-header-mob-cta[href*="signup"]::before,
+    a.pp-btn[href*="signup"]:not(.pp-shine)::before,
+    a.feat-cta-btn[href*="signup"]::before,
+    a.hero-cta[href*="signup"]::before,
+    a.cta-strip-btn[href*="signup"]::before,
+    a.final-cta-btn[href*="signup"]::before,
+    a.resource-cta-btn[href*="signup"]::before,
+    a.hiw2-cta[href*="signup"]::before { animation: none; opacity: 0; }
+  }
+</style>
