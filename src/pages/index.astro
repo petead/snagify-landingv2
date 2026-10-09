@@ -1661,13 +1661,13 @@ button.pr2-btn { width: 100%; border: 0; cursor: pointer; }
 .proof-vs.play .proof-card--old { transform: scale(0.9); filter: grayscale(0.85); opacity: 0.5; }
 .proof-vs .proof-card.proof-card--new { position: relative; z-index: 1; background: #FCFCFC; color: #0E0E10; transform: translateY(26px) scale(0.96); box-shadow: 0 12px 30px rgba(14,14,16,0.18); }
 .proof-vs.play .proof-card--new { transform: translateY(-8px) scale(1.04); box-shadow: 0 36px 80px rgba(154,136,253,0.36); }
-.proof-spark { position: absolute; z-index: 3; pointer-events: none; width: 12px; height: 12px; opacity: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12 0l1.6 8.4L22 12l-8.4 1.6L12 22l-1.6-8.4L2 12l8.4-1.6z'/%3E%3C/svg%3E") center / contain no-repeat; filter: drop-shadow(0 0 4px rgba(255,255,255,0.95)); }
-.proof-spark--gold { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23FEDE80' d='M12 0l1.6 8.4L22 12l-8.4 1.6L12 22l-1.6-8.4L2 12l8.4-1.6z'/%3E%3C/svg%3E"); filter: drop-shadow(0 0 4px rgba(254,222,128,0.95)); }
-.proof-spark--1 { top: -14px; right: 16%; width: 22px; height: 22px; }
-.proof-spark--2 { top: 14%; right: -12px; width: 15px; height: 15px; }
-.proof-spark--3 { top: -10px; left: 14%; width: 13px; height: 13px; }
-.proof-spark--4 { bottom: -12px; left: 22%; width: 18px; height: 18px; }
-.proof-spark--5 { top: 48%; left: -12px; width: 14px; height: 14px; }
+.proof-spark { position: absolute; z-index: 3; pointer-events: none; width: 20px; height: 20px; opacity: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12 0l1.6 8.4L22 12l-8.4 1.6L12 22l-1.6-8.4L2 12l8.4-1.6z'/%3E%3C/svg%3E") center / contain no-repeat; filter: drop-shadow(0 0 8px rgba(255,255,255,1)) drop-shadow(0 0 18px rgba(255,255,255,0.85)); }
+.proof-spark--gold { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23FEDE80' d='M12 0l1.6 8.4L22 12l-8.4 1.6L12 22l-1.6-8.4L2 12l8.4-1.6z'/%3E%3C/svg%3E"); filter: drop-shadow(0 0 8px rgba(254,222,128,1)) drop-shadow(0 0 20px rgba(254,222,128,0.9)); }
+.proof-spark--1 { top: -22px; right: 14%; width: 40px; height: 40px; }
+.proof-spark--2 { top: 12%; right: -18px; width: 28px; height: 28px; }
+.proof-spark--3 { top: -16px; left: 12%; width: 24px; height: 24px; }
+.proof-spark--4 { bottom: -18px; left: 18%; width: 34px; height: 34px; }
+.proof-spark--5 { top: 46%; left: -18px; width: 26px; height: 26px; }
 .proof-vs.play .proof-spark { animation: proofSpark 3.4s ease-in-out infinite; }
 .proof-vs.play .proof-spark--1 { animation-delay: .85s; }
 .proof-vs.play .proof-spark--2 { animation-delay: 1.7s; }
@@ -1675,9 +1675,9 @@ button.pr2-btn { width: 100%; border: 0; cursor: pointer; }
 .proof-vs.play .proof-spark--4 { animation-delay: 1.15s; }
 .proof-vs.play .proof-spark--5 { animation-delay: 2.7s; }
 @keyframes proofSpark {
-  0%, 68%, 100% { opacity: 0; transform: scale(0.2) rotate(0deg); }
-  78% { opacity: 1; transform: scale(1) rotate(16deg); }
-  88% { opacity: 0.7; transform: scale(0.55) rotate(28deg); }
+  0%, 58%, 100% { opacity: 0; transform: scale(0.25) rotate(0deg); }
+  72% { opacity: 1; transform: scale(1.35) rotate(18deg); }
+  84% { opacity: 0.85; transform: scale(0.85) rotate(32deg); }
 }
 .proof-card-head { display: flex; align-items: center; gap: 12px; padding-bottom: 16px; }
 .proof-ico { flex-shrink: 0; width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
@@ -3795,7 +3795,7 @@ footer {
     <span>Snagify</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#process">How it works</a></li>
+    <li><a href="#how-film">How it works</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="/for/professionals">Professionals</a></li>
     <li><a href="/features">Features</a></li>
@@ -4739,7 +4739,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
       </svg>
       <span>Snagify</span>
     </a>
-    <a href="#process" class="mob-link">How it works</a>
+    <a href="#how-film" class="mob-link">How it works</a>
     <a href="#pricing" class="mob-link">Pricing</a>
     <a href="/for/professionals" class="mob-link">Professionals</a>
     <a href="/features" class="mob-link">Features</a>
