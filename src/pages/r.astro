@@ -91,18 +91,9 @@ import Fonts from '../components/Fonts.astro';
     font-size: 15px;
   }
   .avatar-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
-  h1 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 800;
-    font-size: clamp(36px, 10vw, 44px);
-    letter-spacing: -0.04em;
-    line-height: 1.02;
-  }
-  .lede { font-size: 17px; line-height: 1.4; color: rgba(10, 8, 16, 0.72); }
-  .hero { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
   .film {
     position: relative;
-    height: 420px;
+    height: 580px;
     border-radius: 28px;
     overflow: hidden;
     background: var(--ink);
@@ -155,6 +146,7 @@ import Fonts from '../components/Fonts.astro';
     cursor: pointer;
   }
   .book-jump { background: var(--ink); color: var(--white); }
+  main .book-jump { margin-top: 10px; }
   .cta-live {
     position: relative;
     overflow: hidden;
@@ -194,18 +186,16 @@ import Fonts from '../components/Fonts.astro';
       right: 0;
       bottom: 0;
       z-index: 40;
-      padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+      padding: 8px 16px calc(6px + env(safe-area-inset-bottom));
       background: rgba(252,252,252,0.92);
       backdrop-filter: blur(10px);
       border-top: 1px solid rgba(10,8,16,0.08);
       transition: transform .25s ease, opacity .25s ease;
     }
     .sticky-cta.is-hidden { transform: translateY(110%); opacity: 0; pointer-events: none; }
-    .sticky-note { text-align: center; font-size: 13px; margin-top: 6px; color: rgba(10,8,16,0.62); }
-    .shell { padding-bottom: 132px; }
+    .shell { padding-bottom: 96px; }
     main .book-jump { display: none; }
   }
-  .note { text-align: center; font-size: 14px; color: rgba(10, 8, 16, 0.62); }
   .tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
   .tile {
     min-height: 96px;
@@ -448,11 +438,6 @@ import Fonts from '../components/Fonts.astro';
       </p>
     </header>
 
-    <div class="hero">
-      <h1>Move in protected.</h1>
-      <p class="lede">We inspect. You both sign. Done.</p>
-    </div>
-
     <div class="film">
       <video
         id="film"
@@ -469,7 +454,6 @@ import Fonts from '../components/Fonts.astro';
     </div>
 
     <a class="book-jump cta-live" href="#book">Book my check-in</a>
-    <p class="note">From AED 349 · Split it 50/50</p>
 
     <div class="tiles">
       <div class="tile tile--purple">
@@ -538,7 +522,6 @@ import Fonts from '../components/Fonts.astro';
   </main>
   <div class="sticky-cta" id="sticky-cta">
     <a class="book-jump cta-live" href="#book" id="sticky-go">Book my check-in</a>
-    <p class="sticky-note">From AED 349</p>
   </div>
 
   <script>
