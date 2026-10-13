@@ -220,17 +220,91 @@ import Fonts from '../components/Fonts.astro';
     line-height: 1.05;
   }
   .field { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 14px; }
-  .field input {
-    height: 56px;
-    border: 0;
-    border-radius: 16px;
-    padding: 0 16px;
+  .phone { position: relative; }
+  .phone-box {
+    display: flex;
+    align-items: stretch;
+    min-height: 56px;
     background: var(--white);
+    border-radius: 16px;
+    border: 2px solid transparent;
+  }
+  .phone-box.is-invalid { border-color: #FF5252; }
+  #phone-country {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+    min-height: 56px;
+    padding: 0 12px;
+    border: 0;
+    border-right: 1px solid rgba(10, 8, 16, 0.12);
+    background: transparent;
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  #phone {
+    flex: 1;
+    min-width: 0;
+    min-height: 56px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    padding: 0 14px;
     color: var(--ink);
     font-family: 'DM Sans', sans-serif;
     font-size: 16px;
+    outline: none;
   }
+  #phone::placeholder { color: rgba(10, 8, 16, 0.4); font-weight: 400; }
+  .phone-panel {
+    position: absolute;
+    z-index: 30;
+    left: 0;
+    right: 0;
+    top: calc(100% + 6px);
+    background: var(--white);
+    color: var(--ink);
+    border-radius: 16px;
+    box-shadow: 0 16px 40px rgba(10, 8, 16, 0.16);
+    overflow: hidden;
+  }
+  #phone-search {
+    width: 100%;
+    height: 48px;
+    border: 0;
+    border-bottom: 1px solid rgba(10, 8, 16, 0.1);
+    border-radius: 0;
+    padding: 0 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    outline: none;
+  }
+  #phone-list { max-height: 240px; overflow-y: auto; list-style: none; }
+  .phone-opt {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 8px 12px;
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    text-align: left;
+    cursor: pointer;
+  }
+  .phone-opt span:nth-child(2) { flex: 1; min-width: 0; }
+  .phone-opt .dial { color: rgba(10, 8, 16, 0.5); flex: none; }
+  .phone-opt.is-on, .phone-opt:hover { background: var(--lilac); }
+  #phone-empty { padding: 10px 12px; font-size: 14px; font-weight: 500; color: rgba(10, 8, 16, 0.5); }
   .go { width: 100%; border: 0; background: var(--green); color: var(--ink); }
+  .go:disabled { opacity: 0.7; cursor: default; }
   .fine { font-size: 13.5px; line-height: 1.45; }
   .err {
     background: var(--white);
@@ -238,6 +312,49 @@ import Fonts from '../components/Fonts.astro';
     padding: 8px 12px;
     font-size: 14px;
     font-weight: 600;
+  }
+  .fail { font-size: 14px; font-weight: 600; line-height: 1.4; }
+  .fail a { color: var(--ink); }
+  .done { display: flex; flex-direction: column; gap: 12px; }
+  .badge {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .number-line {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 12px;
+    font-size: 15px;
+  }
+  .edit {
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: underline;
+    min-height: 44px;
+    cursor: pointer;
+  }
+  .wa-open {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    border-radius: 999px;
+    background: var(--ink);
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
   }
   .consent {
     display: flex;
@@ -323,95 +440,308 @@ import Fonts from '../components/Fonts.astro';
     </div>
 
     <section class="book" id="book">
+      <div id="book-form" style="display:flex;flex-direction:column;gap:12px">
       <h2>Your number. That's it.</h2>
       <label class="field" for="phone">Phone number
-        <input id="phone" type="tel" autocomplete="tel" inputmode="tel" value="+971 ">
+        <div class="phone" id="phone-root">
+          <div class="phone-box" id="phone-box">
+            <button type="button" id="phone-country" aria-haspopup="listbox" aria-expanded="false" aria-controls="phone-list" aria-label="Country, United Arab Emirates, +971">
+              <span id="phone-flag" aria-hidden="true">🇦🇪</span>
+              <span id="phone-dial">+971</span>
+            </button>
+            <input id="phone" type="tel" inputmode="tel" autocomplete="tel" aria-label="Phone number">
+          </div>
+          <div class="phone-panel" id="phone-panel" hidden>
+            <input id="phone-search" type="text" placeholder="Search country" aria-label="Search country" autocomplete="off">
+            <ul id="phone-list" role="listbox"></ul>
+          </div>
+        </div>
       </label>
       <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <p class="err" id="phone-error" hidden>Please enter a valid phone number.</p>
+      <p class="err" id="phone-error" hidden></p>
       <button type="button" class="go" id="book-go">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-4 3.2V17H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
-        Book my check-in
+        <span id="book-go-label">Book my check-in</span>
       </button>
+      <p class="fail" id="book-fail" hidden>Something went wrong. Please message us on <a id="book-fail-link" href="#" target="_blank" rel="noopener">WhatsApp</a>.</p>
       <p class="fine">No payment now. WhatsApp opens with your message ready. No WhatsApp? We call you.</p>
       <label class="consent" id="consent-row" hidden>
         <input type="checkbox" id="consent" checked>
         <span>Keep my agent <span id="agent-name"></span> informed about my booking and my check-out.</span>
       </label>
+      </div>
+      <div class="done" id="book-done" hidden>
+        <span class="badge" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0A0810" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+        </span>
+        <h2>Request received.</h2>
+        <p>We'll get back to you very shortly, on WhatsApp or by phone.</p>
+        <p class="number-line">Your number: <span id="done-number"></span> <button type="button" class="edit" id="book-edit">Edit</button></p>
+        <a class="wa-open" id="book-wa" href="#" target="_blank" rel="noopener">Open WhatsApp</a>
+      </div>
     </section>
 
     <p class="legal">Seize Montaigne Technologies LLC · snagify.net</p>
   </main>
 
-  <script is:inline>
-    (function () {
-      var raw = (location.pathname.split('/')[2] || '').toLowerCase();
-      var code = /^[a-z0-9-]{3,40}$/.test(raw) ? raw : '';
+  <script>
+    import { parsePhoneNumber } from 'libphonenumber-js';
+    import { COUNTRIES, formatForDisplay, nationalPlaceholder, validatePhone } from '../lib/phone';
 
-      var film = document.getElementById('film');
-      var play = document.getElementById('play');
-      var watch = document.getElementById('watch');
-      function startFilm() {
-        film.controls = true;
-        play.hidden = true;
-        watch.hidden = true;
-        film.play();
+    const CODE_RE = /^[a-z0-9-]{3,40}$/;
+    const THIRTY_DAYS = 30 * 24 * 60 * 60 * 1000;
+    const raw = (location.pathname.split('/')[2] || '').toLowerCase();
+    let code = '';
+    if (CODE_RE.test(raw)) {
+      code = raw;
+      try {
+        localStorage.setItem('snagify_ref', JSON.stringify({ code, ts: Date.now() }));
+      } catch {
+        /* storage unavailable */
       }
-      play.addEventListener('click', startFilm);
-
-      if (code) {
-        fetch('/api/agent?code=' + code)
-          .then(function (r) { return r.json(); })
-          .then(function (data) {
-            if (!data || !data.found || !data.firstName) return;
-            var name = String(data.firstName);
-            document.getElementById('avatar').textContent = name.charAt(0).toUpperCase();
-            document.getElementById('sent-name').textContent = name;
-            document.getElementById('agent-name').textContent = name;
-            document.getElementById('sent').hidden = false;
-            document.getElementById('consent-row').hidden = false;
-          })
-          .catch(function () {});
+    } else {
+      try {
+        const saved = JSON.parse(localStorage.getItem('snagify_ref') || 'null');
+        if (
+          saved &&
+          typeof saved.code === 'string' &&
+          CODE_RE.test(saved.code) &&
+          typeof saved.ts === 'number' &&
+          Date.now() - saved.ts < THIRTY_DAYS
+        ) {
+          code = saved.code;
+        }
+      } catch {
+        /* storage unavailable */
       }
+    }
 
-      document.getElementById('book-go').addEventListener('click', function () {
-        var input = document.getElementById('phone');
-        var error = document.getElementById('phone-error');
-        var typed = input.value || '';
-        var digits = typed.replace(/\D/g, '');
-        if (digits.length < 8 || digits.length > 15) {
-          error.hidden = false;
-          return;
-        }
-        error.hidden = true;
-        var phone = (typed.trim().charAt(0) === '+' ? '+' : '') + digits;
-        var consentEl = document.getElementById('consent-row');
-        var consent = !consentEl.hidden && document.getElementById('consent').checked;
-        var website = document.querySelector('input[name="website"]').value || '';
-        var ref = code ? ' (Ref: ' + code.toUpperCase() + ')' : '';
-        var waUrl = 'https://wa.me/971585169329?text=' + encodeURIComponent("Hi Snagify, I'd like to book a check-in report." + ref);
-        var payload = JSON.stringify({
-          code: code,
-          phone: phone,
-          consent: consent,
-          sourceUrl: location.href,
-          website: website
-        });
-        var sent = false;
-        if (navigator.sendBeacon) {
-          sent = navigator.sendBeacon('/api/partner-lead', new Blob([payload], { type: 'application/json' }));
-        }
-        if (!sent) {
-          fetch('/api/partner-lead', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: payload,
-            keepalive: true
-          });
-        }
-        window.location.href = waUrl;
+    const film = document.getElementById('film') as HTMLVideoElement;
+    const play = document.getElementById('play') as HTMLButtonElement;
+    const watch = document.getElementById('watch') as HTMLElement;
+    function startFilm() {
+      film.controls = true;
+      play.hidden = true;
+      watch.hidden = true;
+      film.play();
+    }
+    play.addEventListener('click', startFilm);
+
+    if (code) {
+      fetch('/api/agent?code=' + code)
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          if (!data || !data.found || !data.firstName) return;
+          const name = String(data.firstName);
+          document.getElementById('avatar')!.textContent = name.charAt(0).toUpperCase();
+          document.getElementById('sent-name')!.textContent = name;
+          document.getElementById('agent-name')!.textContent = name;
+          document.getElementById('sent')!.hidden = false;
+          document.getElementById('consent-row')!.hidden = false;
+        })
+        .catch(function () {});
+    }
+
+    const phoneRoot = document.getElementById('phone-root')!;
+    const phoneBox = document.getElementById('phone-box')!;
+    const countryBtn = document.getElementById('phone-country') as HTMLButtonElement;
+    const flagEl = document.getElementById('phone-flag')!;
+    const dialEl = document.getElementById('phone-dial')!;
+    const phone = document.getElementById('phone') as HTMLInputElement;
+    const panel = document.getElementById('phone-panel')!;
+    const search = document.getElementById('phone-search') as HTMLInputElement;
+    const list = document.getElementById('phone-list')!;
+    const errorEl = document.getElementById('phone-error')!;
+    let countryIso = 'AE';
+    let touched = false;
+
+    function nationalFromE164(e164: string): string | null {
+      let parsed: ReturnType<typeof parsePhoneNumber>;
+      try {
+        parsed = parsePhoneNumber(e164);
+      } catch {
+        return null;
+      }
+      if (!parsed.country || !parsed.isValid()) return null;
+      const formatted = parsed.formatNational();
+      const nationalDigits = String(parsed.nationalNumber);
+      const digits = formatted.replace(/\D/g, '');
+      let national = formatted;
+      if (digits.endsWith(nationalDigits) && digits.length > nationalDigits.length) {
+        const prefix = digits.slice(0, digits.length - nationalDigits.length);
+        if (formatted.startsWith(prefix)) national = formatted.slice(prefix.length).trim();
+      }
+      return national;
+    }
+
+    function applyCountry(iso: string) {
+      const entry = COUNTRIES.find((item) => item.iso2 === iso) ?? COUNTRIES[0];
+      countryIso = entry.iso2;
+      flagEl.textContent = entry.flag;
+      dialEl.textContent = entry.dialCode;
+      countryBtn.setAttribute('aria-label', `Country, ${entry.name}, ${entry.dialCode}`);
+      phone.placeholder = nationalPlaceholder(entry.iso2);
+      for (const row of list.querySelectorAll<HTMLElement>('[role="option"]')) {
+        row.setAttribute('aria-selected', row.dataset.iso === entry.iso2.toLowerCase() ? 'true' : 'false');
+        row.querySelector('button')?.classList.toggle('is-on', row.dataset.iso === entry.iso2.toLowerCase());
+      }
+    }
+
+    const empty = document.createElement('li');
+    empty.id = 'phone-empty';
+    empty.textContent = 'No country found';
+    empty.hidden = true;
+    for (const entry of COUNTRIES) {
+      const li = document.createElement('li');
+      li.setAttribute('role', 'option');
+      li.dataset.iso = entry.iso2.toLowerCase();
+      li.dataset.name = entry.name.toLowerCase();
+      li.dataset.dial = entry.dialCode.toLowerCase();
+      li.setAttribute('aria-selected', entry.iso2 === 'AE' ? 'true' : 'false');
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'phone-opt' + (entry.iso2 === 'AE' ? ' is-on' : '');
+      const flag = document.createElement('span');
+      flag.setAttribute('aria-hidden', 'true');
+      flag.textContent = entry.flag;
+      const name = document.createElement('span');
+      name.textContent = entry.name;
+      const dial = document.createElement('span');
+      dial.className = 'dial';
+      dial.textContent = entry.dialCode;
+      btn.append(flag, name, dial);
+      btn.addEventListener('click', () => {
+        applyCountry(entry.iso2);
+        panel.hidden = true;
+        countryBtn.setAttribute('aria-expanded', 'false');
+        search.value = '';
+        filterCountries('');
+        if (touched) showError(validatePhone(phone.value, countryIso));
       });
-    })();
+      li.append(btn);
+      list.append(li);
+    }
+    list.append(empty);
+    applyCountry('AE');
+
+    function filterCountries(query: string) {
+      const q = query.trim().toLowerCase();
+      const needle = q.replace(/\s/g, '');
+      let visible = 0;
+      for (const row of list.querySelectorAll<HTMLElement>('[role="option"]')) {
+        const match = !q
+          || (row.dataset.name || '').includes(q)
+          || (row.dataset.dial || '').includes(needle)
+          || (row.dataset.iso || '').includes(q);
+        row.hidden = !match;
+        if (match) visible += 1;
+      }
+      empty.hidden = visible !== 0;
+    }
+
+    function showError(result: ReturnType<typeof validatePhone> | null) {
+      if (!result || result.ok) {
+        errorEl.hidden = true;
+        errorEl.textContent = '';
+        phoneBox.classList.remove('is-invalid');
+        phone.removeAttribute('aria-invalid');
+        return;
+      }
+      errorEl.textContent = result.reason;
+      errorEl.hidden = false;
+      phoneBox.classList.add('is-invalid');
+      phone.setAttribute('aria-invalid', 'true');
+    }
+
+    countryBtn.addEventListener('click', () => {
+      const open = panel.hidden;
+      panel.hidden = !open;
+      countryBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open) search.focus();
+    });
+    search.addEventListener('input', () => filterCountries(search.value));
+    document.addEventListener('mousedown', (event) => {
+      if (!phoneRoot.contains(event.target as Node)) {
+        panel.hidden = true;
+        countryBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+    phone.addEventListener('input', () => {
+      if (touched) showError(null);
+    });
+    phone.addEventListener('blur', () => {
+      touched = true;
+      const result = validatePhone(phone.value, countryIso);
+      if (result.ok) {
+        const shown = nationalFromE164(result.e164);
+        if (shown) phone.value = shown;
+      }
+      showError(result.ok ? null : result);
+    });
+
+    const book = document.getElementById('book')!;
+    const bookForm = document.getElementById('book-form')!;
+    const bookDone = document.getElementById('book-done')!;
+    const bookGo = document.getElementById('book-go') as HTMLButtonElement;
+    const bookLabel = document.getElementById('book-go-label')!;
+    const bookFail = document.getElementById('book-fail')!;
+    const bookFailLink = document.getElementById('book-fail-link') as HTMLAnchorElement;
+    const doneNumber = document.getElementById('done-number')!;
+    const bookWa = document.getElementById('book-wa') as HTMLAnchorElement;
+
+    bookGo.addEventListener('click', () => {
+      const result = validatePhone(phone.value, countryIso);
+      if (!result.ok) {
+        touched = true;
+        showError(result);
+        return;
+      }
+      showError(null);
+      const ref = code ? ' (Ref: ' + code.toUpperCase() + ')' : '';
+      const waUrl = 'https://wa.me/971585169329?text=' + encodeURIComponent("Hi Snagify, I'd like to book a check-in report." + ref);
+      window.open(waUrl, '_blank', 'noopener');
+      bookGo.disabled = true;
+      bookLabel.textContent = 'Sending...';
+      bookFail.hidden = true;
+      const consentRow = document.getElementById('consent-row')!;
+      const consent = !consentRow.hidden && (document.getElementById('consent') as HTMLInputElement).checked;
+      const website = (document.querySelector('input[name="website"]') as HTMLInputElement).value || '';
+      fetch('/api/partner-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          code,
+          phone: result.e164,
+          country: result.country,
+          consent,
+          sourceUrl: location.href,
+          website,
+        }),
+      })
+        .then(async (res) => {
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok || !data.ok) throw new Error('fail');
+          doneNumber.textContent = formatForDisplay(result.e164);
+          bookWa.href = waUrl;
+          bookForm.hidden = true;
+          bookDone.hidden = false;
+          book.scrollIntoView({ block: 'center' });
+        })
+        .catch(() => {
+          bookGo.disabled = false;
+          bookLabel.textContent = 'Book my check-in';
+          bookFailLink.href = waUrl;
+          bookFail.hidden = false;
+        });
+    });
+
+    document.getElementById('book-edit')!.addEventListener('click', () => {
+      bookDone.hidden = true;
+      bookForm.hidden = false;
+      bookGo.disabled = false;
+      bookLabel.textContent = 'Book my check-in';
+      bookFail.hidden = true;
+    });
   </script>
 </body>
 </html>

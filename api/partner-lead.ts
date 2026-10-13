@@ -1,3 +1,4 @@
+import { parsePhoneNumberFromString } from 'libphonenumber-js/max';
 import { Resend } from 'resend';
 import { sbInsert, sbSelect } from './_supabase';
 
@@ -6,13 +7,6 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export const config = { runtime: 'nodejs' };
 
 const CODE_RE = /^[a-z0-9-]{3,40}$/;
-
-function cleanPhone(input: string): string | null {
-  const trimmed = input.trim();
-  const digits = trimmed.replace(/\D/g, '');
-  if (digits.length < 8 || digits.length > 15) return null;
-  return (trimmed.startsWith('+') ? '+' : '') + digits;
-}
 
 export default async function handler(req: any, res: any) {
   if (req.method !== 'POST') {
@@ -25,10 +19,12 @@ export default async function handler(req: any, res: any) {
       return res.status(200).json({ ok: true });
     }
 
-    const phone = cleanPhone(String(body?.phone || ''));
-    if (!phone) {
+    const parsed = parsePhoneNumberFromString(String(body?.phone || ''));
+    const type = parsed?.getType();
+    if (!parsed || !parsed.isValid() || (type !== 'MOBILE' && type !== 'FIXED_LINE_OR_MOBILE')) {
       return res.status(400).json({ error: 'Please enter a valid phone number.' });
     }
+    const phone = parsed.number;
 
     const rawCode = String(body?.code || '').trim().toLowerCase().slice(0, 40);
     const sourceUrl = typeof body?.sourceUrl === 'string' ? body.sourceUrl : null;
@@ -61,6 +57,7 @@ export default async function handler(req: any, res: any) {
         subject: `[Partner lead] ${phone} via ${rawCode ? rawCode.toUpperCase() : 'no code'}`,
         text:
           `Phone: ${phone}\n` +
+          `Country: ${parsed.country}\n` +
           `Agent: ${agentLine}\n` +
           `Consent: ${!!body?.consent && !!agentCode ? 'yes' : 'no'}\n` +
           `Source: ${sourceUrl || ''}\n\n` +
