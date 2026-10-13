@@ -1,0 +1,417 @@
+---
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import MetaPixel from '../components/MetaPixel.astro';
+import ChatGPTAdsPixel from '../components/ChatGPTAdsPixel.astro';
+import Clarity from '../components/Clarity.astro';
+import Fonts from '../components/Fonts.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<GoogleAnalytics />
+<MetaPixel />
+<ChatGPTAdsPixel />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico">
+<title>Book your check-in report | Snagify</title>
+<meta name="robots" content="noindex, nofollow">
+<Fonts />
+<Clarity />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --white: #FCFCFC;
+    --ink: #0A0810;
+    --purple: #9A88FD;
+    --jasmine: #FEDE80;
+    --green: #CAFE87;
+    --lilac: #EFEBFF;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  [hidden] { display: none !important; }
+  .shell {
+    max-width: 430px;
+    margin: 0 auto;
+    padding: 16px 20px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 56px;
+  }
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink);
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.03em;
+  }
+  .sent {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 4px 12px 4px 4px;
+    border-radius: 999px;
+    background: var(--lilac);
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--purple);
+    color: var(--white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+  }
+  h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: clamp(36px, 10vw, 44px);
+    letter-spacing: -0.04em;
+    line-height: 0.98;
+  }
+  .lede { font-size: 17px; line-height: 1.4; color: rgba(10, 8, 16, 0.72); }
+  .film {
+    position: relative;
+    height: 420px;
+    border-radius: 28px;
+    overflow: hidden;
+    background: var(--ink);
+  }
+  .film video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .watch {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(10, 8, 16, 0.82);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 600;
+    pointer-events: none;
+  }
+  .play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 76px;
+    height: 76px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--purple);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .book-jump, .go {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 56px;
+    border-radius: 999px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .book-jump { background: var(--ink); color: var(--white); }
+  .note { text-align: center; font-size: 14px; color: rgba(10, 8, 16, 0.62); }
+  .tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .tile {
+    min-height: 96px;
+    padding: 12px 8px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1.2;
+  }
+  .tile svg { width: 22px; height: 22px; }
+  .tile--purple { background: var(--lilac); }
+  .tile--jasmine { background: var(--jasmine); }
+  .tile--lime { background: var(--green); }
+  .shot { position: relative; border-radius: 28px; overflow: hidden; }
+  .shot img { width: 100%; height: 280px; object-fit: cover; display: block; }
+  .tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    max-width: calc(100% - 28px);
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: var(--green);
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .sample {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    min-height: 44px;
+    padding: 0 14px;
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  .book {
+    background: var(--purple);
+    color: var(--ink);
+    border-radius: 28px;
+    padding: 22px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    scroll-margin-top: 16px;
+  }
+  .book h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+  }
+  .field { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 14px; }
+  .field input {
+    height: 56px;
+    border: 0;
+    border-radius: 16px;
+    padding: 0 16px;
+    background: var(--white);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+  }
+  .go { width: 100%; border: 0; background: var(--green); color: var(--ink); }
+  .fine { font-size: 13.5px; line-height: 1.45; }
+  .err {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    min-height: 44px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .consent input { width: 22px; height: 22px; margin-top: 1px; flex-shrink: 0; accent-color: var(--ink); }
+  .hp {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .legal { text-align: center; font-size: 13px; color: rgba(10, 8, 16, 0.5); }
+</style>
+</head>
+<body>
+  <main class="shell">
+    <header class="top">
+      <a class="logo" href="/" aria-label="Snagify home">
+        <svg width="36" height="36" viewBox="0 0 700 700" fill="#9A88FD" aria-hidden="true">
+          <path d="M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z"/>
+          <path d="M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z"/>
+        </svg>
+        Snagify
+      </a>
+      <p class="sent" id="sent" hidden>
+        <span class="avatar" id="avatar" aria-hidden="true"></span>
+        Sent by <span id="sent-name"></span>
+      </p>
+    </header>
+
+    <div>
+      <h1>Move in protected.</h1>
+      <p class="lede">We inspect. You both sign. Done.</p>
+    </div>
+
+    <div class="film">
+      <video
+        id="film"
+        poster="/videos/how-it-works-9x16.jpg"
+        playsinline
+        preload="none"
+        src="/videos/how-it-works-9x16.mp4"
+        aria-label="How a Snagify check-in works"
+      ></video>
+      <span class="watch" id="watch">Watch how it works</span>
+      <button type="button" class="play" id="play" aria-label="Play the film">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+      </button>
+    </div>
+
+    <a class="book-jump" href="#book">Book my check-in</a>
+    <p class="note">From AED 349 · Split it 50/50</p>
+
+    <div class="tiles">
+      <div class="tile tile--purple">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#9A88FD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>
+        We inspect
+      </div>
+      <div class="tile tile--jasmine">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0A0810" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l4.5-1.2L19 8.3a2.1 2.1 0 0 0-3-3L5.5 15.8z"/><path d="M14.5 6.5l3 3"/></svg>
+        You both sign
+      </div>
+      <div class="tile tile--lime">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0A0810" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M8.5 12l2.2 2.2L15.5 9.5"/></svg>
+        You're covered
+      </div>
+    </div>
+
+    <div class="shot">
+      <img src="/images/by-snagify.jpg" alt="A Snagify inspector documenting an apartment" width="700" height="467">
+      <span class="tag">Our inspector does it for you</span>
+      <a class="sample" href="/sample-report.pdf" target="_blank" rel="noopener">See a sample report</a>
+    </div>
+
+    <section class="book" id="book">
+      <h2>Your number. That's it.</h2>
+      <label class="field" for="phone">Phone number
+        <input id="phone" type="tel" autocomplete="tel" inputmode="tel" value="+971 ">
+      </label>
+      <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="err" id="phone-error" hidden>Please enter a valid phone number.</p>
+      <button type="button" class="go" id="book-go">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-4 3.2V17H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
+        Book my check-in
+      </button>
+      <p class="fine">No payment now. WhatsApp opens with your message ready. No WhatsApp? We call you.</p>
+      <label class="consent" id="consent-row" hidden>
+        <input type="checkbox" id="consent" checked>
+        <span>Keep my agent <span id="agent-name"></span> informed about my booking and my check-out.</span>
+      </label>
+    </section>
+
+    <p class="legal">Seize Montaigne Technologies LLC · snagify.net</p>
+  </main>
+
+  <script is:inline>
+    (function () {
+      var raw = (location.pathname.split('/')[2] || '').toLowerCase();
+      var code = /^[a-z0-9-]{3,40}$/.test(raw) ? raw : '';
+
+      var film = document.getElementById('film');
+      var play = document.getElementById('play');
+      var watch = document.getElementById('watch');
+      function startFilm() {
+        film.controls = true;
+        play.hidden = true;
+        watch.hidden = true;
+        film.play();
+      }
+      play.addEventListener('click', startFilm);
+
+      if (code) {
+        fetch('/api/agent?code=' + code)
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            if (!data || !data.found || !data.firstName) return;
+            var name = String(data.firstName);
+            document.getElementById('avatar').textContent = name.charAt(0).toUpperCase();
+            document.getElementById('sent-name').textContent = name;
+            document.getElementById('agent-name').textContent = name;
+            document.getElementById('sent').hidden = false;
+            document.getElementById('consent-row').hidden = false;
+          })
+          .catch(function () {});
+      }
+
+      document.getElementById('book-go').addEventListener('click', function () {
+        var input = document.getElementById('phone');
+        var error = document.getElementById('phone-error');
+        var typed = input.value || '';
+        var digits = typed.replace(/\D/g, '');
+        if (digits.length < 8 || digits.length > 15) {
+          error.hidden = false;
+          return;
+        }
+        error.hidden = true;
+        var phone = (typed.trim().charAt(0) === '+' ? '+' : '') + digits;
+        var consentEl = document.getElementById('consent-row');
+        var consent = !consentEl.hidden && document.getElementById('consent').checked;
+        var website = document.querySelector('input[name="website"]').value || '';
+        var ref = code ? ' (Ref: ' + code.toUpperCase() + ')' : '';
+        var waUrl = 'https://wa.me/971585169329?text=' + encodeURIComponent("Hi Snagify, I'd like to book a check-in report." + ref);
+        var payload = JSON.stringify({
+          code: code,
+          phone: phone,
+          consent: consent,
+          sourceUrl: location.href,
+          website: website
+        });
+        var sent = false;
+        if (navigator.sendBeacon) {
+          sent = navigator.sendBeacon('/api/partner-lead', new Blob([payload], { type: 'application/json' }));
+        }
+        if (!sent) {
+          fetch('/api/partner-lead', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: payload,
+            keepalive: true
+          });
+        }
+        window.location.href = waUrl;
+      });
+    })();
+  </script>
+</body>
+</html>

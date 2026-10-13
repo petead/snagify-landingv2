@@ -71,6 +71,7 @@ export default defineConfig({
     sitemap({
       filter: (page) => {
         if (page === 'https://snagify.net/blog') return false;
+        if (page === 'https://snagify.net/r' || page === 'https://snagify.net/r.html') return false;
         const match = page.match(/^https:\/\/snagify\.net\/inspections\/([^/]+?)(?:\.html)?\/?$/);
         if (match && !isIndexableNeighborhood(match[1])) return false;
         return true;
