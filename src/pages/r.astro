@@ -85,18 +85,21 @@ import Fonts from '../components/Fonts.astro';
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
     font-size: 15px;
   }
+  .avatar-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
   h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
     font-size: clamp(36px, 10vw, 44px);
     letter-spacing: -0.04em;
-    line-height: 0.98;
+    line-height: 1.02;
   }
   .lede { font-size: 17px; line-height: 1.4; color: rgba(10, 8, 16, 0.72); }
+  .hero { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
   .film {
     position: relative;
     height: 420px;
@@ -152,6 +155,56 @@ import Fonts from '../components/Fonts.astro';
     cursor: pointer;
   }
   .book-jump { background: var(--ink); color: var(--white); }
+  .cta-live {
+    position: relative;
+    overflow: hidden;
+    animation: ctaBreathe 3.2s ease-in-out infinite;
+  }
+  .cta-live::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -60%;
+    width: 40%;
+    background: linear-gradient(105deg, transparent, rgba(255,255,255,0.35), transparent);
+    transform: skewX(-20deg);
+    pointer-events: none;
+    animation: ctaSweep 3.2s ease-in-out infinite;
+  }
+  .cta-live:active { animation: none; transform: scale(0.98); }
+  @keyframes ctaBreathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.025); }
+  }
+  @keyframes ctaSweep {
+    0% { left: -60%; }
+    100% { left: 140%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cta-live, .cta-live::after { animation: none; }
+    .cta-live:active { transform: none; }
+  }
+  .sticky-cta { display: none; }
+  @media (max-width: 767px) {
+    .sticky-cta {
+      display: block;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 40;
+      padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(252,252,252,0.92);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(10,8,16,0.08);
+      transition: transform .25s ease, opacity .25s ease;
+    }
+    .sticky-cta.is-hidden { transform: translateY(110%); opacity: 0; pointer-events: none; }
+    .sticky-note { text-align: center; font-size: 13px; margin-top: 6px; color: rgba(10,8,16,0.62); }
+    .shell { padding-bottom: 132px; }
+    main .book-jump { display: none; }
+  }
   .note { text-align: center; font-size: 14px; color: rgba(10, 8, 16, 0.62); }
   .tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
   .tile {
@@ -395,7 +448,7 @@ import Fonts from '../components/Fonts.astro';
       </p>
     </header>
 
-    <div>
+    <div class="hero">
       <h1>Move in protected.</h1>
       <p class="lede">We inspect. You both sign. Done.</p>
     </div>
@@ -415,7 +468,7 @@ import Fonts from '../components/Fonts.astro';
       </button>
     </div>
 
-    <a class="book-jump" href="#book">Book my check-in</a>
+    <a class="book-jump cta-live" href="#book">Book my check-in</a>
     <p class="note">From AED 349 · Split it 50/50</p>
 
     <div class="tiles">
@@ -483,6 +536,10 @@ import Fonts from '../components/Fonts.astro';
 
     <p class="legal">Seize Montaigne Technologies LLC · snagify.net</p>
   </main>
+  <div class="sticky-cta" id="sticky-cta">
+    <a class="book-jump cta-live" href="#book" id="sticky-go">Book my check-in</a>
+    <p class="sticky-note">From AED 349 · No payment now</p>
+  </div>
 
   <script>
     import { parsePhoneNumber } from 'libphonenumber-js';
@@ -533,7 +590,23 @@ import Fonts from '../components/Fonts.astro';
         .then(function (data) {
           if (!data || !data.found || !data.firstName) return;
           const name = String(data.firstName);
-          document.getElementById('avatar')!.textContent = name.charAt(0).toUpperCase();
+          const avatar = document.getElementById('avatar')!;
+          avatar.textContent = name.charAt(0).toUpperCase();
+          if (typeof data.photoUrl === 'string' && data.photoUrl) {
+            const img = document.createElement('img');
+            img.className = 'avatar-img';
+            img.src = data.photoUrl;
+            img.alt = '';
+            img.width = 36;
+            img.height = 36;
+            img.decoding = 'async';
+            img.addEventListener('error', () => {
+              img.remove();
+              avatar.textContent = name.charAt(0).toUpperCase();
+            });
+            avatar.textContent = '';
+            avatar.append(img);
+          }
           document.getElementById('sent-name')!.textContent = name;
           document.getElementById('agent-name')!.textContent = name;
           document.getElementById('sent')!.hidden = false;
@@ -688,6 +761,29 @@ import Fonts from '../components/Fonts.astro';
     const bookFailLink = document.getElementById('book-fail-link') as HTMLAnchorElement;
     const doneNumber = document.getElementById('done-number')!;
     const bookWa = document.getElementById('book-wa') as HTMLAnchorElement;
+    const sticky = document.getElementById('sticky-cta')!;
+    let leadId = '';
+
+    const stickyObserver = new IntersectionObserver((entries) => {
+      sticky.classList.toggle('is-hidden', entries.some((entry) => entry.isIntersecting));
+    }, { threshold: 0.15 });
+    stickyObserver.observe(book);
+
+    document.getElementById('sticky-go')!.addEventListener('click', (event) => {
+      event.preventDefault();
+      book.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => phone.focus({ preventScroll: true }), 450);
+    });
+
+    bookWa.addEventListener('click', () => {
+      if (!leadId) return;
+      fetch('/api/partner-lead-opened', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: leadId }),
+        keepalive: true,
+      });
+    });
 
     bookGo.addEventListener('click', () => {
       const result = validatePhone(phone.value, countryIso);
@@ -699,7 +795,8 @@ import Fonts from '../components/Fonts.astro';
       showError(null);
       const ref = code ? ' (Ref: ' + code.toUpperCase() + ')' : '';
       const waUrl = 'https://wa.me/971585169329?text=' + encodeURIComponent("Hi Snagify, I'd like to book a check-in report." + ref);
-      window.open(waUrl, '_blank', 'noopener');
+      const win = window.open(waUrl, '_blank');
+      if (win) win.opener = null;
       bookGo.disabled = true;
       bookLabel.textContent = 'Sending...';
       bookFail.hidden = true;
@@ -716,15 +813,19 @@ import Fonts from '../components/Fonts.astro';
           consent,
           sourceUrl: location.href,
           website,
+          whatsappOpened: !!win,
         }),
       })
         .then(async (res) => {
           const data = await res.json().catch(() => ({}));
           if (!res.ok || !data.ok) throw new Error('fail');
+          if (data.id) leadId = String(data.id);
           doneNumber.textContent = formatForDisplay(result.e164);
           bookWa.href = waUrl;
           bookForm.hidden = true;
           bookDone.hidden = false;
+          sticky.classList.add('is-hidden');
+          stickyObserver.disconnect();
           book.scrollIntoView({ block: 'center' });
         })
         .catch(() => {

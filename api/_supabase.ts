@@ -36,3 +36,29 @@ export async function sbInsert(table: string, row: Record<string, unknown>): Pro
     throw new Error(`${res.status} ${await res.text()}`);
   }
 }
+
+export async function sbInsertReturning(table: string, row: Record<string, unknown>): Promise<any> {
+  const { url, key } = serviceEnv();
+  const res = await fetch(`${url}/rest/v1/${table}`, {
+    method: 'POST',
+    headers: { ...headers(key), Prefer: 'return=representation' },
+    body: JSON.stringify(row),
+  });
+  if (!res.ok) {
+    throw new Error(`${res.status} ${await res.text()}`);
+  }
+  const data = await res.json();
+  return Array.isArray(data) ? data[0] : data;
+}
+
+export async function sbUpdate(pathWithFilter: string, patch: Record<string, unknown>): Promise<void> {
+  const { url, key } = serviceEnv();
+  const res = await fetch(`${url}/rest/v1/${pathWithFilter}`, {
+    method: 'PATCH',
+    headers: { ...headers(key), Prefer: 'return=minimal' },
+    body: JSON.stringify(patch),
+  });
+  if (!res.ok) {
+    throw new Error(`${res.status} ${await res.text()}`);
+  }
+}

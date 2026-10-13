@@ -18,17 +18,23 @@ export default async function handler(req: any, res: any) {
     }
 
     const rows = await sbSelect(
-      `partner_agents?code=eq.${encodeURIComponent(code)}&active=eq.true&select=first_name,agency&limit=1`
+      `partner_agents?code=eq.${encodeURIComponent(code)}&active=eq.true&select=first_name,agency,photo_url&limit=1`
     );
     const agent = rows[0];
     if (!agent) {
       return res.status(200).json({ found: false });
     }
 
+    const origin = String(process.env.SUPABASE_URL || '').replace(/\/$/, '');
+    const base = origin ? `${origin}/storage/v1/object/public/partner-agents/` : '';
+    const photo = typeof agent.photo_url === 'string' ? agent.photo_url : '';
+    const photoUrl = base && photo.startsWith(base) ? photo : null;
+
     return res.status(200).json({
       found: true,
       firstName: agent.first_name,
       agency: agent.agency ?? null,
+      photoUrl,
     });
   } catch (err: any) {
     console.error('agent lookup:', err?.message || err);

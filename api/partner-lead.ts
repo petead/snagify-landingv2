@@ -1,6 +1,6 @@
 import { parsePhoneNumberFromString } from 'libphonenumber-js/max';
 import { Resend } from 'resend';
-import { sbInsert, sbSelect } from './_supabase';
+import { sbInsertReturning, sbSelect } from './_supabase';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -38,12 +38,13 @@ export default async function handler(req: any, res: any) {
     }
 
     const agentCode = agent ? rawCode : null;
-    await sbInsert('partner_leads', {
+    const row = await sbInsertReturning('partner_leads', {
       agent_code: agentCode,
       raw_code: rawCode || null,
       phone,
       consent_agent: !!body?.consent && !!agentCode,
       source_url: sourceUrl,
+      whatsapp_opened: !!body?.whatsappOpened,
     });
 
     const agentLine = agent
@@ -67,7 +68,7 @@ export default async function handler(req: any, res: any) {
       console.error('partner lead email:', err?.message || err);
     }
 
-    return res.status(200).json({ ok: true });
+    return res.status(200).json({ ok: true, id: row?.id });
   } catch (err: any) {
     console.error('partner lead:', err?.message || err);
     return res.status(500).json({ error: 'Something went wrong' });
