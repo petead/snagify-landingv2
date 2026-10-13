@@ -121,6 +121,7 @@ import Fonts from '../components/Fonts.astro';
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    isolation: isolate;
     width: 76px;
     height: 76px;
     border: 0;
@@ -131,6 +132,29 @@ import Fonts from '../components/Fonts.astro';
     align-items: center;
     justify-content: center;
     cursor: pointer;
+  }
+  .play::before, .play::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid var(--purple);
+    z-index: -1;
+    opacity: 0;
+    animation: play-ring 2s ease-out infinite;
+  }
+  .play::after { animation-delay: 1s; }
+  .play svg { animation: play-breathe 2s ease-in-out infinite; }
+  @keyframes play-ring {
+    0%   { transform: scale(1);   opacity: 0.7; }
+    100% { transform: scale(1.9); opacity: 0; }
+  }
+  @keyframes play-breathe {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.12); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .play::before, .play::after, .play svg { animation: none; }
   }
   .book-jump, .go {
     display: flex;
@@ -447,7 +471,7 @@ import Fonts from '../components/Fonts.astro';
         src="/videos/by-snagify-9x16.mp4"
         aria-label="Check-in and check-out, done by Snagify"
       ></video>
-      <span class="watch" id="watch">Watch how it works</span>
+      <span class="watch" id="watch">Watch · 1 min</span>
       <button type="button" class="play" id="play" aria-label="Play the film">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
       </button>
@@ -566,6 +590,10 @@ import Fonts from '../components/Fonts.astro';
       film.play();
     }
     play.addEventListener('click', startFilm);
+    document.querySelector('.film')!.addEventListener('click', () => {
+      if (play.hidden) return;
+      startFilm();
+    });
 
     if (code) {
       fetch('/api/agent?code=' + code)
