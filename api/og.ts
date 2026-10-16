@@ -5,12 +5,22 @@ export const config = { runtime: 'edge' };
 
 const CODE_RE = /^[a-z0-9-]{3,40}$/;
 
+const DARK = '#0A0810';
+const LIME = '#CAFE87';
+const PURPLE = '#9A88FD';
+const WHITE = '#FCFCFC';
+const MUTED = '#2B2735';
+
 type Node = { type: string; props: Record<string, unknown> };
 type Child = Node | string | false | null | undefined;
 
 function el(type: string, props: Record<string, unknown> | null, ...children: Child[]): Node {
   const kids = children.filter((child) => child !== false && child !== null && child !== undefined);
   return { type, props: { ...(props || {}), children: kids } };
+}
+
+function text(content: string, style: Record<string, unknown>): Node {
+  return el('div', { style: { display: 'flex', ...style } }, content);
 }
 
 type AgentCard = {
@@ -39,9 +49,18 @@ async function lookupAgent(code: string): Promise<AgentCard | null> {
   };
 }
 
-async function loadFont(origin: string): Promise<ArrayBuffer | null> {
+type FontWeight = 500 | 600 | 700 | 800;
+
+const BUNDLED_FONTS: Record<FontWeight, () => URL> = {
+  500: () => new URL('../node_modules/@fontsource/poppins/files/poppins-latin-500-normal.woff', import.meta.url),
+  600: () => new URL('../node_modules/@fontsource/poppins/files/poppins-latin-600-normal.woff', import.meta.url),
+  700: () => new URL('../node_modules/@fontsource/poppins/files/poppins-latin-700-normal.woff', import.meta.url),
+  800: () => new URL('../node_modules/@fontsource/poppins/files/poppins-latin-800-normal.woff', import.meta.url),
+};
+
+async function loadFont(origin: string, weight: FontWeight): Promise<ArrayBuffer | null> {
   try {
-    const remote = await fetch(`${origin}/fonts/poppins-latin-700-normal.woff`);
+    const remote = await fetch(`${origin}/fonts/poppins-latin-${weight}-normal.woff`);
     if (remote.ok) {
       const data = await remote.arrayBuffer();
       if (data.byteLength > 1000) return data;
@@ -50,9 +69,7 @@ async function loadFont(origin: string): Promise<ArrayBuffer | null> {
     /* public woff is optional */
   }
   try {
-    const bundled = await fetch(
-      new URL('../node_modules/@fontsource/poppins/files/poppins-latin-700-normal.woff', import.meta.url)
-    );
+    const bundled = await fetch(BUNDLED_FONTS[weight]());
     if (bundled.ok) {
       const data = await bundled.arrayBuffer();
       if (data.byteLength > 1000) return data;
@@ -63,8 +80,133 @@ async function loadFont(origin: string): Promise<ArrayBuffer | null> {
   return null;
 }
 
+function logo(): Node {
+  return el(
+    'div',
+    { style: { position: 'absolute', left: '64px', top: '48px', display: 'flex', alignItems: 'center', gap: '14px' } },
+    el(
+      'svg',
+      { width: 40, height: 40, viewBox: '100 100 500 500', fill: DARK },
+      el('path', {
+        d: 'M485.977 349.973v118.175L357.375 596.746H232.219L106.332 470.863l-2.813-2.715V349.973h110.457v72.472l80.774 80.672 80.722-80.672V349.973z',
+      }),
+      el('path', {
+        d: 'M596.48 231.852v118.125H485.973v-72.473l-21.191-21.156v-44.047h-31.098v12.957l-28.426-28.383-80.773 80.629v72.473H213.984V231.852l128.641-128.598h125.113l125.879 125.883z',
+      })
+    ),
+    text('Snagify', { fontSize: '34px', fontWeight: 700, letterSpacing: '-0.8px' })
+  );
+}
+
+function giftIcon(): Node {
+  return el(
+    'svg',
+    {
+      width: 34,
+      height: 34,
+      viewBox: '0 0 24 24',
+      fill: 'none',
+      stroke: DARK,
+      strokeWidth: 2.2,
+      strokeLinecap: 'round',
+      strokeLinejoin: 'round',
+    },
+    el('path', {
+      d: 'M20 12v9H4v-9M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z',
+    })
+  );
+}
+
+function pill(agent: AgentCard | null): Node {
+  const label = agent ? `Sent by ${agent.firstName}` : 'Snagify';
+  const avatar = agent?.photoUrl
+    ? el('img', {
+        src: agent.photoUrl,
+        width: 42,
+        height: 42,
+        style: { borderRadius: '999px', objectFit: 'cover' },
+      })
+    : el(
+        'div',
+        {
+          style: {
+            width: '42px',
+            height: '42px',
+            borderRadius: '999px',
+            background: PURPLE,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '18px',
+            fontWeight: 800,
+            color: WHITE,
+          },
+        },
+        (agent ? agent.firstName : 'S').charAt(0).toUpperCase()
+      );
+  return el(
+    'div',
+    {
+      style: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: '12px',
+        background: WHITE,
+        borderRadius: '999px',
+        padding: '10px 20px 10px 10px',
+        fontSize: '24px',
+        fontWeight: 700,
+        boxShadow: '0 6px 16px rgba(10,8,16,0.12)',
+        whiteSpace: 'nowrap',
+      },
+    },
+    avatar,
+    text(label, {})
+  );
+}
+
+function giftTag(firstName: string): Node {
+  return el(
+    'div',
+    {
+      style: {
+        position: 'absolute',
+        left: '230px',
+        top: '54px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        transform: 'rotate(-9deg)',
+        transformOrigin: '50% -10px',
+      },
+    },
+    el('div', { style: { display: 'flex', width: '3px', height: '20px', background: DARK } }),
+    el(
+      'div',
+      {
+        style: {
+          display: 'flex',
+          alignItems: 'center',
+          gap: '12px',
+          background: LIME,
+          border: `3px solid ${DARK}`,
+          borderRadius: '18px',
+          padding: '12px 20px',
+          boxShadow: `0 7px 0 ${DARK}`,
+        },
+      },
+      giftIcon(),
+      el(
+        'div',
+        { style: { display: 'flex', flexDirection: 'column', whiteSpace: 'nowrap' } },
+        text('10% off', { fontSize: '32px', fontWeight: 800, lineHeight: 1.02 }),
+        text(`${firstName}'s gift to you`, { fontSize: '16px', fontWeight: 600, lineHeight: 1.02, color: '#3D3850' })
+      )
+    )
+  );
+}
+
 function card(agent: AgentCard | null, inspector: string, fontFamily: string): Node {
-  const pill = agent ? 'SENT BY' : 'SNAGIFY';
   return el(
     'div',
     {
@@ -72,109 +214,44 @@ function card(agent: AgentCard | null, inspector: string, fontFamily: string): N
         width: '1200px',
         height: '630px',
         display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        background: '#9A88FD',
-        color: '#0A0810',
-        fontFamily,
-        padding: '56px 64px',
         position: 'relative',
+        background: PURPLE,
+        color: DARK,
+        fontFamily,
       },
     },
+    logo(),
     el(
       'div',
-      {
-        style: {
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          width: '640px',
-          gap: '10px',
-        },
-      },
+      { style: { position: 'absolute', left: '64px', top: '136px', width: '680px', display: 'flex', flexDirection: 'column' } },
       el(
         'div',
-        {
-          style: {
-            display: 'flex',
-            alignSelf: 'flex-start',
-            background: '#FCFCFC',
-            color: '#0A0810',
-            fontSize: '22px',
-            fontWeight: 700,
-            letterSpacing: '0.14em',
-            padding: '8px 16px',
-            borderRadius: '999px',
-          },
-        },
-        pill
+        { style: { position: 'relative', display: 'flex', alignSelf: 'flex-start' } },
+        pill(agent),
+        agent ? giftTag(agent.firstName) : false
       ),
-      agent
-        ? el(
-            'div',
-            {
-              style: {
-                display: 'flex',
-                fontSize: '110px',
-                fontWeight: 700,
-                lineHeight: 0.95,
-                letterSpacing: '-0.04em',
-              },
-            },
-            agent.firstName
-          )
-        : false,
-      agent && agent.agency
-        ? el(
-            'div',
-            {
-              style: {
-                display: 'flex',
-                fontSize: '36px',
-                fontWeight: 700,
-                lineHeight: 1.15,
-                color: '#3D3850',
-              },
-            },
-            agent.agency
-          )
-        : false,
       el(
         'div',
         {
           style: {
             display: 'flex',
-            fontSize: agent ? '56px' : '72px',
-            fontWeight: 700,
-            lineHeight: 1.05,
-            letterSpacing: '-0.03em',
-            marginTop: '8px',
+            flexDirection: 'column',
+            marginTop: agent ? '106px' : '40px',
+            fontSize: '62px',
+            fontWeight: 800,
+            lineHeight: 1,
+            letterSpacing: '-2.4px',
           },
         },
-        'Move in protected.'
-      )
-    ),
-    el(
-      'div',
-      {
-        style: {
-          display: 'flex',
-          background: '#FCFCFC',
-          padding: '12px',
-          borderRadius: '32px',
-          border: '8px solid #FCFCFC',
-          transform: 'rotate(3deg)',
-        },
-      },
-      el('img', {
-        src: agent?.photoUrl || inspector,
-        width: 360,
-        height: 440,
-        style: {
-          objectFit: 'cover',
-          borderRadius: '22px',
-        },
+        text('Protect your deposit.', {}),
+        text('Protect your unit.', {})
+      ),
+      text('One independent move-in report, signed by both sides.', {
+        marginTop: '16px',
+        fontSize: '25px',
+        fontWeight: 500,
+        color: MUTED,
+        maxWidth: '540px',
       })
     ),
     el(
@@ -182,15 +259,27 @@ function card(agent: AgentCard | null, inspector: string, fontFamily: string): N
       {
         style: {
           position: 'absolute',
-          left: '64px',
-          bottom: '36px',
+          right: '64px',
+          top: '100px',
+          width: '380px',
+          height: '430px',
           display: 'flex',
-          fontSize: '28px',
-          fontWeight: 700,
+          border: `12px solid ${WHITE}`,
+          borderRadius: '40px',
+          overflow: 'hidden',
+          transform: 'rotate(3deg)',
+          boxShadow: '0 30px 60px rgba(10,8,16,0.3)',
+          background: '#EFEBFF',
         },
       },
-      'snagify.net'
-    )
+      el('img', {
+        src: inspector,
+        width: 356,
+        height: 406,
+        style: { objectFit: 'cover', borderRadius: '28px' },
+      })
+    ),
+    text('snagify.net', { position: 'absolute', left: '64px', bottom: '44px', fontSize: '24px', fontWeight: 600 })
   );
 }
 
@@ -212,13 +301,17 @@ export default async function handler(req: Request) {
     }
   }
 
-  const font = await loadFont(origin);
-  const fontFamily = font ? 'Poppins' : 'sans serif';
+  const weights: FontWeight[] = [500, 600, 700, 800];
+  const loaded = await Promise.all(weights.map((weight) => loadFont(origin, weight)));
+  const fonts = weights
+    .map((weight, i) => ({ name: 'Poppins', data: loaded[i], weight, style: 'normal' as const }))
+    .filter((font): font is { name: string; data: ArrayBuffer; weight: FontWeight; style: 'normal' } => font.data !== null);
+  const fontFamily = fonts.length ? 'Poppins' : 'sans serif';
 
-  return new ImageResponse(card(agent, `${origin}/images/by-snagify.jpg`, fontFamily) as never, {
+  return new ImageResponse(card(agent, `${origin}/images/og-inspector.jpg`, fontFamily) as never, {
     width: 1200,
     height: 630,
-    fonts: font ? [{ name: 'Poppins', data: font, weight: 700, style: 'normal' }] : undefined,
+    fonts: fonts.length ? fonts : undefined,
     headers: {
       'content-type': 'image/png',
       'cache-control': 'public, s-maxage=86400, stale-while-revalidate=604800',
