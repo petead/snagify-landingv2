@@ -91,8 +91,8 @@ function giftIcon(): Node {
   return el(
     'svg',
     {
-      width: 34,
-      height: 34,
+      width: 46,
+      height: 46,
       viewBox: '0 0 24 24',
       fill: 'none',
       stroke: DARK,
@@ -160,36 +160,36 @@ function giftTag(firstName: string): Node {
     {
       style: {
         position: 'absolute',
-        left: '230px',
-        top: '54px',
+        left: '330px',
+        top: '-40px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        transform: 'rotate(-9deg)',
+        transform: 'rotate(8deg)',
         transformOrigin: '50% -10px',
       },
     },
-    el('div', { style: { display: 'flex', width: '3px', height: '20px', background: DARK } }),
+    el('div', { style: { display: 'flex', width: '3px', height: '24px', background: DARK } }),
     el(
       'div',
       {
         style: {
           display: 'flex',
           alignItems: 'center',
-          gap: '12px',
+          gap: '16px',
           background: LIME,
           border: `3px solid ${DARK}`,
-          borderRadius: '18px',
-          padding: '12px 20px',
-          boxShadow: `0 7px 0 ${DARK}`,
+          borderRadius: '22px',
+          padding: '16px 26px',
+          boxShadow: `0 9px 0 ${DARK}`,
         },
       },
       giftIcon(),
       el(
         'div',
         { style: { display: 'flex', flexDirection: 'column', whiteSpace: 'nowrap' } },
-        text('10% off', { fontSize: '32px', fontWeight: 800, lineHeight: 1.02 }),
-        text(`${firstName}'s gift to you`, { fontSize: '16px', fontWeight: 600, lineHeight: 1.02, color: '#3D3850' })
+        text('10% off', { fontSize: '43px', fontWeight: 800, lineHeight: 1.02 }),
+        text(`${firstName}'s gift to you`, { fontSize: '21px', fontWeight: 600, lineHeight: 1.02, color: '#3D3850' })
       )
     )
   );
@@ -225,7 +225,7 @@ function card(agent: AgentCard | null, inspector: string, fontFamily: string): N
           style: {
             display: 'flex',
             flexDirection: 'column',
-            marginTop: agent ? '106px' : '40px',
+            marginTop: agent ? '76px' : '40px',
             fontSize: '62px',
             fontWeight: 800,
             lineHeight: 1,

@@ -28,7 +28,7 @@ function upsertMeta(html: string, attr: 'property' | 'name', key: string, conten
 export function personalize(html: string, host: string, code: string, firstName: string): string {
   const title = `${firstName}'s gift: 10% off your move-in protection`;
   const description = 'Independent move-in report, signed by both sides. Protect your deposit, protect your unit.';
-  const image = `https://${host}/api/og?code=${encodeURIComponent(code)}&v=2`;
+  const image = `https://${host}/api/og?code=${encodeURIComponent(code)}&v=3`;
   const pageUrl = `https://${host}/r/${code}`;
 
   let next = html.replace(/<title>[^<]*<\/title>/i, `<title>${escapeHtml(title)}</title>`);
