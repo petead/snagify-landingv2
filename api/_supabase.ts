@@ -62,3 +62,15 @@ export async function sbUpdate(pathWithFilter: string, patch: Record<string, unk
     throw new Error(`${res.status} ${await res.text()}`);
   }
 }
+
+export async function sbRpc(fn: string, args: Record<string, unknown>): Promise<void> {
+  const { url, key } = serviceEnv();
+  const res = await fetch(`${url}/rest/v1/rpc/${fn}`, {
+    method: 'POST',
+    headers: headers(key),
+    body: JSON.stringify(args),
+  });
+  if (!res.ok) {
+    throw new Error(`${res.status} ${await res.text()}`);
+  }
+}

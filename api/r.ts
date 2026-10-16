@@ -1,9 +1,16 @@
-import { sbSelect } from './_supabase';
+import { sbRpc, sbSelect } from './_supabase';
 
 export const config = { runtime: 'nodejs' };
 
 const CODE_RE = /^[a-z0-9-]{3,40}$/;
 const FALLBACK_PAGE = 'https://snagify.net/r';
+const PREVIEW_BOT_RE = /bot|crawler|spider|whatsapp|facebookexternalhit|facebot|twitterbot|linkedinbot|slackbot|telegrambot|discordbot|skypeuripreview|preview|headless|vercel/i;
+
+function isPreviewBot(req: { headers: Record<string, string | string[] | undefined> }): boolean {
+  const raw = req.headers['user-agent'] || '';
+  const ua = String(Array.isArray(raw) ? raw[0] : raw);
+  return !ua || PREVIEW_BOT_RE.test(ua);
+}
 
 let cachedHtml: string | null = null;
 
@@ -103,9 +110,17 @@ export default async function handler(req: any, res: any) {
       }
     }
 
+    if (agent && !isPreviewBot(req)) {
+      try {
+        await sbRpc('record_partner_page_view', { p_code: code });
+      } catch (err) {
+        console.error('r page view:', err instanceof Error ? err.message : err);
+      }
+    }
+
     const body = agent ? personalize(html, host, code, agent.firstName) : html;
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
-    res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=3600');
+    res.setHeader('Cache-Control', agent ? 'private, no-store' : 'public, s-maxage=300, stale-while-revalidate=3600');
     return res.status(200).send(body);
   } catch (err) {
     console.error('r page:', err instanceof Error ? err.message : err);
