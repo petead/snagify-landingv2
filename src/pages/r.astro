@@ -319,6 +319,7 @@ import Fonts from '../components/Fonts.astro';
     white-space: nowrap;
     letter-spacing: -0.03em;
   }
+  .perk { font-size: 14px; line-height: 1.4; opacity: .9; margin: 6px 0 14px; }
   .field { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 14px; }
   .phone { position: relative; }
   .phone-box {
@@ -546,6 +547,7 @@ import Fonts from '../components/Fonts.astro';
     <section class="book" id="book">
       <div id="book-form" style="display:flex;flex-direction:column;gap:12px">
       <h2>Your number. That's it.</h2>
+      <p class="perk" id="book-perk" hidden>Booking through <span id="perk-agent"></span>'s link: 10% off your report, up to AED 50.</p>
       <label class="field" for="phone">Phone number
         <div class="phone" id="phone-root">
           <div class="phone-box" id="phone-box">
@@ -598,6 +600,7 @@ import Fonts from '../components/Fonts.astro';
     const THIRTY_DAYS = 30 * 24 * 60 * 60 * 1000;
     const raw = (location.pathname.split('/')[2] || '').toLowerCase();
     let code = '';
+    let agentFound = false;
     if (CODE_RE.test(raw)) {
       code = raw;
       try {
@@ -662,6 +665,9 @@ import Fonts from '../components/Fonts.astro';
           }
           document.getElementById('sent-name')!.textContent = name;
           document.getElementById('agent-name')!.textContent = name;
+          document.getElementById('perk-agent')!.textContent = name;
+          document.getElementById('book-perk')!.hidden = false;
+          agentFound = true;
           document.getElementById('sent')!.hidden = false;
           document.getElementById('consent-row')!.hidden = false;
         })
@@ -846,7 +852,7 @@ import Fonts from '../components/Fonts.astro';
         return;
       }
       showError(null);
-      const ref = code ? ' (Ref: ' + code.toUpperCase() + ')' : '';
+      const ref = code ? ' (Ref: ' + code.toUpperCase() + (agentFound ? ' - 10% agent discount' : '') + ')' : '';
       const waUrl = 'https://wa.me/971585169329?text=' + encodeURIComponent("Hi Snagify, I'd like to book a check-in report." + ref);
       const win = window.open(waUrl, '_blank');
       if (win) win.opener = null;
