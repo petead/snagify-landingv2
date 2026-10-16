@@ -51,31 +51,20 @@ async function lookupAgent(code: string): Promise<AgentCard | null> {
 
 type FontWeight = 500 | 600 | 700 | 800;
 
-const BUNDLED_FONTS: Record<FontWeight, () => URL> = {
-  500: () => new URL('../node_modules/@fontsource/poppins/files/poppins-latin-500-normal.woff', import.meta.url),
-  600: () => new URL('../node_modules/@fontsource/poppins/files/poppins-latin-600-normal.woff', import.meta.url),
-  700: () => new URL('../node_modules/@fontsource/poppins/files/poppins-latin-700-normal.woff', import.meta.url),
-  800: () => new URL('../node_modules/@fontsource/poppins/files/poppins-latin-800-normal.woff', import.meta.url),
-};
+const FONT_ORIGINS = ['https://snagify.net'];
 
 async function loadFont(origin: string, weight: FontWeight): Promise<ArrayBuffer | null> {
-  try {
-    const remote = await fetch(`${origin}/fonts/poppins-latin-${weight}-normal.woff`);
-    if (remote.ok) {
-      const data = await remote.arrayBuffer();
-      if (data.byteLength > 1000) return data;
+  const origins = origin.startsWith('http') && !FONT_ORIGINS.includes(origin) ? [origin, ...FONT_ORIGINS] : FONT_ORIGINS;
+  for (const base of origins) {
+    try {
+      const res = await fetch(`${base}/fonts/poppins-latin-${weight}-normal.woff`);
+      if (res.ok) {
+        const data = await res.arrayBuffer();
+        if (data.byteLength > 1000) return data;
+      }
+    } catch {
+      /* try the next origin */
     }
-  } catch {
-    /* public woff is optional */
-  }
-  try {
-    const bundled = await fetch(BUNDLED_FONTS[weight]());
-    if (bundled.ok) {
-      const data = await bundled.arrayBuffer();
-      if (data.byteLength > 1000) return data;
-    }
-  } catch {
-    /* system sans */
   }
   return null;
 }
